@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import { AuthProvider } from "./auth/AuthContext.jsx";
 import { ToastProvider } from "./components/Toast.jsx";
+import { GameTypesProvider } from "./data/gameTypes.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -11,7 +12,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <ToastProvider>
         <AuthProvider>
-          <App />
+          <GameTypesProvider>
+            <App />
+          </GameTypesProvider>
         </AuthProvider>
       </ToastProvider>
     </BrowserRouter>

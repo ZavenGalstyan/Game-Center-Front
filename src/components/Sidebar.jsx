@@ -1,7 +1,14 @@
-import { NavLink } from "react-router-dom";
-import { GAME_CATEGORIES } from "../data/categories.js";
+import { Link, useSearchParams } from "react-router-dom";
+import { useGameTypes } from "../data/gameTypes.jsx";
 
 export default function Sidebar({ open, onNavigate }) {
+  const { types, loading, error } = useGameTypes();
+  const [params] = useSearchParams();
+  const activeTypeId = params.get("typeId");
+
+  const linkClass = (isActive) =>
+    `sidebar__link${isActive ? " is-active" : ""}`;
+
   return (
     <>
       <div
@@ -12,18 +19,26 @@ export default function Sidebar({ open, onNavigate }) {
       <aside className={`sidebar${open ? " is-open" : ""}`}>
         <h2 className="sidebar__title">Categories</h2>
         <nav className="sidebar__nav">
-          {GAME_CATEGORIES.map((cat) => (
-            <NavLink
-              key={cat.slug}
-              to={cat.slug === "all" ? "/" : `/category/${cat.slug}`}
-              end={cat.slug === "all"}
-              className={({ isActive }) =>
-                `sidebar__link${isActive ? " is-active" : ""}`
-              }
+          <Link
+            to="/"
+            className={linkClass(!activeTypeId)}
+            onClick={onNavigate}
+          >
+            All Games
+          </Link>
+
+          {loading && <span className="sidebar__meta">Loading…</span>}
+          {error && <span className="sidebar__meta">Couldn&rsquo;t load categories</span>}
+
+          {types.map((t) => (
+            <Link
+              key={t.id}
+              to={`/?typeId=${t.id}`}
+              className={linkClass(activeTypeId === t.id)}
               onClick={onNavigate}
             >
-              {cat.label}
-            </NavLink>
+              {t.name}
+            </Link>
           ))}
         </nav>
       </aside>

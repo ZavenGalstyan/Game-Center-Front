@@ -75,16 +75,38 @@ export default function Header({ onOpenAuth, onToggleSidebar }) {
                   Account &amp; password
                 </button>
                 {isAdmin && (
-                  <button
-                    className="usermenu__item"
-                    role="menuitem"
-                    onClick={() => {
-                      setMenuOpen(false);
-                      navigate("/admin/users");
-                    }}
-                  >
-                    Admin · Users
-                  </button>
+                  <>
+                    <button
+                      className="usermenu__item"
+                      role="menuitem"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        navigate("/admin/users");
+                      }}
+                    >
+                      Admin · Users
+                    </button>
+                    <button
+                      className="usermenu__item"
+                      role="menuitem"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        navigate("/admin/game-types");
+                      }}
+                    >
+                      Admin · Game types
+                    </button>
+                    <button
+                      className="usermenu__item"
+                      role="menuitem"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        navigate("/admin/games");
+                      }}
+                    >
+                      Admin · Games
+                    </button>
+                  </>
                 )}
                 <button
                   className="usermenu__item"

@@ -36,6 +36,40 @@ export function validateNewPassword(value, currentPassword) {
   return null;
 }
 
+/* --------------------------- Game types & games --------------------------- */
+
+const SLUG_RE = /^[a-z0-9_]+$/;
+
+export function validateTypeName(value) {
+  const v = (value || "").trim();
+  if (!v) return "Name is required";
+  if (v.length < 2 || v.length > 60) return "Name must be 2–60 characters";
+  return null;
+}
+
+export function validateSlug(value) {
+  const v = (value || "").trim();
+  if (!v) return "Slug is required";
+  if (v.length < 2 || v.length > 60) return "Slug must be 2–60 characters";
+  if (!SLUG_RE.test(v)) return "Lowercase letters, numbers, and _ only";
+  return null;
+}
+
+export function validateGameName(value) {
+  const v = (value || "").trim();
+  if (!v) return "Name is required";
+  if (v.length < 2 || v.length > 120) return "Name must be 2–120 characters";
+  return null;
+}
+
+export function validateGameDescription(value) {
+  const v = (value || "").trim();
+  if (!v) return "Description is required";
+  if (v.length < 2 || v.length > 2000)
+    return "Description must be 2–2000 characters";
+  return null;
+}
+
 /** Merge a backend errors[] array into a { field: message } object. */
 export function mapServerErrors(errors) {
   const out = {};
