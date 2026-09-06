@@ -30,7 +30,7 @@ export const tokenStore = {
  * Throws { status, message, errors } on any non-2xx response or network failure.
  * Returns the `data` payload of the success envelope on success.
  */
-async function request(path, { method = "GET", body, auth = false } = {}) {
+async function request(path, { method = "GET", body, auth = false, raw = false } = {}) {
   const headers = { "Content-Type": "application/json" };
   if (auth) {
     const token = tokenStore.get();
@@ -63,7 +63,8 @@ async function request(path, { method = "GET", body, auth = false } = {}) {
     };
   }
 
-  return json.data;
+  // `raw` returns the whole envelope ({ data, pagination, ... }); default unwraps `data`.
+  return raw ? json : json.data;
 }
 
 export const api = {
@@ -95,6 +96,47 @@ export const api = {
     });
     return request(`/api/users?${qs.toString()}`, { auth: true });
   },
+
+  /* -------------------------------- Game types ------------------------------- */
+
+  listGameTypes: () => request("/api/game-types"),
+
+  getGameType: (id) => request(`/api/game-types/${id}`),
+
+  createGameType: ({ name, slug }) =>
+    request("/api/game-types", { method: "POST", auth: true, body: { name, slug } }),
+
+  updateGameType: (id, body) =>
+    request(`/api/game-types/${id}`, { method: "PATCH", auth: true, body }),
+
+  deleteGameType: (id) =>
+    request(`/api/game-types/${id}`, { method: "DELETE", auth: true }),
+
+  /* ---------------------------------- Games --------------------------------- */
+
+  // Returns the full envelope: { data: Game[], pagination: {...} }.
+  listGames: ({ limit = 20, offset = 0, typeId } = {}) => {
+    const qs = new URLSearchParams({
+      limit: String(limit),
+      offset: String(offset),
+      ...(typeId ? { typeId } : {}),
+    });
+    return request(`/api/games?${qs.toString()}`, { raw: true });
+  },
+
+  getGame: (id) => request(`/api/games/${id}`),
+
+  createGame: ({ name, description, typeId }) =>
+    request("/api/games", {
+      method: "POST",
+      auth: true,
+      body: { name, description, typeId },
+    }),
+
+  updateGame: (id, body) =>
+    request(`/api/games/${id}`, { method: "PATCH", auth: true, body }),
+
+  deleteGame: (id) => request(`/api/games/${id}`, { method: "DELETE", auth: true }),
 };
 
 export async function registerAndLogin({ username, email, password }) {
