@@ -31,7 +31,7 @@
 }
 
 .ui-btn:focus-visible {
-  outline: 2px solid rgba(0, 232, 143, 0.5);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
@@ -66,7 +66,7 @@
 .ui-btn--danger {
   --ui-btn-bg: var(--color-error);
   --ui-btn-color: #fff;
-  --ui-btn-hover-bg: #e85a5a;
+  --ui-btn-hover-bg: var(--color-error-hover);
 }
 
 .ui-btn--link {
@@ -208,7 +208,7 @@
 }
 
 .ui-input:focus {
-  outline: 2px solid rgba(0, 232, 143, 0.5);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 1px;
   border-color: var(--border-active);
 }
@@ -260,7 +260,7 @@
 }
 
 .ui-textarea:focus {
-  outline: 2px solid rgba(0, 232, 143, 0.5);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 1px;
   border-color: var(--border-active);
 }
@@ -296,7 +296,7 @@
 }
 
 .ui-select:focus {
-  outline: 2px solid rgba(0, 232, 143, 0.5);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 1px;
   border-color: var(--border-active);
 }
@@ -875,7 +875,7 @@
   position: fixed;
   inset: 0;
   z-index: var(--ui-modal-z-index, 100);
-  background: var(--ui-modal-overlay-bg, rgba(0, 0, 0, 0.7));
+  background: var(--ui-modal-overlay-bg, var(--overlay-modal));
   display: grid;
   place-items: center;
   padding: var(--ui-modal-overlay-padding, 16px);

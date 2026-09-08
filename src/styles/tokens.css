@@ -99,35 +99,60 @@
   /* ==========================================================================
      FUNCTIONAL STATE COLORS
      ========================================================================== */
-  /*
-   * NOTE: The following colors are NOT part of the official green theme
-   * but are required for functional UI states (error, warning, info).
-   * These should be reviewed and approved for the final design system.
-   */
 
-  /* Error/Danger - Required for form validation, delete actions, error alerts */
-  --color-error: #ff6b6b;
-  --color-error-bg: rgba(255, 107, 107, 0.15);
-  --color-error-border: rgba(255, 107, 107, 0.45);
-  --color-error-text: #ffd7d7;
+  /* Error/Danger - Form validation, delete actions, error alerts */
+  --color-error: #FF6B6B;
+  --color-error-hover: #FF8585;
+  --color-error-bg: rgba(255, 107, 107, 0.14);
+  --color-error-border: rgba(255, 107, 107, 0.42);
+  --color-error-text: #FFDADA;
 
-  /* Warning - Required for warning alerts, caution states */
-  --color-warning: #f5a623;
-  --color-warning-bg: rgba(245, 166, 35, 0.15);
-  --color-warning-border: rgba(245, 166, 35, 0.45);
-  --color-warning-text: #ffe0a8;
-
-  /* Info - Required for informational alerts */
-  --color-info: #00E88F;
-  --color-info-bg: rgba(0, 232, 143, 0.15);
-  --color-info-border: rgba(0, 232, 143, 0.45);
-  --color-info-text: #a8f5d4;
+  /* Warning - Warning alerts, caution states */
+  --color-warning: #F5B942;
+  --color-warning-hover: #FFCA66;
+  --color-warning-bg: rgba(245, 185, 66, 0.14);
+  --color-warning-border: rgba(245, 185, 66, 0.42);
+  --color-warning-text: #FFF0CC;
 
   /* Success - Uses primary green */
   --color-success: #00E88F;
-  --color-success-bg: rgba(0, 232, 143, 0.15);
-  --color-success-border: rgba(0, 232, 143, 0.45);
-  --color-success-text: #a8f5d4;
+  --color-success-hover: #20F0A0;
+  --color-success-bg: rgba(0, 232, 143, 0.14);
+  --color-success-border: rgba(0, 232, 143, 0.42);
+  --color-success-text: #A8F5D4;
+
+  /* Info - Informational alerts, tips */
+  --color-info: #00E88F;
+  --color-info-hover: #20F0A0;
+  --color-info-bg: rgba(0, 232, 143, 0.14);
+  --color-info-border: rgba(0, 232, 143, 0.42);
+  --color-info-text: #A8F5D4;
+
+  /* ==========================================================================
+     OVERLAYS
+     ========================================================================== */
+  --overlay-modal: rgba(0, 0, 0, 0.72);
+  --overlay-sidebar: rgba(0, 0, 0, 0.55);
+  --overlay-soft: rgba(0, 0, 0, 0.35);
+
+  /* ==========================================================================
+     FOCUS STATES
+     ========================================================================== */
+  --focus-ring: rgba(0, 232, 143, 0.50);
+  --focus-ring-strong: rgba(0, 232, 143, 0.75);
+
+  /* ==========================================================================
+     DISABLED STATES
+     ========================================================================== */
+  --disabled-bg: #0A1B18;
+  --disabled-border: rgba(0, 200, 120, 0.18);
+  --disabled-text: #4A6560;
+
+  /* ==========================================================================
+     DIVIDERS
+     ========================================================================== */
+  --divider: rgba(0, 200, 120, 0.18);
+  --divider-strong: rgba(0, 200, 120, 0.35);
 
   /* ==========================================================================
      LEGACY COMPATIBILITY ALIASES
