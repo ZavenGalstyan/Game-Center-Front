@@ -1,6 +1,3 @@
-// Import component styles
-import "./ui.css";
-
 // Core primitives
 export { default as Button } from "./Button.jsx";
 export { default as IconButton } from "./IconButton.jsx";

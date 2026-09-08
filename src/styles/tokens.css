@@ -1,0 +1,154 @@
+/**
+ * ==========================================================================
+ * GLOBAL DESIGN TOKENS - COLORS
+ * ==========================================================================
+ *
+ * Official color system for the Game Center application.
+ * All application UI should consume these semantic tokens.
+ *
+ * DO NOT add arbitrary colors without approval.
+ * Game-specific internal colors are exceptions.
+ */
+
+:root {
+  /* ==========================================================================
+     CORE BACKGROUNDS
+     ========================================================================== */
+  --bg: #020D0D;
+  --bg-secondary: #061615;
+  --surface: #06231B;
+  --sidebar-bg: #031313;
+  --header-search-bg: #092321;
+
+  /* ==========================================================================
+     BRAND / ACCENT
+     ========================================================================== */
+  --primary: #00E88F;
+  --primary-dark: #00C878;
+  --accent-dark: #008F5A;
+  --accent-text: #20F0A0;
+
+  /* ==========================================================================
+     TEXT
+     ========================================================================== */
+  --text: #F5FFFB;
+  --text-secondary: #A8BBB5;
+  --text-muted: #718A82;
+
+  /* ==========================================================================
+     BORDERS
+     ========================================================================== */
+  --border-card: #00C878;
+  --border-default: rgba(0, 200, 120, 0.35);
+  --border-active: #00E88F;
+
+  /* ==========================================================================
+     CARDS
+     ========================================================================== */
+  --card-bg: #06231B;
+  --card-gradient: linear-gradient(110deg, #071B18 0%, #063326 100%);
+  --card-hover-bg: #07382A;
+  --card-hover-border: #00E88F;
+
+  /* ==========================================================================
+     BUTTONS
+     ========================================================================== */
+  --button-primary-bg: #00E88F;
+  --button-primary-text: #02130D;
+  --button-primary-border: #20F0A0;
+
+  --button-hover-bg: #20F0A0;
+  --button-hover-text: #001A10;
+  --button-hover-border: #65FFC0;
+
+  /* Secondary/Ghost button colors derived from theme */
+  --button-secondary-bg: #092321;
+  --button-secondary-text: var(--text);
+  --button-secondary-border: var(--border-default);
+  --button-secondary-hover-bg: #0A2E2A;
+
+  /* ==========================================================================
+     TAGS / BADGES
+     ========================================================================== */
+  --tag-bg: #08704D;
+  --tag-text: #E8FFF5;
+  --tag-border: rgba(32, 240, 160, 0.25);
+
+  /* ==========================================================================
+     PLAY BUTTON
+     ========================================================================== */
+  --play-button-bg: #06271E;
+  --play-button-border: #00E88F;
+  --play-icon: #FFFFFF;
+
+  /* ==========================================================================
+     NAVIGATION
+     ========================================================================== */
+  --active-menu-bg: linear-gradient(90deg, #064F37, #073126);
+  --active-menu-border: #00E88F;
+
+  /* ==========================================================================
+     GLOWS / SHADOWS
+     ========================================================================== */
+  --glow-main: 0 0 18px rgba(0, 232, 143, 0.30);
+  --glow-strong: 0 0 25px rgba(0, 232, 143, 0.50);
+  --card-hover-shadow: 0 0 22px rgba(0, 232, 143, 0.35);
+  --button-hover-shadow: 0 0 20px rgba(0, 232, 143, 0.45);
+  --active-menu-shadow: 0 0 20px rgba(0, 232, 143, 0.35);
+
+  /* ==========================================================================
+     FUNCTIONAL STATE COLORS
+     ========================================================================== */
+  /*
+   * NOTE: The following colors are NOT part of the official green theme
+   * but are required for functional UI states (error, warning, info).
+   * These should be reviewed and approved for the final design system.
+   */
+
+  /* Error/Danger - Required for form validation, delete actions, error alerts */
+  --color-error: #ff6b6b;
+  --color-error-bg: rgba(255, 107, 107, 0.15);
+  --color-error-border: rgba(255, 107, 107, 0.45);
+  --color-error-text: #ffd7d7;
+
+  /* Warning - Required for warning alerts, caution states */
+  --color-warning: #f5a623;
+  --color-warning-bg: rgba(245, 166, 35, 0.15);
+  --color-warning-border: rgba(245, 166, 35, 0.45);
+  --color-warning-text: #ffe0a8;
+
+  /* Info - Required for informational alerts */
+  --color-info: #00E88F;
+  --color-info-bg: rgba(0, 232, 143, 0.15);
+  --color-info-border: rgba(0, 232, 143, 0.45);
+  --color-info-text: #a8f5d4;
+
+  /* Success - Uses primary green */
+  --color-success: #00E88F;
+  --color-success-bg: rgba(0, 232, 143, 0.15);
+  --color-success-border: rgba(0, 232, 143, 0.45);
+  --color-success-text: #a8f5d4;
+
+  /* ==========================================================================
+     LEGACY COMPATIBILITY ALIASES
+     ========================================================================== */
+  /*
+   * These aliases map old token names to new values for backward compatibility.
+   * Components should gradually migrate to the new semantic names.
+   */
+
+  /* Old: --bg-elev → New: --surface */
+  --bg-elev: var(--surface);
+  /* Old: --bg-elev-2 → New: --card-hover-bg or --button-secondary-bg */
+  --bg-elev-2: var(--card-hover-bg);
+  /* Old: --border → New: --border-default */
+  --border: var(--border-default);
+  /* Old: --text-dim → New: --text-secondary */
+  --text-dim: var(--text-secondary);
+  /* Old: --primary-hover → New: --button-hover-bg */
+  --primary-hover: var(--button-hover-bg);
+  /* Old: --danger → New: --color-error */
+  --danger: var(--color-error);
+  /* Old: --success → New: --color-success */
+  --success: var(--color-success);
+}
