@@ -1,4 +1,6 @@
 import ClassicChess from "./ClassicChess/ClassicChess.jsx";
+import FishingJourney from "./FishingJourney/FishingJourney.jsx";
+import MiniGolfJourney from "./MiniGolfJourney/MiniGolfJourney.jsx";
 
 /**
  * Maps a backend game's `name` to the React component that plays it.
@@ -10,6 +12,8 @@ import ClassicChess from "./ClassicChess/ClassicChess.jsx";
  */
 const GAME_COMPONENTS = {
   "Classic Chess": ClassicChess,
+  "Fishing Journey": FishingJourney,
+  "Mini Golf Journey": MiniGolfJourney,
 };
 
 export function getGameComponent(game) {
