@@ -115,6 +115,22 @@
   /* Badge */
   --badge-height: 24px;
 
+  /* ==========================================================================
+     LAYOUT
+     ========================================================================== */
+
+  /* Content padding */
+  --content-padding-x: var(--space-8);  /* 32px */
+  --content-padding-y: var(--space-6);  /* 24px */
+
+  /* Grid gaps */
+  --grid-column-gap: var(--space-6);    /* 24px */
+  --grid-row-gap: var(--space-5);       /* 20px */
+
+  /* Section rhythm */
+  --section-content-gap: var(--space-4); /* 16px */
+  --section-gap: var(--space-8);         /* 32px */
+
   /*
    * ==========================================================================
    * COLORS

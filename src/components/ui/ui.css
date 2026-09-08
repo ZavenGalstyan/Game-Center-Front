@@ -656,7 +656,7 @@
    ========================================================================== */
 
 .ui-section {
-  /* Base section */
+  width: 100%;
 }
 
 .ui-section--spacing-sm {
@@ -668,7 +668,7 @@
 }
 
 .ui-section--spacing-lg {
-  margin-bottom: var(--ui-section-spacing-lg, var(--space-10));
+  margin-bottom: var(--ui-section-spacing-lg, var(--section-gap));
 }
 
 .ui-section__header {
@@ -676,7 +676,7 @@
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-4);
-  margin-bottom: var(--ui-section-header-gap, var(--space-4));
+  margin-bottom: var(--ui-section-header-gap, var(--section-content-gap));
 }
 
 .ui-section__title {

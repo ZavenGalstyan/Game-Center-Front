@@ -172,7 +172,7 @@ h3 {
   flex: 1;
   min-width: 0;
   max-width: var(--content-max-width);
-  padding: 28px clamp(16px, 4vw, 40px);
+  padding: var(--content-padding-y) var(--content-padding-x);
 }
 
 /* ---------- sidebar ---------- */
@@ -293,6 +293,7 @@ h3 {
 
 /* ---------- landing ---------- */
 .hero {
+  width: 100%;
   min-height: var(--hero-height);
   background: var(--card-gradient);
   border: 1px solid var(--border-card);
@@ -318,12 +319,14 @@ h3 {
 }
 .coming-soon,
 .landing__scoped {
-  margin-top: var(--space-6);
+  width: 100%;
+  margin-top: var(--section-gap);
 }
 .landing__title {
   font-size: var(--font-xl);
   font-weight: var(--weight-bold);
   line-height: var(--line-snug);
+  margin-bottom: var(--section-content-gap);
 }
 
 .empty-state {
@@ -589,11 +592,31 @@ h3 {
   margin-bottom: var(--space-4);
 }
 
+/* ---------- game grid ---------- */
+/*
+ * Official Game Grid layout:
+ * - Desktop (≥1200px): 3 columns
+ * - Tablet (768px–1199px): 2 columns
+ * - Mobile (<768px): 1 column
+ */
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: var(--space-4);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--grid-column-gap);
+  row-gap: var(--grid-row-gap);
   margin-top: var(--space-2);
+}
+
+@media (max-width: 1199px) {
+  .game-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .game-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 /* ---------- game card shape ---------- */
 /*
@@ -900,6 +923,9 @@ h3 {
     inset: var(--header-height) 0 0 0;
     z-index: 30;
     background: var(--overlay-sidebar);
+  }
+  .app-main {
+    padding: var(--content-padding-y) var(--space-4);
   }
   .hero {
     padding: var(--space-6) var(--space-5);
