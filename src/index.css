@@ -8,9 +8,7 @@
  */
 
 :root {
-  /* Layout dimensions */
-  --header-h: 60px;
-  --sidebar-w: 240px;
+  /* Layout dimensions - sizing tokens are in tokens.css */
 }
 
 * {
@@ -51,7 +49,8 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: 8px 14px;
+  height: var(--height-control-md);
+  padding: 0 14px;
   border-radius: var(--radius-base);
   border: 1px solid transparent;
   background: var(--button-secondary-bg);
@@ -120,7 +119,7 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 50;
-  height: var(--header-h);
+  height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -172,20 +171,21 @@ h3 {
 .app-main {
   flex: 1;
   min-width: 0;
+  max-width: var(--content-max-width);
   padding: 28px clamp(16px, 4vw, 40px);
 }
 
 /* ---------- sidebar ---------- */
 .sidebar {
-  width: var(--sidebar-w);
+  width: var(--sidebar-width);
   flex-shrink: 0;
   align-self: stretch;
   padding: var(--space-5) var(--space-3);
   border-right: 1px solid var(--border-default);
   background: var(--sidebar-bg);
   position: sticky;
-  top: var(--header-h);
-  height: calc(100vh - var(--header-h));
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
   overflow-y: auto;
 }
 .sidebar__title {
@@ -252,8 +252,8 @@ h3 {
   border-color: var(--border-active);
 }
 .usermenu__avatar {
-  width: 24px;
-  height: 24px;
+  width: var(--avatar-sm);
+  height: var(--avatar-sm);
   border-radius: 50%;
   background: var(--primary);
   color: var(--button-primary-text);
@@ -293,6 +293,7 @@ h3 {
 
 /* ---------- landing ---------- */
 .hero {
+  min-height: var(--hero-height);
   background: var(--card-gradient);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-xl);
@@ -399,10 +400,11 @@ h3 {
 }
 .field input,
 .admin__filters select {
+  height: var(--height-control-md);
   background: var(--bg);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-base);
-  padding: 9px 11px;
+  padding: 0 11px;
   color: var(--text);
   font: inherit;
 }
@@ -606,6 +608,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  height: var(--game-card-height);
   padding: var(--space-4);
   background: var(--card-bg);
   color: var(--text);
@@ -684,13 +687,16 @@ h3 {
   overflow: hidden;
 }
 .badge {
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
+  height: var(--badge-height);
   font-size: var(--font-xs);
   font-weight: var(--weight-semibold);
   line-height: var(--line-none);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding: 3px 8px;
+  padding: 0 8px;
   border-radius: var(--radius-md);
   background: var(--tag-bg);
   color: var(--tag-text);
@@ -800,8 +806,8 @@ h3 {
   box-shadow: var(--button-hover-shadow);
 }
 .game-controls__btn svg {
-  width: 15px;
-  height: 15px;
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
   flex-shrink: 0;
 }
 
@@ -879,7 +885,7 @@ h3 {
   }
   .sidebar {
     position: fixed;
-    top: var(--header-h);
+    top: var(--header-height);
     left: 0;
     z-index: 40;
     transform: translateX(-100%);
@@ -891,7 +897,7 @@ h3 {
   .sidebar__backdrop.is-open {
     display: block;
     position: fixed;
-    inset: var(--header-h) 0 0 0;
+    inset: var(--header-height) 0 0 0;
     z-index: 30;
     background: var(--overlay-sidebar);
   }

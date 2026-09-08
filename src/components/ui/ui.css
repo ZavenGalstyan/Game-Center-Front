@@ -14,7 +14,8 @@
   align-items: center;
   justify-content: center;
   gap: var(--ui-btn-gap, 6px);
-  padding: var(--ui-btn-padding-y, 8px) var(--ui-btn-padding-x, 14px);
+  height: var(--ui-btn-height, var(--height-control-md));
+  padding: 0 var(--ui-btn-padding-x, 14px);
   border-radius: var(--ui-btn-radius, var(--radius-base));
   border: 1px solid transparent;
   background: var(--ui-btn-bg, var(--button-secondary-bg));
@@ -85,18 +86,18 @@
 
 /* Sizes */
 .ui-btn--sm {
-  --ui-btn-padding-y: 6px;
+  --ui-btn-height: var(--height-control-sm);
   --ui-btn-padding-x: 10px;
   font-size: var(--font-sm-plus);
 }
 
 .ui-btn--md {
-  --ui-btn-padding-y: 8px;
+  --ui-btn-height: var(--height-control-md);
   --ui-btn-padding-x: 14px;
 }
 
 .ui-btn--lg {
-  --ui-btn-padding-y: 10px;
+  --ui-btn-height: var(--height-control-lg);
   --ui-btn-padding-x: 18px;
   font-size: var(--font-base);
 }
@@ -112,8 +113,8 @@
 
 .ui-btn__spinner {
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
   border: 2px solid currentColor;
   border-right-color: transparent;
   border-radius: 50%;
@@ -150,8 +151,8 @@
 }
 
 .ui-icon-btn svg {
-  width: var(--ui-icon-btn-icon-size, 16px);
-  height: var(--ui-icon-btn-icon-size, 16px);
+  width: var(--ui-icon-btn-icon-size, var(--size-icon-sm));
+  height: var(--ui-icon-btn-icon-size, var(--size-icon-sm));
   flex-shrink: 0;
 }
 
@@ -174,17 +175,17 @@
 /* Sizes */
 .ui-icon-btn--sm {
   --ui-icon-btn-padding: 6px;
-  --ui-icon-btn-icon-size: 14px;
+  --ui-icon-btn-icon-size: var(--size-icon-sm);
 }
 
 .ui-icon-btn--lg {
   --ui-icon-btn-padding: 10px;
-  --ui-icon-btn-icon-size: 20px;
+  --ui-icon-btn-icon-size: var(--size-icon-md);
 }
 
 .ui-icon-btn__spinner {
-  width: 16px;
-  height: 16px;
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
   border: 2px solid currentColor;
   border-right-color: transparent;
   border-radius: 50%;
@@ -198,7 +199,8 @@
 .ui-input {
   display: block;
   width: 100%;
-  padding: var(--ui-input-padding-y, 9px) var(--ui-input-padding-x, 11px);
+  height: var(--ui-input-height, var(--height-control-md));
+  padding: 0 var(--ui-input-padding-x, 11px);
   background: var(--ui-input-bg, var(--bg));
   border: 1px solid var(--ui-input-border, var(--border-default));
   border-radius: var(--ui-input-radius, var(--radius-base));
@@ -235,13 +237,13 @@
 
 /* Sizes */
 .ui-input--sm {
-  --ui-input-padding-y: 6px;
+  --ui-input-height: var(--height-control-sm);
   --ui-input-padding-x: 9px;
   font-size: var(--font-sm-plus);
 }
 
 .ui-input--lg {
-  --ui-input-padding-y: 12px;
+  --ui-input-height: var(--height-control-lg);
   --ui-input-padding-x: 14px;
   font-size: var(--font-base);
 }
@@ -295,7 +297,8 @@
 .ui-select {
   display: block;
   width: 100%;
-  padding: var(--ui-select-padding-y, 9px) var(--ui-select-padding-x, 11px);
+  height: var(--ui-select-height, var(--height-control-md));
+  padding: 0 var(--ui-select-padding-x, 11px);
   background: var(--ui-select-bg, var(--bg));
   border: 1px solid var(--ui-select-border, var(--border-default));
   border-radius: var(--ui-select-radius, var(--radius-base));
@@ -387,13 +390,13 @@
 
 /* Sizes */
 .ui-spinner--sm .ui-spinner__svg {
-  width: 16px;
-  height: 16px;
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
 }
 
 .ui-spinner--md .ui-spinner__svg {
-  width: 24px;
-  height: 24px;
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
 }
 
 .ui-spinner--lg .ui-spinner__svg {
@@ -705,12 +708,13 @@
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  height: var(--ui-badge-height, var(--badge-height));
   font-size: var(--ui-badge-font-size, var(--font-xs));
   font-weight: var(--weight-semibold);
   line-height: var(--line-none);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding: var(--ui-badge-padding, 3px 8px);
+  padding: 0 var(--ui-badge-padding-x, 8px);
   border-radius: var(--ui-badge-radius, var(--radius-md));
 }
 

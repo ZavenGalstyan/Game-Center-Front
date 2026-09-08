@@ -77,6 +77,44 @@
   --space-12: 48px;
   --space-16: 64px;
 
+  /* ==========================================================================
+     SIZING
+     ========================================================================== */
+
+  /* Icons */
+  --size-icon-sm: 16px;
+  --size-icon-md: 20px;
+  --size-icon-lg: 24px;
+
+  /* Controls */
+  --height-control-sm: 36px;
+  --height-control-md: 44px;
+  --height-control-lg: 48px;
+
+  /* Avatars */
+  --avatar-sm: 32px;
+  --avatar-md: 40px;
+  --avatar-lg: 48px;
+
+  /* App shell */
+  --sidebar-width: 240px;
+  --header-height: 72px;
+  --content-max-width: 1600px;
+
+  /* Search */
+  --search-max-width: 520px;
+
+  /* Game cards */
+  --game-card-height: 200px;
+  --game-card-image-width: 42%;
+  --game-card-play-size: 44px;
+
+  /* Hero */
+  --hero-height: 320px;
+
+  /* Badge */
+  --badge-height: 24px;
+
   /*
    * ==========================================================================
    * COLORS
@@ -250,4 +288,8 @@
   --success: var(--color-success);
   /* Old: --radius → New: --radius-base */
   --radius: var(--radius-base);
+  /* Old: --header-h → New: --header-height */
+  --header-h: var(--header-height);
+  /* Old: --sidebar-w → New: --sidebar-width */
+  --sidebar-w: var(--sidebar-width);
 }
