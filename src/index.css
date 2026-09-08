@@ -51,7 +51,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: var(--space-2);
   padding: 8px 14px;
   border-radius: var(--radius);
   border: 1px solid transparent;
@@ -132,7 +132,7 @@ h3 {
 .header__left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
 }
 .header__hamburger {
   display: none;
@@ -146,7 +146,7 @@ h3 {
 .header__brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
   color: var(--text);
   font-size: var(--font-logo);
   font-weight: var(--weight-bold);
@@ -158,7 +158,7 @@ h3 {
 .header__right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-3);
 }
 .header__muted {
   color: var(--text-muted);
@@ -181,7 +181,7 @@ h3 {
   width: var(--sidebar-w);
   flex-shrink: 0;
   align-self: stretch;
-  padding: 20px 12px;
+  padding: var(--space-5) var(--space-3);
   border-right: 1px solid var(--border-default);
   background: var(--sidebar-bg);
   position: sticky;
@@ -202,7 +202,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  margin-top: 8px;
+  margin-top: var(--space-2);
 }
 .sidebar__link {
   padding: 9px 10px;
@@ -235,7 +235,7 @@ h3 {
 .usermenu__trigger {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
   background: transparent;
   border: 1px solid var(--border-default);
   border-radius: var(--radius);
@@ -272,7 +272,7 @@ h3 {
   background: var(--surface);
   border: 1px solid var(--border-default);
   border-radius: var(--radius);
-  padding: 6px;
+  padding: var(--space-2);
   display: flex;
   flex-direction: column;
   box-shadow: var(--glow-main);
@@ -297,7 +297,7 @@ h3 {
   background: var(--card-gradient);
   border: 1px solid var(--border-card);
   border-radius: 14px;
-  padding: 40px;
+  padding: var(--space-10);
   box-shadow: var(--glow-main);
 }
 .hero__title {
@@ -313,12 +313,12 @@ h3 {
   margin: 0;
 }
 .hero__note {
-  margin-top: 16px;
+  margin-top: var(--space-4);
   color: var(--text);
 }
 .coming-soon,
 .landing__scoped {
-  margin-top: 24px;
+  margin-top: var(--space-6);
 }
 .landing__title {
   font-size: var(--font-xl);
@@ -329,7 +329,7 @@ h3 {
 .empty-state {
   border: 1px dashed var(--border-default);
   border-radius: 12px;
-  padding: 40px;
+  padding: var(--space-10);
   text-align: center;
 }
 .empty-state__big {
@@ -354,8 +354,8 @@ h3 {
   background: var(--surface);
   border: 1px solid var(--border-default);
   border-radius: 12px;
-  padding: 22px;
-  margin-bottom: 20px;
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
   max-width: 520px;
 }
 .card__title {
@@ -365,13 +365,13 @@ h3 {
 }
 .profile {
   display: grid;
-  gap: 12px;
+  gap: var(--space-3);
   margin: 0;
 }
 .profile div {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--space-4);
 }
 .profile dt {
   color: var(--text-secondary);
@@ -385,12 +385,12 @@ h3 {
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--space-4);
 }
 .field {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: var(--space-1);
 }
 .field__label {
   font-size: var(--font-sm-plus);
@@ -432,7 +432,7 @@ h3 {
   line-height: var(--line-normal);
   color: var(--text-secondary);
   text-align: center;
-  margin: 4px 0 0;
+  margin: var(--space-1) 0 0;
 }
 .form-alert {
   background: var(--color-error-bg);
@@ -453,7 +453,7 @@ h3 {
   background: var(--overlay-modal);
   display: grid;
   place-items: center;
-  padding: 16px;
+  padding: var(--space-4);
 }
 .modal {
   width: 100%;
@@ -467,7 +467,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 20px 0;
+  padding: var(--space-5) 20px 0;
 }
 .modal__title {
   font-size: var(--font-modal-title);
@@ -488,18 +488,18 @@ h3 {
   color: var(--text);
 }
 .modal__body {
-  padding: 18px 20px 22px;
+  padding: var(--space-5) 20px var(--space-6);
 }
 
 /* ---------- toasts ---------- */
 .toast-stack {
   position: fixed;
-  right: 16px;
-  bottom: 16px;
+  right: var(--space-4);
+  bottom: var(--space-4);
   z-index: 200;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-2);
 }
 .toast {
   background: var(--surface);
@@ -523,7 +523,7 @@ h3 {
 
 /* ---------- admin table ---------- */
 .admin__filters {
-  margin-bottom: 16px;
+  margin-bottom: var(--space-4);
 }
 .table-wrap {
   overflow-x: auto;
@@ -553,8 +553,8 @@ h3 {
 .pager {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 16px;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
 }
 .pager__info {
   color: var(--text-muted);
@@ -580,25 +580,25 @@ h3 {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--space-4);
   flex-wrap: wrap;
 }
 .admin__head {
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-4);
 }
 
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px;
-  margin-top: 8px;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
 }
 .game-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 16px;
+  gap: var(--space-2);
+  padding: var(--space-4);
   background: var(--card-bg);
   border: 1px solid var(--border-default);
   border-radius: 12px;
@@ -615,7 +615,7 @@ h3 {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 10px;
+  gap: var(--space-2);
 }
 .game-card__title {
   font-size: var(--font-lg);
@@ -650,7 +650,7 @@ h3 {
 .load-more {
   display: flex;
   justify-content: center;
-  margin-top: 24px;
+  margin-top: var(--space-6);
 }
 
 /* ---------- single game ---------- */
@@ -659,7 +659,7 @@ h3 {
   margin-top: -4px;
 }
 .game-detail__about {
-  margin-top: 20px;
+  margin-top: var(--space-5);
   max-width: 640px;
 }
 .game-detail__about p {
@@ -669,10 +669,10 @@ h3 {
 .game-player {
   width: 100%;
   max-width: 1040px;
-  margin: 18px auto 0;
+  margin: var(--space-5) auto 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-2);
 }
 .game-player__stage {
   position: relative;
@@ -697,7 +697,7 @@ h3 {
 .game-player__placeholder {
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: var(--space-6);
   text-align: center;
 }
 .game-player__placeholder-text {
@@ -714,14 +714,14 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 8px;
+  gap: var(--space-2);
   flex-wrap: wrap;
 }
 .game-controls__btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 7px 12px;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
   border-radius: var(--radius);
   border: 1px solid var(--border-default);
   background: var(--surface);
@@ -803,14 +803,14 @@ h3 {
 }
 .table__actions {
   display: flex;
-  gap: 14px;
+  gap: var(--space-4);
   white-space: nowrap;
 }
 .dialog-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  margin-top: 18px;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
 }
 .sidebar__meta {
   padding: 6px 10px;
@@ -847,7 +847,7 @@ h3 {
     background: var(--overlay-sidebar);
   }
   .hero {
-    padding: 28px 22px;
+    padding: var(--space-6) var(--space-5);
   }
   .game-player__stage {
     max-height: 70vh;
