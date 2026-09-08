@@ -15,7 +15,7 @@
   justify-content: center;
   gap: var(--ui-btn-gap, 6px);
   padding: var(--ui-btn-padding-y, 8px) var(--ui-btn-padding-x, 14px);
-  border-radius: var(--ui-btn-radius, var(--radius, 10px));
+  border-radius: var(--ui-btn-radius, var(--radius-base));
   border: 1px solid transparent;
   background: var(--ui-btn-bg, var(--button-secondary-bg));
   color: var(--ui-btn-color, var(--text));
@@ -129,7 +129,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--ui-icon-btn-padding, 8px);
-  border-radius: var(--ui-icon-btn-radius, var(--radius, 10px));
+  border-radius: var(--ui-icon-btn-radius, var(--radius-base));
   border: 1px solid var(--border-default);
   background: var(--ui-icon-btn-bg, var(--surface));
   color: var(--ui-icon-btn-color, var(--text));
@@ -201,7 +201,7 @@
   padding: var(--ui-input-padding-y, 9px) var(--ui-input-padding-x, 11px);
   background: var(--ui-input-bg, var(--bg));
   border: 1px solid var(--ui-input-border, var(--border-default));
-  border-radius: var(--ui-input-radius, 8px);
+  border-radius: var(--ui-input-radius, var(--radius-base));
   color: var(--ui-input-color, var(--text));
   font-family: var(--font-family);
   font-size: var(--font-md-plus);
@@ -256,7 +256,7 @@
   padding: var(--ui-textarea-padding-y, 9px) var(--ui-textarea-padding-x, 11px);
   background: var(--ui-textarea-bg, var(--bg));
   border: 1px solid var(--ui-textarea-border, var(--border-default));
-  border-radius: var(--ui-textarea-radius, 8px);
+  border-radius: var(--ui-textarea-radius, var(--radius-base));
   color: var(--ui-textarea-color, var(--text));
   font-family: var(--font-family);
   font-size: var(--font-md-plus);
@@ -298,7 +298,7 @@
   padding: var(--ui-select-padding-y, 9px) var(--ui-select-padding-x, 11px);
   background: var(--ui-select-bg, var(--bg));
   border: 1px solid var(--ui-select-border, var(--border-default));
-  border-radius: var(--ui-select-radius, 8px);
+  border-radius: var(--ui-select-radius, var(--radius-base));
   color: var(--ui-select-color, var(--text));
   font-family: var(--font-family);
   font-size: var(--font-md-plus);
@@ -416,7 +416,7 @@
   align-items: flex-start;
   gap: var(--ui-alert-gap, 10px);
   padding: var(--ui-alert-padding, 9px 12px);
-  border-radius: var(--ui-alert-radius, 8px);
+  border-radius: var(--ui-alert-radius, var(--radius-md));
   font-size: var(--ui-alert-font-size, var(--font-sm-plus));
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
@@ -531,7 +531,7 @@
   gap: var(--ui-empty-gap, 6px);
   padding: var(--ui-empty-padding, var(--space-10));
   border: 1px dashed var(--border-default);
-  border-radius: var(--ui-empty-radius, 12px);
+  border-radius: var(--ui-empty-radius, var(--radius-lg));
 }
 
 .ui-empty-state__icon {
@@ -560,7 +560,7 @@
 
 .ui-card {
   background: var(--ui-card-bg, var(--surface));
-  border-radius: var(--ui-card-radius, 12px);
+  border-radius: var(--ui-card-radius, var(--radius-lg));
 }
 
 .ui-card--elevated {
@@ -711,7 +711,7 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   padding: var(--ui-badge-padding, 3px 8px);
-  border-radius: var(--ui-badge-radius, 999px);
+  border-radius: var(--ui-badge-radius, var(--radius-md));
 }
 
 .ui-badge--default {
@@ -773,7 +773,7 @@
 .ui-table-wrap {
   overflow-x: auto;
   border: 1px solid var(--border-default);
-  border-radius: var(--ui-table-radius, 10px);
+  border-radius: var(--ui-table-radius, var(--radius-base));
 }
 
 .ui-table {
@@ -900,12 +900,12 @@
 .ui-tabs--pills {
   border-bottom: none;
   background: var(--surface);
-  border-radius: var(--radius, 10px);
+  border-radius: var(--radius-base);
   padding: var(--space-1);
 }
 
 .ui-tabs--pills .ui-tabs__tab {
-  border-radius: calc(var(--radius, 10px) - 2px);
+  border-radius: calc(var(--radius-base) - 2px);
 }
 
 .ui-tabs--pills .ui-tabs__tab--active {
@@ -938,7 +938,7 @@
   width: 100%;
   background: var(--ui-modal-bg, var(--surface));
   border: 1px solid var(--border-default);
-  border-radius: var(--ui-modal-radius, 14px);
+  border-radius: var(--ui-modal-radius, var(--radius-xl));
   box-shadow: var(--ui-modal-shadow, var(--glow-strong));
 }
 
@@ -981,7 +981,7 @@
   cursor: pointer;
   padding: var(--space-1);
   line-height: 0;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   transition: color 0.15s, background 0.15s;
 }
 
@@ -1034,7 +1034,7 @@
   padding: var(--ui-tooltip-padding, 6px 10px);
   background: var(--ui-tooltip-bg, var(--surface));
   border: 1px solid var(--border-default);
-  border-radius: var(--ui-tooltip-radius, 6px);
+  border-radius: var(--ui-tooltip-radius, var(--radius-md));
   font-size: var(--ui-tooltip-font-size, var(--font-sm));
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);

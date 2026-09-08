@@ -8,8 +8,7 @@
  */
 
 :root {
-  /* Layout dimensions (non-color tokens) */
-  --radius: 10px;
+  /* Layout dimensions */
   --header-h: 60px;
   --sidebar-w: 240px;
 }
@@ -53,7 +52,7 @@ h3 {
   justify-content: center;
   gap: var(--space-2);
   padding: 8px 14px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-base);
   border: 1px solid transparent;
   background: var(--button-secondary-bg);
   color: var(--text);
@@ -206,7 +205,7 @@ h3 {
 }
 .sidebar__link {
   padding: 9px 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-base);
   color: var(--text-secondary);
   font-size: var(--font-base);
   font-weight: var(--weight-medium);
@@ -238,7 +237,7 @@ h3 {
   gap: var(--space-2);
   background: transparent;
   border: 1px solid var(--border-default);
-  border-radius: var(--radius);
+  border-radius: var(--radius-base);
   padding: 6px 10px;
   color: var(--text);
   font-family: var(--font-family);
@@ -271,7 +270,7 @@ h3 {
   min-width: 190px;
   background: var(--surface);
   border: 1px solid var(--border-default);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   padding: var(--space-2);
   display: flex;
   flex-direction: column;
@@ -284,7 +283,7 @@ h3 {
   color: var(--text);
   font: inherit;
   padding: 8px 10px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: background 0.15s;
 }
@@ -296,7 +295,7 @@ h3 {
 .hero {
   background: var(--card-gradient);
   border: 1px solid var(--border-card);
-  border-radius: 14px;
+  border-radius: var(--radius-xl);
   padding: var(--space-10);
   box-shadow: var(--glow-main);
 }
@@ -328,7 +327,7 @@ h3 {
 
 .empty-state {
   border: 1px dashed var(--border-default);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: var(--space-10);
   text-align: center;
 }
@@ -353,7 +352,7 @@ h3 {
 .card {
   background: var(--surface);
   border: 1px solid var(--border-default);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: var(--space-6);
   margin-bottom: var(--space-5);
   max-width: 520px;
@@ -402,7 +401,7 @@ h3 {
 .admin__filters select {
   background: var(--bg);
   border: 1px solid var(--border-default);
-  border-radius: 8px;
+  border-radius: var(--radius-base);
   padding: 9px 11px;
   color: var(--text);
   font: inherit;
@@ -438,7 +437,7 @@ h3 {
   background: var(--color-error-bg);
   border: 1px solid var(--color-error-border);
   color: var(--color-error-text);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 9px 12px;
   font-size: var(--font-sm-plus);
   font-weight: var(--weight-regular);
@@ -460,7 +459,7 @@ h3 {
   max-width: 400px;
   background: var(--surface);
   border: 1px solid var(--border-default);
-  border-radius: 14px;
+  border-radius: var(--radius-xl);
   box-shadow: var(--glow-strong);
 }
 .modal__head {
@@ -505,7 +504,7 @@ h3 {
   background: var(--surface);
   border: 1px solid var(--border-default);
   border-left: 3px solid var(--primary);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 10px 14px;
   font-size: var(--font-md);
   font-weight: var(--weight-regular);
@@ -528,7 +527,7 @@ h3 {
 .table-wrap {
   overflow-x: auto;
   border: 1px solid var(--border-default);
-  border-radius: 10px;
+  border-radius: var(--radius-base);
 }
 .table {
   width: 100%;
@@ -594,22 +593,72 @@ h3 {
   gap: var(--space-4);
   margin-top: var(--space-2);
 }
+/* ---------- game card shape ---------- */
+/*
+ * Game Card silhouette:
+ * - Top-left, bottom-left, bottom-right: rounded 16px
+ * - Top-right: diagonal cut (38% of card dimension)
+ * This shape is stable across all states (hover, focus, active, loading, disabled).
+ * Images/media inside will be clipped to match this silhouette.
+ */
 .game-card {
+  --_cut: var(--game-card-cut, 38%);
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   padding: var(--space-4);
   background: var(--card-bg);
-  border: 1px solid var(--border-default);
-  border-radius: 12px;
   color: var(--text);
-  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s, background 0.15s;
+  position: relative;
+  /* Clip-path creates the diagonal cut at top-right corner */
+  clip-path: polygon(
+    0 var(--radius-card),
+    var(--radius-card) 0,
+    calc(100% - var(--_cut)) 0,
+    100% var(--_cut),
+    100% calc(100% - var(--radius-card)),
+    calc(100% - var(--radius-card)) 100%,
+    var(--radius-card) 100%,
+    0 calc(100% - var(--radius-card))
+  );
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+/* Border simulation using pseudo-element (clip-path doesn't support border) */
+.game-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--border-default);
+  clip-path: inherit;
+  z-index: -1;
+}
+.game-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--card-bg);
+  clip-path: polygon(
+    0 calc(var(--radius-card) - 1px),
+    calc(var(--radius-card) - 1px) 0,
+    calc(100% - var(--_cut) + 0.5px) 0,
+    100% calc(var(--_cut) - 0.5px),
+    100% calc(100% - var(--radius-card) + 1px),
+    calc(100% - var(--radius-card) + 1px) 100%,
+    calc(var(--radius-card) - 1px) 100%,
+    0 calc(100% - var(--radius-card) + 1px)
+  );
+  z-index: -1;
+  transition: background 0.15s;
 }
 .game-card:hover {
-  background: var(--card-hover-bg);
-  border-color: var(--card-hover-border);
   transform: translateY(-2px);
   box-shadow: var(--card-hover-shadow);
+}
+.game-card:hover::before {
+  background: var(--card-hover-border);
+}
+.game-card:hover::after {
+  background: var(--card-hover-bg);
 }
 .game-card__top {
   display: flex;
@@ -642,7 +691,7 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   padding: 3px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-md);
   background: var(--tag-bg);
   color: var(--tag-text);
   border: 1px solid var(--tag-border);
@@ -685,7 +734,7 @@ h3 {
     radial-gradient(120% 120% at 50% 0%, rgba(0, 232, 143, 0.08), transparent 60%),
     var(--surface);
   border: 1px solid var(--border-default);
-  border-radius: 14px;
+  border-radius: var(--radius-card);
   box-shadow: var(--glow-main);
 }
 /* the game content (or placeholder) fills the stage */
@@ -722,7 +771,7 @@ h3 {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius);
+  border-radius: var(--radius-base);
   border: 1px solid var(--border-default);
   background: var(--surface);
   color: var(--text);
@@ -789,7 +838,7 @@ h3 {
 .field select {
   background: var(--bg);
   border: 1px solid var(--border-default);
-  border-radius: 8px;
+  border-radius: var(--radius-base);
   padding: 9px 11px;
   color: var(--text);
   font: inherit;

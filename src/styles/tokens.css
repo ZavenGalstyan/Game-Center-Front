@@ -50,6 +50,20 @@
   --line-relaxed: 1.5;
 
   /* ==========================================================================
+     BORDER RADIUS / SHAPES
+     ========================================================================== */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-base: 10px;
+  --radius-lg: 12px;
+  --radius-card: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Game Card diagonal cut size (percentage of card dimension) */
+  --game-card-cut: 38%;
+
+  /* ==========================================================================
      SPACING
      ========================================================================== */
   --space-1: 4px;
@@ -234,4 +248,6 @@
   --danger: var(--color-error);
   /* Old: --success → New: --color-success */
   --success: var(--color-success);
+  /* Old: --radius → New: --radius-base */
+  --radius: var(--radius-base);
 }
