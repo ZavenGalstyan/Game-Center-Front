@@ -1,12 +1,25 @@
 import { useState } from "react";
-import Modal from "../components/Modal.jsx";
-import Field from "../components/Field.jsx";
-import ConfirmDialog from "../components/ConfirmDialog.jsx";
 import { useToast } from "../components/Toast.jsx";
 import { useAuth } from "../auth/AuthContext.jsx";
 import { useGameTypes } from "../data/gameTypes.jsx";
 import { api } from "../lib/api.js";
 import { mapServerErrors, validateSlug, validateTypeName } from "../lib/validation.js";
+import {
+  Alert,
+  Button,
+  LoadingState,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  TableEmptyRow,
+  TableActions,
+  Modal,
+  ConfirmDialog,
+  FormField,
+  Input,
+} from "../components/ui";
 
 function TypeFormModal({ initial, onClose, onSaved }) {
   const editing = Boolean(initial);
@@ -58,31 +71,33 @@ function TypeFormModal({ initial, onClose, onSaved }) {
   return (
     <Modal title={editing ? `Edit ${initial.name}` : "Add game type"} onClose={onClose}>
       <form className="auth-form" onSubmit={onSubmit} noValidate>
-        {formError && <div className="form-alert">{formError}</div>}
-        <Field label="Name" error={errors.name} hint="2–60 characters" htmlFor="gt-name">
-          <input
+        {formError && <Alert variant="error">{formError}</Alert>}
+        <FormField label="Name" error={errors.name} hint="2–60 characters" htmlFor="gt-name">
+          <Input
             id="gt-name"
             value={values.name}
             onChange={setField("name")}
             disabled={submitting}
+            error={Boolean(errors.name)}
           />
-        </Field>
-        <Field
+        </FormField>
+        <FormField
           label="Slug"
           error={errors.slug}
           hint="lowercase · a–z 0–9 _"
           htmlFor="gt-slug"
         >
-          <input
+          <Input
             id="gt-slug"
             value={values.slug}
             onChange={setField("slug")}
             disabled={submitting}
+            error={Boolean(errors.slug)}
           />
-        </Field>
-        <button className="btn btn--primary btn--block" type="submit" disabled={submitting}>
-          {submitting ? "Saving…" : editing ? "Save changes" : "Create game type"}
-        </button>
+        </FormField>
+        <Button variant="primary" fullWidth type="submit" loading={submitting}>
+          {submitting ? "Saving..." : editing ? "Save changes" : "Create game type"}
+        </Button>
       </form>
     </Modal>
   );
@@ -124,59 +139,48 @@ export default function AdminGameTypes() {
     <div className="admin">
       <div className="admin__head">
         <h1 className="page-title">Game types</h1>
-        <button className="btn btn--primary" onClick={() => setFormFor({})}>
+        <Button variant="primary" onClick={() => setFormFor({})}>
           Add game type
-        </button>
+        </Button>
       </div>
 
-      {error && <div className="form-alert">{error}</div>}
-      {loading && <p className="muted">Loading…</p>}
+      {error && <Alert variant="error">{error}</Alert>}
+      {loading && <LoadingState message="Loading..." />}
 
       {!loading && (
-        <div className="table-wrap">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Slug</th>
-                <th>Created</th>
-                <th aria-label="Actions" />
-              </tr>
-            </thead>
-            <tbody>
-              {types.map((t) => (
-                <tr key={t.id}>
-                  <td>{t.name}</td>
-                  <td className="muted">{t.slug}</td>
-                  <td className="muted">
-                    {new Date(t.createdAt).toLocaleDateString()}
-                  </td>
-                  <td className="table__actions">
-                    <button className="linkbtn" onClick={() => setFormFor(t)}>
-                      Edit
-                    </button>
-                    <button
-                      className="linkbtn linkbtn--danger"
-                      onClick={() => {
-                        setDeleteError(null);
-                        setDeleting(t);
-                      }}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-              {types.length === 0 && (
-                <tr>
-                  <td colSpan={4} className="muted">
-                    No game types yet.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell header>Name</TableCell>
+              <TableCell header>Slug</TableCell>
+              <TableCell header>Created</TableCell>
+              <TableCell header aria-label="Actions" />
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {types.map((t) => (
+              <TableRow key={t.id}>
+                <TableCell>{t.name}</TableCell>
+                <TableCell className="muted">{t.slug}</TableCell>
+                <TableCell className="muted">
+                  {new Date(t.createdAt).toLocaleDateString()}
+                </TableCell>
+                <TableCell>
+                  <TableActions
+                    onEdit={() => setFormFor(t)}
+                    onDelete={() => {
+                      setDeleteError(null);
+                      setDeleting(t);
+                    }}
+                  />
+                </TableCell>
+              </TableRow>
+            ))}
+            {types.length === 0 && (
+              <TableEmptyRow colSpan={4}>No game types yet.</TableEmptyRow>
+            )}
+          </TableBody>
+        </Table>
       )}
 
       {formFor && (
@@ -191,6 +195,7 @@ export default function AdminGameTypes() {
         <ConfirmDialog
           title={`Delete ${deleting.name}?`}
           message="Games using this type must be reassigned or deleted first."
+          confirmLabel="Delete"
           busy={deleteBusy}
           error={deleteError}
           onConfirm={confirmDelete}

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Field from "./Field.jsx";
 import { useAuth } from "../auth/AuthContext.jsx";
 import { useToast } from "./Toast.jsx";
 import {
@@ -8,6 +7,7 @@ import {
   validatePassword,
   validateUsername,
 } from "../lib/validation.js";
+import { Alert, Button, FormField, Input } from "./ui";
 
 export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
   const { registerAndLogin } = useAuth();
@@ -75,75 +75,79 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
 
   return (
     <form className="auth-form" onSubmit={onSubmit} noValidate>
-      {formError && <div className="form-alert">{formError}</div>}
+      {formError && <Alert variant="error">{formError}</Alert>}
 
-      <Field
+      <FormField
         label="Username"
         error={errors.username}
         hint="3–30 characters · letters, numbers, and _ . -"
         htmlFor="reg-username"
       >
-        <input
+        <Input
           id="reg-username"
           type="text"
           autoComplete="username"
           value={values.username}
           onChange={setField("username")}
           disabled={submitting}
+          error={Boolean(errors.username)}
         />
-      </Field>
+      </FormField>
 
-      <Field label="Email" error={errors.email} htmlFor="reg-email">
-        <input
+      <FormField label="Email" error={errors.email} htmlFor="reg-email">
+        <Input
           id="reg-email"
           type="email"
           autoComplete="email"
           value={values.email}
           onChange={setField("email")}
           disabled={submitting}
+          error={Boolean(errors.email)}
         />
-      </Field>
+      </FormField>
 
-      <Field
+      <FormField
         label="Password"
         error={errors.password}
         hint="8–128 characters"
         htmlFor="reg-password"
       >
-        <input
+        <Input
           id="reg-password"
           type="password"
           autoComplete="new-password"
           value={values.password}
           onChange={setField("password")}
           disabled={submitting}
+          error={Boolean(errors.password)}
         />
-      </Field>
+      </FormField>
 
-      <Field
+      <FormField
         label="Confirm password"
         error={errors.confirmPassword}
         htmlFor="reg-confirm"
       >
-        <input
+        <Input
           id="reg-confirm"
           type="password"
           autoComplete="new-password"
           value={values.confirmPassword}
           onChange={setField("confirmPassword")}
           disabled={submitting}
+          error={Boolean(errors.confirmPassword)}
         />
-      </Field>
+      </FormField>
 
-      <button className="btn btn--primary btn--block" type="submit" disabled={submitting}>
-        {submitting ? "Creating account…" : "Create account"}
-      </button>
+      <Button variant="primary" fullWidth type="submit" loading={submitting}>
+        {submitting ? "Creating account..." : "Create account"}
+      </Button>
 
       <p className="auth-form__switch">
         Already have an account?{" "}
-        <button type="button" className="linkbtn" onClick={onSwitchToLogin}>
+        <Button variant="link" onClick={onSwitchToLogin}>
           Log in
-        </button>
+        </Button>
       </p>
     </form>
   );
