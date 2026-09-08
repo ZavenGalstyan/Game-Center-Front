@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Field from "../components/Field.jsx";
 import { useAuth } from "../auth/AuthContext.jsx";
 import { useToast } from "../components/Toast.jsx";
 import { api, tokenStore } from "../lib/api.js";
 import { mapServerErrors, validateNewPassword } from "../lib/validation.js";
+import { Alert, Button, FormField, Input, Card, CardTitle, CardBody } from "../components/ui";
 
 export default function Account() {
   const { user, handleAuthExpired } = useAuth();
@@ -70,84 +70,91 @@ export default function Account() {
     <div className="account">
       <h1 className="page-title">Account</h1>
 
-      <section className="card">
-        <h2 className="card__title">Profile</h2>
-        <dl className="profile">
-          <div>
-            <dt>Username</dt>
-            <dd>{user?.username}</dd>
-          </div>
-          <div>
-            <dt>Email</dt>
-            <dd>{user?.email}</dd>
-          </div>
-          <div>
-            <dt>Role</dt>
-            <dd>{user?.role}</dd>
-          </div>
-          <div>
-            <dt>Member since</dt>
-            <dd>
-              {user?.createdAt
-                ? new Date(user.createdAt).toLocaleDateString()
-                : "—"}
-            </dd>
-          </div>
-        </dl>
-      </section>
+      <Card className="card" style={{ maxWidth: 520 }}>
+        <CardTitle>Profile</CardTitle>
+        <CardBody>
+          <dl className="profile">
+            <div>
+              <dt>Username</dt>
+              <dd>{user?.username}</dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd>{user?.email}</dd>
+            </div>
+            <div>
+              <dt>Role</dt>
+              <dd>{user?.role}</dd>
+            </div>
+            <div>
+              <dt>Member since</dt>
+              <dd>
+                {user?.createdAt
+                  ? new Date(user.createdAt).toLocaleDateString()
+                  : "—"}
+              </dd>
+            </div>
+          </dl>
+        </CardBody>
+      </Card>
 
-      <section className="card">
-        <h2 className="card__title">Change password</h2>
-        <form className="auth-form" onSubmit={onSubmit} noValidate>
-          {formError && <div className="form-alert">{formError}</div>}
+      <Card className="card" style={{ maxWidth: 520 }}>
+        <CardTitle>Change password</CardTitle>
+        <CardBody>
+          <form className="auth-form" onSubmit={onSubmit} noValidate>
+            {formError && <Alert variant="error">{formError}</Alert>}
 
-          <Field
-            label="Current password"
-            error={errors.currentPassword}
-            htmlFor="cur-pw"
-          >
-            <input
-              id="cur-pw"
-              type="password"
-              autoComplete="current-password"
-              value={values.currentPassword}
-              onChange={setField("currentPassword")}
-              disabled={submitting}
-            />
-          </Field>
+            <FormField
+              label="Current password"
+              error={errors.currentPassword}
+              htmlFor="cur-pw"
+            >
+              <Input
+                id="cur-pw"
+                type="password"
+                autoComplete="current-password"
+                value={values.currentPassword}
+                onChange={setField("currentPassword")}
+                disabled={submitting}
+                error={Boolean(errors.currentPassword)}
+              />
+            </FormField>
 
-          <Field
-            label="New password"
-            error={errors.newPassword}
-            hint="8–128 characters, different from the current one"
-            htmlFor="new-pw"
-          >
-            <input
-              id="new-pw"
-              type="password"
-              autoComplete="new-password"
-              value={values.newPassword}
-              onChange={setField("newPassword")}
-              disabled={submitting}
-            />
-          </Field>
+            <FormField
+              label="New password"
+              error={errors.newPassword}
+              hint="8–128 characters, different from the current one"
+              htmlFor="new-pw"
+            >
+              <Input
+                id="new-pw"
+                type="password"
+                autoComplete="new-password"
+                value={values.newPassword}
+                onChange={setField("newPassword")}
+                disabled={submitting}
+                error={Boolean(errors.newPassword)}
+              />
+            </FormField>
 
-          <Field label="Confirm new password" error={errors.confirm} htmlFor="conf-pw">
-            <input
-              id="conf-pw"
-              type="password"
-              autoComplete="new-password"
-              value={values.confirm}
-              onChange={setField("confirm")}
-              disabled={submitting}
-            />
-          </Field>
+            <FormField label="Confirm new password" error={errors.confirm} htmlFor="conf-pw">
+              <Input
+                id="conf-pw"
+                type="password"
+                autoComplete="new-password"
+                value={values.confirm}
+                onChange={setField("confirm")}
+                disabled={submitting}
+                error={Boolean(errors.confirm)}
+              />
+            </FormField>
 
-          <button className="btn btn--primary" type="submit" disabled={submitting}>
-            {submitting ? "Saving…" : "Change password"}
-          </button>
-        </form>
-      </section>
+            <Button variant="primary" type="submit" loading={submitting}>
+              {submitting ? "Saving..." : "Change password"}
+            </Button>
+          </form>
+        </CardBody>
+      </Card>
     </div>
   );
 }

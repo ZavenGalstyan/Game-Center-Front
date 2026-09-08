@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { api } from "../lib/api.js";
 import { useGameTypes } from "../data/gameTypes.jsx";
 import GameCard from "../components/GameCard.jsx";
+import { Button, LoadingState, EmptyState, Alert } from "../components/ui";
 
 const PAGE_SIZE = 20;
 
@@ -70,16 +71,14 @@ export default function GamesPage() {
         )}
       </div>
 
-      {loading && <p className="muted">Loading games…</p>}
-      {error && !loading && <div className="form-alert">{error}</div>}
+      {loading && <LoadingState message="Loading games..." />}
+      {error && !loading && <Alert variant="error">{error}</Alert>}
 
       {!loading && !error && games.length === 0 && (
-        <div className="empty-state">
-          <p className="empty-state__big">
-            {typeId ? "No games in this category yet" : "No games yet"}
-          </p>
-          <p className="empty-state__sub">Check back soon.</p>
-        </div>
+        <EmptyState
+          title={typeId ? "No games in this category yet" : "No games yet"}
+          message="Check back soon."
+        />
       )}
 
       {games.length > 0 && (
@@ -92,15 +91,15 @@ export default function GamesPage() {
 
           {pagination?.hasMore && (
             <div className="load-more">
-              <button
-                className="btn btn--ghost"
+              <Button
+                variant="ghost"
                 onClick={loadMore}
-                disabled={loadingMore}
+                loading={loadingMore}
               >
                 {loadingMore
-                  ? "Loading…"
+                  ? "Loading..."
                   : `Load more (${pagination.total - games.length} left)`}
-              </button>
+              </Button>
             </div>
           )}
         </>

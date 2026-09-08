@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Field from "./Field.jsx";
 import { useAuth } from "../auth/AuthContext.jsx";
 import { useToast } from "./Toast.jsx";
 import { mapServerErrors, validateEmail } from "../lib/validation.js";
+import { Alert, Button, FormField, Input } from "./ui";
 
 export default function LoginForm({ onSuccess, onSwitchToRegister }) {
   const { login } = useAuth();
@@ -55,39 +55,41 @@ export default function LoginForm({ onSuccess, onSwitchToRegister }) {
 
   return (
     <form className="auth-form" onSubmit={onSubmit} noValidate>
-      {formError && <div className="form-alert">{formError}</div>}
+      {formError && <Alert variant="error">{formError}</Alert>}
 
-      <Field label="Email" error={errors.email} htmlFor="login-email">
-        <input
+      <FormField label="Email" error={errors.email} htmlFor="login-email">
+        <Input
           id="login-email"
           type="email"
           autoComplete="email"
           value={values.email}
           onChange={setField("email")}
           disabled={submitting}
+          error={Boolean(errors.email)}
         />
-      </Field>
+      </FormField>
 
-      <Field label="Password" error={errors.password} htmlFor="login-password">
-        <input
+      <FormField label="Password" error={errors.password} htmlFor="login-password">
+        <Input
           id="login-password"
           type="password"
           autoComplete="current-password"
           value={values.password}
           onChange={setField("password")}
           disabled={submitting}
+          error={Boolean(errors.password)}
         />
-      </Field>
+      </FormField>
 
-      <button className="btn btn--primary btn--block" type="submit" disabled={submitting}>
-        {submitting ? "Logging in…" : "Log in"}
-      </button>
+      <Button variant="primary" fullWidth type="submit" loading={submitting}>
+        {submitting ? "Logging in..." : "Log in"}
+      </Button>
 
       <p className="auth-form__switch">
         Don&apos;t have an account?{" "}
-        <button type="button" className="linkbtn" onClick={onSwitchToRegister}>
+        <Button variant="link" onClick={onSwitchToRegister}>
           Register
-        </button>
+        </Button>
       </p>
     </form>
   );

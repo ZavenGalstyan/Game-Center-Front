@@ -1,8 +1,24 @@
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "../auth/AuthContext.jsx";
 import { api } from "../lib/api.js";
+import {
+  Alert,
+  LoadingState,
+  Pagination,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  TableEmptyRow,
+} from "../components/ui";
 
-const ROLES = ["", "player", "moderator", "admin"];
+const ROLES = [
+  { value: "", label: "All" },
+  { value: "player", label: "Player" },
+  { value: "moderator", label: "Moderator" },
+  { value: "admin", label: "Admin" },
+];
 
 export default function AdminUsers() {
   const { handleAuthExpired } = useAuth();
@@ -50,70 +66,52 @@ export default function AdminUsers() {
             }}
           >
             {ROLES.map((r) => (
-              <option key={r || "all"} value={r}>
-                {r || "All"}
+              <option key={r.value || "all"} value={r.value}>
+                {r.label}
               </option>
             ))}
           </select>
         </label>
       </div>
 
-      {error && <div className="form-alert">{error}</div>}
-      {loading && <p className="muted">Loading…</p>}
+      {error && <Alert variant="error">{error}</Alert>}
+      {loading && <LoadingState message="Loading..." />}
 
       {!loading && data && (
         <>
-          <div className="table-wrap">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th>Role</th>
-                  <th>Created</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.users.map((u) => (
-                  <tr key={u.id}>
-                    <td>{u.username}</td>
-                    <td>{u.email}</td>
-                    <td>{u.role}</td>
-                    <td>{new Date(u.createdAt).toLocaleDateString()}</td>
-                  </tr>
-                ))}
-                {data.users.length === 0 && (
-                  <tr>
-                    <td colSpan={4} className="muted">
-                      No users match this filter.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell header>Username</TableCell>
+                <TableCell header>Email</TableCell>
+                <TableCell header>Role</TableCell>
+                <TableCell header>Created</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {data.users.map((u) => (
+                <TableRow key={u.id}>
+                  <TableCell>{u.username}</TableCell>
+                  <TableCell>{u.email}</TableCell>
+                  <TableCell>{u.role}</TableCell>
+                  <TableCell>{new Date(u.createdAt).toLocaleDateString()}</TableCell>
+                </TableRow>
+              ))}
+              {data.users.length === 0 && (
+                <TableEmptyRow colSpan={4}>
+                  No users match this filter.
+                </TableEmptyRow>
+              )}
+            </TableBody>
+          </Table>
 
           {pagination && (
-            <div className="pager">
-              <button
-                className="btn btn--ghost"
-                disabled={!pagination.hasPrevPage}
-                onClick={() => setPage((p) => Math.max(1, p - 1))}
-              >
-                Previous
-              </button>
-              <span className="pager__info">
-                Page {pagination.page} of {pagination.totalPages} · {pagination.total}{" "}
-                total
-              </span>
-              <button
-                className="btn btn--ghost"
-                disabled={!pagination.hasNextPage}
-                onClick={() => setPage((p) => p + 1)}
-              >
-                Next
-              </button>
-            </div>
+            <Pagination
+              page={pagination.page}
+              totalPages={pagination.totalPages}
+              total={pagination.total}
+              onPageChange={setPage}
+            />
           )}
         </>
       )}
