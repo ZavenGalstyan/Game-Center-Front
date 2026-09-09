@@ -3,13 +3,14 @@ import { Link, useParams } from "react-router-dom";
 import { api } from "../lib/api.js";
 import GamePlayer from "../components/game/GamePlayer.jsx";
 import GameRenderer from "../components/games/GameRenderer.jsx";
-import { getGameComponent } from "../components/games/registry.js";
+import { getGameComponent, gameSupportsMute } from "../components/games/registry.js";
 
 export default function GameDetail() {
   const { id } = useParams();
   const [game, setGame] = useState(null);
   const [state, setState] = useState("loading"); // loading | ok | notfound | error
   const [restartNonce, setRestartNonce] = useState(0);
+  const [muted, setMuted] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -51,6 +52,9 @@ export default function GameDetail() {
   }
 
   const PlayableGame = getGameComponent(game);
+  // The Mute button only lights up for games that actually honour the prop —
+  // every other game behaves exactly as before.
+  const canMute = gameSupportsMute(game);
 
   return (
     <article className="game-detail">
@@ -73,9 +77,11 @@ export default function GameDetail() {
         onRestart={
           PlayableGame ? () => setRestartNonce((n) => n + 1) : undefined
         }
+        muted={muted}
+        onToggleMute={canMute ? () => setMuted((m) => !m) : undefined}
       >
         {PlayableGame ? (
-          <GameRenderer game={game} restartNonce={restartNonce} />
+          <GameRenderer game={game} restartNonce={restartNonce} muted={muted} />
         ) : null}
       </GamePlayer>
 
