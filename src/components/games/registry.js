@@ -10,6 +10,9 @@ import MiniGolfJourney from "./MiniGolfJourney/MiniGolfJourney.jsx";
  */
 const DeliveryRush = lazy(() => import("./DeliveryRush/DeliveryRush.jsx"));
 
+/** Parking Master ships its own WebGL renderer too — same lazy treatment. */
+const ParkingMaster = lazy(() => import("./ParkingMaster/ParkingMaster.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -23,6 +26,7 @@ const GAME_COMPONENTS = {
   "Fishing Journey": FishingJourney,
   "Mini Golf Journey": MiniGolfJourney,
   "Delivery Rush": DeliveryRush,
+  "Parking Master": ParkingMaster,
 };
 
 /**
@@ -32,7 +36,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master"]);
 
 export function getGameComponent(game) {
   if (!game || !game.name) return null;
