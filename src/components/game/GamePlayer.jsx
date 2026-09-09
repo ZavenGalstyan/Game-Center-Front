@@ -21,6 +21,8 @@ import GameControls from "./GameControls.jsx";
  *                  until a game provides one.
  *  - onToggleMute: handler for the Mute/Unmute button. Omit to leave it disabled.
  *  - muted:        current mute state, drives the Mute button label/icon.
+ *  - likeButton:   optional node rendered in the control row, immediately
+ *                  before Restart (the Game Center Like/favourite button).
  */
 export default function GamePlayer({
   title = "Game",
@@ -28,6 +30,7 @@ export default function GamePlayer({
   onRestart,
   onToggleMute,
   muted = false,
+  likeButton = null,
 }) {
   const containerRef = useRef(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -79,6 +82,7 @@ export default function GamePlayer({
         onToggleFullscreen={toggleFullscreen}
         onRestart={onRestart}
         onToggleMute={onToggleMute}
+        likeButton={likeButton}
       />
 
       <div

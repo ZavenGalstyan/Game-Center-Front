@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api } from "../lib/api.js";
 import GamePlayer from "../components/game/GamePlayer.jsx";
+import GameLikeButton from "../components/game/GameLikeButton.jsx";
 import GameRenderer from "../components/games/GameRenderer.jsx";
 import { getGameComponent, gameSupportsMute } from "../components/games/registry.js";
 
@@ -74,6 +75,7 @@ export default function GameDetail() {
       */}
       <GamePlayer
         title={game.name}
+        likeButton={<GameLikeButton gameId={game.id || game._id} />}
         onRestart={
           PlayableGame ? () => setRestartNonce((n) => n + 1) : undefined
         }

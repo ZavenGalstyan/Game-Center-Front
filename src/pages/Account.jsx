@@ -4,6 +4,7 @@ import { useToast } from "../components/Toast.jsx";
 import { api, tokenStore } from "../lib/api.js";
 import { mapServerErrors, validateNewPassword } from "../lib/validation.js";
 import { Alert, Button, FormField, Input, Card, CardTitle, CardBody } from "../components/ui";
+import LikedGamesSection from "../components/LikedGamesSection.jsx";
 
 export default function Account() {
   const { user, handleAuthExpired } = useAuth();
@@ -97,6 +98,8 @@ export default function Account() {
           </dl>
         </CardBody>
       </Card>
+
+      <LikedGamesSection />
 
       <Card className="card" style={{ maxWidth: 520 }}>
         <CardTitle>Change password</CardTitle>
