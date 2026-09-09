@@ -67,6 +67,14 @@ async function request(path, { method = "GET", body, auth = false, raw = false }
   return raw ? json : json.data;
 }
 
+/**
+ * The like endpoints may or may not wrap their payload in the standard `data`
+ * envelope depending on backend version — read `liked` from either shape.
+ */
+function readLiked(json) {
+  return Boolean(json?.data?.liked ?? json?.liked);
+}
+
 export const api = {
   health: () => request("/api/health"),
 
@@ -137,6 +145,32 @@ export const api = {
     request(`/api/games/${id}`, { method: "PATCH", auth: true, body }),
 
   deleteGame: (id) => request(`/api/games/${id}`, { method: "DELETE", auth: true }),
+
+  /* ------------------------------- Game likes ------------------------------ */
+
+  // Authenticated-only. Returns a boolean.
+  getGameLikeStatus: (gameId) =>
+    request(`/api/games/${gameId}/like`, { auth: true, raw: true }).then(readLiked),
+
+  // Returns the raw JSON so the caller can tell "no `liked` field" (e.g. a 204
+  // response) apart from an explicit `false` and keep its optimistic state.
+  likeGame: (gameId) =>
+    request(`/api/games/${gameId}/like`, { method: "POST", auth: true, raw: true }),
+
+  unlikeGame: (gameId) =>
+    request(`/api/games/${gameId}/like`, { method: "DELETE", auth: true, raw: true }),
+
+  // Backend shape varies: { items, total } or the standard { data, pagination }.
+  getMyLikedGames: ({ limit = 12, offset = 0 } = {}) => {
+    const qs = new URLSearchParams({
+      limit: String(limit),
+      offset: String(offset),
+    });
+    return request(`/api/users/me/liked-games?${qs.toString()}`, {
+      auth: true,
+      raw: true,
+    });
+  },
 };
 
 export async function registerAndLogin({ username, email, password }) {

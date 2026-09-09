@@ -62,9 +62,13 @@ export default function GameControls({
   onToggleFullscreen,
   onRestart,
   onToggleMute,
+  likeButton = null,
 }) {
   return (
     <div className="game-controls">
+      {/* Like sits immediately before Restart; it manages its own state. */}
+      {likeButton}
+
       <button
         type="button"
         className="game-controls__btn"
