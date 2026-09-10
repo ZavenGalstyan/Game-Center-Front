@@ -2,6 +2,7 @@ import { lazy } from "react";
 import ClassicChess from "./ClassicChess/ClassicChess.jsx";
 import FishingJourney from "./FishingJourney/FishingJourney.jsx";
 import MiniGolfJourney from "./MiniGolfJourney/MiniGolfJourney.jsx";
+import CakeDesigner from "./CakeDesigner/CakeDesigner.jsx";
 
 /**
  * Delivery Rush is loaded on demand: it is the only game that pulls in a WebGL
@@ -12,6 +13,9 @@ const DeliveryRush = lazy(() => import("./DeliveryRush/DeliveryRush.jsx"));
 
 /** Parking Master ships its own WebGL renderer too — same lazy treatment. */
 const ParkingMaster = lazy(() => import("./ParkingMaster/ParkingMaster.jsx"));
+
+/** Crowd Rush — a WebGL crowd-runner, also lazy so the catalogue stays light. */
+const CrowdRush = lazy(() => import("./CrowdRush/CrowdRush.jsx"));
 
 /**
  * Maps a backend game's `name` to the React component that plays it.
@@ -27,6 +31,8 @@ const GAME_COMPONENTS = {
   "Mini Golf Journey": MiniGolfJourney,
   "Delivery Rush": DeliveryRush,
   "Parking Master": ParkingMaster,
+  "Cake Designer": CakeDesigner,
+  "Crowd Rush": CrowdRush,
 };
 
 /**
@@ -36,7 +42,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush"]);
 
 export function getGameComponent(game) {
   if (!game || !game.name) return null;
