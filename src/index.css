@@ -274,7 +274,7 @@ h3 {
   padding: var(--space-2);
   display: flex;
   flex-direction: column;
-  box-shadow: var(--glow-main);
+  box-shadow: var(--shadow-dropdown);
 }
 .usermenu__item {
   text-align: left;
@@ -465,7 +465,7 @@ h3 {
   background: var(--surface);
   border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-xl);
-  box-shadow: var(--glow-strong);
+  box-shadow: var(--shadow-modal);
 }
 .modal__head {
   display: flex;
@@ -515,7 +515,7 @@ h3 {
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
   cursor: pointer;
-  box-shadow: var(--glow-main);
+  box-shadow: var(--shadow-md);
   max-width: 320px;
 }
 .toast--success {
@@ -647,6 +647,7 @@ h3 {
     var(--radius-card) 100%,
     0 calc(100% - var(--radius-card))
   );
+  box-shadow: var(--shadow-card), var(--glow-game-card-default);
   transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
 }
 /* Border simulation using pseudo-element (clip-path doesn't support border) */
@@ -678,7 +679,7 @@ h3 {
 }
 .game-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--card-hover-shadow);
+  box-shadow: var(--shadow-card-hover), var(--glow-md);
 }
 .game-card:hover::before {
   background: var(--card-hover-border);
@@ -1007,7 +1008,7 @@ h3 {
 .liked-game-card:hover {
   transform: translateY(-2px);
   border-color: var(--border-active);
-  box-shadow: var(--card-hover-shadow);
+  box-shadow: var(--shadow-card-hover);
 }
 .liked-game-card:focus-visible {
   outline: var(--border-width-focus) solid var(--focus-ring);

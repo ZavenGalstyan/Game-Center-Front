@@ -943,7 +943,7 @@
   background: var(--ui-modal-bg, var(--surface));
   border: var(--border-width) solid var(--border-default);
   border-radius: var(--ui-modal-radius, var(--radius-xl));
-  box-shadow: var(--ui-modal-shadow, var(--glow-strong));
+  box-shadow: var(--ui-modal-shadow, var(--shadow-modal));
 }
 
 .ui-modal--sm {
@@ -1047,7 +1047,7 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s;
-  box-shadow: var(--glow-main);
+  box-shadow: var(--shadow-sm);
 }
 
 .ui-tooltip--visible {

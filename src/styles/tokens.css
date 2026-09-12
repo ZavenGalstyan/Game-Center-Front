@@ -221,13 +221,38 @@
   --active-menu-border: #00E88F;
 
   /* ==========================================================================
-     GLOWS / SHADOWS
+     SHADOWS / GLOWS
      ========================================================================== */
-  --glow-main: 0 0 18px rgba(0, 232, 143, 0.30);
-  --glow-strong: 0 0 25px rgba(0, 232, 143, 0.50);
-  --card-hover-shadow: 0 0 22px rgba(0, 232, 143, 0.35);
-  --button-hover-shadow: 0 0 20px rgba(0, 232, 143, 0.45);
-  --active-menu-shadow: 0 0 20px rgba(0, 232, 143, 0.35);
+
+  /* Neutral elevation shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.24);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.30);
+
+  /* Card shadows */
+  --shadow-card: 0 6px 18px rgba(0, 0, 0, 0.22);
+  --shadow-card-hover: 0 10px 28px rgba(0, 0, 0, 0.28);
+
+  /* Overlay shadows */
+  --shadow-dropdown: 0 10px 30px rgba(0, 0, 0, 0.32);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+  /* Green glows (selective use only) */
+  --glow-sm: 0 0 14px rgba(0, 232, 143, 0.18);
+  --glow-md: 0 0 20px rgba(0, 232, 143, 0.28);
+  --glow-lg: 0 0 28px rgba(0, 232, 143, 0.42);
+
+  /* Semantic glows */
+  --glow-button-hover: 0 0 20px rgba(0, 232, 143, 0.40);
+  --glow-active-menu: 0 0 18px rgba(0, 232, 143, 0.25);
+  --glow-game-card-default: 0 0 14px rgba(0, 232, 143, 0.10);
+
+  /* Legacy aliases (migrate away from these) */
+  --glow-main: var(--glow-sm);
+  --glow-strong: var(--glow-lg);
+  --card-hover-shadow: var(--shadow-card-hover), var(--glow-md);
+  --button-hover-shadow: var(--glow-button-hover);
+  --active-menu-shadow: var(--glow-active-menu);
 
   /* ==========================================================================
      FUNCTIONAL STATE COLORS
