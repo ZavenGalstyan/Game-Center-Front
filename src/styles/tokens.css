@@ -186,19 +186,52 @@
   /* ==========================================================================
      BUTTONS
      ========================================================================== */
+
+  /* Button sizing (reusing control heights from Step 05) */
+  --button-height-sm: var(--height-control-sm);  /* 36px */
+  --button-height-md: var(--height-control-md);  /* 44px */
+  --button-height-lg: var(--height-control-lg);  /* 48px */
+
+  --button-padding-sm: 14px;
+  --button-padding-md: var(--space-5);           /* 20px */
+  --button-padding-lg: var(--space-6);           /* 24px */
+
+  --button-radius: var(--radius-base);           /* 10px */
+
+  --button-font-sm: var(--font-sm-plus);         /* 13px */
+  --button-font-md: var(--font-md-plus);         /* 15px */
+  --button-font-lg: var(--font-base);            /* 16px */
+
+  --button-icon-size: 40px;
+
+  /* Primary button colors */
   --button-primary-bg: #00E88F;
   --button-primary-text: #02130D;
   --button-primary-border: #20F0A0;
 
-  --button-hover-bg: #20F0A0;
-  --button-hover-text: #001A10;
-  --button-hover-border: #65FFC0;
+  --button-primary-hover-bg: #20F0A0;
+  --button-primary-hover-text: #001A10;
+  --button-primary-hover-border: #65FFC0;
 
-  /* Secondary/Ghost button colors derived from theme */
+  /* Secondary button colors */
   --button-secondary-bg: #092321;
   --button-secondary-text: var(--text);
   --button-secondary-border: var(--border-default);
-  --button-secondary-hover-bg: #0A2E2A;
+  --button-secondary-hover-bg: #0B302A;
+
+  /* Ghost button colors */
+  --button-ghost-hover-bg: rgba(0, 232, 143, 0.08);
+
+  /* Danger button colors (separate from global error palette) */
+  --button-danger-bg: #D94A4A;
+  --button-danger-text: #FFFFFF;
+  --button-danger-border: #F06B6B;
+  --button-danger-hover-bg: #E25555;
+
+  /* Legacy aliases */
+  --button-hover-bg: var(--button-primary-hover-bg);
+  --button-hover-text: var(--button-primary-hover-text);
+  --button-hover-border: var(--button-primary-hover-border);
 
   /* ==========================================================================
      TAGS / BADGES

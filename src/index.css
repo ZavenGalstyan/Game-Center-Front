@@ -49,25 +49,34 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  height: var(--height-control-md);
-  padding: 0 14px;
-  border-radius: var(--radius-base);
+  height: var(--button-height-md);
+  padding: 0 var(--button-padding-md);
+  border-radius: var(--button-radius);
   border: var(--border-width) solid transparent;
   background: var(--button-secondary-bg);
   color: var(--text);
   font-family: var(--font-family);
-  font-size: var(--font-md-plus);
+  font-size: var(--button-font-md);
   font-weight: var(--weight-medium);
   line-height: var(--line-none);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, opacity 0.15s, box-shadow 0.15s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s, box-shadow 0.15s, transform 0.15s;
 }
-.btn:hover {
+.btn:hover:not(:disabled) {
   background: var(--button-secondary-hover-bg);
 }
+.btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+.btn:focus-visible {
+  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline-offset: 3px;
+}
 .btn:disabled {
-  opacity: 0.55;
+  opacity: 0.45;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 .btn--primary {
   background: var(--button-primary-bg);
@@ -75,20 +84,55 @@ h3 {
   border-color: var(--button-primary-border);
   font-weight: var(--weight-bold);
 }
-.btn--primary:hover {
-  background: var(--button-hover-bg);
-  color: var(--button-hover-text);
-  box-shadow: var(--button-hover-shadow);
+.btn--primary:hover:not(:disabled) {
+  background: var(--button-primary-hover-bg);
+  color: var(--button-primary-hover-text);
+  border-color: var(--button-primary-hover-border);
+  box-shadow: var(--glow-button-hover);
+  transform: translateY(-1px);
+}
+.btn--primary:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+.btn--secondary {
+  background: var(--button-secondary-bg);
+  border-color: var(--border-default);
+}
+.btn--secondary:hover:not(:disabled) {
+  background: var(--button-secondary-hover-bg);
+  border-color: var(--primary-dark);
+  color: var(--accent-text);
 }
 .btn--ghost {
   background: transparent;
-  border-color: var(--border-default);
+  color: var(--text-secondary);
+  border-color: transparent;
 }
-.btn--ghost:hover {
-  background: var(--button-secondary-bg);
+.btn--ghost:hover:not(:disabled) {
+  background: var(--button-ghost-hover-bg);
+  color: var(--accent-text);
+}
+.btn--danger {
+  background: var(--button-danger-bg);
+  color: var(--button-danger-text);
+  border-color: var(--button-danger-border);
+}
+.btn--danger:hover:not(:disabled) {
+  background: var(--button-danger-hover-bg);
 }
 .btn--block {
   width: 100%;
+}
+.btn--sm {
+  height: var(--button-height-sm);
+  padding: 0 var(--button-padding-sm);
+  font-size: var(--button-font-sm);
+}
+.btn--lg {
+  height: var(--button-height-lg);
+  padding: 0 var(--button-padding-lg);
+  font-size: var(--button-font-lg);
 }
 
 .linkbtn {
@@ -567,15 +611,11 @@ h3 {
   line-height: var(--line-normal);
 }
 
-.btn--danger {
-  background: var(--color-error);
-  color: #fff;
-}
-.btn--danger:hover {
-  background: var(--color-error-hover);
-}
 .linkbtn--danger {
-  color: var(--color-error);
+  color: var(--button-danger-bg);
+}
+.linkbtn--danger:hover {
+  color: var(--button-danger-hover-bg);
 }
 
 /* ---------- games grid ---------- */
@@ -801,24 +841,27 @@ h3 {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-base);
+  border-radius: var(--button-radius);
   border: var(--border-width) solid var(--border-default);
-  background: var(--surface);
+  background: var(--button-secondary-bg);
   color: var(--text);
   font-family: var(--font-family);
   font-size: var(--font-sm-plus);
   font-weight: var(--weight-medium);
   line-height: var(--line-normal);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s;
 }
 .game-controls__btn:hover:not(:disabled) {
-  background: var(--card-hover-bg);
-  border-color: var(--border-active);
+  background: var(--button-secondary-hover-bg);
+  border-color: var(--primary-dark);
+  color: var(--accent-text);
 }
 .game-controls__btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 .game-controls__btn--primary {
   background: var(--button-primary-bg);
@@ -826,8 +869,9 @@ h3 {
   color: var(--button-primary-text);
 }
 .game-controls__btn--primary:hover:not(:disabled) {
-  background: var(--button-hover-bg);
-  box-shadow: var(--button-hover-shadow);
+  background: var(--button-primary-hover-bg);
+  border-color: var(--button-primary-hover-border);
+  box-shadow: var(--glow-button-hover);
 }
 .game-controls__btn svg {
   width: var(--size-icon-sm);
