@@ -234,6 +234,61 @@
   --button-hover-border: var(--button-primary-hover-border);
 
   /* ==========================================================================
+     FORM CONTROLS (Input, Select, Textarea)
+     ========================================================================== */
+
+  /* Control sizing (reusing control heights) */
+  --control-height-sm: var(--height-control-sm);    /* 36px */
+  --control-height-md: var(--height-control-md);    /* 44px */
+  --control-height-lg: var(--height-control-lg);    /* 48px */
+
+  /* Horizontal padding - official default is 14px */
+  --control-padding-x: 14px;
+
+  /* Vertical padding (for textarea) */
+  --control-padding-y: 10px;
+
+  /* Shape - size-specific radii */
+  --control-radius-sm: var(--radius-md);            /* 8px */
+  --control-radius-md: var(--radius-base);          /* 10px */
+  --control-radius-lg: var(--radius-lg);            /* 12px */
+
+  /* Font sizes */
+  --control-font-sm: var(--font-sm-plus);           /* 13px */
+  --control-font-md: var(--font-md-plus);           /* 15px */
+  --control-font-lg: var(--font-base);              /* 16px */
+
+  /* Colors */
+  --control-bg: var(--header-search-bg);            /* #092321 */
+  --control-text: var(--text);
+  --control-placeholder: var(--text-muted);
+  --control-border: var(--border-default);
+  --control-border-hover: var(--primary-dark);      /* #00C878 */
+  --control-border-focus: var(--border-active);     /* #00E88F */
+  --control-disabled-bg: var(--bg-secondary);       /* #061615 */
+
+  /* Focus ring */
+  --control-focus-ring: rgba(0, 232, 143, 0.14);
+
+  /* Error states */
+  --control-error-border: #D94A4A;
+  --control-error-text: #F06B6B;
+  --control-error-focus-ring: rgba(217, 74, 74, 0.18);
+
+  /* Label styling */
+  --label-font: var(--font-sm-plus);                /* 13px */
+  --label-weight: var(--weight-semibold);           /* 600 */
+  --label-line-height: var(--line-compact);         /* 1.3 */
+  --label-color: var(--text-secondary);             /* #A8BBB5 */
+  --label-gap: var(--space-2);                      /* 8px */
+
+  /* Error message styling */
+  --error-msg-gap: 6px;
+  --error-msg-font: var(--font-sm);                 /* 12px */
+  --error-msg-weight: var(--weight-medium);         /* 500 */
+  --error-msg-color: #F06B6B;
+
+  /* ==========================================================================
      TAGS / BADGES
      ========================================================================== */
   --tag-bg: #08704D;

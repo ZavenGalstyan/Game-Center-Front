@@ -437,42 +437,58 @@ h3 {
 .field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
 }
 .field__label {
-  font-size: var(--font-sm-plus);
-  font-weight: var(--weight-medium);
-  line-height: var(--line-short);
-  color: var(--text-secondary);
+  margin-bottom: var(--label-gap);
+  font-size: var(--label-font);
+  font-weight: var(--label-weight);
+  line-height: var(--label-line-height);
+  color: var(--label-color);
 }
 .field input,
 .admin__filters select {
-  height: var(--height-control-md);
-  background: var(--bg);
-  border: var(--border-width) solid var(--border-default);
-  border-radius: var(--radius-base);
-  padding: 0 11px;
-  color: var(--text);
-  font: inherit;
+  height: var(--control-height-md);
+  background: var(--control-bg);
+  border: var(--border-width) solid var(--control-border);
+  border-radius: var(--control-radius-md);
+  padding: 0 var(--control-padding-x);
+  color: var(--control-text);
+  font-family: var(--font-family);
+  font-size: var(--control-font-md);
+  transition: border-color 0.15s, outline 0.15s;
+}
+.field input:hover:not(:disabled):not(:focus),
+.admin__filters select:hover:not(:disabled):not(:focus) {
+  border-color: var(--control-border-hover);
 }
 .field input:focus,
 .admin__filters select:focus {
-  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--control-focus-ring);
   outline-offset: 1px;
-  border-color: var(--border-active);
+  border-color: var(--control-border-focus);
+}
+.field input:disabled,
+.admin__filters select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: var(--control-disabled-bg);
 }
 .field--error input {
-  border-color: var(--color-error);
+  border-color: var(--control-error-border);
+}
+.field--error input:focus {
+  outline-color: var(--control-error-focus-ring);
+  border-color: var(--control-error-border);
 }
 .field__msg {
-  font-size: var(--font-sm);
-  font-weight: var(--weight-regular);
+  margin-top: var(--error-msg-gap);
+  font-size: var(--error-msg-font);
+  font-weight: var(--error-msg-weight);
   line-height: var(--line-normal);
   color: var(--text-muted);
-  margin: 0;
 }
 .field__msg--error {
-  color: var(--color-error);
+  color: var(--error-msg-color);
 }
 .auth-form__switch {
   font-size: var(--font-sm-plus);
@@ -910,19 +926,45 @@ h3 {
 /* ---------- admin forms / tables ---------- */
 .field textarea,
 .field select {
-  background: var(--bg);
-  border: var(--border-width) solid var(--border-default);
-  border-radius: var(--radius-base);
-  padding: 9px 11px;
-  color: var(--text);
-  font: inherit;
+  background: var(--control-bg);
+  border: var(--border-width) solid var(--control-border);
+  border-radius: var(--control-radius-md);
+  padding: var(--control-padding-y) var(--control-padding-x);
+  color: var(--control-text);
+  font-family: var(--font-family);
+  font-size: var(--control-font-md);
   resize: vertical;
+  transition: border-color 0.15s, outline 0.15s;
+}
+.field select {
+  height: var(--control-height-md);
+  padding: 0 var(--control-padding-x);
+  cursor: pointer;
+}
+.field textarea:hover:not(:disabled):not(:focus),
+.field select:hover:not(:disabled):not(:focus) {
+  border-color: var(--control-border-hover);
 }
 .field textarea:focus,
 .field select:focus {
-  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--control-focus-ring);
   outline-offset: 1px;
-  border-color: var(--border-active);
+  border-color: var(--control-border-focus);
+}
+.field textarea:disabled,
+.field select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: var(--control-disabled-bg);
+}
+.field--error textarea,
+.field--error select {
+  border-color: var(--control-error-border);
+}
+.field--error textarea:focus,
+.field--error select:focus {
+  outline-color: var(--control-error-focus-ring);
+  border-color: var(--control-error-border);
 }
 .table__actions {
   display: flex;
