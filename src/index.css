@@ -52,7 +52,7 @@ h3 {
   height: var(--height-control-md);
   padding: 0 14px;
   border-radius: var(--radius-base);
-  border: 1px solid transparent;
+  border: var(--border-width) solid transparent;
   background: var(--button-secondary-bg);
   color: var(--text);
   font-family: var(--font-family);
@@ -125,7 +125,7 @@ h3 {
   justify-content: space-between;
   padding: 0 18px;
   background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-default);
+  border-bottom: var(--border-width) solid var(--border-default);
 }
 .header__left {
   display: flex;
@@ -181,7 +181,7 @@ h3 {
   flex-shrink: 0;
   align-self: stretch;
   padding: var(--space-5) var(--space-3);
-  border-right: 1px solid var(--border-default);
+  border-right: var(--border-width) solid var(--border-default);
   background: var(--sidebar-bg);
   position: sticky;
   top: var(--header-height);
@@ -220,7 +220,7 @@ h3 {
   background: var(--active-menu-bg);
   color: var(--text);
   font-weight: var(--weight-semibold);
-  border-left: 2px solid var(--active-menu-border);
+  border-left: var(--border-width-active) solid var(--active-menu-border);
   box-shadow: var(--active-menu-shadow);
 }
 .sidebar__backdrop {
@@ -236,7 +236,7 @@ h3 {
   align-items: center;
   gap: var(--space-2);
   background: transparent;
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-base);
   padding: 6px 10px;
   color: var(--text);
@@ -269,7 +269,7 @@ h3 {
   top: calc(100% + 6px);
   min-width: 190px;
   background: var(--surface);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-lg);
   padding: var(--space-2);
   display: flex;
@@ -296,7 +296,7 @@ h3 {
   width: 100%;
   min-height: var(--hero-height);
   background: var(--card-gradient);
-  border: 1px solid var(--border-card);
+  border: var(--border-width) solid var(--border-card);
   border-radius: var(--radius-xl);
   padding: var(--space-10);
   box-shadow: var(--glow-main);
@@ -330,7 +330,7 @@ h3 {
 }
 
 .empty-state {
-  border: 1px dashed var(--border-default);
+  border: var(--border-width) dashed var(--border-default);
   border-radius: var(--radius-lg);
   padding: var(--space-10);
   text-align: center;
@@ -355,7 +355,7 @@ h3 {
 /* ---------- cards / account ---------- */
 .card {
   background: var(--surface);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   margin-bottom: var(--space-5);
@@ -405,7 +405,7 @@ h3 {
 .admin__filters select {
   height: var(--height-control-md);
   background: var(--bg);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-base);
   padding: 0 11px;
   color: var(--text);
@@ -413,7 +413,7 @@ h3 {
 }
 .field input:focus,
 .admin__filters select:focus {
-  outline: 2px solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--focus-ring);
   outline-offset: 1px;
   border-color: var(--border-active);
 }
@@ -440,7 +440,7 @@ h3 {
 }
 .form-alert {
   background: var(--color-error-bg);
-  border: 1px solid var(--color-error-border);
+  border: var(--border-width) solid var(--color-error-border);
   color: var(--color-error-text);
   border-radius: var(--radius-md);
   padding: 9px 12px;
@@ -463,7 +463,7 @@ h3 {
   width: 100%;
   max-width: 400px;
   background: var(--surface);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-xl);
   box-shadow: var(--glow-strong);
 }
@@ -507,7 +507,7 @@ h3 {
 }
 .toast {
   background: var(--surface);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-left: 3px solid var(--primary);
   border-radius: var(--radius-md);
   padding: 10px 14px;
@@ -531,7 +531,7 @@ h3 {
 }
 .table-wrap {
   overflow-x: auto;
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-base);
 }
 .table {
@@ -543,7 +543,7 @@ h3 {
 .table td {
   text-align: left;
   padding: 10px 14px;
-  border-bottom: 1px solid var(--border-default);
+  border-bottom: var(--border-width) solid var(--border-default);
 }
 .table th {
   color: var(--text-muted);
@@ -723,7 +723,7 @@ h3 {
   border-radius: var(--radius-md);
   background: var(--tag-bg);
   color: var(--tag-text);
-  border: 1px solid var(--tag-border);
+  border: var(--border-width) solid var(--tag-border);
 }
 .load-more {
   display: flex;
@@ -762,7 +762,7 @@ h3 {
   background:
     radial-gradient(120% 120% at 50% 0%, rgba(0, 232, 143, 0.08), transparent 60%),
     var(--surface);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-card);
   box-shadow: var(--glow-main);
 }
@@ -801,7 +801,7 @@ h3 {
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-base);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   background: var(--surface);
   color: var(--text);
   font-family: var(--font-family);
@@ -848,7 +848,7 @@ h3 {
 .game-player:fullscreen .game-controls {
   padding: 10px 14px;
   background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-default);
+  border-bottom: var(--border-width) solid var(--border-default);
 }
 .game-player--fullscreen .game-player__stage,
 .game-player:fullscreen .game-player__stage {
@@ -866,7 +866,7 @@ h3 {
 .field textarea,
 .field select {
   background: var(--bg);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-base);
   padding: 9px 11px;
   color: var(--text);
@@ -875,7 +875,7 @@ h3 {
 }
 .field textarea:focus,
 .field select:focus {
-  outline: 2px solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--focus-ring);
   outline-offset: 1px;
   border-color: var(--border-active);
 }
@@ -999,7 +999,7 @@ h3 {
   min-height: 132px;
   padding: var(--space-4);
   background: var(--card-bg);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-lg);
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
@@ -1010,7 +1010,7 @@ h3 {
   box-shadow: var(--card-hover-shadow);
 }
 .liked-game-card:focus-visible {
-  outline: 2px solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--focus-ring);
   outline-offset: 2px;
 }
 .liked-game-card__head {
@@ -1043,7 +1043,7 @@ h3 {
   width: 28px;
   height: 28px;
   padding: 0;
-  border: 1px solid var(--border-active);
+  border: var(--border-width) solid var(--border-active);
   border-radius: var(--radius-full);
   background: var(--card-hover-bg);
   color: var(--accent-text);

@@ -164,6 +164,13 @@
   /* ==========================================================================
      BORDERS
      ========================================================================== */
+
+  /* Border widths */
+  --border-width: 1px;
+  --border-width-active: 1.5px;
+  --border-width-focus: 2px;
+
+  /* Border colors */
   --border-card: #00C878;
   --border-default: rgba(0, 200, 120, 0.35);
   --border-active: #00E88F;
