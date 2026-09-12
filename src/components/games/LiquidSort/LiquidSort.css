@@ -1,0 +1,670 @@
+/* ==========================================================================
+   Liquid Sort — internal styling. Scoped entirely under `.ls` so nothing
+   here can leak into the rest of the Game Center (same convention as the
+   other games' `.cd`, `.pm`, `.cr` root classes).
+
+   DESIGN SYSTEM
+   Dark, restrained UI chrome + colorful liquid as the visual hero.
+   `--ls-bg0/bg1/panel/line/accent/accent2/text/dim/surface` come from the
+   active chapter or cosmetic theme (see data/chapters.js, data/cosmetics.js)
+   and are applied as inline custom properties by LiquidSort.jsx — every one
+   of those palettes is a dark variant, only the accent pair changes.
+   `--ls-glass-highlight/--ls-shadow/--ls-success` are constant across every
+   theme, declared once below.
+
+   MOTION LANGUAGE (kept consistent everywhere, see each rule for its class):
+     hover            120-180ms ease-out, translateY(-1..-2px), no scale
+     bottle selection 180ms ease-out, translateY(-10px), scale ~1.02
+     invalid shake    ~220ms, 2-4px, no rotation
+     completed bottle ~450ms outline brighten + a handful of sparkles
+     pour             ~650-900ms total (see game/PourAnimation.js)
+     screen swap      220ms fade + 6px translate
+   ========================================================================== */
+
+.ls {
+  --ls-bg0: #0a0e18;
+  --ls-bg1: #0d1424;
+  --ls-panel: #141b2e;
+  --ls-line: rgba(255,255,255,0.09);
+  --ls-accent: #22d3ee;
+  --ls-accent2: #67e8f9;
+  --ls-text: #eef2f8;
+  --ls-dim: #8b97ad;
+  --ls-surface: #0e7490;
+
+  /* constant across every theme/chapter */
+  --ls-glass-highlight: rgba(255,255,255,0.55);
+  --ls-shadow: rgba(0,0,0,0.45);
+  --ls-success: #34d399;
+  --ls-danger: #f87171;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: var(--ls-text);
+  background: radial-gradient(120% 90% at 30% 0%, color-mix(in srgb, var(--ls-accent) 10%, var(--ls-bg1)) 0%, var(--ls-bg1) 42%, var(--ls-bg0) 100%);
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  /* The shared GamePlayer stage is a fixed 16:9 box (not the viewport) —
+     content below sizes itself off THIS box's own real size (cqh/cqw units)
+     rather than the page viewport, so it fits without scrolling regardless
+     of how tall the stage ends up being. */
+  container-type: size;
+  container-name: ls-root;
+}
+
+.ls * { box-sizing: border-box; }
+.ls button { font-family: inherit; cursor: pointer; }
+
+/* ==========================================================================
+   Backdrop — dark atmosphere, not a busy scene: two soft glows + a handful
+   of slow-drifting particles (high graphics + animations on only) + a
+   barely-there "shelf" silhouette under the bottle row.
+   ========================================================================== */
+.ls__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ls__backdrop::before,
+.ls__backdrop::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.16;
+}
+.ls__backdrop::before { width: 46%; aspect-ratio: 1; top: -14%; left: -10%; background: var(--ls-accent); }
+.ls__backdrop::after { width: 40%; aspect-ratio: 1; bottom: -16%; right: -8%; background: var(--ls-accent2); opacity: 0.1; }
+.ls[data-quality="low"] .ls__backdrop::before,
+.ls[data-quality="low"] .ls__backdrop::after { display: none; }
+
+.ls__particle {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--ls-accent2);
+  opacity: 0;
+  left: calc(8% + (var(--n) * 15%));
+  top: 90%;
+}
+.ls[data-quality="high"][data-motion="on"] .ls__particle {
+  animation: ls-particle-drift calc(14s + var(--n) * 2.4s) linear infinite;
+  animation-delay: calc(var(--n) * -2.6s);
+}
+@keyframes ls-particle-drift {
+  /* translateY in cqh (the `.ls` container's own height, see container-type
+     above) — a plain percentage here would resolve against the particle's
+     own 3px box and the drift would be imperceptible. */
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  8% { opacity: 0.5; }
+  92% { opacity: 0.35; }
+  100% { transform: translateY(-95cqh) translateX(6px); opacity: 0; }
+}
+
+.ls__table {
+  position: absolute;
+  left: 6%; right: 6%; bottom: 3%;
+  height: 16%;
+  border-radius: 50% / 16%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.ls__screen {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+/* every screen's own root fades + nudges in on mount — a fresh DOM node per
+   screen switch means this replays automatically, no JS needed */
+.ls-menu, .ls-levels, .ls-play, .ls-results, .ls-sub {
+  animation: ls-screen-in 220ms ease-out both;
+}
+@keyframes ls-screen-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Shared bits: buttons, panels, headers
+   ========================================================================== */
+.ls-btn {
+  appearance: none;
+  border: 1px solid var(--ls-line);
+  background: var(--ls-panel);
+  color: var(--ls-text);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out, background 150ms ease-out, border-color 150ms ease-out;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
+}
+.ls-btn:hover:not(:disabled) { transform: translateY(-1px); border-color: color-mix(in srgb, var(--ls-accent) 40%, var(--ls-line)); }
+.ls-btn:active:not(:disabled) { transform: translateY(0) scale(0.98); transition-duration: 90ms; }
+.ls-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.ls-btn--primary { background: linear-gradient(180deg, var(--ls-accent), var(--ls-surface)); color: #06222a; border-color: transparent; font-weight: 700; }
+.ls-btn--primary:hover:not(:disabled) { box-shadow: 0 4px 18px -4px color-mix(in srgb, var(--ls-accent) 60%, transparent); }
+.ls-btn--ghost { background: transparent; }
+.ls-btn--small { padding: 6px 12px; font-size: 0.82rem; border-radius: 9px; }
+.ls-btn--icon { padding: 8px; border-radius: 10px; }
+
+.ls-panel {
+  background: var(--ls-panel);
+  border: 1px solid var(--ls-line);
+  border-radius: 16px;
+  box-shadow: 0 10px 26px var(--ls-shadow);
+}
+
+.ls-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ls-topbar__title { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.01em; }
+.ls-topbar__sub { font-size: 0.76rem; color: var(--ls-dim); font-weight: 600; }
+
+/* ==========================================================================
+   MAIN MENU — sized off the container's own height (cqh), not the viewport,
+   so PLAY is always visible without scrolling on any normal desktop stage.
+   ========================================================================== */
+.ls-menu {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(6px, 2cqh, 20px) clamp(10px, 3cqw, 24px);
+  gap: clamp(6px, 1.6cqh, 14px);
+  text-align: center;
+  overflow: hidden;
+}
+.ls-menu__title {
+  font-size: clamp(1.5rem, 8cqh, 2.6rem);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: 0.01em;
+  background: linear-gradient(135deg, var(--ls-accent2), var(--ls-accent) 55%, var(--ls-surface));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 24px color-mix(in srgb, var(--ls-accent) 30%, transparent);
+}
+.ls-menu__subtitle {
+  font-size: clamp(0.62rem, 1.6cqh, 0.8rem);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--ls-dim);
+  text-transform: uppercase;
+}
+.ls-menu__stage {
+  width: min(560px, 92%);
+  height: clamp(64px, 20cqh, 140px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(8px, 2.4cqw, 20px);
+}
+.ls-menu__stage .ls-bottle { width: clamp(40px, 8cqh, 74px); }
+.ls-menu__stats {
+  display: flex;
+  gap: clamp(12px, 3cqw, 22px);
+  flex-wrap: wrap;
+  justify-content: center;
+  background: var(--ls-panel);
+  border: 1px solid var(--ls-line);
+  border-radius: 14px;
+  padding: clamp(6px, 1.2cqh, 12px) clamp(14px, 3cqw, 22px);
+  box-shadow: 0 8px 20px var(--ls-shadow);
+}
+.ls-menu__stat { display: flex; flex-direction: column; align-items: center; min-width: 62px; }
+.ls-menu__stat b { font-size: clamp(0.9rem, 2.2cqh, 1.15rem); font-weight: 800; }
+.ls-menu__stat span { font-size: 0.62rem; color: var(--ls-dim); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+
+.ls-menu__actions {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1.2cqh, 10px);
+  width: min(360px, 94%);
+}
+.ls-menu__play {
+  justify-content: center;
+  width: 100%;
+  padding: clamp(8px, 1.8cqh, 14px) 18px;
+  font-size: clamp(0.9rem, 2cqh, 1.05rem);
+  border-radius: 14px;
+}
+.ls-menu__secondary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.ls-menu__iconbtn {
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: clamp(6px, 1.2cqh, 10px) 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+/* idle demo bottle animation — one bottle only, subtle, not a giant bounce */
+.ls-menu__stage .ls-bottle--demo-pour {
+  animation: ls-demo-tilt 6s ease-in-out infinite;
+  transform-origin: 50% 22%;
+}
+@keyframes ls-demo-tilt {
+  0%, 62%, 100% { transform: rotate(0deg) translateY(0); }
+  78% { transform: rotate(13deg) translateY(-3px); }
+  86% { transform: rotate(13deg) translateY(-3px); }
+}
+
+/* ==========================================================================
+   LEVEL SELECT
+   ========================================================================== */
+.ls-levels { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+.ls-levels__body { flex: 1; min-height: 0; overflow-y: auto; padding: 4px 16px 20px; }
+.ls-chapter {
+  margin-bottom: 16px;
+  border: 1px solid var(--ls-line);
+  border-radius: 16px;
+  padding: 12px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ls-accent) 6%, var(--ls-panel)), var(--ls-panel));
+}
+.ls-chapter__head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 2px 4px 10px;
+}
+.ls-chapter__name { font-weight: 800; font-size: 1rem; color: var(--ls-text); }
+.ls-chapter__name::before {
+  content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--ls-accent); margin-right: 8px; box-shadow: 0 0 8px 1px color-mix(in srgb, var(--ls-accent) 70%, transparent);
+}
+.ls-chapter__meta { font-size: 0.72rem; color: var(--ls-dim); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+.ls-chapter__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+  gap: 8px;
+}
+.ls-chapter--locked { opacity: 0.5; }
+
+.ls-levelbtn {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 1px solid var(--ls-line);
+  background: color-mix(in srgb, var(--ls-panel) 70%, black 10%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px;
+  font-weight: 800;
+  color: var(--ls-text);
+  transition: transform 140ms ease-out, border-color 140ms ease-out, box-shadow 140ms ease-out;
+}
+.ls-levelbtn:hover:not(:disabled) { transform: translateY(-2px); border-color: color-mix(in srgb, var(--ls-accent) 55%, var(--ls-line)); }
+.ls-levelbtn:active:not(:disabled) { transform: translateY(0) scale(0.97); }
+.ls-levelbtn:disabled { opacity: 0.55; cursor: not-allowed; }
+.ls-levelbtn--locked { background: color-mix(in srgb, var(--ls-panel) 55%, black 25%); }
+.ls-levelbtn__num { font-size: 1rem; }
+.ls-levelbtn__stars { display: flex; gap: 1px; color: #f0b429; }
+.ls-levelbtn__stars svg { opacity: 0.28; }
+.ls-levelbtn__stars svg[fill="currentColor"] { opacity: 1; }
+.ls-levelbtn__best { font-size: 0.54rem; color: var(--ls-dim); font-weight: 700; }
+.ls-levelbtn--current { border-color: var(--ls-accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--ls-accent) 60%, transparent) inset, 0 0 14px -2px var(--ls-accent); }
+.ls-levelbtn__lock { color: var(--ls-dim); }
+
+/* ==========================================================================
+   GAMEPLAY
+   ========================================================================== */
+.ls-play { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.ls-hud {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 14px; gap: 10px; flex-wrap: wrap;
+}
+.ls-hud__group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.ls-hud__chip {
+  background: var(--ls-panel);
+  border: 1px solid var(--ls-line);
+  border-radius: 11px;
+  padding: 5px 11px;
+  display: flex; flex-direction: column; align-items: center; min-width: 50px;
+  line-height: 1.05;
+}
+.ls-hud__chip b { font-size: 0.95rem; font-weight: 800; }
+.ls-hud__chip span { font-size: 0.58rem; color: var(--ls-dim); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+.ls-hud__actions { display: flex; gap: 8px; }
+
+.ls-board-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px 14px;
+  position: relative;
+}
+/* a faint glass shelf glow behind the active puzzle row */
+.ls-board-wrap::before {
+  content: "";
+  position: absolute;
+  left: 8%; right: 8%; bottom: 10%;
+  height: 30%;
+  background: radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--ls-accent) 14%, transparent), transparent 70%);
+  pointer-events: none;
+}
+.ls-board {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  height: 100%;
+}
+.ls-board__slot {
+  width: var(--ls-bottle-w, 80px);
+  height: var(--ls-bottle-h, 152px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.ls-deadend {
+  position: absolute;
+  inset: auto 0 14px 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.ls-deadend__card {
+  pointer-events: auto;
+  display: flex; align-items: center; gap: 12px;
+  padding: 9px 15px;
+  border-radius: 13px;
+  background: var(--ls-panel);
+  border: 1px solid var(--ls-line);
+  box-shadow: 0 10px 24px var(--ls-shadow);
+  font-weight: 700; font-size: 0.83rem;
+  animation: ls-screen-in 200ms ease-out both;
+}
+
+/* ==========================================================================
+   BOTTLE
+   ========================================================================== */
+.ls-bottle {
+  position: relative;
+  width: var(--ls-bottle-w, 80px);
+  height: var(--ls-bottle-h, 152px);
+  background: none;
+  border: none;
+  padding: 0;
+  display: block;
+  transition: transform 180ms ease-out, filter 180ms ease-out;
+  filter: drop-shadow(0 8px 14px var(--ls-shadow));
+}
+.ls-bottle:focus-visible { outline: 2px solid var(--ls-accent); outline-offset: 4px; border-radius: 10px; }
+.ls-bottle__svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.ls-bottle:hover:not(:disabled):not(.ls-bottle--ghost) { transform: translateY(-2px); }
+.ls-bottle--selected {
+  transform: translateY(-10px) scale(1.02);
+  filter: drop-shadow(0 12px 16px var(--ls-shadow)) drop-shadow(0 0 10px color-mix(in srgb, var(--ls-accent) 45%, transparent));
+  z-index: 3;
+}
+.ls-bottle--ghost { visibility: hidden; }
+.ls-bottle--disabled { cursor: default; }
+.ls-bottle--reduced-motion, .ls-bottle--reduced-motion * { transition-duration: 60ms !important; animation-duration: 120ms !important; }
+
+/* a static soft glow beneath the selected bottle — no continuous pulsing */
+.ls-bottle__glow {
+  position: absolute;
+  inset: -8% -16%;
+  background: radial-gradient(ellipse at 50% 78%, var(--ls-accent) 0%, transparent 68%);
+  opacity: 0.4;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.ls-bottle__hint-ring {
+  position: absolute;
+  inset: -7%;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  z-index: -1;
+  animation: ls-hint-pulse 1.4s ease-in-out infinite;
+}
+.ls-bottle__hint-ring--from { border-color: #ffce54; }
+.ls-bottle__hint-ring--to { border-color: var(--ls-success); }
+@keyframes ls-hint-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.97); }
+  50% { opacity: 0.75; transform: scale(1.01); }
+}
+
+/* invalid move: short, small shake — no rotation — plus a brief red rim flash */
+.ls-bottle--shake { animation: ls-shake 220ms ease-out; }
+@keyframes ls-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  45% { transform: translateX(3px); }
+  70% { transform: translateX(-2px); }
+  90% { transform: translateX(1px); }
+}
+.ls-bottle--shake .ls-bottle__rim-flash { animation: ls-rim-flash 250ms ease-out; }
+.ls-bottle__rim-flash {
+  position: absolute; inset: -4%;
+  border-radius: 50%;
+  border: 2px solid var(--ls-danger);
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes ls-rim-flash { 0% { opacity: 0.8; } 100% { opacity: 0; } }
+
+/* completed bottle: brief bright overlay flash + a few sparkles + settle —
+   a separate overlay element (not a filter on the SVG) so it never disturbs
+   the liquid's own ripple/bubble animation running at the same moment. */
+.ls-bottle__complete-flash {
+  position: absolute;
+  inset: -6%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 62%, rgba(255,255,255,0.4), transparent 68%);
+  opacity: 0;
+  pointer-events: none;
+  animation: ls-complete-glow 450ms ease-out forwards;
+}
+@keyframes ls-complete-glow { 0% { opacity: 0; } 30% { opacity: 1; } 100% { opacity: 0; } }
+.ls-bottle__sparkle { position: absolute; inset: 0; pointer-events: none; }
+.ls-bottle__sparkle i {
+  position: absolute;
+  left: 50%; top: 32%;
+  width: 4px; height: 4px;
+  margin: -2px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 5px 1.5px #fff9;
+  opacity: 0;
+  animation: ls-sparkle 550ms ease-out forwards;
+  animation-delay: calc(var(--i) * 45ms);
+}
+.ls-bottle__sparkle i:nth-child(1) { --tx: 0px; --ty: -26px; }
+.ls-bottle__sparkle i:nth-child(2) { --tx: 20px; --ty: -12px; }
+.ls-bottle__sparkle i:nth-child(3) { --tx: -20px; --ty: -12px; }
+.ls-bottle__sparkle i:nth-child(4) { --tx: 12px; --ty: 14px; }
+.ls-bottle__sparkle i:nth-child(5) { --tx: -12px; --ty: 14px; }
+@keyframes ls-sparkle {
+  0% { opacity: 0; transform: translate(0,0) scale(0.4); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(1); }
+}
+
+.ls-liquid-ripple { animation: ls-ripple 380ms ease-out; }
+@keyframes ls-ripple {
+  0% { transform: scaleY(1) scaleX(1); }
+  35% { transform: scaleY(0.94) scaleX(1.03); }
+  65% { transform: scaleY(1.03) scaleX(0.98); }
+  100% { transform: scaleY(1) scaleX(1); }
+}
+
+.ls-bubble { animation: ls-bubble-rise 700ms ease-out forwards; }
+@keyframes ls-bubble-rise {
+  0% { opacity: 0; transform: translateY(0) scale(0.6); }
+  25% { opacity: 0.6; }
+  100% { opacity: 0; transform: translateY(-14px) scale(1); }
+}
+
+/* pouring clone + stream overlay */
+.ls-pour-clone { position: absolute; z-index: 5; pointer-events: none; }
+.ls-pour-clone .ls-bottle { filter: drop-shadow(0 16px 20px var(--ls-shadow)); }
+.ls-stream { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 4; overflow: visible; }
+.ls-stream__glow { filter: blur(3px); opacity: 0.5; }
+.ls-stream__shimmer { animation: ls-stream-flow 380ms linear infinite; }
+@keyframes ls-stream-flow { to { stroke-dashoffset: -24; } }
+.ls-stream__splash { animation: ls-splash-pulse 380ms ease-in-out infinite; }
+@keyframes ls-splash-pulse { 0%,100% { r: 3px; opacity: 0.5; } 50% { r: 5px; opacity: 0.75; } }
+
+/* ==========================================================================
+   RESULTS
+   ========================================================================== */
+.ls-results { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.ls-results__board { flex: 1; min-height: 0; }
+.ls-results__board .ls-board-wrap { align-items: flex-end; padding-bottom: clamp(140px, 34cqh, 230px); }
+.ls-results__panel {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  width: min(420px, 92%);
+  padding: clamp(12px, 3cqh, 18px) 20px clamp(14px, 3cqh, 20px);
+  text-align: center;
+  animation: ls-panel-in 250ms ease-out both;
+  background: var(--ls-panel);
+  background: color-mix(in srgb, var(--ls-panel) 92%, transparent);
+  backdrop-filter: blur(8px);
+}
+@keyframes ls-panel-in { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
+.ls-results__title { font-size: 1.4rem; font-weight: 900; margin-bottom: 2px; }
+.ls-results__title--perfect { background: linear-gradient(90deg, #ffce54, #f7975a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ls-results__stars { display: flex; justify-content: center; gap: 4px; color: #f0b429; margin: 6px 0; }
+.ls-results__stars svg { width: 26px; height: 26px; opacity: 0.28; }
+.ls-results__stars svg[fill="currentColor"] { opacity: 1; animation: ls-star-pop 350ms ease-out backwards; }
+.ls-results__stars svg[fill="currentColor"]:nth-child(1) { animation-delay: 40ms; }
+.ls-results__stars svg[fill="currentColor"]:nth-child(2) { animation-delay: 140ms; }
+.ls-results__stars svg[fill="currentColor"]:nth-child(3) { animation-delay: 240ms; }
+@keyframes ls-star-pop { from { transform: scale(0); } to { transform: scale(1); } }
+.ls-results__stats { display: flex; justify-content: center; gap: 20px; margin: 8px 0 14px; }
+.ls-results__actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+/* ==========================================================================
+   SETTINGS / STATISTICS
+   ========================================================================== */
+.ls-sub { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 2px 16px 10px; overflow-y: auto; }
+.ls-sub__body { max-width: 560px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 8px; }
+.ls-sub__grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ls-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; gap: 10px;
+}
+.ls-row__label { font-weight: 700; font-size: 0.9rem; }
+.ls-row__desc { font-size: 0.72rem; color: var(--ls-dim); font-weight: 500; margin-top: 2px; }
+.ls-segmented { display: flex; border: 1px solid var(--ls-line); border-radius: 10px; overflow: hidden; }
+.ls-segmented button { border: none; background: transparent; color: var(--ls-text); padding: 6px 11px; font-weight: 700; font-size: 0.8rem; transition: background 150ms ease-out, color 150ms ease-out; }
+.ls-segmented button.on { background: var(--ls-accent); color: #06222a; }
+.ls-toggle { position: relative; width: 40px; height: 23px; border-radius: 999px; border: 1px solid var(--ls-line); background: rgba(255,255,255,0.06); padding: 0; transition: background 150ms ease-out, border-color 150ms ease-out; }
+.ls-toggle.on { background: var(--ls-accent); border-color: var(--ls-accent); }
+.ls-toggle__knob { position: absolute; top: 2px; left: 2px; width: 17px; height: 17px; border-radius: 50%; background: #fff; transition: left 150ms ease-out; box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+.ls-toggle.on .ls-toggle__knob { left: 19px; }
+
+.ls-swatchrow { display: flex; gap: 8px; flex-wrap: wrap; padding: 2px 14px 9px; }
+.ls-swatch {
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  padding: 7px; border-radius: 11px; border: 1px solid var(--ls-line); background: rgba(255,255,255,0.03);
+  min-width: 64px;
+  transition: border-color 140ms ease-out, transform 140ms ease-out;
+  color: var(--ls-text);
+}
+.ls-swatch:hover:not(:disabled) { transform: translateY(-1px); }
+.ls-swatch.on { border-color: var(--ls-accent); box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--ls-accent) 60%, transparent) inset; }
+.ls-swatch:disabled { opacity: 0.4; }
+.ls-swatch__label { font-size: 0.66rem; font-weight: 700; }
+.ls-swatch__lock { font-size: 0.58rem; color: var(--ls-dim); display: flex; align-items: center; gap: 3px; }
+.ls-swatch__preview { width: 100%; height: 34px; border-radius: 7px; }
+.ls-swatch .ls-bottle { width: 34px; height: 65px; pointer-events: none; }
+
+.ls-stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px; padding: 2px 14px; }
+.ls-stat-card { padding: 12px; text-align: center; }
+.ls-stat-card b { display: block; font-size: 1.25rem; font-weight: 900; color: var(--ls-accent2); }
+.ls-stat-card span { font-size: 0.66rem; color: var(--ls-dim); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+
+/* ==========================================================================
+   RESPONSIVE (width)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .ls-topbar { padding: 10px 12px; }
+  .ls-hud__chip { min-width: 42px; padding: 4px 8px; }
+  .ls-chapter__grid { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); }
+  .ls-sub__grid2 { grid-template-columns: 1fr; }
+  .ls-menu__stage .ls-bottle { width: clamp(34px, 14vw, 60px); }
+}
+
+/* ==========================================================================
+   RESPONSIVE (the stage's own size, via container query) — this reacts to
+   the real GamePlayer box (often short on a phone, not fullscreen), which a
+   viewport media query can never see since the stage is sized by its width.
+   ========================================================================== */
+@container ls-root (max-height: 460px) {
+  .ls-hud { padding: 4px 10px; gap: 5px; }
+  .ls-hud__group { gap: 6px; }
+  .ls-hud__chip { padding: 2px 6px; min-width: 34px; }
+  .ls-hud__chip b { font-size: 0.78rem; }
+  .ls-hud__chip span { font-size: 0.5rem; }
+  .ls-hud__actions { gap: 5px; }
+  .ls-hud__actions .ls-btn { padding: 4px 7px; font-size: 0.68rem; }
+  .ls-hud__actions .ls-btn svg { width: 12px; height: 12px; }
+  .ls-board-wrap { padding: 2px 8px 4px; }
+  .ls-board { gap: 6px; }
+  .ls-menu { gap: 4px; padding: 4px 8px; }
+  .ls-menu__stage { height: clamp(46px, 16cqh, 90px); }
+}
+
+/* Genuinely tiny stages — a phone in portrait, NOT fullscreen (the shared
+   GamePlayer stage is still a fixed 16:9 box there, so this can drop well
+   under 220px tall). Trim the menu down to its essentials: title, bottles,
+   Play, secondary row — the subtitle and stats panel are the first things
+   to go, and only 3 of the 4 decorative bottles are kept. */
+@container ls-root (max-height: 260px) {
+  .ls-menu__subtitle, .ls-menu__stats { display: none; }
+  .ls-menu { gap: 3px; padding: 3px 8px; }
+  .ls-menu__title { font-size: clamp(1.05rem, 13cqh, 1.5rem); line-height: 0.9; }
+  .ls-menu__stage { height: clamp(34px, 26cqh, 60px); }
+  .ls-menu__stage .ls-bottle:nth-child(4) { display: none; }
+  .ls-menu__actions { gap: 4px; }
+  .ls-menu__play { padding: 4px 14px; font-size: 0.8rem; }
+  .ls-menu__iconbtn { padding: 3px 4px; font-size: 0.56rem; gap: 2px; }
+  .ls-menu__iconbtn svg { width: 13px; height: 13px; }
+}
+
+/* graphics quality: LOW trims shadows/highlights/particles, HIGH is the
+   default rich look above. Puzzle logic never changes with this setting. */
+.ls[data-quality="low"] .ls-panel,
+.ls[data-quality="low"] .ls-btn,
+.ls[data-quality="low"] .ls-hud__chip { box-shadow: none; }
+.ls[data-quality="low"] .ls-bottle { filter: drop-shadow(0 4px 6px var(--ls-shadow)); }
+.ls[data-quality="low"] .ls-board-wrap::before { display: none; }
