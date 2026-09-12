@@ -164,6 +164,13 @@
   /* ==========================================================================
      BORDERS
      ========================================================================== */
+
+  /* Border widths */
+  --border-width: 1px;
+  --border-width-active: 1.5px;
+  --border-width-focus: 2px;
+
+  /* Border colors */
   --border-card: #00C878;
   --border-default: rgba(0, 200, 120, 0.35);
   --border-active: #00E88F;
@@ -171,27 +178,131 @@
   /* ==========================================================================
      CARDS
      ========================================================================== */
+
+  /* Card backgrounds */
   --card-bg: #06231B;
   --card-gradient: linear-gradient(110deg, #071B18 0%, #063326 100%);
   --card-hover-bg: #07382A;
+
+  /* Card borders (reusing existing border tokens) */
+  --card-border: var(--border-card);             /* #00C878 - default game card */
+  --card-border-hover: var(--border-active);     /* #00E88F */
+
+  /* Card layout (semantic aliases to spacing tokens) */
+  --card-padding: var(--space-5);                /* 20px */
+  --card-content-gap: var(--space-4);            /* 16px */
+  --card-radius: var(--radius-card);             /* 16px */
+
+  /* Card transition */
+  --card-transition: 200ms ease;
+
+  /* Legacy alias */
   --card-hover-border: #00E88F;
 
   /* ==========================================================================
      BUTTONS
      ========================================================================== */
+
+  /* Button sizing (reusing control heights from Step 05) */
+  --button-height-sm: var(--height-control-sm);  /* 36px */
+  --button-height-md: var(--height-control-md);  /* 44px */
+  --button-height-lg: var(--height-control-lg);  /* 48px */
+
+  --button-padding-sm: 14px;
+  --button-padding-md: var(--space-5);           /* 20px */
+  --button-padding-lg: var(--space-6);           /* 24px */
+
+  --button-radius: var(--radius-base);           /* 10px */
+
+  --button-font-sm: var(--font-sm-plus);         /* 13px */
+  --button-font-md: var(--font-md-plus);         /* 15px */
+  --button-font-lg: var(--font-base);            /* 16px */
+
+  --button-icon-size: 40px;
+
+  /* Primary button colors */
   --button-primary-bg: #00E88F;
   --button-primary-text: #02130D;
   --button-primary-border: #20F0A0;
 
-  --button-hover-bg: #20F0A0;
-  --button-hover-text: #001A10;
-  --button-hover-border: #65FFC0;
+  --button-primary-hover-bg: #20F0A0;
+  --button-primary-hover-text: #001A10;
+  --button-primary-hover-border: #65FFC0;
 
-  /* Secondary/Ghost button colors derived from theme */
+  /* Secondary button colors */
   --button-secondary-bg: #092321;
   --button-secondary-text: var(--text);
   --button-secondary-border: var(--border-default);
-  --button-secondary-hover-bg: #0A2E2A;
+  --button-secondary-hover-bg: #0B302A;
+
+  /* Ghost button colors */
+  --button-ghost-hover-bg: rgba(0, 232, 143, 0.08);
+
+  /* Danger button colors (separate from global error palette) */
+  --button-danger-bg: #D94A4A;
+  --button-danger-text: #FFFFFF;
+  --button-danger-border: #F06B6B;
+  --button-danger-hover-bg: #E25555;
+
+  /* Legacy aliases */
+  --button-hover-bg: var(--button-primary-hover-bg);
+  --button-hover-text: var(--button-primary-hover-text);
+  --button-hover-border: var(--button-primary-hover-border);
+
+  /* ==========================================================================
+     FORM CONTROLS (Input, Select, Textarea)
+     ========================================================================== */
+
+  /* Control sizing (reusing control heights) */
+  --control-height-sm: var(--height-control-sm);    /* 36px */
+  --control-height-md: var(--height-control-md);    /* 44px */
+  --control-height-lg: var(--height-control-lg);    /* 48px */
+
+  /* Horizontal padding - official default is 14px */
+  --control-padding-x: 14px;
+
+  /* Vertical padding (for textarea) */
+  --control-padding-y: 10px;
+
+  /* Shape - size-specific radii */
+  --control-radius-sm: var(--radius-md);            /* 8px */
+  --control-radius-md: var(--radius-base);          /* 10px */
+  --control-radius-lg: var(--radius-lg);            /* 12px */
+
+  /* Font sizes */
+  --control-font-sm: var(--font-sm-plus);           /* 13px */
+  --control-font-md: var(--font-md-plus);           /* 15px */
+  --control-font-lg: var(--font-base);              /* 16px */
+
+  /* Colors */
+  --control-bg: var(--header-search-bg);            /* #092321 */
+  --control-text: var(--text);
+  --control-placeholder: var(--text-muted);
+  --control-border: var(--border-default);
+  --control-border-hover: var(--primary-dark);      /* #00C878 */
+  --control-border-focus: var(--border-active);     /* #00E88F */
+  --control-disabled-bg: var(--bg-secondary);       /* #061615 */
+
+  /* Focus ring */
+  --control-focus-ring: rgba(0, 232, 143, 0.14);
+
+  /* Error states */
+  --control-error-border: #D94A4A;
+  --control-error-text: #F06B6B;
+  --control-error-focus-ring: rgba(217, 74, 74, 0.18);
+
+  /* Label styling */
+  --label-font: var(--font-sm-plus);                /* 13px */
+  --label-weight: var(--weight-semibold);           /* 600 */
+  --label-line-height: var(--line-compact);         /* 1.3 */
+  --label-color: var(--text-secondary);             /* #A8BBB5 */
+  --label-gap: var(--space-2);                      /* 8px */
+
+  /* Error message styling */
+  --error-msg-gap: 6px;
+  --error-msg-font: var(--font-sm);                 /* 12px */
+  --error-msg-weight: var(--weight-medium);         /* 500 */
+  --error-msg-color: #F06B6B;
 
   /* ==========================================================================
      TAGS / BADGES
@@ -214,13 +325,38 @@
   --active-menu-border: #00E88F;
 
   /* ==========================================================================
-     GLOWS / SHADOWS
+     SHADOWS / GLOWS
      ========================================================================== */
-  --glow-main: 0 0 18px rgba(0, 232, 143, 0.30);
-  --glow-strong: 0 0 25px rgba(0, 232, 143, 0.50);
-  --card-hover-shadow: 0 0 22px rgba(0, 232, 143, 0.35);
-  --button-hover-shadow: 0 0 20px rgba(0, 232, 143, 0.45);
-  --active-menu-shadow: 0 0 20px rgba(0, 232, 143, 0.35);
+
+  /* Neutral elevation shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.24);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.30);
+
+  /* Card shadows */
+  --shadow-card: 0 6px 18px rgba(0, 0, 0, 0.22);
+  --shadow-card-hover: 0 10px 28px rgba(0, 0, 0, 0.28);
+
+  /* Overlay shadows */
+  --shadow-dropdown: 0 10px 30px rgba(0, 0, 0, 0.32);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+  /* Green glows (selective use only) */
+  --glow-sm: 0 0 14px rgba(0, 232, 143, 0.18);
+  --glow-md: 0 0 20px rgba(0, 232, 143, 0.28);
+  --glow-lg: 0 0 28px rgba(0, 232, 143, 0.42);
+
+  /* Semantic glows */
+  --glow-button-hover: 0 0 20px rgba(0, 232, 143, 0.40);
+  --glow-active-menu: 0 0 18px rgba(0, 232, 143, 0.25);
+  --glow-game-card-default: 0 0 14px rgba(0, 232, 143, 0.10);
+
+  /* Legacy aliases (migrate away from these) */
+  --glow-main: var(--glow-sm);
+  --glow-strong: var(--glow-lg);
+  --card-hover-shadow: var(--shadow-card-hover), var(--glow-md);
+  --button-hover-shadow: var(--glow-button-hover);
+  --active-menu-shadow: var(--glow-active-menu);
 
   /* ==========================================================================
      FUNCTIONAL STATE COLORS

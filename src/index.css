@@ -49,25 +49,34 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  height: var(--height-control-md);
-  padding: 0 14px;
-  border-radius: var(--radius-base);
-  border: 1px solid transparent;
+  height: var(--button-height-md);
+  padding: 0 var(--button-padding-md);
+  border-radius: var(--button-radius);
+  border: var(--border-width) solid transparent;
   background: var(--button-secondary-bg);
   color: var(--text);
   font-family: var(--font-family);
-  font-size: var(--font-md-plus);
+  font-size: var(--button-font-md);
   font-weight: var(--weight-medium);
   line-height: var(--line-none);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, opacity 0.15s, box-shadow 0.15s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s, box-shadow 0.15s, transform 0.15s;
 }
-.btn:hover {
+.btn:hover:not(:disabled) {
   background: var(--button-secondary-hover-bg);
 }
+.btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+.btn:focus-visible {
+  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline-offset: 3px;
+}
 .btn:disabled {
-  opacity: 0.55;
+  opacity: 0.45;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 .btn--primary {
   background: var(--button-primary-bg);
@@ -75,20 +84,55 @@ h3 {
   border-color: var(--button-primary-border);
   font-weight: var(--weight-bold);
 }
-.btn--primary:hover {
-  background: var(--button-hover-bg);
-  color: var(--button-hover-text);
-  box-shadow: var(--button-hover-shadow);
+.btn--primary:hover:not(:disabled) {
+  background: var(--button-primary-hover-bg);
+  color: var(--button-primary-hover-text);
+  border-color: var(--button-primary-hover-border);
+  box-shadow: var(--glow-button-hover);
+  transform: translateY(-1px);
+}
+.btn--primary:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+.btn--secondary {
+  background: var(--button-secondary-bg);
+  border-color: var(--border-default);
+}
+.btn--secondary:hover:not(:disabled) {
+  background: var(--button-secondary-hover-bg);
+  border-color: var(--primary-dark);
+  color: var(--accent-text);
 }
 .btn--ghost {
   background: transparent;
-  border-color: var(--border-default);
+  color: var(--text-secondary);
+  border-color: transparent;
 }
-.btn--ghost:hover {
-  background: var(--button-secondary-bg);
+.btn--ghost:hover:not(:disabled) {
+  background: var(--button-ghost-hover-bg);
+  color: var(--accent-text);
+}
+.btn--danger {
+  background: var(--button-danger-bg);
+  color: var(--button-danger-text);
+  border-color: var(--button-danger-border);
+}
+.btn--danger:hover:not(:disabled) {
+  background: var(--button-danger-hover-bg);
 }
 .btn--block {
   width: 100%;
+}
+.btn--sm {
+  height: var(--button-height-sm);
+  padding: 0 var(--button-padding-sm);
+  font-size: var(--button-font-sm);
+}
+.btn--lg {
+  height: var(--button-height-lg);
+  padding: 0 var(--button-padding-lg);
+  font-size: var(--button-font-lg);
 }
 
 .linkbtn {
@@ -125,7 +169,7 @@ h3 {
   justify-content: space-between;
   padding: 0 18px;
   background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-default);
+  border-bottom: var(--border-width) solid var(--border-default);
 }
 .header__left {
   display: flex;
@@ -181,7 +225,7 @@ h3 {
   flex-shrink: 0;
   align-self: stretch;
   padding: var(--space-5) var(--space-3);
-  border-right: 1px solid var(--border-default);
+  border-right: var(--border-width) solid var(--border-default);
   background: var(--sidebar-bg);
   position: sticky;
   top: var(--header-height);
@@ -220,7 +264,7 @@ h3 {
   background: var(--active-menu-bg);
   color: var(--text);
   font-weight: var(--weight-semibold);
-  border-left: 2px solid var(--active-menu-border);
+  border-left: var(--border-width-active) solid var(--active-menu-border);
   box-shadow: var(--active-menu-shadow);
 }
 .sidebar__backdrop {
@@ -236,7 +280,7 @@ h3 {
   align-items: center;
   gap: var(--space-2);
   background: transparent;
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-base);
   padding: 6px 10px;
   color: var(--text);
@@ -269,12 +313,12 @@ h3 {
   top: calc(100% + 6px);
   min-width: 190px;
   background: var(--surface);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-lg);
   padding: var(--space-2);
   display: flex;
   flex-direction: column;
-  box-shadow: var(--glow-main);
+  box-shadow: var(--shadow-dropdown);
 }
 .usermenu__item {
   text-align: left;
@@ -296,7 +340,7 @@ h3 {
   width: 100%;
   min-height: var(--hero-height);
   background: var(--card-gradient);
-  border: 1px solid var(--border-card);
+  border: var(--border-width) solid var(--border-card);
   border-radius: var(--radius-xl);
   padding: var(--space-10);
   box-shadow: var(--glow-main);
@@ -330,7 +374,7 @@ h3 {
 }
 
 .empty-state {
-  border: 1px dashed var(--border-default);
+  border: var(--border-width) dashed var(--border-default);
   border-radius: var(--radius-lg);
   padding: var(--space-10);
   text-align: center;
@@ -353,9 +397,13 @@ h3 {
 }
 
 /* ---------- cards / account ---------- */
+/*
+ * Generic info/account card.
+ * Standard rectangular shape - no diagonal cut.
+ */
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border-default);
+  background: var(--card-bg);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   margin-bottom: var(--space-5);
@@ -393,42 +441,58 @@ h3 {
 .field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
 }
 .field__label {
-  font-size: var(--font-sm-plus);
-  font-weight: var(--weight-medium);
-  line-height: var(--line-short);
-  color: var(--text-secondary);
+  margin-bottom: var(--label-gap);
+  font-size: var(--label-font);
+  font-weight: var(--label-weight);
+  line-height: var(--label-line-height);
+  color: var(--label-color);
 }
 .field input,
 .admin__filters select {
-  height: var(--height-control-md);
-  background: var(--bg);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-base);
-  padding: 0 11px;
-  color: var(--text);
-  font: inherit;
+  height: var(--control-height-md);
+  background: var(--control-bg);
+  border: var(--border-width) solid var(--control-border);
+  border-radius: var(--control-radius-md);
+  padding: 0 var(--control-padding-x);
+  color: var(--control-text);
+  font-family: var(--font-family);
+  font-size: var(--control-font-md);
+  transition: border-color 0.15s, outline 0.15s;
+}
+.field input:hover:not(:disabled):not(:focus),
+.admin__filters select:hover:not(:disabled):not(:focus) {
+  border-color: var(--control-border-hover);
 }
 .field input:focus,
 .admin__filters select:focus {
-  outline: 2px solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--control-focus-ring);
   outline-offset: 1px;
-  border-color: var(--border-active);
+  border-color: var(--control-border-focus);
+}
+.field input:disabled,
+.admin__filters select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: var(--control-disabled-bg);
 }
 .field--error input {
-  border-color: var(--color-error);
+  border-color: var(--control-error-border);
+}
+.field--error input:focus {
+  outline-color: var(--control-error-focus-ring);
+  border-color: var(--control-error-border);
 }
 .field__msg {
-  font-size: var(--font-sm);
-  font-weight: var(--weight-regular);
+  margin-top: var(--error-msg-gap);
+  font-size: var(--error-msg-font);
+  font-weight: var(--error-msg-weight);
   line-height: var(--line-normal);
   color: var(--text-muted);
-  margin: 0;
 }
 .field__msg--error {
-  color: var(--color-error);
+  color: var(--error-msg-color);
 }
 .auth-form__switch {
   font-size: var(--font-sm-plus);
@@ -440,7 +504,7 @@ h3 {
 }
 .form-alert {
   background: var(--color-error-bg);
-  border: 1px solid var(--color-error-border);
+  border: var(--border-width) solid var(--color-error-border);
   color: var(--color-error-text);
   border-radius: var(--radius-md);
   padding: 9px 12px;
@@ -463,9 +527,9 @@ h3 {
   width: 100%;
   max-width: 400px;
   background: var(--surface);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-xl);
-  box-shadow: var(--glow-strong);
+  box-shadow: var(--shadow-modal);
 }
 .modal__head {
   display: flex;
@@ -507,7 +571,7 @@ h3 {
 }
 .toast {
   background: var(--surface);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-left: 3px solid var(--primary);
   border-radius: var(--radius-md);
   padding: 10px 14px;
@@ -515,7 +579,7 @@ h3 {
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
   cursor: pointer;
-  box-shadow: var(--glow-main);
+  box-shadow: var(--shadow-md);
   max-width: 320px;
 }
 .toast--success {
@@ -531,7 +595,7 @@ h3 {
 }
 .table-wrap {
   overflow-x: auto;
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-base);
 }
 .table {
@@ -543,7 +607,7 @@ h3 {
 .table td {
   text-align: left;
   padding: 10px 14px;
-  border-bottom: 1px solid var(--border-default);
+  border-bottom: var(--border-width) solid var(--border-default);
 }
 .table th {
   color: var(--text-muted);
@@ -567,15 +631,11 @@ h3 {
   line-height: var(--line-normal);
 }
 
-.btn--danger {
-  background: var(--color-error);
-  color: #fff;
-}
-.btn--danger:hover {
-  background: var(--color-error-hover);
-}
 .linkbtn--danger {
-  color: var(--color-error);
+  color: var(--button-danger-bg);
+}
+.linkbtn--danger:hover {
+  color: var(--button-danger-hover-bg);
 }
 
 /* ---------- games grid ---------- */
@@ -632,31 +692,36 @@ h3 {
   flex-direction: column;
   gap: var(--space-2);
   height: var(--game-card-height);
-  padding: var(--space-4);
+  padding: var(--card-padding);
   background: var(--card-bg);
   color: var(--text);
   position: relative;
   /* Clip-path creates the diagonal cut at top-right corner */
   clip-path: polygon(
-    0 var(--radius-card),
-    var(--radius-card) 0,
+    0 var(--card-radius),
+    var(--card-radius) 0,
     calc(100% - var(--_cut)) 0,
     100% var(--_cut),
-    100% calc(100% - var(--radius-card)),
-    calc(100% - var(--radius-card)) 100%,
-    var(--radius-card) 100%,
-    0 calc(100% - var(--radius-card))
+    100% calc(100% - var(--card-radius)),
+    calc(100% - var(--card-radius)) 100%,
+    var(--card-radius) 100%,
+    0 calc(100% - var(--card-radius))
   );
-  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  box-shadow: var(--shadow-card), var(--glow-game-card-default);
+  transition:
+    transform var(--card-transition),
+    box-shadow var(--card-transition),
+    background var(--card-transition);
 }
 /* Border simulation using pseudo-element (clip-path doesn't support border) */
 .game-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--border-default);
+  background: var(--card-border);
   clip-path: inherit;
   z-index: -1;
+  transition: background var(--card-transition);
 }
 .game-card::after {
   content: "";
@@ -664,27 +729,31 @@ h3 {
   inset: 1px;
   background: var(--card-bg);
   clip-path: polygon(
-    0 calc(var(--radius-card) - 1px),
-    calc(var(--radius-card) - 1px) 0,
+    0 calc(var(--card-radius) - 1px),
+    calc(var(--card-radius) - 1px) 0,
     calc(100% - var(--_cut) + 0.5px) 0,
     100% calc(var(--_cut) - 0.5px),
-    100% calc(100% - var(--radius-card) + 1px),
-    calc(100% - var(--radius-card) + 1px) 100%,
-    calc(var(--radius-card) - 1px) 100%,
-    0 calc(100% - var(--radius-card) + 1px)
+    100% calc(100% - var(--card-radius) + 1px),
+    calc(100% - var(--card-radius) + 1px) 100%,
+    calc(var(--card-radius) - 1px) 100%,
+    0 calc(100% - var(--card-radius) + 1px)
   );
   z-index: -1;
-  transition: background 0.15s;
+  transition: background var(--card-transition);
 }
 .game-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--card-hover-shadow);
+  box-shadow: var(--shadow-card-hover), var(--glow-md);
 }
 .game-card:hover::before {
-  background: var(--card-hover-border);
+  background: var(--card-border-hover);
 }
 .game-card:hover::after {
   background: var(--card-hover-bg);
+}
+.game-card:focus-visible {
+  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline-offset: 3px;
 }
 .game-card__top {
   display: flex;
@@ -723,7 +792,7 @@ h3 {
   border-radius: var(--radius-md);
   background: var(--tag-bg);
   color: var(--tag-text);
-  border: 1px solid var(--tag-border);
+  border: var(--border-width) solid var(--tag-border);
 }
 .load-more {
   display: flex;
@@ -762,7 +831,7 @@ h3 {
   background:
     radial-gradient(120% 120% at 50% 0%, rgba(0, 232, 143, 0.08), transparent 60%),
     var(--surface);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-card);
   box-shadow: var(--glow-main);
 }
@@ -800,24 +869,27 @@ h3 {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-base);
-  border: 1px solid var(--border-default);
-  background: var(--surface);
+  border-radius: var(--button-radius);
+  border: var(--border-width) solid var(--border-default);
+  background: var(--button-secondary-bg);
   color: var(--text);
   font-family: var(--font-family);
   font-size: var(--font-sm-plus);
   font-weight: var(--weight-medium);
   line-height: var(--line-normal);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s;
 }
 .game-controls__btn:hover:not(:disabled) {
-  background: var(--card-hover-bg);
-  border-color: var(--border-active);
+  background: var(--button-secondary-hover-bg);
+  border-color: var(--primary-dark);
+  color: var(--accent-text);
 }
 .game-controls__btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 .game-controls__btn--primary {
   background: var(--button-primary-bg);
@@ -825,8 +897,9 @@ h3 {
   color: var(--button-primary-text);
 }
 .game-controls__btn--primary:hover:not(:disabled) {
-  background: var(--button-hover-bg);
-  box-shadow: var(--button-hover-shadow);
+  background: var(--button-primary-hover-bg);
+  border-color: var(--button-primary-hover-border);
+  box-shadow: var(--glow-button-hover);
 }
 .game-controls__btn svg {
   width: var(--size-icon-sm);
@@ -848,7 +921,7 @@ h3 {
 .game-player:fullscreen .game-controls {
   padding: 10px 14px;
   background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-default);
+  border-bottom: var(--border-width) solid var(--border-default);
 }
 .game-player--fullscreen .game-player__stage,
 .game-player:fullscreen .game-player__stage {
@@ -865,19 +938,45 @@ h3 {
 /* ---------- admin forms / tables ---------- */
 .field textarea,
 .field select {
-  background: var(--bg);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-base);
-  padding: 9px 11px;
-  color: var(--text);
-  font: inherit;
+  background: var(--control-bg);
+  border: var(--border-width) solid var(--control-border);
+  border-radius: var(--control-radius-md);
+  padding: var(--control-padding-y) var(--control-padding-x);
+  color: var(--control-text);
+  font-family: var(--font-family);
+  font-size: var(--control-font-md);
   resize: vertical;
+  transition: border-color 0.15s, outline 0.15s;
+}
+.field select {
+  height: var(--control-height-md);
+  padding: 0 var(--control-padding-x);
+  cursor: pointer;
+}
+.field textarea:hover:not(:disabled):not(:focus),
+.field select:hover:not(:disabled):not(:focus) {
+  border-color: var(--control-border-hover);
 }
 .field textarea:focus,
 .field select:focus {
-  outline: 2px solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--control-focus-ring);
   outline-offset: 1px;
-  border-color: var(--border-active);
+  border-color: var(--control-border-focus);
+}
+.field textarea:disabled,
+.field select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: var(--control-disabled-bg);
+}
+.field--error textarea,
+.field--error select {
+  border-color: var(--control-error-border);
+}
+.field--error textarea:focus,
+.field--error select:focus {
+  outline-color: var(--control-error-focus-ring);
+  border-color: var(--control-error-border);
 }
 .table__actions {
   display: flex;
@@ -999,18 +1098,22 @@ h3 {
   min-height: 132px;
   padding: var(--space-4);
   background: var(--card-bg);
-  border: 1px solid var(--border-default);
+  border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
   cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  transition:
+    transform var(--card-transition),
+    box-shadow var(--card-transition),
+    border-color var(--card-transition);
 }
 .liked-game-card:hover {
   transform: translateY(-2px);
-  border-color: var(--border-active);
-  box-shadow: var(--card-hover-shadow);
+  border-color: var(--card-border-hover);
+  box-shadow: var(--shadow-card-hover);
 }
 .liked-game-card:focus-visible {
-  outline: 2px solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--focus-ring);
   outline-offset: 2px;
 }
 .liked-game-card__head {
@@ -1043,7 +1146,7 @@ h3 {
   width: 28px;
   height: 28px;
   padding: 0;
-  border: 1px solid var(--border-active);
+  border: var(--border-width) solid var(--border-active);
   border-radius: var(--radius-full);
   background: var(--card-hover-bg);
   color: var(--accent-text);
