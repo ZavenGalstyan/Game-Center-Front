@@ -672,13 +672,19 @@
    CARD
    ========================================================================== */
 
+/*
+ * Generic Card component.
+ * Does NOT include Game Card diagonal cut - that's specific to .game-card.
+ * Uses standard rectangular shape with consistent card tokens.
+ */
 .ui-card {
-  background: var(--ui-card-bg, var(--surface));
+  background: var(--ui-card-bg, var(--card-bg));
   border-radius: var(--ui-card-radius, var(--radius-lg));
 }
 
 .ui-card--elevated {
   border: var(--border-width) solid var(--border-default);
+  box-shadow: var(--shadow-card);
 }
 
 .ui-card--outlined {
@@ -690,12 +696,33 @@
   background: transparent;
 }
 
+/* Interactive variant for clickable cards */
+.ui-card--interactive {
+  cursor: pointer;
+  transition:
+    transform var(--card-transition),
+    box-shadow var(--card-transition),
+    border-color var(--card-transition);
+}
+
+.ui-card--interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-border-hover);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.ui-card--interactive:focus-visible {
+  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Padding variants */
 .ui-card--pad-sm {
   padding: var(--ui-card-padding-sm, var(--space-3));
 }
 
 .ui-card--pad-md {
-  padding: var(--ui-card-padding-md, 22px);
+  padding: var(--ui-card-padding-md, var(--card-padding));
 }
 
 .ui-card--pad-lg {
@@ -703,7 +730,7 @@
 }
 
 .ui-card__header {
-  margin-bottom: var(--ui-card-header-gap, var(--space-4));
+  margin-bottom: var(--ui-card-header-gap, var(--card-content-gap));
 }
 
 .ui-card__title {
@@ -718,8 +745,8 @@
 }
 
 .ui-card__footer {
-  margin-top: var(--ui-card-footer-gap, var(--space-4));
-  padding-top: var(--ui-card-footer-gap, var(--space-4));
+  margin-top: var(--ui-card-footer-gap, var(--card-content-gap));
+  padding-top: var(--ui-card-footer-gap, var(--card-content-gap));
   border-top: var(--border-width) solid var(--border-default);
 }
 

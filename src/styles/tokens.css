@@ -178,9 +178,25 @@
   /* ==========================================================================
      CARDS
      ========================================================================== */
+
+  /* Card backgrounds */
   --card-bg: #06231B;
   --card-gradient: linear-gradient(110deg, #071B18 0%, #063326 100%);
   --card-hover-bg: #07382A;
+
+  /* Card borders (reusing existing border tokens) */
+  --card-border: var(--border-card);             /* #00C878 - default game card */
+  --card-border-hover: var(--border-active);     /* #00E88F */
+
+  /* Card layout (semantic aliases to spacing tokens) */
+  --card-padding: var(--space-5);                /* 20px */
+  --card-content-gap: var(--space-4);            /* 16px */
+  --card-radius: var(--radius-card);             /* 16px */
+
+  /* Card transition */
+  --card-transition: 200ms ease;
+
+  /* Legacy alias */
   --card-hover-border: #00E88F;
 
   /* ==========================================================================
