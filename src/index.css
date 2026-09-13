@@ -75,7 +75,7 @@ h3 {
   transform: translateY(0) scale(0.98);
 }
 .btn:focus-visible {
-  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
   outline-offset: 3px;
 }
 .btn:disabled {
@@ -487,7 +487,7 @@ h3 {
 }
 .field input:disabled,
 .admin__filters select:disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
   background: var(--control-disabled-bg);
 }
@@ -776,7 +776,7 @@ h3 {
   background: var(--card-hover-bg);
 }
 .game-card:focus-visible {
-  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
   outline-offset: 3px;
 }
 .game-card__top {
@@ -995,7 +995,7 @@ h3 {
 }
 .field textarea:disabled,
 .field select:disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
   background: var(--control-disabled-bg);
 }
@@ -1143,8 +1143,8 @@ h3 {
   box-shadow: var(--shadow-card-hover);
 }
 .liked-game-card:focus-visible {
-  outline: var(--border-width-focus) solid var(--focus-ring);
-  outline-offset: 2px;
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 .liked-game-card__head {
   display: flex;
@@ -1189,7 +1189,7 @@ h3 {
   transform: scale(1.08);
 }
 .liked-game-card__unlike:disabled {
-  opacity: 0.5;
+  opacity: var(--state-disabled-opacity);
   cursor: default;
 }
 .liked-game-card__unlike svg {

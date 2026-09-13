@@ -419,13 +419,47 @@
   --overlay-soft: rgba(0, 0, 0, 0.35);
 
   /* ==========================================================================
-     FOCUS STATES
+     INTERACTIVE STATES
+     ========================================================================== */
+
+  /* Hover state */
+  --state-hover-bg: var(--button-ghost-hover-bg);      /* rgba(0, 232, 143, 0.08) */
+  --state-hover-color: var(--primary-dark);            /* #00C878 */
+
+  /* Active/pressed state */
+  --state-active-color: var(--primary);                /* #00E88F */
+
+  /* Selected state (persistent choice) */
+  --state-selected-bg: rgba(0, 232, 143, 0.10);
+  --state-selected-color: var(--primary);              /* #00E88F */
+  --state-selected-border: var(--border-active);       /* #00E88F */
+  --state-selected-glow: 0 0 18px rgba(0, 232, 143, 0.20);
+
+  /* Focus state (keyboard navigation) */
+  --state-focus-ring: rgba(0, 232, 143, 0.20);         /* Soft supplemental focus (NOT primary) */
+  --state-focus-outline: var(--border-active);         /* #00E88F - solid visible outline */
+
+  /* Disabled state */
+  --state-disabled-opacity: 0.45;
+
+  /* Error state */
+  --state-error-color: var(--control-error-border);    /* #D94A4A */
+  --state-error-text: var(--control-error-text);       /* #F06B6B */
+  --state-error-bg: var(--color-error-bg);
+  --state-error-focus-ring: var(--control-error-focus-ring);
+
+  /* Success state */
+  --state-success-color: var(--accent-text);           /* #20F0A0 */
+  --state-success-bg: var(--color-success-bg);
+
+  /* ==========================================================================
+     FOCUS STATES (Legacy - use --state-focus-* above)
      ========================================================================== */
   --focus-ring: rgba(0, 232, 143, 0.50);
   --focus-ring-strong: rgba(0, 232, 143, 0.75);
 
   /* ==========================================================================
-     DISABLED STATES
+     DISABLED STATES (Legacy - use --state-disabled-* above)
      ========================================================================== */
   --disabled-bg: #0A1B18;
   --disabled-border: rgba(0, 200, 120, 0.18);

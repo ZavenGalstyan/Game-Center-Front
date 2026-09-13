@@ -138,7 +138,7 @@
 }
 
 .ui-btn:focus-visible {
-  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
   outline-offset: 3px;
 }
 
@@ -278,7 +278,7 @@
 }
 
 .ui-icon-btn:focus-visible {
-  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
   outline-offset: 3px;
 }
 
@@ -377,7 +377,7 @@
 }
 
 .ui-input:disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
   background: var(--control-disabled-bg);
 }
@@ -449,7 +449,7 @@
 }
 
 .ui-textarea:disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
   background: var(--control-disabled-bg);
 }
@@ -516,7 +516,7 @@
 }
 
 .ui-select:disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
   background: var(--control-disabled-bg);
 }
@@ -585,7 +585,7 @@
 }
 
 .ui-field--disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
 }
 
 /* ==========================================================================
@@ -779,16 +779,16 @@
 }
 
 .ui-empty-state__title {
-  font-size: var(--font-lg);
-  font-weight: var(--weight-semibold);
+  font-size: var(--font-base);                         /* 16px per spec */
+  font-weight: var(--weight-semibold);                 /* 600 */
   line-height: var(--line-snug);
   margin: 0;
 }
 
 .ui-empty-state__message {
   color: var(--text-muted);
-  font-size: var(--font-md-plus);
-  font-weight: var(--weight-regular);
+  font-size: var(--font-md);                           /* 14px per spec */
+  font-weight: var(--weight-regular);                  /* 400 */
   line-height: var(--line-normal);
   margin: 0 0 var(--space-3);
 }
@@ -837,8 +837,8 @@
 }
 
 .ui-card--interactive:focus-visible {
-  outline: var(--border-width-focus) solid var(--focus-ring);
-  outline-offset: 2px;
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 
 /* Padding variants */
@@ -1118,7 +1118,7 @@
 }
 
 .ui-table-actions__btn:disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
 }
 
@@ -1349,6 +1349,52 @@
   left: calc(100% + 8px);
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* ==========================================================================
+   STATE UTILITIES
+   ========================================================================== */
+
+/*
+ * Selected state utility.
+ * For persistent choice indicators (current tab, selected filter, chosen item).
+ * Use .is-selected or aria-selected="true" where semantically appropriate.
+ *
+ * Note: Component-specific selected/active states (e.g., sidebar navigation,
+ * tabs) may override this with their approved semantic design.
+ */
+.is-selected,
+[aria-selected="true"] {
+  color: var(--state-selected-color);
+  border-color: var(--state-selected-border);
+  background: var(--state-selected-bg);
+  box-shadow: var(--state-selected-glow);
+}
+
+/*
+ * Disabled state utility.
+ * Prefer native :disabled for form controls.
+ * Use .is-disabled for custom non-native elements.
+ *
+ * Note: This utility does NOT set pointer-events: none globally.
+ * Interaction blocking must be handled by component logic
+ * (native disabled, aria-disabled, or explicit click guards).
+ */
+.is-disabled {
+  opacity: var(--state-disabled-opacity);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/*
+ * Loading state utility.
+ * Indicates an action is in progress.
+ * Prevents duplicate activation while loading.
+ */
+.is-loading {
+  cursor: wait;
+  pointer-events: none;
 }
 
 /* ==========================================================================
