@@ -679,9 +679,10 @@ h3 {
 /* ---------- game grid ---------- */
 /*
  * Official Game Grid layout:
- * - Desktop (≥1200px): 3 columns
- * - Tablet (768px–1199px): 2 columns
- * - Mobile (<768px): 1 column
+ * - Large Desktop (≥1600px): 3 columns, 24px gap
+ * - Desktop (1200px–1599px): 3 columns, 20px gap
+ * - Tablet (768px–1199px): 2 columns, 16px gap
+ * - Mobile (<768px): 1 column, 16px gap
  */
 .game-grid {
   display: grid;
@@ -691,15 +692,26 @@ h3 {
   margin-top: var(--space-2);
 }
 
-@media (max-width: 1199px) {
+/* Desktop: 1200px–1599px */
+@media (min-width: 1200px) and (max-width: 1599px) {
   .game-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
   }
 }
 
+/* Tablet: 768px–1199px */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .game-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+/* Mobile: <768px */
 @media (max-width: 767px) {
   .game-grid {
     grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
   }
 }
 /* ---------- game card shape ---------- */
@@ -1027,14 +1039,92 @@ h3 {
   color: var(--text-muted);
 }
 
-/* ---------- responsive ---------- */
-@media (max-width: 860px) {
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/*
+ * Official breakpoints:
+ * - Large Desktop: ≥1600px (reference layout)
+ * - Desktop: 1200px–1599px
+ * - Tablet: 768px–1199px (sidebar drawer mode)
+ * - Mobile: <768px (sidebar drawer mode)
+ */
+
+/* ---------- Desktop: 1200px–1599px ---------- */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  /* Page padding: 24px */
+  .app-main {
+    padding: var(--content-padding-y) var(--space-6);
+  }
+
+  /* Hero: min-height ~280-300px, title 44px */
+  .hero {
+    min-height: 288px;
+    padding: var(--space-8);
+  }
+
+  .hero__title {
+    font-size: 44px;
+  }
+
+  /* Section title: stays at 24px (default) */
+}
+
+/* ---------- Tablet: 768px–1199px ---------- */
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* Page padding: 20px */
+  .app-main {
+    padding: var(--content-padding-y) var(--space-5);
+  }
+
+  /* Hero: min-height ~260px, title 38px */
+  .hero {
+    min-height: 260px;
+    padding: var(--space-8);
+  }
+
+  .hero__title {
+    font-size: 38px;
+  }
+
+  .hero__lead {
+    font-size: var(--font-md-plus);
+  }
+
+  /* Section title: 22px, Card title: 16px, Body: 15px */
+  .landing__title,
+  .page-title {
+    font-size: 22px;
+  }
+
+  .game-card__title {
+    font-size: var(--font-base);
+  }
+
+  .game-card__desc {
+    font-size: var(--font-sm-plus);
+  }
+
+  body {
+    font-size: var(--font-md-plus);
+  }
+}
+
+/* ---------- Sidebar drawer: <1200px ---------- */
+/*
+ * Sidebar drawer mode for tablet and mobile.
+ * JS toggle is pure React state — no hardcoded breakpoint in JS.
+ */
+@media (max-width: 1199px) {
   .header__hamburger {
     display: block;
   }
+
   .usermenu__name {
     display: none;
   }
+
   .sidebar {
     position: fixed;
     top: var(--header-height);
@@ -1043,9 +1133,11 @@ h3 {
     transform: translateX(-100%);
     transition: transform var(--duration-smooth) var(--ease-default);
   }
+
   .sidebar.is-open {
     transform: translateX(0);
   }
+
   .sidebar__backdrop.is-open {
     display: block;
     position: fixed;
@@ -1053,42 +1145,197 @@ h3 {
     z-index: 30;
     background: var(--overlay-sidebar);
   }
-  .app-main {
-    padding: var(--content-padding-y) var(--space-4);
-  }
-  .hero {
-    padding: var(--space-6) var(--space-5);
-  }
+
   .game-player__stage {
     max-height: 70vh;
   }
 }
 
+/* ---------- Mobile: <768px ---------- */
+@media (max-width: 767px) {
+  /* Page padding: 16px */
+  .app-main {
+    padding: var(--content-padding-y) var(--space-4);
+  }
+
+  /* Hero: min-height ~220px, title 30px */
+  .hero {
+    min-height: 220px;
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .hero__title {
+    font-size: 30px;
+  }
+
+  .hero__lead {
+    font-size: var(--font-base);
+  }
+
+  /* Section title: 20px, Card title: 16px, Body: 14px, Card desc: 12px */
+  .landing__title,
+  .page-title {
+    font-size: 20px;
+  }
+
+  .game-card__title {
+    font-size: var(--font-base);
+  }
+
+  .game-card__desc {
+    font-size: var(--font-sm);
+  }
+
+  body {
+    font-size: var(--font-md);
+  }
+
+  /* Modal responsive */
+  .modal {
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+  }
+
+  .modal__body {
+    padding: var(--space-4) var(--space-4) var(--space-5);
+  }
+
+  /* Forms stack on mobile */
+  .card {
+    max-width: 100%;
+  }
+
+  .empty-state {
+    padding: var(--space-6);
+  }
+
+  /* Pagination wraps cleanly */
+  .pager {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  /* Profile definition list stacks */
+  .profile div {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}
+
+/* ---------- Small mobile: ≤520px ---------- */
 @media (max-width: 520px) {
   .game-controls {
     justify-content: stretch;
   }
+
   .game-controls__btn {
     flex: 1 1 0;
     justify-content: center;
   }
-  /* fullscreen bar keeps its buttons compact */
+
+  /* Fullscreen bar keeps buttons compact */
   .game-player--fullscreen .game-controls,
   .game-player:fullscreen .game-controls {
     justify-content: flex-end;
   }
+
   .game-player--fullscreen .game-controls__btn,
   .game-player:fullscreen .game-controls__btn {
     flex: 0 0 auto;
   }
+
+  .games-page__head,
+  .admin__head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  /* Admin filters wrap cleanly */
+  .admin__filters {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .admin__filters label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .admin__filters select {
+    width: 100%;
+  }
 }
 
+/* ---------- Extra small: ≤380px ---------- */
 @media (max-width: 380px) {
   .game-controls__btn span {
     display: none;
   }
+
   .game-controls__btn {
     padding: 8px 10px;
+  }
+
+  .btn {
+    padding: 0 var(--space-3);
+  }
+
+  .btn--lg {
+    padding: 0 var(--space-4);
+  }
+
+  /* Pagination info may wrap */
+  .pager__info {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Dialog actions stack */
+  .dialog-actions {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .dialog-actions .btn {
+    width: 100%;
+  }
+
+  /* Usermenu trigger shrinks */
+  .usermenu__trigger {
+    padding: 6px 8px;
+  }
+}
+
+/* ---------- Minimum width: ≤320px ---------- */
+/*
+ * Structural safety net for very small devices.
+ * Prevents horizontal overflow from fixed-width elements.
+ * Hero title remains 30px (mobile scale) — no further reduction.
+ */
+@media (max-width: 320px) {
+  /* Header brand scales down */
+  .header__brand {
+    font-size: var(--font-lg);
+  }
+
+  /* Hero minimal padding (title stays 30px from mobile breakpoint) */
+  .hero {
+    padding: var(--space-4);
+  }
+
+  /* Toast fits screen */
+  .toast {
+    max-width: calc(100vw - 32px);
+  }
+
+  /* Table min-width relaxed */
+  .table {
+    min-width: 300px;
   }
 }
 

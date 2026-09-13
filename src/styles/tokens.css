@@ -152,6 +152,23 @@
   --section-content-gap: var(--space-4); /* 16px */
   --section-gap: var(--space-8);         /* 32px */
 
+  /* ==========================================================================
+     BREAKPOINTS (Reference Only)
+     ========================================================================== */
+  /*
+   * CSS custom properties cannot be used in media query conditions.
+   * These are documentation/reference aliases only.
+   *
+   * Actual media queries must use literal values:
+   *   @media (max-width: 767px) {}           Mobile
+   *   @media (min-width: 768px) and (max-width: 1199px) {}  Tablet
+   *   @media (min-width: 1200px) and (max-width: 1599px) {} Desktop
+   *   @media (min-width: 1600px) {}          Large Desktop
+   */
+  --breakpoint-mobile: 768px;
+  --breakpoint-tablet: 1200px;
+  --breakpoint-desktop-lg: 1600px;
+
   /*
    * ==========================================================================
    * COLORS
