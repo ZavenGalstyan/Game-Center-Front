@@ -81,10 +81,31 @@
      SIZING
      ========================================================================== */
 
-  /* Icons */
+  /* Icons - Core sizes */
   --size-icon-sm: 16px;
   --size-icon-md: 20px;
   --size-icon-lg: 24px;
+
+  /* Icons - Semantic size scale */
+  --icon-xs: 14px;
+  --icon-sm: var(--size-icon-sm);   /* 16px */
+  --icon-md: var(--size-icon-md);   /* 20px */
+  --icon-lg: var(--size-icon-lg);   /* 24px */
+  --icon-xl: 32px;
+
+  /* Icons - Stroke widths (SVG strokeWidth values, not CSS pixels) */
+  --icon-stroke: 1.8;
+  --icon-stroke-active: 2;
+
+  /* Icons - Colors (semantic aliases to existing color tokens) */
+  --icon-color: var(--text-secondary);        /* #A8BBB5 - default */
+  --icon-color-primary: var(--text);          /* #F5FFFB - strong contrast */
+  --icon-color-active: var(--primary);        /* #00E88F - selected/active */
+  --icon-color-muted: var(--text-muted);      /* #718A82 - subdued */
+  --icon-color-hover: var(--primary-dark);    /* #00C878 - hover state */
+
+  /* Icons - Gap between icon and text */
+  --icon-text-gap: var(--space-2);            /* 8px */
 
   /* Controls */
   --height-control-sm: 36px;

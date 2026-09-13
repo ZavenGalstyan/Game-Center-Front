@@ -15,12 +15,13 @@ import { api } from "../../lib/api.js";
  * so a slow response for a previous game can't overwrite the current one.
  */
 function IconHeart({ filled }) {
+  // Stroke width: 1.8 default, 2 when active/filled (per icon spec)
   return (
     <svg
       viewBox="0 0 24 24"
       fill={filled ? "currentColor" : "none"}
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth={filled ? 2 : 1.8}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
