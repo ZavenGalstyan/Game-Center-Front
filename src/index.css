@@ -60,7 +60,13 @@ h3 {
   font-weight: var(--weight-medium);
   line-height: var(--line-none);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s, box-shadow 0.15s, transform 0.15s;
+  transition:
+    background-color var(--duration-default) var(--ease-default),
+    border-color var(--duration-default) var(--ease-default),
+    color var(--duration-default) var(--ease-default),
+    box-shadow var(--duration-default) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default),
+    opacity var(--duration-default) var(--ease-default);
 }
 .btn:hover:not(:disabled) {
   background: var(--button-secondary-hover-bg);
@@ -254,7 +260,9 @@ h3 {
   font-size: var(--font-base);
   font-weight: var(--weight-medium);
   line-height: var(--line-snug);
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background-color var(--duration-default) var(--ease-default),
+    color var(--duration-default) var(--ease-default);
 }
 .sidebar__link:hover {
   background: var(--surface);
@@ -289,7 +297,9 @@ h3 {
   font-weight: var(--weight-medium);
   line-height: var(--line-short);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition:
+    background-color var(--duration-default) var(--ease-default),
+    border-color var(--duration-default) var(--ease-default);
 }
 .usermenu__trigger:hover {
   background: var(--surface);
@@ -319,6 +329,8 @@ h3 {
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-dropdown);
+  transform-origin: top right;
+  animation: ui-dropdown-in var(--duration-default) var(--ease-out);
 }
 .usermenu__item {
   text-align: left;
@@ -329,7 +341,7 @@ h3 {
   padding: 8px 10px;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background-color var(--duration-default) var(--ease-default);
 }
 .usermenu__item:hover {
   background: var(--card-hover-bg);
@@ -459,7 +471,9 @@ h3 {
   color: var(--control-text);
   font-family: var(--font-family);
   font-size: var(--control-font-md);
-  transition: border-color 0.15s, outline 0.15s;
+  transition:
+    border-color var(--duration-default) var(--ease-default),
+    outline-color var(--duration-default) var(--ease-default);
 }
 .field input:hover:not(:disabled):not(:focus),
 .admin__filters select:hover:not(:disabled):not(:focus) {
@@ -522,6 +536,7 @@ h3 {
   display: grid;
   place-items: center;
   padding: var(--space-4);
+  animation: ui-overlay-in var(--duration-default) var(--ease-default);
 }
 .modal {
   width: 100%;
@@ -530,6 +545,7 @@ h3 {
   border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-modal);
+  animation: ui-modal-in var(--duration-smooth) var(--ease-out);
 }
 .modal__head {
   display: flex;
@@ -551,7 +567,9 @@ h3 {
   line-height: 0;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: color 0.15s, background 0.15s;
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default);
 }
 .modal__close:hover {
   color: var(--icon-color-hover);
@@ -884,7 +902,11 @@ h3 {
   font-weight: var(--weight-medium);
   line-height: var(--line-normal);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s;
+  transition:
+    background-color var(--duration-default) var(--ease-default),
+    border-color var(--duration-default) var(--ease-default),
+    color var(--duration-default) var(--ease-default),
+    opacity var(--duration-default) var(--ease-default);
 }
 .game-controls__btn:hover:not(:disabled) {
   background: var(--button-secondary-hover-bg);
@@ -952,7 +974,9 @@ h3 {
   font-family: var(--font-family);
   font-size: var(--control-font-md);
   resize: vertical;
-  transition: border-color 0.15s, outline 0.15s;
+  transition:
+    border-color var(--duration-default) var(--ease-default),
+    outline-color var(--duration-default) var(--ease-default);
 }
 .field select {
   height: var(--control-height-md);
@@ -1017,7 +1041,7 @@ h3 {
     left: 0;
     z-index: 40;
     transform: translateX(-100%);
-    transition: transform 0.2s ease;
+    transition: transform var(--duration-smooth) var(--ease-default);
   }
   .sidebar.is-open {
     transform: translateX(0);
@@ -1076,7 +1100,7 @@ h3 {
    for height / radius / spacing / font; only the liked accent + heart pop
    are added here. */
 .game-controls__btn--like svg {
-  transition: transform 0.18s ease;
+  transition: transform var(--duration-default) var(--ease-default);
 }
 .game-controls__btn--like.is-liked {
   color: var(--accent-text);
@@ -1157,7 +1181,9 @@ h3 {
   background: var(--card-hover-bg);
   color: var(--accent-text);
   cursor: pointer;
-  transition: transform 0.15s, opacity 0.15s;
+  transition:
+    transform var(--duration-fast) var(--ease-default),
+    opacity var(--duration-fast) var(--ease-default);
 }
 .liked-game-card__unlike:hover:not(:disabled) {
   transform: scale(1.08);

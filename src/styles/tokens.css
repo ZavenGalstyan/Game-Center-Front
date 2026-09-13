@@ -214,8 +214,8 @@
   --card-content-gap: var(--space-4);            /* 16px */
   --card-radius: var(--radius-card);             /* 16px */
 
-  /* Card transition */
-  --card-transition: 200ms ease;
+  /* Card transition (uses motion tokens - see Motion section) */
+  --card-transition: var(--duration-smooth) var(--ease-default);
 
   /* Legacy alias */
   --card-hover-border: #00E88F;
@@ -436,6 +436,20 @@
      ========================================================================== */
   --divider: rgba(0, 200, 120, 0.18);
   --divider-strong: rgba(0, 200, 120, 0.35);
+
+  /* ==========================================================================
+     MOTION / ANIMATION
+     ========================================================================== */
+
+  /* Durations */
+  --duration-fast: 120ms;      /* Icon/micro-hover/press */
+  --duration-default: 180ms;   /* Button/input/menu/navigation */
+  --duration-smooth: 220ms;    /* Cards/larger hover transitions */
+  --duration-slow: 320ms;      /* Drawer/large UI transitions */
+
+  /* Easing functions */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);  /* Standard state transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);     /* Entrance/open animations */
 
   /* ==========================================================================
      LEGACY COMPATIBILITY ALIASES

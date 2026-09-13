@@ -81,7 +81,7 @@
  */
 .ui-icon-interactive {
   color: var(--icon-color);
-  transition: color 0.15s;
+  transition: color var(--duration-fast) var(--ease-default);
 }
 
 .ui-icon-interactive:hover {
@@ -119,7 +119,13 @@
   font-weight: var(--weight-medium);
   line-height: var(--line-none);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s, box-shadow 0.15s, transform 0.15s;
+  transition:
+    background-color var(--duration-default) var(--ease-default),
+    border-color var(--duration-default) var(--ease-default),
+    color var(--duration-default) var(--ease-default),
+    box-shadow var(--duration-default) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default),
+    opacity var(--duration-default) var(--ease-default);
   position: relative;
 }
 
@@ -258,7 +264,11 @@
   line-height: var(--line-none);
   cursor: pointer;
   box-sizing: border-box;
-  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s;
+  transition:
+    background-color var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default),
+    color var(--duration-fast) var(--ease-default),
+    opacity var(--duration-fast) var(--ease-default);
 }
 
 .ui-icon-btn:hover:not(:disabled) {
@@ -347,7 +357,9 @@
   font-size: var(--ui-input-font, var(--control-font-md));
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
-  transition: border-color 0.15s, outline 0.15s;
+  transition:
+    border-color var(--duration-default) var(--ease-default),
+    outline-color var(--duration-default) var(--ease-default);
 }
 
 .ui-input::placeholder {
@@ -417,7 +429,9 @@
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
   resize: vertical;
-  transition: border-color 0.15s, outline 0.15s;
+  transition:
+    border-color var(--duration-default) var(--ease-default),
+    outline-color var(--duration-default) var(--ease-default);
 }
 
 .ui-textarea::placeholder {
@@ -486,7 +500,9 @@
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
   cursor: pointer;
-  transition: border-color 0.15s, outline 0.15s;
+  transition:
+    border-color var(--duration-default) var(--ease-default),
+    outline-color var(--duration-default) var(--ease-default);
 }
 
 .ui-select:hover:not(:disabled):not(:focus) {
@@ -667,7 +683,7 @@
   cursor: pointer;
   padding: 0;
   line-height: 0;
-  transition: opacity 0.15s;
+  transition: opacity var(--duration-fast) var(--ease-default);
 }
 
 .ui-alert__dismiss:hover {
@@ -1128,7 +1144,7 @@
   padding: var(--ui-tab-padding, 10px 16px);
   cursor: pointer;
   position: relative;
-  transition: color 0.15s;
+  transition: color var(--duration-default) var(--ease-default);
 }
 
 .ui-tabs__tab:hover {
@@ -1236,7 +1252,9 @@
   padding: var(--space-1);
   line-height: 0;
   border-radius: var(--radius-sm);
-  transition: color 0.15s, background 0.15s;
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default);
 }
 
 .ui-modal__close:hover {
@@ -1301,7 +1319,7 @@
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.15s;
+  transition: opacity var(--duration-fast) var(--ease-default);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1331,4 +1349,65 @@
   left: calc(100% + 8px);
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+/* Modal overlay entrance */
+.ui-modal-overlay {
+  animation: ui-overlay-in var(--duration-default) var(--ease-default);
+}
+
+@keyframes ui-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal content entrance */
+.ui-modal {
+  animation: ui-modal-in var(--duration-smooth) var(--ease-out);
+}
+
+@keyframes ui-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dropdown entrance */
+@keyframes ui-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
