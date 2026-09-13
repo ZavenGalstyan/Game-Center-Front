@@ -26,6 +26,10 @@ const CrowdRush = lazy(() => import("./CrowdRush/CrowdRush.jsx"));
  *  lazy so the catalogue doesn't pull that in until someone opens it. */
 const BombSquad = lazy(() => import("./BombSquad/BombSquad.jsx"));
 
+/** Stonewild — a true-3D voxel survival sandbox (chunked terrain, WebGL);
+ *  lazy so the catalogue never pays for its Three.js chunk-meshing code. */
+const Stonewild = lazy(() => import("./Stonewild/Stonewild.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -45,6 +49,7 @@ const GAME_COMPONENTS = {
   "Liquid Sort": LiquidSort,
   "Blade Rush": BladeRush,
   "Bomb Squad": BombSquad,
+  "Stonewild": Stonewild,
 };
 
 /**
