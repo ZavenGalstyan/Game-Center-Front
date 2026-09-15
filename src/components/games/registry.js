@@ -30,6 +30,14 @@ const BombSquad = lazy(() => import("./BombSquad/BombSquad.jsx"));
  *  lazy so the catalogue never pays for its Three.js chunk-meshing code. */
 const Stonewild = lazy(() => import("./Stonewild/Stonewild.jsx"));
 
+/** Cozy Cleanup — plain DOM/SVG/Canvas cleaning sim, but it ships a full
+ *  illustrated room per level; lazy so the catalogue stays light. */
+const CozyCleanup = lazy(() => import("./CozyCleanup/CozyCleanup.jsx"));
+
+/** Supermarket Rush — a first-person 3D Three.js/R3F supermarket sim; lazy
+ *  so the catalogue never pays for its WebGL chunk. */
+const SupermarketRush = lazy(() => import("./SupermarketRush/SupermarketRush.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -50,6 +58,8 @@ const GAME_COMPONENTS = {
   "Blade Rush": BladeRush,
   "Bomb Squad": BombSquad,
   "Stonewild": Stonewild,
+  "Cozy Cleanup": CozyCleanup,
+  "Supermarket Rush": SupermarketRush,
 };
 
 /**
@@ -59,7 +69,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush"]);
 
 export function getGameComponent(game) {
   if (!game || !game.name) return null;
