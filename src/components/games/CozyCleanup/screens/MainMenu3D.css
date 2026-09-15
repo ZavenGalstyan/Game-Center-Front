@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Cozy Cleanup — 3D main menu. Scoped under `.cc3d-menu`, independent of
+   both the legacy `.cc-menu*` rules in CozyCleanup.css (still used by
+   RoomComplete's Next/Replay/Room Select buttons — untouched) and the
+   `.cc3d-*` gameplay HUD rules in Gameplay3D.css. A real Three.js scene
+   fills the frame; this file is only the floating UI on top of it.
+   ========================================================================== */
+
+.cc3d-menu {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  container-type: size;
+  container-name: cc3d-menu-root;
+  background: #1c1712;
+  transition: opacity 480ms ease;
+}
+.cc3d-menu--leaving { opacity: 0; }
+.cc3d-menu *, .cc3d-menu *::before, .cc3d-menu *::after { box-sizing: border-box; }
+.cc3d-menu button { font-family: inherit; cursor: pointer; color: inherit; background: none; border: none; }
+
+.cc3d-menu__canvas { position: absolute; inset: 0; }
+.cc3d-menu__canvas canvas { display: block; width: 100% !important; height: 100% !important; }
+
+.cc3d-menu__vignette {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 100% at 50% 60%, transparent 45%, rgba(20, 12, 4, 0.32) 100%);
+}
+
+.cc3d-menu__panel {
+  position: absolute; left: 50%; bottom: 6cqh; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.55em;
+  padding: 1.6em 2.2em 1.8em;
+  width: min(88cqw, 380px);
+  background: rgba(255, 250, 241, 0.82);
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 24px 50px rgba(20, 12, 4, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  color: #4a3a2c;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  text-align: center;
+  animation: cc3d-panel-in 700ms cubic-bezier(.2, .8, .3, 1) both;
+}
+
+.cc3d-menu__title {
+  margin: 0;
+  font-size: clamp(1.6em, 6cqw, 2.3em);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  color: #d9713f;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.55), 0 10px 22px rgba(217, 113, 63, 0.25);
+  animation: cc3d-text-in 600ms 120ms cubic-bezier(.2, .8, .3, 1) both;
+}
+.cc3d-menu__subtitle {
+  margin: 0 0 0.3em;
+  font-size: 0.74em;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  color: #8a7660;
+  animation: cc3d-text-in 600ms 220ms cubic-bezier(.2, .8, .3, 1) both;
+}
+
+.cc3d-menu__play {
+  width: 100%;
+  padding: 0.75em 2.2em;
+  font-size: 1.1em;
+  font-weight: 800;
+  color: #fff8ee;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #e58a55, #cf6a3c);
+  box-shadow: 0 12px 22px rgba(191, 92, 46, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  animation: cc3d-text-in 600ms 320ms cubic-bezier(.2, .8, .3, 1) both;
+}
+.cc3d-menu__play:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 16px 28px rgba(191, 92, 46, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.35); }
+.cc3d-menu__play:active { transform: translateY(0) scale(0.98); }
+
+.cc3d-menu__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55em;
+  width: 100%;
+  animation: cc3d-text-in 600ms 420ms cubic-bezier(.2, .8, .3, 1) both;
+}
+.cc3d-menu__btn {
+  padding: 0.55em 0.6em;
+  font-size: 0.82em;
+  font-weight: 700;
+  color: #6b5642;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(120, 90, 60, 0.14);
+  border-radius: 12px;
+  transition: transform 140ms ease, background 140ms ease, box-shadow 140ms ease;
+}
+.cc3d-menu__btn:hover { transform: translateY(-1px); background: rgba(255, 255, 255, 0.85); box-shadow: 0 6px 14px rgba(90, 60, 30, 0.14); }
+.cc3d-menu__btn:active { transform: translateY(0); }
+
+@keyframes cc3d-panel-in {
+  0% { opacity: 0; transform: translateX(-50%) translateY(18px) scale(0.97); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+@keyframes cc3d-text-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Reduced Motion is already handled globally by `.cc[data-reduced-motion="1"] *`
+   in CozyCleanup.css (this menu renders inside that same root), so no
+   local override is needed here. */
+
+@container cc3d-menu-root (max-width: 520px) {
+  .cc3d-menu__panel { bottom: 4cqh; padding: 1.3em 1.6em 1.5em; }
+  .cc3d-menu__title { font-size: 1.5em; }
+}
