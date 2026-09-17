@@ -1197,7 +1197,7 @@
 .ui-modal-overlay {
   position: fixed;
   inset: 0;
-  z-index: var(--ui-modal-z-index, 100);
+  z-index: var(--z-overlay);
   background: var(--ui-modal-overlay-bg, var(--overlay-modal));
   display: grid;
   place-items: center;
@@ -1205,6 +1205,8 @@
 }
 
 .ui-modal {
+  position: relative;
+  z-index: var(--z-modal);
   width: 100%;
   background: var(--ui-modal-bg, var(--surface));
   border: var(--border-width) solid var(--border-default);
@@ -1307,7 +1309,7 @@
 
 .ui-tooltip {
   position: absolute;
-  z-index: var(--ui-tooltip-z-index, 50);
+  z-index: var(--z-tooltip);
   padding: var(--ui-tooltip-padding, 6px 10px);
   background: var(--ui-tooltip-bg, var(--surface));
   border: var(--border-width) solid var(--border-default);

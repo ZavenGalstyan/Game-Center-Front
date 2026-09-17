@@ -503,6 +503,42 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);     /* Entrance/open animations */
 
   /* ==========================================================================
+     Z-INDEX / LAYERING
+     ========================================================================== */
+  /*
+   * Semantic layer system for stacking order.
+   * Use these tokens instead of arbitrary z-index values.
+   *
+   * Layer hierarchy (low to high):
+   *   base/content → elevated → sidebar → header →
+   *   dropdown → tooltip → floating → overlay → drawer → modal → popover → toast → system
+   */
+
+  /* Base layers */
+  --z-base: 0;                /* Page/background */
+  --z-content: 1;             /* Cards, sections, normal content */
+  --z-elevated: 10;           /* Hovered/selected/elevated local UI */
+
+  /* App shell layers */
+  --z-sidebar: 20;            /* Desktop persistent sidebar */
+  --z-header: 30;             /* Sticky header/navbar */
+
+  /* Interactive layers */
+  --z-dropdown: 50;           /* Menus/dropdowns/select */
+  --z-tooltip: 60;            /* Tooltips */
+  --z-floating: 70;           /* Floating/sticky controls */
+
+  /* Overlay layers */
+  --z-overlay: 100;           /* Backdrops (modal, drawer) */
+  --z-drawer: 110;            /* Mobile sidebar/drawer */
+  --z-modal: 120;             /* Modal/dialog content */
+  --z-popover: 130;           /* Popover/menu above modal */
+
+  /* Global layers */
+  --z-toast: 200;             /* Toast/notifications */
+  --z-system: 300;            /* Critical system UI (reserved) */
+
+  /* ==========================================================================
      LEGACY COMPATIBILITY ALIASES
      ========================================================================== */
   /*
