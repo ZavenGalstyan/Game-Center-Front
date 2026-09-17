@@ -46,6 +46,15 @@ const FarmLife = lazy(() => import("./FarmLife/FarmLife.jsx"));
  *  physics); lazy so the catalogue never pays for its WebGL/physics chunk. */
 const BallAdventure3D = lazy(() => import("./BallAdventure3D/BallAdventure3D.jsx"));
 
+/** Element Merge — a DOM/SVG discovery puzzle, but it ships a large element
+ *  and recipe registry; lazy so the catalogue doesn't pull that in until
+ *  someone opens it. */
+const ElementMerge = lazy(() => import("./ElementMerge/ElementMerge.jsx"));
+
+/** Number Fusion — a lightweight DOM/CSS 2048-style puzzle; lazy purely for
+ *  consistency with the rest of the catalogue (its own chunk stays tiny). */
+const NumberFusion = lazy(() => import("./NumberFusion/NumberFusion.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -70,6 +79,8 @@ const GAME_COMPONENTS = {
   "Supermarket Rush": SupermarketRush,
   "Farm Life": FarmLife,
   "Ball Adventure 3D": BallAdventure3D,
+  "Element Merge": ElementMerge,
+  "Number Fusion": NumberFusion,
 };
 
 /**
@@ -79,7 +90,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion"]);
 
 export function getGameComponent(game) {
   if (!game || !game.name) return null;
