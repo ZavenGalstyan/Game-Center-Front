@@ -55,6 +55,10 @@ const ElementMerge = lazy(() => import("./ElementMerge/ElementMerge.jsx"));
  *  consistency with the rest of the catalogue (its own chunk stays tiny). */
 const NumberFusion = lazy(() => import("./NumberFusion/NumberFusion.jsx"));
 
+/** Rooftop Sniper — a first-person 3D Three.js/R3F sniper precision game;
+ *  lazy so the catalogue never pays for its WebGL chunk. */
+const RooftopSniper = lazy(() => import("./RooftopSniper/RooftopSniper.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -81,6 +85,7 @@ const GAME_COMPONENTS = {
   "Ball Adventure 3D": BallAdventure3D,
   "Element Merge": ElementMerge,
   "Number Fusion": NumberFusion,
+  "Rooftop Sniper": RooftopSniper,
 };
 
 /**
@@ -90,7 +95,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper"]);
 
 export function getGameComponent(game) {
   if (!game || !game.name) return null;
