@@ -1376,7 +1376,9 @@
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
   color: var(--text);
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  max-width: min(280px, calc(100vw - var(--space-8)));
   pointer-events: none;
   opacity: 0;
   transition: opacity var(--duration-fast) var(--ease-default);
@@ -1540,6 +1542,11 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     flex-wrap: nowrap;
+    /* Accommodate 3px focus-ring offset on first/last tabs */
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: -3px;
+    margin-right: -3px;
   }
 
   .ui-tabs__tab {

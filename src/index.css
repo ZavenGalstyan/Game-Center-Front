@@ -345,6 +345,7 @@ h3 {
   top: calc(100% + 6px);
   z-index: var(--z-dropdown);
   min-width: 190px;
+  max-width: calc(100vw - var(--space-8));
   background: var(--surface);
   border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-lg);
