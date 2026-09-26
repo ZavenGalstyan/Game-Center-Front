@@ -323,6 +323,18 @@
   --ui-icon-btn-size: 32px;
   --ui-icon-btn-padding: 8px;
   --ui-icon-btn-icon-size: var(--size-icon-sm);
+  position: relative;
+}
+
+/* Expand hit target to 44×44px while keeping visual size at 32px */
+.ui-icon-btn--sm::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
 }
 
 .ui-icon-btn--lg {
@@ -688,6 +700,11 @@
 
 .ui-alert__dismiss:hover {
   opacity: 1;
+}
+
+.ui-alert__dismiss:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 
 .ui-alert__dismiss svg {
@@ -1148,6 +1165,11 @@
   cursor: not-allowed;
 }
 
+.ui-table-actions__btn:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
+}
+
 /* ==========================================================================
    TABS
    ========================================================================== */
@@ -1175,6 +1197,11 @@
 
 .ui-tabs__tab:hover {
   color: var(--text);
+}
+
+.ui-tabs__tab:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 
 .ui-tabs__tab--active {
@@ -1288,6 +1315,11 @@
 .ui-modal__close:hover {
   color: var(--icon-color-hover);
   background: var(--card-hover-bg);
+}
+
+.ui-modal__close:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 
 .ui-modal__close svg {

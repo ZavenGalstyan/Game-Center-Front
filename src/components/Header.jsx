@@ -27,7 +27,21 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen }) {
           aria-expanded={sidebarOpen}
           aria-controls="sidebar-nav"
         >
-          ☰
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="4" y1="6" x2="20" y2="6" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="18" x2="20" y2="18" />
+          </svg>
         </button>
         <Link to="/" className="header__brand">
           <span className="header__logo" aria-hidden="true">◆</span>
@@ -62,7 +76,19 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen }) {
                 {user.username.charAt(0).toUpperCase()}
               </span>
               <span className="usermenu__name">Hi, {user.username}</span>
-              <span aria-hidden="true">▾</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </button>
 
             {menuOpen && (

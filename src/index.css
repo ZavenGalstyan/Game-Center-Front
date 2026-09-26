@@ -520,18 +520,6 @@ h3 {
   flex-direction: column;
   gap: var(--space-4);
 }
-.field {
-  display: flex;
-  flex-direction: column;
-}
-.field__label {
-  margin-bottom: var(--label-gap);
-  font-size: var(--label-font);
-  font-weight: var(--label-weight);
-  line-height: var(--label-line-height);
-  color: var(--label-color);
-}
-.field input,
 .admin__filters select {
   height: var(--control-height-md);
   background: var(--control-bg);
@@ -545,38 +533,18 @@ h3 {
     border-color var(--duration-default) var(--ease-default),
     outline-color var(--duration-default) var(--ease-default);
 }
-.field input:hover:not(:disabled):not(:focus),
 .admin__filters select:hover:not(:disabled):not(:focus) {
   border-color: var(--control-border-hover);
 }
-.field input:focus,
 .admin__filters select:focus {
   outline: var(--border-width-focus) solid var(--control-focus-ring);
   outline-offset: 1px;
   border-color: var(--control-border-focus);
 }
-.field input:disabled,
 .admin__filters select:disabled {
   opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
   background: var(--control-disabled-bg);
-}
-.field--error input {
-  border-color: var(--control-error-border);
-}
-.field--error input:focus {
-  outline-color: var(--control-error-focus-ring);
-  border-color: var(--control-error-border);
-}
-.field__msg {
-  margin-top: var(--error-msg-gap);
-  font-size: var(--error-msg-font);
-  font-weight: var(--error-msg-weight);
-  line-height: var(--line-normal);
-  color: var(--text-muted);
-}
-.field__msg--error {
-  color: var(--error-msg-color);
 }
 .auth-form__switch {
   font-size: var(--font-sm-plus);
@@ -645,6 +613,10 @@ h3 {
   color: var(--icon-color-hover);
   background: var(--card-hover-bg);
 }
+.modal__close:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
+}
 .modal__close svg {
   width: var(--icon-md);
   height: var(--icon-md);
@@ -699,43 +671,6 @@ h3 {
 
 .admin__filters {
   margin-bottom: var(--controls-content-gap);
-}
-.table-wrap {
-  overflow-x: auto;
-  border: var(--border-width) solid var(--border-default);
-  border-radius: var(--radius-base);
-}
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 480px;
-}
-.table th,
-.table td {
-  text-align: left;
-  padding: 10px 14px;
-  border-bottom: var(--border-width) solid var(--border-default);
-}
-.table th {
-  color: var(--text-muted);
-  font-size: var(--font-sm-plus);
-  font-weight: var(--weight-semibold);
-  line-height: var(--line-normal);
-}
-.table tr:last-child td {
-  border-bottom: none;
-}
-.pager {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  margin-top: var(--space-4);
-}
-.pager__info {
-  color: var(--text-muted);
-  font-size: var(--font-sm-plus);
-  font-weight: var(--weight-regular);
-  line-height: var(--line-normal);
 }
 
 .linkbtn--danger {
@@ -907,22 +842,6 @@ h3 {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.badge {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  height: var(--badge-height);
-  font-size: var(--font-xs);
-  font-weight: var(--weight-semibold);
-  line-height: var(--line-none);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0 8px;
-  border-radius: var(--radius-md);
-  background: var(--tag-bg);
-  color: var(--tag-text);
-  border: var(--border-width) solid var(--tag-border);
-}
 .load-more {
   display: flex;
   justify-content: center;
@@ -1024,6 +943,10 @@ h3 {
   transform: none;
   box-shadow: none;
 }
+.game-controls__btn:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
+}
 .game-controls__btn--primary {
   background: var(--button-primary-bg);
   border-color: var(--button-primary-border);
@@ -1069,50 +992,6 @@ h3 {
 }
 
 /* ---------- admin forms / tables ---------- */
-.field textarea,
-.field select {
-  background: var(--control-bg);
-  border: var(--border-width) solid var(--control-border);
-  border-radius: var(--control-radius-md);
-  padding: var(--control-padding-y) var(--control-padding-x);
-  color: var(--control-text);
-  font-family: var(--font-family);
-  font-size: var(--control-font-md);
-  resize: vertical;
-  transition:
-    border-color var(--duration-default) var(--ease-default),
-    outline-color var(--duration-default) var(--ease-default);
-}
-.field select {
-  height: var(--control-height-md);
-  padding: 0 var(--control-padding-x);
-  cursor: pointer;
-}
-.field textarea:hover:not(:disabled):not(:focus),
-.field select:hover:not(:disabled):not(:focus) {
-  border-color: var(--control-border-hover);
-}
-.field textarea:focus,
-.field select:focus {
-  outline: var(--border-width-focus) solid var(--control-focus-ring);
-  outline-offset: 1px;
-  border-color: var(--control-border-focus);
-}
-.field textarea:disabled,
-.field select:disabled {
-  opacity: var(--state-disabled-opacity);
-  cursor: not-allowed;
-  background: var(--control-disabled-bg);
-}
-.field--error textarea,
-.field--error select {
-  border-color: var(--control-error-border);
-}
-.field--error textarea:focus,
-.field--error select:focus {
-  outline-color: var(--control-error-focus-ring);
-  border-color: var(--control-error-border);
-}
 .table__actions {
   display: flex;
   gap: var(--space-4);
@@ -1304,12 +1183,6 @@ h3 {
     padding: var(--space-6);
   }
 
-  /* Pagination wraps cleanly */
-  .pager {
-    flex-wrap: wrap;
-    gap: var(--space-2);
-  }
-
   /* Profile definition list stacks */
   .profile div {
     flex-direction: column;
@@ -1382,12 +1255,6 @@ h3 {
     padding: 0 var(--space-4);
   }
 
-  /* Pagination info may wrap */
-  .pager__info {
-    text-align: center;
-    width: 100%;
-  }
-
   /* Dialog actions stack */
   .dialog-actions {
     flex-direction: column;
@@ -1424,11 +1291,6 @@ h3 {
   /* Toast fits screen */
   .toast {
     max-width: calc(100vw - 32px);
-  }
-
-  /* Table min-width relaxed */
-  .table {
-    min-width: 300px;
   }
 }
 
@@ -1554,7 +1416,7 @@ h3 {
 .liked-game-card__liked {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-2);
   margin-top: auto;
   color: var(--accent-text);
   font-size: var(--font-sm);
