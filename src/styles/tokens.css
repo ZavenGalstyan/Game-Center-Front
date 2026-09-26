@@ -257,7 +257,7 @@
      ========================================================================== */
 
   /* Button sizing (reusing control heights from Step 05) */
-  --button-height-sm: var(--height-control-sm);  /* 36px */
+  --button-height-sm: var(--height-control-md);  /* 44px - accessibility minimum */
   --button-height-md: var(--height-control-md);  /* 44px */
   --button-height-lg: var(--height-control-lg);  /* 48px */
 
@@ -271,7 +271,7 @@
   --button-font-md: var(--font-md-plus);         /* 15px */
   --button-font-lg: var(--font-base);            /* 16px */
 
-  --button-icon-size: 40px;
+  --button-icon-size: 44px;
 
   /* Primary button colors */
   --button-primary-bg: #00E88F;
@@ -330,7 +330,7 @@
   /* Colors */
   --control-bg: var(--header-search-bg);            /* #092321 */
   --control-text: var(--text);
-  --control-placeholder: var(--text-muted);
+  --control-placeholder: var(--text-secondary);  /* #A8BBB5 - 8.8:1 contrast on input bg */
   --control-border: var(--border-default);
   --control-border-hover: var(--primary-dark);      /* #00C878 */
   --control-border-focus: var(--border-active);     /* #00E88F */

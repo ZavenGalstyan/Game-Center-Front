@@ -70,7 +70,12 @@ export function TableCell({
     .join(" ");
 
   return (
-    <Tag className={classNames} colSpan={colSpan} {...rest}>
+    <Tag
+      className={classNames}
+      colSpan={colSpan}
+      {...(header && { scope: "col" })}
+      {...rest}
+    >
       {children}
     </Tag>
   );

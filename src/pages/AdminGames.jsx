@@ -85,13 +85,14 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
     <Modal title={editing ? `Edit ${initial.name}` : "Add game"} onClose={onClose}>
       <form className="auth-form" onSubmit={onSubmit} noValidate>
         {formError && <Alert variant="error">{formError}</Alert>}
-        <FormField label="Name" error={errors.name} hint="2–120 characters" htmlFor="g-name">
+        <FormField label="Name" error={errors.name} hint="2–120 characters" htmlFor="g-name" required>
           <Input
             id="g-name"
             value={values.name}
             onChange={setField("name")}
             disabled={submitting}
             error={Boolean(errors.name)}
+            required
           />
         </FormField>
         <FormField
@@ -99,6 +100,7 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
           error={errors.description}
           hint="2–2000 characters"
           htmlFor="g-desc"
+          required
         >
           <Textarea
             id="g-desc"
@@ -107,9 +109,10 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
             onChange={setField("description")}
             disabled={submitting}
             error={Boolean(errors.description)}
+            required
           />
         </FormField>
-        <FormField label="Game type" error={errors.typeId} htmlFor="g-type">
+        <FormField label="Game type" error={errors.typeId} htmlFor="g-type" required>
           <Select
             id="g-type"
             value={values.typeId}
@@ -118,6 +121,7 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
             error={Boolean(errors.typeId)}
             options={typeOptions}
             placeholder="Select a type..."
+            required
           />
         </FormField>
         <Button variant="primary" fullWidth type="submit" loading={submitting}>

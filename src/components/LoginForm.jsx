@@ -57,7 +57,7 @@ export default function LoginForm({ onSuccess, onSwitchToRegister }) {
     <form className="auth-form" onSubmit={onSubmit} noValidate>
       {formError && <Alert variant="error">{formError}</Alert>}
 
-      <FormField label="Email" error={errors.email} htmlFor="login-email">
+      <FormField label="Email" error={errors.email} htmlFor="login-email" required>
         <Input
           id="login-email"
           type="email"
@@ -66,10 +66,11 @@ export default function LoginForm({ onSuccess, onSwitchToRegister }) {
           onChange={setField("email")}
           disabled={submitting}
           error={Boolean(errors.email)}
+          required
         />
       </FormField>
 
-      <FormField label="Password" error={errors.password} htmlFor="login-password">
+      <FormField label="Password" error={errors.password} htmlFor="login-password" required>
         <Input
           id="login-password"
           type="password"
@@ -78,6 +79,7 @@ export default function LoginForm({ onSuccess, onSwitchToRegister }) {
           onChange={setField("password")}
           disabled={submitting}
           error={Boolean(errors.password)}
+          required
         />
       </FormField>
 

@@ -111,6 +111,7 @@ export default function Account() {
               label="Current password"
               error={errors.currentPassword}
               htmlFor="cur-pw"
+              required
             >
               <Input
                 id="cur-pw"
@@ -120,6 +121,7 @@ export default function Account() {
                 onChange={setField("currentPassword")}
                 disabled={submitting}
                 error={Boolean(errors.currentPassword)}
+                required
               />
             </FormField>
 
@@ -128,6 +130,7 @@ export default function Account() {
               error={errors.newPassword}
               hint="8–128 characters, different from the current one"
               htmlFor="new-pw"
+              required
             >
               <Input
                 id="new-pw"
@@ -137,10 +140,11 @@ export default function Account() {
                 onChange={setField("newPassword")}
                 disabled={submitting}
                 error={Boolean(errors.newPassword)}
+                required
               />
             </FormField>
 
-            <FormField label="Confirm new password" error={errors.confirm} htmlFor="conf-pw">
+            <FormField label="Confirm new password" error={errors.confirm} htmlFor="conf-pw" required>
               <Input
                 id="conf-pw"
                 type="password"
@@ -149,6 +153,7 @@ export default function Account() {
                 onChange={setField("confirm")}
                 disabled={submitting}
                 error={Boolean(errors.confirm)}
+                required
               />
             </FormField>
 

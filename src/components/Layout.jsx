@@ -17,6 +17,7 @@ export default function Layout() {
       <Header
         onOpenAuth={openAuth}
         onToggleSidebar={() => setSidebarOpen((v) => !v)}
+        sidebarOpen={sidebarOpen}
       />
       <div className="app-body">
         <Sidebar open={sidebarOpen} onNavigate={closeSidebar} />

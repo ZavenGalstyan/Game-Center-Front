@@ -1,7 +1,14 @@
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 
 /**
  * Modal component with enhanced accessibility and customization.
+ *
+ * Accessibility features:
+ * - role="dialog" with aria-modal="true"
+ * - aria-labelledby pointing to modal title
+ * - Escape key closes modal (configurable)
+ * - Focus trapped within modal while open
+ * - Focus restored to trigger element on close
  *
  * @param {object} props
  * @param {string} props.title
@@ -23,22 +30,55 @@ export default function Modal({
   className = "",
   children,
 }) {
+  const modalRef = useRef(null);
+  const previousActiveElement = useRef(null);
+
   const handleKeyDown = useCallback(
     (e) => {
       if (closeOnEscape && e.key === "Escape") {
         onClose();
+        return;
+      }
+
+      // Focus trap: Tab key cycles within modal
+      if (e.key === "Tab" && modalRef.current) {
+        const focusableElements = modalRef.current.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement?.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement?.focus();
+        }
       }
     },
     [closeOnEscape, onClose]
   );
 
   useEffect(() => {
+    // Store the previously focused element
+    previousActiveElement.current = document.activeElement;
+
     document.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
+
+    // Focus the first focusable element in the modal
+    const focusableElements = modalRef.current?.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    focusableElements?.[0]?.focus();
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
+
+      // Restore focus to the trigger element
+      previousActiveElement.current?.focus?.();
     };
   }, [handleKeyDown]);
 
@@ -59,6 +99,7 @@ export default function Modal({
   return (
     <div className="ui-modal-overlay" onClick={handleOverlayClick}>
       <div
+        ref={modalRef}
         className={classNames}
         role="dialog"
         aria-modal="true"

@@ -152,6 +152,10 @@ h3 {
 .linkbtn:hover {
   text-decoration: underline;
 }
+.linkbtn:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
+}
 
 .muted,
 .page-title + .muted {
@@ -190,6 +194,14 @@ h3 {
   font-size: 20px;
   line-height: var(--line-none);
   cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  min-width: 44px;
+  min-height: 44px;
+}
+.header__hamburger:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 .header__brand {
   display: flex;
@@ -269,6 +281,10 @@ h3 {
   background: var(--surface);
   color: var(--text);
 }
+.sidebar__link:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
+}
 .sidebar__link.is-active {
   background: var(--active-menu-bg);
   color: var(--text);
@@ -288,10 +304,11 @@ h3 {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  min-height: 44px;
   background: transparent;
   border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-base);
-  padding: 6px 10px;
+  padding: 6px 12px;
   color: var(--text);
   font-family: var(--font-family);
   font-size: var(--font-md);
@@ -305,6 +322,10 @@ h3 {
 .usermenu__trigger:hover {
   background: var(--surface);
   border-color: var(--border-active);
+}
+.usermenu__trigger:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 .usermenu__avatar {
   width: var(--avatar-sm);
@@ -333,6 +354,7 @@ h3 {
   box-shadow: var(--shadow-dropdown);
   transform-origin: top right;
   animation: ui-dropdown-in var(--duration-default) var(--ease-out);
+  overflow: visible;
 }
 .usermenu__item {
   text-align: left;
@@ -347,6 +369,10 @@ h3 {
 }
 .usermenu__item:hover {
   background: var(--card-hover-bg);
+}
+.usermenu__item:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 
 /* ---------- landing ---------- */
@@ -638,17 +664,25 @@ h3 {
   gap: var(--space-2);
 }
 .toast {
+  display: block;
+  text-align: left;
   background: var(--surface);
   border: var(--border-width) solid var(--border-default);
   border-left: 3px solid var(--primary);
   border-radius: var(--radius-md);
   padding: 10px 14px;
+  font-family: var(--font-family);
   font-size: var(--font-md);
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
+  color: var(--text);
   cursor: pointer;
   box-shadow: var(--shadow-md);
   max-width: 320px;
+}
+.toast:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 .toast--success {
   border-left-color: var(--color-success);
@@ -1475,6 +1509,7 @@ h3 {
   overflow: hidden;
 }
 .liked-game-card__unlike {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1491,12 +1526,26 @@ h3 {
     transform var(--duration-fast) var(--ease-default),
     opacity var(--duration-fast) var(--ease-default);
 }
+/* Expand hit target to 44×44px while keeping visual size at 28px */
+.liked-game-card__unlike::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+}
 .liked-game-card__unlike:hover:not(:disabled) {
   transform: scale(1.08);
 }
 .liked-game-card__unlike:disabled {
   opacity: var(--state-disabled-opacity);
   cursor: default;
+}
+.liked-game-card__unlike:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 .liked-game-card__unlike svg {
   width: var(--icon-sm);
