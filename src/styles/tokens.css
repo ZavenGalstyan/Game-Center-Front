@@ -151,6 +151,21 @@
   /* Section rhythm */
   --section-content-gap: var(--space-4); /* 16px */
   --section-gap: var(--space-8);         /* 32px */
+  --section-header-gap: var(--section-content-gap); /* 16px - header to content */
+
+  /* Page structure */
+  --page-top-space: var(--content-padding-y); /* 24px - provided by app-main */
+
+  /* Hero internal spacing */
+  --hero-section-gap: var(--section-gap);     /* 32px - hero to next section */
+  --hero-eyebrow-gap: var(--space-3);         /* 12px - eyebrow to title */
+  --hero-description-gap: var(--space-4);     /* 16px - title to description */
+  --hero-actions-gap: var(--space-6);         /* 24px - description to actions */
+
+  /* Page heading spacing */
+  --heading-subtitle-gap: var(--space-2);     /* 8px - title to subtitle */
+  --heading-controls-gap: var(--space-6);     /* 24px - heading to controls */
+  --controls-content-gap: var(--space-6);     /* 24px - controls to content */
 
   /* ==========================================================================
      BREAKPOINTS (Reference Only)

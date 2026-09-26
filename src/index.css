@@ -359,32 +359,61 @@ h3 {
   padding: var(--space-10);
   box-shadow: var(--glow-main);
 }
+.hero__eyebrow {
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-short);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 var(--hero-eyebrow-gap);
+}
 .hero__title {
   font-size: var(--font-hero);
   font-weight: var(--weight-extrabold);
   line-height: var(--line-tight);
+  margin: 0;
 }
 .hero__lead {
   color: var(--text-secondary);
   font-size: var(--font-lg);
   font-weight: var(--weight-regular);
   line-height: var(--line-body);
-  margin: 0;
+  margin: var(--hero-description-gap) 0 0;
+}
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--hero-actions-gap);
 }
 .hero__note {
   margin-top: var(--space-4);
   color: var(--text);
 }
+
+/* Landing sections */
 .coming-soon,
 .landing__scoped {
   width: 100%;
+}
+
+/* Section spacing via adjacent selectors */
+.hero + .coming-soon,
+.hero + .landing__scoped,
+.hero + .ui-section,
+.coming-soon + .coming-soon,
+.coming-soon + .landing__scoped,
+.landing__scoped + .coming-soon,
+.landing__scoped + .landing__scoped {
   margin-top: var(--section-gap);
 }
+
 .landing__title {
   font-size: var(--font-xl);
   font-weight: var(--weight-bold);
   line-height: var(--line-snug);
-  margin-bottom: var(--section-content-gap);
+  margin-bottom: var(--section-header-gap);
 }
 
 .empty-state {
@@ -408,6 +437,7 @@ h3 {
   font-size: var(--font-xl);
   font-weight: var(--weight-bold);
   line-height: var(--line-snug);
+  margin: 0 0 var(--heading-controls-gap);
 }
 
 /* ---------- cards / account ---------- */
@@ -420,8 +450,20 @@ h3 {
   border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
-  margin-bottom: var(--space-5);
   max-width: 520px;
+}
+
+/* Section-level card spacing (account, profile pages) */
+.account > .page-title {
+  margin-bottom: var(--section-header-gap);
+}
+
+.account > .card {
+  margin-bottom: var(--section-gap);
+}
+
+.account > .card:last-child {
+  margin-bottom: 0;
 }
 .card__title {
   font-size: var(--font-base);
@@ -616,8 +658,13 @@ h3 {
 }
 
 /* ---------- admin table ---------- */
+/* Page title in admin pages without admin__head */
+.admin > .page-title {
+  margin-bottom: var(--heading-controls-gap);
+}
+
 .admin__filters {
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--controls-content-gap);
 }
 .table-wrap {
   overflow-x: auto;
@@ -665,17 +712,28 @@ h3 {
 }
 
 /* ---------- games grid ---------- */
-.games-page__head,
-.admin__head {
+.games-page__head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-4);
   flex-wrap: wrap;
+  margin-bottom: var(--section-header-gap);
 }
+
+/* Page titles inside head wrappers don't need their own margin */
+.games-page__head .page-title,
+.admin__head .page-title {
+  margin: 0;
+}
+
 .admin__head {
+  display: flex;
   align-items: center;
-  margin-bottom: var(--space-4);
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--heading-controls-gap);
 }
 
 /* ---------- game grid ---------- */
@@ -691,7 +749,6 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: var(--grid-column-gap);
   row-gap: var(--grid-row-gap);
-  margin-top: var(--space-2);
 }
 
 /* Desktop: 1200px–1599px */

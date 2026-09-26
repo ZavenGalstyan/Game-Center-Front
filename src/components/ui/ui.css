@@ -885,7 +885,7 @@
   justify-content: space-between;
   gap: var(--ui-page-header-gap, var(--space-4));
   flex-wrap: wrap;
-  margin-bottom: var(--ui-page-header-margin, var(--space-5));
+  margin-bottom: var(--ui-page-header-margin, var(--heading-controls-gap));
 }
 
 .ui-page-header__text {
@@ -901,10 +901,10 @@
 
 .ui-page-header__subtitle {
   color: var(--text-muted);
-  font-size: var(--font-md-plus);
+  font-size: var(--font-md);
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
-  margin: var(--space-1) 0 0;
+  margin: var(--heading-subtitle-gap) 0 0;
 }
 
 .ui-page-header__actions {
@@ -939,7 +939,7 @@
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-4);
-  margin-bottom: var(--ui-section-header-gap, var(--section-content-gap));
+  margin-bottom: var(--ui-section-header-gap, var(--section-header-gap));
 }
 
 .ui-section__title {
@@ -961,6 +961,32 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* See All action link styling */
+.ui-section__see-all {
+  font-family: var(--font-family);
+  font-size: var(--font-md);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-short);
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--duration-default) var(--ease-default);
+}
+
+.ui-section__see-all:hover {
+  color: var(--primary);
+}
+
+.ui-section__see-all:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 /* ==========================================================================
@@ -1403,6 +1429,14 @@
    RESPONSIVE
    ========================================================================== */
 
+/* Tablet: 768px–1199px */
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* Section title: 22px */
+  .ui-section__title {
+    font-size: 22px;
+  }
+}
+
 /* Mobile: <768px */
 @media (max-width: 767px) {
   /* Modal responsive */
@@ -1447,6 +1481,11 @@
   /* Section title: 20px */
   .ui-section__title {
     font-size: 20px;
+  }
+
+  /* See All stays consistent size on mobile */
+  .ui-section__see-all {
+    font-size: var(--font-md);
   }
 
   /* Card responsive */

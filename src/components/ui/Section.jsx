@@ -5,7 +5,7 @@
  * @param {string} [props.title]
  * @param {string} [props.subtitle]
  * @param {React.ReactNode} [props.actions]
- * @param {"none" | "sm" | "md" | "lg"} [props.spacing="md"]
+ * @param {"none" | "sm" | "md" | "lg"} [props.spacing="lg"]
  * @param {string} [props.className]
  * @param {React.ReactNode} props.children
  */
@@ -13,7 +13,7 @@ export default function Section({
   title,
   subtitle,
   actions,
-  spacing = "md",
+  spacing = "lg",
   className = "",
   children,
 }) {
