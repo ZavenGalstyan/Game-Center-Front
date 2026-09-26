@@ -1,0 +1,151 @@
+/* ==========================================================================
+   Cozy Cleanup 3D — gameplay-screen styling. Scoped under `.cc3d` (a sibling
+   concern to the 2D `.cc-*` classes used by Menu/RoomSelect/Settings/etc.,
+   which this screen does not touch). Same warm neutral room-UI language as
+   the rest of the game, but every guidance element is RED per the brief —
+   `--cc3d-red` is the one color introduced here and used nowhere else.
+   ========================================================================== */
+
+.cc3d {
+  --cc3d-cream: #fbf4e8;
+  --cc3d-panel: #fffaf1;
+  --cc3d-ink: #4a3a2c;
+  --cc3d-dim: #8a7660;
+  --cc3d-line: rgba(120, 90, 60, 0.14);
+  --cc3d-shadow: 0 18px 40px rgba(90, 60, 30, 0.22);
+  --cc3d-shadow-sm: 0 6px 16px rgba(90, 60, 30, 0.16);
+  --cc3d-red: #e53935;
+  --cc3d-red-glow: rgba(229, 57, 53, 0.35);
+  --cc3d-good: #8fae86;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--cc3d-ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  font-size: 14px;
+  background: #1c1712;
+  container-type: size;
+  container-name: cc3d-root;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.cc3d *, .cc3d *::before, .cc3d *::after { box-sizing: border-box; }
+.cc3d button { font-family: inherit; cursor: pointer; color: inherit; background: none; border: none; }
+
+/* ------------------------------------------------------------- HUD --- */
+.cc3d-hud {
+  position: relative; z-index: 5;
+  display: flex; align-items: center; gap: 0.8cqh;
+  padding: 1.1cqh 1.4cqw;
+  background: linear-gradient(180deg, #fffaf1, #f7ecd9);
+  border-bottom: 1px solid var(--cc3d-line);
+  flex: 0 0 auto;
+}
+.cc3d-hud__exit {
+  width: 3.2cqh; height: 3.2cqh; min-width: 30px; min-height: 30px; border-radius: 50%;
+  background: var(--cc3d-panel); box-shadow: var(--cc3d-shadow-sm); font-size: 1.3em; font-weight: 900;
+  display: flex; align-items: center; justify-content: center; flex: 0 0 auto;
+}
+.cc3d-hud__exit:hover { background: #fff; }
+.cc3d-hud__info { flex: 1; min-width: 0; }
+.cc3d-hud__row { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5em; }
+.cc3d-hud__room { font-weight: 800; font-size: 1.02em; }
+.cc3d-hud__pct { font-size: 0.78em; color: var(--cc3d-dim); font-weight: 700; }
+.cc3d-hud__bar { height: 6px; border-radius: 4px; background: #f3e6d3; overflow: hidden; margin: 0.3em 0; }
+.cc3d-hud__bar-fill { height: 100%; background: linear-gradient(90deg, var(--cc3d-good), #e0955f); transition: width 200ms ease; }
+.cc3d-hud__cats { display: flex; gap: 0.7em; flex-wrap: wrap; font-size: 0.68em; color: var(--cc3d-dim); }
+.cc3d-hud__cat--done { color: var(--cc3d-good); font-weight: 700; }
+.cc3d-hud__hint {
+  flex: 0 0 auto; display: flex; align-items: center; gap: 0.35em;
+  padding: 0.5em 0.9em; border-radius: 999px; background: var(--cc3d-panel);
+  box-shadow: var(--cc3d-shadow-sm); font-weight: 700; font-size: 0.78em; color: var(--cc3d-red);
+}
+.cc3d-hud__hint:disabled { opacity: 0.4; cursor: default; }
+.cc3d-hud__hint:not(:disabled):hover { background: #fff; transform: translateY(-1px); }
+
+/* --------------------------------------------------------- bubble --- */
+.cc3d-bubble {
+  position: absolute; left: 50%; top: 9.5cqh; transform: translateX(-50%);
+  z-index: 8; max-width: min(80cqw, 420px);
+  padding: 0.6em 1.1em; border-radius: 999px;
+  background: rgba(40, 20, 18, 0.9); color: #fff8ee; font-weight: 700; font-size: 0.82em;
+  text-align: center; box-shadow: var(--cc3d-shadow-sm);
+  animation: cc3d-bubble-in 260ms cubic-bezier(.3, 1.3, .5, 1);
+  pointer-events: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  border: 1px solid rgba(229, 57, 53, 0.5);
+}
+.cc3d-bubble--hint { background: rgba(229, 57, 53, 0.94); border-color: transparent; }
+@keyframes cc3d-bubble-in { 0% { opacity: 0; transform: translateX(-50%) translateY(-8px) scale(0.92); } 100% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); } }
+
+/* ---------------------------------------------------------- toast --- */
+.cc3d-toasts {
+  position: absolute; left: 50%; bottom: 15cqh; transform: translateX(-50%);
+  z-index: 8; display: flex; flex-direction: column; gap: 0.4em; align-items: center; pointer-events: none;
+}
+.cc3d-toast {
+  padding: 0.5em 1.1em; border-radius: 999px; background: rgba(255, 250, 241, 0.96);
+  color: var(--cc3d-good); font-weight: 800; font-size: 0.8em; box-shadow: var(--cc3d-shadow-sm);
+  border: 1px solid rgba(143, 174, 134, 0.3);
+  animation: cc3d-toast-life 2200ms ease forwards;
+}
+@keyframes cc3d-toast-life {
+  0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+  12% { opacity: 1; transform: translateY(0) scale(1); }
+  82% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-8px) scale(0.96); }
+}
+
+/* --------------------------------------------------------- canvas --- */
+.cc3d-canvas-wrap { position: relative; flex: 1; min-height: 0; min-width: 0; }
+.cc3d-canvas-wrap canvas { display: block; width: 100% !important; height: 100% !important; touch-action: none; }
+
+.cc3d-finish-veil {
+  position: absolute; inset: 0; z-index: 6; pointer-events: none;
+  background: radial-gradient(60% 60% at 50% 40%, rgba(255, 246, 214, 0.3), transparent 70%);
+  animation: cc3d-veil 2.2s ease-out;
+}
+@keyframes cc3d-veil { 0% { opacity: 0; } 25% { opacity: 1; } 100% { opacity: 0; } }
+
+/* --------------------------------------------------------- tool tray --- */
+.cc3d-tray {
+  position: relative; z-index: 5;
+  flex: 0 0 auto; display: flex; gap: 0.7cqw; justify-content: center; flex-wrap: nowrap;
+  padding: 1cqh 1cqw; overflow-x: auto;
+  background: linear-gradient(0deg, #fffaf1, #f7ecd9);
+  border-top: 1px solid var(--cc3d-line);
+}
+.cc3d-tray__tool {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 0.7cqh 1cqw; min-width: 58px; border-radius: 12px;
+  background: var(--cc3d-panel); box-shadow: var(--cc3d-shadow-sm);
+  font-size: 0.62em; font-weight: 700; color: #6b5642;
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+  flex: 0 0 auto; position: relative;
+}
+.cc3d-tray__tool:hover { transform: translateY(-2px); }
+.cc3d-tray__tool--active {
+  background: #fff; color: var(--cc3d-red);
+  box-shadow: 0 0 0 2px var(--cc3d-red), var(--cc3d-shadow-sm);
+  transform: translateY(-3px);
+}
+.cc3d-tray__tool--highlight {
+  animation: cc3d-tray-highlight 1.1s ease-in-out infinite;
+}
+@keyframes cc3d-tray-highlight {
+  0%, 100% { box-shadow: 0 0 0 2px var(--cc3d-red), 0 0 8px var(--cc3d-red-glow); }
+  50% { box-shadow: 0 0 0 2px var(--cc3d-red), 0 0 20px var(--cc3d-red-glow); }
+}
+.cc3d-tray__tool:disabled { opacity: 0.45; }
+
+/* ------------------------------------------------------------ narrow --- */
+@container cc3d-root (max-width: 560px) {
+  .cc3d-hud__cats { display: none; }
+  .cc3d-tray__tool { min-width: 50px; }
+  .cc3d-bubble { font-size: 0.74em; top: 8.5cqh; }
+}
