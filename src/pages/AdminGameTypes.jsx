@@ -72,13 +72,14 @@ function TypeFormModal({ initial, onClose, onSaved }) {
     <Modal title={editing ? `Edit ${initial.name}` : "Add game type"} onClose={onClose}>
       <form className="auth-form" onSubmit={onSubmit} noValidate>
         {formError && <Alert variant="error">{formError}</Alert>}
-        <FormField label="Name" error={errors.name} hint="2–60 characters" htmlFor="gt-name">
+        <FormField label="Name" error={errors.name} hint="2–60 characters" htmlFor="gt-name" required>
           <Input
             id="gt-name"
             value={values.name}
             onChange={setField("name")}
             disabled={submitting}
             error={Boolean(errors.name)}
+            required
           />
         </FormField>
         <FormField
@@ -86,6 +87,7 @@ function TypeFormModal({ initial, onClose, onSaved }) {
           error={errors.slug}
           hint="lowercase · a–z 0–9 _"
           htmlFor="gt-slug"
+          required
         >
           <Input
             id="gt-slug"
@@ -93,6 +95,7 @@ function TypeFormModal({ initial, onClose, onSaved }) {
             onChange={setField("slug")}
             disabled={submitting}
             error={Boolean(errors.slug)}
+            required
           />
         </FormField>
         <Button variant="primary" fullWidth type="submit" loading={submitting}>

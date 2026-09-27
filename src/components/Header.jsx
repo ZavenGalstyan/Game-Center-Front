@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext.jsx";
 
-export default function Header({ onOpenAuth, onToggleSidebar }) {
+export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen }) {
   const { status, user, isAdmin, logout } = useAuth();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,9 +23,25 @@ export default function Header({ onOpenAuth, onToggleSidebar }) {
         <button
           className="header__hamburger"
           onClick={onToggleSidebar}
-          aria-label="Toggle categories"
+          aria-label="Open navigation menu"
+          aria-expanded={sidebarOpen}
+          aria-controls="sidebar-nav"
         >
-          ☰
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="4" y1="6" x2="20" y2="6" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="18" x2="20" y2="18" />
+          </svg>
         </button>
         <Link to="/" className="header__brand">
           <span className="header__logo" aria-hidden="true">◆</span>
@@ -54,19 +70,32 @@ export default function Header({ onOpenAuth, onToggleSidebar }) {
               onClick={() => setMenuOpen((v) => !v)}
               aria-haspopup="true"
               aria-expanded={menuOpen}
+              aria-controls="usermenu-panel"
             >
               <span className="usermenu__avatar" aria-hidden="true">
                 {user.username.charAt(0).toUpperCase()}
               </span>
               <span className="usermenu__name">Hi, {user.username}</span>
-              <span aria-hidden="true">▾</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </button>
 
             {menuOpen && (
-              <div className="usermenu__panel" role="menu">
+              <div id="usermenu-panel" className="usermenu__panel">
                 <button
+                  type="button"
                   className="usermenu__item"
-                  role="menuitem"
                   onClick={() => {
                     setMenuOpen(false);
                     navigate("/account");
@@ -77,8 +106,8 @@ export default function Header({ onOpenAuth, onToggleSidebar }) {
                 {isAdmin && (
                   <>
                     <button
+                      type="button"
                       className="usermenu__item"
-                      role="menuitem"
                       onClick={() => {
                         setMenuOpen(false);
                         navigate("/admin/users");
@@ -87,8 +116,8 @@ export default function Header({ onOpenAuth, onToggleSidebar }) {
                       Admin · Users
                     </button>
                     <button
+                      type="button"
                       className="usermenu__item"
-                      role="menuitem"
                       onClick={() => {
                         setMenuOpen(false);
                         navigate("/admin/game-types");
@@ -97,8 +126,8 @@ export default function Header({ onOpenAuth, onToggleSidebar }) {
                       Admin · Game types
                     </button>
                     <button
+                      type="button"
                       className="usermenu__item"
-                      role="menuitem"
                       onClick={() => {
                         setMenuOpen(false);
                         navigate("/admin/games");
@@ -109,8 +138,8 @@ export default function Header({ onOpenAuth, onToggleSidebar }) {
                   </>
                 )}
                 <button
+                  type="button"
                   className="usermenu__item"
-                  role="menuitem"
                   onClick={() => {
                     setMenuOpen(false);
                     logout();

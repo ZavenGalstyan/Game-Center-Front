@@ -9,6 +9,12 @@ export default function Sidebar({ open, onNavigate }) {
   const linkClass = (isActive) =>
     `sidebar__link${isActive ? " is-active" : ""}`;
 
+  const linkProps = (isActive) => ({
+    className: linkClass(isActive),
+    onClick: onNavigate,
+    ...(isActive && { "aria-current": "page" }),
+  });
+
   return (
     <>
       <div
@@ -16,14 +22,10 @@ export default function Sidebar({ open, onNavigate }) {
         onClick={onNavigate}
         aria-hidden="true"
       />
-      <aside className={`sidebar${open ? " is-open" : ""}`}>
+      <aside id="sidebar-nav" className={`sidebar${open ? " is-open" : ""}`}>
         <h2 className="sidebar__title">Categories</h2>
-        <nav className="sidebar__nav">
-          <Link
-            to="/"
-            className={linkClass(!activeTypeId)}
-            onClick={onNavigate}
-          >
+        <nav className="sidebar__nav" aria-label="Game categories">
+          <Link to="/" {...linkProps(!activeTypeId)}>
             All Games
           </Link>
 
@@ -31,12 +33,7 @@ export default function Sidebar({ open, onNavigate }) {
           {error && <span className="sidebar__meta">Couldn&rsquo;t load categories</span>}
 
           {types.map((t) => (
-            <Link
-              key={t.id}
-              to={`/?typeId=${t.id}`}
-              className={linkClass(activeTypeId === t.id)}
-              onClick={onNavigate}
-            >
+            <Link key={t.id} to={`/?typeId=${t.id}`} {...linkProps(activeTypeId === t.id)}>
               {t.name}
             </Link>
           ))}

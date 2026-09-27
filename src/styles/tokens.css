@@ -81,10 +81,31 @@
      SIZING
      ========================================================================== */
 
-  /* Icons */
+  /* Icons - Core sizes */
   --size-icon-sm: 16px;
   --size-icon-md: 20px;
   --size-icon-lg: 24px;
+
+  /* Icons - Semantic size scale */
+  --icon-xs: 14px;
+  --icon-sm: var(--size-icon-sm);   /* 16px */
+  --icon-md: var(--size-icon-md);   /* 20px */
+  --icon-lg: var(--size-icon-lg);   /* 24px */
+  --icon-xl: 32px;
+
+  /* Icons - Stroke widths (SVG strokeWidth values, not CSS pixels) */
+  --icon-stroke: 1.8;
+  --icon-stroke-active: 2;
+
+  /* Icons - Colors (semantic aliases to existing color tokens) */
+  --icon-color: var(--text-secondary);        /* #A8BBB5 - default */
+  --icon-color-primary: var(--text);          /* #F5FFFB - strong contrast */
+  --icon-color-active: var(--primary);        /* #00E88F - selected/active */
+  --icon-color-muted: var(--text-muted);      /* #718A82 - subdued */
+  --icon-color-hover: var(--primary-dark);    /* #00C878 - hover state */
+
+  /* Icons - Gap between icon and text */
+  --icon-text-gap: var(--space-2);            /* 8px */
 
   /* Controls */
   --height-control-sm: 36px;
@@ -130,6 +151,38 @@
   /* Section rhythm */
   --section-content-gap: var(--space-4); /* 16px */
   --section-gap: var(--space-8);         /* 32px */
+  --section-header-gap: var(--section-content-gap); /* 16px - header to content */
+
+  /* Page structure */
+  --page-top-space: var(--content-padding-y); /* 24px - provided by app-main */
+
+  /* Hero internal spacing */
+  --hero-section-gap: var(--section-gap);     /* 32px - hero to next section */
+  --hero-eyebrow-gap: var(--space-3);         /* 12px - eyebrow to title */
+  --hero-description-gap: var(--space-4);     /* 16px - title to description */
+  --hero-actions-gap: var(--space-6);         /* 24px - description to actions */
+
+  /* Page heading spacing */
+  --heading-subtitle-gap: var(--space-2);     /* 8px - title to subtitle */
+  --heading-controls-gap: var(--space-6);     /* 24px - heading to controls */
+  --controls-content-gap: var(--space-6);     /* 24px - controls to content */
+
+  /* ==========================================================================
+     BREAKPOINTS (Reference Only)
+     ========================================================================== */
+  /*
+   * CSS custom properties cannot be used in media query conditions.
+   * These are documentation/reference aliases only.
+   *
+   * Actual media queries must use literal values:
+   *   @media (max-width: 767px) {}           Mobile
+   *   @media (min-width: 768px) and (max-width: 1199px) {}  Tablet
+   *   @media (min-width: 1200px) and (max-width: 1599px) {} Desktop
+   *   @media (min-width: 1600px) {}          Large Desktop
+   */
+  --breakpoint-mobile: 768px;
+  --breakpoint-tablet: 1200px;
+  --breakpoint-desktop-lg: 1600px;
 
   /*
    * ==========================================================================
@@ -193,8 +246,8 @@
   --card-content-gap: var(--space-4);            /* 16px */
   --card-radius: var(--radius-card);             /* 16px */
 
-  /* Card transition */
-  --card-transition: 200ms ease;
+  /* Card transition (uses motion tokens - see Motion section) */
+  --card-transition: var(--duration-smooth) var(--ease-default);
 
   /* Legacy alias */
   --card-hover-border: #00E88F;
@@ -204,7 +257,7 @@
      ========================================================================== */
 
   /* Button sizing (reusing control heights from Step 05) */
-  --button-height-sm: var(--height-control-sm);  /* 36px */
+  --button-height-sm: var(--height-control-md);  /* 44px - accessibility minimum */
   --button-height-md: var(--height-control-md);  /* 44px */
   --button-height-lg: var(--height-control-lg);  /* 48px */
 
@@ -218,7 +271,7 @@
   --button-font-md: var(--font-md-plus);         /* 15px */
   --button-font-lg: var(--font-base);            /* 16px */
 
-  --button-icon-size: 40px;
+  --button-icon-size: 44px;
 
   /* Primary button colors */
   --button-primary-bg: #00E88F;
@@ -277,7 +330,7 @@
   /* Colors */
   --control-bg: var(--header-search-bg);            /* #092321 */
   --control-text: var(--text);
-  --control-placeholder: var(--text-muted);
+  --control-placeholder: var(--text-secondary);  /* #A8BBB5 - 8.8:1 contrast on input bg */
   --control-border: var(--border-default);
   --control-border-hover: var(--primary-dark);      /* #00C878 */
   --control-border-focus: var(--border-active);     /* #00E88F */
@@ -398,13 +451,47 @@
   --overlay-soft: rgba(0, 0, 0, 0.35);
 
   /* ==========================================================================
-     FOCUS STATES
+     INTERACTIVE STATES
+     ========================================================================== */
+
+  /* Hover state */
+  --state-hover-bg: var(--button-ghost-hover-bg);      /* rgba(0, 232, 143, 0.08) */
+  --state-hover-color: var(--primary-dark);            /* #00C878 */
+
+  /* Active/pressed state */
+  --state-active-color: var(--primary);                /* #00E88F */
+
+  /* Selected state (persistent choice) */
+  --state-selected-bg: rgba(0, 232, 143, 0.10);
+  --state-selected-color: var(--primary);              /* #00E88F */
+  --state-selected-border: var(--border-active);       /* #00E88F */
+  --state-selected-glow: 0 0 18px rgba(0, 232, 143, 0.20);
+
+  /* Focus state (keyboard navigation) */
+  --state-focus-ring: rgba(0, 232, 143, 0.20);         /* Soft supplemental focus (NOT primary) */
+  --state-focus-outline: var(--border-active);         /* #00E88F - solid visible outline */
+
+  /* Disabled state */
+  --state-disabled-opacity: 0.45;
+
+  /* Error state */
+  --state-error-color: var(--control-error-border);    /* #D94A4A */
+  --state-error-text: var(--control-error-text);       /* #F06B6B */
+  --state-error-bg: var(--color-error-bg);
+  --state-error-focus-ring: var(--control-error-focus-ring);
+
+  /* Success state */
+  --state-success-color: var(--accent-text);           /* #20F0A0 */
+  --state-success-bg: var(--color-success-bg);
+
+  /* ==========================================================================
+     FOCUS STATES (Legacy - use --state-focus-* above)
      ========================================================================== */
   --focus-ring: rgba(0, 232, 143, 0.50);
   --focus-ring-strong: rgba(0, 232, 143, 0.75);
 
   /* ==========================================================================
-     DISABLED STATES
+     DISABLED STATES (Legacy - use --state-disabled-* above)
      ========================================================================== */
   --disabled-bg: #0A1B18;
   --disabled-border: rgba(0, 200, 120, 0.18);
@@ -415,6 +502,56 @@
      ========================================================================== */
   --divider: rgba(0, 200, 120, 0.18);
   --divider-strong: rgba(0, 200, 120, 0.35);
+
+  /* ==========================================================================
+     MOTION / ANIMATION
+     ========================================================================== */
+
+  /* Durations */
+  --duration-fast: 120ms;      /* Icon/micro-hover/press */
+  --duration-default: 180ms;   /* Button/input/menu/navigation */
+  --duration-smooth: 220ms;    /* Cards/larger hover transitions */
+  --duration-slow: 320ms;      /* Drawer/large UI transitions */
+
+  /* Easing functions */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);  /* Standard state transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);     /* Entrance/open animations */
+
+  /* ==========================================================================
+     Z-INDEX / LAYERING
+     ========================================================================== */
+  /*
+   * Semantic layer system for stacking order.
+   * Use these tokens instead of arbitrary z-index values.
+   *
+   * Layer hierarchy (low to high):
+   *   base/content → elevated → sidebar → header →
+   *   dropdown → tooltip → floating → overlay → drawer → modal → popover → toast → system
+   */
+
+  /* Base layers */
+  --z-base: 0;                /* Page/background */
+  --z-content: 1;             /* Cards, sections, normal content */
+  --z-elevated: 10;           /* Hovered/selected/elevated local UI */
+
+  /* App shell layers */
+  --z-sidebar: 20;            /* Desktop persistent sidebar */
+  --z-header: 30;             /* Sticky header/navbar */
+
+  /* Interactive layers */
+  --z-dropdown: 50;           /* Menus/dropdowns/select */
+  --z-tooltip: 60;            /* Tooltips */
+  --z-floating: 70;           /* Floating/sticky controls */
+
+  /* Overlay layers */
+  --z-overlay: 100;           /* Backdrops (modal, drawer) */
+  --z-drawer: 110;            /* Mobile sidebar/drawer */
+  --z-modal: 120;             /* Modal/dialog content */
+  --z-popover: 130;           /* Popover/menu above modal */
+
+  /* Global layers */
+  --z-toast: 200;             /* Toast/notifications */
+  --z-system: 300;            /* Critical system UI (reserved) */
 
   /* ==========================================================================
      LEGACY COMPATIBILITY ALIASES
