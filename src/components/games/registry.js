@@ -71,6 +71,10 @@ const CarWashStudio = lazy(() => import("./CarWashStudio/CarWashStudio.jsx"));
  *  data; lazy so the catalogue doesn't pull that in until someone opens it. */
 const BottleFlip = lazy(() => import("./BottleFlip/BottleFlip.jsx"));
 
+/** Dentist Studio — a Canvas 2D dental-care sim with per-tooth cell masks
+ *  and 50 treatments of data; lazy so the catalogue stays light. */
+const DentistStudio = lazy(() => import("./DentistStudio/DentistStudio.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -101,6 +105,7 @@ const GAME_COMPONENTS = {
   "Laser Maze": LaserMaze,
   "Car Wash Studio": CarWashStudio,
   "Bottle Flip": BottleFlip,
+  "Dentist Studio": DentistStudio,
 };
 
 /**
@@ -110,13 +115,22 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Dentist Studio"]);
+
+/**
+ * Names typed into the admin panel can carry stray spaces or different
+ * casing (" Dentist Studio", "dentist  studio"); match on a normalized key so
+ * those still find their game.
+ */
+const normalizeName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();
+const COMPONENTS_BY_KEY = new Map(Object.entries(GAME_COMPONENTS).map(([name, C]) => [normalizeName(name), C]));
+const MUTE_AWARE_KEYS = new Set([...MUTE_AWARE].map(normalizeName));
 
 export function getGameComponent(game) {
   if (!game || !game.name) return null;
-  return GAME_COMPONENTS[game.name] ?? null;
+  return COMPONENTS_BY_KEY.get(normalizeName(game.name)) ?? null;
 }
 
 export function gameSupportsMute(game) {
-  return Boolean(game && MUTE_AWARE.has(game.name));
+  return Boolean(game && MUTE_AWARE_KEYS.has(normalizeName(game.name)));
 }
