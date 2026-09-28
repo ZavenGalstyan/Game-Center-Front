@@ -71,6 +71,9 @@ const CarWashStudio = lazy(() => import("./CarWashStudio/CarWashStudio.jsx"));
  *  data; lazy so the catalogue doesn't pull that in until someone opens it. */
 const BottleFlip = lazy(() => import("./BottleFlip/BottleFlip.jsx"));
 
+/** Parking Jam — a DOM/SVG exit-order parking puzzle with 100 levels of
+ *  data; lazy so the catalogue doesn't pull that in until someone opens it. */
+const ParkingJam = lazy(() => import("./ParkingJam/ParkingJam.jsx"));
 /** Dentist Studio — a Canvas 2D dental-care sim with per-tooth cell masks
  *  and 50 treatments of data; lazy so the catalogue stays light. */
 const DentistStudio = lazy(() => import("./DentistStudio/DentistStudio.jsx"));
@@ -105,6 +108,7 @@ const GAME_COMPONENTS = {
   "Laser Maze": LaserMaze,
   "Car Wash Studio": CarWashStudio,
   "Bottle Flip": BottleFlip,
+  "Parking Jam": ParkingJam,
   "Dentist Studio": DentistStudio,
 };
 
@@ -115,6 +119,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam"]);
 const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Dentist Studio"]);
 
 /**
