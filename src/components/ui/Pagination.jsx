@@ -27,18 +27,19 @@ export default function Pagination({
   const hasNext = page < totalPages;
 
   return (
-    <div className={classNames}>
+    <nav className={classNames} aria-label="Pagination">
       <Button
         variant="ghost"
         size="sm"
         disabled={disabled || !hasPrev}
         onClick={() => onPageChange(page - 1)}
+        aria-label="Go to previous page"
       >
         Previous
       </Button>
 
       {showInfo && (
-        <span className="ui-pagination__info">
+        <span className="ui-pagination__info" aria-live="polite">
           Page {page} of {totalPages}
           {typeof total === "number" && ` \u00B7 ${total} total`}
         </span>
@@ -49,9 +50,10 @@ export default function Pagination({
         size="sm"
         disabled={disabled || !hasNext}
         onClick={() => onPageChange(page + 1)}
+        aria-label="Go to next page"
       >
         Next
       </Button>
-    </div>
+    </nav>
   );
 }

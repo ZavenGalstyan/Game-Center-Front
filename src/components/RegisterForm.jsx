@@ -82,6 +82,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
         error={errors.username}
         hint="3–30 characters · letters, numbers, and _ . -"
         htmlFor="reg-username"
+        required
       >
         <Input
           id="reg-username"
@@ -91,10 +92,11 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
           onChange={setField("username")}
           disabled={submitting}
           error={Boolean(errors.username)}
+          required
         />
       </FormField>
 
-      <FormField label="Email" error={errors.email} htmlFor="reg-email">
+      <FormField label="Email" error={errors.email} htmlFor="reg-email" required>
         <Input
           id="reg-email"
           type="email"
@@ -103,6 +105,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
           onChange={setField("email")}
           disabled={submitting}
           error={Boolean(errors.email)}
+          required
         />
       </FormField>
 
@@ -111,6 +114,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
         error={errors.password}
         hint="8–128 characters"
         htmlFor="reg-password"
+        required
       >
         <Input
           id="reg-password"
@@ -120,6 +124,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
           onChange={setField("password")}
           disabled={submitting}
           error={Boolean(errors.password)}
+          required
         />
       </FormField>
 
@@ -127,6 +132,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
         label="Confirm password"
         error={errors.confirmPassword}
         htmlFor="reg-confirm"
+        required
       >
         <Input
           id="reg-confirm"
@@ -136,6 +142,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
           onChange={setField("confirmPassword")}
           disabled={submitting}
           error={Boolean(errors.confirmPassword)}
+          required
         />
       </FormField>
 

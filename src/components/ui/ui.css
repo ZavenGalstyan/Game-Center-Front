@@ -6,6 +6,100 @@
  */
 
 /* ==========================================================================
+   ICONS
+   ========================================================================== */
+
+/*
+ * Base icon utility class.
+ * Default: 20px, outline style, secondary color.
+ * Icons use currentColor for easy state inheritance from parent.
+ */
+.ui-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--icon-md);
+  height: var(--icon-md);
+  color: var(--icon-color);
+}
+
+.ui-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Icon size modifiers */
+.ui-icon--xs {
+  width: var(--icon-xs);
+  height: var(--icon-xs);
+}
+
+.ui-icon--sm {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+.ui-icon--md {
+  width: var(--icon-md);
+  height: var(--icon-md);
+}
+
+.ui-icon--lg {
+  width: var(--icon-lg);
+  height: var(--icon-lg);
+}
+
+.ui-icon--xl {
+  width: var(--icon-xl);
+  height: var(--icon-xl);
+}
+
+/* Icon color modifiers */
+.ui-icon--primary {
+  color: var(--icon-color-primary);
+}
+
+.ui-icon--active {
+  color: var(--icon-color-active);
+}
+
+.ui-icon--muted {
+  color: var(--icon-color-muted);
+}
+
+/* Disabled icon state */
+.ui-icon--disabled {
+  color: var(--icon-color-muted);
+  opacity: 0.45;
+}
+
+/*
+ * Interactive icon wrapper.
+ * Parent interactive elements should use this class to enable
+ * state-based color transitions for child icons.
+ */
+.ui-icon-interactive {
+  color: var(--icon-color);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.ui-icon-interactive:hover {
+  color: var(--icon-color-hover);
+}
+
+.ui-icon-interactive:active,
+.ui-icon-interactive.is-active {
+  color: var(--icon-color-active);
+}
+
+.ui-icon-interactive:disabled,
+.ui-icon-interactive.is-disabled {
+  color: var(--icon-color-muted);
+  opacity: 0.45;
+}
+
+/* ==========================================================================
    BUTTON
    ========================================================================== */
 
@@ -25,7 +119,13 @@
   font-weight: var(--weight-medium);
   line-height: var(--line-none);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s, box-shadow 0.15s, transform 0.15s;
+  transition:
+    background-color var(--duration-default) var(--ease-default),
+    border-color var(--duration-default) var(--ease-default),
+    color var(--duration-default) var(--ease-default),
+    box-shadow var(--duration-default) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default),
+    opacity var(--duration-default) var(--ease-default);
   position: relative;
 }
 
@@ -38,7 +138,7 @@
 }
 
 .ui-btn:focus-visible {
-  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
   outline-offset: 3px;
 }
 
@@ -164,7 +264,11 @@
   line-height: var(--line-none);
   cursor: pointer;
   box-sizing: border-box;
-  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s;
+  transition:
+    background-color var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default),
+    color var(--duration-fast) var(--ease-default),
+    opacity var(--duration-fast) var(--ease-default);
 }
 
 .ui-icon-btn:hover:not(:disabled) {
@@ -174,7 +278,7 @@
 }
 
 .ui-icon-btn:focus-visible {
-  outline: var(--border-width-focus) solid var(--focus-ring);
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
   outline-offset: 3px;
 }
 
@@ -219,6 +323,18 @@
   --ui-icon-btn-size: 32px;
   --ui-icon-btn-padding: 8px;
   --ui-icon-btn-icon-size: var(--size-icon-sm);
+  position: relative;
+}
+
+/* Expand hit target to 44×44px while keeping visual size at 32px */
+.ui-icon-btn--sm::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
 }
 
 .ui-icon-btn--lg {
@@ -253,7 +369,9 @@
   font-size: var(--ui-input-font, var(--control-font-md));
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
-  transition: border-color 0.15s, outline 0.15s;
+  transition:
+    border-color var(--duration-default) var(--ease-default),
+    outline-color var(--duration-default) var(--ease-default);
 }
 
 .ui-input::placeholder {
@@ -271,7 +389,7 @@
 }
 
 .ui-input:disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
   background: var(--control-disabled-bg);
 }
@@ -323,7 +441,9 @@
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
   resize: vertical;
-  transition: border-color 0.15s, outline 0.15s;
+  transition:
+    border-color var(--duration-default) var(--ease-default),
+    outline-color var(--duration-default) var(--ease-default);
 }
 
 .ui-textarea::placeholder {
@@ -341,7 +461,7 @@
 }
 
 .ui-textarea:disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
   background: var(--control-disabled-bg);
 }
@@ -392,7 +512,9 @@
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
   cursor: pointer;
-  transition: border-color 0.15s, outline 0.15s;
+  transition:
+    border-color var(--duration-default) var(--ease-default),
+    outline-color var(--duration-default) var(--ease-default);
 }
 
 .ui-select:hover:not(:disabled):not(:focus) {
@@ -406,7 +528,7 @@
 }
 
 .ui-select:disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
   background: var(--control-disabled-bg);
 }
@@ -475,7 +597,7 @@
 }
 
 .ui-field--disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
 }
 
 /* ==========================================================================
@@ -573,10 +695,21 @@
   cursor: pointer;
   padding: 0;
   line-height: 0;
+  transition: opacity var(--duration-fast) var(--ease-default);
 }
 
 .ui-alert__dismiss:hover {
   opacity: 1;
+}
+
+.ui-alert__dismiss:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
+}
+
+.ui-alert__dismiss svg {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
 }
 
 /* ==========================================================================
@@ -615,7 +748,11 @@
 
 .ui-error-state__icon {
   color: var(--color-error);
-  opacity: 0.8;
+}
+
+.ui-error-state__icon svg {
+  width: var(--icon-xl);
+  height: var(--icon-xl);
 }
 
 .ui-error-state__title {
@@ -649,21 +786,26 @@
 }
 
 .ui-empty-state__icon {
-  color: var(--text-muted);
+  color: var(--icon-color-muted);
   margin-bottom: var(--space-2);
 }
 
+.ui-empty-state__icon svg {
+  width: var(--icon-xl);
+  height: var(--icon-xl);
+}
+
 .ui-empty-state__title {
-  font-size: var(--font-lg);
-  font-weight: var(--weight-semibold);
+  font-size: var(--font-base);                         /* 16px per spec */
+  font-weight: var(--weight-semibold);                 /* 600 */
   line-height: var(--line-snug);
   margin: 0;
 }
 
 .ui-empty-state__message {
   color: var(--text-muted);
-  font-size: var(--font-md-plus);
-  font-weight: var(--weight-regular);
+  font-size: var(--font-md);                           /* 14px per spec */
+  font-weight: var(--weight-regular);                  /* 400 */
   line-height: var(--line-normal);
   margin: 0 0 var(--space-3);
 }
@@ -712,8 +854,8 @@
 }
 
 .ui-card--interactive:focus-visible {
-  outline: var(--border-width-focus) solid var(--focus-ring);
-  outline-offset: 2px;
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 
 /* Padding variants */
@@ -760,7 +902,7 @@
   justify-content: space-between;
   gap: var(--ui-page-header-gap, var(--space-4));
   flex-wrap: wrap;
-  margin-bottom: var(--ui-page-header-margin, var(--space-5));
+  margin-bottom: var(--ui-page-header-margin, var(--heading-controls-gap));
 }
 
 .ui-page-header__text {
@@ -776,10 +918,10 @@
 
 .ui-page-header__subtitle {
   color: var(--text-muted);
-  font-size: var(--font-md-plus);
+  font-size: var(--font-md);
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
-  margin: var(--space-1) 0 0;
+  margin: var(--heading-subtitle-gap) 0 0;
 }
 
 .ui-page-header__actions {
@@ -814,7 +956,7 @@
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-4);
-  margin-bottom: var(--ui-section-header-gap, var(--section-content-gap));
+  margin-bottom: var(--ui-section-header-gap, var(--section-header-gap));
 }
 
 .ui-section__title {
@@ -836,6 +978,32 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* See All action link styling */
+.ui-section__see-all {
+  font-family: var(--font-family);
+  font-size: var(--font-md);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-short);
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--duration-default) var(--ease-default);
+}
+
+.ui-section__see-all:hover {
+  color: var(--primary);
+}
+
+.ui-section__see-all:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
 /* ==========================================================================
@@ -993,8 +1161,13 @@
 }
 
 .ui-table-actions__btn:disabled {
-  opacity: 0.55;
+  opacity: var(--state-disabled-opacity);
   cursor: not-allowed;
+}
+
+.ui-table-actions__btn:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 
 /* ==========================================================================
@@ -1019,11 +1192,16 @@
   padding: var(--ui-tab-padding, 10px 16px);
   cursor: pointer;
   position: relative;
-  transition: color 0.15s;
+  transition: color var(--duration-default) var(--ease-default);
 }
 
 .ui-tabs__tab:hover {
   color: var(--text);
+}
+
+.ui-tabs__tab:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
 }
 
 .ui-tabs__tab--active {
@@ -1072,7 +1250,7 @@
 .ui-modal-overlay {
   position: fixed;
   inset: 0;
-  z-index: var(--ui-modal-z-index, 100);
+  z-index: var(--z-overlay);
   background: var(--ui-modal-overlay-bg, var(--overlay-modal));
   display: grid;
   place-items: center;
@@ -1080,6 +1258,8 @@
 }
 
 .ui-modal {
+  position: relative;
+  z-index: var(--z-modal);
   width: 100%;
   background: var(--ui-modal-bg, var(--surface));
   border: var(--border-width) solid var(--border-default);
@@ -1122,17 +1302,29 @@
 .ui-modal__close {
   background: none;
   border: none;
-  color: var(--text-muted);
+  color: var(--icon-color);
   cursor: pointer;
   padding: var(--space-1);
   line-height: 0;
   border-radius: var(--radius-sm);
-  transition: color 0.15s, background 0.15s;
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default);
 }
 
 .ui-modal__close:hover {
-  color: var(--text);
+  color: var(--icon-color-hover);
   background: var(--card-hover-bg);
+}
+
+.ui-modal__close:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
+}
+
+.ui-modal__close svg {
+  width: var(--icon-md);
+  height: var(--icon-md);
 }
 
 .ui-modal__body {
@@ -1175,7 +1367,7 @@
 
 .ui-tooltip {
   position: absolute;
-  z-index: var(--ui-tooltip-z-index, 50);
+  z-index: var(--z-tooltip);
   padding: var(--ui-tooltip-padding, 6px 10px);
   background: var(--ui-tooltip-bg, var(--surface));
   border: var(--border-width) solid var(--border-default);
@@ -1184,10 +1376,12 @@
   font-weight: var(--weight-regular);
   line-height: var(--line-normal);
   color: var(--text);
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  max-width: min(280px, calc(100vw - var(--space-8)));
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.15s;
+  transition: opacity var(--duration-fast) var(--ease-default);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1217,4 +1411,292 @@
   left: calc(100% + 8px);
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* ==========================================================================
+   STATE UTILITIES
+   ========================================================================== */
+
+/*
+ * Selected state utility.
+ * For persistent choice indicators (current tab, selected filter, chosen item).
+ * Use .is-selected or aria-selected="true" where semantically appropriate.
+ *
+ * Note: Component-specific selected/active states (e.g., sidebar navigation,
+ * tabs) may override this with their approved semantic design.
+ */
+.is-selected,
+[aria-selected="true"] {
+  color: var(--state-selected-color);
+  border-color: var(--state-selected-border);
+  background: var(--state-selected-bg);
+  box-shadow: var(--state-selected-glow);
+}
+
+/*
+ * Disabled state utility.
+ * Prefer native :disabled for form controls.
+ * Use .is-disabled for custom non-native elements.
+ *
+ * Note: This utility does NOT set pointer-events: none globally.
+ * Interaction blocking must be handled by component logic
+ * (native disabled, aria-disabled, or explicit click guards).
+ */
+.is-disabled {
+  opacity: var(--state-disabled-opacity);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/*
+ * Loading state utility.
+ * Indicates an action is in progress.
+ * Prevents duplicate activation while loading.
+ */
+.is-loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* Tablet: 768px–1199px */
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* Section title: 22px */
+  .ui-section__title {
+    font-size: 22px;
+  }
+}
+
+/* Mobile: <768px */
+@media (max-width: 767px) {
+  /* Modal responsive */
+  .ui-modal {
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+  }
+
+  .ui-modal__head {
+    padding: var(--space-4) var(--space-4) 0;
+  }
+
+  .ui-modal__body {
+    padding: var(--space-4) var(--space-4) var(--space-5);
+  }
+
+  .ui-modal__footer {
+    padding: 0 var(--space-4) var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  /* Page header responsive - stack vertically, keep left alignment */
+  .ui-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .ui-page-header__actions {
+    justify-content: flex-start;
+  }
+
+  /* Section responsive */
+  .ui-section__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  /* Section title: 20px */
+  .ui-section__title {
+    font-size: 20px;
+  }
+
+  /* See All stays consistent size on mobile */
+  .ui-section__see-all {
+    font-size: var(--font-md);
+  }
+
+  /* Card responsive */
+  .ui-card--pad-lg {
+    padding: var(--space-5);
+  }
+
+  /* Empty state responsive */
+  .ui-empty-state {
+    padding: var(--space-6);
+  }
+
+  /* Error state responsive */
+  .ui-error-state {
+    padding: var(--space-6);
+  }
+
+  /* Tabs responsive - allow horizontal scroll */
+  .ui-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    /* Accommodate 3px focus-ring offset on first/last tabs */
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: -3px;
+    margin-right: -3px;
+  }
+
+  .ui-tabs__tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Confirm dialog actions stack on narrow screens */
+  .ui-confirm__actions {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .ui-confirm__actions .ui-btn {
+    width: 100%;
+  }
+
+  /* Pagination wraps cleanly */
+  .ui-pagination {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  /* Dropdown menu full width on mobile */
+  .ui-dropdown__menu {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+/* Extra small: ≤380px */
+@media (max-width: 380px) {
+  .ui-btn--lg {
+    --ui-btn-padding-x: var(--space-4);
+  }
+
+  .ui-modal__title {
+    font-size: var(--font-base);
+  }
+
+  /* Pagination info center when wrapped */
+  .ui-pagination__info {
+    text-align: center;
+    width: 100%;
+    order: -1;
+  }
+
+  /* Table actions may wrap */
+  .ui-table-actions {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+}
+
+/* Minimum width: ≤320px */
+@media (max-width: 320px) {
+  /* Modal scales to minimum */
+  .ui-modal {
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+
+  .ui-modal__head {
+    padding: var(--space-3) var(--space-3) 0;
+  }
+
+  .ui-modal__body {
+    padding: var(--space-3) var(--space-3) var(--space-4);
+  }
+
+  .ui-modal__footer {
+    padding: 0 var(--space-3) var(--space-3);
+  }
+
+  /* Icon button shrinks slightly */
+  .ui-icon-btn {
+    --ui-icon-btn-size: 36px;
+    --ui-icon-btn-padding: 8px;
+  }
+
+  /* Table minimum width for very small screens */
+  .ui-table {
+    min-width: 280px;
+  }
+
+  /* Pagination buttons compact */
+  .ui-pagination .ui-btn--sm {
+    --ui-btn-padding-x: var(--space-2);
+    font-size: var(--font-sm);
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+/* Modal overlay entrance */
+.ui-modal-overlay {
+  animation: ui-overlay-in var(--duration-default) var(--ease-default);
+}
+
+@keyframes ui-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal content entrance */
+.ui-modal {
+  animation: ui-modal-in var(--duration-smooth) var(--ease-out);
+}
+
+@keyframes ui-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dropdown entrance */
+@keyframes ui-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -24,9 +24,12 @@ export default function Tabs({
       {tabs.map((tab) => (
         <button
           key={tab.id}
+          id={`tab-${tab.id}`}
           type="button"
           role="tab"
           aria-selected={activeTab === tab.id}
+          aria-controls={`tabpanel-${tab.id}`}
+          tabIndex={activeTab === tab.id ? 0 : -1}
           className={`ui-tabs__tab ${activeTab === tab.id ? "ui-tabs__tab--active" : ""}`}
           onClick={() => onChange(tab.id)}
         >
@@ -52,7 +55,12 @@ export function TabPanel({ id, active = false, className = "", children }) {
   const classNames = ["ui-tab-panel", className].filter(Boolean).join(" ");
 
   return (
-    <div id={id} role="tabpanel" className={classNames}>
+    <div
+      id={`tabpanel-${id}`}
+      role="tabpanel"
+      aria-labelledby={`tab-${id}`}
+      className={classNames}
+    >
       {children}
     </div>
   );

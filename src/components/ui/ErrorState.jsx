@@ -23,12 +23,12 @@ export default function ErrorState({
     <div className={classNames} role="alert">
       <div className="ui-error-state__icon" aria-hidden="true">
         <svg
-          width="48"
-          height="48"
+          width="32"
+          height="32"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="1.8"
           strokeLinecap="round"
           strokeLinejoin="round"
         >

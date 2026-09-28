@@ -28,9 +28,15 @@ export function ToastProvider({ children }) {
       {children}
       <div className="toast-stack" role="status" aria-live="polite">
         {toasts.map((t) => (
-          <div key={t.id} className={`toast toast--${t.type}`} onClick={() => dismiss(t.id)}>
+          <button
+            key={t.id}
+            type="button"
+            className={`toast toast--${t.type}`}
+            onClick={() => dismiss(t.id)}
+            aria-label={`${t.message}. Click to dismiss.`}
+          >
             {t.message}
-          </div>
+          </button>
         ))}
       </div>
     </ToastContext.Provider>

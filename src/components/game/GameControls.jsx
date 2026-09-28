@@ -3,11 +3,12 @@
  * Fullscreen. Restart and Mute are disabled until a game wires up a handler.
  */
 
+// Default icon props following the icon system spec (stroke: 1.8 default)
 const svgProps = {
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
-  strokeWidth: 2,
+  strokeWidth: 1.8,
   strokeLinecap: "round",
   strokeLinejoin: "round",
   "aria-hidden": true,
