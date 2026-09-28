@@ -79,6 +79,10 @@ const ParkingJam = lazy(() => import("./ParkingJam/ParkingJam.jsx"));
  *  and 50 treatments of data; lazy so the catalogue stays light. */
 const DentistStudio = lazy(() => import("./DentistStudio/DentistStudio.jsx"));
 
+/** Boxing Club — a Canvas 2D arcade boxing game (combat engine + 30-fighter
+ *  career); lazy so the catalogue doesn't pull that in until someone opens it. */
+const BoxingClub = lazy(() => import("./BoxingClub/BoxingClub.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -111,6 +115,7 @@ const GAME_COMPONENTS = {
   "Bottle Flip": BottleFlip,
   "Parking Jam": ParkingJam,
   "Dentist Studio": DentistStudio,
+  "Boxing Club": BoxingClub,
 };
 
 /**
@@ -120,7 +125,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different
