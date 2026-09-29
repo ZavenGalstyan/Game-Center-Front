@@ -93,6 +93,10 @@ const StreetBasketball = lazy(() => import("./StreetBasketball/StreetBasketball.
  *  WebGL chunk. */
 const ArenaGladiator = lazy(() => import("./ArenaGladiator/ArenaGladiator.jsx"));
 
+/** Stack Tower — a Canvas 2D (isometric) timing/stacking arcade game; lazy
+ *  so the catalogue doesn't pull in its renderer until someone opens it. */
+const StackTower = lazy(() => import("./StackTower/StackTower.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -128,6 +132,7 @@ const GAME_COMPONENTS = {
   "Boxing Club": BoxingClub,
   "Street Basketball": StreetBasketball,
   "Arena Gladiator": ArenaGladiator,
+  "Stack Tower": StackTower,
 };
 
 /**
@@ -137,7 +142,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different
