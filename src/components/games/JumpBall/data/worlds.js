@@ -1,0 +1,68 @@
+/**
+ * Jump Ball — the five worlds. Pure data: palettes for the platform renderer,
+ * the background painter key and a music variant. Gameplay never reads these.
+ */
+export const WORLDS = [
+  {
+    id: 1,
+    key: "sunny",
+    name: "SUNNY HEIGHTS",
+    blurb: "Bright skies and soft clouds",
+    accent: "#ffcf4a",
+    ui: ["#4aa8ff", "#8fd3ff"],
+    plat: { top: "#7fd35a", lip: "#b6f07a", body: ["#c98f5a", "#8e5b34"], edge: "#5c3a20", detail: "#5fae3f" },
+    dust: "#f4e7c9",
+    rim: "#bfe6ff",
+    music: 0,
+  },
+  {
+    id: 2,
+    key: "sunset",
+    name: "SUNSET CITY",
+    blurb: "Warm rooftops at golden hour",
+    accent: "#ff8a5c",
+    ui: ["#ff7a59", "#ffb36b"],
+    plat: { top: "#e9b48a", lip: "#ffd9b0", body: ["#a8566a", "#6b3050"], edge: "#43203a", detail: "#ffcf8a" },
+    dust: "#ffd7b5",
+    rim: "#ffb38a",
+    music: 1,
+  },
+  {
+    id: 3,
+    key: "frozen",
+    name: "FROZEN SKY",
+    blurb: "Snowy peaks and slippery ice",
+    accent: "#7fdcff",
+    ui: ["#4d8fd9", "#9fdcff"],
+    plat: { top: "#f4fbff", lip: "#ffffff", body: ["#7b93b8", "#4a5f82"], edge: "#2f3e5c", detail: "#d8ecff" },
+    dust: "#ffffff",
+    rim: "#d9f2ff",
+    music: 2,
+  },
+  {
+    id: 4,
+    key: "cloud",
+    name: "CLOUD KINGDOM",
+    blurb: "Golden ruins above the clouds",
+    accent: "#ffd76a",
+    ui: ["#6c7fe0", "#ffd27a"],
+    plat: { top: "#fff1d0", lip: "#ffffff", body: ["#e8d2a8", "#b3915c"], edge: "#7a5c32", detail: "#ffcc4d" },
+    dust: "#fff6dc",
+    rim: "#ffe7a8",
+    music: 3,
+  },
+  {
+    id: 5,
+    key: "neon",
+    name: "NEON SPACE",
+    blurb: "Floating structures among the stars",
+    accent: "#4df0ff",
+    ui: ["#7b4dff", "#ff4dd2"],
+    plat: { top: "#3a3f6e", lip: "#4df0ff", body: ["#262a4f", "#15172e"], edge: "#0a0b1a", detail: "#ff4dd2" },
+    dust: "#9ff6ff",
+    rim: "#b98cff",
+    music: 4,
+  },
+];
+
+export const getWorld = (id) => WORLDS[Math.max(0, Math.min(WORLDS.length - 1, (id || 1) - 1))];
