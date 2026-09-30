@@ -7,10 +7,15 @@ import AuthModal from "./AuthModal.jsx";
 export default function Layout() {
   const [authMode, setAuthMode] = useState(null); // "login" | "register" | null
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const openAuth = useCallback((mode) => setAuthMode(mode), []);
   const closeAuth = useCallback(() => setAuthMode(null), []);
   const closeSidebar = useCallback(() => setSidebarOpen(false), []);
+
+  const handleSearch = useCallback((query) => {
+    setSearchQuery(query);
+  }, []);
 
   return (
     <div className="app-shell">
@@ -18,11 +23,12 @@ export default function Layout() {
         onOpenAuth={openAuth}
         onToggleSidebar={() => setSidebarOpen((v) => !v)}
         sidebarOpen={sidebarOpen}
+        onSearch={handleSearch}
       />
       <div className="app-body">
         <Sidebar open={sidebarOpen} onNavigate={closeSidebar} />
         <main className="app-main">
-          <Outlet context={{ openAuth }} />
+          <Outlet context={{ openAuth, searchQuery }} />
         </main>
       </div>
 
