@@ -107,7 +107,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--ui-btn-gap, 6px);
+  gap: var(--ui-btn-gap, 8px);
   height: var(--ui-btn-height, var(--button-height-md));
   padding: 0 var(--ui-btn-padding-x, var(--button-padding-md));
   border-radius: var(--ui-btn-radius, var(--button-radius));
@@ -127,6 +127,17 @@
     transform var(--duration-fast) var(--ease-default),
     opacity var(--duration-default) var(--ease-default);
   position: relative;
+}
+
+/* Button content wrapper - handles icon alignment */
+.ui-btn > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ui-btn svg {
+  flex-shrink: 0;
 }
 
 .ui-btn:hover:not(:disabled) {
@@ -1054,8 +1065,10 @@
 }
 
 .ui-badge--sm {
-  font-size: var(--font-xs);
-  padding: 2px 6px;
+  height: 20px;
+  font-size: 9px;
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
 }
 
 /* ==========================================================================

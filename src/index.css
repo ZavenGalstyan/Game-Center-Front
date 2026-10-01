@@ -177,6 +177,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--space-3);
   padding: 0 18px;
   background: var(--bg-secondary);
   border-bottom: var(--border-width) solid var(--border-default);
@@ -185,6 +186,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  flex-shrink: 0;
 }
 .header__hamburger {
   display: none;
@@ -251,47 +253,14 @@ h3 {
   height: calc(100vh - var(--header-height));
   overflow-y: auto;
 }
-.sidebar__title {
-  font-size: var(--font-sm);
-  font-weight: var(--weight-semibold);
-  line-height: var(--line-short);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  padding: 0 10px;
-}
+/* Sidebar title - see REDESIGNED SIDEBAR section for full styles */
 .sidebar__nav {
   display: flex;
   flex-direction: column;
   gap: 2px;
   margin-top: var(--space-2);
 }
-.sidebar__link {
-  padding: 9px 10px;
-  border-radius: var(--radius-base);
-  color: var(--text-secondary);
-  font-size: var(--font-base);
-  font-weight: var(--weight-medium);
-  line-height: var(--line-snug);
-  transition:
-    background-color var(--duration-default) var(--ease-default),
-    color var(--duration-default) var(--ease-default);
-}
-.sidebar__link:hover {
-  background: var(--surface);
-  color: var(--text);
-}
-.sidebar__link:focus-visible {
-  outline: var(--border-width-focus) solid var(--state-focus-outline);
-  outline-offset: 3px;
-}
-.sidebar__link.is-active {
-  background: var(--active-menu-bg);
-  color: var(--text);
-  font-weight: var(--weight-semibold);
-  border-left: var(--border-width-active) solid var(--active-menu-border);
-  box-shadow: var(--active-menu-shadow);
-}
+/* Sidebar link base - see REDESIGNED SIDEBAR section for full styles */
 .sidebar__backdrop {
   display: none;
 }
@@ -749,100 +718,13 @@ h3 {
  * - Top-left, bottom-left, bottom-right: rounded 16px
  * - Top-right: diagonal cut (38% of card dimension)
  * This shape is stable across all states (hover, focus, active, loading, disabled).
- * Images/media inside will be clipped to match this silhouette.
+ *
+ * NOTE: The redesigned card uses a horizontal layout with artwork region.
+ * See REDESIGNED GAME CARD section below for the new implementation.
+ * Legacy styles are kept for backwards compatibility but overridden.
  */
-.game-card {
-  --_cut: var(--game-card-cut, 38%);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  height: var(--game-card-height);
-  padding: var(--card-padding);
-  background: var(--card-bg);
-  color: var(--text);
-  position: relative;
-  /* Clip-path creates the diagonal cut at top-right corner */
-  clip-path: polygon(
-    0 var(--card-radius),
-    var(--card-radius) 0,
-    calc(100% - var(--_cut)) 0,
-    100% var(--_cut),
-    100% calc(100% - var(--card-radius)),
-    calc(100% - var(--card-radius)) 100%,
-    var(--card-radius) 100%,
-    0 calc(100% - var(--card-radius))
-  );
-  box-shadow: var(--shadow-card), var(--glow-game-card-default);
-  transition:
-    transform var(--card-transition),
-    box-shadow var(--card-transition),
-    background var(--card-transition);
-}
-/* Border simulation using pseudo-element (clip-path doesn't support border) */
-.game-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--card-border);
-  clip-path: inherit;
-  z-index: -1;
-  transition: background var(--card-transition);
-}
-.game-card::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  background: var(--card-bg);
-  clip-path: polygon(
-    0 calc(var(--card-radius) - 1px),
-    calc(var(--card-radius) - 1px) 0,
-    calc(100% - var(--_cut) + 0.5px) 0,
-    100% calc(var(--_cut) - 0.5px),
-    100% calc(100% - var(--card-radius) + 1px),
-    calc(100% - var(--card-radius) + 1px) 100%,
-    calc(var(--card-radius) - 1px) 100%,
-    0 calc(100% - var(--card-radius) + 1px)
-  );
-  z-index: -1;
-  transition: background var(--card-transition);
-}
-.game-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card-hover), var(--glow-md);
-}
-.game-card:hover::before {
-  background: var(--card-border-hover);
-}
-.game-card:hover::after {
-  background: var(--card-hover-bg);
-}
-.game-card:focus-visible {
-  outline: var(--border-width-focus) solid var(--state-focus-outline);
-  outline-offset: 3px;
-}
-.game-card__top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-2);
-}
-.game-card__title {
-  font-size: var(--font-lg);
-  font-weight: var(--weight-bold);
-  line-height: var(--line-snug);
-  margin: 0;
-}
-.game-card__desc {
-  margin: 0;
-  color: var(--text-secondary);
-  font-size: var(--font-sm-plus);
-  font-weight: var(--weight-regular);
-  line-height: var(--line-normal);
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
+
+/* Legacy game card styles - now overridden by new styles below */
 .load-more {
   display: flex;
   justify-content: center;
@@ -1065,18 +947,10 @@ h3 {
     font-size: var(--font-md-plus);
   }
 
-  /* Section title: 22px, Card title: 16px, Body: 15px */
+  /* Section title: 22px */
   .landing__title,
   .page-title {
     font-size: 22px;
-  }
-
-  .game-card__title {
-    font-size: var(--font-base);
-  }
-
-  .game-card__desc {
-    font-size: var(--font-sm-plus);
   }
 
   body {
@@ -1145,18 +1019,10 @@ h3 {
     font-size: var(--font-base);
   }
 
-  /* Section title: 20px, Card title: 16px, Body: 14px, Card desc: 12px */
+  /* Section title: 20px */
   .landing__title,
   .page-title {
     font-size: 20px;
-  }
-
-  .game-card__title {
-    font-size: var(--font-base);
-  }
-
-  .game-card__desc {
-    font-size: var(--font-sm);
   }
 
   body {
@@ -1279,9 +1145,13 @@ h3 {
  * Hero title remains 30px (mobile scale) — no further reduction.
  */
 @media (max-width: 320px) {
-  /* Header brand scales down */
+  /* Header brand scales down - hide text, keep logo */
   .header__brand {
-    font-size: var(--font-lg);
+    font-size: 0;
+  }
+
+  .header__brand .header__logo {
+    font-size: var(--font-xl);
   }
 
   /* Hero minimal padding (title stays 30px from mobile breakpoint) */
@@ -1292,6 +1162,11 @@ h3 {
   /* Toast fits screen */
   .toast {
     max-width: calc(100vw - 32px);
+  }
+
+  /* Search input shrinks */
+  .header__search-input {
+    padding: 0 30px;
   }
 }
 
@@ -1426,4 +1301,804 @@ h3 {
 .liked-game-card__liked svg {
   width: var(--icon-xs);
   height: var(--icon-xs);
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBARS
+   ========================================================================== */
+
+/* Base scrollbar styles for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 200, 120, 0.25);
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 200, 120, 0.4);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 200, 120, 0.25) transparent;
+}
+
+/* Sidebar specific scrollbar - thinner */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(0, 200, 120, 0.2);
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 200, 120, 0.35);
+}
+
+/* Categories scrollable area */
+.sidebar__nav--categories::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar__nav--categories::-webkit-scrollbar-thumb {
+  background: rgba(0, 200, 120, 0.15);
+}
+
+/* ==========================================================================
+   REDESIGNED SIDEBAR
+   ========================================================================== */
+
+.sidebar__nav--main {
+  margin-bottom: var(--space-3);
+}
+
+/* Ensure sidebar has proper structure */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__divider {
+  height: 1px;
+  background: var(--divider);
+  margin: var(--space-4) var(--space-3);
+}
+
+.sidebar__nav--categories {
+  flex: 1;
+  overflow-y: auto;
+  /* Smooth scroll on categories */
+  scroll-behavior: smooth;
+}
+
+/* Sidebar section title polish */
+.sidebar__title {
+  font-size: var(--font-2xs);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-short);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-1);
+}
+
+/* Sidebar links with icons */
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px var(--space-3);
+  margin: 0 var(--space-1);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: var(--font-md);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-snug);
+  transition:
+    background-color var(--duration-default) var(--ease-default),
+    color var(--duration-default) var(--ease-default);
+}
+
+.sidebar__link:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.sidebar__link:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 2px;
+}
+
+.sidebar__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--icon-md);
+  height: var(--icon-md);
+  color: var(--icon-color);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.sidebar__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar__link:hover .sidebar__icon {
+  color: var(--icon-color-hover);
+}
+
+.sidebar__link.is-active .sidebar__icon {
+  color: var(--icon-color-active);
+}
+
+.sidebar__label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Active link styling */
+.sidebar__link.is-active {
+  background: var(--active-menu-bg);
+  color: var(--text);
+  font-weight: var(--weight-semibold);
+  border-left: 2px solid var(--active-menu-border);
+  margin-left: 0;
+  padding-left: calc(var(--space-3) - 2px);
+  box-shadow: var(--active-menu-shadow);
+}
+
+/* ==========================================================================
+   HEADER SEARCH
+   ========================================================================== */
+
+.header__search {
+  flex: 1;
+  max-width: var(--search-max-width);
+  margin: 0 var(--space-6);
+}
+
+.header__search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header__search-icon {
+  position: absolute;
+  left: 16px;
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+/* Icon brightens when input is focused */
+.header__search-input:focus ~ .header__search-icon,
+.header__search-wrapper:focus-within .header__search-icon {
+  color: var(--text-secondary);
+}
+
+.header__search-input {
+  width: 100%;
+  height: var(--control-height-md);
+  padding: 0 44px 0 46px;
+  background: var(--header-search-bg);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-full);
+  color: var(--control-text);
+  font-family: var(--font-family);
+  font-size: var(--control-font-md);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-normal);
+  transition:
+    border-color var(--duration-default) var(--ease-default),
+    background-color var(--duration-default) var(--ease-default),
+    box-shadow var(--duration-default) var(--ease-default);
+}
+
+.header__search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.header__search-input:hover:not(:focus) {
+  background: rgba(9, 35, 33, 0.8);
+  border-color: var(--border-default);
+}
+
+.header__search-input:focus {
+  outline: none;
+  background: var(--header-search-bg);
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 2px rgba(0, 200, 120, 0.15);
+}
+
+/* Clear search button */
+.header__search-clear {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  cursor: pointer;
+  opacity: 0.7;
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default),
+    opacity var(--duration-fast) var(--ease-default);
+}
+
+.header__search-clear:hover {
+  color: var(--text);
+  background: rgba(0, 200, 120, 0.1);
+  opacity: 1;
+}
+
+.header__search-clear:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+.header__search-clear svg {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+/* ==========================================================================
+   GAME DISCOVERY HERO
+   ========================================================================== */
+
+.game-discovery-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--hero-section-gap);
+}
+
+.game-discovery-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.game-discovery-hero__gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 75% 25%, rgba(0, 232, 143, 0.12), transparent 45%),
+    radial-gradient(ellipse 50% 60% at 15% 75%, rgba(0, 200, 120, 0.08), transparent 35%),
+    linear-gradient(145deg, rgba(6, 35, 27, 0.95) 0%, rgba(3, 19, 19, 0.98) 100%);
+}
+
+.game-discovery-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+
+.game-discovery-hero .hero__title {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-discovery-hero .hero__title-line {
+  display: block;
+}
+
+.game-discovery-hero .hero__title-accent {
+  display: block;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   GAME CARD - Premium Gaming Card (Reference Style)
+   ========================================================================== */
+
+/*
+ * ONE unified card shell with:
+ * - Diagonal artwork/content transition with green accent
+ * - Small top-right corner cut (~40px)
+ * - NO permanent outer border - depth via shadow/glow only
+ * - 200px height for rich artwork space
+ */
+.game-card {
+  --_cut-size: 40px;
+  --_artwork-width: 40%;
+  --_diagonal-width: 32px;
+  --_accent-width: 5px;
+
+  display: flex;
+  flex-direction: row;
+  height: var(--game-card-height); /* 200px */
+  background: var(--card-gradient);
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--card-radius); /* 16px */
+  /* Small top-right diagonal cut */
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--_cut-size)) 0,
+    100% var(--_cut-size),
+    100% 100%,
+    0 100%
+  );
+  /* NO border - depth via shadow and subtle ambient glow */
+  box-shadow:
+    var(--shadow-card),
+    0 0 20px rgba(0, 232, 143, 0.06);
+  transition:
+    transform var(--card-transition),
+    box-shadow var(--card-transition),
+    background var(--card-transition);
+}
+
+.game-card:hover {
+  transform: translateY(-2px);
+  background: var(--card-hover-bg);
+  box-shadow:
+    var(--shadow-card-hover),
+    var(--glow-md);
+}
+
+.game-card:focus-visible {
+  outline: 2px solid var(--state-focus-outline);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   ARTWORK REGION - Left ~40% with diagonal edge
+   ========================================================================== */
+
+.game-card__artwork {
+  flex-shrink: 0;
+  width: var(--_artwork-width);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+  /* Rich dark artwork background - ready for future images */
+  background: linear-gradient(145deg, #0a2520 0%, #051210 60%, #041512 100%);
+  /* Diagonal right edge via clip-path */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    calc(100% - var(--_diagonal-width)) 100%,
+    0 100%
+  );
+  z-index: 1;
+}
+
+/* Diagonal green accent strip - the main green visual element */
+.game-card__diagonal-accent {
+  position: absolute;
+  top: 0;
+  right: calc(-1 * var(--_accent-width));
+  width: var(--_accent-width);
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary) 0%, #00C878 100%);
+  transform: skewX(-10deg);
+  transform-origin: top right;
+  z-index: 2;
+  box-shadow: 0 0 12px rgba(0, 232, 143, 0.4);
+}
+
+.game-card__artwork-initial {
+  font-size: 64px;
+  font-weight: var(--weight-extrabold);
+  color: var(--primary);
+  opacity: 0.12;
+  text-transform: uppercase;
+  user-select: none;
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   CONTENT REGION - Right side with premium spacing
+   ========================================================================== */
+
+.game-card__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px;
+  padding-left: calc(18px + var(--_diagonal-width) - 12px);
+  position: relative;
+  z-index: 0;
+}
+
+/* Title */
+.game-card__title {
+  font-size: 18px;
+  font-weight: var(--weight-bold);
+  line-height: 1.25;
+  margin: 0 0 8px 0;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 28px;
+}
+
+/* Tags row */
+.game-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+/* Description - strict 2 lines */
+.game-card__desc {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: var(--weight-regular);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding-right: 52px;
+}
+
+/* Play button - white icon on dark green with green ring */
+.game-card__play {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 30, 22, 0.95);
+  border: 1.5px solid rgba(0, 232, 143, 0.5);
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(0, 232, 143, 0.25);
+  transition:
+    transform var(--duration-fast) var(--ease-default),
+    box-shadow var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default);
+}
+
+.game-card:hover .game-card__play {
+  transform: scale(1.06);
+  background: rgba(5, 50, 35, 0.98);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(0, 232, 143, 0.4);
+}
+
+/* ==========================================================================
+   GAMES PAGE SECTIONS
+   ========================================================================== */
+
+.games-page__sections {
+  /* Container for game sections */
+}
+
+.games-page__category-sections {
+  display: flex;
+  flex-direction: column;
+}
+
+.games-page__section-more {
+  text-align: center;
+  margin-top: var(--space-4);
+}
+
+/* ==========================================================================
+   RESPONSIVE - HEADER SEARCH
+   ========================================================================== */
+
+/* Tablet: 768px–1199px */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header__search {
+    max-width: 360px;
+    margin: 0 var(--space-4);
+  }
+}
+
+/* Mobile: <768px */
+@media (max-width: 767px) {
+  .header__search {
+    flex: 1;
+    max-width: none;
+    margin: 0 var(--space-2);
+    order: 10; /* Move search to end on mobile */
+  }
+
+  .header__search-input {
+    height: 38px;
+    font-size: var(--font-sm-plus);
+    padding: 0 38px 0 40px;
+  }
+
+  .header__search-icon {
+    left: 12px;
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+  }
+
+  .header__search-clear {
+    right: 8px;
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Extra small mobile: search gets smaller */
+@media (max-width: 520px) {
+  .header__search-input::placeholder {
+    font-size: var(--font-sm);
+  }
+}
+
+/* Very small mobile: hide search placeholder text */
+@media (max-width: 380px) {
+  .header__search {
+    margin: 0 var(--space-1);
+  }
+
+  .header__search-input::placeholder {
+    content: "Search...";
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE - GAME CARD
+   ========================================================================== */
+
+/* Tablet: 768px–1199px */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .game-card {
+    --_cut-size: 36px;
+    --_diagonal-width: 28px;
+    height: 180px;
+  }
+
+  .game-card__artwork-initial {
+    font-size: 56px;
+  }
+
+  .game-card__content {
+    padding: 14px 16px;
+    padding-left: calc(16px + var(--_diagonal-width) - 10px);
+  }
+
+  .game-card__title {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .game-card__tags {
+    margin-bottom: 10px;
+  }
+
+  .game-card__desc {
+    font-size: 12px;
+    padding-right: 48px;
+  }
+
+  .game-card__play {
+    width: 42px;
+    height: 42px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .game-card__play svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Mobile: <768px - Vertical card layout */
+@media (max-width: 767px) {
+  .game-card {
+    --_cut-size: 32px;
+    --_diagonal-width: 0px;
+    flex-direction: column;
+    height: auto;
+    min-height: 280px;
+  }
+
+  .game-card__artwork {
+    width: 100%;
+    height: 120px;
+    flex-shrink: 0;
+    /* No diagonal on mobile - full width */
+    clip-path: none;
+  }
+
+  .game-card__diagonal-accent {
+    display: none;
+  }
+
+  .game-card__artwork-initial {
+    font-size: 48px;
+  }
+
+  .game-card__content {
+    flex: 1;
+    padding: 14px 16px;
+    padding-left: 16px;
+  }
+
+  .game-card__title {
+    font-size: 16px;
+    margin-bottom: 6px;
+    padding-right: 0;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .game-card__tags {
+    margin-bottom: 8px;
+    gap: 5px;
+  }
+
+  .game-card__desc {
+    font-size: 13px;
+    padding-right: 50px;
+  }
+
+  .game-card__play {
+    width: 44px;
+    height: 44px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .game-card__play svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Extra small mobile: ≤380px */
+@media (max-width: 380px) {
+  .game-card {
+    --_cut-size: 28px;
+    min-height: 260px;
+  }
+
+  .game-card__artwork {
+    height: 100px;
+  }
+
+  .game-card__artwork-initial {
+    font-size: 32px;
+  }
+
+  .game-card__content {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .game-card__title {
+    font-size: 14px;
+  }
+
+  .game-card__desc {
+    font-size: 11px;
+    padding-right: 44px;
+  }
+
+  .game-card__play {
+    width: 36px;
+    height: 36px;
+    right: var(--space-2);
+    bottom: var(--space-2);
+  }
+
+  .game-card__play svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE - HERO
+   ========================================================================== */
+
+/* Tablet: 768px–1199px */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .game-discovery-hero__content {
+    max-width: 480px;
+  }
+}
+
+/* Mobile: <768px */
+@media (max-width: 767px) {
+  .game-discovery-hero {
+    min-height: 200px;
+    padding: var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+
+  .game-discovery-hero__content {
+    max-width: 100%;
+  }
+
+  .game-discovery-hero .hero__title {
+    font-size: 28px;
+  }
+
+  .game-discovery-hero .hero__lead {
+    font-size: var(--font-md);
+  }
+}
+
+/* Extra small: ≤380px */
+@media (max-width: 380px) {
+  .game-discovery-hero {
+    min-height: 180px;
+    padding: var(--space-4);
+  }
+
+  .game-discovery-hero .hero__title {
+    font-size: 24px;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .game-card,
+  .game-card__play,
+  .sidebar__icon,
+  .header__search-input,
+  .header__search-clear {
+    transition: none !important;
+  }
+
+  .game-card:hover {
+    transform: none;
+  }
+
+  .game-card:hover .game-card__play {
+    transform: none;
+  }
 }

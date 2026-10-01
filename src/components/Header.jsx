@@ -1,13 +1,17 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext.jsx";
 
-export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen }) {
+export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSearch }) {
   const { status, user, isAdmin, logout } = useAuth();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [searchParams] = useSearchParams();
   const menuRef = useRef(null);
+  const searchInputRef = useRef(null);
 
+  // Close menu when clicking outside
   useEffect(() => {
     if (!menuOpen) return;
     const onClick = (e) => {
@@ -16,6 +20,37 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen }) {
     document.addEventListener("mousedown", onClick);
     return () => document.removeEventListener("mousedown", onClick);
   }, [menuOpen]);
+
+  // Handle search input
+  const handleSearchChange = useCallback((e) => {
+    const value = e.target.value;
+    setSearchValue(value);
+    if (onSearch) {
+      onSearch(value);
+    }
+  }, [onSearch]);
+
+  // Handle search submit
+  const handleSearchSubmit = useCallback((e) => {
+    e.preventDefault();
+    // Navigate to home with search if not already there
+    const currentTypeId = searchParams.get("typeId");
+    if (currentTypeId) {
+      navigate("/");
+    }
+    if (onSearch) {
+      onSearch(searchValue);
+    }
+  }, [searchValue, onSearch, searchParams, navigate]);
+
+  // Clear search
+  const handleClearSearch = useCallback(() => {
+    setSearchValue("");
+    if (onSearch) {
+      onSearch("");
+    }
+    searchInputRef.current?.focus();
+  }, [onSearch]);
 
   return (
     <header className="header">
@@ -49,8 +84,61 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen }) {
         </Link>
       </div>
 
+      {/* Search */}
+      <form className="header__search" onSubmit={handleSearchSubmit} role="search">
+        <div className="header__search-wrapper">
+          <svg
+            className="header__search-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input
+            ref={searchInputRef}
+            type="search"
+            className="header__search-input"
+            placeholder="Search games and categories..."
+            value={searchValue}
+            onChange={handleSearchChange}
+            aria-label="Search games"
+          />
+          {searchValue && (
+            <button
+              type="button"
+              className="header__search-clear"
+              onClick={handleClearSearch}
+              aria-label="Clear search"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          )}
+        </div>
+      </form>
+
       <div className="header__right">
-        {status === "loading" && <span className="header__muted">…</span>}
+        {status === "loading" && <span className="header__muted">...</span>}
 
         {status === "guest" && (
           <>
