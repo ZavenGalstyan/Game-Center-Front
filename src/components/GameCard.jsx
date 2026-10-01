@@ -21,20 +21,42 @@ import { getGameDisplayTags, getGameArtwork } from "../lib/gameHelpers.jsx";
 export default function GameCard({ game }) {
   const tags = getGameDisplayTags(game);
   const artwork = getGameArtwork(game);
+  const background = artwork?.cardBackground;
 
   return (
-    <Link to={`/games/${game.id}`} className="game-card">
-      {/* Artwork region with diagonal edge */}
-      <div
-        className="game-card__artwork"
-        style={artwork?.gradient ? { background: artwork.gradient } : undefined}
-      >
-        <span className="game-card__artwork-initial" aria-hidden="true">
-          {game.name?.charAt(0)?.toUpperCase() || "G"}
-        </span>
-        {/* Diagonal green accent strip */}
-        <div className="game-card__diagonal-accent" aria-hidden="true" />
-      </div>
+    <Link
+      to={`/games/${game.id}`}
+      className={background ? "game-card game-card--banner" : "game-card"}
+    >
+      {background ? (
+        /* Full-card banner: one image behind everything, plus a readability shade */
+        <>
+          <img
+            className="game-card__bg"
+            src={background}
+            style={artwork.cardBackgroundPosition ? { "--banner-position": artwork.cardBackgroundPosition } : undefined}
+            alt=""
+            aria-hidden="true"
+          />
+          <div
+            className="game-card__bg-shade"
+            style={artwork.cardBackgroundShade ? { "--banner-shade": artwork.cardBackgroundShade } : undefined}
+            aria-hidden="true"
+          />
+        </>
+      ) : (
+        /* Artwork region with diagonal edge */
+        <div
+          className="game-card__artwork"
+          style={artwork?.gradient ? { background: artwork.gradient } : undefined}
+        >
+          <span className="game-card__artwork-initial" aria-hidden="true">
+            {game.name?.charAt(0)?.toUpperCase() || "G"}
+          </span>
+          {/* Diagonal green accent strip */}
+          <div className="game-card__diagonal-accent" aria-hidden="true" />
+        </div>
+      )}
 
       {/* Content region */}
       <div className="game-card__content">

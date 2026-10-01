@@ -1729,6 +1729,59 @@ h3 {
 }
 
 /* ==========================================================================
+   BANNER VARIANT - One full-card background image (games with cardBackground)
+   ========================================================================== */
+
+/* Image layer: fills the whole card, art on the left, dark space on the right */
+.game-card__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* --banner-position: optional per-game override (see GAME_CARD_BACKGROUNDS) */
+  object-position: var(--banner-position, left center);
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+  transition: transform var(--card-transition);
+}
+
+.game-card--banner:hover .game-card__bg {
+  transform: scale(1.02);
+}
+
+/* Readability shade: clear over the art, gently darker behind the text */
+.game-card__bg-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* --banner-shade: optional per-game override (see GAME_CARD_BACKGROUNDS) */
+  background: var(
+    --banner-shade,
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 38%,
+      rgba(2, 14, 10, 0.18) 55%,
+      rgba(2, 14, 10, 0.32) 100%
+    )
+  );
+}
+
+/* Content keeps its usual right-side position, above the image layers */
+.game-card--banner .game-card__content {
+  margin-left: var(--_artwork-width);
+  z-index: 2;
+}
+
+.game-card--banner .game-card__title,
+.game-card--banner .game-card__desc {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
    CONTENT REGION - Right side with premium spacing
    ========================================================================== */
 
@@ -1951,6 +2004,21 @@ h3 {
 
   .game-card__diagonal-accent {
     display: none;
+  }
+
+  .game-card--banner .game-card__content {
+    margin-left: 0;
+    margin-top: 120px;
+  }
+
+  .game-card--banner .game-card__bg-shade {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 35%,
+      rgba(2, 14, 10, 0.55) 55%,
+      rgba(2, 14, 10, 0.75) 100%
+    );
   }
 
   .game-card__artwork-initial {

@@ -7,6 +7,14 @@
  * - Game artwork resolution
  */
 
+import classicChessBg from "../images/ClassicChessbg.png";
+import stonewildBg from "../images/Stonewildbg.png";
+import ballAdventure3dBg from "../images/Balladventure3d.png";
+import rooftopSniperBg from "../images/Rooftopsniperbg.png";
+import arenaGladiatorBg from "../images/ArenaGladiatorbg.png";
+import liquidSortBg from "../images/LiquidSortbg.png";
+import elementMergeBg from "../images/ElementMergebg.png";
+
 /**
  * Category to icon mapping.
  * Returns SVG JSX for each category.
@@ -275,6 +283,49 @@ export function getGameDisplayTags(game) {
 }
 
 /**
+ * Full-card background banners, keyed by normalized game name (trimmed,
+ * single-spaced, lowercase) so admin-typed names like "CLassic Chess" still
+ * match. Art sits on the left; the right side is left dark for the card text.
+ *
+ * An entry is either the image, or { image, shade?, position? }:
+ * - shade: when the art reaches further right and the text needs a stronger
+ *   readability gradient than the default one in index.css.
+ * - position: object-position override. Only matters on cards narrower than
+ *   the image's ratio (desktop cards crop top/bottom only), where it picks
+ *   which side gets trimmed. Default is "left center".
+ */
+// For banners whose art runs past the text column (~48% of the card): fades
+// in just before the text so the title and description sit on darker ground.
+const WIDE_ART_SHADE = `linear-gradient(90deg,
+  rgba(3, 18, 13, 0) 0%,
+  rgba(3, 18, 13, 0) 28%,
+  rgba(3, 18, 13, 0.35) 42%,
+  rgba(3, 18, 13, 0.62) 54%,
+  rgba(3, 18, 13, 0.55) 100%)`;
+
+const GAME_CARD_BACKGROUNDS = {
+  "classic chess": classicChessBg,
+  "stonewild": { image: stonewildBg, shade: WIDE_ART_SHADE },
+  "ball adventure 3d": { image: ballAdventure3dBg, shade: WIDE_ART_SHADE },
+  "rooftop sniper": { image: rooftopSniperBg, shade: WIDE_ART_SHADE },
+  // Gladiator stands mid-image; on narrow cards trim the shield edge instead
+  // so he stays clear of the text column.
+  "arena gladiator": { image: arenaGladiatorBg, shade: WIDE_ART_SHADE, position: "70% center" },
+  // Backdrop behind the text is already dark, so the default light shade is
+  // enough. Bottles run to ~63% of the image: anchoring top drops them below
+  // the description on full-width cards; 80% trims the outer bottle on narrow
+  // (1366/1440px) cards so the rest, and the pouring bottle, clear the text.
+  "liquid sort": { image: liquidSortBg, position: "80% top" },
+  // Water/air hexes sit at ~42-55% of the image. 60% pulls both clear of the
+  // badges on narrow (1366/1440px) cards, trimming only the outer fire/earth
+  // edges. Vertically centred: anchoring top tucks the water hex behind the
+  // first badge on full-width cards.
+  "element merge": { image: elementMergeBg, position: "60% center" },
+};
+
+const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();
+
+/**
  * Game artwork mapping.
  * Maps game names to artwork info for rendering.
  *
@@ -401,11 +452,18 @@ export function getGameArtwork(game) {
 
   const name = game.name || "";
   const artwork = GAME_ARTWORK[name];
+  const banner = GAME_CARD_BACKGROUNDS[normalizeGameName(name)] ?? null;
+  const cardBackground = banner?.image ?? banner;
+  const cardBackgroundShade = banner?.shade ?? null;
+  const cardBackgroundPosition = banner?.position ?? null;
 
   if (artwork) {
     return {
       hasImage: false, // Set to true when actual images are added
       imagePath: null,
+      cardBackground,
+      cardBackgroundShade,
+      cardBackgroundPosition,
       gradient: artwork.gradient,
       description: artwork.description,
       gameName: name,
@@ -416,6 +474,9 @@ export function getGameArtwork(game) {
   return {
     hasImage: false,
     imagePath: null,
+    cardBackground,
+    cardBackgroundShade,
+    cardBackgroundPosition,
     gradient: "linear-gradient(135deg, #0a1f1a 0%, #1a3d2a 50%, #0a2a1a 100%)",
     description: `${name} game artwork`,
     gameName: name,
