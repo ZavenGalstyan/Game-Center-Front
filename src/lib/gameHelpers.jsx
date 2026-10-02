@@ -14,6 +14,9 @@ import rooftopSniperBg from "../images/Rooftopsniperbg.png";
 import arenaGladiatorBg from "../images/ArenaGladiatorbg.png";
 import liquidSortBg from "../images/LiquidSortbg.png";
 import elementMergeBg from "../images/ElementMergebg.png";
+import farmLifeBg from "../images/FarmLifebg.png";
+import carWashBg from "../images/CarWashbg.png";
+import parkingMasterBg from "../images/ParkingMasterbg.png";
 
 /**
  * Category to icon mapping.
@@ -321,6 +324,40 @@ const GAME_CARD_BACKGROUNDS = {
   // edges. Vertically centred: anchoring top tucks the water hex behind the
   // first badge on full-width cards.
   "element merge": { image: elementMergeBg, position: "60% center" },
+  // Bright art edge to edge (no dark side baked in), so the shade itself
+  // builds the dark-green text side; barn and animals on the left stay clear.
+  "farm life": {
+    image: farmLifeBg,
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 13, 0) 0%,
+      rgba(3, 18, 13, 0) 26%,
+      rgba(3, 18, 13, 0.45) 38%,
+      rgba(3, 18, 13, 0.74) 50%,
+      rgba(3, 18, 13, 0.82) 100%)`,
+  },
+  // Navy rather than green to keep the neon-blue mood. 80% keeps the car left
+  // of the text on narrow (1366/1440px) cards by trimming the bottle cart.
+  "car wash studio": {
+    image: carWashBg,
+    position: "80% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 12, 26, 0) 0%,
+      rgba(4, 12, 26, 0) 40%,
+      rgba(4, 12, 26, 0.5) 49%,
+      rgba(4, 12, 26, 0.7) 60%,
+      rgba(4, 12, 26, 0.76) 100%)`,
+  },
+  // The painted "PARKING MASTER" sign sits right under the text column, so the
+  // navy fade starts a little earlier to push it back behind the real title.
+  "parking master": {
+    image: parkingMasterBg,
+    shade: `linear-gradient(90deg,
+      rgba(4, 12, 26, 0) 0%,
+      rgba(4, 12, 26, 0) 36%,
+      rgba(4, 12, 26, 0.58) 47%,
+      rgba(4, 12, 26, 0.78) 58%,
+      rgba(4, 12, 26, 0.82) 100%)`,
+  },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();
