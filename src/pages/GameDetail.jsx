@@ -93,7 +93,7 @@ export default function GameDetail() {
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
         </span>
-        Back to games
+        Back
       </Link>
 
       {/* Game Page Header */}
