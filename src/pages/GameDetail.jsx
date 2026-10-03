@@ -6,6 +6,17 @@ import GameLikeButton from "../components/game/GameLikeButton.jsx";
 import GameRenderer from "../components/games/GameRenderer.jsx";
 import { getGameComponent, gameSupportsMute } from "../components/games/registry.js";
 
+/**
+ * Single Game Page Shell
+ *
+ * Shared structure for all game detail pages:
+ * - GamePageHeader: category badge + title + description
+ * - GameToolbar: Like, Restart, Mute, Fullscreen controls
+ * - GameStage: the actual game experience
+ * - GameAbout: about section with metadata
+ *
+ * Each game provides its own internal visual identity within the stage.
+ */
 export default function GameDetail() {
   const { id } = useParams();
   const [game, setGame] = useState(null);
@@ -58,21 +69,28 @@ export default function GameDetail() {
   const canMute = gameSupportsMute(game);
 
   return (
-    <article className="game-detail">
-      <h1 className="page-title">{game.name}</h1>
-      {game.type && (
-        <p className="game-detail__type">
-          Category: <Link to={`/?typeId=${game.type.id}`}>{game.type.name}</Link>
-        </p>
-      )}
+    <article className="game-page">
+      {/* Game Page Header */}
+      <header className="game-page__header">
+        {game.type && (
+          <Link
+            to={`/?typeId=${game.type.id}`}
+            className="game-page__category"
+          >
+            {game.type.name}
+          </Link>
+        )}
+        <h1 className="game-page__title">{game.name}</h1>
+        {game.description && (
+          <p className="game-page__tagline">
+            {game.description.length > 100
+              ? game.description.slice(0, 100).trim() + "…"
+              : game.description}
+          </p>
+        )}
+      </header>
 
-      {/*
-        The playable game for this title renders as children of <GamePlayer>.
-        <GameRenderer> picks the component from src/components/games/registry.js
-        by game.name; unknown games render nothing, so GamePlayer keeps showing
-        its "Game will load here" placeholder. The existing Restart button is
-        wired to remount the game (via restartNonce) when a game is playable.
-      */}
+      {/* Game Stage with Toolbar */}
       <GamePlayer
         title={game.name}
         likeButton={<GameLikeButton gameId={game.id || game._id} />}
@@ -87,9 +105,20 @@ export default function GameDetail() {
         ) : null}
       </GamePlayer>
 
-      <section className="game-detail__about">
-        <h2 className="card__title">About</h2>
-        <p>{game.description}</p>
+      {/* About Section */}
+      <section className="game-page__about">
+        <h2 className="game-page__about-title">About {game.name}</h2>
+        {game.type && (
+          <div className="game-page__tags">
+            <Link
+              to={`/?typeId=${game.type.id}`}
+              className="game-page__tag"
+            >
+              {game.type.name}
+            </Link>
+          </div>
+        )}
+        <p className="game-page__about-text">{game.description}</p>
       </section>
     </article>
   );
