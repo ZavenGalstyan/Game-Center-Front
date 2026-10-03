@@ -794,16 +794,18 @@ h3 {
 
 .game-page__title {
   margin: 0;
-  font-size: var(--font-xl);
+  font-family: var(--font-family);
+  font-size: var(--font-2xl);
   font-weight: var(--weight-bold);
-  line-height: var(--line-snug);
+  line-height: var(--line-short);
   color: var(--text);
 }
 
 .game-page__tagline {
   margin: 0;
   max-width: 600px;
-  font-size: var(--font-md-plus);
+  font-family: var(--font-family);
+  font-size: var(--font-base);
   font-weight: var(--weight-regular);
   line-height: var(--line-relaxed);
   color: var(--text-secondary);
@@ -993,10 +995,11 @@ h3 {
 
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
-  font-size: var(--font-xs);
-  font-weight: var(--weight-semibold);
+  font-family: var(--font-family);
+  font-size: var(--font-2xs);
+  font-weight: var(--weight-bold);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
 }
 
@@ -1010,6 +1013,7 @@ h3 {
 
 .game-page__about-title {
   margin: 0;
+  font-family: var(--font-family);
   font-size: var(--font-xl);
   font-weight: var(--weight-bold);
   line-height: var(--line-snug);
@@ -1050,11 +1054,12 @@ h3 {
 .game-page__about-text {
   position: relative;
   z-index: 1;
-  max-width: 680px;
+  max-width: 720px;
   margin: 0;
+  font-family: var(--font-family);
   font-size: var(--font-base);
   font-weight: var(--weight-regular);
-  line-height: 1.7;
+  line-height: 1.6;
   color: var(--text-secondary);
   white-space: pre-wrap;
 }
@@ -1144,7 +1149,11 @@ h3 {
 
   /* Game page tablet adjustments */
   .game-page__title {
-    font-size: 22px;
+    font-size: var(--font-xl); /* 24px */
+  }
+
+  .game-page__tagline {
+    font-size: var(--font-md-plus); /* 15px */
   }
 
   .game-page__about {
