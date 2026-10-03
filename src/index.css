@@ -1105,6 +1105,309 @@ h3 {
   color: var(--button-danger-hover-bg);
 }
 
+/* ==========================================================================
+   ADMIN USERS PAGE
+   ========================================================================== */
+
+.admin-users {
+  max-width: 1200px;
+}
+
+.admin-users__header {
+  margin-bottom: var(--space-6);
+}
+
+.admin-users__header .page-title {
+  margin-bottom: var(--space-2);
+}
+
+.admin-users__subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-md);
+  line-height: var(--line-relaxed);
+}
+
+/* Users Card Container */
+.admin-users__card {
+  background: var(--card-bg);
+  border: var(--border-width) solid var(--border-default);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* Toolbar */
+.admin-users__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: var(--border-width) solid var(--border-default);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.admin-users__filter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.admin-users__filter-label {
+  font-size: var(--font-sm-plus);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+}
+
+.admin-users__count {
+  font-size: var(--font-sm-plus);
+  color: var(--text-muted);
+}
+
+/* Role Dropdown */
+.role-dropdown {
+  position: relative;
+  min-width: 160px;
+}
+
+.role-dropdown__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  height: var(--control-height-md);
+  padding: 0 var(--space-3);
+  background: var(--control-bg);
+  border: var(--border-width) solid var(--control-border);
+  border-radius: var(--control-radius-md);
+  color: var(--text);
+  font-family: var(--font-family);
+  font-size: var(--font-md);
+  cursor: pointer;
+  transition:
+    border-color var(--duration-default) var(--ease-default),
+    background-color var(--duration-default) var(--ease-default);
+}
+
+.role-dropdown__trigger:hover {
+  border-color: var(--control-border-hover);
+}
+
+.role-dropdown__trigger:focus {
+  outline: var(--border-width-focus) solid var(--control-focus-ring);
+  outline-offset: 1px;
+  border-color: var(--control-border-focus);
+}
+
+.role-dropdown__trigger--open {
+  border-color: var(--primary);
+}
+
+.role-dropdown__trigger svg {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform var(--duration-default) var(--ease-default);
+}
+
+.role-dropdown__trigger--open svg {
+  transform: rotate(180deg);
+}
+
+.role-dropdown__value {
+  flex: 1;
+  text-align: left;
+}
+
+.role-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: var(--space-1);
+  list-style: none;
+  background: var(--surface);
+  border: var(--border-width) solid var(--border-default);
+  border-radius: var(--control-radius-md);
+  box-shadow: var(--shadow-dropdown);
+  z-index: var(--z-dropdown);
+  animation: ui-dropdown-in var(--duration-default) var(--ease-out);
+}
+
+.role-dropdown__option {
+  display: flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-md);
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-default);
+}
+
+.role-dropdown__option:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.role-dropdown__option--selected {
+  background: rgba(0, 232, 143, 0.1);
+  color: var(--primary);
+}
+
+.role-dropdown__option--selected:hover {
+  background: rgba(0, 232, 143, 0.15);
+}
+
+/* Loading State */
+.admin-users__loading {
+  padding: var(--space-8);
+}
+
+/* Table */
+.admin-users__table-wrap {
+  overflow-x: auto;
+}
+
+.admin-users__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.admin-users__table th {
+  text-align: left;
+  padding: var(--space-3) var(--space-5);
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--text-muted);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: var(--border-width) solid var(--border-default);
+}
+
+.admin-users__table td {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: var(--border-width) solid var(--border-default);
+  font-size: var(--font-md);
+  color: var(--text);
+  vertical-align: middle;
+}
+
+.admin-users__table tbody tr {
+  transition: background-color var(--duration-fast) var(--ease-default);
+}
+
+.admin-users__table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.admin-users__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* User Cell with Avatar */
+.admin-users__user-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, rgba(0, 232, 143, 0.2) 0%, rgba(0, 180, 110, 0.15) 100%);
+  border: var(--border-width) solid rgba(0, 232, 143, 0.3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-sm-plus);
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.admin-users__username {
+  font-weight: var(--weight-medium);
+}
+
+/* Empty State */
+.admin-users__empty {
+  text-align: center;
+  padding: var(--space-8) !important;
+  color: var(--text-muted);
+  font-size: var(--font-md);
+}
+
+/* Pagination Footer */
+.admin-users__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-top: var(--border-width) solid var(--border-default);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.admin-users__page-info {
+  font-size: var(--font-sm-plus);
+  color: var(--text-muted);
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .admin-users__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .admin-users__filter {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+
+  .admin-users__count {
+    text-align: center;
+  }
+
+  .role-dropdown {
+    min-width: 100%;
+  }
+
+  .admin-users__table {
+    min-width: 500px;
+  }
+
+  .admin-users__table th,
+  .admin-users__table td {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-sm);
+  }
+
+  .admin-users__footer {
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .admin-users__page-info {
+    font-size: var(--font-sm);
+    min-width: 100px;
+  }
+}
+
 /* ---------- games grid ---------- */
 .games-page__head {
   display: flex;
