@@ -239,9 +239,11 @@ h3 {
   padding: var(--content-padding-y) var(--content-padding-x);
 }
 
-/* Remove max-width constraint for Account page to allow full-width background */
+/* Account page: remove constraints and allow full-width background */
 .app-main:has(.account-dashboard) {
   max-width: none;
+  padding: 0;
+  overflow: visible;
 }
 
 /* ---------- sidebar ---------- */
@@ -458,13 +460,12 @@ h3 {
    ACCOUNT DASHBOARD - Profile Dashboard Layout
    ========================================================================== */
 
-/* Dashboard container - uses full available width */
+/* Dashboard container - fills full available width, parent padding removed */
 .account-dashboard {
   position: relative;
   width: 100%;
-  margin: calc(-1 * var(--space-6)) calc(-1 * var(--space-8));
   padding: var(--space-6) var(--space-8);
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - var(--header-height));
   /* Rich dark teal base - maintains teal undertone, never pure black */
   background: #031210;
 }
@@ -694,7 +695,8 @@ h3 {
 .liked-games-section__header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: var(--space-2);
   margin-bottom: var(--space-4);
 }
 
@@ -1678,7 +1680,6 @@ h3 {
 
   /* Account dashboard tablet spacing */
   .account-dashboard {
-    margin: calc(-1 * var(--space-5)) calc(-1 * var(--space-5));
     padding: var(--space-5) var(--space-5);
   }
 
@@ -1842,7 +1843,6 @@ h3 {
 
   /* Account dashboard mobile spacing */
   .account-dashboard {
-    margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4));
     padding: var(--space-4) var(--space-4);
   }
 
