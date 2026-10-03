@@ -10,13 +10,29 @@ import { getGameComponent, gameSupportsMute } from "../components/games/registry
  * Single Game Page Shell
  *
  * Shared structure for all game detail pages:
- * - GamePageHeader: category badge + title + description
+ * - GamePageHeader: category badge + title + short tagline
  * - GameToolbar: Like, Restart, Mute, Fullscreen controls
  * - GameStage: the actual game experience
- * - GameAbout: about section with metadata
+ * - GameAbout: about section with full description
  *
  * Each game provides its own internal visual identity within the stage.
  */
+
+// Short taglines for games (avoids duplicating full description in header)
+const GAME_TAGLINES = {
+  "Classic Chess": "A timeless strategy game of planning, tactics, and checkmate.",
+};
+
+// Fallback: generate a short tagline from description if not predefined
+function getTagline(game) {
+  if (GAME_TAGLINES[game.name]) return GAME_TAGLINES[game.name];
+  // For other games, use first sentence or short excerpt
+  if (!game.description) return null;
+  const firstSentence = game.description.split(/[.!?]/)[0];
+  if (firstSentence && firstSentence.length <= 80) return firstSentence + ".";
+  return null;
+}
+
 export default function GameDetail() {
   const { id } = useParams();
   const [game, setGame] = useState(null);
@@ -81,12 +97,8 @@ export default function GameDetail() {
           </Link>
         )}
         <h1 className="game-page__title">{game.name}</h1>
-        {game.description && (
-          <p className="game-page__tagline">
-            {game.description.length > 100
-              ? game.description.slice(0, 100).trim() + "…"
-              : game.description}
-          </p>
+        {getTagline(game) && (
+          <p className="game-page__tagline">{getTagline(game)}</p>
         )}
       </header>
 

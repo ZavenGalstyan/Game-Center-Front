@@ -971,9 +971,9 @@ h3 {
   position: relative;
   max-width: 1100px;
   margin: var(--section-gap) auto 0;
-  padding: var(--space-8) var(--space-6);
-  background: linear-gradient(135deg, rgba(6, 35, 27, 0.9) 0%, rgba(7, 27, 24, 0.95) 100%);
-  border: 1px solid rgba(0, 232, 143, 0.12);
+  padding: 28px 32px;
+  background: linear-gradient(110deg, rgba(7, 27, 24, 0.95) 0%, rgba(6, 51, 38, 0.55) 100%);
+  border: 1px solid rgba(0, 232, 143, 0.1);
   border-radius: var(--radius-card);
   overflow: hidden;
 }
@@ -983,10 +983,10 @@ h3 {
   content: "♞";
   position: absolute;
   right: -20px;
-  bottom: -30px;
-  font-size: 280px;
+  bottom: -40px;
+  font-size: 260px;
   line-height: 1;
-  color: rgba(0, 232, 143, 0.04);
+  color: rgba(0, 232, 143, 0.03);
   pointer-events: none;
   user-select: none;
 }
@@ -1005,7 +1005,7 @@ h3 {
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-3);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
 }
 
 .game-page__about-title {
@@ -1147,6 +1147,16 @@ h3 {
     font-size: 22px;
   }
 
+  .game-page__about {
+    padding: 24px;
+  }
+
+  .game-page__about::before {
+    font-size: 200px;
+    right: -30px;
+    bottom: -40px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -1266,14 +1276,13 @@ h3 {
   /* About section mobile */
   .game-page__about {
     margin-top: var(--space-6);
-    padding: var(--space-5) var(--space-4);
+    padding: 20px 16px;
   }
 
   .game-page__about::before {
-    font-size: 180px;
-    right: -40px;
+    font-size: 160px;
+    right: -50px;
     bottom: -50px;
-    opacity: 0.6;
   }
 
   .game-page__about-header {
@@ -1339,9 +1348,9 @@ h3 {
 
   /* About section small mobile */
   .game-page__about::before {
-    font-size: 140px;
-    right: -50px;
-    bottom: -60px;
+    font-size: 120px;
+    right: -40px;
+    bottom: -50px;
   }
 }
 

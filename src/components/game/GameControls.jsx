@@ -75,7 +75,7 @@ export default function GameControls({
         className="game-controls__btn"
         onClick={onRestart}
         disabled={!onRestart}
-        title={onRestart ? "Restart game" : "Available once a game is loaded"}
+        aria-label={onRestart ? "Restart game" : "Restart (available once game loads)"}
       >
         <IconRestart />
         <span>Restart</span>
@@ -87,13 +87,7 @@ export default function GameControls({
         onClick={onToggleMute}
         disabled={!onToggleMute}
         aria-pressed={muted}
-        title={
-          onToggleMute
-            ? muted
-              ? "Unmute"
-              : "Mute"
-            : "Available once a game is loaded"
-        }
+        aria-label={muted ? "Unmute" : "Mute"}
       >
         {muted ? <IconMuted /> : <IconSound />}
         <span>{muted ? "Unmute" : "Mute"}</span>
