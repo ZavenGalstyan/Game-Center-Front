@@ -765,10 +765,10 @@ h3 {
   align-self: flex-start;
   height: var(--badge-height);
   padding: 0 var(--space-3);
-  background: var(--tag-bg);
-  border: 1px solid var(--tag-border);
+  background: rgba(0, 140, 90, 0.25);
+  border: 1px solid rgba(0, 232, 143, 0.25);
   border-radius: var(--radius-full);
-  color: var(--tag-text);
+  color: var(--accent-text);
   font-size: var(--font-sm);
   font-weight: var(--weight-semibold);
   text-transform: uppercase;
@@ -776,12 +776,20 @@ h3 {
   text-decoration: none;
   transition:
     background-color var(--duration-default) var(--ease-default),
-    border-color var(--duration-default) var(--ease-default);
+    border-color var(--duration-default) var(--ease-default),
+    box-shadow var(--duration-default) var(--ease-default),
+    transform var(--duration-default) var(--ease-default);
 }
 .game-page__category:hover {
-  background: var(--primary-dark);
-  border-color: var(--primary);
-  color: var(--button-primary-text);
+  background: rgba(0, 160, 100, 0.35);
+  border-color: rgba(0, 232, 143, 0.5);
+  color: var(--tag-text);
+  box-shadow: 0 0 16px rgba(0, 232, 143, 0.2);
+  transform: translateY(-1px);
+}
+.game-page__category:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 2px;
 }
 
 .game-page__title {
@@ -872,12 +880,23 @@ h3 {
     background-color var(--duration-default) var(--ease-default),
     border-color var(--duration-default) var(--ease-default),
     color var(--duration-default) var(--ease-default),
+    box-shadow var(--duration-default) var(--ease-default),
+    transform var(--duration-default) var(--ease-default),
     opacity var(--duration-default) var(--ease-default);
 }
 .game-controls__btn:hover:not(:disabled) {
-  background: var(--button-secondary-hover-bg);
-  border-color: var(--primary-dark);
+  background: rgba(0, 160, 100, 0.12);
+  border-color: rgba(0, 232, 143, 0.5);
+  color: var(--text);
+  box-shadow: 0 0 12px rgba(0, 232, 143, 0.15);
+  transform: translateY(-1px);
+}
+.game-controls__btn:hover:not(:disabled) svg {
   color: var(--accent-text);
+}
+.game-controls__btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
 }
 .game-controls__btn:disabled {
   opacity: 0.45;
@@ -889,20 +908,34 @@ h3 {
   outline: var(--border-width-focus) solid var(--state-focus-outline);
   outline-offset: 3px;
 }
+
+/* Primary button (Fullscreen) */
 .game-controls__btn--primary {
   background: var(--button-primary-bg);
   border-color: var(--button-primary-border);
   color: var(--button-primary-text);
+  font-weight: var(--weight-semibold);
 }
 .game-controls__btn--primary:hover:not(:disabled) {
-  background: var(--button-primary-hover-bg);
+  background: #00D080; /* Slightly deeper green for contrast */
   border-color: var(--button-primary-hover-border);
-  box-shadow: var(--glow-button-hover);
+  color: var(--button-primary-text); /* Keep dark text readable */
+  box-shadow: 0 0 18px rgba(0, 232, 143, 0.35);
+  transform: translateY(-1px);
+}
+.game-controls__btn--primary:hover:not(:disabled) svg {
+  color: var(--button-primary-text);
+}
+.game-controls__btn--primary:active:not(:disabled) {
+  background: #00B870;
+  transform: translateY(0);
+  box-shadow: 0 0 8px rgba(0, 232, 143, 0.2);
 }
 .game-controls__btn svg {
   width: var(--size-icon-md); /* 20px */
   height: var(--size-icon-md);
   flex-shrink: 0;
+  transition: color var(--duration-default) var(--ease-default);
 }
 
 /* ---------- fullscreen ---------- */
@@ -933,58 +966,95 @@ h3 {
   box-shadow: none;
 }
 
-/* ---------- Game Page About Section ---------- */
+/* ---------- Game Page About Section (Premium Editorial Panel) ---------- */
 .game-page__about {
+  position: relative;
   max-width: 1100px;
   margin: var(--section-gap) auto 0;
-  padding-top: var(--section-gap);
-  border-top: 1px solid var(--divider);
+  padding: var(--space-8) var(--space-6);
+  background: linear-gradient(135deg, rgba(6, 35, 27, 0.9) 0%, rgba(7, 27, 24, 0.95) 100%);
+  border: 1px solid rgba(0, 232, 143, 0.12);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+/* Decorative watermark */
+.game-page__about::before {
+  content: "♞";
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  font-size: 280px;
+  line-height: 1;
+  color: rgba(0, 232, 143, 0.04);
+  pointer-events: none;
+  user-select: none;
+}
+
+.game-page__about-eyebrow {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.game-page__about-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
 }
 
 .game-page__about-title {
-  margin: 0 0 var(--space-4);
+  margin: 0;
   font-size: var(--font-xl);
   font-weight: var(--weight-bold);
   line-height: var(--line-snug);
   color: var(--text);
 }
 
-.game-page__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-4);
-}
-
 .game-page__tag {
   display: inline-flex;
   align-items: center;
-  height: 28px;
+  height: 26px;
   padding: 0 var(--space-3);
-  background: var(--button-secondary-bg);
-  border: 1px solid var(--border-default);
+  background: rgba(0, 140, 90, 0.2);
+  border: 1px solid rgba(0, 232, 143, 0.2);
   border-radius: var(--radius-full);
-  color: var(--text-secondary);
-  font-size: var(--font-sm);
-  font-weight: var(--weight-medium);
+  color: var(--accent-text);
+  font-size: var(--font-2xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   text-decoration: none;
   transition:
     background-color var(--duration-default) var(--ease-default),
     border-color var(--duration-default) var(--ease-default),
-    color var(--duration-default) var(--ease-default);
+    box-shadow var(--duration-default) var(--ease-default),
+    transform var(--duration-default) var(--ease-default);
 }
 .game-page__tag:hover {
-  background: var(--button-secondary-hover-bg);
-  border-color: var(--primary-dark);
-  color: var(--accent-text);
+  background: rgba(0, 160, 100, 0.3);
+  border-color: rgba(0, 232, 143, 0.4);
+  box-shadow: 0 0 12px rgba(0, 232, 143, 0.15);
+  transform: translateY(-1px);
+}
+.game-page__tag:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 2px;
 }
 
 .game-page__about-text {
-  max-width: 720px;
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
   margin: 0;
   font-size: var(--font-base);
   font-weight: var(--weight-regular);
-  line-height: var(--line-relaxed);
+  line-height: 1.7;
   color: var(--text-secondary);
   white-space: pre-wrap;
 }
@@ -1193,9 +1263,23 @@ h3 {
     font-size: var(--font-md);
   }
 
+  /* About section mobile */
   .game-page__about {
     margin-top: var(--space-6);
-    padding-top: var(--space-6);
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .game-page__about::before {
+    font-size: 180px;
+    right: -40px;
+    bottom: -50px;
+    opacity: 0.6;
+  }
+
+  .game-page__about-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
   }
 
   .game-page__about-title {
@@ -1251,6 +1335,13 @@ h3 {
 
   .admin__filters select {
     width: 100%;
+  }
+
+  /* About section small mobile */
+  .game-page__about::before {
+    font-size: 140px;
+    right: -50px;
+    bottom: -60px;
   }
 }
 
@@ -1336,8 +1427,26 @@ h3 {
     font-size: var(--font-sm-plus);
   }
 
+  /* About section 320px */
+  .game-page__about {
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .game-page__about::before {
+    display: none; /* Hide decorative watermark on very small screens */
+  }
+
+  .game-page__about-eyebrow {
+    font-size: 9px;
+  }
+
   .game-page__about-title {
     font-size: 18px;
+  }
+
+  .game-page__tag {
+    height: 24px;
+    font-size: 10px;
   }
 }
 
@@ -1349,19 +1458,29 @@ h3 {
    for height / radius / spacing / font; only the liked accent + heart pop
    are added here. */
 .game-controls__btn--like svg {
-  transition: transform var(--duration-default) var(--ease-default);
+  transition:
+    transform var(--duration-default) var(--ease-default),
+    color var(--duration-default) var(--ease-default);
+}
+.game-controls__btn--like:hover:not(:disabled) svg {
+  color: var(--primary);
+  transform: scale(1.1);
 }
 .game-controls__btn--like.is-liked {
   color: var(--accent-text);
   border-color: var(--border-active);
-  background: var(--card-hover-bg);
+  background: rgba(0, 232, 143, 0.12);
+}
+.game-controls__btn--like.is-liked svg {
+  color: var(--primary);
 }
 .game-controls__btn--like.is-liked:hover:not(:disabled) {
-  background: var(--card-hover-bg);
+  background: rgba(0, 232, 143, 0.18);
   border-color: var(--border-active);
+  box-shadow: 0 0 14px rgba(0, 232, 143, 0.25);
 }
 .game-controls__btn--like.is-bump svg {
-  transform: scale(1.15);
+  transform: scale(1.2);
 }
 
 /* ---------- Profile: Liked Games section ---------- */

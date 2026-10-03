@@ -105,19 +105,20 @@ export default function GameDetail() {
         ) : null}
       </GamePlayer>
 
-      {/* About Section */}
+      {/* About Section - Premium Editorial Panel */}
       <section className="game-page__about">
-        <h2 className="game-page__about-title">About {game.name}</h2>
-        {game.type && (
-          <div className="game-page__tags">
+        <p className="game-page__about-eyebrow">About the Game</p>
+        <div className="game-page__about-header">
+          <h2 className="game-page__about-title">{game.name}</h2>
+          {game.type && (
             <Link
               to={`/?typeId=${game.type.id}`}
               className="game-page__tag"
             >
               {game.type.name}
             </Link>
-          </div>
-        )}
+          )}
+        </div>
         <p className="game-page__about-text">{game.description}</p>
       </section>
     </article>
