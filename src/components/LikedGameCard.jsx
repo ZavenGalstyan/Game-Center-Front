@@ -2,15 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { Badge } from "./ui";
 
 /**
- * Compact card for one liked game in the Profile "Liked Games" section.
- *
- * The whole card navigates to the existing Single Game Page. The small unlike
- * heart is a real <button> that stops propagation so it never triggers the
- * card navigation. The card itself is a role="link" div (not an <a>) so the
- * nested button stays valid HTML.
+ * Card for one liked game in the Account "Liked Games" section.
  */
 function IconHeart() {
-  // Filled heart with active stroke width (per icon spec)
   return (
     <svg
       viewBox="0 0 24 24"
@@ -67,34 +61,34 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
       onClick={go}
       onKeyDown={onKeyDown}
     >
-      {/* Thumbnail / Cover */}
-      <div className="liked-game-card__thumb">
+      {/* Visual area - thumbnail or icon */}
+      <div className="liked-game-card__visual">
         {thumbnail ? (
-          <img src={thumbnail} alt="" loading="lazy" />
+          <img src={thumbnail} alt="" loading="lazy" className="liked-game-card__image" />
         ) : (
-          <span className="liked-game-card__thumb-placeholder">
+          <span className="liked-game-card__icon">
             <IconGamepad />
           </span>
         )}
-        <button
-          type="button"
-          className="liked-game-card__unlike"
-          aria-label={`Unlike ${game.name}`}
-          title="Unlike game"
-          disabled={removing}
-          onClick={(e) => {
-            e.stopPropagation();
-            onUnlike(game);
-          }}
-        >
-          <IconHeart />
-        </button>
       </div>
 
       {/* Content */}
-      <div className="liked-game-card__content">
-        <div className="liked-game-card__head">
+      <div className="liked-game-card__body">
+        <div className="liked-game-card__header">
           <h3 className="liked-game-card__title">{game.name}</h3>
+          <button
+            type="button"
+            className="liked-game-card__heart"
+            aria-label={`Unlike ${game.name}`}
+            title="Unlike game"
+            disabled={removing}
+            onClick={(e) => {
+              e.stopPropagation();
+              onUnlike(game);
+            }}
+          >
+            <IconHeart />
+          </button>
         </div>
 
         {type?.name && <Badge variant="success" size="sm">{type.name}</Badge>}
@@ -103,7 +97,7 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
           <p className="liked-game-card__desc">{game.description}</p>
         )}
 
-        <span className="liked-game-card__liked">
+        <span className="liked-game-card__status">
           <IconHeart /> Liked
         </span>
       </div>

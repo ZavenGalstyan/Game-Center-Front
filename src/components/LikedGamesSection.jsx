@@ -4,9 +4,6 @@ import { api } from "../lib/api.js";
 import { useToast } from "./Toast.jsx";
 import LikedGameCard from "./LikedGameCard.jsx";
 import {
-  Card,
-  CardTitle,
-  CardBody,
   LoadingState,
   EmptyState,
   Alert,
@@ -129,11 +126,12 @@ export default function LikedGamesSection() {
   const hasMore = items.length < total;
 
   return (
-    <Card className="account-card account-card--liked-games">
-      <CardTitle>
+    <div className="liked-games-section">
+      <h3 className="liked-games-section__title">
         {total > 0 ? `Liked Games (${total})` : "Liked Games"}
-      </CardTitle>
-      <CardBody>
+      </h3>
+
+      <div className="liked-games-section__content">
         {loading && <LoadingState message="Loading liked games..." />}
 
         {error && !loading && <Alert variant="error">{error}</Alert>}
@@ -172,7 +170,7 @@ export default function LikedGamesSection() {
             )}
           </>
         )}
-      </CardBody>
-    </Card>
+      </div>
+    </div>
   );
 }

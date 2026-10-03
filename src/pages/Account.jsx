@@ -61,8 +61,8 @@ function PasswordInput({ id, value, onChange, disabled, error, autoComplete }) {
   const [visible, setVisible] = useState(false);
 
   return (
-    <div className="password-input-wrapper">
-      <span className="password-input-icon password-input-icon--lock">
+    <div className="password-field">
+      <span className="password-field__icon">
         <IconLock />
       </span>
       <input
@@ -72,12 +72,12 @@ function PasswordInput({ id, value, onChange, disabled, error, autoComplete }) {
         value={value}
         onChange={onChange}
         disabled={disabled}
-        className={`ui-input password-input${error ? " ui-input--error" : ""}`}
+        className={`ui-input password-field__input${error ? " ui-input--error" : ""}`}
         required
       />
       <button
         type="button"
-        className="password-input-toggle"
+        className="password-field__toggle"
         onClick={() => setVisible((v) => !v)}
         aria-label={visible ? "Hide password" : "Show password"}
         tabIndex={-1}
@@ -126,13 +126,11 @@ export default function Account() {
         currentPassword: values.currentPassword,
         newPassword: values.newPassword,
       });
-      // Backend returns a fresh token — replace the stored one.
       if (data?.accessToken) tokenStore.set(data.accessToken);
       setValues({ currentPassword: "", newPassword: "", confirm: "" });
       toast.show("Password changed successfully", { type: "success" });
     } catch (err) {
       if (err.status === 401) {
-        // Either not authenticated anymore, or wrong current password.
         if (/current password/i.test(err.message || "")) {
           setErrors((p) => ({ ...p, currentPassword: err.message }));
         } else {
@@ -152,59 +150,64 @@ export default function Account() {
   const userInitial = user?.username?.charAt(0)?.toUpperCase() || "?";
 
   return (
-    <div className="account-page">
+    <div className="account-dashboard">
       <h1 className="page-title">Account</h1>
 
-      <div className="account-layout">
-        {/* Left Column: Profile + Change Password */}
-        <div className="account-layout__left">
-          <Card className="account-card account-card--profile">
-            <CardBody>
-              {/* Profile Header */}
-              <div className="profile-header">
-                <div className="profile-avatar" aria-hidden="true">
-                  {userInitial}
-                </div>
-                <div className="profile-header__info">
-                  <h2 className="profile-header__name">{user?.username}</h2>
-                  <p className="profile-header__email">{user?.email}</p>
-                  <Badge variant="success" size="sm">{user?.role}</Badge>
-                </div>
-              </div>
+      {/* Profile Overview - Full Width */}
+      <section className="profile-overview">
+        <div className="profile-overview__header">
+          <div className="profile-overview__identity">
+            <div className="profile-overview__avatar" aria-hidden="true">
+              {userInitial}
+            </div>
+            <div className="profile-overview__user">
+              <h2 className="profile-overview__name">{user?.username}</h2>
+              <p className="profile-overview__email">{user?.email}</p>
+              <Badge variant="primary" size="sm">{user?.role}</Badge>
+            </div>
+          </div>
 
-              {/* Profile Details */}
-              <dl className="profile-details">
-                <div className="profile-details__row">
-                  <dt>Username</dt>
-                  <dd>{user?.username}</dd>
-                </div>
-                <div className="profile-details__row">
-                  <dt>Email</dt>
-                  <dd>{user?.email}</dd>
-                </div>
-                <div className="profile-details__row">
-                  <dt>Role</dt>
-                  <dd>{user?.role}</dd>
-                </div>
-                <div className="profile-details__row">
-                  <dt>Member since</dt>
-                  <dd>
-                    {user?.createdAt
-                      ? new Date(user.createdAt).toLocaleDateString()
-                      : "—"}
-                  </dd>
-                </div>
-              </dl>
+          <div className="profile-overview__stats">
+            <div className="profile-stat">
+              <span className="profile-stat__label">Username</span>
+              <span className="profile-stat__value">{user?.username}</span>
+            </div>
+            <div className="profile-stat">
+              <span className="profile-stat__label">Email</span>
+              <span className="profile-stat__value">{user?.email}</span>
+            </div>
+            <div className="profile-stat">
+              <span className="profile-stat__label">Role</span>
+              <span className="profile-stat__value">{user?.role}</span>
+            </div>
+            <div className="profile-stat">
+              <span className="profile-stat__label">Member since</span>
+              <span className="profile-stat__value">
+                {user?.createdAt
+                  ? new Date(user.createdAt).toLocaleDateString()
+                  : "—"}
+              </span>
+            </div>
+          </div>
+        </div>
 
-              {/* Profile Decoration */}
-              <div className="profile-decoration" aria-hidden="true" />
-            </CardBody>
-          </Card>
+        {/* Subtle decoration */}
+        <div className="profile-overview__decoration" aria-hidden="true" />
+      </section>
 
-          <Card className="account-card account-card--password">
+      {/* Lower Section: Liked Games + Change Password */}
+      <div className="account-dashboard__lower">
+        {/* Liked Games - Primary Section */}
+        <section className="account-dashboard__games">
+          <LikedGamesSection />
+        </section>
+
+        {/* Change Password - Secondary Section */}
+        <section className="account-dashboard__security">
+          <Card className="security-card">
             <CardTitle>Change password</CardTitle>
             <CardBody>
-              <form className="auth-form" onSubmit={onSubmit} noValidate>
+              <form className="security-form" onSubmit={onSubmit} noValidate>
                 {formError && <Alert variant="error">{formError}</Alert>}
 
                 <FormField
@@ -257,12 +260,7 @@ export default function Account() {
               </form>
             </CardBody>
           </Card>
-        </div>
-
-        {/* Right Column: Liked Games */}
-        <div className="account-layout__right">
-          <LikedGamesSection />
-        </div>
+        </section>
       </div>
     </div>
   );
