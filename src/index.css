@@ -455,11 +455,147 @@ h3 {
 
 /* Dashboard container - uses full available width */
 .account-dashboard {
+  position: relative;
   width: 100%;
 }
 
 .account-dashboard > .page-title {
+  position: relative;
+  z-index: 1;
   margin-bottom: var(--space-6);
+}
+
+/* ---------- Ambient Background Decoration ---------- */
+.account-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle radial glows for depth */
+.account-bg__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.account-bg__glow--1 {
+  top: -100px;
+  left: -50px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 232, 143, 0.04) 0%, transparent 70%);
+}
+
+.account-bg__glow--2 {
+  bottom: -150px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 180, 120, 0.03) 0%, transparent 70%);
+}
+
+/* Gaming symbol shapes */
+.account-bg__shape {
+  position: absolute;
+  color: rgba(0, 232, 143, 0.035);
+  opacity: 0.8;
+}
+
+.account-bg__shape--controller {
+  width: 280px;
+  height: 168px;
+  bottom: 8%;
+  left: 5%;
+  animation: account-float-1 28s ease-in-out infinite;
+}
+
+.account-bg__shape--diamond {
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  right: 12%;
+  animation: account-float-2 24s ease-in-out infinite;
+}
+
+.account-bg__shape--dpad {
+  width: 100px;
+  height: 100px;
+  top: 55%;
+  right: 25%;
+  animation: account-float-3 32s ease-in-out infinite;
+}
+
+.account-bg__shape--circle {
+  width: 90px;
+  height: 90px;
+  bottom: 25%;
+  right: 8%;
+  animation: account-float-4 22s ease-in-out infinite;
+}
+
+.account-bg__shape--pixels {
+  width: 60px;
+  height: 60px;
+  top: 40%;
+  left: 15%;
+  animation: account-float-5 35s ease-in-out infinite;
+}
+
+.account-bg__shape--plus {
+  width: 50px;
+  height: 50px;
+  bottom: 40%;
+  left: 30%;
+  animation: account-float-2 26s ease-in-out infinite reverse;
+}
+
+/* Ambient floating animations - very slow */
+@keyframes account-float-1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(8px, -12px) rotate(1deg); }
+  50% { transform: translate(-5px, -20px) rotate(-0.5deg); }
+  75% { transform: translate(12px, -8px) rotate(0.8deg); }
+}
+
+@keyframes account-float-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  33% { transform: translate(-10px, 15px) rotate(2deg) scale(1.02); }
+  66% { transform: translate(8px, 8px) rotate(-1deg) scale(0.98); }
+}
+
+@keyframes account-float-3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-15px, 10px) rotate(-2deg); }
+}
+
+@keyframes account-float-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(10px, -8px) scale(1.01); }
+  70% { transform: translate(-5px, 12px) scale(0.99); }
+}
+
+@keyframes account-float-5 {
+  0%, 100% { transform: translate(0, 0); opacity: 0.8; }
+  50% { transform: translate(5px, -10px); opacity: 0.6; }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .account-bg__shape {
+    animation: none;
+  }
+}
+
+/* Ensure content stays above background */
+.profile-overview,
+.account-dashboard__lower,
+.liked-games-section,
+.security-card {
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------- Profile Overview - Full Width Card ---------- */
@@ -477,7 +613,7 @@ h3 {
 .profile-overview__content {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 .profile-overview__identity {
@@ -1558,13 +1694,35 @@ h3 {
     opacity: 0.2;
   }
 
+  /* Reduce background decorations on tablet */
+  .account-bg__shape--controller {
+    width: 200px;
+    height: 120px;
+    opacity: 0.6;
+  }
+
+  .account-bg__shape--dpad,
+  .account-bg__shape--pixels {
+    display: none;
+  }
+
+  .account-bg__glow--1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .account-bg__glow--2 {
+    width: 350px;
+    height: 350px;
+  }
+
   /* Liked games tablet - keep 2 columns but smaller visual */
   .liked-games-grid {
     gap: var(--space-3);
   }
 
   .liked-game-card__visual {
-    width: 110px;
+    width: 120px;
   }
 
   /* Game page tablet adjustments */
@@ -1714,6 +1872,31 @@ h3 {
 
   .account-dashboard__security {
     order: 2;
+  }
+
+  /* Hide most background decorations on mobile */
+  .account-bg__shape--controller,
+  .account-bg__shape--dpad,
+  .account-bg__shape--pixels,
+  .account-bg__shape--plus,
+  .account-bg__shape--circle {
+    display: none;
+  }
+
+  .account-bg__shape--diamond {
+    width: 80px;
+    height: 80px;
+    top: auto;
+    bottom: 10%;
+    right: 5%;
+    opacity: 0.5;
+  }
+
+  .account-bg__glow--1,
+  .account-bg__glow--2 {
+    width: 200px;
+    height: 200px;
+    opacity: 0.7;
   }
 
   /* Profile overview mobile */
@@ -2084,7 +2267,8 @@ h3 {
 
 /* Visual area - left side with game image */
 .liked-game-card__visual {
-  width: 140px;
+  position: relative;
+  width: 150px;
   flex-shrink: 0;
   background: linear-gradient(135deg, #071B18 0%, #063326 100%);
   display: flex;
@@ -2092,6 +2276,29 @@ h3 {
   justify-content: center;
   border-radius: var(--radius-lg) 0 0 var(--radius-lg);
   overflow: hidden;
+}
+
+/* Gradient fade overlay - blends image into card */
+.liked-game-card__visual::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(6, 35, 27, 0.3) 40%,
+    rgba(6, 35, 27, 0.7) 70%,
+    var(--surface) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* No fade overlay for placeholder icons */
+.liked-game-card__visual:has(.liked-game-card__icon)::after {
+  display: none;
 }
 
 .liked-game-card__image {
