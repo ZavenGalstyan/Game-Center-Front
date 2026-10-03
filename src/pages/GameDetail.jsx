@@ -22,6 +22,8 @@ import { getGameComponent, gameSupportsMute } from "../components/games/registry
 const GAME_TAGLINES = {
   "Classic Chess": "A timeless strategy game of planning, tactics, and checkmate.",
   "Stonewild": "Build, explore, and survive in a living voxel world.",
+  "Ball Adventure 3D": "Roll, balance, and explore across colorful 3D worlds.",
+  "Rooftop Sniper": "Take aim and master precision across challenging rooftop missions.",
 };
 
 // Fallback: generate a short tagline from description if not predefined
