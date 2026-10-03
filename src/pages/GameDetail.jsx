@@ -21,6 +21,7 @@ import { getGameComponent, gameSupportsMute } from "../components/games/registry
 // Short taglines for games (avoids duplicating full description in header)
 const GAME_TAGLINES = {
   "Classic Chess": "A timeless strategy game of planning, tactics, and checkmate.",
+  "Stonewild": "Build, explore, and survive in a living voxel world.",
 };
 
 // Fallback: generate a short tagline from description if not predefined
