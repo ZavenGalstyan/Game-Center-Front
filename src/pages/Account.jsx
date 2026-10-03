@@ -155,7 +155,8 @@ export default function Account() {
 
       {/* Profile Overview - Full Width */}
       <section className="profile-overview">
-        <div className="profile-overview__header">
+        <div className="profile-overview__content">
+          {/* Left: Identity */}
           <div className="profile-overview__identity">
             <div className="profile-overview__avatar" aria-hidden="true">
               {userInitial}
@@ -167,6 +168,7 @@ export default function Account() {
             </div>
           </div>
 
+          {/* Right: Stats Grid */}
           <div className="profile-overview__stats">
             <div className="profile-stat">
               <span className="profile-stat__label">Username</span>

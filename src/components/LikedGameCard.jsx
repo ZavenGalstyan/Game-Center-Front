@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Badge } from "./ui";
+import { getGameArtwork } from "../lib/gameHelpers.jsx";
 
 /**
  * Card for one liked game in the Account "Liked Games" section.
+ * Uses the same image source as the main GameCard component.
  */
 function IconHeart() {
   return (
@@ -42,7 +44,11 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
   const navigate = useNavigate();
   const id = game.id || game._id;
   const type = game.type || game.category;
-  const thumbnail = game.thumbnail || game.image || game.cover;
+
+  // Get image from the same source as GameCard (gameHelpers)
+  const artwork = getGameArtwork(game);
+  const gameImage = artwork?.cardBackground || game.thumbnail || game.image || game.cover;
+  const hasImage = Boolean(gameImage);
 
   const go = () => navigate(`/games/${id}`);
   const onKeyDown = (e) => {
@@ -61,10 +67,10 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
       onClick={go}
       onKeyDown={onKeyDown}
     >
-      {/* Visual area - thumbnail or icon */}
+      {/* Visual area - game image or placeholder icon */}
       <div className="liked-game-card__visual">
-        {thumbnail ? (
-          <img src={thumbnail} alt="" loading="lazy" className="liked-game-card__image" />
+        {hasImage ? (
+          <img src={gameImage} alt="" loading="lazy" className="liked-game-card__image" />
         ) : (
           <span className="liked-game-card__icon">
             <IconGamepad />

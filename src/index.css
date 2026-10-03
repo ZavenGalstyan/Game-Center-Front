@@ -469,82 +469,81 @@ h3 {
   border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
-  padding: var(--space-6);
+  padding: var(--space-5) var(--space-6);
   margin-bottom: var(--space-6);
   overflow: hidden;
 }
 
-.profile-overview__header {
+.profile-overview__content {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
   gap: var(--space-8);
-  flex-wrap: wrap;
 }
 
 .profile-overview__identity {
   display: flex;
   align-items: center;
   gap: var(--space-4);
+  flex-shrink: 0;
 }
 
 .profile-overview__avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   border-radius: var(--radius-full);
-  font-size: 28px;
+  font-size: 26px;
   font-weight: var(--weight-bold);
   color: var(--button-primary-text);
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(0, 232, 143, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 232, 143, 0.25);
 }
 
 .profile-overview__user {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .profile-overview__name {
   margin: 0;
-  font-size: var(--font-xl);
+  font-size: var(--font-lg);
   font-weight: var(--weight-bold);
   line-height: var(--line-snug);
 }
 
 .profile-overview__email {
   margin: 0;
-  font-size: var(--font-md);
+  font-size: var(--font-sm);
   color: var(--text-secondary);
   line-height: var(--line-normal);
 }
 
-/* Stats row */
+/* Stats grid - compact info blocks */
 .profile-overview__stats {
-  display: flex;
-  gap: var(--space-6);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: var(--space-3);
+  margin-left: auto;
+  padding-left: var(--space-6);
+  border-left: var(--border-width) solid var(--divider);
 }
 
 .profile-stat {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding-left: var(--space-4);
-  border-left: var(--border-width) solid var(--divider);
-}
-
-.profile-stat:first-child {
-  padding-left: 0;
-  border-left: none;
+  gap: 3px;
+  padding: var(--space-2) var(--space-3);
+  background: rgba(0, 232, 143, 0.04);
+  border-radius: var(--radius-md);
+  min-width: 100px;
 }
 
 .profile-stat__label {
-  font-size: var(--font-xs);
+  font-size: 10px;
   font-weight: var(--weight-medium);
   color: var(--text-muted);
   text-transform: uppercase;
@@ -552,22 +551,25 @@ h3 {
 }
 
 .profile-stat__value {
-  font-size: var(--font-md);
+  font-size: var(--font-sm);
   font-weight: var(--weight-semibold);
   color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Profile decoration - far right, very subtle */
 .profile-overview__decoration {
   position: absolute;
   top: 50%;
-  right: -60px;
+  right: -80px;
   transform: translateY(-50%);
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   pointer-events: none;
-  opacity: 0.3;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='2'/%3E%3Ccircle cx='50' cy='38' r='16' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='2'/%3E%3Cpath d='M20 82 C20 62 35 52 50 52 C65 52 80 62 80 82' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  opacity: 0.25;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='2'/%3E%3Ccircle cx='50' cy='38' r='16' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='2'/%3E%3Cpath d='M20 82 C20 62 35 52 50 52 C65 52 80 62 80 82' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -1524,27 +1526,45 @@ h3 {
     gap: var(--space-5);
   }
 
-  .profile-overview__header {
+  .profile-overview {
+    padding: var(--space-5);
+  }
+
+  .profile-overview__content {
+    flex-direction: column;
+    align-items: flex-start;
     gap: var(--space-5);
   }
 
   .profile-overview__stats {
-    gap: var(--space-4);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    padding-top: var(--space-4);
+    border-top: var(--border-width) solid var(--divider);
+  }
+
+  .profile-stat {
+    min-width: 0;
   }
 
   .profile-overview__decoration {
-    width: 160px;
-    height: 160px;
-    right: -50px;
+    width: 140px;
+    height: 140px;
+    right: -60px;
+    opacity: 0.2;
   }
 
-  /* Liked games tablet */
+  /* Liked games tablet - keep 2 columns but smaller visual */
   .liked-games-grid {
-    grid-template-columns: 1fr;
+    gap: var(--space-3);
   }
 
   .liked-game-card__visual {
-    width: 100px;
+    width: 110px;
   }
 
   /* Game page tablet adjustments */
@@ -1698,23 +1718,24 @@ h3 {
 
   /* Profile overview mobile */
   .profile-overview {
-    padding: var(--space-5);
+    padding: var(--space-4);
     margin-bottom: var(--space-5);
   }
 
-  .profile-overview__header {
+  .profile-overview__content {
     flex-direction: column;
-    gap: var(--space-5);
+    align-items: flex-start;
+    gap: var(--space-4);
   }
 
   .profile-overview__avatar {
-    width: 56px;
-    height: 56px;
-    font-size: 22px;
+    width: 52px;
+    height: 52px;
+    font-size: 20px;
   }
 
   .profile-overview__name {
-    font-size: var(--font-lg);
+    font-size: var(--font-base);
   }
 
   .profile-overview__email {
@@ -1722,22 +1743,23 @@ h3 {
   }
 
   .profile-overview__stats {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
+    gap: var(--space-2);
     width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    padding-top: var(--space-3);
+    border-top: var(--border-width) solid var(--divider);
   }
 
   .profile-stat {
-    padding-left: 0;
-    border-left: none;
-    padding-bottom: var(--space-3);
-    border-bottom: var(--border-width) solid var(--divider);
+    min-width: 0;
+    padding: var(--space-2);
   }
 
-  .profile-stat:nth-last-child(-n+2) {
-    padding-bottom: 0;
-    border-bottom: none;
+  .profile-stat__value {
+    font-size: var(--font-xs);
   }
 
   .profile-overview__decoration {
@@ -1755,7 +1777,7 @@ h3 {
   }
 
   .liked-game-card {
-    min-height: 120px;
+    min-height: 110px;
   }
 
   .liked-game-card__visual {
@@ -2042,7 +2064,7 @@ h3 {
   box-shadow: var(--shadow-card);
   cursor: pointer;
   overflow: hidden;
-  min-height: 140px;
+  min-height: 130px;
   transition:
     transform var(--card-transition),
     box-shadow var(--card-transition),
@@ -2060,20 +2082,23 @@ h3 {
   outline-offset: 3px;
 }
 
-/* Visual area - left side */
+/* Visual area - left side with game image */
 .liked-game-card__visual {
-  width: 120px;
+  width: 140px;
   flex-shrink: 0;
   background: linear-gradient(135deg, #071B18 0%, #063326 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  overflow: hidden;
 }
 
 .liked-game-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: left center;
 }
 
 .liked-game-card__icon {
@@ -2088,8 +2113,8 @@ h3 {
 }
 
 .liked-game-card__icon svg {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }
 
 /* Body - right side content */
@@ -2097,7 +2122,7 @@ h3 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 6px;
   padding: var(--space-3) var(--space-4);
   min-width: 0;
 }
@@ -2126,8 +2151,8 @@ h3 {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   padding: 0;
   border: var(--border-width) solid var(--border-active);
   border-radius: var(--radius-full);
@@ -2155,8 +2180,8 @@ h3 {
 }
 
 .liked-game-card__heart svg {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
 }
 
 .liked-game-card__desc {
@@ -2174,18 +2199,18 @@ h3 {
 .liked-game-card__status {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   margin-top: auto;
   color: var(--accent-text);
-  font-size: var(--font-xs);
+  font-size: 10px;
   font-weight: var(--weight-semibold);
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
 .liked-game-card__status svg {
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
 }
 
 /* ==========================================================================
