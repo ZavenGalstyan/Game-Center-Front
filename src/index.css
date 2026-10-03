@@ -457,6 +457,11 @@ h3 {
 .account-dashboard {
   position: relative;
   width: 100%;
+  margin: calc(-1 * var(--space-6)) calc(-1 * var(--space-8));
+  padding: var(--space-6) var(--space-8);
+  min-height: calc(100vh - 80px);
+  /* Very dark teal base - darker than cards, not pure black */
+  background: #020D0D;
 }
 
 .account-dashboard > .page-title {
@@ -465,128 +470,49 @@ h3 {
   margin-bottom: var(--space-6);
 }
 
-/* ---------- Ambient Background Decoration ---------- */
+/* ---------- Account Background - Subtle Static Ambient Lighting ---------- */
 .account-bg {
   position: absolute;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
-}
-
-/* Subtle radial glows for depth */
-.account-bg__glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-}
-
-.account-bg__glow--1 {
-  top: -100px;
-  left: -50px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(0, 232, 143, 0.04) 0%, transparent 70%);
-}
-
-.account-bg__glow--2 {
-  bottom: -150px;
-  right: -100px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(0, 180, 120, 0.03) 0%, transparent 70%);
-}
-
-/* Gaming symbol shapes */
-.account-bg__shape {
-  position: absolute;
-  color: rgba(0, 232, 143, 0.035);
-  opacity: 0.8;
-}
-
-.account-bg__shape--controller {
-  width: 280px;
-  height: 168px;
-  bottom: 8%;
-  left: 5%;
-  animation: account-float-1 28s ease-in-out infinite;
-}
-
-.account-bg__shape--diamond {
-  width: 120px;
-  height: 120px;
-  top: 15%;
-  right: 12%;
-  animation: account-float-2 24s ease-in-out infinite;
-}
-
-.account-bg__shape--dpad {
-  width: 100px;
-  height: 100px;
-  top: 55%;
-  right: 25%;
-  animation: account-float-3 32s ease-in-out infinite;
-}
-
-.account-bg__shape--circle {
-  width: 90px;
-  height: 90px;
-  bottom: 25%;
-  right: 8%;
-  animation: account-float-4 22s ease-in-out infinite;
-}
-
-.account-bg__shape--pixels {
-  width: 60px;
-  height: 60px;
-  top: 40%;
-  left: 15%;
-  animation: account-float-5 35s ease-in-out infinite;
-}
-
-.account-bg__shape--plus {
-  width: 50px;
-  height: 50px;
-  bottom: 40%;
-  left: 30%;
-  animation: account-float-2 26s ease-in-out infinite reverse;
-}
-
-/* Ambient floating animations - very slow */
-@keyframes account-float-1 {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(8px, -12px) rotate(1deg); }
-  50% { transform: translate(-5px, -20px) rotate(-0.5deg); }
-  75% { transform: translate(12px, -8px) rotate(0.8deg); }
-}
-
-@keyframes account-float-2 {
-  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-  33% { transform: translate(-10px, 15px) rotate(2deg) scale(1.02); }
-  66% { transform: translate(8px, 8px) rotate(-1deg) scale(0.98); }
-}
-
-@keyframes account-float-3 {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(-15px, 10px) rotate(-2deg); }
-}
-
-@keyframes account-float-4 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  40% { transform: translate(10px, -8px) scale(1.01); }
-  70% { transform: translate(-5px, 12px) scale(0.99); }
-}
-
-@keyframes account-float-5 {
-  0%, 100% { transform: translate(0, 0); opacity: 0.8; }
-  50% { transform: translate(5px, -10px); opacity: 0.6; }
-}
-
-/* Respect reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .account-bg__shape {
-    animation: none;
-  }
+  /* Layered static gradients for subtle depth */
+  background:
+    /* Vignette - darker edges, lighter center */
+    radial-gradient(
+      ellipse 80% 60% at 50% 40%,
+      transparent 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    /* Primary ambient glow - upper left/center area */
+    radial-gradient(
+      ellipse 120% 80% at 20% 10%,
+      rgba(0, 200, 120, 0.035) 0%,
+      rgba(0, 180, 100, 0.02) 30%,
+      transparent 60%
+    ),
+    /* Secondary subtle glow - center content area */
+    radial-gradient(
+      ellipse 100% 70% at 40% 35%,
+      rgba(0, 232, 143, 0.025) 0%,
+      transparent 50%
+    ),
+    /* Tertiary depth - bottom right tonal shift */
+    radial-gradient(
+      ellipse 80% 60% at 85% 80%,
+      rgba(0, 160, 100, 0.02) 0%,
+      transparent 50%
+    ),
+    /* Base gradient - very subtle teal tint */
+    linear-gradient(
+      160deg,
+      #031310 0%,
+      #020D0D 30%,
+      #020D0D 60%,
+      #031512 100%
+    );
 }
 
 /* Ensure content stays above background */
@@ -1694,26 +1620,10 @@ h3 {
     opacity: 0.2;
   }
 
-  /* Reduce background decorations on tablet */
-  .account-bg__shape--controller {
-    width: 200px;
-    height: 120px;
-    opacity: 0.6;
-  }
-
-  .account-bg__shape--dpad,
-  .account-bg__shape--pixels {
-    display: none;
-  }
-
-  .account-bg__glow--1 {
-    width: 300px;
-    height: 300px;
-  }
-
-  .account-bg__glow--2 {
-    width: 350px;
-    height: 350px;
+  /* Account dashboard tablet spacing */
+  .account-dashboard {
+    margin: calc(-1 * var(--space-5)) calc(-1 * var(--space-5));
+    padding: var(--space-5) var(--space-5);
   }
 
   /* Liked games tablet - keep 2 columns but smaller visual */
@@ -1874,29 +1784,10 @@ h3 {
     order: 2;
   }
 
-  /* Hide most background decorations on mobile */
-  .account-bg__shape--controller,
-  .account-bg__shape--dpad,
-  .account-bg__shape--pixels,
-  .account-bg__shape--plus,
-  .account-bg__shape--circle {
-    display: none;
-  }
-
-  .account-bg__shape--diamond {
-    width: 80px;
-    height: 80px;
-    top: auto;
-    bottom: 10%;
-    right: 5%;
-    opacity: 0.5;
-  }
-
-  .account-bg__glow--1,
-  .account-bg__glow--2 {
-    width: 200px;
-    height: 200px;
-    opacity: 0.7;
+  /* Account dashboard mobile spacing */
+  .account-dashboard {
+    margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4));
+    padding: var(--space-4) var(--space-4);
   }
 
   /* Profile overview mobile */

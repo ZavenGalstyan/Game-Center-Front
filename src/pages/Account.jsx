@@ -151,41 +151,8 @@ export default function Account() {
 
   return (
     <div className="account-dashboard">
-      {/* Ambient background decoration */}
-      <div className="account-bg" aria-hidden="true">
-        <div className="account-bg__glow account-bg__glow--1" />
-        <div className="account-bg__glow account-bg__glow--2" />
-        <svg className="account-bg__shape account-bg__shape--controller" viewBox="0 0 100 60" fill="none" stroke="currentColor" strokeWidth="0.5">
-          <rect x="10" y="15" width="80" height="30" rx="8" />
-          <circle cx="30" cy="30" r="8" />
-          <circle cx="70" cy="30" r="5" />
-          <circle cx="78" cy="24" r="3" />
-          <circle cx="78" cy="36" r="3" />
-          <rect x="42" y="28" width="16" height="4" rx="1" />
-        </svg>
-        <svg className="account-bg__shape account-bg__shape--diamond" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="0.6">
-          <path d="M20 2 L38 20 L20 38 L2 20 Z" />
-          <path d="M20 8 L32 20 L20 32 L8 20 Z" />
-        </svg>
-        <svg className="account-bg__shape account-bg__shape--dpad" viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="0.5">
-          <rect x="18" y="5" width="14" height="40" rx="2" />
-          <rect x="5" y="18" width="40" height="14" rx="2" />
-        </svg>
-        <svg className="account-bg__shape account-bg__shape--circle" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="0.5">
-          <circle cx="20" cy="20" r="18" />
-          <circle cx="20" cy="20" r="12" />
-          <circle cx="20" cy="20" r="6" />
-        </svg>
-        <svg className="account-bg__shape account-bg__shape--pixels" viewBox="0 0 30 30" fill="currentColor">
-          <rect x="0" y="0" width="8" height="8" opacity="0.3" />
-          <rect x="11" y="11" width="8" height="8" opacity="0.2" />
-          <rect x="22" y="5" width="5" height="5" opacity="0.25" />
-          <rect x="5" y="22" width="6" height="6" opacity="0.2" />
-        </svg>
-        <svg className="account-bg__shape account-bg__shape--plus" viewBox="0 0 30 30" fill="none" stroke="currentColor" strokeWidth="0.6">
-          <path d="M15 5 L15 25 M5 15 L25 15" />
-        </svg>
-      </div>
+      {/* Ambient background - subtle static lighting via CSS */}
+      <div className="account-bg" aria-hidden="true" />
 
       <h1 className="page-title">Account</h1>
 
