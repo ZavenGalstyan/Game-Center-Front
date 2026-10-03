@@ -98,15 +98,17 @@ export default function GameDetail() {
 
       {/* Game Page Header */}
       <header className="game-page__header">
-        {game.type && (
-          <Link
-            to={`/?typeId=${game.type.id}`}
-            className="game-page__category"
-          >
-            {game.type.name}
-          </Link>
-        )}
-        <h1 className="game-page__title">{game.name}</h1>
+        <div className="game-page__title-row">
+          <h1 className="game-page__title">{game.name}</h1>
+          {game.type && (
+            <Link
+              to={`/?typeId=${game.type.id}`}
+              className="game-page__category"
+            >
+              {game.type.name}
+            </Link>
+          )}
+        </div>
         {getTagline(game) && (
           <p className="game-page__tagline">{getTagline(game)}</p>
         )}

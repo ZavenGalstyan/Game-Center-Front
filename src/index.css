@@ -802,13 +802,19 @@ h3 {
   margin-bottom: var(--space-6);
 }
 
+.game-page__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
 .game-page__category {
   display: inline-flex;
   align-items: center;
-  align-self: flex-start;
   height: var(--badge-height);
   padding: 0 var(--space-3);
-  margin-bottom: 10px;
   background: rgba(0, 140, 90, 0.25);
   border: 1px solid rgba(0, 232, 143, 0.25);
   border-radius: var(--radius-full);
@@ -837,7 +843,7 @@ h3 {
 }
 
 .game-page__title {
-  margin: 0 0 var(--space-2) 0;
+  margin: 0;
   font-family: var(--font-family);
   font-size: var(--font-2xl);
   font-weight: var(--weight-bold);
