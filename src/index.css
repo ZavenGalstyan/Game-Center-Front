@@ -1107,6 +1107,39 @@ h3 {
   background-repeat: no-repeat;
 }
 
+/* Sprout/plant decoration for Farm Life */
+.game-page__about[data-decoration="sprout"]::before {
+  content: "";
+  width: 260px;
+  height: 260px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 95 L50 45' stroke='rgba(0,232,143,0.03)' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M50 65 Q30 55 20 35 Q25 55 50 65' fill='rgba(0,232,143,0.02)' stroke='rgba(0,232,143,0.03)' stroke-width='2'/%3E%3Cpath d='M50 50 Q70 40 80 20 Q75 40 50 50' fill='rgba(0,232,143,0.02)' stroke='rgba(0,232,143,0.03)' stroke-width='2'/%3E%3Cpath d='M50 45 Q45 30 50 15 Q55 30 50 45' fill='rgba(0,232,143,0.025)' stroke='rgba(0,232,143,0.03)' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Water drop decoration for Car Wash Studio */
+.game-page__about[data-decoration="water-drop"]::before {
+  content: "";
+  width: 260px;
+  height: 260px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 Q80 45 80 60 Q80 85 50 95 Q20 85 20 60 Q20 45 50 5' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='3'/%3E%3Cpath d='M50 15 Q70 45 70 58 Q70 78 50 85 Q30 78 30 58 Q30 45 50 15' fill='none' stroke='rgba(0,232,143,0.02)' stroke-width='2'/%3E%3Cpath d='M38 40 Q32 50 35 60' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='35' cy='35' r='3' fill='rgba(0,232,143,0.025)'/%3E%3Ccircle cx='30' cy='42' r='2' fill='rgba(0,232,143,0.02)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Parking sign decoration for Parking Master */
+.game-page__about[data-decoration="parking"]::before {
+  content: "";
+  width: 260px;
+  height: 260px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='10' y='10' width='80' height='80' rx='12' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='3'/%3E%3Crect x='18' y='18' width='64' height='64' rx='8' fill='none' stroke='rgba(0,232,143,0.02)' stroke-width='2'/%3E%3Cpath d='M40 75 L40 25 L58 25 Q72 25 72 40 Q72 55 58 55 L40 55' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -1284,7 +1317,10 @@ h3 {
   .game-page__about[data-decoration="crosshair"]::before,
   .game-page__about[data-decoration="shield"]::before,
   .game-page__about[data-decoration="flask"]::before,
-  .game-page__about[data-decoration="elements"]::before {
+  .game-page__about[data-decoration="elements"]::before,
+  .game-page__about[data-decoration="sprout"]::before,
+  .game-page__about[data-decoration="water-drop"]::before,
+  .game-page__about[data-decoration="parking"]::before {
     width: 200px;
     height: 200px;
   }
@@ -1421,7 +1457,10 @@ h3 {
   .game-page__about[data-decoration="crosshair"]::before,
   .game-page__about[data-decoration="shield"]::before,
   .game-page__about[data-decoration="flask"]::before,
-  .game-page__about[data-decoration="elements"]::before {
+  .game-page__about[data-decoration="elements"]::before,
+  .game-page__about[data-decoration="sprout"]::before,
+  .game-page__about[data-decoration="water-drop"]::before,
+  .game-page__about[data-decoration="parking"]::before {
     width: 160px;
     height: 160px;
   }
@@ -1498,7 +1537,10 @@ h3 {
   .game-page__about[data-decoration="crosshair"]::before,
   .game-page__about[data-decoration="shield"]::before,
   .game-page__about[data-decoration="flask"]::before,
-  .game-page__about[data-decoration="elements"]::before {
+  .game-page__about[data-decoration="elements"]::before,
+  .game-page__about[data-decoration="sprout"]::before,
+  .game-page__about[data-decoration="water-drop"]::before,
+  .game-page__about[data-decoration="parking"]::before {
     width: 120px;
     height: 120px;
   }

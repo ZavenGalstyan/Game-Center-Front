@@ -27,6 +27,9 @@ const GAME_TAGLINES = {
   "Arena Gladiator": "Fight, survive, and become a legend in the arena.",
   "Liquid Sort": "Pour, match, and solve colorful liquid puzzles.",
   "Element Merge": "Mix elements, discover combinations, and create new worlds.",
+  "Farm Life": "Plant, grow, build, and create your perfect countryside farm.",
+  "Car Wash Studio": "Wash, detail, and transform every car to a perfect shine.",
+  "Parking Master": "Drive, align, and master every parking challenge.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -38,6 +41,9 @@ const GAME_DECORATIONS = {
   "Arena Gladiator": "shield",
   "Liquid Sort": "flask",
   "Element Merge": "elements",
+  "Farm Life": "sprout",
+  "Car Wash Studio": "water-drop",
+  "Parking Master": "parking",
 };
 
 // Fallback: generate a short tagline from description if not predefined
