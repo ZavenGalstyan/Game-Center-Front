@@ -24,6 +24,9 @@ const GAME_TAGLINES = {
   "Stonewild": "Build, explore, and survive in a living voxel world.",
   "Ball Adventure 3D": "Roll, balance, and explore across colorful 3D worlds.",
   "Rooftop Sniper": "Take aim and master precision across challenging rooftop missions.",
+  "Arena Gladiator": "Fight, survive, and become a legend in the arena.",
+  "Liquid Sort": "Pour, match, and solve colorful liquid puzzles.",
+  "Element Merge": "Mix elements, discover combinations, and create new worlds.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -32,6 +35,9 @@ const GAME_DECORATIONS = {
   "Stonewild": "cube",
   "Ball Adventure 3D": "ball",
   "Rooftop Sniper": "crosshair",
+  "Arena Gladiator": "shield",
+  "Liquid Sort": "flask",
+  "Element Merge": "elements",
 };
 
 // Fallback: generate a short tagline from description if not predefined
