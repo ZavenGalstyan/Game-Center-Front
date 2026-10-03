@@ -239,6 +239,11 @@ h3 {
   padding: var(--content-padding-y) var(--content-padding-x);
 }
 
+/* Remove max-width constraint for Account page to allow full-width background */
+.app-main:has(.account-dashboard) {
+  max-width: none;
+}
+
 /* ---------- sidebar ---------- */
 .sidebar {
   width: var(--sidebar-width);
@@ -686,11 +691,33 @@ h3 {
   padding: var(--space-5);
 }
 
+.liked-games-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
 .liked-games-section__title {
-  margin: 0 0 var(--space-4);
+  margin: 0;
   font-size: var(--font-base);
   font-weight: var(--weight-semibold);
   color: var(--text);
+}
+
+.liked-games-section__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 8px;
+  background: rgba(0, 200, 120, 0.12);
+  border: 1px solid rgba(0, 232, 143, 0.25);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: var(--weight-semibold);
+  color: var(--primary);
 }
 
 .liked-games-section__content {
@@ -700,6 +727,10 @@ h3 {
 /* ---------- Security Card ---------- */
 .security-card {
   height: fit-content;
+}
+
+.security-card .ui-card__title {
+  margin-bottom: var(--space-4);
 }
 
 .security-form {

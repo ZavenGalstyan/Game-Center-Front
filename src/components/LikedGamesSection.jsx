@@ -127,9 +127,12 @@ export default function LikedGamesSection() {
 
   return (
     <div className="liked-games-section">
-      <h3 className="liked-games-section__title">
-        {total > 0 ? `Liked Games (${total})` : "Liked Games"}
-      </h3>
+      <div className="liked-games-section__header">
+        <h3 className="liked-games-section__title">Liked Games</h3>
+        {total > 0 && (
+          <span className="liked-games-section__count">{total}</span>
+        )}
+      </div>
 
       <div className="liked-games-section__content">
         {loading && <LoadingState message="Loading liked games..." />}
