@@ -708,7 +708,27 @@ h3 {
 }
 
 /* ---------- 3D Isometric Game Cube Counter ---------- */
-.liked-games-cube {
+@keyframes cube-idle-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-1.5deg) scale(1);
+    filter: drop-shadow(0 2px 6px rgba(0, 232, 143, 0.15));
+  }
+  25% {
+    transform: translateY(-2px) rotate(-2deg) scale(1.012);
+    filter: drop-shadow(0 3px 8px rgba(0, 232, 143, 0.2));
+  }
+  50% {
+    transform: translateY(-3.5px) rotate(0deg) scale(1.025);
+    filter: drop-shadow(0 4px 10px rgba(0, 232, 143, 0.28));
+  }
+  75% {
+    transform: translateY(-2px) rotate(2deg) scale(1.012);
+    filter: drop-shadow(0 3px 8px rgba(0, 232, 143, 0.2));
+  }
+}
+
+/* Wrapper - positions the stationary number and animated cube */
+.liked-games-count {
   --cube-size: 18px;
   --cube-top: rgba(0, 232, 143, 0.35);
   --cube-front: rgba(0, 180, 110, 0.25);
@@ -719,18 +739,42 @@ h3 {
   position: relative;
   width: calc(var(--cube-size) * 1.5);
   height: calc(var(--cube-size) * 1.4);
-  transform-style: preserve-3d;
   margin-top: -2px;
   cursor: default;
-  transition: transform 0.2s ease;
 }
 
-.liked-games-cube:hover {
-  transform: translateY(-1px);
+/* Stationary number - NO animation, always sharp */
+.liked-games-count__value {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cube-text);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  line-height: 1;
+  pointer-events: none;
 }
 
-/* Top face - diamond shape with number */
-.liked-games-cube__top {
+/* Animated cube decoration - receives all animation */
+.liked-games-count__cube {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: cube-idle-float 3s ease-in-out infinite;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .liked-games-count__cube {
+    animation: none;
+  }
+}
+
+/* Top face - diamond shape */
+.liked-games-count__cube-top {
   position: absolute;
   width: var(--cube-size);
   height: var(--cube-size);
@@ -740,26 +784,13 @@ h3 {
   background: linear-gradient(135deg, var(--cube-top) 0%, rgba(0, 200, 120, 0.28) 100%);
   border: 1px solid var(--cube-border);
   border-radius: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   box-shadow:
     inset 0 0 8px rgba(0, 232, 143, 0.15),
     0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Number on top face - counter-rotated to appear upright */
-.liked-games-cube__number {
-  transform: rotate(-45deg);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--cube-text);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  line-height: 1;
-}
-
 /* Front face - parallelogram */
-.liked-games-cube__front {
+.liked-games-count__cube-front {
   position: absolute;
   width: calc(var(--cube-size) * 0.53);
   height: calc(var(--cube-size) * 0.5);
@@ -773,7 +804,7 @@ h3 {
 }
 
 /* Side face - parallelogram */
-.liked-games-cube__side {
+.liked-games-count__cube-side {
   position: absolute;
   width: calc(var(--cube-size) * 0.53);
   height: calc(var(--cube-size) * 0.5);
@@ -788,7 +819,7 @@ h3 {
 }
 
 /* Subtle shadow under the cube */
-.liked-games-cube::after {
+.liked-games-count__cube::after {
   content: "";
   position: absolute;
   bottom: -3px;

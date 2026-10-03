@@ -130,12 +130,13 @@ export default function LikedGamesSection() {
       <div className="liked-games-section__header">
         <h3 className="liked-games-section__title">Liked Games</h3>
         {total > 0 && (
-          <div className="liked-games-cube" aria-label={`${total} games`}>
-            <span className="liked-games-cube__top">
-              <span className="liked-games-cube__number">{total}</span>
-            </span>
-            <span className="liked-games-cube__front" aria-hidden="true" />
-            <span className="liked-games-cube__side" aria-hidden="true" />
+          <div className="liked-games-count" aria-label={`${total} games`}>
+            <span className="liked-games-count__value">{total}</span>
+            <div className="liked-games-count__cube" aria-hidden="true">
+              <span className="liked-games-count__cube-top" />
+              <span className="liked-games-count__cube-front" />
+              <span className="liked-games-count__cube-side" />
+            </div>
           </div>
         )}
       </div>
