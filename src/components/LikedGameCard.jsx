@@ -26,10 +26,29 @@ function IconHeart() {
   );
 }
 
+function IconGamepad() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2" y="6" width="20" height="12" rx="3" />
+      <circle cx="8" cy="12" r="2" />
+      <path d="M15 10v4M13 12h4" />
+    </svg>
+  );
+}
+
 export default function LikedGameCard({ game, onUnlike, removing = false }) {
   const navigate = useNavigate();
   const id = game.id || game._id;
   const type = game.type || game.category;
+  const thumbnail = game.thumbnail || game.image || game.cover;
 
   const go = () => navigate(`/games/${id}`);
   const onKeyDown = (e) => {
@@ -48,8 +67,15 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
       onClick={go}
       onKeyDown={onKeyDown}
     >
-      <div className="liked-game-card__head">
-        <h3 className="liked-game-card__title">{game.name}</h3>
+      {/* Thumbnail / Cover */}
+      <div className="liked-game-card__thumb">
+        {thumbnail ? (
+          <img src={thumbnail} alt="" loading="lazy" />
+        ) : (
+          <span className="liked-game-card__thumb-placeholder">
+            <IconGamepad />
+          </span>
+        )}
         <button
           type="button"
           className="liked-game-card__unlike"
@@ -65,15 +91,22 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
         </button>
       </div>
 
-      {type?.name && <Badge variant="success">{type.name}</Badge>}
+      {/* Content */}
+      <div className="liked-game-card__content">
+        <div className="liked-game-card__head">
+          <h3 className="liked-game-card__title">{game.name}</h3>
+        </div>
 
-      {game.description && (
-        <p className="liked-game-card__desc">{game.description}</p>
-      )}
+        {type?.name && <Badge variant="success" size="sm">{type.name}</Badge>}
 
-      <span className="liked-game-card__liked">
-        <IconHeart /> Liked
-      </span>
+        {game.description && (
+          <p className="liked-game-card__desc">{game.description}</p>
+        )}
+
+        <span className="liked-game-card__liked">
+          <IconHeart /> Liked
+        </span>
+      </div>
     </div>
   );
 }

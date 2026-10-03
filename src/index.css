@@ -449,18 +449,223 @@ h3 {
   max-width: 520px;
 }
 
-/* Section-level card spacing (account, profile pages) */
-.account > .page-title {
+/* ==========================================================================
+   ACCOUNT PAGE - Redesigned Dashboard Layout
+   ========================================================================== */
+
+.account-page {
+  max-width: 1200px;
+}
+
+.account-page > .page-title {
   margin-bottom: var(--section-header-gap);
 }
 
-.account > .card {
-  margin-bottom: var(--section-gap);
+/* Two-column layout */
+.account-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
 }
 
-.account > .card:last-child {
-  margin-bottom: 0;
+.account-layout__left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
 }
+
+.account-layout__right {
+  min-width: 0;
+}
+
+/* Account Cards */
+.account-card {
+  background: var(--card-bg);
+  border: var(--border-width) solid var(--border-default);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--card-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+.account-card--profile {
+  padding: var(--space-6);
+}
+
+.account-card--liked-games {
+  height: fit-content;
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-5);
+  border-bottom: var(--border-width) solid var(--divider);
+}
+
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: var(--radius-full);
+  font-size: var(--font-xl);
+  font-weight: var(--weight-bold);
+  color: var(--button-primary-text);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 232, 143, 0.25);
+}
+
+.profile-header__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.profile-header__name {
+  margin: 0;
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-snug);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-header__email {
+  margin: 0;
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Profile Details */
+.profile-details {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.profile-details__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: var(--border-width) solid var(--divider);
+}
+
+.profile-details__row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.profile-details__row:first-child {
+  padding-top: 0;
+}
+
+.profile-details dt {
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+}
+
+.profile-details dd {
+  margin: 0;
+  font-weight: var(--weight-semibold);
+  color: var(--text);
+  text-align: right;
+}
+
+/* Profile Decoration - subtle user icon */
+.profile-decoration {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  opacity: 0.6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='2'/%3E%3Ccircle cx='50' cy='38' r='16' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='2'/%3E%3Cpath d='M20 82 C20 62 35 52 50 52 C65 52 80 62 80 82' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Password Input with Icons */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input {
+  padding-left: 44px;
+  padding-right: 44px;
+}
+
+.password-input-icon {
+  position: absolute;
+  left: var(--control-padding-x);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-md);
+  height: var(--icon-md);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.password-input-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.password-input-toggle {
+  position: absolute;
+  right: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-default),
+              background-color var(--duration-fast) var(--ease-default);
+}
+
+.password-input-toggle:hover {
+  color: var(--text);
+  background: var(--button-ghost-hover-bg);
+}
+
+.password-input-toggle:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 2px;
+}
+
+.password-input-toggle svg {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+/* Legacy profile styles (for backwards compatibility) */
 .card__title {
   font-size: var(--font-base);
   font-weight: var(--weight-semibold);
@@ -1294,6 +1499,18 @@ h3 {
     font-size: var(--font-md-plus);
   }
 
+  /* Account page tablet - adjusted columns */
+  .account-layout {
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+
+  .profile-decoration {
+    width: 140px;
+    height: 140px;
+    right: -30px;
+  }
+
   /* Game page tablet adjustments */
   .game-page__title {
     font-size: var(--font-xl); /* 24px */
@@ -1426,6 +1643,63 @@ h3 {
   .profile div {
     flex-direction: column;
     gap: var(--space-1);
+  }
+
+  /* Account page mobile - single column */
+  .account-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .account-layout__left {
+    gap: var(--space-5);
+  }
+
+  .account-card {
+    padding: var(--space-4);
+  }
+
+  .account-card--profile {
+    padding: var(--space-5);
+  }
+
+  .profile-header {
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+
+  .profile-avatar {
+    width: 56px;
+    height: 56px;
+    font-size: 22px;
+  }
+
+  .profile-header__name {
+    font-size: var(--font-base);
+  }
+
+  .profile-details__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  .profile-details dd {
+    text-align: left;
+  }
+
+  .profile-decoration {
+    display: none;
+  }
+
+  /* Liked games mobile - single column */
+  .liked-games-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .liked-game-card__thumb {
+    height: 120px;
   }
 
   /* Game page mobile adjustments */
@@ -1692,46 +1966,137 @@ h3 {
 /* ---------- Profile: Liked Games section ---------- */
 .liked-games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--space-3);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
 }
+
 .liked-game-card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  min-height: 132px;
-  padding: var(--space-4);
-  background: var(--card-bg);
+  background: var(--surface);
   border: var(--border-width) solid var(--border-default);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   cursor: pointer;
+  overflow: hidden;
   transition:
     transform var(--card-transition),
     box-shadow var(--card-transition),
     border-color var(--card-transition);
 }
+
 .liked-game-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--card-border-hover);
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: var(--shadow-card-hover), var(--glow-sm);
 }
+
 .liked-game-card:focus-visible {
   outline: var(--border-width-focus) solid var(--state-focus-outline);
   outline-offset: 3px;
 }
+
+/* Thumbnail */
+.liked-game-card__thumb {
+  position: relative;
+  height: 100px;
+  background: linear-gradient(135deg, #071B18 0%, #063326 100%);
+  overflow: hidden;
+}
+
+.liked-game-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.liked-game-card__thumb-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--text-muted);
+  opacity: 0.4;
+}
+
+.liked-game-card__thumb-placeholder svg {
+  width: 40px;
+  height: 40px;
+}
+
+/* Unlike button on thumbnail */
+.liked-game-card__unlike {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: var(--border-width) solid var(--border-active);
+  border-radius: var(--radius-full);
+  background: rgba(6, 35, 27, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--primary);
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default),
+    box-shadow var(--duration-fast) var(--ease-default);
+}
+
+.liked-game-card__unlike:hover:not(:disabled) {
+  transform: scale(1.1);
+  background: var(--card-hover-bg);
+  box-shadow: var(--glow-sm);
+}
+
+.liked-game-card__unlike:disabled {
+  opacity: var(--state-disabled-opacity);
+  cursor: default;
+}
+
+.liked-game-card__unlike:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 3px;
+}
+
+.liked-game-card__unlike svg {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+/* Content */
+.liked-game-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  flex: 1;
+}
+
 .liked-game-card__head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-2);
 }
+
 .liked-game-card__title {
   margin: 0;
-  font-size: var(--font-md-plus);
+  font-size: var(--font-md);
   font-weight: var(--weight-bold);
   line-height: var(--line-snug);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+
 .liked-game-card__desc {
   margin: 0;
   color: var(--text-secondary);
@@ -1741,62 +2106,25 @@ h3 {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  flex: 1;
 }
-.liked-game-card__unlike {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  border: var(--border-width) solid var(--border-active);
-  border-radius: var(--radius-full);
-  background: var(--card-hover-bg);
-  color: var(--accent-text);
-  cursor: pointer;
-  transition:
-    transform var(--duration-fast) var(--ease-default),
-    opacity var(--duration-fast) var(--ease-default);
-}
-/* Expand hit target to 44×44px while keeping visual size at 28px */
-.liked-game-card__unlike::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 44px;
-  height: 44px;
-}
-.liked-game-card__unlike:hover:not(:disabled) {
-  transform: scale(1.08);
-}
-.liked-game-card__unlike:disabled {
-  opacity: var(--state-disabled-opacity);
-  cursor: default;
-}
-.liked-game-card__unlike:focus-visible {
-  outline: var(--border-width-focus) solid var(--state-focus-outline);
-  outline-offset: 3px;
-}
-.liked-game-card__unlike svg {
-  width: var(--icon-sm);
-  height: var(--icon-sm);
-}
+
 .liked-game-card__liked {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: 6px;
   margin-top: auto;
+  padding-top: var(--space-2);
   color: var(--accent-text);
-  font-size: var(--font-sm);
-  font-weight: var(--weight-medium);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
+
 .liked-game-card__liked svg {
-  width: var(--icon-xs);
-  height: var(--icon-xs);
+  width: 12px;
+  height: 12px;
 }
 
 /* ==========================================================================

@@ -129,7 +129,7 @@ export default function LikedGamesSection() {
   const hasMore = items.length < total;
 
   return (
-    <Card className="card" style={{ maxWidth: 720 }}>
+    <Card className="account-card account-card--liked-games">
       <CardTitle>
         {total > 0 ? `Liked Games (${total})` : "Liked Games"}
       </CardTitle>

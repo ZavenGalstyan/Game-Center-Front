@@ -3,8 +3,90 @@ import { useAuth } from "../auth/AuthContext.jsx";
 import { useToast } from "../components/Toast.jsx";
 import { api, tokenStore } from "../lib/api.js";
 import { mapServerErrors, validateNewPassword } from "../lib/validation.js";
-import { Alert, Button, FormField, Input, Card, CardTitle, CardBody } from "../components/ui";
+import { Alert, Button, FormField, Card, CardTitle, CardBody, Badge } from "../components/ui";
 import LikedGamesSection from "../components/LikedGamesSection.jsx";
+
+function IconLock() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  );
+}
+
+function IconEye() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
+function IconEyeOff() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+      <line x1="1" y1="1" x2="23" y2="23" />
+    </svg>
+  );
+}
+
+function PasswordInput({ id, value, onChange, disabled, error, autoComplete }) {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <div className="password-input-wrapper">
+      <span className="password-input-icon password-input-icon--lock">
+        <IconLock />
+      </span>
+      <input
+        id={id}
+        type={visible ? "text" : "password"}
+        autoComplete={autoComplete}
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+        className={`ui-input password-input${error ? " ui-input--error" : ""}`}
+        required
+      />
+      <button
+        type="button"
+        className="password-input-toggle"
+        onClick={() => setVisible((v) => !v)}
+        aria-label={visible ? "Hide password" : "Show password"}
+        tabIndex={-1}
+      >
+        {visible ? <IconEyeOff /> : <IconEye />}
+      </button>
+    </div>
+  );
+}
 
 export default function Account() {
   const { user, handleAuthExpired } = useAuth();
@@ -67,102 +149,121 @@ export default function Account() {
     }
   };
 
+  const userInitial = user?.username?.charAt(0)?.toUpperCase() || "?";
+
   return (
-    <div className="account">
+    <div className="account-page">
       <h1 className="page-title">Account</h1>
 
-      <Card className="card" style={{ maxWidth: 520 }}>
-        <CardTitle>Profile</CardTitle>
-        <CardBody>
-          <dl className="profile">
-            <div>
-              <dt>Username</dt>
-              <dd>{user?.username}</dd>
-            </div>
-            <div>
-              <dt>Email</dt>
-              <dd>{user?.email}</dd>
-            </div>
-            <div>
-              <dt>Role</dt>
-              <dd>{user?.role}</dd>
-            </div>
-            <div>
-              <dt>Member since</dt>
-              <dd>
-                {user?.createdAt
-                  ? new Date(user.createdAt).toLocaleDateString()
-                  : "—"}
-              </dd>
-            </div>
-          </dl>
-        </CardBody>
-      </Card>
+      <div className="account-layout">
+        {/* Left Column: Profile + Change Password */}
+        <div className="account-layout__left">
+          <Card className="account-card account-card--profile">
+            <CardBody>
+              {/* Profile Header */}
+              <div className="profile-header">
+                <div className="profile-avatar" aria-hidden="true">
+                  {userInitial}
+                </div>
+                <div className="profile-header__info">
+                  <h2 className="profile-header__name">{user?.username}</h2>
+                  <p className="profile-header__email">{user?.email}</p>
+                  <Badge variant="success" size="sm">{user?.role}</Badge>
+                </div>
+              </div>
 
-      <LikedGamesSection />
+              {/* Profile Details */}
+              <dl className="profile-details">
+                <div className="profile-details__row">
+                  <dt>Username</dt>
+                  <dd>{user?.username}</dd>
+                </div>
+                <div className="profile-details__row">
+                  <dt>Email</dt>
+                  <dd>{user?.email}</dd>
+                </div>
+                <div className="profile-details__row">
+                  <dt>Role</dt>
+                  <dd>{user?.role}</dd>
+                </div>
+                <div className="profile-details__row">
+                  <dt>Member since</dt>
+                  <dd>
+                    {user?.createdAt
+                      ? new Date(user.createdAt).toLocaleDateString()
+                      : "—"}
+                  </dd>
+                </div>
+              </dl>
 
-      <Card className="card" style={{ maxWidth: 520 }}>
-        <CardTitle>Change password</CardTitle>
-        <CardBody>
-          <form className="auth-form" onSubmit={onSubmit} noValidate>
-            {formError && <Alert variant="error">{formError}</Alert>}
+              {/* Profile Decoration */}
+              <div className="profile-decoration" aria-hidden="true" />
+            </CardBody>
+          </Card>
 
-            <FormField
-              label="Current password"
-              error={errors.currentPassword}
-              htmlFor="cur-pw"
-              required
-            >
-              <Input
-                id="cur-pw"
-                type="password"
-                autoComplete="current-password"
-                value={values.currentPassword}
-                onChange={setField("currentPassword")}
-                disabled={submitting}
-                error={Boolean(errors.currentPassword)}
-                required
-              />
-            </FormField>
+          <Card className="account-card account-card--password">
+            <CardTitle>Change password</CardTitle>
+            <CardBody>
+              <form className="auth-form" onSubmit={onSubmit} noValidate>
+                {formError && <Alert variant="error">{formError}</Alert>}
 
-            <FormField
-              label="New password"
-              error={errors.newPassword}
-              hint="8–128 characters, different from the current one"
-              htmlFor="new-pw"
-              required
-            >
-              <Input
-                id="new-pw"
-                type="password"
-                autoComplete="new-password"
-                value={values.newPassword}
-                onChange={setField("newPassword")}
-                disabled={submitting}
-                error={Boolean(errors.newPassword)}
-                required
-              />
-            </FormField>
+                <FormField
+                  label="Current password"
+                  error={errors.currentPassword}
+                  htmlFor="cur-pw"
+                  required
+                >
+                  <PasswordInput
+                    id="cur-pw"
+                    autoComplete="current-password"
+                    value={values.currentPassword}
+                    onChange={setField("currentPassword")}
+                    disabled={submitting}
+                    error={Boolean(errors.currentPassword)}
+                  />
+                </FormField>
 
-            <FormField label="Confirm new password" error={errors.confirm} htmlFor="conf-pw" required>
-              <Input
-                id="conf-pw"
-                type="password"
-                autoComplete="new-password"
-                value={values.confirm}
-                onChange={setField("confirm")}
-                disabled={submitting}
-                error={Boolean(errors.confirm)}
-                required
-              />
-            </FormField>
+                <FormField
+                  label="New password"
+                  error={errors.newPassword}
+                  hint="8–128 characters, different from the current one"
+                  htmlFor="new-pw"
+                  required
+                >
+                  <PasswordInput
+                    id="new-pw"
+                    autoComplete="new-password"
+                    value={values.newPassword}
+                    onChange={setField("newPassword")}
+                    disabled={submitting}
+                    error={Boolean(errors.newPassword)}
+                  />
+                </FormField>
 
-            <Button variant="primary" type="submit" loading={submitting}>
-              {submitting ? "Saving..." : "Change password"}
-            </Button>
-          </form>
-        </CardBody>
-      </Card>
+                <FormField label="Confirm new password" error={errors.confirm} htmlFor="conf-pw" required>
+                  <PasswordInput
+                    id="conf-pw"
+                    autoComplete="new-password"
+                    value={values.confirm}
+                    onChange={setField("confirm")}
+                    disabled={submitting}
+                    error={Boolean(errors.confirm)}
+                  />
+                </FormField>
+
+                <Button variant="primary" type="submit" loading={submitting} fullWidth>
+                  {submitting ? "Saving..." : "Change password"}
+                </Button>
+              </form>
+            </CardBody>
+          </Card>
+        </div>
+
+        {/* Right Column: Liked Games */}
+        <div className="account-layout__right">
+          <LikedGamesSection />
+        </div>
+      </div>
     </div>
   );
 }
