@@ -1052,8 +1052,15 @@ h3 {
   content: "⬡";
 }
 
+/* Ball/sphere decoration uses SVG for 3D appearance */
 .game-page__about[data-decoration="ball"]::before {
-  content: "●";
+  content: "";
+  width: 260px;
+  height: 260px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='3'/%3E%3Cellipse cx='38' cy='38' rx='20' ry='18' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='2' transform='rotate(-30 38 38)'/%3E%3Ccircle cx='35' cy='32' r='6' fill='rgba(0,232,143,0.02)'/%3E%3Cpath d='M 75 65 Q 85 55 80 40' fill='none' stroke='rgba(0,232,143,0.015)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /* Crosshair decoration uses SVG background for complex shape */
@@ -1240,6 +1247,7 @@ h3 {
     bottom: -40px;
   }
 
+  .game-page__about[data-decoration="ball"]::before,
   .game-page__about[data-decoration="crosshair"]::before {
     width: 200px;
     height: 200px;
@@ -1373,6 +1381,7 @@ h3 {
     bottom: -50px;
   }
 
+  .game-page__about[data-decoration="ball"]::before,
   .game-page__about[data-decoration="crosshair"]::before {
     width: 160px;
     height: 160px;
@@ -1446,6 +1455,7 @@ h3 {
     bottom: -50px;
   }
 
+  .game-page__about[data-decoration="ball"]::before,
   .game-page__about[data-decoration="crosshair"]::before {
     width: 120px;
     height: 120px;
