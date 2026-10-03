@@ -26,6 +26,14 @@ const GAME_TAGLINES = {
   "Rooftop Sniper": "Take aim and master precision across challenging rooftop missions.",
 };
 
+// Game-specific About section decorations (maps to CSS data-decoration attribute)
+const GAME_DECORATIONS = {
+  "Classic Chess": "knight",
+  "Stonewild": "cube",
+  "Ball Adventure 3D": "ball",
+  "Rooftop Sniper": "crosshair",
+};
+
 // Fallback: generate a short tagline from description if not predefined
 function getTagline(game) {
   if (GAME_TAGLINES[game.name]) return GAME_TAGLINES[game.name];
@@ -133,7 +141,7 @@ export default function GameDetail() {
       </GamePlayer>
 
       {/* About Section - Premium Editorial Panel */}
-      <section className="game-page__about">
+      <section className="game-page__about" data-decoration={GAME_DECORATIONS[game.name] || "diamond"}>
         <p className="game-page__about-eyebrow">About the Game</p>
         <div className="game-page__about-header">
           <h2 className="game-page__about-title">{game.name}</h2>

@@ -1030,7 +1030,7 @@ h3 {
   overflow: hidden;
 }
 
-/* Decorative watermark */
+/* Decorative watermark - default diamond */
 .game-page__about::before {
   content: "◆";
   position: absolute;
@@ -1041,6 +1041,30 @@ h3 {
   color: rgba(0, 232, 143, 0.03);
   pointer-events: none;
   user-select: none;
+}
+
+/* Game-specific decorations */
+.game-page__about[data-decoration="knight"]::before {
+  content: "♞";
+}
+
+.game-page__about[data-decoration="cube"]::before {
+  content: "⬡";
+}
+
+.game-page__about[data-decoration="ball"]::before {
+  content: "●";
+}
+
+/* Crosshair decoration uses SVG background for complex shape */
+.game-page__about[data-decoration="crosshair"]::before {
+  content: "";
+  width: 260px;
+  height: 260px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='3'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='2'/%3E%3Cline x1='50' y1='0' x2='50' y2='100' stroke='rgba(0,232,143,0.03)' stroke-width='2'/%3E%3Cline x1='0' y1='50' x2='100' y2='50' stroke='rgba(0,232,143,0.03)' stroke-width='2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .game-page__about-eyebrow {
@@ -1216,6 +1240,11 @@ h3 {
     bottom: -40px;
   }
 
+  .game-page__about[data-decoration="crosshair"]::before {
+    width: 200px;
+    height: 200px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -1344,6 +1373,11 @@ h3 {
     bottom: -50px;
   }
 
+  .game-page__about[data-decoration="crosshair"]::before {
+    width: 160px;
+    height: 160px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1410,6 +1444,11 @@ h3 {
     font-size: 120px;
     right: -40px;
     bottom: -50px;
+  }
+
+  .game-page__about[data-decoration="crosshair"]::before {
+    width: 120px;
+    height: 120px;
   }
 }
 
