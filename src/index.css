@@ -1462,6 +1462,463 @@ h3 {
   }
 }
 
+/* ==========================================================================
+   ADMIN GAMES PAGE
+   ========================================================================== */
+
+.admin-games {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.admin-games__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.admin-games__header-text {
+  flex: 1;
+}
+
+.admin-games__header .page-title {
+  margin: 0 0 var(--space-1);
+}
+
+.admin-games__subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-md);
+  line-height: var(--line-relaxed);
+}
+
+/* Games Card Container */
+.admin-games__card {
+  background: var(--card-bg);
+  border: var(--border-width) solid var(--border-default);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* Table */
+.admin-games__table-wrap {
+  overflow-x: auto;
+}
+
+.admin-games__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  table-layout: fixed;
+}
+
+/* Column widths: NAME 35%, TYPE 22%, CREATED 23%, ACTIONS 20% */
+.admin-games__table th:nth-child(1),
+.admin-games__table td:nth-child(1) {
+  width: 35%;
+}
+.admin-games__table th:nth-child(2),
+.admin-games__table td:nth-child(2) {
+  width: 22%;
+}
+.admin-games__table th:nth-child(3),
+.admin-games__table td:nth-child(3) {
+  width: 23%;
+}
+.admin-games__table th:nth-child(4),
+.admin-games__table td:nth-child(4) {
+  width: 20%;
+}
+
+.admin-games__table th {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--text-muted);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: var(--border-width) solid var(--border-default);
+}
+
+.admin-games__table td {
+  height: 62px;
+  padding: 0 var(--space-4);
+  border-bottom: var(--border-width) solid rgba(255, 255, 255, 0.04);
+  font-size: var(--font-md);
+  color: var(--text);
+  vertical-align: middle;
+}
+
+.admin-games__table tbody tr {
+  transition: background-color var(--duration-fast) var(--ease-default);
+}
+
+.admin-games__table tbody tr:hover {
+  background: rgba(0, 232, 143, 0.03);
+}
+
+.admin-games__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Game name - primary emphasis */
+.admin-games__game-name {
+  font-weight: var(--weight-medium);
+  color: var(--text);
+}
+
+/* Type badge */
+.admin-games__type-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 var(--space-2);
+  background: rgba(0, 232, 143, 0.08);
+  border: var(--border-width) solid rgba(0, 232, 143, 0.2);
+  border-radius: var(--radius-md);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-medium);
+  color: var(--primary);
+  text-transform: capitalize;
+}
+
+.admin-games__type-empty {
+  color: var(--text-muted);
+}
+
+/* Date - muted */
+.admin-games__date {
+  color: var(--text-secondary);
+}
+
+/* Empty state */
+.admin-games__empty {
+  text-align: center;
+  padding: var(--space-8) !important;
+  color: var(--text-muted);
+  font-size: var(--font-md);
+}
+
+/* Pagination inside card */
+.admin-games__pagination {
+  padding: var(--space-4) var(--space-5);
+  border-top: var(--border-width) solid var(--border-default);
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.admin-games__pagination .ui-pagination {
+  margin-top: 0;
+  justify-content: center;
+}
+
+/* Game Form Modal */
+.admin-games-modal.ui-modal {
+  max-width: 460px;
+}
+
+.admin-games-modal__subtitle {
+  margin: var(--space-1) 0 0;
+  padding: 0 20px;
+  color: var(--text-secondary);
+  font-size: var(--font-sm-plus);
+  line-height: var(--line-normal);
+}
+
+.admin-games-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.admin-games-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: var(--border-width) solid var(--border-default);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .admin-games__header {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .admin-games__table {
+    min-width: 520px;
+    table-layout: auto;
+  }
+
+  .admin-games__table th:nth-child(1),
+  .admin-games__table td:nth-child(1),
+  .admin-games__table th:nth-child(2),
+  .admin-games__table td:nth-child(2),
+  .admin-games__table th:nth-child(3),
+  .admin-games__table td:nth-child(3),
+  .admin-games__table th:nth-child(4),
+  .admin-games__table td:nth-child(4) {
+    width: auto;
+  }
+
+  .admin-games__table th,
+  .admin-games__table td {
+    padding: var(--space-3);
+  }
+
+  .admin-games__table td {
+    height: 56px;
+  }
+
+  .admin-games__pagination {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .admin-games-modal.ui-modal {
+    max-width: calc(100vw - 32px);
+  }
+
+  .admin-games-modal__subtitle {
+    padding: 0 var(--space-4);
+  }
+
+  .admin-games-modal__footer {
+    flex-direction: column-reverse;
+    gap: var(--space-2);
+  }
+
+  .admin-games-modal__footer .ui-btn {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   ADMIN GAME TYPES PAGE
+   ========================================================================== */
+
+.admin-gametypes {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.admin-gametypes__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.admin-gametypes__header-text {
+  flex: 1;
+}
+
+.admin-gametypes__header .page-title {
+  margin: 0 0 var(--space-1);
+}
+
+.admin-gametypes__subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-md);
+  line-height: var(--line-relaxed);
+}
+
+/* Game Types Card Container */
+.admin-gametypes__card {
+  background: var(--card-bg);
+  border: var(--border-width) solid var(--border-default);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* Table */
+.admin-gametypes__table-wrap {
+  overflow-x: auto;
+}
+
+.admin-gametypes__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 540px;
+  table-layout: fixed;
+}
+
+/* Column widths: NAME 35%, SLUG 30%, CREATED 20%, ACTIONS 15% */
+.admin-gametypes__table th:nth-child(1),
+.admin-gametypes__table td:nth-child(1) {
+  width: 35%;
+}
+.admin-gametypes__table th:nth-child(2),
+.admin-gametypes__table td:nth-child(2) {
+  width: 30%;
+}
+.admin-gametypes__table th:nth-child(3),
+.admin-gametypes__table td:nth-child(3) {
+  width: 20%;
+}
+.admin-gametypes__table th:nth-child(4),
+.admin-gametypes__table td:nth-child(4) {
+  width: 15%;
+}
+
+.admin-gametypes__table th {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--text-muted);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: var(--border-width) solid var(--border-default);
+}
+
+.admin-gametypes__table td {
+  height: 62px;
+  padding: 0 var(--space-4);
+  border-bottom: var(--border-width) solid rgba(255, 255, 255, 0.04);
+  font-size: var(--font-md);
+  color: var(--text);
+  vertical-align: middle;
+}
+
+.admin-gametypes__table tbody tr {
+  transition: background-color var(--duration-fast) var(--ease-default);
+}
+
+.admin-gametypes__table tbody tr:hover {
+  background: rgba(0, 232, 143, 0.03);
+}
+
+.admin-gametypes__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Type name - primary emphasis */
+.admin-gametypes__type-name {
+  font-weight: var(--weight-medium);
+  color: var(--text);
+}
+
+/* Slug - code style */
+.admin-gametypes__slug {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 var(--space-2);
+  background: rgba(0, 0, 0, 0.25);
+  border: var(--border-width) solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+/* Slug input in modal */
+.admin-gametypes__slug-input {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* Date - muted */
+.admin-gametypes__date {
+  color: var(--text-secondary);
+}
+
+/* Empty state */
+.admin-gametypes__empty {
+  text-align: center;
+  padding: var(--space-8) !important;
+  color: var(--text-muted);
+  font-size: var(--font-md);
+}
+
+/* Game Type Form Modal */
+.admin-gametypes-modal.ui-modal {
+  max-width: 420px;
+}
+
+.admin-gametypes-modal__subtitle {
+  margin: var(--space-1) 0 0;
+  padding: 0 20px;
+  color: var(--text-secondary);
+  font-size: var(--font-sm-plus);
+  line-height: var(--line-normal);
+}
+
+.admin-gametypes-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.admin-gametypes-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: var(--border-width) solid var(--border-default);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .admin-gametypes__header {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .admin-gametypes__table {
+    min-width: 420px;
+    table-layout: auto;
+  }
+
+  .admin-gametypes__table th:nth-child(1),
+  .admin-gametypes__table td:nth-child(1),
+  .admin-gametypes__table th:nth-child(2),
+  .admin-gametypes__table td:nth-child(2),
+  .admin-gametypes__table th:nth-child(3),
+  .admin-gametypes__table td:nth-child(3),
+  .admin-gametypes__table th:nth-child(4),
+  .admin-gametypes__table td:nth-child(4) {
+    width: auto;
+  }
+
+  .admin-gametypes__table th,
+  .admin-gametypes__table td {
+    padding: var(--space-3);
+  }
+
+  .admin-gametypes__table td {
+    height: 56px;
+  }
+
+  .admin-gametypes-modal.ui-modal {
+    max-width: calc(100vw - 32px);
+  }
+
+  .admin-gametypes-modal__subtitle {
+    padding: 0 var(--space-4);
+  }
+
+  .admin-gametypes-modal__footer {
+    flex-direction: column-reverse;
+    gap: var(--space-2);
+  }
+
+  .admin-gametypes-modal__footer .ui-btn {
+    width: 100%;
+  }
+}
+
 /* ---------- games grid ---------- */
 .games-page__head {
   display: flex;
