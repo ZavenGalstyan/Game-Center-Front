@@ -1604,16 +1604,20 @@ h3 {
   font-size: var(--font-md);
 }
 
-/* Pagination inside card */
-.admin-games__pagination {
+/* Pagination footer inside card */
+.admin-games__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
   padding: var(--space-4) var(--space-5);
   border-top: var(--border-width) solid var(--border-default);
   background: rgba(0, 0, 0, 0.06);
 }
 
-.admin-games__pagination .ui-pagination {
-  margin-top: 0;
-  justify-content: center;
+.admin-games__page-info {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
 }
 
 /* Game Form Modal */
@@ -1676,8 +1680,9 @@ h3 {
     height: 56px;
   }
 
-  .admin-games__pagination {
+  .admin-games__footer {
     padding: var(--space-3) var(--space-4);
+    gap: var(--space-3);
   }
 
   .admin-games-modal.ui-modal {

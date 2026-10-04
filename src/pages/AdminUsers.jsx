@@ -230,7 +230,7 @@ export default function AdminUsers() {
                   disabled={page <= 1}
                   onClick={() => setPage(page - 1)}
                 >
-                  Previous
+                  Prev
                 </Button>
                 <span className="admin-users__page-info">
                   Page {pagination.page} of {pagination.totalPages}

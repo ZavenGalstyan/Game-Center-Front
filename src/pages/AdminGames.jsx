@@ -12,7 +12,6 @@ import {
   Alert,
   Button,
   LoadingState,
-  Pagination,
   TableActions,
   Modal,
   ConfirmDialog,
@@ -269,14 +268,27 @@ export default function AdminGames() {
             </table>
           </div>
 
-          {pagination && pagination.total > PAGE_SIZE && (
-            <div className="admin-games__pagination">
-              <Pagination
-                page={page}
-                totalPages={totalPages}
-                total={pagination.total}
-                onPageChange={(newPage) => setOffset((newPage - 1) * PAGE_SIZE)}
-              />
+          {pagination && totalPages > 1 && (
+            <div className="admin-games__footer">
+              <Button
+                variant="secondary"
+                size="sm"
+                disabled={page <= 1}
+                onClick={() => setOffset((page - 2) * PAGE_SIZE)}
+              >
+                Prev
+              </Button>
+              <span className="admin-games__page-info">
+                Page {page} of {totalPages}
+              </span>
+              <Button
+                variant="secondary"
+                size="sm"
+                disabled={page >= totalPages}
+                onClick={() => setOffset(page * PAGE_SIZE)}
+              >
+                Next
+              </Button>
             </div>
           )}
         </div>
