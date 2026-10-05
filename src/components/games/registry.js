@@ -128,6 +128,11 @@ const CastleRush = lazy(() => import("./CastleRush/CastleRush.jsx"));
  *  lazy so the catalogue never pays for its WebGL chunk. */
 const TrainCommander = lazy(() => import("./TrainCommander/TrainCommander.jsx"));
 
+/** Island Conquest — a true-3D (Three.js/R3F) island territory strategy game:
+ *  troops, fleets and a 50-level campaign; lazy so the catalogue never pays
+ *  for its WebGL chunk. */
+const IslandConquest = lazy(() => import("./IslandConquest/IslandConquest.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -171,6 +176,7 @@ const GAME_COMPONENTS = {
   "Lumberjack Life": LumberjackLife,
   "Castle Rush": CastleRush,
   "Train Commander": TrainCommander,
+  "Island Conquest": IslandConquest,
 };
 
 /**
@@ -180,7 +186,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different
