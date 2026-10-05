@@ -17,6 +17,26 @@ import elementMergeBg from "../images/ElementMergebg.png";
 import farmLifeBg from "../images/FarmLifebg.png";
 import carWashBg from "../images/CarWashbg.png";
 import parkingMasterBg from "../images/ParkingMasterbg.png";
+import bombSquadBg from "../images/BombSquadbg.png";
+import laserMazeBg from "../images/LazerMazebg.png";
+import parkingJamBg from "../images/ParkingJambg.png";
+import miniGolfBg from "../images/MiniGolfbg.png";
+import boxingClubBg from "../images/BoxingClubbg.png";
+import streetBasketballBg from "../images/StreetBasketballbg.png";
+import penaltyKickBg from "../images/PenaltyKickbg.png";
+import fishingJourneyBg from "../images/FishingJourneybg.png";
+import cakeDesignerBg from "../images/CakeDesignerbg.png";
+import cozyCleanupBg from "../images/CozyCleanupbg.png";
+import supermarketRushBg from "../images/SupermarketRushbg.png";
+import dentistStudioBg from "../images/DentistStudiobg.png";
+import lumberjackLifeBg from "../images/LumberjackLifebg.png";
+import deliveryRushBg from "../images/DeliveryRushbg.png";
+import crowdRushBg from "../images/CrowdRushbg.png";
+import bladeRushBg from "../images/BladeRushbg.png";
+import bottleFlipBg from "../images/BottleFlipbg.png";
+import stackTowerBg from "../images/StackTowerbg.png";
+import jumpBallBg from "../images/JumpBallbg.png";
+import helixDropBg from "../images/HeloxDropbg.png";
 
 /**
  * Category to icon mapping.
@@ -357,6 +377,291 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(4, 12, 26, 0.58) 47%,
       rgba(4, 12, 26, 0.78) 58%,
       rgba(4, 12, 26, 0.82) 100%)`,
+  },
+  // Bomb robot and crates reach ~65% of the image, under the text column, so a
+  // dark olive-charcoal fade starts before the text. Technician sits at ~20-48%:
+  // 45% trims the truck edge on narrow cards so his helmet clears the title.
+  "bomb squad": {
+    image: bombSquadBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 9, 0) 0%,
+      rgba(6, 14, 9, 0) 34%,
+      rgba(6, 14, 9, 0.5) 45%,
+      rgba(6, 14, 9, 0.76) 56%,
+      rgba(6, 14, 9, 0.82) 100%)`,
+  },
+  // Navy to match the blue/red sci-fi art, whose own right side is already
+  // dark. The fade starts late so the target and right mirror (~50-60%) keep
+  // their red glow; the default left anchor keeps the emitter on narrow cards.
+  "laser maze": {
+    image: laserMazeBg,
+    shade: `linear-gradient(90deg,
+      rgba(4, 10, 24, 0) 0%,
+      rgba(4, 10, 24, 0) 38%,
+      rgba(4, 10, 24, 0.45) 48%,
+      rgba(4, 10, 24, 0.72) 58%,
+      rgba(4, 10, 24, 0.8) 100%)`,
+  },
+  // Bright lot at ~12-57% of the image with the orange car under the text
+  // column's edge, so a firm dark-green fade. 60% trims the trees and benches
+  // on narrow cards so the blue, purple and orange cars stay left of the text.
+  "parking jam": {
+    image: parkingJamBg,
+    position: "60% center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 13, 0) 0%,
+      rgba(3, 18, 13, 0) 36%,
+      rgba(3, 18, 13, 0.5) 47%,
+      rgba(3, 18, 13, 0.76) 56%,
+      rgba(3, 18, 13, 0.84) 100%)`,
+  },
+  // The art's own right side is already dark green, but the bright course runs
+  // to ~68% under the text, so the fade starts just past the flag (~44%). 35%
+  // trims the dock on narrow cards so the ball and flag stay left of the text.
+  "mini golf journey": {
+    image: miniGolfBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 13, 0) 0%,
+      rgba(3, 18, 13, 0) 40%,
+      rgba(3, 18, 13, 0.5) 50%,
+      rgba(3, 18, 13, 0.74) 60%,
+      rgba(3, 18, 13, 0.8) 100%)`,
+  },
+  // Gloves span ~13-54% and the painted "BOXING CLUB" poster sits at ~38-50%,
+  // beside the real title, so a warm brown-black fade pushes it back. 65%
+  // trims the bottle and red cuff edge on narrow (1366/1440px) cards so the
+  // blue glove clears the text.
+  "boxing club": {
+    image: boxingClubBg,
+    position: "65% center",
+    shade: `linear-gradient(90deg,
+      rgba(14, 8, 6, 0) 0%,
+      rgba(14, 8, 6, 0) 40%,
+      rgba(14, 8, 6, 0.5) 50%,
+      rgba(14, 8, 6, 0.74) 60%,
+      rgba(14, 8, 6, 0.8) 100%)`,
+  },
+  // Ball, hoop and graffiti sit at ~5-42%; the bright sunset (~45-60%) lands
+  // right behind the text, so a firmer teal-black fade. 25% trims the graffiti
+  // edge on narrow (1366/1440px) cards so the hoop stays left of the title.
+  "street basketball": {
+    image: streetBasketballBg,
+    position: "25% center",
+    shade: `linear-gradient(90deg,
+      rgba(0, 16, 15, 0) 0%,
+      rgba(0, 16, 15, 0) 34%,
+      rgba(0, 16, 15, 0.55) 45%,
+      rgba(0, 16, 15, 0.8) 56%,
+      rgba(0, 16, 15, 0.86) 100%)`,
+  },
+  // Bright stadium edge to edge (no dark side baked in), and a painted
+  // "PENALTY KICK" banner at ~78-98% sits under the text, so the fade runs
+  // darker on the far right. Goal/keeper are at ~36-64%: 65% trims the
+  // kicker's back boot on narrow (1366/1440px) cards so they clear the text,
+  // while the tall mobile card still lands on the ball and goal, not the banner.
+  "penalty kick": {
+    image: penaltyKickBg,
+    position: "65% center",
+    shade: `linear-gradient(90deg,
+      rgba(0, 18, 12, 0) 0%,
+      rgba(0, 18, 12, 0) 42%,
+      rgba(0, 18, 12, 0.42) 50%,
+      rgba(0, 18, 12, 0.74) 60%,
+      rgba(0, 18, 12, 0.86) 72%,
+      rgba(0, 18, 12, 0.9) 100%)`,
+  },
+  // Bright edge to edge with the sun (~65-75%) right behind the text, so a
+  // firm lake-night navy fade. Fisherman/pier sit at ~0-30%, bobber ~49%: 30%
+  // trims the pier edge on narrow cards without losing him on tall mobile ones.
+  "fishing journey": {
+    image: fishingJourneyBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 14, 26, 0) 0%,
+      rgba(3, 14, 26, 0) 40%,
+      rgba(3, 14, 26, 0.5) 49%,
+      rgba(3, 14, 26, 0.76) 58%,
+      rgba(3, 14, 26, 0.86) 70%,
+      rgba(3, 14, 26, 0.88) 100%)`,
+  },
+  // Bright edge to edge with lit cake cases on the right, so a firm plum fade.
+  // Baker ~14-42%, cake ~33-55% (its edge reaches the text): 40% pulls the cake
+  // left on narrow cards without losing the baker on tall mobile ones.
+  "cake designer": {
+    image: cakeDesignerBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(26, 8, 28, 0) 0%,
+      rgba(26, 8, 28, 0) 44%,
+      rgba(26, 8, 28, 0.5) 52%,
+      rgba(26, 8, 28, 0.78) 62%,
+      rgba(26, 8, 28, 0.88) 74%,
+      rgba(26, 8, 28, 0.9) 100%)`,
+  },
+  // Evenly bright room (desk, wardrobe, laundry under the text), so a firm warm
+  // olive-brown fade. Bed ~13-50% with the teddy at ~43-50%: 50% trims the
+  // blurred foreground plant on narrow cards and still keeps the bed on mobile.
+  "cozy cleanup": {
+    image: cozyCleanupBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(14, 20, 14, 0) 0%,
+      rgba(14, 20, 14, 0) 44%,
+      rgba(14, 20, 14, 0.5) 52%,
+      rgba(14, 20, 14, 0.78) 62%,
+      rgba(10, 18, 14, 0.88) 74%,
+      rgba(8, 16, 13, 0.9) 100%)`,
+  },
+  // Very bright store (white windows, glossy floor, lit shelves) and the
+  // painted "SUPERMARKET" sign (~26-58%) runs up beside the title, so a firm
+  // dark-teal fade that starts early to dim the sign's end. Cart ~0-45%: 30%
+  // keeps it on narrow cards and brings the
+  // sign into the clear top band of tall mobile cards.
+  "supermarket rush": {
+    image: supermarketRushBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 20, 18, 0) 0%,
+      rgba(4, 20, 18, 0) 34%,
+      rgba(4, 20, 18, 0.5) 44%,
+      rgba(4, 20, 18, 0.8) 54%,
+      rgba(4, 20, 18, 0.9) 66%,
+      rgba(4, 20, 18, 0.92) 100%)`,
+  },
+  // Bright white clinic with the teal chair dead centre (~33-67%) and the lamp
+  // (~46-56%) under the title, so a firm dark-teal fade from ~40%. 75% slides
+  // the chair back left of the text on narrow cards and keeps it on mobile.
+  "dentist studio": {
+    image: dentistStudioBg,
+    position: "75% center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 22, 24, 0) 0%,
+      rgba(3, 22, 24, 0) 40%,
+      rgba(3, 22, 24, 0.5) 49%,
+      rgba(3, 22, 24, 0.8) 59%,
+      rgba(3, 22, 24, 0.9) 72%,
+      rgba(3, 22, 24, 0.92) 100%)`,
+  },
+  // Bright edge to edge, with the cabin, waterfall and log trailer under the
+  // text, so a firm forest-green fade with a hint of wood brown. The tree, axe
+  // and lumberjack sit at ~3-38%, so the default left anchor keeps them on
+  // every width (sawmill included on tall mobile cards).
+  "lumberjack life": {
+    image: lumberjackLifeBg,
+    shade: `linear-gradient(90deg,
+      rgba(8, 20, 10, 0) 0%,
+      rgba(8, 20, 10, 0) 42%,
+      rgba(8, 20, 10, 0.5) 50%,
+      rgba(8, 20, 10, 0.78) 60%,
+      rgba(10, 18, 10, 0.88) 72%,
+      rgba(10, 16, 10, 0.9) 100%)`,
+  },
+  // Bright city (sky, skyline, traffic under the text), so a firm cool navy
+  // fade. The van sits mid-image (~32-56%): 75% slides it left of the text on
+  // narrow cards, keeps it whole on mobile, and trims the small watermark baked
+  // into the image's top-left corner (wide cards already crop it top/bottom).
+  "delivery rush": {
+    image: deliveryRushBg,
+    position: "75% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 26, 0) 0%,
+      rgba(6, 14, 26, 0) 44%,
+      rgba(6, 14, 26, 0.5) 52%,
+      rgba(6, 14, 26, 0.78) 62%,
+      rgba(6, 14, 26, 0.88) 74%,
+      rgba(6, 14, 26, 0.9) 100%)`,
+  },
+  // Symmetric art: crowd ~28-72% and the +25/x3 gates ~41-58% straddle the
+  // text edge, and the bright gates land right behind the badges, so the
+  // navy-violet fade starts at ~38% to quiet them while the crowd's left half
+  // stays bright. 75% shifts both left on narrow cards and
+  // keeps them in view on tall mobile ones.
+  "crowd rush": {
+    image: crowdRushBg,
+    position: "75% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 10, 32, 0) 0%,
+      rgba(10, 10, 32, 0) 38%,
+      rgba(10, 10, 32, 0.45) 47%,
+      rgba(10, 10, 32, 0.78) 58%,
+      rgba(8, 10, 28, 0.9) 72%,
+      rgba(6, 10, 24, 0.92) 100%)`,
+  },
+  // Unlike the other banners, the hero (target + stuck knives, ~47-82%) sits
+  // on the right under the text, so the warm-charcoal fade is lighter to let it
+  // show through. 100% pulls the target left on narrow and mobile cards.
+  "blade rush": {
+    image: bladeRushBg,
+    position: "100% center",
+    shade: `linear-gradient(90deg,
+      rgba(16, 10, 22, 0) 0%,
+      rgba(16, 10, 22, 0) 44%,
+      rgba(16, 10, 22, 0.45) 52%,
+      rgba(16, 10, 22, 0.7) 64%,
+      rgba(14, 10, 20, 0.82) 80%,
+      rgba(12, 10, 18, 0.86) 100%)`,
+  },
+  // Like Blade Rush, the hero (flying bottle, ~58-75%) sits on the right under
+  // the text; the room is bright edge to edge, so a firm navy fade from ~42%
+  // keeps the text readable while the arc and launch table stay warm on the
+  // left. 100% pulls the bottle left on narrow and mobile cards.
+  "bottle flip": {
+    image: bottleFlipBg,
+    position: "100% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 14, 28, 0) 0%,
+      rgba(8, 14, 28, 0) 42%,
+      rgba(8, 14, 28, 0.5) 52%,
+      rgba(8, 14, 28, 0.75) 62%,
+      rgba(8, 14, 28, 0.86) 76%,
+      rgba(8, 14, 28, 0.88) 100%)`,
+  },
+  // Hero on the right again (tower + falling block, ~57-81%), under the text.
+  // A lighter navy fade (like Blade Rush) lets the bold tower colours show
+  // through; the sunset and skyline stay vivid on the left. 100% pulls the
+  // tower left on narrow and mobile cards.
+  "stack tower": {
+    image: stackTowerBg,
+    position: "100% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 12, 28, 0) 0%,
+      rgba(8, 12, 28, 0) 44%,
+      rgba(8, 12, 28, 0.45) 52%,
+      rgba(8, 12, 28, 0.7) 64%,
+      rgba(8, 12, 28, 0.82) 80%,
+      rgba(8, 12, 28, 0.86) 100%)`,
+  },
+  // Launch platform, star and ball sit on the left (ball ~36-45%), but the
+  // right half is still bright sunset, sun and platforms, so a firm navy-teal
+  // fade that starts just past the ball. 60% slides the ball clear of the text
+  // on narrow (1366/1440px) cards and keeps it in view on mobile.
+  "jump ball": {
+    image: jumpBallBg,
+    position: "60% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 16, 26, 0) 0%,
+      rgba(6, 16, 26, 0) 46%,
+      rgba(6, 16, 26, 0.5) 54%,
+      rgba(6, 16, 26, 0.78) 64%,
+      rgba(5, 16, 22, 0.88) 76%,
+      rgba(4, 16, 20, 0.9) 100%)`,
+  },
+  // Tower, ball, stars and shards on the left (~16-50%); the right is calmer but
+  // still bright sky and sun, so a navy-teal fade from just past the tower.
+  // 50% trims the left clouds so the tower clears the text on narrow
+  // (1366/1440px) cards and stays in view on mobile.
+  "helix drop": {
+    image: helixDropBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 16, 26, 0) 0%,
+      rgba(6, 16, 26, 0) 46%,
+      rgba(6, 16, 26, 0.5) 54%,
+      rgba(6, 16, 26, 0.78) 64%,
+      rgba(5, 16, 22, 0.88) 76%,
+      rgba(4, 16, 20, 0.9) 100%)`,
   },
 };
 
