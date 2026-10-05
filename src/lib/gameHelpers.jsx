@@ -37,6 +37,9 @@ import bottleFlipBg from "../images/BottleFlipbg.png";
 import stackTowerBg from "../images/StackTowerbg.png";
 import jumpBallBg from "../images/JumpBallbg.png";
 import helixDropBg from "../images/HeloxDropbg.png";
+import towerDefenseMiniBg from "../images/TowerDefenseMinibg.png";
+import castleRushBg from "../images/CastleRushbg.png";
+import trainCommanderBg from "../images/TrainCommanderbg.png";
 
 /**
  * Category to icon mapping.
@@ -662,6 +665,54 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(6, 16, 26, 0.78) 64%,
       rgba(5, 16, 22, 0.88) 76%,
       rgba(4, 16, 20, 0.9) 100%)`,
+  },
+  // Bright edge to edge: logo ~5-42%, cannon and towers ~44-82% and the castle
+  // on the far right sit under the text, so a firm dark-teal fade that starts
+  // just past the logo. The logo spans ~16-53% of the height, so "left 25%"
+  // keeps it whole on wide cards (centre clips its top); on narrow
+  // (1366/1440px) cards the left anchor keeps logo and cannon, trimming the
+  // castle side instead.
+  "tower defense mini": {
+    image: towerDefenseMiniBg,
+    position: "left 25%",
+    shade: `linear-gradient(90deg,
+      rgba(4, 18, 20, 0) 0%,
+      rgba(4, 18, 20, 0) 40%,
+      rgba(4, 18, 20, 0.55) 48%,
+      rgba(4, 18, 20, 0.8) 57%,
+      rgba(3, 16, 16, 0.88) 70%,
+      rgba(3, 14, 13, 0.9) 100%)`,
+  },
+  // Bright edge to edge: logo ~5-49% (its right edge meets the text column),
+  // blue walls bottom-left, and the red castle and army on the right under the
+  // text, so a firm dark-teal fade that starts at the logo's last letters. The
+  // logo spans ~2-54% of the height, so "left 20%" keeps it whole on wide
+  // cards; the left anchor keeps logo and blue archers on narrow cards.
+  "castle rush": {
+    image: castleRushBg,
+    position: "left 20%",
+    shade: `linear-gradient(90deg,
+      rgba(4, 18, 20, 0) 0%,
+      rgba(4, 18, 20, 0) 42%,
+      rgba(4, 18, 20, 0.55) 50%,
+      rgba(4, 18, 20, 0.8) 59%,
+      rgba(3, 16, 16, 0.88) 71%,
+      rgba(3, 14, 13, 0.9) 100%)`,
+  },
+  // Logo ~4-46% (top ~15-56%) and the locomotive runs along the bottom to ~87%,
+  // partly under the text, so a dark-teal fade a touch lighter than Castle Rush lets
+  // the train show through while the bright station on the right calms down.
+  // The default "left center" keeps logo and train on wide cards (they crop
+  // top/bottom only) and keeps logo and wagons on narrow and mobile cards.
+  "train commander": {
+    image: trainCommanderBg,
+    shade: `linear-gradient(90deg,
+      rgba(4, 18, 20, 0) 0%,
+      rgba(4, 18, 20, 0) 44%,
+      rgba(4, 18, 20, 0.55) 52%,
+      rgba(4, 18, 20, 0.78) 62%,
+      rgba(3, 16, 16, 0.86) 78%,
+      rgba(3, 14, 13, 0.88) 100%)`,
   },
 };
 
