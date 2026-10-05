@@ -8,12 +8,6 @@ import {
   Alert,
   Button,
   LoadingState,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-  TableEmptyRow,
   TableActions,
   Modal,
   ConfirmDialog,
@@ -69,8 +63,11 @@ function TypeFormModal({ initial, onClose, onSaved }) {
   };
 
   return (
-    <Modal title={editing ? `Edit ${initial.name}` : "Add game type"} onClose={onClose}>
-      <form className="auth-form" onSubmit={onSubmit} noValidate>
+    <Modal title={editing ? `Edit ${initial.name}` : "Add game type"} onClose={onClose} className="admin-gametypes-modal">
+      <p className="admin-gametypes-modal__subtitle">
+        {editing ? "Update game type information" : "Create a new category for games"}
+      </p>
+      <form className="admin-gametypes-modal__form" onSubmit={onSubmit} noValidate>
         {formError && <Alert variant="error">{formError}</Alert>}
         <FormField label="Name" error={errors.name} hint="2–60 characters" htmlFor="gt-name" required>
           <Input
@@ -96,11 +93,17 @@ function TypeFormModal({ initial, onClose, onSaved }) {
             disabled={submitting}
             error={Boolean(errors.slug)}
             required
+            className="admin-gametypes__slug-input"
           />
         </FormField>
-        <Button variant="primary" fullWidth type="submit" loading={submitting}>
-          {submitting ? "Saving..." : editing ? "Save changes" : "Create game type"}
-        </Button>
+        <div className="admin-gametypes-modal__footer">
+          <Button variant="ghost" type="button" onClick={onClose} disabled={submitting}>
+            Cancel
+          </Button>
+          <Button variant="primary" type="submit" loading={submitting}>
+            {submitting ? "Saving..." : editing ? "Save changes" : "Create game type"}
+          </Button>
+        </div>
       </form>
     </Modal>
   );
@@ -139,51 +142,70 @@ export default function AdminGameTypes() {
   };
 
   return (
-    <div className="admin">
-      <div className="admin__head">
-        <h1 className="page-title">Game types</h1>
+    <div className="admin-gametypes">
+      <div className="admin-gametypes__header">
+        <div className="admin-gametypes__header-text">
+          <h1 className="page-title">Game Types</h1>
+          <p className="admin-gametypes__subtitle">Manage categories for organizing games</p>
+        </div>
         <Button variant="primary" onClick={() => setFormFor({})}>
           Add game type
         </Button>
       </div>
 
       {error && <Alert variant="error">{error}</Alert>}
-      {loading && <LoadingState message="Loading..." />}
+      {loading && <LoadingState message="Loading game types..." />}
 
-      {!loading && (
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell header>Name</TableCell>
-              <TableCell header>Slug</TableCell>
-              <TableCell header>Created</TableCell>
-              <TableCell header aria-label="Actions" />
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {types.map((t) => (
-              <TableRow key={t.id}>
-                <TableCell>{t.name}</TableCell>
-                <TableCell className="muted">{t.slug}</TableCell>
-                <TableCell className="muted">
-                  {new Date(t.createdAt).toLocaleDateString()}
-                </TableCell>
-                <TableCell>
-                  <TableActions
-                    onEdit={() => setFormFor(t)}
-                    onDelete={() => {
-                      setDeleteError(null);
-                      setDeleting(t);
-                    }}
-                  />
-                </TableCell>
-              </TableRow>
-            ))}
-            {types.length === 0 && (
-              <TableEmptyRow colSpan={4}>No game types yet.</TableEmptyRow>
-            )}
-          </TableBody>
-        </Table>
+      {!loading && !error && (
+        <div className="admin-gametypes__card">
+          <div className="admin-gametypes__table-wrap">
+            <table className="admin-gametypes__table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Slug</th>
+                  <th>Created</th>
+                  <th aria-label="Actions"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {types.map((t) => (
+                  <tr key={t.id}>
+                    <td>
+                      <span className="admin-gametypes__type-name">{t.name}</span>
+                    </td>
+                    <td>
+                      <code className="admin-gametypes__slug">{t.slug}</code>
+                    </td>
+                    <td className="admin-gametypes__date">
+                      {new Date(t.createdAt).toLocaleDateString(undefined, {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </td>
+                    <td>
+                      <TableActions
+                        onEdit={() => setFormFor(t)}
+                        onDelete={() => {
+                          setDeleteError(null);
+                          setDeleting(t);
+                        }}
+                      />
+                    </td>
+                  </tr>
+                ))}
+                {types.length === 0 && (
+                  <tr>
+                    <td colSpan={4} className="admin-gametypes__empty">
+                      No game types yet. Click "Add game type" to create one.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
       )}
 
       {formFor && (

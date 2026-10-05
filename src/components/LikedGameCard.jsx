@@ -1,16 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { Badge } from "./ui";
+import { getGameArtwork } from "../lib/gameHelpers.jsx";
 
 /**
- * Compact card for one liked game in the Profile "Liked Games" section.
- *
- * The whole card navigates to the existing Single Game Page. The small unlike
- * heart is a real <button> that stops propagation so it never triggers the
- * card navigation. The card itself is a role="link" div (not an <a>) so the
- * nested button stays valid HTML.
+ * Card for one liked game in the Account "Liked Games" section.
+ * Uses the same image source as the main GameCard component.
  */
 function IconHeart() {
-  // Filled heart with active stroke width (per icon spec)
   return (
     <svg
       viewBox="0 0 24 24"
@@ -26,10 +22,33 @@ function IconHeart() {
   );
 }
 
+function IconGamepad() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2" y="6" width="20" height="12" rx="3" />
+      <circle cx="8" cy="12" r="2" />
+      <path d="M15 10v4M13 12h4" />
+    </svg>
+  );
+}
+
 export default function LikedGameCard({ game, onUnlike, removing = false }) {
   const navigate = useNavigate();
   const id = game.id || game._id;
   const type = game.type || game.category;
+
+  // Get image from the same source as GameCard (gameHelpers)
+  const artwork = getGameArtwork(game);
+  const gameImage = artwork?.cardBackground || game.thumbnail || game.image || game.cover;
+  const hasImage = Boolean(gameImage);
 
   const go = () => navigate(`/games/${id}`);
   const onKeyDown = (e) => {
@@ -48,32 +67,46 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
       onClick={go}
       onKeyDown={onKeyDown}
     >
-      <div className="liked-game-card__head">
-        <h3 className="liked-game-card__title">{game.name}</h3>
-        <button
-          type="button"
-          className="liked-game-card__unlike"
-          aria-label={`Unlike ${game.name}`}
-          title="Unlike game"
-          disabled={removing}
-          onClick={(e) => {
-            e.stopPropagation();
-            onUnlike(game);
-          }}
-        >
-          <IconHeart />
-        </button>
+      {/* Visual area - game image or placeholder icon */}
+      <div className="liked-game-card__visual">
+        {hasImage ? (
+          <img src={gameImage} alt="" loading="lazy" className="liked-game-card__image" />
+        ) : (
+          <span className="liked-game-card__icon">
+            <IconGamepad />
+          </span>
+        )}
       </div>
 
-      {type?.name && <Badge variant="success">{type.name}</Badge>}
+      {/* Content */}
+      <div className="liked-game-card__body">
+        <div className="liked-game-card__header">
+          <h3 className="liked-game-card__title">{game.name}</h3>
+          <button
+            type="button"
+            className="liked-game-card__heart"
+            aria-label={`Unlike ${game.name}`}
+            title="Unlike game"
+            disabled={removing}
+            onClick={(e) => {
+              e.stopPropagation();
+              onUnlike(game);
+            }}
+          >
+            <IconHeart />
+          </button>
+        </div>
 
-      {game.description && (
-        <p className="liked-game-card__desc">{game.description}</p>
-      )}
+        {type?.name && <Badge variant="success" size="sm">{type.name}</Badge>}
 
-      <span className="liked-game-card__liked">
-        <IconHeart /> Liked
-      </span>
+        {game.description && (
+          <p className="liked-game-card__desc">{game.description}</p>
+        )}
+
+        <span className="liked-game-card__status">
+          <IconHeart /> Liked
+        </span>
+      </div>
     </div>
   );
 }
