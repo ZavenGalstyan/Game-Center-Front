@@ -5,7 +5,8 @@
       "Bash(timeout 10 npm run dev:*)",
       "Bash(xargs:*)",
       "Bash(tree:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npm run lint)"
     ]
   }
 }

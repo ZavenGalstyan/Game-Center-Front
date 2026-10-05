@@ -139,7 +139,6 @@ export default function GameLikeButton({ gameId }) {
       disabled={actionLoading}
       aria-pressed={liked}
       aria-label={label}
-      title={label}
       style={statusLoading ? { opacity: 0.55 } : undefined}
     >
       <IconHeart filled={liked} />

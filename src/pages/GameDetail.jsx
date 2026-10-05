@@ -6,6 +6,56 @@ import GameLikeButton from "../components/game/GameLikeButton.jsx";
 import GameRenderer from "../components/games/GameRenderer.jsx";
 import { getGameComponent, gameSupportsMute } from "../components/games/registry.js";
 
+/**
+ * Single Game Page Shell
+ *
+ * Shared structure for all game detail pages:
+ * - GamePageHeader: category badge + title + short tagline
+ * - GameToolbar: Like, Restart, Mute, Fullscreen controls
+ * - GameStage: the actual game experience
+ * - GameAbout: about section with full description
+ *
+ * Each game provides its own internal visual identity within the stage.
+ */
+
+// Short taglines for games (avoids duplicating full description in header)
+const GAME_TAGLINES = {
+  "Classic Chess": "A timeless strategy game of planning, tactics, and checkmate.",
+  "Stonewild": "Build, explore, and survive in a living voxel world.",
+  "Ball Adventure 3D": "Roll, balance, and explore across colorful 3D worlds.",
+  "Rooftop Sniper": "Take aim and master precision across challenging rooftop missions.",
+  "Arena Gladiator": "Fight, survive, and become a legend in the arena.",
+  "Liquid Sort": "Pour, match, and solve colorful liquid puzzles.",
+  "Element Merge": "Mix elements, discover combinations, and create new worlds.",
+  "Farm Life": "Plant, grow, build, and create your perfect countryside farm.",
+  "Car Wash Studio": "Wash, detail, and transform every car to a perfect shine.",
+  "Parking Master": "Drive, align, and master every parking challenge.",
+};
+
+// Game-specific About section decorations (maps to CSS data-decoration attribute)
+const GAME_DECORATIONS = {
+  "Classic Chess": "knight",
+  "Stonewild": "cube",
+  "Ball Adventure 3D": "ball",
+  "Rooftop Sniper": "crosshair",
+  "Arena Gladiator": "shield",
+  "Liquid Sort": "flask",
+  "Element Merge": "elements",
+  "Farm Life": "sprout",
+  "Car Wash Studio": "water-drop",
+  "Parking Master": "parking",
+};
+
+// Fallback: generate a short tagline from description if not predefined
+function getTagline(game) {
+  if (GAME_TAGLINES[game.name]) return GAME_TAGLINES[game.name];
+  // For other games, use first sentence or short excerpt
+  if (!game.description) return null;
+  const firstSentence = game.description.split(/[.!?]/)[0];
+  if (firstSentence && firstSentence.length <= 80) return firstSentence + ".";
+  return null;
+}
+
 export default function GameDetail() {
   const { id } = useParams();
   const [game, setGame] = useState(null);
@@ -58,21 +108,36 @@ export default function GameDetail() {
   const canMute = gameSupportsMute(game);
 
   return (
-    <article className="game-detail">
-      <h1 className="page-title">{game.name}</h1>
-      {game.type && (
-        <p className="game-detail__type">
-          Category: <Link to={`/?typeId=${game.type.id}`}>{game.type.name}</Link>
-        </p>
-      )}
+    <article className="game-page">
+      {/* Back Navigation */}
+      <Link to="/" className="game-page__back">
+        <span className="game-page__back-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+        </span>
+        Back
+      </Link>
 
-      {/*
-        The playable game for this title renders as children of <GamePlayer>.
-        <GameRenderer> picks the component from src/components/games/registry.js
-        by game.name; unknown games render nothing, so GamePlayer keeps showing
-        its "Game will load here" placeholder. The existing Restart button is
-        wired to remount the game (via restartNonce) when a game is playable.
-      */}
+      {/* Game Page Header */}
+      <header className="game-page__header">
+        <div className="game-page__title-row">
+          <h1 className="game-page__title">{game.name}</h1>
+          {game.type && (
+            <Link
+              to={`/?typeId=${game.type.id}`}
+              className="game-page__category"
+            >
+              {game.type.name}
+            </Link>
+          )}
+        </div>
+        {getTagline(game) && (
+          <p className="game-page__tagline">{getTagline(game)}</p>
+        )}
+      </header>
+
+      {/* Game Stage with Toolbar */}
       <GamePlayer
         title={game.name}
         likeButton={<GameLikeButton gameId={game.id || game._id} />}
@@ -87,9 +152,21 @@ export default function GameDetail() {
         ) : null}
       </GamePlayer>
 
-      <section className="game-detail__about">
-        <h2 className="card__title">About</h2>
-        <p>{game.description}</p>
+      {/* About Section - Premium Editorial Panel */}
+      <section className="game-page__about" data-decoration={GAME_DECORATIONS[game.name] || "diamond"}>
+        <p className="game-page__about-eyebrow">About the Game</p>
+        <div className="game-page__about-header">
+          <h2 className="game-page__about-title">{game.name}</h2>
+          {game.type && (
+            <Link
+              to={`/?typeId=${game.type.id}`}
+              className="game-page__tag"
+            >
+              {game.type.name}
+            </Link>
+          )}
+        </div>
+        <p className="game-page__about-text">{game.description}</p>
       </section>
     </article>
   );

@@ -4,9 +4,6 @@ import { api } from "../lib/api.js";
 import { useToast } from "./Toast.jsx";
 import LikedGameCard from "./LikedGameCard.jsx";
 import {
-  Card,
-  CardTitle,
-  CardBody,
   LoadingState,
   EmptyState,
   Alert,
@@ -129,11 +126,22 @@ export default function LikedGamesSection() {
   const hasMore = items.length < total;
 
   return (
-    <Card className="card" style={{ maxWidth: 720 }}>
-      <CardTitle>
-        {total > 0 ? `Liked Games (${total})` : "Liked Games"}
-      </CardTitle>
-      <CardBody>
+    <div className="liked-games-section">
+      <div className="liked-games-section__header">
+        <h3 className="liked-games-section__title">Liked Games</h3>
+        {total > 0 && (
+          <div className="liked-games-count" aria-label={`${total} games`}>
+            <span className="liked-games-count__value">{total}</span>
+            <div className="liked-games-count__cube" aria-hidden="true">
+              <span className="liked-games-count__cube-top" />
+              <span className="liked-games-count__cube-front" />
+              <span className="liked-games-count__cube-side" />
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="liked-games-section__content">
         {loading && <LoadingState message="Loading liked games..." />}
 
         {error && !loading && <Alert variant="error">{error}</Alert>}
@@ -172,7 +180,7 @@ export default function LikedGamesSection() {
             )}
           </>
         )}
-      </CardBody>
-    </Card>
+      </div>
+    </div>
   );
 }

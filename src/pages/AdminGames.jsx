@@ -12,13 +12,6 @@ import {
   Alert,
   Button,
   LoadingState,
-  Pagination,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-  TableEmptyRow,
   TableActions,
   Modal,
   ConfirmDialog,
@@ -82,8 +75,11 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
   const typeOptions = types.map((t) => ({ value: t.id, label: t.name }));
 
   return (
-    <Modal title={editing ? `Edit ${initial.name}` : "Add game"} onClose={onClose}>
-      <form className="auth-form" onSubmit={onSubmit} noValidate>
+    <Modal title={editing ? `Edit ${initial.name}` : "Add game"} onClose={onClose} className="admin-games-modal">
+      <p className="admin-games-modal__subtitle">
+        {editing ? "Update game information and category" : "Add a new game to Game Center"}
+      </p>
+      <form className="admin-games-modal__form" onSubmit={onSubmit} noValidate>
         {formError && <Alert variant="error">{formError}</Alert>}
         <FormField label="Name" error={errors.name} hint="2–120 characters" htmlFor="g-name" required>
           <Input
@@ -124,9 +120,14 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
             required
           />
         </FormField>
-        <Button variant="primary" fullWidth type="submit" loading={submitting}>
-          {submitting ? "Saving..." : editing ? "Save changes" : "Create game"}
-        </Button>
+        <div className="admin-games-modal__footer">
+          <Button variant="ghost" type="button" onClick={onClose} disabled={submitting}>
+            Cancel
+          </Button>
+          <Button variant="primary" type="submit" loading={submitting}>
+            {submitting ? "Saving..." : editing ? "Save changes" : "Create game"}
+          </Button>
+        </div>
       </form>
     </Modal>
   );
@@ -194,9 +195,12 @@ export default function AdminGames() {
   const totalPages = pagination ? Math.max(1, Math.ceil(pagination.total / PAGE_SIZE)) : 1;
 
   return (
-    <div className="admin">
-      <div className="admin__head">
-        <h1 className="page-title">Games</h1>
+    <div className="admin-games">
+      <div className="admin-games__header">
+        <div className="admin-games__header-text">
+          <h1 className="page-title">Games</h1>
+          <p className="admin-games__subtitle">Manage and organize games available in Game Center</p>
+        </div>
         <Button
           variant="primary"
           onClick={() => setFormFor({})}
@@ -208,53 +212,86 @@ export default function AdminGames() {
       </div>
 
       {error && <Alert variant="error">{error}</Alert>}
-      {loading && <LoadingState message="Loading..." />}
+      {loading && <LoadingState message="Loading games..." />}
 
       {!loading && !error && (
-        <>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell header>Name</TableCell>
-                <TableCell header>Type</TableCell>
-                <TableCell header>Created</TableCell>
-                <TableCell header aria-label="Actions" />
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {games.map((g) => (
-                <TableRow key={g.id}>
-                  <TableCell>{g.name}</TableCell>
-                  <TableCell className="muted">{g.type?.name || "—"}</TableCell>
-                  <TableCell className="muted">
-                    {new Date(g.createdAt).toLocaleDateString()}
-                  </TableCell>
-                  <TableCell>
-                    <TableActions
-                      onEdit={() => setFormFor(g)}
-                      onDelete={() => {
-                        setDeleteError(null);
-                        setDeleting(g);
-                      }}
-                    />
-                  </TableCell>
-                </TableRow>
-              ))}
-              {games.length === 0 && (
-                <TableEmptyRow colSpan={4}>No games yet.</TableEmptyRow>
-              )}
-            </TableBody>
-          </Table>
+        <div className="admin-games__card">
+          <div className="admin-games__table-wrap">
+            <table className="admin-games__table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Created</th>
+                  <th aria-label="Actions"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {games.map((g) => (
+                  <tr key={g.id}>
+                    <td>
+                      <span className="admin-games__game-name">{g.name}</span>
+                    </td>
+                    <td>
+                      {g.type?.name ? (
+                        <span className="admin-games__type-badge">{g.type.name}</span>
+                      ) : (
+                        <span className="admin-games__type-empty">—</span>
+                      )}
+                    </td>
+                    <td className="admin-games__date">
+                      {new Date(g.createdAt).toLocaleDateString(undefined, {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </td>
+                    <td>
+                      <TableActions
+                        onEdit={() => setFormFor(g)}
+                        onDelete={() => {
+                          setDeleteError(null);
+                          setDeleting(g);
+                        }}
+                      />
+                    </td>
+                  </tr>
+                ))}
+                {games.length === 0 && (
+                  <tr>
+                    <td colSpan={4} className="admin-games__empty">
+                      No games yet. Click "Add game" to create one.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
 
-          {pagination && pagination.total > PAGE_SIZE && (
-            <Pagination
-              page={page}
-              totalPages={totalPages}
-              total={pagination.total}
-              onPageChange={(newPage) => setOffset((newPage - 1) * PAGE_SIZE)}
-            />
+          {pagination && totalPages > 1 && (
+            <div className="admin-games__footer">
+              <Button
+                variant="secondary"
+                size="sm"
+                disabled={page <= 1}
+                onClick={() => setOffset((page - 2) * PAGE_SIZE)}
+              >
+                Prev
+              </Button>
+              <span className="admin-games__page-info">
+                Page {page} of {totalPages}
+              </span>
+              <Button
+                variant="secondary"
+                size="sm"
+                disabled={page >= totalPages}
+                onClick={() => setOffset(page * PAGE_SIZE)}
+              >
+                Next
+              </Button>
+            </div>
           )}
-        </>
+        </div>
       )}
 
       {formFor && (
@@ -268,9 +305,9 @@ export default function AdminGames() {
 
       {deleting && (
         <ConfirmDialog
-          title={`Delete ${deleting.name}?`}
-          message="This removes the game metadata from the backend."
-          confirmLabel="Delete"
+          title={`Delete "${deleting.name}"?`}
+          message="This action cannot be undone. The game will be permanently removed."
+          confirmLabel="Delete game"
           busy={deleteBusy}
           error={deleteError}
           onConfirm={confirmDelete}

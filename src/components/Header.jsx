@@ -1,15 +1,19 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext.jsx";
 
 export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSearch }) {
   const { status, user, isAdmin, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [searchParams] = useSearchParams();
   const menuRef = useRef(null);
   const searchInputRef = useRef(null);
+
+  // Current pathname for hiding redundant menu items
+  const pathname = location.pathname;
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -181,49 +185,53 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
 
             {menuOpen && (
               <div id="usermenu-panel" className="usermenu__panel">
-                <button
-                  type="button"
-                  className="usermenu__item"
-                  onClick={() => {
-                    setMenuOpen(false);
-                    navigate("/account");
-                  }}
-                >
-                  Account &amp; password
-                </button>
-                {isAdmin && (
-                  <>
-                    <button
-                      type="button"
-                      className="usermenu__item"
-                      onClick={() => {
-                        setMenuOpen(false);
-                        navigate("/admin/users");
-                      }}
-                    >
-                      Admin · Users
-                    </button>
-                    <button
-                      type="button"
-                      className="usermenu__item"
-                      onClick={() => {
-                        setMenuOpen(false);
-                        navigate("/admin/game-types");
-                      }}
-                    >
-                      Admin · Game types
-                    </button>
-                    <button
-                      type="button"
-                      className="usermenu__item"
-                      onClick={() => {
-                        setMenuOpen(false);
-                        navigate("/admin/games");
-                      }}
-                    >
-                      Admin · Games
-                    </button>
-                  </>
+                {pathname !== "/account" && (
+                  <button
+                    type="button"
+                    className="usermenu__item"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate("/account");
+                    }}
+                  >
+                    Account &amp; password
+                  </button>
+                )}
+                {isAdmin && pathname !== "/admin/users" && (
+                  <button
+                    type="button"
+                    className="usermenu__item"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate("/admin/users");
+                    }}
+                  >
+                    Admin · Users
+                  </button>
+                )}
+                {isAdmin && pathname !== "/admin/game-types" && (
+                  <button
+                    type="button"
+                    className="usermenu__item"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate("/admin/game-types");
+                    }}
+                  >
+                    Admin · Game types
+                  </button>
+                )}
+                {isAdmin && pathname !== "/admin/games" && (
+                  <button
+                    type="button"
+                    className="usermenu__item"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate("/admin/games");
+                    }}
+                  >
+                    Admin · Games
+                  </button>
                 )}
                 <button
                   type="button"
