@@ -118,6 +118,11 @@ const TowerDefenseMini = lazy(() => import("./TowerDefenseMini/TowerDefenseMini.
  *  pays for its WebGL chunk. */
 const LumberjackLife = lazy(() => import("./LumberjackLife/LumberjackLife.jsx"));
 
+/** Castle Rush — a true-3D (Three.js/R3F) lane strategy game: gold, four
+ *  soldier types, castle vs castle across a 30-battle campaign; lazy so the
+ *  catalogue never pays for its WebGL chunk. */
+const CastleRush = lazy(() => import("./CastleRush/CastleRush.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -159,6 +164,7 @@ const GAME_COMPONENTS = {
   "Penalty Kick": PenaltyKick,
   "Tower Defense Mini": TowerDefenseMini,
   "Lumberjack Life": LumberjackLife,
+  "Castle Rush": CastleRush,
 };
 
 /**
@@ -168,7 +174,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different
