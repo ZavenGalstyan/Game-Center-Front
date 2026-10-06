@@ -2544,6 +2544,162 @@ h3 {
   z-index: -1;
 }
 
+/* Boxing Club decoration: boxing ring corner with ropes */
+.game-page__about[data-decoration="boxing-club"]::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  right: -30px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Ring corner post --%3E%3Crect x='88' y='30' width='8' height='65' rx='1.5' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.055)' stroke-width='1.5'/%3E%3C!-- Post top cap --%3E%3Crect x='86' y='26' width='12' height='6' rx='1' fill='rgba(0,232,143,0.035)' stroke='rgba(0,232,143,0.05)' stroke-width='1'/%3E%3C!-- Three boxing ring ropes --%3E%3Cline x1='10' y1='42' x2='88' y2='42' stroke='rgba(0,232,143,0.055)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='15' y1='58' x2='88' y2='58' stroke='rgba(0,232,143,0.045)' stroke-width='2' stroke-linecap='round'/%3E%3Cline x1='20' y1='74' x2='88' y2='74' stroke='rgba(0,232,143,0.035)' stroke-width='1.8' stroke-linecap='round'/%3E%3C!-- Rope tension connectors on post --%3E%3Ccircle cx='88' cy='42' r='2' fill='rgba(0,232,143,0.05)'/%3E%3Ccircle cx='88' cy='58' r='1.8' fill='rgba(0,232,143,0.04)'/%3E%3Ccircle cx='88' cy='74' r='1.5' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Boxing bell --%3E%3Cpath d='M30 82 Q35 78 40 82 L38 88 L32 88 Z' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.05)' stroke-width='0.8'/%3E%3Cline x1='35' y1='78' x2='35' y2='75' stroke='rgba(0,232,143,0.04)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Championship star --%3E%3Cpath d='M70 22 L71.5 26 L76 26.5 L73 29.5 L74 34 L70 31.5 L66 34 L67 29.5 L64 26.5 L68.5 26 Z' fill='rgba(0,232,143,0.035)' stroke='rgba(0,232,143,0.045)' stroke-width='0.5'/%3E%3C!-- Subtle impact sparks --%3E%3Ccircle cx='50' cy='35' r='1.2' fill='rgba(0,232,143,0.03)'/%3E%3Ccircle cx='55' cy='38' r='0.8' fill='rgba(0,232,143,0.025)'/%3E%3Ccircle cx='48' cy='40' r='1' fill='rgba(0,232,143,0.025)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind boxing ring */
+.game-page__about[data-decoration="boxing-club"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(ellipse 65% 55% at 65% 65%, rgba(0, 232, 143, 0.04) 0%, rgba(0, 232, 143, 0.02) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Street Basketball decoration: basketball with hoop and motion arc */
+.game-page__about[data-decoration="street-basketball"]::before {
+  content: "";
+  width: 290px;
+  height: 290px;
+  right: -30px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Basketball outline --%3E%3Ccircle cx='65' cy='65' r='22' fill='none' stroke='rgba(0,232,143,0.055)' stroke-width='2'/%3E%3C!-- Ball seam lines --%3E%3Cpath d='M43 65 Q65 55 87 65' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.2'/%3E%3Cpath d='M43 65 Q65 75 87 65' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.2'/%3E%3Cline x1='65' y1='43' x2='65' y2='87' stroke='rgba(0,232,143,0.04)' stroke-width='1.2'/%3E%3C!-- Curved seams --%3E%3Cpath d='M52 48 Q58 65 52 82' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='1'/%3E%3Cpath d='M78 48 Q72 65 78 82' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='1'/%3E%3C!-- Backboard outline --%3E%3Crect x='75' y='22' width='20' height='14' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.2' rx='1'/%3E%3Crect x='81' y='26' width='8' height='6' fill='none' stroke='rgba(0,232,143,0.035)' stroke-width='0.8'/%3E%3C!-- Hoop/rim --%3E%3Cellipse cx='85' cy='38' rx='6' ry='2' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='1.2'/%3E%3C!-- Net lines --%3E%3Cpath d='M80 40 L78 48' stroke='rgba(0,232,143,0.025)' stroke-width='0.8'/%3E%3Cpath d='M85 40 L85 50' stroke='rgba(0,232,143,0.025)' stroke-width='0.8'/%3E%3Cpath d='M90 40 L92 48' stroke='rgba(0,232,143,0.025)' stroke-width='0.8'/%3E%3C!-- Shot arc trajectory --%3E%3Cpath d='M40 85 Q52 50 80 40' fill='none' stroke='rgba(0,232,143,0.035)' stroke-width='1.2' stroke-dasharray='4,3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind basketball */
+.game-page__about[data-decoration="street-basketball"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(ellipse 65% 55% at 65% 65%, rgba(0, 232, 143, 0.035) 0%, rgba(0, 232, 143, 0.018) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Penalty Kick decoration: football with goal and shot trajectory */
+.game-page__about[data-decoration="penalty-kick"]::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  right: -30px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Goal frame --%3E%3Crect x='45' y='25' width='50' height='35' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='2' rx='1'/%3E%3C!-- Goal net lines (simplified) --%3E%3Cline x1='50' y1='25' x2='50' y2='60' stroke='rgba(0,232,143,0.02)' stroke-width='0.6'/%3E%3Cline x1='60' y1='25' x2='60' y2='60' stroke='rgba(0,232,143,0.02)' stroke-width='0.6'/%3E%3Cline x1='70' y1='25' x2='70' y2='60' stroke='rgba(0,232,143,0.02)' stroke-width='0.6'/%3E%3Cline x1='80' y1='25' x2='80' y2='60' stroke='rgba(0,232,143,0.02)' stroke-width='0.6'/%3E%3Cline x1='90' y1='25' x2='90' y2='60' stroke='rgba(0,232,143,0.02)' stroke-width='0.6'/%3E%3Cline x1='45' y1='35' x2='95' y2='35' stroke='rgba(0,232,143,0.02)' stroke-width='0.6'/%3E%3Cline x1='45' y1='45' x2='95' y2='45' stroke='rgba(0,232,143,0.02)' stroke-width='0.6'/%3E%3Cline x1='45' y1='55' x2='95' y2='55' stroke='rgba(0,232,143,0.02)' stroke-width='0.6'/%3E%3C!-- Football/soccer ball --%3E%3Ccircle cx='40' cy='82' r='8' fill='none' stroke='rgba(0,232,143,0.055)' stroke-width='1.5'/%3E%3C!-- Ball pentagon pattern --%3E%3Cpath d='M40 76 L44 79 L43 84 L37 84 L36 79 Z' fill='rgba(0,232,143,0.03)' stroke='rgba(0,232,143,0.04)' stroke-width='0.6'/%3E%3C!-- Shot trajectory curve --%3E%3Cpath d='M48 80 Q65 55 88 32' fill='none' stroke='rgba(0,232,143,0.045)' stroke-width='1.5' stroke-dasharray='4,3' stroke-linecap='round'/%3E%3C!-- Target marker in goal corner --%3E%3Ccircle cx='88' cy='32' r='4' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='1'/%3E%3Ccircle cx='88' cy='32' r='1.5' fill='rgba(0,232,143,0.04)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind penalty kick */
+.game-page__about[data-decoration="penalty-kick"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(ellipse 65% 55% at 65% 65%, rgba(0, 232, 143, 0.04) 0%, rgba(0, 232, 143, 0.02) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Fishing Journey decoration: hook, line, fish, and water waves */
+.game-page__about[data-decoration="fishing-journey"]::before {
+  content: "";
+  width: 290px;
+  height: 290px;
+  right: -30px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Fishing line curve --%3E%3Cpath d='M95 15 Q80 25 75 50 Q72 70 70 78' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Fishing hook --%3E%3Cpath d='M70 78 Q68 85 72 90 Q78 94 82 88 Q84 82 80 80' fill='none' stroke='rgba(0,232,143,0.055)' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='80' cy='80' r='1.5' fill='rgba(0,232,143,0.05)'/%3E%3C!-- Fish silhouette --%3E%3Cpath d='M45 72 Q55 68 62 72 Q55 76 45 72 Z' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.05)' stroke-width='1'/%3E%3C!-- Fish tail --%3E%3Cpath d='M45 72 L38 66 L38 78 Z' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Fish eye --%3E%3Ccircle cx='58' cy='72' r='1.2' fill='rgba(0,232,143,0.05)'/%3E%3C!-- Water wave lines --%3E%3Cpath d='M30 88 Q40 85 50 88 Q60 91 70 88' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M35 94 Q45 91 55 94 Q65 97 75 94' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M25 82 Q32 80 40 82' fill='none' stroke='rgba(0,232,143,0.02)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Ripple circles around hook --%3E%3Ccircle cx='75' cy='82' r='6' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='0.6'/%3E%3Ccircle cx='75' cy='82' r='10' fill='none' stroke='rgba(0,232,143,0.018)' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind fishing scene */
+.game-page__about[data-decoration="fishing-journey"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(ellipse 65% 55% at 65% 65%, rgba(0, 232, 143, 0.035) 0%, rgba(0, 232, 143, 0.018) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Cake Designer decoration: layered cake with frosting and decorations */
+.game-page__about[data-decoration="cake-designer"]::before {
+  content: "";
+  width: 290px;
+  height: 290px;
+  right: -30px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Cake plate --%3E%3Cellipse cx='65' cy='92' rx='28' ry='5' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.2'/%3E%3C!-- Bottom layer --%3E%3Crect x='45' y='72' width='40' height='20' rx='3' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3C!-- Middle layer --%3E%3Crect x='50' y='54' width='30' height='18' rx='2.5' fill='none' stroke='rgba(0,232,143,0.045)' stroke-width='1.3'/%3E%3C!-- Top layer --%3E%3Crect x='55' y='40' width='20' height='14' rx='2' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.2'/%3E%3C!-- Frosting drips --%3E%3Cpath d='M45 72 Q43 76 45 80' fill='none' stroke='rgba(0,232,143,0.035)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M55 72 Q54 78 56 82' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M75 72 Q77 77 75 81' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Frosting swirl on top --%3E%3Cpath d='M62 40 Q65 35 68 40' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='65' cy='36' r='2.5' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Sprinkle dots --%3E%3Ccircle cx='48' cy='80' r='1' fill='rgba(0,232,143,0.04)'/%3E%3Ccircle cx='82' cy='78' r='0.8' fill='rgba(0,232,143,0.035)'/%3E%3Ccircle cx='53' cy='60' r='0.8' fill='rgba(0,232,143,0.03)'/%3E%3Ccircle cx='75' cy='62' r='0.7' fill='rgba(0,232,143,0.03)'/%3E%3Ccircle cx='60' cy='45' r='0.6' fill='rgba(0,232,143,0.025)'/%3E%3Ccircle cx='70' cy='47' r='0.6' fill='rgba(0,232,143,0.025)'/%3E%3C!-- Whisk outline in background --%3E%3Cpath d='M28 55 L32 75 M28 55 Q25 65 32 75 M28 55 Q31 65 32 75' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='0.8'/%3E%3Cellipse cx='28' cy='52' rx='4' ry='3' fill='none' stroke='rgba(0,232,143,0.02)' stroke-width='0.6'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind cake */
+.game-page__about[data-decoration="cake-designer"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(ellipse 65% 55% at 65% 65%, rgba(0, 232, 143, 0.035) 0%, rgba(0, 232, 143, 0.018) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Cozy Cleanup decoration: spray bottle, sparkles, and cleaning brush */
+.game-page__about[data-decoration="cozy-cleanup"]::before {
+  content: "";
+  width: 290px;
+  height: 290px;
+  right: -30px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Spray bottle body --%3E%3Crect x='55' y='50' width='22' height='40' rx='4' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3C!-- Bottle neck --%3E%3Crect x='62' y='42' width='8' height='10' rx='1' fill='none' stroke='rgba(0,232,143,0.045)' stroke-width='1.2'/%3E%3C!-- Spray trigger --%3E%3Cpath d='M62 45 L55 45 L55 52 L58 52' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.2' stroke-linejoin='round'/%3E%3C!-- Spray nozzle --%3E%3Crect x='50' y='43' width='6' height='4' rx='1' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1'/%3E%3C!-- Spray mist lines --%3E%3Cpath d='M48 45 L40 42' stroke='rgba(0,232,143,0.03)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M48 46 L38 46' stroke='rgba(0,232,143,0.025)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M48 47 L40 50' stroke='rgba(0,232,143,0.025)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Sparkle/shine symbols --%3E%3Cpath d='M35 35 L35 30 M32.5 32.5 L37.5 32.5' stroke='rgba(0,232,143,0.05)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M82 55 L82 51 M80 53 L84 53' stroke='rgba(0,232,143,0.04)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M45 70 L45 67 M43 68.5 L47 68.5' stroke='rgba(0,232,143,0.035)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Simple broom/brush --%3E%3Crect x='85' y='65' width='8' height='18' rx='2' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1'/%3E%3Cline x1='89' y1='65' x2='89' y2='50' stroke='rgba(0,232,143,0.035)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Brush bristle lines --%3E%3Cline x1='86' y1='83' x2='86' y2='88' stroke='rgba(0,232,143,0.025)' stroke-width='0.6'/%3E%3Cline x1='89' y1='83' x2='89' y2='90' stroke='rgba(0,232,143,0.025)' stroke-width='0.6'/%3E%3Cline x1='92' y1='83' x2='92' y2='88' stroke='rgba(0,232,143,0.025)' stroke-width='0.6'/%3E%3C!-- Curved wipe/cleaning arc --%3E%3Cpath d='M30 80 Q40 75 50 82' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M28 88 Q42 82 55 90' fill='none' stroke='rgba(0,232,143,0.02)' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind cleaning scene */
+.game-page__about[data-decoration="cozy-cleanup"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(ellipse 65% 55% at 65% 65%, rgba(0, 232, 143, 0.035) 0%, rgba(0, 232, 143, 0.018) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -2855,6 +3011,96 @@ h3 {
     height: 290px;
   }
 
+  /* Boxing Club tablet */
+  .game-page__about[data-decoration="boxing-club"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="boxing-club"]::after {
+    right: -40px;
+    bottom: -55px;
+    width: 290px;
+    height: 290px;
+  }
+
+  /* Street Basketball tablet */
+  .game-page__about[data-decoration="street-basketball"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 230px;
+    height: 230px;
+  }
+
+  .game-page__about[data-decoration="street-basketball"]::after {
+    right: -40px;
+    bottom: -55px;
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Penalty Kick tablet */
+  .game-page__about[data-decoration="penalty-kick"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="penalty-kick"]::after {
+    right: -40px;
+    bottom: -55px;
+    width: 290px;
+    height: 290px;
+  }
+
+  /* Fishing Journey tablet */
+  .game-page__about[data-decoration="fishing-journey"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 230px;
+    height: 230px;
+  }
+
+  .game-page__about[data-decoration="fishing-journey"]::after {
+    right: -40px;
+    bottom: -55px;
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Cake Designer tablet */
+  .game-page__about[data-decoration="cake-designer"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 230px;
+    height: 230px;
+  }
+
+  .game-page__about[data-decoration="cake-designer"]::after {
+    right: -40px;
+    bottom: -55px;
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Cozy Cleanup tablet */
+  .game-page__about[data-decoration="cozy-cleanup"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 230px;
+    height: 230px;
+  }
+
+  .game-page__about[data-decoration="cozy-cleanup"]::after {
+    right: -40px;
+    bottom: -55px;
+    width: 280px;
+    height: 280px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -3161,6 +3407,96 @@ h3 {
     height: 240px;
   }
 
+  /* Boxing Club small tablet/mobile */
+  .game-page__about[data-decoration="boxing-club"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="boxing-club"]::after {
+    right: -35px;
+    bottom: -50px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Street Basketball small tablet/mobile */
+  .game-page__about[data-decoration="street-basketball"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
+
+  .game-page__about[data-decoration="street-basketball"]::after {
+    right: -35px;
+    bottom: -50px;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Penalty Kick small tablet/mobile */
+  .game-page__about[data-decoration="penalty-kick"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="penalty-kick"]::after {
+    right: -35px;
+    bottom: -50px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Fishing Journey small tablet/mobile */
+  .game-page__about[data-decoration="fishing-journey"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
+
+  .game-page__about[data-decoration="fishing-journey"]::after {
+    right: -35px;
+    bottom: -50px;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Cake Designer small tablet/mobile */
+  .game-page__about[data-decoration="cake-designer"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
+
+  .game-page__about[data-decoration="cake-designer"]::after {
+    right: -35px;
+    bottom: -50px;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Cozy Cleanup small tablet/mobile */
+  .game-page__about[data-decoration="cozy-cleanup"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
+
+  .game-page__about[data-decoration="cozy-cleanup"]::after {
+    right: -35px;
+    bottom: -50px;
+    width: 230px;
+    height: 230px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -3314,6 +3650,96 @@ h3 {
     width: 190px;
     height: 190px;
   }
+
+  /* Boxing Club small mobile */
+  .game-page__about[data-decoration="boxing-club"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="boxing-club"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Street Basketball small mobile */
+  .game-page__about[data-decoration="street-basketball"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 145px;
+    height: 145px;
+  }
+
+  .game-page__about[data-decoration="street-basketball"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
+
+  /* Penalty Kick small mobile */
+  .game-page__about[data-decoration="penalty-kick"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="penalty-kick"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Fishing Journey small mobile */
+  .game-page__about[data-decoration="fishing-journey"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 145px;
+    height: 145px;
+  }
+
+  .game-page__about[data-decoration="fishing-journey"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
+
+  /* Cake Designer small mobile */
+  .game-page__about[data-decoration="cake-designer"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 145px;
+    height: 145px;
+  }
+
+  .game-page__about[data-decoration="cake-designer"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
+
+  /* Cozy Cleanup small mobile */
+  .game-page__about[data-decoration="cozy-cleanup"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 145px;
+    height: 145px;
+  }
+
+  .game-page__about[data-decoration="cozy-cleanup"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
 }
 
 /* ---------- Extra small: ≤380px ---------- */
@@ -3416,7 +3842,13 @@ h3 {
   .game-page__about[data-decoration="bomb-squad"]::after,
   .game-page__about[data-decoration="laser-maze"]::after,
   .game-page__about[data-decoration="parking-jam"]::after,
-  .game-page__about[data-decoration="mini-golf"]::after {
+  .game-page__about[data-decoration="mini-golf"]::after,
+  .game-page__about[data-decoration="boxing-club"]::after,
+  .game-page__about[data-decoration="street-basketball"]::after,
+  .game-page__about[data-decoration="penalty-kick"]::after,
+  .game-page__about[data-decoration="fishing-journey"]::after,
+  .game-page__about[data-decoration="cake-designer"]::after,
+  .game-page__about[data-decoration="cozy-cleanup"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

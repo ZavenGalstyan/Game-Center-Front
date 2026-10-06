@@ -35,6 +35,12 @@ const GAME_TAGLINES = {
   "Laser Maze": "Rotate mirrors, redirect the beam, and illuminate every target.",
   "Parking Jam": "Move the right cars, clear the path, and escape the crowded lot.",
   "Mini Golf Journey": "Aim your shot, master each course, and sink the perfect putt.",
+  "Boxing Club": "Train your fighter, master your technique, and fight your way to the championship.",
+  "Street Basketball": "Hit the court, master your skills, and become the king of street basketball.",
+  "Penalty Kick": "Take your shot, beat the goalkeeper, and dominate the penalty shootout.",
+  "Fishing Journey": "Cast your line, catch rare fish, upgrade your gear, and explore new waters.",
+  "Cake Designer": "Create beautiful cakes, complete customer orders, and unlock new decorations.",
+  "Cozy Cleanup": "Clean, organize, and transform messy rooms into relaxing cozy spaces.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -54,6 +60,12 @@ const GAME_DECORATIONS = {
   "Laser Maze": "laser-maze",
   "Parking Jam": "parking-jam",
   "Mini Golf Journey": "mini-golf",
+  "Boxing Club": "boxing-club",
+  "Street Basketball": "street-basketball",
+  "Penalty Kick": "penalty-kick",
+  "Fishing Journey": "fishing-journey",
+  "Cake Designer": "cake-designer",
+  "Cozy Cleanup": "cozy-cleanup",
 };
 
 // Fallback: generate a short tagline from description if not predefined
