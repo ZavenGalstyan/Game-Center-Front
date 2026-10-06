@@ -2856,6 +2856,162 @@ h3 {
   z-index: -1;
 }
 
+/* Blade Rush decoration: circular target with blades stuck in */
+.game-page__about[data-decoration="blade-rush"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -40px;
+  bottom: -60px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Circular target rings --%3E%3Ccircle cx='50' cy='50' r='38' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='28' fill='none' stroke='rgba(0,232,143,0.035)' stroke-width='1.5'/%3E%3Ccircle cx='50' cy='50' r='18' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='1.2'/%3E%3Ccircle cx='50' cy='50' r='8' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Blade 1 (top-right, angled) --%3E%3Cpath d='M65 20 L52 48' stroke='rgba(0,232,143,0.05)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M67 18 L65 20 L63 18' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Blade 2 (right) --%3E%3Cpath d='M88 45 L55 50' stroke='rgba(0,232,143,0.05)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M90 43 L88 45 L90 47' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Blade 3 (bottom-right) --%3E%3Cpath d='M78 78 L54 54' stroke='rgba(0,232,143,0.045)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M80 80 L78 78 L80 76' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Blade 4 (bottom) --%3E%3Cpath d='M48 88 L48 55' stroke='rgba(0,232,143,0.05)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M46 90 L48 88 L50 90' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Blade 5 (top-left) --%3E%3Cpath d='M25 28 L46 47' stroke='rgba(0,232,143,0.045)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M23 26 L25 28 L23 30' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Motion lines --%3E%3Cpath d='M70 12 L62 16' stroke='rgba(0,232,143,0.025)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M92 38 L85 40' stroke='rgba(0,232,143,0.02)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M18 22 L24 26' stroke='rgba(0,232,143,0.02)' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind blade rush */
+.game-page__about[data-decoration="blade-rush"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 370px;
+  height: 370px;
+  background: radial-gradient(ellipse 68% 58% at 68% 68%, rgba(0, 232, 143, 0.04) 0%, rgba(0, 232, 143, 0.02) 38%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Bottle Flip decoration: bottle mid-flip with rotation lines */
+.game-page__about[data-decoration="bottle-flip"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -40px;
+  bottom: -60px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Landing platform --%3E%3Crect x='35' y='82' width='35' height='4' rx='1' fill='rgba(0,232,143,0.04)'/%3E%3Crect x='30' y='86' width='45' height='3' rx='1' fill='rgba(0,232,143,0.03)'/%3E%3C!-- Bottle body (rotated, mid-flip) --%3E%3Cg transform='rotate(-35 52 45)'%3E%3C!-- Bottle body --%3E%3Crect x='44' y='30' width='16' height='35' rx='3' fill='rgba(0,232,143,0.045)'/%3E%3C!-- Bottle neck --%3E%3Crect x='48' y='20' width='8' height='12' rx='1.5' fill='rgba(0,232,143,0.05)'/%3E%3C!-- Bottle cap --%3E%3Crect x='47' y='16' width='10' height='5' rx='1' fill='rgba(0,232,143,0.055)'/%3E%3C!-- Water level --%3E%3Crect x='46' y='48' width='12' height='15' rx='2' fill='rgba(0,232,143,0.025)'/%3E%3C/g%3E%3C!-- Rotation arc lines --%3E%3Cpath d='M30 35 Q25 50 35 62' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='1.5' stroke-linecap='round' stroke-dasharray='4 3'/%3E%3Cpath d='M72 28 Q82 42 75 58' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='1.2' stroke-linecap='round' stroke-dasharray='3 2'/%3E%3C!-- Motion dots --%3E%3Ccircle cx='28' cy='40' r='1.5' fill='rgba(0,232,143,0.03)'/%3E%3Ccircle cx='75' cy='35' r='1.2' fill='rgba(0,232,143,0.025)'/%3E%3Ccircle cx='78' cy='52' r='1' fill='rgba(0,232,143,0.02)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind bottle flip */
+.game-page__about[data-decoration="bottle-flip"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 370px;
+  height: 370px;
+  background: radial-gradient(ellipse 68% 58% at 68% 68%, rgba(0, 232, 143, 0.04) 0%, rgba(0, 232, 143, 0.02) 38%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Stack Tower decoration: stacked blocks with top block moving */
+.game-page__about[data-decoration="stack-tower"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -40px;
+  bottom: -60px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Base block (widest) --%3E%3Crect x='25' y='80' width='50' height='10' rx='1' fill='rgba(0,232,143,0.05)'/%3E%3C!-- Block 2 --%3E%3Crect x='27' y='68' width='46' height='10' rx='1' fill='rgba(0,232,143,0.045)'/%3E%3C!-- Block 3 --%3E%3Crect x='30' y='56' width='40' height='10' rx='1' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Block 4 --%3E%3Crect x='34' y='44' width='32' height='10' rx='1' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Block 5 (slightly offset) --%3E%3Crect x='38' y='32' width='28' height='10' rx='1' fill='rgba(0,232,143,0.03)'/%3E%3C!-- Top block (moving into position) --%3E%3Crect x='52' y='20' width='24' height='10' rx='1' fill='rgba(0,232,143,0.05)'/%3E%3C!-- Movement lines for top block --%3E%3Cpath d='M78 25 L85 25' stroke='rgba(0,232,143,0.03)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M80 22 L86 22' stroke='rgba(0,232,143,0.025)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M79 28 L84 28' stroke='rgba(0,232,143,0.02)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Subtle height indicator --%3E%3Cpath d='M18 85 L18 20' stroke='rgba(0,232,143,0.015)' stroke-width='0.8' stroke-dasharray='3 4'/%3E%3Cpath d='M16 22 L18 18 L20 22' fill='none' stroke='rgba(0,232,143,0.02)' stroke-width='0.8'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind stack tower */
+.game-page__about[data-decoration="stack-tower"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 370px;
+  height: 370px;
+  background: radial-gradient(ellipse 68% 58% at 68% 68%, rgba(0, 232, 143, 0.04) 0%, rgba(0, 232, 143, 0.02) 38%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Jump Ball decoration: ball bouncing up through platforms */
+.game-page__about[data-decoration="jump-ball"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -40px;
+  bottom: -60px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Bottom platform --%3E%3Crect x='20' y='85' width='35' height='5' rx='2' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Middle-low platform --%3E%3Crect x='50' y='68' width='30' height='5' rx='2' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Middle platform --%3E%3Crect x='25' y='50' width='28' height='5' rx='2' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Upper platform --%3E%3Crect x='55' y='32' width='25' height='5' rx='2' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Top platform --%3E%3Crect x='35' y='15' width='22' height='5' rx='2' fill='rgba(0,232,143,0.03)'/%3E%3C!-- Ball (moving upward) --%3E%3Ccircle cx='62' cy='24' r='6' fill='rgba(0,232,143,0.055)'/%3E%3C!-- Ball highlight --%3E%3Ccircle cx='60' cy='22' r='2' fill='rgba(0,232,143,0.03)'/%3E%3C!-- Bounce trail --%3E%3Ccircle cx='38' cy='45' r='3' fill='rgba(0,232,143,0.02)'/%3E%3Ccircle cx='65' cy='60' r='2.5' fill='rgba(0,232,143,0.018)'/%3E%3Ccircle cx='40' cy='78' r='2' fill='rgba(0,232,143,0.015)'/%3E%3C!-- Motion arc --%3E%3Cpath d='M40 78 Q55 65 65 60 Q72 52 62 28' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='1.2' stroke-linecap='round' stroke-dasharray='4 3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind jump ball */
+.game-page__about[data-decoration="jump-ball"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 370px;
+  height: 370px;
+  background: radial-gradient(ellipse 68% 58% at 68% 68%, rgba(0, 232, 143, 0.04) 0%, rgba(0, 232, 143, 0.02) 38%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Helix Drop decoration: vertical tower with spiral platforms */
+.game-page__about[data-decoration="helix-drop"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -40px;
+  bottom: -60px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Central pole --%3E%3Crect x='47' y='8' width='6' height='85' rx='3' fill='rgba(0,232,143,0.03)'/%3E%3C!-- Top helix platform (full) --%3E%3Cellipse cx='50' cy='18' rx='28' ry='6' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Second platform (with gap on right) --%3E%3Cpath d='M22 35 A28 6 0 0 1 65 35' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Third platform (with gap on left) --%3E%3Cpath d='M35 52 A28 6 0 0 0 78 52' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Fourth platform (full) --%3E%3Cellipse cx='50' cy='70' rx='28' ry='6' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Bottom platform (with gap) --%3E%3Cpath d='M28 88 A28 6 0 0 1 72 88' fill='rgba(0,232,143,0.03)'/%3E%3C!-- Ball descending --%3E%3Ccircle cx='70' cy='45' r='5' fill='rgba(0,232,143,0.055)'/%3E%3C!-- Ball trail --%3E%3Ccircle cx='35' cy='28' r='2.5' fill='rgba(0,232,143,0.025)'/%3E%3Ccircle cx='60' cy='22' r='2' fill='rgba(0,232,143,0.02)'/%3E%3C!-- Downward motion lines --%3E%3Cpath d='M70 38 L70 32' stroke='rgba(0,232,143,0.03)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M72 36 L72 30' stroke='rgba(0,232,143,0.02)' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind helix drop */
+.game-page__about[data-decoration="helix-drop"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 370px;
+  height: 370px;
+  background: radial-gradient(ellipse 68% 58% at 68% 68%, rgba(0, 232, 143, 0.04) 0%, rgba(0, 232, 143, 0.02) 38%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Delivery Rush decoration: delivery van with package and speed lines */
+.game-page__about[data-decoration="delivery-rush"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -40px;
+  bottom: -60px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Road surface --%3E%3Crect x='5' y='75' width='90' height='3' rx='1' fill='rgba(0,232,143,0.025)'/%3E%3C!-- Road dashes --%3E%3Crect x='10' y='73' width='12' height='1.5' rx='0.5' fill='rgba(0,232,143,0.02)'/%3E%3Crect x='28' y='73' width='12' height='1.5' rx='0.5' fill='rgba(0,232,143,0.02)'/%3E%3Crect x='46' y='73' width='12' height='1.5' rx='0.5' fill='rgba(0,232,143,0.02)'/%3E%3C!-- Van body --%3E%3Crect x='45' y='48' width='35' height='22' rx='2' fill='rgba(0,232,143,0.045)'/%3E%3C!-- Van cabin --%3E%3Cpath d='M80 48 L80 70 L92 70 L92 55 L85 48 Z' fill='rgba(0,232,143,0.05)'/%3E%3C!-- Cabin window --%3E%3Crect x='82' y='52' width='8' height='8' rx='1' fill='rgba(0,232,143,0.025)'/%3E%3C!-- Wheels --%3E%3Ccircle cx='55' cy='72' r='5' fill='rgba(0,232,143,0.04)'/%3E%3Ccircle cx='55' cy='72' r='2.5' fill='rgba(0,232,143,0.02)'/%3E%3Ccircle cx='85' cy='72' r='5' fill='rgba(0,232,143,0.04)'/%3E%3Ccircle cx='85' cy='72' r='2.5' fill='rgba(0,232,143,0.02)'/%3E%3C!-- Package on top --%3E%3Crect x='52' y='38' width='12' height='10' rx='1' fill='rgba(0,232,143,0.035)'/%3E%3Cpath d='M52 43 L64 43 M58 38 L58 48' stroke='rgba(0,232,143,0.025)' stroke-width='0.8'/%3E%3C!-- Speed lines --%3E%3Cpath d='M40 52 L28 52' stroke='rgba(0,232,143,0.03)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M42 58 L25 58' stroke='rgba(0,232,143,0.025)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M40 64 L30 64' stroke='rgba(0,232,143,0.02)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M43 42 L35 42' stroke='rgba(0,232,143,0.02)' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle glow behind delivery rush */
+.game-page__about[data-decoration="delivery-rush"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 370px;
+  height: 370px;
+  background: radial-gradient(ellipse 68% 58% at 68% 68%, rgba(0, 232, 143, 0.04) 0%, rgba(0, 232, 143, 0.02) 38%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -3341,6 +3497,96 @@ h3 {
   }
 
   .game-page__about[data-decoration="crowd"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Blade Rush tablet */
+  .game-page__about[data-decoration="blade-rush"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="blade-rush"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Bottle Flip tablet */
+  .game-page__about[data-decoration="bottle-flip"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="bottle-flip"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Stack Tower tablet */
+  .game-page__about[data-decoration="stack-tower"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="stack-tower"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Jump Ball tablet */
+  .game-page__about[data-decoration="jump-ball"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="jump-ball"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Helix Drop tablet */
+  .game-page__about[data-decoration="helix-drop"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="helix-drop"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Delivery Rush tablet */
+  .game-page__about[data-decoration="delivery-rush"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="delivery-rush"]::after {
     right: -45px;
     bottom: -60px;
     width: 300px;
@@ -3833,6 +4079,96 @@ h3 {
     height: 240px;
   }
 
+  /* Blade Rush mobile */
+  .game-page__about[data-decoration="blade-rush"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="blade-rush"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Bottle Flip mobile */
+  .game-page__about[data-decoration="bottle-flip"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="bottle-flip"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Stack Tower mobile */
+  .game-page__about[data-decoration="stack-tower"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="stack-tower"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Jump Ball mobile */
+  .game-page__about[data-decoration="jump-ball"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="jump-ball"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Helix Drop mobile */
+  .game-page__about[data-decoration="helix-drop"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="helix-drop"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Delivery Rush mobile */
+  .game-page__about[data-decoration="delivery-rush"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="delivery-rush"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -4166,6 +4502,96 @@ h3 {
     width: 190px;
     height: 190px;
   }
+
+  /* Blade Rush small mobile */
+  .game-page__about[data-decoration="blade-rush"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="blade-rush"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Bottle Flip small mobile */
+  .game-page__about[data-decoration="bottle-flip"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="bottle-flip"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Stack Tower small mobile */
+  .game-page__about[data-decoration="stack-tower"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="stack-tower"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Jump Ball small mobile */
+  .game-page__about[data-decoration="jump-ball"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="jump-ball"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Helix Drop small mobile */
+  .game-page__about[data-decoration="helix-drop"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="helix-drop"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Delivery Rush small mobile */
+  .game-page__about[data-decoration="delivery-rush"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="delivery-rush"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
 }
 
 /* ---------- Extra small: ≤380px ---------- */
@@ -4274,7 +4700,13 @@ h3 {
   .game-page__about[data-decoration="penalty-kick"]::after,
   .game-page__about[data-decoration="fishing-journey"]::after,
   .game-page__about[data-decoration="cake-designer"]::after,
-  .game-page__about[data-decoration="cozy-cleanup"]::after {
+  .game-page__about[data-decoration="cozy-cleanup"]::after,
+  .game-page__about[data-decoration="blade-rush"]::after,
+  .game-page__about[data-decoration="bottle-flip"]::after,
+  .game-page__about[data-decoration="stack-tower"]::after,
+  .game-page__about[data-decoration="jump-ball"]::after,
+  .game-page__about[data-decoration="helix-drop"]::after,
+  .game-page__about[data-decoration="delivery-rush"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

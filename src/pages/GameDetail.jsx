@@ -47,6 +47,12 @@ const GAME_TAGLINES = {
   "Castle Rush": "Build your army, conquer enemy fortresses, and lead your kingdom through strategic battles.",
   "Train Commander": "Upgrade and defend your armored train as you fight through dangerous routes and enemy attacks.",
   "Crowd Rush": "Grow your crowd, choose the best gates, dodge obstacles, and reach the finish with the biggest team possible.",
+  "Blade Rush": "Throw with precision, master every target, and defeat challenging bosses across increasingly difficult stages.",
+  "Bottle Flip": "Master the perfect flip, land on challenging surfaces, and conquer increasingly tricky levels.",
+  "Stack Tower": "Time every placement, build higher, and keep your tower balanced as the challenge gets faster.",
+  "Jump Ball": "Bounce from platform to platform, avoid hazards, collect stars, and climb as high as you can.",
+  "Helix Drop": "Rotate the tower, find the perfect gaps, and guide the ball through increasingly dangerous platforms.",
+  "Delivery Rush": "Delivery Rush is a fast-paced 3D delivery driving game where every second counts.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -78,6 +84,12 @@ const GAME_DECORATIONS = {
   "Castle Rush": "castle",
   "Train Commander": "train",
   "Crowd Rush": "crowd",
+  "Blade Rush": "blade-rush",
+  "Bottle Flip": "bottle-flip",
+  "Stack Tower": "stack-tower",
+  "Jump Ball": "jump-ball",
+  "Helix Drop": "helix-drop",
+  "Delivery Rush": "delivery-rush",
 };
 
 // Fallback: generate a short tagline from description if not predefined
