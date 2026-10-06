@@ -12,6 +12,7 @@ export { default as Alert } from "./Alert.jsx";
 export { default as LoadingState } from "./LoadingState.jsx";
 export { default as ErrorState } from "./ErrorState.jsx";
 export { default as EmptyState } from "./EmptyState.jsx";
+export { default as CategoryEmptyState } from "./CategoryEmptyState.jsx";
 
 // Layout
 export { default as Card, CardHeader, CardTitle, CardBody, CardFooter } from "./Card.jsx";
