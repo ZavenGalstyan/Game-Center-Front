@@ -1,0 +1,231 @@
+/**
+ * Rooftop Dash — player input. One mutable object written by DOM listeners
+ * and read once per frame; the hot path never triggers a React render.
+ *
+ *   W A S D / arrows   move (camera-relative)
+ *   Mouse              camera (pointer lock; drag-look fallback)
+ *   Shift              sprint            Space   jump (hold = higher)
+ *   C or Ctrl          slide             E       dash
+ *   Esc / P            pause
+ *
+ * Presses are latched EDGES (one press = one action, key-repeat ignored) and
+ * consumed by the engine's next fixed step. Everything held is released on
+ * window blur, tab hide, pause, pointer-lock loss, screen change and detach,
+ * so nothing (Shift, W…) can stay stuck.
+ */
+const GAME_KEYS = new Set(["KeyW", "KeyA", "KeyS", "KeyD", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Space", "ShiftLeft", "ShiftRight", "KeyC", "ControlLeft", "ControlRight", "KeyE", "KeyP"]);
+
+export function createInput() {
+  const I = {
+    keys: new Set(),
+    lookDX: 0,
+    lookDY: 0,
+    edges: { jump: false, dash: false, slide: false, pause: false },
+    locked: false,
+    lockFailed: false,
+    dragging: false,
+    lastMouse: null,
+    enabled: true,
+    el: null,
+    handlers: null,
+    onLockChange: null,
+    touch: { mx: 0, my: 0, jump: false, slide: false, sprint: false, active: false },
+  };
+
+  I.releaseAll = () => {
+    I.keys.clear();
+    I.lookDX = 0;
+    I.lookDY = 0;
+    I.edges.jump = I.edges.dash = I.edges.slide = I.edges.pause = false;
+    I.dragging = false;
+    I.lastMouse = null;
+    I.touch.mx = 0;
+    I.touch.my = 0;
+    I.touch.jump = false;
+    I.touch.slide = false;
+    I.touch.sprint = false;
+  };
+
+  I.press = (name) => {
+    if (!I.enabled) return;
+    I.edges[name] = true;
+  };
+
+  /** the per-frame raw input for the engine (edges are handed over and cleared) */
+  I.frame = () => {
+    const k = I.keys;
+    let ax = 0;
+    let ay = 0;
+    if (k.has("KeyW") || k.has("ArrowUp")) ay += 1;
+    if (k.has("KeyS") || k.has("ArrowDown")) ay -= 1;
+    if (k.has("KeyD") || k.has("ArrowRight")) ax += 1;
+    if (k.has("KeyA") || k.has("ArrowLeft")) ax -= 1;
+    ax += I.touch.mx;
+    ay += I.touch.my;
+    const m = Math.hypot(ax, ay);
+    if (m > 1) {
+      ax /= m;
+      ay /= m;
+    }
+    const raw = {
+      ax,
+      ay,
+      sprint: k.has("ShiftLeft") || k.has("ShiftRight") || I.touch.sprint,
+      jumpHeld: k.has("Space") || I.touch.jump,
+      slideHeld: k.has("KeyC") || k.has("ControlLeft") || k.has("ControlRight") || I.touch.slide,
+      edges: { jump: I.edges.jump, dash: I.edges.dash, slide: I.edges.slide },
+    };
+    I.edges.jump = I.edges.dash = I.edges.slide = false;
+    return raw;
+  };
+
+  I.consumeLook = () => {
+    const dx = I.lookDX;
+    const dy = I.lookDY;
+    I.lookDX = 0;
+    I.lookDY = 0;
+    return [dx, dy];
+  };
+  I.takePause = () => {
+    const p = I.edges.pause;
+    I.edges.pause = false;
+    return p;
+  };
+
+  I.requestLock = () => {
+    const el = I.el;
+    if (!el || I.locked || I.lockFailed) return;
+    try {
+      const r = el.requestPointerLock?.();
+      if (r && typeof r.catch === "function") {
+        r.catch(() => {
+          I.lockFailed = true;
+          I.onLockChange && I.onLockChange(false);
+        });
+      }
+    } catch {
+      I.lockFailed = true;
+    }
+  };
+  I.exitLock = () => {
+    try {
+      if (I.el && document.pointerLockElement === I.el) document.exitPointerLock?.();
+    } catch {
+      /* ignore */
+    }
+  };
+
+  I.attach = (el) => {
+    I.detach();
+    I.el = el;
+    const kd = (e) => {
+      if (!I.enabled) return;
+      const t = e.target;
+      if (t && (t.tagName === "INPUT" || t.tagName === "SELECT" || t.tagName === "TEXTAREA")) return;
+      if (GAME_KEYS.has(e.code)) e.preventDefault(); // no page scroll on Space / arrows
+      if ((e.ctrlKey || e.metaKey) && (e.code === "KeyD" || e.code === "KeyS" || e.code === "KeyA")) e.preventDefault();
+      if (e.repeat) return;
+      I.keys.add(e.code);
+      switch (e.code) {
+        case "Space":
+          I.press("jump");
+          break;
+        case "KeyE":
+          I.press("dash");
+          break;
+        case "KeyC":
+        case "ControlLeft":
+        case "ControlRight":
+          I.press("slide");
+          break;
+        case "Escape":
+        case "KeyP":
+          if (!I.locked) I.press("pause");
+          break;
+        default:
+      }
+    };
+    const ku = (e) => {
+      I.keys.delete(e.code);
+    };
+    const md = (e) => {
+      if (!I.enabled) return;
+      if (!I.locked && !I.lockFailed && e.button === 0) {
+        I.requestLock();
+        return;
+      }
+      if (!I.locked) {
+        I.dragging = true;
+        I.lastMouse = { x: e.clientX, y: e.clientY };
+      }
+    };
+    const mu = () => {
+      I.dragging = false;
+      I.lastMouse = null;
+    };
+    const mm = (e) => {
+      if (!I.enabled) return;
+      if (I.locked) {
+        // ignore the occasional huge spike some browsers deliver right after locking
+        const dx = e.movementX || 0;
+        const dy = e.movementY || 0;
+        if (Math.abs(dx) > 400 || Math.abs(dy) > 400) return;
+        I.lookDX += dx;
+        I.lookDY += dy;
+      } else if (I.dragging && I.lastMouse) {
+        I.lookDX += e.clientX - I.lastMouse.x;
+        I.lookDY += e.clientY - I.lastMouse.y;
+        I.lastMouse = { x: e.clientX, y: e.clientY };
+      }
+    };
+    const cm = (e) => e.preventDefault();
+    const blur = () => I.releaseAll();
+    const vis = () => {
+      if (document.visibilityState === "hidden") I.releaseAll();
+    };
+    const plc = () => {
+      const locked = document.pointerLockElement === el;
+      I.locked = locked;
+      if (!locked) I.releaseAll();
+      I.onLockChange && I.onLockChange(locked);
+    };
+    const ple = () => {
+      I.lockFailed = true;
+      I.onLockChange && I.onLockChange(false);
+    };
+    window.addEventListener("keydown", kd);
+    window.addEventListener("keyup", ku);
+    el.addEventListener("mousedown", md);
+    window.addEventListener("mouseup", mu);
+    window.addEventListener("mousemove", mm);
+    el.addEventListener("contextmenu", cm);
+    window.addEventListener("blur", blur);
+    document.addEventListener("visibilitychange", vis);
+    document.addEventListener("pointerlockchange", plc);
+    document.addEventListener("pointerlockerror", ple);
+    I.handlers = { kd, ku, md, mu, mm, cm, blur, vis, plc, ple };
+  };
+
+  I.detach = () => {
+    const h = I.handlers;
+    if (!h) return;
+    window.removeEventListener("keydown", h.kd);
+    window.removeEventListener("keyup", h.ku);
+    if (I.el) {
+      I.el.removeEventListener("mousedown", h.md);
+      I.el.removeEventListener("contextmenu", h.cm);
+    }
+    window.removeEventListener("mouseup", h.mu);
+    window.removeEventListener("mousemove", h.mm);
+    window.removeEventListener("blur", h.blur);
+    document.removeEventListener("visibilitychange", h.vis);
+    document.removeEventListener("pointerlockchange", h.plc);
+    document.removeEventListener("pointerlockerror", h.ple);
+    I.exitLock();
+    I.handlers = null;
+    I.el = null;
+    I.releaseAll();
+  };
+
+  return I;
+}
