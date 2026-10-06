@@ -41,6 +41,12 @@ const GAME_TAGLINES = {
   "Fishing Journey": "Cast your line, catch rare fish, upgrade your gear, and explore new waters.",
   "Cake Designer": "Create beautiful cakes, complete customer orders, and unlock new decorations.",
   "Cozy Cleanup": "Clean, organize, and transform messy rooms into relaxing cozy spaces.",
+  "Supermarket Rush": "Stock the shelves, serve customers, and grow your supermarket into a busy retail empire.",
+  "Dentist Studio": "Treat patients, master dental tools, and create perfect smiles in your own growing clinic.",
+  "Tower Defense Mini": "Build powerful towers, stop incoming waves, and defend your base through increasingly difficult battles.",
+  "Castle Rush": "Build your army, conquer enemy fortresses, and lead your kingdom through strategic battles.",
+  "Train Commander": "Upgrade and defend your armored train as you fight through dangerous routes and enemy attacks.",
+  "Crowd Rush": "Grow your crowd, choose the best gates, dodge obstacles, and reach the finish with the biggest team possible.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -66,6 +72,12 @@ const GAME_DECORATIONS = {
   "Fishing Journey": "fishing-journey",
   "Cake Designer": "cake-designer",
   "Cozy Cleanup": "cozy-cleanup",
+  "Supermarket Rush": "supermarket",
+  "Dentist Studio": "tooth",
+  "Tower Defense Mini": "tower",
+  "Castle Rush": "castle",
+  "Train Commander": "train",
+  "Crowd Rush": "crowd",
 };
 
 // Fallback: generate a short tagline from description if not predefined
