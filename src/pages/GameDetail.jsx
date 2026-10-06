@@ -30,6 +30,11 @@ const GAME_TAGLINES = {
   "Farm Life": "Plant, grow, build, and create your perfect countryside farm.",
   "Car Wash Studio": "Wash, detail, and transform every car to a perfect shine.",
   "Parking Master": "Drive, align, and master every parking challenge.",
+  "Lumberjack Life": "Chop, haul, and build your timber empire in the forest.",
+  "Bomb Squad": "Decode the device, solve the modules, and disarm it before time runs out.",
+  "Laser Maze": "Rotate mirrors, redirect the beam, and illuminate every target.",
+  "Parking Jam": "Move the right cars, clear the path, and escape the crowded lot.",
+  "Mini Golf Journey": "Aim your shot, master each course, and sink the perfect putt.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -44,6 +49,11 @@ const GAME_DECORATIONS = {
   "Farm Life": "sprout",
   "Car Wash Studio": "water-drop",
   "Parking Master": "parking",
+  "Lumberjack Life": "lumberjack",
+  "Bomb Squad": "bomb-squad",
+  "Laser Maze": "laser-maze",
+  "Parking Jam": "parking-jam",
+  "Mini Golf Journey": "mini-golf",
 };
 
 // Fallback: generate a short tagline from description if not predefined

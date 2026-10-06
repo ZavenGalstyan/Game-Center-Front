@@ -6,7 +6,8 @@
       "Bash(xargs:*)",
       "Bash(tree:*)",
       "Bash(ls:*)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(powershell -Command:*)"
     ]
   }
 }
