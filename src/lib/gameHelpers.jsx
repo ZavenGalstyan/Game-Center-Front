@@ -40,6 +40,10 @@ import helixDropBg from "../images/HeloxDropbg.png";
 import towerDefenseMiniBg from "../images/TowerDefenseMinibg.png";
 import castleRushBg from "../images/CastleRushbg.png";
 import trainCommanderBg from "../images/TrainCommanderbg.png";
+import lostToyBg from "../images/LostToybg.png";
+import rooftopDashBg from "../images/RooftopDashbg.png";
+import colorPlatformsBg from "../images/ColorPlatformsbg.png";
+import islandConquestBg from "../images/IslandConquestbg.png";
 
 /**
  * Category to icon mapping.
@@ -713,6 +717,73 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(4, 18, 20, 0.78) 62%,
       rgba(3, 16, 16, 0.86) 78%,
       rgba(3, 14, 13, 0.88) 100%)`,
+  },
+  // Warm bedroom, bright edge to edge: the toy hero walks at ~33-50% (lower
+  // half, ~45-88% of the height) with the star and books at ~52-83% under the
+  // text, so a firm fade that starts just past the hero, passing through a
+  // brown-teal so the warm art bridges into the dark Game Center green. Wide
+  // cards crop top/bottom, so "left 72%" keeps the hero's feet and backpack.
+  "lost toy": {
+    image: lostToyBg,
+    position: "left 72%",
+    shade: `linear-gradient(90deg,
+      rgba(14, 18, 16, 0) 0%,
+      rgba(14, 18, 16, 0) 44%,
+      rgba(12, 20, 18, 0.45) 52%,
+      rgba(6, 20, 20, 0.76) 62%,
+      rgba(4, 18, 17, 0.88) 76%,
+      rgba(3, 14, 13, 0.9) 100%)`,
+  },
+  // Sunset city, bright edge to edge: logo ~5-50% (top ~15-52%), the runner
+  // leaps at ~44-70% partly under the text and the sun glows on the right. The
+  // logo ends right at the text column (~49%), so the dark-teal fade starts a
+  // little earlier than Castle Rush's to dim its last letters away from the
+  // title; the runner still shows through and the sunset calms down. "left 35%" keeps the
+  // logo whole and the runner's shoes in view on wide cards.
+  "rooftop dash": {
+    image: rooftopDashBg,
+    position: "left 35%",
+    shade: `linear-gradient(90deg,
+      rgba(6, 16, 22, 0) 0%,
+      rgba(6, 16, 22, 0) 38%,
+      rgba(6, 18, 22, 0.42) 46%,
+      rgba(5, 18, 21, 0.68) 53%,
+      rgba(4, 18, 20, 0.8) 62%,
+      rgba(3, 16, 16, 0.88) 76%,
+      rgba(3, 14, 13, 0.9) 100%)`,
+  },
+  // Bright sky edge to edge: the mascot jumps at ~32-45% (~29-52% of the
+  // height) off the blue platform (~0-39%), the red platform reaches ~60% and
+  // the yellow one (~60-77%) sits under the text, so a lighter fade (like
+  // Stack Tower) passes from deep blue into dark Game Center green and keeps
+  // the yellow readable as yellow. Wide cards crop top/bottom; "left 55%"
+  // keeps the mascot and the blue platform's symbols in view.
+  "color platforms": {
+    image: colorPlatformsBg,
+    position: "left 55%",
+    shade: `linear-gradient(90deg,
+      rgba(8, 16, 36, 0) 0%,
+      rgba(8, 16, 36, 0) 44%,
+      rgba(8, 18, 36, 0.45) 52%,
+      rgba(6, 18, 30, 0.7) 63%,
+      rgba(4, 18, 22, 0.82) 78%,
+      rgba(3, 15, 15, 0.86) 100%)`,
+  },
+  // Bright ocean edge to edge: the red castle, flag and troops fill ~0-40%
+  // (flag top ~17% of the height), red ships sail ~33-72%, and the blue fort
+  // and fleet (~63-100%) sit under the text, so an ocean-blue fade into dark
+  // Game Center green starts just past the castle and stays light enough for
+  // the blue banners to read through. "left 45%" keeps the flag and docks.
+  "island conquest": {
+    image: islandConquestBg,
+    position: "left 45%",
+    shade: `linear-gradient(90deg,
+      rgba(4, 20, 40, 0) 0%,
+      rgba(4, 20, 40, 0) 42%,
+      rgba(4, 20, 38, 0.52) 50%,
+      rgba(4, 18, 32, 0.72) 61%,
+      rgba(3, 18, 24, 0.84) 76%,
+      rgba(3, 15, 15, 0.88) 100%)`,
   },
 };
 
