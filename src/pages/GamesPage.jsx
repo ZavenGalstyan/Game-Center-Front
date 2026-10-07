@@ -5,7 +5,7 @@ import { useGameTypes } from "../data/gameTypes.jsx";
 import { organizeGamesByCategory } from "../lib/gameHelpers.jsx";
 import GameCard from "../components/GameCard.jsx";
 import GameDiscoveryHero from "../components/GameDiscoveryHero.jsx";
-import { Button, LoadingState, EmptyState, Alert, Section } from "../components/ui";
+import { Button, LoadingState, EmptyState, CategoryEmptyState, Alert, Section } from "../components/ui";
 
 const PAGE_SIZE = 100; // Load all games for better section organization
 
@@ -124,20 +124,22 @@ export default function GamesPage() {
         {error && !loading && <Alert variant="error">{error}</Alert>}
 
         {!loading && !error && filteredGames.length === 0 && (
-          <EmptyState
-            title={
-              searchQuery.trim()
-                ? "No games found"
-                : typeId
-                ? "No games in this category yet"
-                : "No games yet"
-            }
-            message={
-              searchQuery.trim()
-                ? `No games match "${searchQuery}". Try a different search.`
-                : "Check back soon."
-            }
-          />
+          typeId && !searchQuery.trim() ? (
+            <CategoryEmptyState />
+          ) : (
+            <EmptyState
+              title={
+                searchQuery.trim()
+                  ? "No games found"
+                  : "No games yet"
+              }
+              message={
+                searchQuery.trim()
+                  ? `No games match "${searchQuery}". Try a different search.`
+                  : "Check back soon."
+              }
+            />
+          )
         )}
 
         {/* Sectioned view (when not filtered) */}
