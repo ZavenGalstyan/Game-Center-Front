@@ -163,6 +163,16 @@ const DungeonKnight = lazy(() => import("./DungeonKnight/DungeonKnight.jsx"));
  *  never pays for its WebGL chunk. */
 const HighwayRacer = lazy(() => import("./HighwayRacer/HighwayRacer.jsx"));
 
+/** Night Corridor — a true-3D (Three.js/R3F) first-person horror escape:
+ *  dark corridors, a flashlight, doors, lockers and one creature; lazy so
+ *  the catalogue never pays for its WebGL chunk. */
+const NightCorridor = lazy(() => import("./NightCorridor/NightCorridor.jsx"));
+
+/** Pirate Cove — a true-3D (Three.js/R3F) pirate adventure: sail, broadside
+ *  naval combat, dock and explore islands on foot, dig up treasure across
+ *  five sea regions; lazy so the catalogue never pays for its WebGL chunk. */
+const PirateCove = lazy(() => import("./PirateCove/PirateCove.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -213,6 +223,8 @@ const GAME_COMPONENTS = {
   "Water Tanks": WaterTanks,
   "Dungeon Knight": DungeonKnight,
   "Highway Racer": HighwayRacer,
+  "Night Corridor": NightCorridor,
+  "Pirate Cove": PirateCove,
 };
 
 /**
@@ -222,7 +234,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different

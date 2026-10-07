@@ -1,0 +1,56 @@
+/** Pirate Cove — tutorial cards shown when a step's `on.tip` names them. */
+export const TIPS = {
+  board: {
+    title: "Welcome aboard, Captain",
+    lines: ["<kbd>WASD</kbd> walk · <kbd>Mouse</kbd> look", "Walk to the end of the dock and press <kbd>F</kbd> to board your sloop"],
+    touch: ["Left stick: walk · drag right side: look", "Walk to the end of the dock and tap <b>BOARD</b>"],
+  },
+  sail: {
+    title: "Setting sail",
+    lines: ["<kbd>W</kbd> raise sails (faster) · <kbd>S</kbd> lower them", "<kbd>A</kbd>/<kbd>D</kbd> steer · the sails stay where you set them", "Follow the <b>◆</b> on the compass through the buoys"],
+    touch: ["Throttle slider: sails · steering wheel: turn", "Follow the ◆ on the compass through the buoys"],
+  },
+  collect: { title: "Floating loot", lines: ["Sail close to crates and barrels to haul them aboard"] },
+  dock: {
+    title: "Docking",
+    lines: ["Slow down near a dock (<kbd>S</kbd>)", "Press <kbd>F</kbd> when <b>DOCK</b> appears — the crew does the rest"],
+    touch: ["Slow down near a dock, then tap <b>DOCK</b>"],
+  },
+  foot: {
+    title: "Ashore",
+    lines: ["<kbd>WASD</kbd> move · <kbd>Shift</kbd> sprint · <kbd>Space</kbd> jump", "<kbd>E</kbd> interact · <kbd>M</kbd> treasure map"],
+    touch: ["Left stick: move · right side: look", "Buttons: jump · use · attack"],
+  },
+  map: { title: "Treasure map", lines: ["Press <kbd>M</kbd> to read it — find the <b>X</b>", "Stand on the spot and press <kbd>E</kbd> to dig"] },
+  sail2: { title: "Open water", lines: ["Keep your sails up to make way", "Mouse looks around — the view returns behind the stern"] },
+  broadside: {
+    title: "Broadside!",
+    lines: [
+      "Your cannons fire from the <b>sides</b> of the ship",
+      "Turn so the enemy is beside you — the ring glows <b>TARGET</b>",
+      "<kbd>Q</kbd> fires to port (left) · <kbd>E</kbd> to starboard (right)",
+      "Each side reloads on its own — fire one, swing round, fire the other",
+    ],
+    touch: ["Cannons fire from the sides", "Put the enemy beside you until the ring shows TARGET", "◀ fires left · ▶ fires right"],
+  },
+  loot: { title: "Spoils of war", lines: ["Sunken ships leave gold and repair crates — sail through them"] },
+  sword: {
+    title: "Swordplay",
+    lines: ["<kbd>Left Mouse</kbd> attack — keep clicking for a 3-hit combo", "Hold <kbd>Right Mouse</kbd> to block · <kbd>C</kbd> to dodge", "Watch for the raised blade — that's your cue"],
+    touch: ["ATTACK repeatedly for a combo", "Hold BLOCK to guard · DODGE to roll"],
+  },
+  cave: { title: "Into the dark", lines: ["Caves hide keys, fragments and treasure", "Find your way back out by the daylight"] },
+  fragments: { title: "Map fragments", lines: ["Collect every fragment to complete the map", "The counter sits top-right"] },
+  boss: { title: "A named captain", lines: ["Bigger hull, heavier broadside", "Keep moving — never sit still in her arc"] },
+  rocks: { title: "Reefs", lines: ["Rocks and shallows slow you down and scrape the hull", "Pale water means shallows"] },
+  block: { title: "Captains hit hard", lines: ["Block (<kbd>Right Mouse</kbd>) the heavy swings", "Captains don't flinch mid-swing"] },
+  mist: { title: "The mist", lines: ["Visibility is short — trust the compass"] },
+  skeleton: { title: "The restless dead", lines: ["Skeletons are quick but brittle", "Dodge their swings, then strike"] },
+  levers: { title: "Ancient mechanisms", lines: ["Find and pull every lever to open the gate"] },
+  lights: { title: "Ghost lights", lines: ["Follow the drifting lights across the night sea"] },
+  chaser: { title: "Bow chaser", lines: ["Bosses carry a heavy gun in the bow", "Don't sail straight at them"] },
+  storm: { title: "The Storm Sea", lines: ["Rough water and jagged rocks — take it steady"] },
+  cursed: { title: "Dead Man's Sea", lines: ["Cursed ships hunt these waters", "Safe harbors repair your hull when you dock"] },
+  final: { title: "The Black Crown", lines: ["The pirate flagship of Dead Man's Sea", "Use broadsides on both sides and keep your distance"] },
+  finalSail: { title: "The legend is real", lines: ["Pirate Cove lies beyond these waters"] },
+};
