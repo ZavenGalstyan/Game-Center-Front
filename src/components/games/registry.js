@@ -158,6 +158,11 @@ const WaterTanks = lazy(() => import("./WaterTanks/WaterTanks.jsx"));
  *  catalogue never pays for its WebGL chunk. */
 const DungeonKnight = lazy(() => import("./DungeonKnight/DungeonKnight.jsx"));
 
+/** Highway Racer — a true-3D (Three.js/R3F) endless arcade highway racer:
+ *  three lanes, traffic, coins, near misses and boost; lazy so the catalogue
+ *  never pays for its WebGL chunk. */
+const HighwayRacer = lazy(() => import("./HighwayRacer/HighwayRacer.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -207,6 +212,7 @@ const GAME_COMPONENTS = {
   "Color Platforms": ColorPlatforms,
   "Water Tanks": WaterTanks,
   "Dungeon Knight": DungeonKnight,
+  "Highway Racer": HighwayRacer,
 };
 
 /**
@@ -216,7 +222,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different
