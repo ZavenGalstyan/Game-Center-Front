@@ -44,6 +44,9 @@ import lostToyBg from "../images/LostToybg.png";
 import rooftopDashBg from "../images/RooftopDashbg.png";
 import colorPlatformsBg from "../images/ColorPlatformsbg.png";
 import islandConquestBg from "../images/IslandConquestbg.png";
+import dungeonKnightBg from "../images/DungeonKnightbg.png";
+import highwayRacerBg from "../images/HighwayRacerbg.png";
+import waterTanksBg from "../images/WaterTanksbg.png";
 
 /**
  * Category to icon mapping.
@@ -784,6 +787,58 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(4, 18, 32, 0.72) 61%,
       rgba(3, 18, 24, 0.84) 76%,
       rgba(3, 15, 15, 0.88) 100%)`,
+  },
+  // Torchlit dungeon edge to edge: the knight lunges at ~15-65% (helmet ~27%
+  // of the height, boots ~95%) with the skeleton, boss and slime at ~52-78%
+  // and the treasure chest on the far right under the text, so a navy-teal
+  // fade into dark Game Center green that starts at the knight's sword keeps
+  // the skeleton and boss faintly visible while the bright gold calms down.
+  // Wide cards crop top/bottom, so "left 72%" keeps the plume and his boots.
+  "dungeon knight": {
+    image: dungeonKnightBg,
+    position: "left 72%",
+    shade: `linear-gradient(90deg,
+      rgba(3, 11, 15, 0) 0%,
+      rgba(3, 11, 15, 0) 40%,
+      rgba(3, 13, 17, 0.45) 48%,
+      rgba(3, 16, 18, 0.72) 58%,
+      rgba(2, 17, 16, 0.86) 74%,
+      rgba(1, 15, 13, 0.92) 100%)`,
+  },
+  // Sunset highway, bright edge to edge: the red supercar fills ~6-55% (spoiler
+  // ~39% of the height, wheels ~84%) with traffic, city, sun and sea at ~53-100%
+  // under the text, so a firm navy fade into dark Game Center green that starts
+  // at the car's front wheel calms the sunset. Wide cards crop top/bottom, so
+  // "left 65%" keeps the spoiler, wheels and lane lines in view.
+  "highway racer": {
+    image: highwayRacerBg,
+    position: "left 65%",
+    shade: `linear-gradient(90deg,
+      rgba(4, 12, 22, 0) 0%,
+      rgba(4, 12, 22, 0) 40%,
+      rgba(4, 14, 22, 0.5) 49%,
+      rgba(3, 15, 21, 0.76) 58%,
+      rgba(2, 16, 18, 0.88) 72%,
+      rgba(1, 14, 13, 0.93) 100%)`,
+  },
+  // Lab bench edge to edge: the beaker pours at ~14-45% into the tank at ~37-50%
+  // (the first two tanks sit at ~12-33%), with the fourth tank, flasks, lamps
+  // and red valve at ~53-100% under the text, so a deep-navy fade (no green,
+  // to keep the water blue) that starts just past the pour calms the lamps.
+  // Wide cards crop top/bottom only ("30%" keeps the beaker's rim); on narrow
+  // (1366/1440px) cards "40%" trims the left plants so the pour and receiving
+  // tank clear the text.
+  "water tanks": {
+    image: waterTanksBg,
+    position: "40% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(3, 12, 24, 0) 0%,
+      rgba(3, 12, 24, 0) 44%,
+      rgba(3, 13, 24, 0.42) 50%,
+      rgba(2, 14, 23, 0.7) 57%,
+      rgba(2, 14, 23, 0.8) 64%,
+      rgba(2, 14, 21, 0.87) 75%,
+      rgba(1, 12, 18, 0.92) 100%)`,
   },
 };
 

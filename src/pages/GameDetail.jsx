@@ -53,6 +53,7 @@ const GAME_TAGLINES = {
   "Jump Ball": "Bounce from platform to platform, avoid hazards, collect stars, and climb as high as you can.",
   "Helix Drop": "Rotate the tower, find the perfect gaps, and guide the ball through increasingly dangerous platforms.",
   "Delivery Rush": "Delivery Rush is a fast-paced 3D delivery driving game where every second counts.",
+  "Highway Racer": "DRIVE • DODGE • SURVIVE",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
