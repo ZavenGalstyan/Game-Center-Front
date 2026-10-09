@@ -200,6 +200,12 @@ const StuntRacer3D = lazy(() => import("./StuntRacer3D/StuntRacer3D.jsx"));
  *  chunk. */
 const PoliceEscape3D = lazy(() => import("./PoliceEscape3D/PoliceEscape3D.jsx"));
 
+/** Zombie Outbreak — a true-3D (Three.js/R3F) first-person zombie survival
+ *  shooter: six weapons, five zombie types, five bosses and 30 wave-based
+ *  stages across five arenas; lazy so the catalogue never pays for its
+ *  WebGL chunk. */
+const ZombieOutbreak = lazy(() => import("./ZombieOutbreak/ZombieOutbreak.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -257,6 +263,7 @@ const GAME_COMPONENTS = {
   "Downhill Riders": DownhillRiders,
   "Stunt Racer 3D": StuntRacer3D,
   "Police Escape 3D": PoliceEscape3D,
+  "Zombie Outbreak": ZombieOutbreak,
 };
 
 /**
@@ -266,7 +273,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D", "Zombie Outbreak"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different

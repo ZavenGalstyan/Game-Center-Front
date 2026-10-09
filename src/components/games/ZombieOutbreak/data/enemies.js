@@ -1,0 +1,240 @@
+/**
+ * Zombie Outbreak — enemy definitions (pure data).
+ *
+ * `rig` describes the body at scale 1 (metres). engine/pose.js turns rig +
+ * animation state into a pose, and BOTH the renderer and the hit volumes are
+ * derived from that one pose — so a staggering, lunging or falling zombie's
+ * head hitbox is exactly where its head is drawn.
+ *
+ *   hp, speed (walk m/s), run (chase m/s when running), radius (collision)
+ *   attack: { range, windup, hit (s into the swing the damage lands), recover, cooldown, damage }
+ *   stagger     damage in one hit that triggers a hit-stun (fraction of max hp)
+ *   headMult    headshot multiplier
+ *   points      score for the kill
+ */
+
+const BASE_RIG = {
+  legLen: 0.88, // hip height
+  torsoLen: 0.6,
+  torsoR: 0.19,
+  headR: 0.125,
+  shoulder: 0.21,
+  armLen: 0.64,
+  armR: 0.055,
+  legR: 0.085,
+  hipW: 0.1,
+  hunch: 0.18, // resting forward lean (rad)
+};
+
+export const ZOMBIES = {
+  walker: {
+    id: "walker",
+    name: "Walker",
+    hp: 80,
+    speed: 1.4,
+    run: 1.4,
+    radius: 0.38,
+    scale: [0.94, 1.06],
+    attack: { range: 1.35, windup: 0.55, hit: 0.55, recover: 0.55, cooldown: 1.25, damage: 10 },
+    stagger: 0.3,
+    staggerTime: 0.42,
+    headMult: 3,
+    points: 100,
+    rig: { ...BASE_RIG },
+    gait: "shamble",
+  },
+  runner: {
+    id: "runner",
+    name: "Runner",
+    hp: 55,
+    speed: 4.1,
+    run: 4.1,
+    radius: 0.34,
+    scale: [0.9, 1.0],
+    attack: { range: 1.3, windup: 0.3, hit: 0.3, recover: 0.35, cooldown: 0.85, damage: 7 },
+    stagger: 0.3,
+    staggerTime: 0.38,
+    headMult: 3,
+    points: 130,
+    rig: { ...BASE_RIG, torsoR: 0.16, shoulder: 0.19, armR: 0.045, legR: 0.075, hunch: 0.42 },
+    gait: "run",
+  },
+  brute: {
+    id: "brute",
+    name: "Brute",
+    hp: 420,
+    speed: 1.45,
+    run: 1.45,
+    radius: 0.62,
+    scale: [1.38, 1.46],
+    attack: { range: 1.9, windup: 0.85, hit: 0.85, recover: 0.8, cooldown: 1.9, damage: 24 },
+    stagger: 0.22,
+    staggerTime: 0.5,
+    headMult: 2.2,
+    points: 320,
+    rig: { ...BASE_RIG, torsoR: 0.29, shoulder: 0.33, armR: 0.09, legR: 0.12, headR: 0.12, torsoLen: 0.66, hunch: 0.3 },
+    gait: "stomp",
+    big: true,
+  },
+  spitter: {
+    id: "spitter",
+    name: "Spitter",
+    hp: 110,
+    speed: 1.7,
+    run: 1.7,
+    radius: 0.38,
+    scale: [0.98, 1.05],
+    attack: { range: 1.35, windup: 0.5, hit: 0.5, recover: 0.5, cooldown: 1.4, damage: 9 },
+    ranged: { min: 7, max: 15, windup: 0.85, cooldown: 3.4, speed: 9.5, damage: 10, splash: 1.1 },
+    stagger: 0.3,
+    staggerTime: 0.45,
+    headMult: 3,
+    points: 190,
+    rig: { ...BASE_RIG, torsoR: 0.18, hunch: 0.12 },
+    gait: "shamble",
+  },
+  bomber: {
+    id: "bomber",
+    name: "Bomber",
+    hp: 75,
+    speed: 2.5,
+    run: 2.5,
+    radius: 0.42,
+    scale: [1.0, 1.06],
+    attack: { range: 3.0, windup: 1.15, hit: 1.15, recover: 0, cooldown: 99, damage: 0 },
+    explode: { radius: 3.6, damage: 42, deathScale: 0.7, zombieDamage: 160 },
+    stagger: 0.4,
+    staggerTime: 0.4,
+    headMult: 3,
+    points: 160,
+    rig: { ...BASE_RIG, torsoR: 0.26, hunch: 0.1 },
+    gait: "waddle",
+  },
+};
+
+/**
+ * Bosses share the zombie body/pose system at a larger scale, with their own
+ * attack controller in engine/bosses.js. `armor` multiplies body damage;
+ * `weak` lists extra weak-point spheres in spine space ([x, y along spine 0..1,
+ * z forward], radius, multiplier).
+ */
+export const BOSSES = {
+  bruteKing: {
+    id: "bruteKing",
+    boss: true,
+    name: "THE BRUTE KING",
+    title: "Armoured horde lord",
+    hp: 2600,
+    speed: 1.55,
+    run: 1.55,
+    radius: 1.0,
+    scale: [2.15, 2.15],
+    armor: 0.55,
+    headMult: 2.2,
+    weak: [],
+    stagger: 2,
+    staggerTime: 0.6,
+    points: 5000,
+    attack: { range: 3.1, windup: 0.95, hit: 0.95, recover: 0.9, cooldown: 1.2, damage: 30 },
+    rig: { ...BASE_RIG, torsoR: 0.3, shoulder: 0.34, armR: 0.09, legR: 0.12, headR: 0.12, torsoLen: 0.66, hunch: 0.26 },
+    gait: "stomp",
+    big: true,
+  },
+  beast: {
+    id: "beast",
+    boss: true,
+    name: "THE INFECTED BEAST",
+    title: "Mutated hunter",
+    hp: 2300,
+    speed: 3.0,
+    run: 3.6,
+    radius: 0.85,
+    scale: [1.6, 1.6],
+    armor: 0.85,
+    headMult: 2.2,
+    weak: [],
+    stagger: 2,
+    staggerTime: 0.5,
+    points: 6000,
+    attack: { range: 2.6, windup: 0.4, hit: 0.4, recover: 0.5, cooldown: 0.9, damage: 18 },
+    rig: { ...BASE_RIG, torsoR: 0.22, shoulder: 0.26, armR: 0.07, armLen: 0.8, legR: 0.1, headR: 0.13, hunch: 0.85 },
+    gait: "run",
+    big: true,
+  },
+  toxicGiant: {
+    id: "toxicGiant",
+    boss: true,
+    name: "THE TOXIC GIANT",
+    title: "Walking contamination",
+    hp: 3600,
+    speed: 1.15,
+    run: 1.15,
+    radius: 1.15,
+    scale: [2.4, 2.4],
+    armor: 0.8,
+    headMult: 2,
+    weak: [[0, 0.3, 0.3, 0.17, 2.0]],
+    stagger: 2,
+    staggerTime: 0.6,
+    points: 7000,
+    attack: { range: 3.3, windup: 1.1, hit: 1.1, recover: 0.95, cooldown: 1.6, damage: 26 },
+    rig: { ...BASE_RIG, torsoR: 0.33, shoulder: 0.33, armR: 0.1, legR: 0.13, headR: 0.11, torsoLen: 0.62, hunch: 0.14 },
+    gait: "stomp",
+    big: true,
+  },
+  stalker: {
+    id: "stalker",
+    boss: true,
+    name: "THE NIGHT STALKER",
+    title: "It hunts from the dark",
+    hp: 2400,
+    speed: 4.4,
+    run: 5.2,
+    radius: 0.7,
+    scale: [1.45, 1.45],
+    armor: 0.9,
+    headMult: 2.4,
+    weak: [],
+    stagger: 2,
+    staggerTime: 0.45,
+    points: 8000,
+    attack: { range: 2.3, windup: 0.35, hit: 0.35, recover: 0.45, cooldown: 0.8, damage: 16 },
+    rig: { ...BASE_RIG, torsoR: 0.16, shoulder: 0.22, armR: 0.05, armLen: 0.86, legR: 0.075, legLen: 1.0, headR: 0.12, hunch: 0.55 },
+    gait: "run",
+    big: true,
+    navClass: 1,
+  },
+  titan: {
+    id: "titan",
+    boss: true,
+    name: "THE OUTBREAK TITAN",
+    title: "Patient zero",
+    hp: 6200,
+    speed: 1.6,
+    run: 1.6,
+    radius: 1.25,
+    scale: [2.75, 2.75],
+    armor: 0.7,
+    headMult: 2,
+    weak: [[0, 0.62, 0.26, 0.15, 2.0]],
+    stagger: 2,
+    staggerTime: 0.6,
+    points: 12000,
+    attack: { range: 3.6, windup: 1.0, hit: 1.0, recover: 0.85, cooldown: 1.3, damage: 34 },
+    rig: { ...BASE_RIG, torsoR: 0.31, shoulder: 0.35, armR: 0.1, legR: 0.13, headR: 0.12, torsoLen: 0.68, hunch: 0.22 },
+    gait: "stomp",
+    big: true,
+  },
+};
+
+export function enemyDef(id) {
+  return ZOMBIES[id] || BOSSES[id];
+}
+
+export const ENEMY_INFO = {
+  walker: "Slow and relentless. Aim for the head.",
+  runner: "Sprints straight at you. Low health — don't let it close.",
+  brute: "Huge and tough. Its slam hurts — keep your distance.",
+  spitter: "Hangs back and lobs toxic bile. Strafe to dodge.",
+  bomber: "Swollen and unstable. Flashes red before it bursts — shoot it early.",
+};

@@ -1,0 +1,133 @@
+/**
+ * Arena 2 — Dark Warehouse. A 48 × 36 m storage hall (ceiling 9 m) ringed
+ * by a dark service corridor. Zombies appear in the corridor, out of sight,
+ * and come in through three loading-dock doors (north), two personnel doors
+ * (south) and side doors (east / west). Inside: racking aisles, container
+ * stacks, machinery, a forklift and overhead catwalks.
+ */
+import { wall, box, container, crates, light, deco } from "../arenaKit.js";
+
+const HANG = "#ffe0a8";
+
+export const WAREHOUSE = {
+  id: "warehouse",
+  name: "Dark Warehouse",
+  floorSurface: "concrete",
+  baseFloor: "warehouse",
+  bounds: { minX: -28, maxX: 28, minZ: -22, maxZ: 22 },
+  ceiling: { h: 9, mat: "metal" },
+  theme: {
+    fog: "#0d1014",
+    fogNear: 12,
+    fogFar: 52,
+    hemiSky: "#7f8fa8",
+    hemiGround: "#2a2622",
+    hemi: 0.55,
+    moon: "#a8c0e0",
+    moonInt: 0.35,
+    moonDir: [0.3, 1, -0.4],
+    exposure: 1.1,
+    ambience: "warehouse",
+  },
+  floors: [
+    { x: 0, z: 0, w: 48, d: 36, mat: "warehouse", tile: 6 },
+    { x: 0, z: -1, w: 14, d: 12, mat: "warehouse", stripes: true },
+    { x: 0, z: -20, w: 56, d: 4, mat: "concrete" },
+    { x: 0, z: 20, w: 56, d: 4, mat: "concrete" },
+  ],
+  solids: [
+    // Hall walls (gaps = doors).
+    wall(-24, -18, -16, -18, 9, 0.6, "metal", { color: "#4a5058" }),
+    wall(-12, -18, -2, -18, 9, 0.6, "metal", { color: "#4a5058" }),
+    wall(2, -18, 12, -18, 9, 0.6, "metal", { color: "#4a5058" }),
+    wall(16, -18, 24, -18, 9, 0.6, "metal", { color: "#4a5058" }),
+    wall(-24, 18, -10, 18, 9, 0.6, "metal", { color: "#4a5058" }),
+    wall(-7, 18, 7, 18, 9, 0.6, "metal", { color: "#4a5058" }),
+    wall(10, 18, 24, 18, 9, 0.6, "metal", { color: "#4a5058" }),
+    wall(-24, -18, -24, -3, 9, 0.6, "metal", { color: "#4a5058" }),
+    wall(-24, 3, -24, 18, 9, 0.6, "metal", { color: "#4a5058" }),
+    wall(24, -18, 24, 4, 9, 0.6, "metal", { color: "#4a5058" }),
+    wall(24, 8, 24, 18, 9, 0.6, "metal", { color: "#4a5058" }),
+    // Racking aisles (west half).
+    box("shelf", -20.2, 9, 1.3, 10, 4.6),
+    box("shelf", -15.4, 9, 1.3, 10, 4.6),
+    box("shelf", -10.6, 9, 1.3, 10, 4.6),
+    box("shelf", -19, -9.5, 1.3, 7, 4.6),
+    // Containers.
+    container(8, -10, Math.PI / 2, "#7a2d22", true, 1),
+    container(-6, -11, 0, "#2d5a7a", false, 2),
+    container(17, 6, 0, "#3a6a3a", true, 2),
+    container(-2, 10, Math.PI / 2, "#8a6a2a", false, 1),
+    container(19, -10, 0.08, "#5a5a62", false, 1),
+    // Crates + machinery + forklift.
+    crates(2.5, 1.5, 0.2, 2, 1.3),
+    crates(-8, 1, 0, 1, 1.3),
+    crates(-9.4, 1.3, 0.4, 2, 1.1),
+    crates(11, 12.5, 0, 2, 1.3),
+    crates(12.4, 13.6, 0.5, 1, 1.2),
+    box("machine", -19, -14.5, 3.2, 2.6, 3),
+    box("machine", 19.2, 12.6, 2.6, 2.8, 3.4),
+    box("forklift", 5, 12, 1.3, 2.6, 2.2, 0.4),
+    // Steel columns.
+    box("pillar", -12, -5, 0.6, 0.6, 9, 0, { color: "#5a5850" }),
+    box("pillar", 0, -6, 0.6, 0.6, 9, 0, { color: "#5a5850" }),
+    box("pillar", 12, -4, 0.6, 0.6, 9, 0, { color: "#5a5850" }),
+    box("pillar", 0, 5, 0.6, 0.6, 9, 0, { color: "#5a5850" }),
+    box("pillar", 12, 6, 0.6, 0.6, 9, 0, { color: "#5a5850" }),
+    // Service corridor clutter.
+    box("barrel", -21, -20.3, 0.7, 0.7, 1.0, 0, { color: "#2f4f2f" }),
+    box("barrel", 21.5, 20.6, 0.7, 0.7, 1.0, 0, { color: "#5a2e1d" }),
+  ],
+  decor: [
+    deco("catwalk", 0, 0, 0, { len: 30, y: 5.6 }),
+    deco("catwalk", -6, -12, Math.PI / 2, { len: 34, y: 5.6 }),
+    deco("pallet", 6, 6, 0),
+    deco("barrels", -21, 15, 0, { n: 3 }),
+    deco("barrels", 21, -15, 0, { n: 4 }),
+    deco("trash", 4, -4, 0),
+    deco("papers", -4, 3, 0),
+    deco("papers", 8, 2, 1),
+    deco("stain", -2, -2, 0, { s: 1.5 }),
+    deco("stain", 14, 0, 1, { s: 1.1 }),
+    deco("puddle", -6, 6, 0, { s: 1.3 }),
+    deco("puddle", 9, -2, 1, { s: 1 }),
+    deco("rubble", 22, 2, 0, { s: 1 }),
+    deco("warnsign", -2.6, -17.2, 0, { text: "LOADING", color: "#ffcc00" }),
+    deco("warnsign", 13.5, -17.2, 0, { text: "DOCK 3", color: "#ffcc00" }),
+    deco("pipe", 0, -17, 0, { y: 7.2, len: 46, r: 0.2 }),
+    deco("pipe", 0, 17, 0, { y: 7.6, len: 46, r: 0.16 }),
+    deco("smoke", 20, 13.5, 0, { s: 0.8 }),
+  ],
+  lights: [
+    light(-12, 6.6, -6, HANG, 1.3, 15, 0, "hang"),
+    light(0, 6.6, -6, HANG, 1.3, 15, 0.5, "hang"),
+    light(12, 6.6, -6, HANG, 1.3, 15, 0, "hang"),
+    light(-12, 6.6, 7, HANG, 1.2, 15, 0.7, "hang"),
+    light(1, 6.6, 7, HANG, 1.3, 15, 0, "hang"),
+    light(13, 6.6, 7, HANG, 1.2, 15, 0.3, "hang"),
+    light(-14, 3.6, -17.4, "#ff3a20", 1.0, 8, 0, "emergency"),
+    light(0, 3.6, -17.4, "#ffae20", 1.0, 8, 0, "warning"),
+    light(14, 3.6, -17.4, "#ff3a20", 1.0, 8, 0, "emergency"),
+    light(-8.5, 3, 17.4, "#ff3a20", 0.8, 7, 0, "emergency"),
+    light(8.5, 3, 17.4, "#ff3a20", 0.8, 7, 0, "emergency"),
+  ],
+  spawns: {
+    n1: { x: -14, z: -20.4 },
+    n2: { x: 0, z: -20.4 },
+    n3: { x: 14, z: -20.4 },
+    s1: { x: -8.5, z: 20.4 },
+    s2: { x: 8.5, z: 20.4 },
+    w1: { x: -26.2, z: 0 },
+    e1: { x: 26.2, z: 6 },
+  },
+  pickups: {
+    p1: { x: -5, z: 4 },
+    p2: { x: 6, z: 3 },
+    p3: { x: -21.5, z: -4 },
+    p4: { x: 21, z: 0 },
+    p5: { x: 0, z: 14.5 },
+    p6: { x: -13, z: -14 },
+  },
+  start: { x: 0, z: 4, yaw: 0 },
+  bossSpawn: { x: 0, z: -20.4 },
+};
