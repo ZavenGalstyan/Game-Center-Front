@@ -163,6 +163,49 @@ const DungeonKnight = lazy(() => import("./DungeonKnight/DungeonKnight.jsx"));
  *  never pays for its WebGL chunk. */
 const HighwayRacer = lazy(() => import("./HighwayRacer/HighwayRacer.jsx"));
 
+/** Night Corridor — a true-3D (Three.js/R3F) first-person horror escape:
+ *  dark corridors, a flashlight, doors, lockers and one creature; lazy so
+ *  the catalogue never pays for its WebGL chunk. */
+const NightCorridor = lazy(() => import("./NightCorridor/NightCorridor.jsx"));
+
+/** Pirate Cove — a true-3D (Three.js/R3F) pirate adventure: sail, broadside
+ *  naval combat, dock and explore islands on foot, dig up treasure across
+ *  five sea regions; lazy so the catalogue never pays for its WebGL chunk. */
+const PirateCove = lazy(() => import("./PirateCove/PirateCove.jsx"));
+
+/** Mountain Journey — a true-3D (Three.js/R3F) third-person mountain
+ *  adventure: 30 trails across five regions from forest valley to snowy
+ *  summit; lazy so the catalogue never pays for its WebGL chunk. */
+const MountainJourney = lazy(() => import("./MountainJourney/MountainJourney.jsx"));
+
+/** Kart Legends — a true-3D (Three.js/R3F) arcade kart racer: six karts,
+ *  drifting + mini-turbos, three AI rivals, five cups of six tracks; lazy so
+ *  the catalogue never pays for its WebGL chunk. */
+const KartLegends = lazy(() => import("./KartLegends/KartLegends.jsx"));
+
+/** Downhill Riders — a true-3D (Three.js/R3F) arcade downhill mountain-bike
+ *  racer: jumps, tricks, boost, three AI rivals, five regions of six trails;
+ *  lazy so the catalogue never pays for its WebGL chunk. */
+const DownhillRiders = lazy(() => import("./DownhillRiders/DownhillRiders.jsx"));
+
+/** Stunt Racer 3D — a true-3D (Three.js/R3F) arcade stunt racer: elevated sky
+ *  tracks, ramps, loops, moving obstacles, nitro and time-trial medals across
+ *  five worlds of six levels; lazy so the catalogue never pays for its WebGL
+ *  chunk. */
+const StuntRacer3D = lazy(() => import("./StuntRacer3D/StuntRacer3D.jsx"));
+
+/** Police Escape 3D — a true-3D (Three.js/R3F) arcade police-chase game: a
+ *  night city with road-graph police AI, traffic, roadblocks, nitro and 30
+ *  missions in five districts; lazy so the catalogue never pays for its WebGL
+ *  chunk. */
+const PoliceEscape3D = lazy(() => import("./PoliceEscape3D/PoliceEscape3D.jsx"));
+
+/** Zombie Outbreak — a true-3D (Three.js/R3F) first-person zombie survival
+ *  shooter: six weapons, five zombie types, five bosses and 30 wave-based
+ *  stages across five arenas; lazy so the catalogue never pays for its
+ *  WebGL chunk. */
+const ZombieOutbreak = lazy(() => import("./ZombieOutbreak/ZombieOutbreak.jsx"));
+
 /**
  * Maps a backend game's `name` to the React component that plays it.
  *
@@ -213,6 +256,14 @@ const GAME_COMPONENTS = {
   "Water Tanks": WaterTanks,
   "Dungeon Knight": DungeonKnight,
   "Highway Racer": HighwayRacer,
+  "Night Corridor": NightCorridor,
+  "Pirate Cove": PirateCove,
+  "Mountain Journey": MountainJourney,
+  "Kart Legends": KartLegends,
+  "Downhill Riders": DownhillRiders,
+  "Stunt Racer 3D": StuntRacer3D,
+  "Police Escape 3D": PoliceEscape3D,
+  "Zombie Outbreak": ZombieOutbreak,
 };
 
 /**
@@ -222,7 +273,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D", "Zombie Outbreak"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different
