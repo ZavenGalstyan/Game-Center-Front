@@ -852,6 +852,10 @@ const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " 
  * This helper returns metadata about what artwork should be shown.
  */
 const GAME_ARTWORK = {
+  "Mario Adventure 3D": {
+    gradient: "linear-gradient(135deg, #1f6fd6 0%, #3aa64a 55%, #c9241f 100%)",
+    description: "Third-person 3D platform adventure across five kingdoms",
+  },
   "Stack Tower": {
     gradient: "linear-gradient(135deg, #1a472a 0%, #2d5a3d 50%, #1a3a2a 100%)",
     description: "Colorful stacked blocks in arcade environment",
