@@ -1,0 +1,53 @@
+/**
+ * Mario Adventure 3D — the R3F canvas around one renderer. The renderer is
+ * created once per world and disposed on unmount. A fullscreen toggle only
+ * resizes the canvas — the scene, loop, listeners and audio stay as they are.
+ */
+import { useEffect, useRef } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { createGameRenderer } from "./gameRenderer.js";
+import { frameloop, glTest, Sizer, TEST } from "../utils/testHooks.js";
+import { useCanvasWatchdog } from "../utils/canvasGuard.jsx";
+
+function Driver({ W, world, settingsRef, input, mode, onEvent, onReady, autopilot }) {
+  const { scene, camera, gl } = useThree();
+  const ref = useRef(null);
+  const evRef = useRef(onEvent);
+  evRef.current = onEvent;
+  useEffect(() => {
+    const r = createGameRenderer({ scene, camera, gl, W, world, settingsRef, mode, autopilot, onEvent: (e) => evRef.current && evRef.current(e) });
+    ref.current = r;
+    if (TEST) {
+      window.__ma = window.__ma || {};
+      window.__ma[mode === "menu" ? "menuR" : "renderer"] = r;
+      if (mode === "game") Object.assign(window.__ma, { scene, camera, gl, W });
+    }
+    if (onReady) onReady(r);
+    return () => {
+      ref.current = null;
+      r.dispose();
+      if (onReady) onReady(null);
+    };
+    // bound to this world for its whole life
+  }, [W]); // eslint-disable-line react-hooks/exhaustive-deps
+  useFrame((_, dt) => {
+    const r = ref.current;
+    if (r) r.frame(dt, input);
+  });
+  return null;
+}
+
+export default function GameCanvas(props) {
+  const hostRef = useRef(null);
+  useCanvasWatchdog(hostRef);
+  const q = props.settingsRef.current.graphics;
+  const dpr = q === "high" ? [1, 2] : q === "low" ? [0.7, 1] : [1, 1.5];
+  return (
+    <div ref={hostRef} className={props.className || "ma-canvas"}>
+      <Canvas dpr={dpr} frameloop={frameloop} shadows={q !== "low"} gl={{ antialias: q !== "low", powerPreference: "high-performance", ...glTest }} camera={{ fov: 60, near: 0.1, far: 900, position: [0, 4, -8] }}>
+        <Sizer />
+        <Driver {...props} />
+      </Canvas>
+    </div>
+  );
+}
