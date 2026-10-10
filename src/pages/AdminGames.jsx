@@ -312,6 +312,7 @@ export default function AdminGames() {
           error={deleteError}
           onConfirm={confirmDelete}
           onCancel={() => setDeleting(null)}
+          className="admin-games-modal"
         />
       )}
     </div>

@@ -10,7 +10,6 @@ import { forwardRef } from "react";
  * @param {boolean} [props.disabled=false]
  * @param {boolean} [props.readOnly=false]
  * @param {boolean} [props.fullWidth=false]
- * @param {"none" | "vertical" | "horizontal" | "both"} [props.resize="vertical"]
  * @param {string} [props.className]
  */
 const Textarea = forwardRef(function Textarea(
@@ -21,7 +20,6 @@ const Textarea = forwardRef(function Textarea(
     disabled = false,
     readOnly = false,
     fullWidth = false,
-    resize = "vertical",
     className = "",
     ...rest
   },
@@ -45,7 +43,6 @@ const Textarea = forwardRef(function Textarea(
       disabled={disabled}
       readOnly={readOnly}
       aria-invalid={error}
-      style={{ resize }}
       {...rest}
     />
   );

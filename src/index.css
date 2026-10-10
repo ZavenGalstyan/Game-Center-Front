@@ -1648,6 +1648,13 @@ h3 {
   border-top: var(--border-width) solid var(--border-default);
 }
 
+/* Confirm Dialog within admin-games-modal (Delete modal) */
+.admin-games-modal .ui-confirm__actions {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: var(--border-width) solid var(--border-default);
+}
+
 /* Responsive */
 @media (max-width: 767px) {
   .admin-games__header {
@@ -1699,6 +1706,16 @@ h3 {
   }
 
   .admin-games-modal__footer .ui-btn {
+    width: 100%;
+  }
+
+  /* Confirm Dialog responsive within admin-games-modal */
+  .admin-games-modal .ui-confirm__actions {
+    flex-direction: column-reverse;
+    gap: var(--space-2);
+  }
+
+  .admin-games-modal .ui-confirm__actions .ui-btn {
     width: 100%;
   }
 }
