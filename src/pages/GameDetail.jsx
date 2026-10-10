@@ -54,6 +54,25 @@ const GAME_TAGLINES = {
   "Helix Drop": "Rotate the tower, find the perfect gaps, and guide the ball through increasingly dangerous platforms.",
   "Delivery Rush": "Delivery Rush is a fast-paced 3D delivery driving game where every second counts.",
   "Highway Racer": "DRIVE • DODGE • SURVIVE",
+  // Task 1: 10 games
+  "Dungeon Knight": "Fight monsters, collect legendary loot, and conquer dangerous dungeons.",
+  "Night Corridor": "Escape the darkness, avoid the creature, and survive the night.",
+  "Web Hero: City Defender": "Swing across the city, defeat villains, and protect innocent civilians.",
+  "Pirate Cove": "Sail the seas, discover hidden treasures, and become a legendary pirate.",
+  "Mountain Journey": "Explore breathtaking landscapes and climb toward the ultimate summit.",
+  "Zombie Outbreak": "Fight relentless zombie hordes and survive the outbreak.",
+  "Water Tanks": "Solve clever water puzzles by measuring and transferring the right amounts.",
+  "Island Conquest": "Build your army, capture islands, and conquer enemy territory.",
+  "Kart Legends": "Race against rivals, master drifting, and become a kart racing champion.",
+  // Task 2: 8 games
+  "Downhill Riders": "Race downhill, perform tricks, and conquer the mountain trails.",
+  "Stunt Racer 3D": "Master sky tracks, perform stunts, and beat the clock.",
+  "Police Escape 3D": "Evade the police, outrun patrols, and escape through the city.",
+  "Rooftop Dash": "Run, vault, and parkour across rooftops to reach your goal.",
+  "Lost Toy": "Guide a tiny toy through a giant house on an adventure home.",
+  "Color Platforms": "Match colors, time your jumps, and conquer each platform.",
+  "Mario Adventure 3D": "Jump, stomp, and power-up through vibrant 3D kingdoms.",
+  "Dimension Dash": "Shift between dimensions and dash through high-speed challenges.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -91,6 +110,26 @@ const GAME_DECORATIONS = {
   "Jump Ball": "jump-ball",
   "Helix Drop": "helix-drop",
   "Delivery Rush": "delivery-rush",
+  // Task 1: 10 games
+  "Dungeon Knight": "dungeon-knight",
+  "Night Corridor": "night-corridor",
+  "Web Hero: City Defender": "web-hero",
+  "Pirate Cove": "pirate-cove",
+  "Mountain Journey": "mountain-journey",
+  "Zombie Outbreak": "zombie-outbreak",
+  "Water Tanks": "water-tanks",
+  "Island Conquest": "island-conquest",
+  "Highway Racer": "highway-racer",
+  "Kart Legends": "kart-legends",
+  // Task 2: 8 games
+  "Downhill Riders": "downhill-riders",
+  "Stunt Racer 3D": "stunt-racer",
+  "Police Escape 3D": "police-escape",
+  "Rooftop Dash": "rooftop-dash",
+  "Lost Toy": "lost-toy",
+  "Color Platforms": "color-platforms",
+  "Mario Adventure 3D": "mario-adventure",
+  "Dimension Dash": "dimension-dash",
 };
 
 // Fallback: generate a short tagline from description if not predefined
