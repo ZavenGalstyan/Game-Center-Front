@@ -47,6 +47,16 @@ import islandConquestBg from "../images/IslandConquestbg.png";
 import dungeonKnightBg from "../images/DungeonKnightbg.png";
 import highwayRacerBg from "../images/HighwayRacerbg.png";
 import waterTanksBg from "../images/WaterTanksbg.png";
+import cityDefenderBg from "../images/CityDefenderbg.png";
+import dimensionDashBg from "../images/DimensionDashbg.png";
+import policeEscape3dBg from "../images/PoliceEscape3dbg.png";
+import stuntRacer3dBg from "../images/StuntRacer3dbg.png";
+import downhillRidersBg from "../images/DownhillRidersbg.png";
+import kartLegendsBg from "../images/KartLegendsbg.png";
+import zombieOutbreakBg from "../images/ZombieOutbreakbg.png";
+import mountainJourneyBg from "../images/MountainJourneybg.png";
+import pirateCoveBg from "../images/PirateCovebg.png";
+import nightCorridorBg from "../images/NightCorridorbg.png";
 
 /**
  * Category to icon mapping.
@@ -839,6 +849,183 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(2, 14, 23, 0.8) 64%,
       rgba(2, 14, 21, 0.87) 75%,
       rgba(1, 12, 18, 0.92) 100%)`,
+  },
+  // Sunset skyline edge to edge: the hero swings at ~9-46% (hand on the web
+  // ~33% of the height, shoe ~85%) while the bright sun, bridge and helicopter
+  // fill ~60-100% under the text, so a firm deep-navy fade into near-black
+  // that starts at his outstretched hand calms the orange glow. Wide cards crop
+  // top/bottom only; "left 55%" keeps his gloved hand and both feet in view.
+  "web hero: city defender": {
+    image: cityDefenderBg,
+    position: "left 55%",
+    shade: `linear-gradient(90deg,
+      rgba(4, 10, 28, 0) 0%,
+      rgba(4, 10, 28, 0) 40%,
+      rgba(4, 10, 28, 0.45) 48%,
+      rgba(3, 9, 24, 0.72) 57%,
+      rgba(2, 7, 20, 0.86) 70%,
+      rgba(1, 5, 14, 0.92) 100%)`,
+  },
+  // Bright sky edge to edge: Sonic runs at ~22-41% (quills ~41% of the height,
+  // shoes ~80%) past the loop (~8-41%), with his ring trail (~42-57%) and the
+  // floating islands and sun under the text, so a firm deep-navy fade into
+  // near-black starts just past his outstretched hand and lets the first rings
+  // glow through. Wide cards crop top/bottom only; "left 60%" keeps the loop's
+  // rings and his shoes in view.
+  "dimension dash": {
+    image: dimensionDashBg,
+    position: "left 60%",
+    shade: `linear-gradient(90deg,
+      rgba(4, 12, 32, 0) 0%,
+      rgba(4, 12, 32, 0) 42%,
+      rgba(4, 12, 32, 0.48) 50%,
+      rgba(3, 10, 28, 0.74) 59%,
+      rgba(2, 8, 22, 0.87) 71%,
+      rgba(1, 6, 16, 0.92) 100%)`,
+  },
+  // Night chase, already dark navy on the right: the yellow car races at
+  // ~18-53% (~51-83% of the height) with a police car at ~16-29%, the
+  // helicopter at ~5-38% along the top, and a second police car (~53-62%) and
+  // the lit overpass under the text, so a moderate navy fade that starts at the
+  // car's tail keeps the red/blue lights glowing through. Wide cards crop
+  // top/bottom only ("35%" shows the helicopter cabin and still the car tyres);
+  // "30%" keeps the car and the left police car on narrow and mobile cards.
+  "police escape 3d": {
+    image: policeEscape3dBg,
+    position: "30% 35%",
+    shade: `linear-gradient(90deg,
+      rgba(3, 8, 24, 0) 0%,
+      rgba(3, 8, 24, 0) 42%,
+      rgba(3, 8, 24, 0.42) 50%,
+      rgba(2, 7, 20, 0.68) 59%,
+      rgba(2, 6, 18, 0.82) 71%,
+      rgba(1, 5, 14, 0.88) 100%)`,
+  },
+  // Bright sunset edge to edge: the purple car and its nitro flames fill
+  // ~0-52% (~52-85% of the height), the small loop sits at ~41-48% and the
+  // giant loop (~48-72%, ~8-62% of the height), rivals and sun under the text,
+  // so a firm navy-purple fade that starts just past the car keeps the giant
+  // loop faintly visible while the sunset calms down. Wide cards crop
+  // top/bottom only (centred keeps the car's wheels); "20%" keeps the car and
+  // the whole giant loop on narrow and mobile cards.
+  "stunt racer 3d": {
+    image: stuntRacer3dBg,
+    position: "20% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 8, 32, 0) 0%,
+      rgba(12, 8, 32, 0) 44%,
+      rgba(12, 8, 32, 0.46) 51%,
+      rgba(8, 7, 26, 0.72) 60%,
+      rgba(4, 6, 20, 0.85) 72%,
+      rgba(2, 4, 14, 0.9) 100%)`,
+  },
+  // Golden-hour mountainside edge to edge: the purple rider descends at
+  // ~17-42% (helmet ~39% of the height, front wheel ~86%) past the trail sign
+  // (~5-17%), with the rivals (~44-58%) and the sunlit lake and sun under the
+  // text, so a firm forest-green fade into near-black starts just past the
+  // rider and lets the rivals show faintly. Wide cards crop top/bottom only,
+  // so "60%" keeps the helmet and the front wheel; "15%" keeps the sign and
+  // the rider on narrow and mobile cards.
+  "downhill riders": {
+    image: downhillRidersBg,
+    position: "15% 60%",
+    shade: `linear-gradient(90deg,
+      rgba(4, 18, 16, 0) 0%,
+      rgba(4, 18, 16, 0) 44%,
+      rgba(4, 18, 16, 0.46) 51%,
+      rgba(3, 16, 16, 0.72) 60%,
+      rgba(2, 12, 14, 0.85) 72%,
+      rgba(1, 8, 10, 0.9) 100%)`,
+  },
+  // Sunny tropical circuit edge to edge: the red kart races at ~6-46% (helmet
+  // ~45% of the height, wheels ~90%) with the green kart at ~42-50%, while the
+  // painted "KART LEGENDS" banner (~33-60%, ~32-45% of the height), blue kart,
+  // beach and sun sit under the text. The dark-teal fade starts a little early
+  // to push the painted banner back behind the real title. Wide cards crop
+  // top/bottom only, so "70%" keeps the kart's wheels; "20%" keeps the red
+  // kart on narrow and mobile cards.
+  "kart legends": {
+    image: kartLegendsBg,
+    position: "20% 70%",
+    shade: `linear-gradient(90deg,
+      rgba(3, 16, 24, 0) 0%,
+      rgba(3, 16, 24, 0) 38%,
+      rgba(3, 16, 24, 0.46) 47%,
+      rgba(3, 14, 22, 0.72) 57%,
+      rgba(2, 11, 16, 0.85) 70%,
+      rgba(1, 8, 11, 0.9) 100%)`,
+  },
+  // Burning night street, already dark: the survivor aims at ~9-40% (head ~36%
+  // of the height, muzzle flash ~47%) beside the fires on the left, while the
+  // lead zombie (~46-63%), horde, watchtower and striped barrier sit under the
+  // text, so a moderate navy-black fade that starts at the muzzle flash keeps
+  // the zombies' glowing eyes and the firelight showing through. Wide cards
+  // crop top/bottom only (centred keeps his head and rifle); "25%" keeps the
+  // survivor and the lead zombie on narrow and mobile cards.
+  "zombie outbreak": {
+    image: zombieOutbreakBg,
+    position: "25% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 6, 16, 0) 0%,
+      rgba(4, 6, 16, 0) 42%,
+      rgba(4, 6, 16, 0.42) 50%,
+      rgba(3, 5, 14, 0.68) 59%,
+      rgba(2, 4, 12, 0.82) 71%,
+      rgba(1, 3, 9, 0.88) 100%)`,
+  },
+  // Sunrise valley with its own dark right side (~75-100%): the hiker stands
+  // at ~15-23% (hat ~47% of the height, boots ~79%) by the trail sign, while
+  // the waterfall (~50-56%), snowy peak (~50-70%) and bridge sit under the
+  // text, so a lighter forest-green-navy fade (the art does the rest) keeps
+  // the waterfall and peak showing through. Wide cards crop top/bottom only;
+  // "40%" keeps the peak's tip and the hiker's boots. The left anchor keeps
+  // the hiker and waterfall on narrow and mobile cards.
+  "mountain journey": {
+    image: mountainJourneyBg,
+    position: "left 40%",
+    shade: `linear-gradient(90deg,
+      rgba(4, 16, 18, 0) 0%,
+      rgba(4, 16, 18, 0) 44%,
+      rgba(4, 16, 20, 0.38) 51%,
+      rgba(3, 14, 18, 0.62) 60%,
+      rgba(2, 11, 15, 0.76) 72%,
+      rgba(1, 8, 12, 0.8) 100%)`,
+  },
+  // Golden-hour cove with its own dark right side (~72-100%): the painted logo
+  // fills ~11-43% (~8-38% of the height), the pirate stands on the dock at
+  // ~15-28% (hat ~43%, boots ~92%) and the ship (~48-60%) sits under the text,
+  // so a lighter navy fade (the art does the rest) keeps the ship and sunset
+  // showing through. Wide cards show only ~72% of the height, too little for
+  // the logo and his boots together: "30%" keeps the logo whole and him down
+  // past the knees. The left anchor keeps logo, pirate and ship on mobile.
+  "pirate cove": {
+    image: pirateCoveBg,
+    position: "left 30%",
+    shade: `linear-gradient(90deg,
+      rgba(3, 10, 24, 0) 0%,
+      rgba(3, 10, 24, 0) 44%,
+      rgba(3, 10, 24, 0.38) 51%,
+      rgba(2, 8, 20, 0.62) 60%,
+      rgba(2, 6, 16, 0.76) 72%,
+      rgba(1, 4, 12, 0.8) 100%)`,
+  },
+  // Dark hospital hallway: the painted logo fills ~6-47% (~24-62% of the
+  // height) on the shadowed left wall, while the extinguisher (~50-53%), the
+  // flickering ceiling lights and the corridor's vanishing point (~63-67%) and
+  // the lit right wall sit under the text, so a dark-teal fade into near-black
+  // that starts at the logo's last letters calms the lights but leaves the
+  // corridor's depth faintly visible. Centred keeps the whole logo on wide
+  // cards; the left anchor keeps it on narrow and mobile cards.
+  "night corridor": {
+    image: nightCorridorBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(2, 12, 14, 0) 0%,
+      rgba(2, 12, 14, 0) 45%,
+      rgba(2, 12, 14, 0.42) 52%,
+      rgba(2, 10, 12, 0.68) 61%,
+      rgba(1, 8, 10, 0.82) 73%,
+      rgba(1, 5, 7, 0.88) 100%)`,
   },
 };
 
