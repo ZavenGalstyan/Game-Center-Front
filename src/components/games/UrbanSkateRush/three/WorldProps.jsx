@@ -602,7 +602,6 @@ export function LampPostWithBanner({ position, bannerText = "", bannerColor = 0x
         <boxGeometry args={[0.4, 0.3, 0.25]} />
         <meshStandardMaterial color={0x222222} />
       </mesh>
-      <pointLight position={[0.7, 4.5, 0]} color={0xfff5cc} intensity={0.4} distance={12} />
 
       {/* Banner */}
       <mesh position={[0.3, 3.5, 0]}>

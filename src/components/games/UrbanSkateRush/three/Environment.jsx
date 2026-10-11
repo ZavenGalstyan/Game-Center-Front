@@ -7,6 +7,12 @@ import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
+// Deterministic pseudo-random so re-renders never re-roll scenery.
+function rand(n) {
+  const x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+  return x - Math.floor(x);
+}
+
 // ============================================================
 // Realistic Sky Dome with Atmospheric Scattering
 // ============================================================
@@ -85,12 +91,13 @@ export function Sky({ topColor = 0x87ceeb, bottomColor = 0xffffff, sunPosition =
 
   return (
     <mesh>
-      <sphereGeometry args={[500, 64, 32]} />
+      <sphereGeometry args={[500, 32, 16]} />
       <shaderMaterial
         uniforms={uniforms}
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         side={THREE.BackSide}
+        depthWrite={false}
       />
     </mesh>
   );
@@ -113,32 +120,14 @@ export function Sun({ position = [50, 80, 30], color = 0xfff5e6, intensity = 1.2
     <group position={position}>
       {/* Sun core */}
       <mesh>
-        <sphereGeometry args={[4, 32, 32]} />
-        <meshBasicMaterial color={0xffffff} />
+        <sphereGeometry args={[4, 12, 12]} />
+        <meshBasicMaterial color={0xffffff} fog={false} />
       </mesh>
 
-      {/* Inner glow */}
-      <mesh>
-        <sphereGeometry args={[5.5, 32, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.9} />
-      </mesh>
-
-      {/* Outer corona */}
+      {/* Single soft halo (perf: was 4 stacked transparent spheres) */}
       <mesh ref={coronaRef}>
-        <sphereGeometry args={[8, 32, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.4} />
-      </mesh>
-
-      {/* Halo */}
-      <mesh>
-        <sphereGeometry args={[12, 32, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.15} />
-      </mesh>
-
-      {/* Atmospheric haze ring */}
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[10, 20, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.1} side={THREE.DoubleSide} />
+        <sphereGeometry args={[8, 12, 12]} />
+        <meshBasicMaterial color={color} transparent opacity={0.35} depthWrite={false} fog={false} />
       </mesh>
     </group>
   );
@@ -155,11 +144,11 @@ export function Clouds({ count = 15, theme = "downtown" }) {
     const arr = [];
     for (let i = 0; i < count; i++) {
       arr.push({
-        x: (Math.random() - 0.5) * 400,
-        y: 80 + Math.random() * 40,
-        z: (Math.random() - 0.5) * 400,
-        scale: 5 + Math.random() * 10,
-        opacity: 0.3 + Math.random() * 0.3,
+        x: (rand(i * 4 + 1) - 0.5) * 400,
+        y: 80 + rand(i * 4 + 2) * 40,
+        z: (rand(i * 4 + 3) - 0.5) * 400,
+        scale: 5 + rand(i * 4 + 4) * 10,
+        opacity: 0.3 + rand(i * 4 + 5) * 0.3,
       });
     }
     return arr;
@@ -169,8 +158,8 @@ export function Clouds({ count = 15, theme = "downtown" }) {
     <group>
       {clouds.map((cloud, i) => (
         <mesh key={i} position={[cloud.x, cloud.y, cloud.z]}>
-          <sphereGeometry args={[cloud.scale, 8, 8]} />
-          <meshBasicMaterial color={0xffffff} transparent opacity={cloud.opacity} />
+          <sphereGeometry args={[cloud.scale, 6, 5]} />
+          <meshBasicMaterial color={0xffffff} transparent opacity={cloud.opacity} depthWrite={false} />
         </mesh>
       ))}
     </group>
@@ -246,54 +235,6 @@ export function EnhancedGround({ grounds, districtTheme = "downtown" }) {
               />
             </mesh>
 
-            {/* Asphalt texture overlay for roads */}
-            {!isSidewalk && !isRamp && !isBeach && !isPier && width > 3 && depth > 3 && (
-              <mesh
-                position={[(g.minX + g.maxX) / 2, g.y + 0.001, (g.minZ + g.maxZ) / 2]}
-                rotation={[-Math.PI / 2, 0, 0]}
-              >
-                <planeGeometry args={[width - 0.1, depth - 0.1]} />
-                <meshStandardMaterial
-                  color={mat.color}
-                  roughness={0.95}
-                  metalness={0.02}
-                  transparent
-                  opacity={0.3}
-                />
-              </mesh>
-            )}
-
-            {/* Road center line markings */}
-            {!isSidewalk && !isRamp && !isBeach && !isPier && width > 8 && (
-              <group>
-                {/* Center dashed line */}
-                {Array.from({ length: Math.floor(depth / 4) }).map((_, j) => (
-                  <mesh
-                    key={j}
-                    position={[(g.minX + g.maxX) / 2, g.y + 0.005, g.minZ + 2 + j * 4]}
-                  >
-                    <boxGeometry args={[0.12, 0.002, 2]} />
-                    <meshStandardMaterial color={materials.marking} emissive={materials.marking} emissiveIntensity={districtTheme === "neon" ? 0.3 : 0} />
-                  </mesh>
-                ))}
-              </group>
-            )}
-
-            {/* Crosswalks at intersections */}
-            {g.id?.includes("street") && width > 5 && depth > 5 && (
-              <group>
-                {Array.from({ length: 5 }).map((_, j) => (
-                  <mesh
-                    key={j}
-                    position={[(g.minX + g.maxX) / 2 - 1.5 + j * 0.75, g.y + 0.005, g.maxZ - 1]}
-                  >
-                    <boxGeometry args={[0.4, 0.002, 1.5]} />
-                    <meshStandardMaterial color={0xffffff} />
-                  </mesh>
-                ))}
-              </group>
-            )}
-
             {/* Sidewalk curb */}
             {isSidewalk && (
               <mesh
@@ -304,23 +245,6 @@ export function EnhancedGround({ grounds, districtTheme = "downtown" }) {
               </mesh>
             )}
 
-            {/* Wooden planks for pier */}
-            {isPier && (
-              <group>
-                {Array.from({ length: Math.floor(depth / 0.3) }).map((_, j) => (
-                  <mesh
-                    key={j}
-                    position={[(g.minX + g.maxX) / 2, g.y + 0.002, g.minZ + 0.15 + j * 0.3]}
-                  >
-                    <boxGeometry args={[width - 0.2, 0.01, 0.25]} />
-                    <meshStandardMaterial
-                      color={j % 2 === 0 ? 0x5a4a3a : 0x4a3a2a}
-                      roughness={0.95}
-                    />
-                  </mesh>
-                ))}
-              </group>
-            )}
           </group>
         );
       })}
@@ -421,21 +345,12 @@ export function StreetLight({ position, color = 0xfff5cc, on = true }) {
         <meshStandardMaterial color={0x333333} />
       </mesh>
 
-      {/* Light glow */}
+      {/* Light bulb (emissive only — real point lights were the main lag source) */}
       {on && (
-        <>
-          <pointLight
-            position={[0.7, 4.5, 0]}
-            color={color}
-            intensity={0.5}
-            distance={15}
-            decay={2}
-          />
-          <mesh position={[0.7, 4.55, 0]}>
-            <sphereGeometry args={[0.1, 8, 8]} />
-            <meshBasicMaterial color={color} />
-          </mesh>
-        </>
+        <mesh position={[0.7, 4.55, 0]}>
+          <sphereGeometry args={[0.1, 6, 6]} />
+          <meshBasicMaterial color={color} />
+        </mesh>
       )}
     </group>
   );
@@ -695,8 +610,6 @@ export function NeonSign({ position, text = "SKATE", color = 0xff00ff, rotation 
         <boxGeometry args={[text.length * 0.5 + 0.4, 1, 0.1]} />
         <meshStandardMaterial color={0x111111} />
       </mesh>
-      {/* Neon glow effect */}
-      <pointLight position={[0, 0, 0.5]} color={color} intensity={0.5} distance={5} />
       {/* Text representation (simplified as glowing bar) */}
       <mesh>
         <boxGeometry args={[text.length * 0.4, 0.3, 0.05]} />
@@ -722,13 +635,6 @@ export function ShippingContainer({ position, rotation = 0, color = 0x8b4513 }) 
         <planeGeometry args={[2.3, 2.4]} />
         <meshStandardMaterial color={0x333333} roughness={0.9} />
       </mesh>
-      {/* Corrugation lines */}
-      {Array.from({ length: 8 }).map((_, i) => (
-        <mesh key={i} position={[1.26, 1.3, -2.5 + i * 0.7]}>
-          <boxGeometry args={[0.02, 2.4, 0.5]} />
-          <meshStandardMaterial color={color} roughness={0.7} />
-        </mesh>
-      ))}
     </group>
   );
 }
