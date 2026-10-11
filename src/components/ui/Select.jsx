@@ -193,11 +193,17 @@ const Select = forwardRef(function Select(
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen, closeDropdown]);
 
-  // Close on window scroll/resize
+  // Close on window scroll/resize (but not when scrolling inside dropdown)
   useEffect(() => {
     if (!isOpen) return;
 
-    const handleScroll = () => closeDropdown();
+    const handleScroll = (e) => {
+      // Don't close if scrolling inside the dropdown list
+      if (listRef.current && listRef.current.contains(e.target)) {
+        return;
+      }
+      closeDropdown();
+    };
     const handleResize = () => closeDropdown();
 
     window.addEventListener("scroll", handleScroll, true);
