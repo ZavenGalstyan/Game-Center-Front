@@ -3,7 +3,7 @@
  *
  * Main gameplay screen with 3D rendering, physics, and HUD.
  */
-import { useCallback, useEffect, useRef, useState, useMemo } from "react";
+import { memo, useCallback, useEffect, useRef, useState, useMemo } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -77,11 +77,11 @@ function getLevelData(mission, freeDistrictId) {
 // 3D Scene Components
 // ============================================================
 
-function Ground({ grounds, theme = "downtown" }) {
+const Ground = memo(function Ground({ grounds, theme = "downtown" }) {
   return <EnhancedGround grounds={grounds} districtTheme={theme} />;
-}
+});
 
-function Obstacles({ obstacles, theme = "downtown" }) {
+const Obstacles = memo(function Obstacles({ obstacles, theme = "downtown" }) {
   const themeColors = {
     downtown: { building: "#1a2a3a", default: "#444" },
     industrial: { building: "#2a2a2a", default: "#3a3a3a" },
@@ -117,8 +117,6 @@ function Obstacles({ obstacles, theme = "downtown" }) {
           color = "#4a4a4a";
         }
 
-        // Special handling for tall buildings - add windows
-        const isBuilding = height > 8 && (o.id?.includes("building") || o.id?.includes("tower") || o.id?.includes("warehouse"));
 
         return (
           <group key={o.id || i}>
@@ -135,43 +133,14 @@ function Obstacles({ obstacles, theme = "downtown" }) {
               <meshStandardMaterial color={color} roughness={0.7} metalness={0.1} />
             </mesh>
 
-            {/* Add windows for tall buildings */}
-            {isBuilding && (
-              <group>
-                {Array.from({ length: Math.floor(height / 3) }).map((_, row) =>
-                  Array.from({ length: Math.floor(Math.max(width, depth) / 2.5) }).map((_, col) => {
-                    const windowX = (o.minX + o.maxX) / 2 + (col - Math.floor(Math.max(width, depth) / 5)) * 2;
-                    const windowY = o.minY + (row + 1) * 2.5;
-                    const windowZ = (o.minZ + o.maxZ) / 2 + depth / 2 + 0.01;
-                    const lit = Math.random() > 0.4;
-
-                    if (windowY > o.maxY - 1) return null;
-
-                    return (
-                      <mesh
-                        key={`${row}-${col}`}
-                        position={[windowX, windowY, windowZ]}
-                      >
-                        <planeGeometry args={[0.8, 1.2]} />
-                        <meshBasicMaterial
-                          color={lit ? (theme === "neon" ? 0x00ffff : 0xfff5cc) : 0x1a1a2a}
-                          transparent
-                          opacity={lit ? 0.9 : 0.4}
-                        />
-                      </mesh>
-                    );
-                  })
-                )}
-              </group>
-            )}
           </group>
         );
       })}
     </group>
   );
-}
+});
 
-function Rails({ rails }) {
+const Rails = memo(function Rails({ rails }) {
   return (
     <group>
       {rails.map((r, i) => {
@@ -203,7 +172,7 @@ function Rails({ rails }) {
       })}
     </group>
   );
-}
+});
 
 function Tokens({ tokens, collected }) {
   const refs = useRef([]);
@@ -407,7 +376,7 @@ function Skater({ player, board }) {
   );
 }
 
-function Environment({ env }) {
+const Environment = memo(function Environment({ env, shadows }) {
   const isNeon = env.theme === "neon";
   const isMega = env.theme === "mega";
   const isBeach = env.theme === "beach";
@@ -452,8 +421,8 @@ function Environment({ env }) {
         position={env.sunPosition}
         intensity={env.sunIntensity}
         color={env.sunColor}
-        castShadow
-        shadow-mapSize={[4096, 4096]}
+        castShadow={shadows}
+        shadow-mapSize={[1024, 1024]}
         shadow-camera-far={200}
         shadow-camera-left={-60}
         shadow-camera-right={60}
@@ -480,38 +449,28 @@ function Environment({ env }) {
       {/* Neon theme colored lights */}
       {isNeon && (
         <>
-          <pointLight position={[0, 15, 0]} color={0xff00ff} intensity={0.4} distance={60} decay={2} />
-          <pointLight position={[-35, 12, -35]} color={0x00ffff} intensity={0.3} distance={50} decay={2} />
-          <pointLight position={[35, 12, 35]} color={0xff6b35} intensity={0.3} distance={50} decay={2} />
-          <pointLight position={[-35, 12, 35]} color={0x00ff88} intensity={0.25} distance={45} decay={2} />
-          <pointLight position={[35, 12, -35]} color={0xff0088} intensity={0.25} distance={45} decay={2} />
-          {/* Ground reflection lights */}
-          <rectAreaLight position={[0, 0.5, 0]} width={30} height={30} color={0x6600ff} intensity={0.3} rotation={[-Math.PI / 2, 0, 0]} />
+          <hemisphereLight color={0xff44ff} groundColor={0x00aaff} intensity={0.35} />
         </>
       )}
 
       {/* Stadium lights for mega theme */}
       {isMega && (
         <>
-          <spotLight position={[-80, 35, -80]} angle={0.6} penumbra={0.5} color={0xffffff} intensity={1.5} distance={150} castShadow />
-          <spotLight position={[80, 35, -80]} angle={0.6} penumbra={0.5} color={0xffffff} intensity={1.5} distance={150} castShadow />
-          <spotLight position={[-80, 35, 80]} angle={0.6} penumbra={0.5} color={0xffffff} intensity={1.5} distance={150} castShadow />
-          <spotLight position={[80, 35, 80]} angle={0.6} penumbra={0.5} color={0xffffff} intensity={1.5} distance={150} castShadow />
+          <directionalLight position={[0, 40, 0]} intensity={0.6} color={0xffffff} />
         </>
       )}
 
       {/* Beach theme warm fill light */}
       {isBeach && (
         <>
-          <pointLight position={[0, 20, -30]} color={0xfff0d0} intensity={0.3} distance={80} />
           <hemisphereLight color={0x87ceeb} groundColor={0xe8d4b0} intensity={0.3} />
         </>
       )}
     </>
   );
-}
+});
 
-function Props({ props, theme = "downtown" }) {
+const Props = memo(function Props({ props, theme = "downtown" }) {
   if (!props || props.length === 0) return null;
 
   return (
@@ -697,7 +656,7 @@ function Props({ props, theme = "downtown" }) {
       })}
     </group>
   );
-}
+});
 
 function CameraController({ camera, player, input, settings }) {
   const { camera: threeCamera } = useThree();
@@ -729,6 +688,9 @@ function GameLogic({
   settings,
 }) {
   const lastFrameTime = useRef(performance.now());
+  // Batched HUD clock: re-rendering the whole screen every frame was a big
+  // lag source, so timers accumulate here and flush ~10x per second.
+  const hudAccum = useRef(0);
 
   useFrame(() => {
     if (gameState.paused || gameState.complete) return;
@@ -855,19 +817,17 @@ function GameLogic({
       }
     });
 
-    // Update timer
-    if (mission?.requirements?.timeLimit) {
+    // Update timer + trick display time (batched)
+    hudAccum.current += dt;
+    // HUD speed readout also refreshes on this tick
+    if (hudAccum.current >= 0.1) {
+      const step = hudAccum.current;
+      hudAccum.current = 0;
+      const hasLimit = !!mission?.requirements?.timeLimit;
       setGameState((s) => ({
         ...s,
-        timeRemaining: Math.max(0, s.timeRemaining - dt),
-      }));
-    }
-
-    // Update trick display time
-    if (gameState.trickDisplayTime > 0) {
-      setGameState((s) => ({
-        ...s,
-        trickDisplayTime: Math.max(0, s.trickDisplayTime - dt),
+        timeRemaining: hasLimit ? Math.max(0, s.timeRemaining - step) : s.timeRemaining,
+        trickDisplayTime: Math.max(0, s.trickDisplayTime - step),
       }));
     }
 
@@ -1087,11 +1047,11 @@ export default function GameScreen({
       <div ref={canvasRef} className="usr-canvas">
         <Canvas
           camera={{ position: [0, 5, -10], fov: 60 }}
-          shadows
-          dpr={settings.graphics === "low" ? 1 : settings.graphics === "medium" ? 1.5 : 2}
-          gl={{ antialias: settings.graphics !== "low" }}
+          shadows={settings.graphics === "high"}
+          dpr={settings.graphics === "low" ? 0.85 : settings.graphics === "medium" ? 1 : [1, 1.25]}
+          gl={{ antialias: settings.graphics !== "low", powerPreference: "high-performance" }}
         >
-          <Environment env={levelData.environment} />
+          <Environment env={levelData.environment} shadows={settings.graphics === "high"} />
 
           <Ground grounds={levelData.grounds} theme={levelData.environment.theme} />
           <Obstacles obstacles={levelData.obstacles} theme={levelData.environment.theme} />
