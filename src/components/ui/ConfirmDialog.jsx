@@ -13,6 +13,8 @@ import Alert from "./Alert.jsx";
  * @param {string} [props.cancelLabel="Cancel"]
  * @param {boolean} [props.busy=false]
  * @param {string|null} [props.error=null]
+ * @param {string} [props.className]
+ * @param {"sm" | "md" | "lg"} [props.size="md"]
  * @param {function} props.onConfirm
  * @param {function} props.onCancel
  */
@@ -24,13 +26,15 @@ export default function ConfirmDialog({
   cancelLabel = "Cancel",
   busy = false,
   error = null,
+  className = "",
+  size = "md",
   onConfirm,
   onCancel,
 }) {
   const confirmVariant = variant === "danger" ? "danger" : "primary";
 
   return (
-    <Modal title={title} onClose={onCancel} size="sm" closeOnOverlayClick={!busy}>
+    <Modal title={title} onClose={onCancel} size={size} closeOnOverlayClick={!busy} className={className}>
       <div className="ui-confirm">
         {message && <p className="ui-confirm__message">{message}</p>}
         {error && <Alert variant="error">{error}</Alert>}

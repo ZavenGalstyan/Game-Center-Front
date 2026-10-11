@@ -1648,6 +1648,13 @@ h3 {
   border-top: var(--border-width) solid var(--border-default);
 }
 
+/* Confirm Dialog within admin-games-modal (Delete modal) */
+.admin-games-modal .ui-confirm__actions {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: var(--border-width) solid var(--border-default);
+}
+
 /* Responsive */
 @media (max-width: 767px) {
   .admin-games__header {
@@ -1699,6 +1706,16 @@ h3 {
   }
 
   .admin-games-modal__footer .ui-btn {
+    width: 100%;
+  }
+
+  /* Confirm Dialog responsive within admin-games-modal */
+  .admin-games-modal .ui-confirm__actions {
+    flex-direction: column-reverse;
+    gap: var(--space-2);
+  }
+
+  .admin-games-modal .ui-confirm__actions .ui-btn {
     width: 100%;
   }
 }
@@ -3012,6 +3029,464 @@ h3 {
   z-index: -1;
 }
 
+/* ============================================================================
+   TASK 1: 10 GAME DECORATIONS
+   ============================================================================ */
+
+/* Dungeon Knight: sword crossing shield with metallic highlights */
+.game-page__about[data-decoration="dungeon-knight"]::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  right: -35px;
+  bottom: -55px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Shield shape --%3E%3Cpath d='M50 15 L80 28 L80 55 Q80 80 50 95 Q20 80 20 55 L20 28 Z' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='2.5'/%3E%3Cpath d='M50 22 L73 32 L73 53 Q73 73 50 86 Q27 73 27 53 L27 32 Z' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='1.5'/%3E%3C!-- Sword vertical --%3E%3Cline x1='50' y1='5' x2='50' y2='70' stroke='rgba(0,232,143,0.055)' stroke-width='3' stroke-linecap='round'/%3E%3C!-- Sword guard --%3E%3Cline x1='38' y1='32' x2='62' y2='32' stroke='rgba(0,232,143,0.05)' stroke-width='3' stroke-linecap='round'/%3E%3C!-- Sword handle --%3E%3Crect x='47' y='70' width='6' height='12' rx='1' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Sword pommel --%3E%3Ccircle cx='50' cy='85' r='4' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Shield emblem cross --%3E%3Cline x1='50' y1='40' x2='50' y2='65' stroke='rgba(0,232,143,0.025)' stroke-width='2'/%3E%3Cline x1='38' y1='52' x2='62' y2='52' stroke='rgba(0,232,143,0.025)' stroke-width='2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="dungeon-knight"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(ellipse 65% 55% at 65% 65%, rgba(212, 175, 55, 0.03) 0%, rgba(0, 232, 143, 0.02) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Night Corridor: mysterious dark corridor with door, perspective lines, and eerie lighting */
+.game-page__about[data-decoration="night-corridor"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -30px;
+  bottom: -45px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='ncFloor' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,143,0.06)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,232,143,0.02)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Outer corridor walls with perspective --%3E%3Cpath d='M20 98 L42 18 L58 18 L80 98 Z' fill='none' stroke='rgba(0,232,143,0.07)' stroke-width='2.5'/%3E%3C!-- Inner corridor walls --%3E%3Cpath d='M28 98 L44 25 L56 25 L72 98 Z' fill='rgba(0,232,143,0.025)' stroke='rgba(0,232,143,0.055)' stroke-width='1.5'/%3E%3C!-- Floor with perspective lines --%3E%3Cline x1='30' y1='85' x2='70' y2='85' stroke='rgba(0,232,143,0.045)' stroke-width='1'/%3E%3Cline x1='35' y1='70' x2='65' y2='70' stroke='rgba(0,232,143,0.04)' stroke-width='0.8'/%3E%3Cline x1='40' y1='55' x2='60' y2='55' stroke='rgba(0,232,143,0.035)' stroke-width='0.6'/%3E%3Cline x1='43' y1='42' x2='57' y2='42' stroke='rgba(0,232,143,0.03)' stroke-width='0.5'/%3E%3C!-- Door at the end of corridor --%3E%3Crect x='45' y='22' width='10' height='18' rx='0.5' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.08)' stroke-width='1.5'/%3E%3C!-- Door handle --%3E%3Ccircle cx='53' cy='32' r='1' fill='rgba(0,232,143,0.1)'/%3E%3C!-- Door frame glow --%3E%3Crect x='44' y='21' width='12' height='20' rx='1' fill='none' stroke='rgba(0,232,143,0.06)' stroke-width='0.8'/%3E%3C!-- Emergency light above door --%3E%3Crect x='47' y='15' width='6' height='3' rx='0.5' fill='rgba(0,232,143,0.1)'/%3E%3Cline x1='50' y1='18' x2='50' y2='21' stroke='rgba(0,232,143,0.08)' stroke-width='2'/%3E%3C!-- Light cone from above --%3E%3Cpath d='M47 18 L44 35 L56 35 L53 18 Z' fill='rgba(0,232,143,0.03)'/%3E%3C!-- Wall pipes/details left --%3E%3Cline x1='32' y1='50' x2='38' y2='30' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3Cline x1='30' y1='65' x2='34' y2='45' stroke='rgba(0,232,143,0.04)' stroke-width='1'/%3E%3C!-- Wall pipes/details right --%3E%3Cline x1='68' y1='50' x2='62' y2='30' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3Cline x1='70' y1='65' x2='66' y2='45' stroke='rgba(0,232,143,0.04)' stroke-width='1'/%3E%3C!-- Flickering light effect --%3E%3Ccircle cx='50' cy='12' r='4' fill='rgba(0,232,143,0.08)'/%3E%3Ccircle cx='50' cy='12' r='8' fill='rgba(0,232,143,0.03)'/%3E%3C!-- Shadow creature hint --%3E%3Cellipse cx='50' cy='90' rx='12' ry='4' fill='rgba(0,232,143,0.05)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="night-corridor"]::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  bottom: -60px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(ellipse 55% 45% at 55% 45%, rgba(0, 232, 143, 0.05) 0%, rgba(0, 180, 120, 0.025) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Web Hero: City Defender: detailed spiderweb with prominent city skyline */
+.game-page__about[data-decoration="web-hero"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- City skyline with more detail --%3E%3Cpath d='M8 98 L8 78 L12 78 L12 72 L15 72 L15 78 L20 78 L20 62 L26 62 L26 68 L30 68 L30 55 L34 55 L34 48 L38 48 L38 55 L44 55 L44 42 L50 42 L50 52 L56 52 L56 45 L62 45 L62 58 L68 58 L68 50 L72 50 L72 58 L78 58 L78 68 L84 68 L84 75 L90 75 L90 82 L95 82 L95 98 Z' fill='rgba(0,232,143,0.045)' stroke='rgba(0,232,143,0.07)' stroke-width='1.5'/%3E%3C!-- Building windows --%3E%3Crect x='32' y='56' width='3' height='4' fill='rgba(0,232,143,0.06)'/%3E%3Crect x='46' y='48' width='3' height='4' fill='rgba(0,232,143,0.06)'/%3E%3Crect x='46' y='55' width='3' height='4' fill='rgba(0,232,143,0.05)'/%3E%3Crect x='58' y='50' width='3' height='4' fill='rgba(0,232,143,0.06)'/%3E%3Crect x='70' y='54' width='3' height='4' fill='rgba(0,232,143,0.05)'/%3E%3Crect x='80' y='72' width='3' height='4' fill='rgba(0,232,143,0.05)'/%3E%3C!-- Spiderweb - center point --%3E%3Ccircle cx='50' cy='28' r='2.5' fill='rgba(0,200,220,0.12)'/%3E%3C!-- Web radial lines (more prominent) --%3E%3Cline x1='50' y1='28' x2='50' y2='5' stroke='rgba(0,200,220,0.09)' stroke-width='1.2'/%3E%3Cline x1='50' y1='28' x2='75' y2='10' stroke='rgba(0,200,220,0.08)' stroke-width='1.2'/%3E%3Cline x1='50' y1='28' x2='88' y2='28' stroke='rgba(0,200,220,0.09)' stroke-width='1.2'/%3E%3Cline x1='50' y1='28' x2='75' y2='48' stroke='rgba(0,200,220,0.07)' stroke-width='1.1'/%3E%3Cline x1='50' y1='28' x2='25' y2='10' stroke='rgba(0,200,220,0.08)' stroke-width='1.2'/%3E%3Cline x1='50' y1='28' x2='12' y2='28' stroke='rgba(0,200,220,0.09)' stroke-width='1.2'/%3E%3Cline x1='50' y1='28' x2='25' y2='48' stroke='rgba(0,200,220,0.07)' stroke-width='1.1'/%3E%3Cline x1='50' y1='28' x2='50' y2='52' stroke='rgba(0,200,220,0.06)' stroke-width='1'/%3E%3C!-- Web spiral rings --%3E%3Ccircle cx='50' cy='28' r='8' fill='none' stroke='rgba(0,200,220,0.08)' stroke-width='1'/%3E%3Ccircle cx='50' cy='28' r='15' fill='none' stroke='rgba(0,200,220,0.065)' stroke-width='0.9'/%3E%3Ccircle cx='50' cy='28' r='22' fill='none' stroke='rgba(0,200,220,0.05)' stroke-width='0.8'/%3E%3Ccircle cx='50' cy='28' r='30' fill='none' stroke='rgba(0,200,220,0.04)' stroke-width='0.7'/%3E%3C!-- Web attachment points --%3E%3Ccircle cx='50' cy='5' r='1.5' fill='rgba(0,200,220,0.08)'/%3E%3Ccircle cx='88' cy='28' r='1.5' fill='rgba(0,200,220,0.08)'/%3E%3Ccircle cx='12' cy='28' r='1.5' fill='rgba(0,200,220,0.08)'/%3E%3C!-- Hero swing line --%3E%3Cpath d='M50 28 Q60 35 68 42' fill='none' stroke='rgba(0,200,220,0.1)' stroke-width='1.5' stroke-dasharray='3,2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="web-hero"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 60% 50% at 55% 40%, rgba(0, 200, 220, 0.045) 0%, rgba(0, 232, 143, 0.02) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Pirate Cove: detailed pirate ship with sails, flag, and ocean waves */
+.game-page__about[data-decoration="pirate-cove"]::before {
+  content: "";
+  width: 350px;
+  height: 350px;
+  right: -40px;
+  bottom: -55px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Ship hull with details --%3E%3Cpath d='M20 72 Q22 82 50 82 Q78 82 80 72 L78 68 Q70 75 50 75 Q30 75 22 68 Z' fill='rgba(0,232,143,0.055)' stroke='rgba(0,232,143,0.09)' stroke-width='2'/%3E%3C!-- Hull planks --%3E%3Cline x1='25' y1='74' x2='75' y2='74' stroke='rgba(0,232,143,0.05)' stroke-width='0.8'/%3E%3Cline x1='28' y1='78' x2='72' y2='78' stroke='rgba(0,232,143,0.045)' stroke-width='0.6'/%3E%3C!-- Ship bow decoration --%3E%3Cpath d='M20 72 L15 68 L18 72' fill='rgba(0,232,143,0.06)'/%3E%3C!-- Main mast --%3E%3Cline x1='50' y1='72' x2='50' y2='18' stroke='rgba(0,232,143,0.1)' stroke-width='2.5'/%3E%3C!-- Crow's nest --%3E%3Crect x='46' y='22' width='8' height='4' rx='0.5' fill='rgba(0,232,143,0.07)' stroke='rgba(0,232,143,0.09)' stroke-width='1'/%3E%3C!-- Main sail (fuller shape) --%3E%3Cpath d='M50 28 Q72 38 70 55 L50 55 Z' fill='rgba(0,232,143,0.05)' stroke='rgba(0,232,143,0.08)' stroke-width='1.5'/%3E%3Cpath d='M50 28 Q28 38 30 55 L50 55 Z' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.07)' stroke-width='1.5'/%3E%3C!-- Sail details --%3E%3Cline x1='50' y1='32' x2='50' y2='52' stroke='rgba(0,232,143,0.06)' stroke-width='1'/%3E%3Cpath d='M35 42 Q50 45 65 42' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='0.8'/%3E%3C!-- Front mast --%3E%3Cline x1='35' y1='72' x2='35' y2='35' stroke='rgba(0,232,143,0.08)' stroke-width='2'/%3E%3C!-- Front sail --%3E%3Cpath d='M35 38 Q48 45 46 58 L35 58 Z' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.065)' stroke-width='1'/%3E%3C!-- Pirate flag (skull hint) --%3E%3Crect x='50' y='10' width='14' height='10' rx='1' fill='rgba(0,232,143,0.08)'/%3E%3Ccircle cx='57' cy='14' r='2' fill='rgba(0,232,143,0.04)'/%3E%3Cline x1='54' y1='17' x2='60' y2='17' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3C!-- Flag pole --%3E%3Cline x1='50' y1='18' x2='50' y2='8' stroke='rgba(0,232,143,0.09)' stroke-width='1.5'/%3E%3C!-- Rigging --%3E%3Cline x1='50' y1='22' x2='75' y2='68' stroke='rgba(0,232,143,0.04)' stroke-width='0.8'/%3E%3Cline x1='50' y1='22' x2='25' y2='68' stroke='rgba(0,232,143,0.04)' stroke-width='0.8'/%3E%3C!-- Ocean waves --%3E%3Cpath d='M5 88 Q15 84 25 88 Q35 92 45 88 Q55 84 65 88 Q75 92 85 88 Q95 84 100 88' fill='none' stroke='rgba(0,232,143,0.07)' stroke-width='2'/%3E%3Cpath d='M0 94 Q12 90 24 94 Q36 98 48 94 Q60 90 72 94 Q84 98 96 94' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3Cpath d='M10 100 Q20 97 30 100 Q40 103 50 100' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="pirate-cove"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -70px;
+  width: 410px;
+  height: 410px;
+  background: radial-gradient(ellipse 62% 52% at 60% 60%, rgba(0, 232, 143, 0.055) 0%, rgba(0, 180, 140, 0.025) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Mountain Journey: layered mountain peaks with trail and summit flag */
+.game-page__about[data-decoration="mountain-journey"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -40px;
+  bottom: -60px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Back mountain layer --%3E%3Cpath d='M10 95 L35 50 L55 70 L70 45 L95 95 Z' fill='rgba(0,232,143,0.02)' stroke='rgba(0,232,143,0.03)' stroke-width='1'/%3E%3C!-- Middle mountain layer --%3E%3Cpath d='M20 95 L45 55 L60 72 L78 42 L95 95 Z' fill='rgba(0,232,143,0.03)' stroke='rgba(0,232,143,0.04)' stroke-width='1.2'/%3E%3C!-- Front mountain with peak --%3E%3Cpath d='M30 95 L62 35 L95 95 Z' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.055)' stroke-width='1.5'/%3E%3C!-- Snow cap --%3E%3Cpath d='M62 35 L55 50 L62 48 L69 50 Z' fill='rgba(0,232,143,0.05)'/%3E%3C!-- Summit flag --%3E%3Cline x1='62' y1='35' x2='62' y2='22' stroke='rgba(0,232,143,0.06)' stroke-width='1.5'/%3E%3Cpath d='M62 22 L72 26 L62 30' fill='rgba(0,232,143,0.05)'/%3E%3C!-- Trail path winding up --%3E%3Cpath d='M75 90 Q70 80 72 72 Q76 65 70 58 Q65 52 68 45' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.5' stroke-dasharray='3,2' stroke-linecap='round'/%3E%3C!-- Trail markers --%3E%3Ccircle cx='75' cy='90' r='2' fill='rgba(0,232,143,0.04)'/%3E%3Ccircle cx='70' cy='72' r='1.5' fill='rgba(0,232,143,0.035)'/%3E%3Ccircle cx='68' cy='52' r='1.5' fill='rgba(0,232,143,0.03)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="mountain-journey"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(ellipse 70% 60% at 70% 70%, rgba(0, 232, 143, 0.04) 0%, rgba(0, 232, 143, 0.02) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Zombie Outbreak: zombie hand emerging from cracked ground with post-apocalyptic atmosphere */
+.game-page__about[data-decoration="zombie-outbreak"]::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  right: -15px;
+  bottom: -25px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='zombieHandGrad' x1='0%25' y1='100%25' x2='0%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,180,100,0.18)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,232,143,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='groundGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,143,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,180,100,0.06)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Cracked ground base --%3E%3Cpath d='M15 78 Q25 75 35 78 Q50 82 65 77 Q80 73 92 78 L92 88 Q75 85 60 88 Q45 92 30 87 Q20 84 15 88 Z' fill='url(%23groundGrad)' stroke='rgba(0,232,143,0.14)' stroke-width='1.5'/%3E%3C!-- Ground cracks --%3E%3Cpath d='M20 80 L25 85 L22 90' stroke='rgba(0,180,100,0.12)' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M38 77 L42 83 L38 88 L44 92' stroke='rgba(0,180,100,0.1)' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 76 L68 82 L73 87' stroke='rgba(0,180,100,0.11)' stroke-width='1.1' fill='none' stroke-linecap='round'/%3E%3Cpath d='M85 78 L82 84 L86 89' stroke='rgba(0,180,100,0.09)' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3Cpath d='M55 80 L52 86' stroke='rgba(0,180,100,0.08)' stroke-width='0.8' fill='none'/%3E%3C!-- Debris chunks --%3E%3Crect x='28' y='82' width='4' height='3' rx='0.5' fill='rgba(0,200,120,0.1)' transform='rotate(-15 30 83.5)'/%3E%3Crect x='75' y='80' width='3' height='2.5' rx='0.5' fill='rgba(0,200,120,0.09)' transform='rotate(20 76.5 81.25)'/%3E%3Ccircle cx='48' cy='85' r='1.5' fill='rgba(0,200,120,0.08)'/%3E%3Ccircle cx='62' cy='83' r='1' fill='rgba(0,200,120,0.07)'/%3E%3C!-- Zombie hand - palm emerging from ground --%3E%3Cpath d='M52 78 Q50 72 51 66 Q52 60 50 55 L50 52 Q51 50 52 52 L53 58 Q54 62 53 68 Q52 74 54 78' fill='url(%23zombieHandGrad)' stroke='rgba(0,232,143,0.16)' stroke-width='1.8'/%3E%3C!-- Thumb --%3E%3Cpath d='M50 58 Q46 55 44 50 Q42 46 44 43 Q46 44 47 47 Q48 52 50 55' fill='rgba(0,200,120,0.14)' stroke='rgba(0,232,143,0.16)' stroke-width='1.2'/%3E%3C!-- Index finger --%3E%3Cpath d='M51 52 Q50 45 51 38 Q52 32 50 26 Q51 24 53 26 Q55 32 54 40 Q53 48 53 52' fill='url(%23zombieHandGrad)' stroke='rgba(0,232,143,0.18)' stroke-width='1.5'/%3E%3C!-- Middle finger (longest) --%3E%3Cpath d='M54 50 Q55 42 56 34 Q57 26 55 18 Q56 15 58 18 Q60 26 59 36 Q58 46 57 52' fill='url(%23zombieHandGrad)' stroke='rgba(0,232,143,0.18)' stroke-width='1.5'/%3E%3C!-- Ring finger --%3E%3Cpath d='M58 52 Q60 44 62 36 Q63 28 61 22 Q63 20 65 23 Q66 30 65 40 Q63 50 61 55' fill='url(%23zombieHandGrad)' stroke='rgba(0,232,143,0.16)' stroke-width='1.4'/%3E%3C!-- Pinky finger --%3E%3Cpath d='M62 56 Q65 50 67 44 Q68 38 66 32 Q68 30 70 33 Q71 40 69 48 Q67 56 65 60' fill='rgba(0,200,120,0.12)' stroke='rgba(0,232,143,0.14)' stroke-width='1.2'/%3E%3C!-- Finger joint creases --%3E%3Cpath d='M51 42 Q52 41 53 42' stroke='rgba(0,150,90,0.15)' stroke-width='0.8' fill='none'/%3E%3Cpath d='M56 38 Q57 37 58 38' stroke='rgba(0,150,90,0.15)' stroke-width='0.8' fill='none'/%3E%3Cpath d='M62 40 Q63 39 64 40' stroke='rgba(0,150,90,0.14)' stroke-width='0.7' fill='none'/%3E%3Cpath d='M51 34 Q52 33 53 34' stroke='rgba(0,150,90,0.12)' stroke-width='0.7' fill='none'/%3E%3Cpath d='M56 30 Q57 29 58 30' stroke='rgba(0,150,90,0.12)' stroke-width='0.7' fill='none'/%3E%3C!-- Decay/wound marks with red accent --%3E%3Cpath d='M52 48 L54 51 L51 52' stroke='rgba(160,70,70,0.18)' stroke-width='1.2' fill='rgba(160,70,70,0.08)' stroke-linecap='round'/%3E%3Cpath d='M60 45 L62 48' stroke='rgba(160,70,70,0.14)' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3Cpath d='M56 55 Q58 57 56 59' stroke='rgba(160,70,70,0.12)' stroke-width='0.9' fill='none'/%3E%3Ccircle cx='64' cy='52' r='1.5' fill='rgba(160,70,70,0.1)'/%3E%3C!-- Fingernails (jagged) --%3E%3Cpath d='M49 26 L50 23 L52 26' fill='rgba(0,150,90,0.15)' stroke='rgba(0,180,100,0.18)' stroke-width='0.8'/%3E%3Cpath d='M54 17 L56 14 L58 18' fill='rgba(0,150,90,0.16)' stroke='rgba(0,180,100,0.2)' stroke-width='0.8'/%3E%3Cpath d='M60 21 L62 18 L64 22' fill='rgba(0,150,90,0.14)' stroke='rgba(0,180,100,0.18)' stroke-width='0.8'/%3E%3Cpath d='M65 31 L67 28 L69 32' fill='rgba(0,150,90,0.12)' stroke='rgba(0,180,100,0.16)' stroke-width='0.7'/%3E%3C!-- Atmospheric particles/spores --%3E%3Ccircle cx='35' cy='45' r='1.8' fill='rgba(0,232,143,0.1)'/%3E%3Ccircle cx='78' cy='38' r='1.5' fill='rgba(0,232,143,0.08)'/%3E%3Ccircle cx='40' cy='28' r='1.2' fill='rgba(0,232,143,0.07)'/%3E%3Ccircle cx='82' cy='55' r='1' fill='rgba(0,232,143,0.06)'/%3E%3Ccircle cx='25' cy='60' r='0.8' fill='rgba(0,232,143,0.05)'/%3E%3Ccircle cx='72' cy='25' r='1.3' fill='rgba(0,200,120,0.07)'/%3E%3Ccircle cx='30' cy='35' r='0.6' fill='rgba(0,232,143,0.06)'/%3E%3C!-- Toxic mist wisps --%3E%3Cpath d='M32 70 Q28 65 32 60 Q36 55 32 50' stroke='rgba(0,232,143,0.06)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M76 68 Q80 62 76 56' stroke='rgba(0,232,143,0.05)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M42 72 Q38 68 42 64' stroke='rgba(0,200,120,0.05)' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="zombie-outbreak"]::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -40px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(ellipse 55% 50% at 55% 55%, rgba(0, 200, 120, 0.06) 0%, rgba(160, 70, 70, 0.03) 35%, transparent 65%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Water Tanks: laboratory containers with different water levels */
+.game-page__about[data-decoration="water-tanks"]::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  right: -35px;
+  bottom: -55px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Large tank --%3E%3Crect x='55' y='25' width='25' height='55' rx='3' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='2'/%3E%3Crect x='57' y='27' width='21' height='51' rx='2' fill='rgba(0,232,143,0.015)'/%3E%3C!-- Water level in large tank --%3E%3Crect x='57' y='48' width='21' height='30' rx='1' fill='rgba(100,180,232,0.04)'/%3E%3Cpath d='M57 48 Q63 45 70 48 Q75 51 78 48' fill='none' stroke='rgba(100,200,232,0.05)' stroke-width='1'/%3E%3C!-- Medium tank --%3E%3Crect x='30' y='40' width='18' height='40' rx='2' fill='none' stroke='rgba(0,232,143,0.045)' stroke-width='1.8'/%3E%3Crect x='32' y='42' width='14' height='36' rx='1.5' fill='rgba(0,232,143,0.01)'/%3E%3C!-- Water level in medium tank --%3E%3Crect x='32' y='55' width='14' height='23' rx='1' fill='rgba(100,180,232,0.035)'/%3E%3Cpath d='M32 55 Q37 53 42 55 Q45 57 46 55' fill='none' stroke='rgba(100,200,232,0.04)' stroke-width='0.8'/%3E%3C!-- Small tank --%3E%3Crect x='85' y='50' width='12' height='30' rx='2' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.5'/%3E%3C!-- Water level in small tank --%3E%3Crect x='87' y='68' width='8' height='10' rx='1' fill='rgba(100,180,232,0.03)'/%3E%3C!-- Measurement marks --%3E%3Cline x1='80' y1='35' x2='82' y2='35' stroke='rgba(0,232,143,0.03)' stroke-width='0.8'/%3E%3Cline x1='80' y1='45' x2='82' y2='45' stroke='rgba(0,232,143,0.03)' stroke-width='0.8'/%3E%3Cline x1='80' y1='55' x2='82' y2='55' stroke='rgba(0,232,143,0.03)' stroke-width='0.8'/%3E%3Cline x1='80' y1='65' x2='82' y2='65' stroke='rgba(0,232,143,0.03)' stroke-width='0.8'/%3E%3C!-- Pour arrow --%3E%3Cpath d='M48 50 Q52 45 55 50' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M52 48 L55 50 L52 52' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="water-tanks"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(ellipse 65% 55% at 65% 65%, rgba(100, 180, 232, 0.03) 0%, rgba(0, 232, 143, 0.015) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Island Conquest: miniature islands with strategic paths and flags */
+.game-page__about[data-decoration="island-conquest"]::before {
+  content: "";
+  width: 310px;
+  height: 310px;
+  right: -40px;
+  bottom: -60px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Main island --%3E%3Cellipse cx='55' cy='65' rx='25' ry='12' fill='rgba(0,232,143,0.035)' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3C!-- Main island flag --%3E%3Cline x1='55' y1='65' x2='55' y2='48' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3Cpath d='M55 48 L65 52 L55 56' fill='rgba(0,232,143,0.045)'/%3E%3C!-- Secondary island --%3E%3Cellipse cx='82' cy='45' rx='15' ry='8' fill='rgba(0,232,143,0.03)' stroke='rgba(0,232,143,0.04)' stroke-width='1.2'/%3E%3Cline x1='82' y1='45' x2='82' y2='35' stroke='rgba(0,232,143,0.04)' stroke-width='1'/%3E%3Cpath d='M82 35 L88 38 L82 41' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Small island --%3E%3Cellipse cx='35' cy='40' rx='12' ry='6' fill='rgba(0,232,143,0.025)' stroke='rgba(0,232,143,0.035)' stroke-width='1'/%3E%3Cline x1='35' y1='40' x2='35' y2='32' stroke='rgba(0,232,143,0.03)' stroke-width='1'/%3E%3Cpath d='M35 32 L40 34.5 L35 37' fill='rgba(0,232,143,0.03)'/%3E%3C!-- Attack path arrows --%3E%3Cpath d='M45 45 Q50 50 52 58' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='1.5' stroke-dasharray='3,2'/%3E%3Cpath d='M68 50 Q72 48 78 47' fill='none' stroke='rgba(0,232,143,0.035)' stroke-width='1.2' stroke-dasharray='2,2'/%3E%3C!-- Tiny scattered islands --%3E%3Cellipse cx='25' cy='75' rx='8' ry='4' fill='rgba(0,232,143,0.02)'/%3E%3Cellipse cx='90' cy='70' rx='6' ry='3' fill='rgba(0,232,143,0.02)'/%3E%3C!-- Water waves --%3E%3Cpath d='M15 85 Q25 82 35 85 Q45 88 55 85 Q65 82 75 85 Q85 88 95 85' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="island-conquest"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 370px;
+  height: 370px;
+  background: radial-gradient(ellipse 68% 58% at 68% 68%, rgba(0, 232, 143, 0.038) 0%, rgba(0, 232, 143, 0.018) 42%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Highway Racer: winding highway with lane markings and motion effect */
+.game-page__about[data-decoration="highway-racer"]::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  right: -35px;
+  bottom: -55px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Road surface with perspective --%3E%3Cpath d='M35 95 L48 20 L52 20 L65 95 Z' fill='rgba(0,232,143,0.025)' stroke='rgba(0,232,143,0.04)' stroke-width='1.5'/%3E%3C!-- Road edges --%3E%3Cline x1='36' y1='95' x2='48' y2='22' stroke='rgba(0,232,143,0.05)' stroke-width='2'/%3E%3Cline x1='64' y1='95' x2='52' y2='22' stroke='rgba(0,232,143,0.05)' stroke-width='2'/%3E%3C!-- Center lane dashes --%3E%3Cline x1='50' y1='90' x2='50' y2='82' stroke='rgba(0,232,143,0.045)' stroke-width='2'/%3E%3Cline x1='50' y1='75' x2='50' y2='67' stroke='rgba(0,232,143,0.04)' stroke-width='1.8'/%3E%3Cline x1='50' y1='60' x2='50' y2='54' stroke='rgba(0,232,143,0.035)' stroke-width='1.5'/%3E%3Cline x1='50' y1='48' x2='50' y2='43' stroke='rgba(0,232,143,0.03)' stroke-width='1.2'/%3E%3Cline x1='50' y1='38' x2='50' y2='34' stroke='rgba(0,232,143,0.025)' stroke-width='1'/%3E%3C!-- Speed/motion lines --%3E%3Cline x1='25' y1='60' x2='25' y2='80' stroke='rgba(0,232,143,0.03)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='20' y1='50' x2='20' y2='68' stroke='rgba(0,232,143,0.025)' stroke-width='1' stroke-linecap='round'/%3E%3Cline x1='75' y1='55' x2='75' y2='75' stroke='rgba(0,232,143,0.03)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='80' y1='48' x2='80' y2='65' stroke='rgba(0,232,143,0.025)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Car silhouette --%3E%3Crect x='44' y='70' width='12' height='18' rx='2' fill='rgba(0,232,143,0.045)'/%3E%3Crect x='45' y='72' width='10' height='6' rx='1' fill='rgba(0,232,143,0.03)'/%3E%3C!-- Horizon glow --%3E%3Cellipse cx='50' cy='18' rx='20' ry='5' fill='rgba(0,232,143,0.02)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="highway-racer"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(ellipse 65% 55% at 65% 55%, rgba(0, 232, 143, 0.035) 0%, rgba(0, 232, 143, 0.015) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Kart Legends: racing kart with checkered flag and track elements */
+.game-page__about[data-decoration="kart-legends"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Race track curve --%3E%3Cpath d='M5 85 Q25 70 45 72 Q65 75 85 60 Q95 52 98 40' fill='none' stroke='rgba(0,232,143,0.06)' stroke-width='8'/%3E%3Cpath d='M5 85 Q25 70 45 72 Q65 75 85 60 Q95 52 98 40' fill='none' stroke='rgba(0,232,143,0.09)' stroke-width='2'/%3E%3C!-- Track curbs (red/white pattern effect) --%3E%3Cpath d='M8 82 Q28 68 48 70' fill='none' stroke='rgba(232,100,80,0.06)' stroke-width='2' stroke-dasharray='4,4'/%3E%3Cpath d='M88 58 Q95 50 98 42' fill='none' stroke='rgba(232,100,80,0.05)' stroke-width='2' stroke-dasharray='3,3'/%3E%3C!-- Racing kart body --%3E%3Crect x='40' y='50' width='28' height='12' rx='2' fill='rgba(232,200,50,0.08)' stroke='rgba(232,180,50,0.12)' stroke-width='1.5'/%3E%3C!-- Kart nose --%3E%3Cpath d='M68 52 L75 54 L75 60 L68 62' fill='rgba(232,200,50,0.06)' stroke='rgba(232,180,50,0.1)' stroke-width='1'/%3E%3C!-- Driver helmet --%3E%3Ccircle cx='50' cy='48' r='5' fill='rgba(0,232,143,0.1)' stroke='rgba(0,232,143,0.12)' stroke-width='1'/%3E%3Cpath d='M46 46 Q50 44 54 46' fill='none' stroke='rgba(0,232,143,0.08)' stroke-width='1.5'/%3E%3C!-- Driver body --%3E%3Crect x='46' y='52' width='8' height='8' rx='1' fill='rgba(0,232,143,0.07)'/%3E%3C!-- Wheels --%3E%3Ccircle cx='45' cy='62' r='5' fill='rgba(0,232,143,0.08)' stroke='rgba(0,232,143,0.12)' stroke-width='2'/%3E%3Ccircle cx='63' cy='62' r='5' fill='rgba(0,232,143,0.08)' stroke='rgba(0,232,143,0.12)' stroke-width='2'/%3E%3Ccircle cx='45' cy='62' r='2' fill='rgba(0,232,143,0.1)'/%3E%3Ccircle cx='63' cy='62' r='2' fill='rgba(0,232,143,0.1)'/%3E%3C!-- Steering wheel --%3E%3Ccircle cx='55' cy='54' r='3' fill='none' stroke='rgba(0,232,143,0.08)' stroke-width='1'/%3E%3C!-- Checkered flag (prominent) --%3E%3Cg transform='rotate(-15 20 30)'%3E%3Crect x='12' y='15' width='6' height='6' fill='rgba(0,232,143,0.1)'/%3E%3Crect x='24' y='15' width='6' height='6' fill='rgba(0,232,143,0.1)'/%3E%3Crect x='18' y='21' width='6' height='6' fill='rgba(0,232,143,0.1)'/%3E%3Crect x='12' y='27' width='6' height='6' fill='rgba(0,232,143,0.1)'/%3E%3Crect x='24' y='27' width='6' height='6' fill='rgba(0,232,143,0.1)'/%3E%3Crect x='18' y='15' width='6' height='6' fill='rgba(0,232,143,0.04)'/%3E%3Crect x='12' y='21' width='6' height='6' fill='rgba(0,232,143,0.04)'/%3E%3Crect x='24' y='21' width='6' height='6' fill='rgba(0,232,143,0.04)'/%3E%3Crect x='18' y='27' width='6' height='6' fill='rgba(0,232,143,0.04)'/%3E%3Crect x='12' y='33' width='6' height='6' fill='rgba(0,232,143,0.08)'/%3E%3Crect x='24' y='33' width='6' height='6' fill='rgba(0,232,143,0.08)'/%3E%3Crect x='18' y='33' width='6' height='6' fill='rgba(0,232,143,0.03)'/%3E%3C/g%3E%3C!-- Flag pole --%3E%3Cline x1='12' y1='42' x2='12' y2='60' stroke='rgba(0,232,143,0.08)' stroke-width='2'/%3E%3C!-- Speed lines --%3E%3Cline x1='35' y1='56' x2='25' y2='56' stroke='rgba(0,232,143,0.06)' stroke-width='1.5'/%3E%3Cline x1='33' y1='60' x2='20' y2='60' stroke='rgba(0,232,143,0.05)' stroke-width='1.2'/%3E%3Cline x1='38' y1='64' x2='28' y2='66' stroke='rgba(0,232,143,0.04)' stroke-width='1'/%3E%3C!-- Finish line banner hint --%3E%3Crect x='78' y='22' width='18' height='3' rx='0.5' fill='rgba(0,232,143,0.06)'/%3E%3Cline x1='78' y1='25' x2='78' y2='35' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3Cline x1='96' y1='25' x2='96' y2='35' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="kart-legends"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 62% 52% at 60% 55%, rgba(232, 200, 50, 0.04) 0%, rgba(0, 232, 143, 0.02) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ============================================================================
+   TASK 2: 8 GAME DECORATIONS
+   ============================================================================ */
+
+/* Downhill Riders: mountain bike rider silhouette with mountain trail */
+.game-page__about[data-decoration="downhill-riders"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Mountain silhouette background --%3E%3Cpath d='M0 95 L15 60 L25 70 L40 45 L55 65 L70 35 L85 55 L100 40 L100 95 Z' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.06)' stroke-width='1'/%3E%3C!-- Mountain peaks detail --%3E%3Cpath d='M70 35 L65 45 L70 42 L75 45 Z' fill='rgba(0,232,143,0.06)'/%3E%3C!-- Trail path --%3E%3Cpath d='M10 90 Q20 82 25 75 Q32 65 38 60 Q48 50 55 55 Q65 62 72 58 Q82 52 90 48' fill='none' stroke='rgba(0,232,143,0.08)' stroke-width='2.5' stroke-linecap='round' stroke-dasharray='6,3'/%3E%3C!-- Rear wheel --%3E%3Ccircle cx='55' cy='68' r='14' fill='none' stroke='rgba(0,232,143,0.1)' stroke-width='3'/%3E%3Ccircle cx='55' cy='68' r='10' fill='none' stroke='rgba(0,232,143,0.06)' stroke-width='1.5'/%3E%3Ccircle cx='55' cy='68' r='3' fill='rgba(0,232,143,0.08)'/%3E%3C!-- Rear wheel spokes --%3E%3Cline x1='55' y1='58' x2='55' y2='65' stroke='rgba(0,232,143,0.06)' stroke-width='1'/%3E%3Cline x1='55' y1='71' x2='55' y2='78' stroke='rgba(0,232,143,0.06)' stroke-width='1'/%3E%3Cline x1='45' y1='68' x2='52' y2='68' stroke='rgba(0,232,143,0.06)' stroke-width='1'/%3E%3Cline x1='58' y1='68' x2='65' y2='68' stroke='rgba(0,232,143,0.06)' stroke-width='1'/%3E%3C!-- Front wheel --%3E%3Ccircle cx='82' cy='62' r='12' fill='none' stroke='rgba(0,232,143,0.1)' stroke-width='2.5'/%3E%3Ccircle cx='82' cy='62' r='8' fill='none' stroke='rgba(0,232,143,0.06)' stroke-width='1.2'/%3E%3Ccircle cx='82' cy='62' r='2.5' fill='rgba(0,232,143,0.08)'/%3E%3C!-- Bike frame --%3E%3Cpath d='M55 68 L65 52 L82 62 M65 52 L55 50 L55 68 M65 52 L75 55' fill='none' stroke='rgba(0,232,143,0.09)' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Handlebars --%3E%3Cpath d='M80 50 L85 48 M80 50 L78 45' fill='none' stroke='rgba(0,232,143,0.08)' stroke-width='1.5'/%3E%3C!-- Rider silhouette --%3E%3Ccircle cx='62' cy='40' r='5' fill='rgba(0,232,143,0.09)'/%3E%3Cpath d='M62 45 L62 52 L55 50 M62 52 L65 52 M62 48 L58 50 M62 48 L70 52' fill='none' stroke='rgba(0,232,143,0.09)' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Helmet detail --%3E%3Cpath d='M58 38 Q62 35 66 38' fill='none' stroke='rgba(0,232,143,0.07)' stroke-width='1.5'/%3E%3C!-- Dirt/dust particles --%3E%3Ccircle cx='45' cy='75' r='2' fill='rgba(0,232,143,0.06)'/%3E%3Ccircle cx='40' cy='72' r='1.5' fill='rgba(0,232,143,0.05)'/%3E%3Ccircle cx='48' cy='78' r='1' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Trees on slope --%3E%3Cpath d='M20 72 L22 65 L24 72 M22 65 L22 75' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3Cpath d='M28 65 L30 58 L32 65 M30 58 L30 68' fill='none' stroke='rgba(0,232,143,0.045)' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="downhill-riders"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 62% 55% at 62% 58%, rgba(0, 232, 143, 0.05) 0%, rgba(0, 200, 120, 0.025) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Stunt Racer 3D: sports car on loop track with ramps and speed effects */
+.game-page__about[data-decoration="stunt-racer"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Sky track support structure --%3E%3Cpath d='M15 95 L20 75 L25 95 M20 75 L20 55' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='2'/%3E%3Cpath d='M35 95 L40 70 L45 95 M40 70 L40 50' fill='none' stroke='rgba(0,232,143,0.045)' stroke-width='1.8'/%3E%3C!-- Loop track (thick track) --%3E%3Ccircle cx='58' cy='42' r='28' fill='none' stroke='rgba(0,232,143,0.06)' stroke-width='5'/%3E%3Ccircle cx='58' cy='42' r='28' fill='none' stroke='rgba(0,232,143,0.1)' stroke-width='2'/%3E%3C!-- Inner loop guide --%3E%3Ccircle cx='58' cy='42' r='22' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='1.5'/%3E%3C!-- Track entry ramp --%3E%3Cpath d='M10 85 Q18 78 28 72 L58 70' fill='none' stroke='rgba(0,232,143,0.09)' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M10 85 Q18 78 28 72 L58 70' fill='none' stroke='rgba(0,232,143,0.06)' stroke-width='6' stroke-linecap='round'/%3E%3C!-- Track exit ramp --%3E%3Cpath d='M58 70 L88 72 Q95 78 98 88' fill='none' stroke='rgba(0,232,143,0.08)' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M58 70 L88 72 Q95 78 98 88' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='6' stroke-linecap='round'/%3E%3C!-- Track markings on loop --%3E%3Cpath d='M58 14 L58 18 M58 66 L58 70 M30 42 L34 42 M82 42 L86 42' stroke='rgba(0,232,143,0.08)' stroke-width='2' stroke-dasharray='2,4'/%3E%3C!-- Car on loop (detailed) --%3E%3Cg transform='rotate(-30 58 20)'%3E%3Crect x='52' y='16' width='14' height='6' rx='1.5' fill='rgba(232,100,50,0.1)' stroke='rgba(232,120,60,0.12)' stroke-width='1'/%3E%3Crect x='54' y='17' width='5' height='3' rx='0.5' fill='rgba(0,232,143,0.08)'/%3E%3Ccircle cx='55' cy='22' r='2' fill='rgba(0,232,143,0.1)'/%3E%3Ccircle cx='63' cy='22' r='2' fill='rgba(0,232,143,0.1)'/%3E%3C/g%3E%3C!-- Speed motion lines --%3E%3Cpath d='M35 25 L25 20' stroke='rgba(0,232,143,0.07)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M32 35 L20 32' stroke='rgba(0,232,143,0.06)' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpath d='M32 48 L22 52' stroke='rgba(0,232,143,0.05)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M38 58 L28 65' stroke='rgba(0,232,143,0.04)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Boost flames --%3E%3Cpath d='M42 22 L38 20 L40 24 L36 23 L42 22' fill='rgba(232,150,50,0.08)'/%3E%3C!-- Checkered pattern on track --%3E%3Crect x='55' y='68' width='3' height='3' fill='rgba(0,232,143,0.06)'/%3E%3Crect x='61' y='68' width='3' height='3' fill='rgba(0,232,143,0.06)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="stunt-racer"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 60% 52% at 58% 50%, rgba(232, 120, 60, 0.035) 0%, rgba(0, 232, 143, 0.02) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Police Escape 3D: police car silhouette with sirens, road, and pursuit elements */
+.game-page__about[data-decoration="police-escape"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Road perspective --%3E%3Cpath d='M25 98 L45 35 L55 35 L75 98 Z' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.06)' stroke-width='1.5'/%3E%3C!-- Road lane markings --%3E%3Cline x1='50' y1='95' x2='50' y2='85' stroke='rgba(0,232,143,0.08)' stroke-width='2'/%3E%3Cline x1='50' y1='78' x2='50' y2='68' stroke='rgba(0,232,143,0.07)' stroke-width='1.8'/%3E%3Cline x1='50' y1='62' x2='50' y2='54' stroke='rgba(0,232,143,0.06)' stroke-width='1.5'/%3E%3Cline x1='50' y1='48' x2='50' y2='42' stroke='rgba(0,232,143,0.05)' stroke-width='1.2'/%3E%3C!-- Police car body --%3E%3Crect x='35' y='55' width='30' height='15' rx='3' fill='rgba(0,232,143,0.06)' stroke='rgba(0,232,143,0.1)' stroke-width='2'/%3E%3C!-- Car roof --%3E%3Crect x='40' y='48' width='20' height='8' rx='2' fill='rgba(0,232,143,0.05)' stroke='rgba(0,232,143,0.08)' stroke-width='1.5'/%3E%3C!-- Windshield --%3E%3Crect x='42' y='50' width='16' height='5' rx='1' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Light bar --%3E%3Crect x='42' y='45' width='16' height='4' rx='1' fill='rgba(0,232,143,0.07)' stroke='rgba(0,232,143,0.1)' stroke-width='1'/%3E%3C!-- Blue siren light --%3E%3Crect x='43' y='46' width='5' height='2' rx='0.5' fill='rgba(80,140,232,0.15)' stroke='rgba(100,160,232,0.2)' stroke-width='0.5'/%3E%3C!-- Red siren light --%3E%3Crect x='52' y='46' width='5' height='2' rx='0.5' fill='rgba(232,80,80,0.12)' stroke='rgba(232,100,100,0.18)' stroke-width='0.5'/%3E%3C!-- Blue light beams --%3E%3Cpath d='M45 45 L40 35 M45 45 L42 32 M48 45 L50 30' stroke='rgba(80,140,232,0.08)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Red light beams --%3E%3Cpath d='M55 45 L58 32 M55 45 L60 35 M55 45 L55 30' stroke='rgba(232,80,80,0.07)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Headlights --%3E%3Crect x='36' y='58' width='4' height='3' rx='0.5' fill='rgba(232,220,150,0.1)'/%3E%3Crect x='60' y='58' width='4' height='3' rx='0.5' fill='rgba(232,220,150,0.1)'/%3E%3C!-- Wheels --%3E%3Ccircle cx='40' cy='70' r='4' fill='rgba(0,232,143,0.08)' stroke='rgba(0,232,143,0.1)' stroke-width='1.5'/%3E%3Ccircle cx='60' cy='70' r='4' fill='rgba(0,232,143,0.08)' stroke='rgba(0,232,143,0.1)' stroke-width='1.5'/%3E%3C!-- Wheel centers --%3E%3Ccircle cx='40' cy='70' r='1.5' fill='rgba(0,232,143,0.1)'/%3E%3Ccircle cx='60' cy='70' r='1.5' fill='rgba(0,232,143,0.1)'/%3E%3C!-- City buildings silhouette --%3E%3Cpath d='M5 40 L5 30 L10 30 L10 25 L15 25 L15 32 L20 32 L20 22 L25 22 L25 35' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.06)' stroke-width='1'/%3E%3Cpath d='M75 35 L75 25 L80 25 L80 20 L85 20 L85 28 L90 28 L90 18 L95 18 L95 35' fill='rgba(0,232,143,0.04)' stroke='rgba(0,232,143,0.06)' stroke-width='1'/%3E%3C!-- Speed lines --%3E%3Cline x1='30' y1='62' x2='20' y2='62' stroke='rgba(0,232,143,0.06)' stroke-width='1.5'/%3E%3Cline x1='28' y1='66' x2='15' y2='66' stroke='rgba(0,232,143,0.05)' stroke-width='1.2'/%3E%3Cline x1='70' y1='62' x2='80' y2='62' stroke='rgba(0,232,143,0.06)' stroke-width='1.5'/%3E%3Cline x1='72' y1='66' x2='85' y2='66' stroke='rgba(0,232,143,0.05)' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="police-escape"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 58% 50% at 55% 52%, rgba(80, 140, 232, 0.04) 0%, rgba(232, 80, 80, 0.02) 30%, rgba(0, 232, 143, 0.015) 55%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Rooftop Dash: rooftop silhouettes with parkour figure */
+.game-page__about[data-decoration="rooftop-dash"]::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  right: -35px;
+  bottom: -55px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Background building --%3E%3Crect x='15' y='55' width='20' height='40' fill='rgba(0,232,143,0.02)'/%3E%3Crect x='15' y='55' width='20' height='3' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Middle building --%3E%3Crect x='40' y='40' width='25' height='55' fill='rgba(0,232,143,0.025)'/%3E%3Crect x='40' y='40' width='25' height='3' fill='rgba(0,232,143,0.045)'/%3E%3C!-- Front building --%3E%3Crect x='70' y='50' width='22' height='45' fill='rgba(0,232,143,0.03)'/%3E%3Crect x='70' y='50' width='22' height='3' fill='rgba(0,232,143,0.05)'/%3E%3C!-- Parkour runner silhouette (jumping) --%3E%3Ccircle cx='58' cy='28' r='4' fill='rgba(0,232,143,0.055)'/%3E%3Cpath d='M58 32 L58 42 M55 36 L61 34 M55 42 L52 50 M61 42 L65 48' stroke='rgba(0,232,143,0.055)' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Jump arc --%3E%3Cpath d='M35 43 Q47 20 65 53' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3C!-- Building windows --%3E%3Crect x='45' y='48' width='4' height='5' fill='rgba(0,232,143,0.02)'/%3E%3Crect x='55' y='48' width='4' height='5' fill='rgba(0,232,143,0.02)'/%3E%3Crect x='45' y='58' width='4' height='5' fill='rgba(0,232,143,0.015)'/%3E%3Crect x='55' y='58' width='4' height='5' fill='rgba(0,232,143,0.015)'/%3E%3Crect x='75' y='58' width='4' height='5' fill='rgba(0,232,143,0.02)'/%3E%3Crect x='83' y='58' width='4' height='5' fill='rgba(0,232,143,0.02)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="rooftop-dash"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(ellipse 65% 55% at 65% 60%, rgba(0, 232, 143, 0.035) 0%, rgba(0, 232, 143, 0.015) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Lost Toy: teddy bear silhouette in giant house */
+.game-page__about[data-decoration="lost-toy"]::before {
+  content: "";
+  width: 290px;
+  height: 290px;
+  right: -35px;
+  bottom: -55px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Teddy bear head --%3E%3Ccircle cx='55' cy='40' r='18' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='2.5'/%3E%3C!-- Ears --%3E%3Ccircle cx='40' cy='28' r='7' fill='rgba(0,232,143,0.03)' stroke='rgba(0,232,143,0.045)' stroke-width='1.5'/%3E%3Ccircle cx='70' cy='28' r='7' fill='rgba(0,232,143,0.03)' stroke='rgba(0,232,143,0.045)' stroke-width='1.5'/%3E%3C!-- Inner ears --%3E%3Ccircle cx='40' cy='28' r='3.5' fill='rgba(0,232,143,0.025)'/%3E%3Ccircle cx='70' cy='28' r='3.5' fill='rgba(0,232,143,0.025)'/%3E%3C!-- Eyes --%3E%3Ccircle cx='48' cy='38' r='3' fill='rgba(0,232,143,0.04)'/%3E%3Ccircle cx='62' cy='38' r='3' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Eye shine --%3E%3Ccircle cx='47' cy='37' r='1' fill='rgba(0,232,143,0.06)'/%3E%3Ccircle cx='61' cy='37' r='1' fill='rgba(0,232,143,0.06)'/%3E%3C!-- Nose --%3E%3Cellipse cx='55' cy='46' rx='4' ry='3' fill='rgba(0,232,143,0.035)'/%3E%3C!-- Mouth --%3E%3Cpath d='M52 50 Q55 54 58 50' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Body --%3E%3Cellipse cx='55' cy='72' rx='15' ry='18' fill='none' stroke='rgba(0,232,143,0.04)' stroke-width='2'/%3E%3C!-- Arms --%3E%3Cellipse cx='35' cy='68' rx='6' ry='10' fill='none' stroke='rgba(0,232,143,0.035)' stroke-width='1.5' transform='rotate(-20 35 68)'/%3E%3Cellipse cx='75' cy='68' rx='6' ry='10' fill='none' stroke='rgba(0,232,143,0.035)' stroke-width='1.5' transform='rotate(20 75 68)'/%3E%3C!-- Paw pads --%3E%3Ccircle cx='33' cy='75' r='2.5' fill='rgba(0,232,143,0.025)'/%3E%3Ccircle cx='77' cy='75' r='2.5' fill='rgba(0,232,143,0.025)'/%3E%3C!-- Tummy --%3E%3Cellipse cx='55' cy='72' rx='8' ry='10' fill='rgba(0,232,143,0.015)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="lost-toy"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(ellipse 60% 55% at 60% 60%, rgba(200, 180, 140, 0.025) 0%, rgba(0, 232, 143, 0.012) 50%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Color Platforms: colorful stacked platforms */
+.game-page__about[data-decoration="color-platforms"]::before {
+  content: "";
+  width: 290px;
+  height: 290px;
+  right: -35px;
+  bottom: -55px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Bottom platform (green) --%3E%3Crect x='30' y='80' width='50' height='8' rx='2' fill='rgba(0,232,143,0.05)' stroke='rgba(0,232,143,0.06)' stroke-width='1'/%3E%3C!-- Second platform (cyan) --%3E%3Crect x='40' y='65' width='35' height='8' rx='2' fill='rgba(0,200,200,0.04)' stroke='rgba(0,200,200,0.05)' stroke-width='1'/%3E%3C!-- Third platform (purple) --%3E%3Crect x='35' y='50' width='40' height='8' rx='2' fill='rgba(150,100,200,0.035)' stroke='rgba(150,100,200,0.045)' stroke-width='1'/%3E%3C!-- Fourth platform (orange) --%3E%3Crect x='45' y='35' width='30' height='8' rx='2' fill='rgba(232,150,50,0.035)' stroke='rgba(232,150,50,0.045)' stroke-width='1'/%3E%3C!-- Top platform (pink) --%3E%3Crect x='50' y='20' width='22' height='8' rx='2' fill='rgba(232,100,150,0.03)' stroke='rgba(232,100,150,0.04)' stroke-width='1'/%3E%3C!-- Player character on platform --%3E%3Ccircle cx='61' cy='15' r='4' fill='rgba(0,232,143,0.05)'/%3E%3Crect x='58' y='8' width='6' height='4' rx='1' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Jump trail --%3E%3Cpath d='M55 76 Q52 70 57 61 Q62 52 57 43 Q52 34 58 28' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='1.5' stroke-dasharray='3,3'/%3E%3C!-- Decorative stars --%3E%3Cpolygon points='25,45 26,48 29,48 27,50 28,53 25,51 22,53 23,50 21,48 24,48' fill='rgba(232,200,50,0.035)'/%3E%3Cpolygon points='80,60 81,62 83,62 81.5,63.5 82,66 80,64.5 78,66 78.5,63.5 77,62 79,62' fill='rgba(232,200,50,0.03)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="color-platforms"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(ellipse 60% 55% at 60% 60%, rgba(150, 100, 200, 0.025) 0%, rgba(0, 232, 143, 0.012) 50%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Mario Adventure 3D: recognizable mushroom, question block, and star power-ups */
+.game-page__about[data-decoration="mario-adventure"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Large Mushroom cap --%3E%3Cellipse cx='50' cy='55' rx='28' ry='20' fill='rgba(232,80,80,0.08)' stroke='rgba(232,100,100,0.12)' stroke-width='2.5'/%3E%3C!-- Mushroom cap highlights --%3E%3Cpath d='M25 50 Q50 35 75 50' fill='none' stroke='rgba(232,120,120,0.06)' stroke-width='1.5'/%3E%3C!-- Mushroom spots (white) --%3E%3Ccircle cx='35' cy='50' r='8' fill='rgba(255,255,255,0.08)' stroke='rgba(255,255,255,0.1)' stroke-width='1'/%3E%3Ccircle cx='55' cy='45' r='10' fill='rgba(255,255,255,0.08)' stroke='rgba(255,255,255,0.1)' stroke-width='1'/%3E%3Ccircle cx='70' cy='55' r='7' fill='rgba(255,255,255,0.07)' stroke='rgba(255,255,255,0.09)' stroke-width='1'/%3E%3Ccircle cx='42' cy='62' r='5' fill='rgba(255,255,255,0.06)'/%3E%3C!-- Mushroom stem --%3E%3Crect x='38' y='70' width='24' height='20' rx='4' fill='rgba(255,240,220,0.07)' stroke='rgba(220,200,180,0.1)' stroke-width='2'/%3E%3C!-- Stem face --%3E%3Ccircle cx='45' cy='80' r='2.5' fill='rgba(0,0,0,0.06)'/%3E%3Ccircle cx='55' cy='80' r='2.5' fill='rgba(0,0,0,0.06)'/%3E%3Cpath d='M46 85 Q50 88 54 85' fill='none' stroke='rgba(0,0,0,0.05)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Star power-up (larger, more prominent) --%3E%3Cpolygon points='20,28 23,38 33,38 25,44 28,54 20,48 12,54 15,44 7,38 17,38' fill='rgba(232,200,50,0.12)' stroke='rgba(232,180,50,0.15)' stroke-width='1.5'/%3E%3C!-- Star face --%3E%3Ccircle cx='16' cy='42' r='1.8' fill='rgba(0,0,0,0.06)'/%3E%3Ccircle cx='24' cy='42' r='1.8' fill='rgba(0,0,0,0.06)'/%3E%3Cpath d='M17 46 Q20 48 23 46' fill='none' stroke='rgba(0,0,0,0.05)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Star sparkle --%3E%3Cpath d='M28 25 L30 27 M32 22 L30 25 M35 27 L32 26' stroke='rgba(232,200,50,0.1)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Question block (prominent) --%3E%3Crect x='72' y='58' width='22' height='22' rx='3' fill='rgba(232,180,50,0.1)' stroke='rgba(232,160,50,0.14)' stroke-width='2'/%3E%3C!-- Block shine --%3E%3Cpath d='M74 60 L74 68 L82 60 Z' fill='rgba(255,255,255,0.05)'/%3E%3C!-- Question mark --%3E%3Cpath d='M80 65 Q85 63 85 68 Q85 72 83 73 L83 75' fill='none' stroke='rgba(255,255,255,0.12)' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='83' cy='78' r='1.5' fill='rgba(255,255,255,0.12)'/%3E%3C!-- Block rivets --%3E%3Ccircle cx='75' cy='61' r='1' fill='rgba(180,140,50,0.08)'/%3E%3Ccircle cx='91' cy='61' r='1' fill='rgba(180,140,50,0.08)'/%3E%3Ccircle cx='75' cy='77' r='1' fill='rgba(180,140,50,0.08)'/%3E%3Ccircle cx='91' cy='77' r='1' fill='rgba(180,140,50,0.08)'/%3E%3C!-- Coin (floating) --%3E%3Cellipse cx='85' cy='38' rx='7' ry='9' fill='rgba(232,200,50,0.08)' stroke='rgba(232,180,50,0.12)' stroke-width='1.5'/%3E%3Cellipse cx='85' cy='38' rx='4' ry='6' fill='rgba(232,220,100,0.06)'/%3E%3C!-- Coin sparkle --%3E%3Cpath d='M78 32 L80 34 M92 32 L90 34 M85 28 L85 31' stroke='rgba(232,200,50,0.08)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Ground brick hint --%3E%3Crect x='30' y='92' width='12' height='6' rx='1' fill='rgba(0,232,143,0.05)'/%3E%3Crect x='45' y='92' width='12' height='6' rx='1' fill='rgba(0,232,143,0.04)'/%3E%3Crect x='60' y='92' width='12' height='6' rx='1' fill='rgba(0,232,143,0.05)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="mario-adventure"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 60% 52% at 58% 55%, rgba(232, 100, 100, 0.045) 0%, rgba(232, 200, 50, 0.025) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Dimension Dash: dimensional portal with 2D/3D transition, energy rings, and speed trails */
+.game-page__about[data-decoration="dimension-dash"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='ddPortal' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,143,0.12)'/%3E%3Cstop offset='50%25' stop-color='rgba(100,150,232,0.1)'/%3E%3Cstop offset='100%25' stop-color='rgba(180,100,220,0.08)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Outer portal ring with energy effect --%3E%3Ccircle cx='52' cy='48' r='35' fill='none' stroke='url(%23ddPortal)' stroke-width='4'/%3E%3Ccircle cx='52' cy='48' r='35' fill='none' stroke='rgba(0,232,143,0.08)' stroke-width='1' stroke-dasharray='8,4'/%3E%3C!-- Second energy ring --%3E%3Ccircle cx='52' cy='48' r='28' fill='none' stroke='rgba(100,150,232,0.1)' stroke-width='3'/%3E%3Ccircle cx='52' cy='48' r='28' fill='none' stroke='rgba(100,180,232,0.06)' stroke-width='1' stroke-dasharray='5,5'/%3E%3C!-- Inner dimension rings --%3E%3Ccircle cx='52' cy='48' r='21' fill='none' stroke='rgba(150,100,200,0.1)' stroke-width='2.5'/%3E%3Ccircle cx='52' cy='48' r='14' fill='none' stroke='rgba(200,100,180,0.08)' stroke-width='2'/%3E%3Ccircle cx='52' cy='48' r='8' fill='rgba(0,232,143,0.06)' stroke='rgba(0,232,143,0.1)' stroke-width='1.5'/%3E%3C!-- Portal center core --%3E%3Ccircle cx='52' cy='48' r='4' fill='rgba(255,255,255,0.1)'/%3E%3Ccircle cx='52' cy='48' r='2' fill='rgba(255,255,255,0.15)'/%3E%3C!-- 2D/3D transition effect (geometric fragments) --%3E%3Crect x='15' y='30' width='8' height='8' fill='rgba(100,150,232,0.08)' transform='rotate(15 19 34)'/%3E%3Crect x='12' y='55' width='6' height='6' fill='rgba(0,232,143,0.07)' transform='rotate(-10 15 58)'/%3E%3Crect x='80' y='35' width='7' height='7' fill='rgba(150,100,200,0.07)' transform='rotate(25 83.5 38.5)'/%3E%3Crect x='78' y='62' width='5' height='5' fill='rgba(180,100,220,0.06)' transform='rotate(-20 80.5 64.5)'/%3E%3C!-- Pixelated 2D elements transitioning --%3E%3Crect x='22' y='42' width='4' height='4' fill='rgba(0,232,143,0.09)'/%3E%3Crect x='26' y='42' width='4' height='4' fill='rgba(0,232,143,0.07)'/%3E%3Crect x='22' y='46' width='4' height='4' fill='rgba(0,232,143,0.07)'/%3E%3Crect x='74' y='48' width='4' height='4' fill='rgba(150,100,200,0.08)'/%3E%3Crect x='78' y='48' width='4' height='4' fill='rgba(150,100,200,0.06)'/%3E%3C!-- Speed trails emanating from portal --%3E%3Cpath d='M52 13 L52 5' stroke='rgba(0,232,143,0.1)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M52 83 L52 92' stroke='rgba(0,232,143,0.1)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M17 48 L8 48' stroke='rgba(0,232,143,0.1)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M87 48 L96 48' stroke='rgba(0,232,143,0.1)' stroke-width='3' stroke-linecap='round'/%3E%3C!-- Diagonal energy trails --%3E%3Cpath d='M27 23 L18 14' stroke='rgba(100,150,232,0.08)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M77 23 L86 14' stroke='rgba(100,150,232,0.08)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M27 73 L18 82' stroke='rgba(150,100,200,0.08)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M77 73 L86 82' stroke='rgba(150,100,200,0.08)' stroke-width='2.5' stroke-linecap='round'/%3E%3C!-- Energy particles --%3E%3Ccircle cx='35' cy='25' r='2' fill='rgba(0,232,143,0.1)'/%3E%3Ccircle cx='70' cy='72' r='2.5' fill='rgba(150,100,200,0.09)'/%3E%3Ccircle cx='25' cy='65' r='1.5' fill='rgba(100,150,232,0.08)'/%3E%3Ccircle cx='80' cy='28' r='1.8' fill='rgba(0,232,143,0.08)'/%3E%3C!-- Warp lines through center --%3E%3Cpath d='M35 48 Q45 45 52 48 Q60 52 70 48' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1.5'/%3E%3Cpath d='M52 32 Q48 40 52 48 Q56 56 52 64' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="dimension-dash"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 58% 50% at 52% 48%, rgba(100, 150, 232, 0.06) 0%, rgba(150, 100, 200, 0.04) 30%, rgba(0, 232, 143, 0.02) 55%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -3587,6 +4062,280 @@ h3 {
   }
 
   .game-page__about[data-decoration="delivery-rush"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* ============================================================================
+     TASK 1 & 2: 18 NEW GAME DECORATIONS TABLET
+     ============================================================================ */
+
+  /* Dungeon Knight tablet */
+  .game-page__about[data-decoration="dungeon-knight"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="dungeon-knight"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Night Corridor tablet */
+  .game-page__about[data-decoration="night-corridor"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .game-page__about[data-decoration="night-corridor"]::after {
+    right: -40px;
+    bottom: -55px;
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Web Hero tablet */
+  .game-page__about[data-decoration="web-hero"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="web-hero"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Pirate Cove tablet */
+  .game-page__about[data-decoration="pirate-cove"]::before {
+    right: -30px;
+    bottom: -45px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .game-page__about[data-decoration="pirate-cove"]::after {
+    right: -48px;
+    bottom: -62px;
+    width: 310px;
+    height: 310px;
+  }
+
+  /* Mountain Journey tablet */
+  .game-page__about[data-decoration="mountain-journey"]::before {
+    right: -30px;
+    bottom: -45px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .game-page__about[data-decoration="mountain-journey"]::after {
+    right: -48px;
+    bottom: -62px;
+    width: 320px;
+    height: 320px;
+  }
+
+  /* Zombie Outbreak tablet */
+  .game-page__about[data-decoration="zombie-outbreak"]::before {
+    right: -12px;
+    bottom: -20px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .game-page__about[data-decoration="zombie-outbreak"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 270px;
+    height: 270px;
+  }
+
+  /* Water Tanks tablet */
+  .game-page__about[data-decoration="water-tanks"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="water-tanks"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Island Conquest tablet */
+  .game-page__about[data-decoration="island-conquest"]::before {
+    right: -30px;
+    bottom: -45px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .game-page__about[data-decoration="island-conquest"]::after {
+    right: -48px;
+    bottom: -62px;
+    width: 310px;
+    height: 310px;
+  }
+
+  /* Highway Racer tablet */
+  .game-page__about[data-decoration="highway-racer"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="highway-racer"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Kart Legends tablet */
+  .game-page__about[data-decoration="kart-legends"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="kart-legends"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Downhill Riders tablet */
+  .game-page__about[data-decoration="downhill-riders"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="downhill-riders"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Stunt Racer tablet */
+  .game-page__about[data-decoration="stunt-racer"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="stunt-racer"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Police Escape tablet */
+  .game-page__about[data-decoration="police-escape"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 230px;
+    height: 230px;
+  }
+
+  .game-page__about[data-decoration="police-escape"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 290px;
+    height: 290px;
+  }
+
+  /* Rooftop Dash tablet */
+  .game-page__about[data-decoration="rooftop-dash"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="rooftop-dash"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Lost Toy tablet */
+  .game-page__about[data-decoration="lost-toy"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 230px;
+    height: 230px;
+  }
+
+  .game-page__about[data-decoration="lost-toy"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 290px;
+    height: 290px;
+  }
+
+  /* Color Platforms tablet */
+  .game-page__about[data-decoration="color-platforms"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 230px;
+    height: 230px;
+  }
+
+  .game-page__about[data-decoration="color-platforms"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 290px;
+    height: 290px;
+  }
+
+  /* Mario Adventure tablet */
+  .game-page__about[data-decoration="mario-adventure"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="mario-adventure"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Dimension Dash tablet */
+  .game-page__about[data-decoration="dimension-dash"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="dimension-dash"]::after {
     right: -45px;
     bottom: -60px;
     width: 300px;
@@ -4169,6 +4918,280 @@ h3 {
     height: 240px;
   }
 
+  /* ============================================================================
+     TASK 1 & 2: 18 NEW GAME DECORATIONS MOBILE
+     ============================================================================ */
+
+  /* Dungeon Knight mobile */
+  .game-page__about[data-decoration="dungeon-knight"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="dungeon-knight"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Night Corridor mobile */
+  .game-page__about[data-decoration="night-corridor"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 175px;
+    height: 175px;
+  }
+
+  .game-page__about[data-decoration="night-corridor"]::after {
+    right: -35px;
+    bottom: -50px;
+    width: 220px;
+    height: 220px;
+  }
+
+  /* Web Hero mobile */
+  .game-page__about[data-decoration="web-hero"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="web-hero"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Pirate Cove mobile */
+  .game-page__about[data-decoration="pirate-cove"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__about[data-decoration="pirate-cove"]::after {
+    right: -40px;
+    bottom: -55px;
+    width: 250px;
+    height: 250px;
+  }
+
+  /* Mountain Journey mobile */
+  .game-page__about[data-decoration="mountain-journey"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__about[data-decoration="mountain-journey"]::after {
+    right: -40px;
+    bottom: -55px;
+    width: 250px;
+    height: 250px;
+  }
+
+  /* Zombie Outbreak mobile */
+  .game-page__about[data-decoration="zombie-outbreak"]::before {
+    right: -10px;
+    bottom: -18px;
+    width: 175px;
+    height: 175px;
+  }
+
+  .game-page__about[data-decoration="zombie-outbreak"]::after {
+    right: -22px;
+    bottom: -30px;
+    width: 220px;
+    height: 220px;
+  }
+
+  /* Water Tanks mobile */
+  .game-page__about[data-decoration="water-tanks"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="water-tanks"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Island Conquest mobile */
+  .game-page__about[data-decoration="island-conquest"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__about[data-decoration="island-conquest"]::after {
+    right: -40px;
+    bottom: -55px;
+    width: 250px;
+    height: 250px;
+  }
+
+  /* Highway Racer mobile */
+  .game-page__about[data-decoration="highway-racer"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="highway-racer"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Kart Legends mobile */
+  .game-page__about[data-decoration="kart-legends"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="kart-legends"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Downhill Riders mobile */
+  .game-page__about[data-decoration="downhill-riders"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="downhill-riders"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Stunt Racer mobile */
+  .game-page__about[data-decoration="stunt-racer"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="stunt-racer"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Police Escape mobile */
+  .game-page__about[data-decoration="police-escape"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 185px;
+    height: 185px;
+  }
+
+  .game-page__about[data-decoration="police-escape"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Rooftop Dash mobile */
+  .game-page__about[data-decoration="rooftop-dash"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="rooftop-dash"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Lost Toy mobile */
+  .game-page__about[data-decoration="lost-toy"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 185px;
+    height: 185px;
+  }
+
+  .game-page__about[data-decoration="lost-toy"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Color Platforms mobile */
+  .game-page__about[data-decoration="color-platforms"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 185px;
+    height: 185px;
+  }
+
+  .game-page__about[data-decoration="color-platforms"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Mario Adventure mobile */
+  .game-page__about[data-decoration="mario-adventure"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="mario-adventure"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Dimension Dash mobile */
+  .game-page__about[data-decoration="dimension-dash"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="dimension-dash"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -4587,6 +5610,280 @@ h3 {
   }
 
   .game-page__about[data-decoration="delivery-rush"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* ============================================================================
+     TASK 1 & 2: 18 NEW GAME DECORATIONS SMALL MOBILE
+     ============================================================================ */
+
+  /* Dungeon Knight small mobile */
+  .game-page__about[data-decoration="dungeon-knight"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="dungeon-knight"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Night Corridor small mobile */
+  .game-page__about[data-decoration="night-corridor"]::before {
+    right: -12px;
+    bottom: -22px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .game-page__about[data-decoration="night-corridor"]::after {
+    right: -22px;
+    bottom: -32px;
+    width: 175px;
+    height: 175px;
+  }
+
+  /* Web Hero small mobile */
+  .game-page__about[data-decoration="web-hero"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="web-hero"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Pirate Cove small mobile */
+  .game-page__about[data-decoration="pirate-cove"]::before {
+    right: -18px;
+    bottom: -28px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="pirate-cove"]::after {
+    right: -28px;
+    bottom: -38px;
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Mountain Journey small mobile */
+  .game-page__about[data-decoration="mountain-journey"]::before {
+    right: -18px;
+    bottom: -28px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="mountain-journey"]::after {
+    right: -28px;
+    bottom: -38px;
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Zombie Outbreak small mobile */
+  .game-page__about[data-decoration="zombie-outbreak"]::before {
+    right: -8px;
+    bottom: -15px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="zombie-outbreak"]::after {
+    right: -18px;
+    bottom: -25px;
+    width: 170px;
+    height: 170px;
+  }
+
+  /* Water Tanks small mobile */
+  .game-page__about[data-decoration="water-tanks"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="water-tanks"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Island Conquest small mobile */
+  .game-page__about[data-decoration="island-conquest"]::before {
+    right: -18px;
+    bottom: -28px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="island-conquest"]::after {
+    right: -28px;
+    bottom: -38px;
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Highway Racer small mobile */
+  .game-page__about[data-decoration="highway-racer"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="highway-racer"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Kart Legends small mobile */
+  .game-page__about[data-decoration="kart-legends"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="kart-legends"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Downhill Riders small mobile */
+  .game-page__about[data-decoration="downhill-riders"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="downhill-riders"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Stunt Racer small mobile */
+  .game-page__about[data-decoration="stunt-racer"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="stunt-racer"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Police Escape small mobile */
+  .game-page__about[data-decoration="police-escape"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 145px;
+    height: 145px;
+  }
+
+  .game-page__about[data-decoration="police-escape"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
+
+  /* Rooftop Dash small mobile */
+  .game-page__about[data-decoration="rooftop-dash"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="rooftop-dash"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Lost Toy small mobile */
+  .game-page__about[data-decoration="lost-toy"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 145px;
+    height: 145px;
+  }
+
+  .game-page__about[data-decoration="lost-toy"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
+
+  /* Color Platforms small mobile */
+  .game-page__about[data-decoration="color-platforms"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 145px;
+    height: 145px;
+  }
+
+  .game-page__about[data-decoration="color-platforms"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 185px;
+    height: 185px;
+  }
+
+  /* Mario Adventure small mobile */
+  .game-page__about[data-decoration="mario-adventure"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="mario-adventure"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Dimension Dash small mobile */
+  .game-page__about[data-decoration="dimension-dash"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="dimension-dash"]::after {
     right: -25px;
     bottom: -35px;
     width: 190px;
