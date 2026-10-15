@@ -118,7 +118,7 @@ export function MainMenu({ progress, onPlay, onNav }) {
 
       <button className="usr-menu-btn" onClick={() => handleClick(() => onNav("levels"))}>
         <LevelsIcon />
-        Missions
+        Levels
       </button>
 
       <button className="usr-menu-btn" onClick={() => handleClick(() => onNav("free"))}>
@@ -163,7 +163,7 @@ export function LevelSelect({ progress, onPlay, onBack }) {
       </button>
 
       <div className="usr-levels">
-        <div className="usr-levels__title">Missions</div>
+        <div className="usr-levels__title">Levels</div>
 
         {DISTRICTS.map((district) => {
           const missions = getMissionsForDistrict(district.id);
@@ -185,12 +185,14 @@ export function LevelSelect({ progress, onPlay, onBack }) {
                       key={mission.id}
                       className="usr-mission-btn"
                       disabled={!unlocked}
+                      title={unlocked ? mission.objective : "Finish the previous level to unlock"}
                       onClick={() => handleMissionClick(mission.id)}
                     >
                       <div className="usr-mission-btn__num">
                         {unlocked ? mission.id : <LockIcon />}
                       </div>
                       <div className="usr-mission-btn__name">{mission.name}</div>
+                      <div className="usr-mission-btn__goal">{mission.objective}</div>
                       <div className="usr-mission-btn__stars">
                         <StarIcon filled={stars >= 1} />
                         <StarIcon filled={stars >= 2} />
@@ -374,7 +376,7 @@ export function StatsScreen({ progress, onBack }) {
 
         <div className="usr-stats__grid">
           <div className="usr-stat-card">
-            <div className="usr-stat-card__label">Missions Completed</div>
+            <div className="usr-stat-card__label">Levels Completed</div>
             <div className="usr-stat-card__value">{completedMissions} / 30</div>
           </div>
 
@@ -559,7 +561,7 @@ export function PauseMenu({ onResume, onRestart, onSettings, onExit }) {
       </button>
 
       <button className="usr-menu-btn" onClick={() => { sound.sfx.menuClick(); onRestart(); }}>
-        Restart Mission
+        Restart Level
       </button>
 
       <button className="usr-menu-btn" onClick={() => { sound.sfx.menuClick(); onSettings(); }}>
@@ -577,11 +579,12 @@ export function PauseMenu({ onResume, onRestart, onSettings, onExit }) {
 // Mission Complete
 // ============================================================
 
-export function MissionComplete({ mission, score, stars, bestCombo, coins, onNext, onRetry, onExit, hasNext }) {
+export function MissionComplete({ mission, score, stars, time = 0, par = 0, coins, onNext, onRetry, onExit, hasNext }) {
+  const fmt = (t) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
   return (
     <div className="usr-complete">
-      <div className="usr-complete__title">Mission Complete!</div>
-      <div className="usr-complete__mission">{mission.name}</div>
+      <div className="usr-complete__title">Level Complete!</div>
+      <div className="usr-complete__mission">Level {mission.id} · {mission.name}</div>
 
       <div className="usr-complete__stars">
         <svg viewBox="0 0 24 24" fill={stars >= 1 ? "#f7c331" : "#333"} className={`usr-complete__star${stars >= 1 ? " usr-complete__star--earned" : ""}`}>
@@ -594,6 +597,7 @@ export function MissionComplete({ mission, score, stars, bestCombo, coins, onNex
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
       </div>
+      {stars < 3 && par > 0 && <div className="usr-complete__par">Finish under {fmt(par)} for 3 stars</div>}
 
       <div className="usr-complete__stats">
         <div className="usr-complete__stat">
@@ -601,8 +605,8 @@ export function MissionComplete({ mission, score, stars, bestCombo, coins, onNex
           <div className="usr-complete__stat-value">{score.toLocaleString()}</div>
         </div>
         <div className="usr-complete__stat">
-          <div className="usr-complete__stat-label">Best Combo</div>
-          <div className="usr-complete__stat-value">{bestCombo.toLocaleString()}</div>
+          <div className="usr-complete__stat-label">Time</div>
+          <div className="usr-complete__stat-value">{fmt(time)}</div>
         </div>
         <div className="usr-complete__stat">
           <div className="usr-complete__stat-label">Coins</div>
@@ -613,7 +617,7 @@ export function MissionComplete({ mission, score, stars, bestCombo, coins, onNex
       <div className="usr-complete__buttons">
         {hasNext && (
           <button className="usr-menu-btn usr-menu-btn--primary" onClick={() => { sound.sfx.menuClick(); onNext(); }}>
-            Next Mission
+            Next Level
           </button>
         )}
         <button className="usr-menu-btn" onClick={() => { sound.sfx.menuClick(); onRetry(); }}>

@@ -8,7 +8,7 @@
 // Physics constants
 export const CONFIG = {
   // Movement
-  MAX_SPEED: 15,
+  MAX_SPEED: 11, // easy mode: calmer top speed
   ACCELERATION: 12,
   BRAKE_DECEL: 20,
   FRICTION: 3,
@@ -16,8 +16,8 @@ export const CONFIG = {
 
   // Turning
   TURN_SPEED: 3.5,
-  TURN_SPEED_LOW: 4.5,
-  TURN_SPEED_HIGH: 2.0,
+  TURN_SPEED_LOW: 4.2,
+  TURN_SPEED_HIGH: 3.0,
   TURN_THRESHOLD: 5,
 
   // Jump
@@ -34,7 +34,7 @@ export const CONFIG = {
   PLAYER_HEIGHT: 1.7,
 
   // Grind
-  GRIND_SNAP_DIST: 1.5,
+  GRIND_SNAP_DIST: 1.7,
   GRIND_SPEED: 8,
   GRIND_FRICTION: 1,
 };
@@ -247,17 +247,27 @@ function updateSkatingSate(player, input, dt, world) {
   // Wheel rotation
   player.wheelRotation += player.speed * dt * 2;
 
-  // Ground collision
+  // Ground collision — follow ramps up AND down; leaving a ramp lip launches you
   const groundHeight = getGroundHeight(world, player.x, player.z);
-  if (player.y <= groundHeight + 0.01) {
+  const prevY = player.y;
+  if (player.y <= groundHeight + 0.01 || (player.grounded && player.y - groundHeight < 0.25)) {
     player.y = groundHeight;
     player.groundY = groundHeight;
     player.grounded = true;
-  } else if (player.y > groundHeight + 0.5) {
-    // Fell off edge
+    // vertical speed while riding a slope (used for the launch)
+    const climb = dt > 0 ? (player.y - prevY) / dt : 0;
+    player.rampVy = lerp(player.rampVy || 0, Math.max(0, climb), 0.5);
+  } else {
+    // Rolled off a ledge / ramp lip
     player.grounded = false;
+    const launch = (player.rampVy || 0) > 0.6;
+    player.vy = launch ? Math.min(7, player.rampVy * 1.7 + 2) : 0;
+    player.rampVy = 0;
     setState(player, STATES.AIR);
-    emit(player, "fallOff");
+    if (launch) {
+      emit(player, "launch", { vy: player.vy });
+      startTrick(player, TRICKS.OLLIE);
+    } else emit(player, "fallOff");
   }
 
   // Check for obstacles
@@ -320,7 +330,8 @@ function updateAirState(player, input, dt, world) {
     } else if (player.currentTrick === TRICKS.HEELFLIP) {
       player.roll = -Math.sin(player.trickProgress * Math.PI * 2) * Math.PI;
     } else if (player.currentTrick === TRICKS.SHOVE_IT) {
-      player.pitch = player.trickProgress * Math.PI;
+      // a pop + wobble that always returns flat (the old half-turn pitch made every shove-it a crash)
+      player.pitch = Math.sin(player.trickProgress * Math.PI) * 0.5;
     }
   }
 
@@ -328,6 +339,10 @@ function updateAirState(player, input, dt, world) {
   player.x += player.vx * dt;
   player.y += player.vy * dt;
   player.z += player.vz * dt;
+
+  // walls / pillars / props are solid in the air too (jumping or launching
+  // at a wall used to fly straight through it and out of the room)
+  checkCollisions(player, world, dt);
 
   // Track peak height
   if (player.y > player.peakHeight) {
@@ -341,27 +356,13 @@ function updateAirState(player, input, dt, world) {
     player.y = groundHeight;
     player.groundY = groundHeight;
 
-    // Check for successful landing
-    const landingAngle = Math.abs(normalizeAngle(player.roll)) + Math.abs(normalizeAngle(player.pitch));
-    const landingSpeed = Math.abs(player.vy);
-
-    if (landingAngle < 0.5) {
-      // Clean landing
-      player.grounded = true;
-      player.vy = 0;
-
-      // Land combo
-      if (player.combo.length > 0) {
-        endCombo(player, true);
-      }
-
-      setState(player, STATES.SKATING);
-      emit(player, "land", { height: player.peakHeight - groundHeight, clean: true });
-    } else {
-      // Crashed landing
-      crash(player);
-      emit(player, "crash", { reason: "bad_landing" });
-    }
+    // Easy mode: every landing is clean — the board auto-levels and tricks
+    // that were still spinning count as landed.
+    player.grounded = true;
+    player.vy = 0;
+    if (player.combo.length > 0) endCombo(player, true);
+    setState(player, STATES.SKATING);
+    emit(player, "land", { height: player.peakHeight - groundHeight, clean: true });
 
     // Reset air state
     player.airTime = 0;
@@ -374,10 +375,14 @@ function updateAirState(player, input, dt, world) {
     player.trickProgress = 0;
   }
 
-  // Rail detection
-  const nearRail = findNearestRail(world, player);
-  if (nearRail && input.grind && player.vy < 0) {
-    startGrind(player, nearRail);
+  // Rail detection — auto-grind: falling onto (or holding F near) a rail snaps on
+  if (player.state === STATES.AIR) {
+    const nearRail = findNearestRail(world, player);
+    if (nearRail && (input.grind || player.vy < 0.5)) {
+      const t = getClosestRailProgress(nearRail, player);
+      const railY = nearRail.startY + t * (nearRail.endY - nearRail.startY);
+      if (player.y >= railY - 0.45 && t > 0.01 && t < 0.97) startGrind(player, nearRail);
+    }
   }
 }
 
@@ -566,6 +571,11 @@ function getGroundHeight(world, x, z) {
 
   for (const ground of world.grounds) {
     if (x >= ground.minX && x <= ground.maxX && z >= ground.minZ && z <= ground.maxZ) {
+      if (ground.axis) {
+        // sloped ground (ramps / kickers): y0 at the min edge → y1 at the max edge
+        const t = ground.axis === "x" ? (x - ground.minX) / (ground.maxX - ground.minX) : (z - ground.minZ) / (ground.maxZ - ground.minZ);
+        return ground.y0 + (ground.y1 - ground.y0) * t;
+      }
       return ground.y;
     }
   }
@@ -595,27 +605,29 @@ function checkCollisions(player, world, dt) {
 
       const minOverlap = Math.min(overlapX1, overlapX2, overlapZ1, overlapZ2);
 
+      let hitX = false;
       if (minOverlap === overlapX1) {
         player.x = obs.minX - R;
-        if (player.vx > 0) player.vx = 0;
+        hitX = true;
       } else if (minOverlap === overlapX2) {
         player.x = obs.maxX + R;
-        if (player.vx < 0) player.vx = 0;
+        hitX = true;
       } else if (minOverlap === overlapZ1) {
         player.z = obs.minZ - R;
-        if (player.vz > 0) player.vz = 0;
       } else {
         player.z = obs.maxZ + R;
-        if (player.vz < 0) player.vz = 0;
       }
 
-      // Crash if going fast enough
-      if (Math.abs(player.speed) > 8) {
-        crash(player);
-        emit(player, "crash", { reason: "collision" });
-      } else {
-        player.speed *= 0.5;
-      }
+      // Easy mode: never crash — glance off and slide along the wall
+      const s = Math.sin(player.yaw);
+      const c = Math.cos(player.yaw);
+      const along = hitX ? Math.abs(c) : Math.abs(s);
+      if (hitX) player.yaw = c >= 0 ? 0 : Math.PI;
+      else player.yaw = s >= 0 ? Math.PI / 2 : -Math.PI / 2;
+      player.speed *= Math.max(0.45, along);
+      player.vx = Math.sin(player.yaw) * player.speed;
+      player.vz = Math.cos(player.yaw) * player.speed;
+      emit(player, "bump");
     }
   }
 }
@@ -724,6 +736,16 @@ export function stepPlayer(player, input, dt, world) {
     case STATES.CRASHED:
       updateCrashedState(player, input, dt, world);
       break;
+  }
+
+  // Safety net: never leave the room, whatever the state
+  const b = world && world.bounds;
+  if (b) {
+    const R = CONFIG.PLAYER_RADIUS;
+    if (player.x < b.minX + R) player.x = b.minX + R;
+    if (player.x > b.maxX - R) player.x = b.maxX - R;
+    if (player.z < b.minZ + R) player.z = b.minZ + R;
+    if (player.z > b.maxZ - R) player.z = b.maxZ - R;
   }
 }
 
