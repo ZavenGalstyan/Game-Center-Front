@@ -5,6 +5,7 @@
  */
 
 import { getDistrictForMission } from "./districts.js";
+import { goalFor } from "../engine/goals.js";
 
 export const MISSION_TYPES = {
   TUTORIAL: "tutorial",
@@ -587,6 +588,14 @@ export const MISSIONS = [
     },
   },
 ];
+
+// Easy mode: every level has one simple goal (see engine/goals.js); the menus
+// and HUD show its text, and nothing is timed or failable.
+for (const m of MISSIONS) {
+  m.goal = goalFor(m.id);
+  m.objective = m.goal.text;
+  if (m.requirements) delete m.requirements.timeLimit;
+}
 
 // Add district reference to each mission
 MISSIONS.forEach((m) => {

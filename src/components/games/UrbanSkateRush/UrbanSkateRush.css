@@ -990,3 +990,53 @@
   animation-duration: 0.01ms !important;
   transition-duration: 0.01ms !important;
 }
+
+/* ---------------------------------------------------------------- easy-level HUD */
+.usr-hud__goalbar {
+  width: 13rem;
+  max-width: 40vw;
+  height: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+.usr-hud__goalbar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff6b35, #ffd23f);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+.usr-hud__goalnum {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #ffd23f;
+  font-variant-numeric: tabular-nums;
+}
+.usr-hud__mission-obj { color: #e6e6e6; font-size: 0.85rem; font-weight: 600; }
+.usr-hud__par {
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #9ff0c8;
+  font-variant-numeric: tabular-nums;
+}
+.usr-hud__par span { display: block; font-size: 0.65rem; font-weight: 600; color: #aaa; }
+.usr-hud__par.is-over { color: #ffc27a; }
+.usr-hud__keys {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.55);
+  font-size: 0.65rem;
+  line-height: 1.6;
+  color: #bbb;
+}
+.usr-hud__keys b { color: #fff; }
+.usr-complete__par { margin-top: -0.25rem; font-size: 0.8rem; color: #aaa; text-align: center; }
+.usr-mission-btn__goal { font-size: 0.6rem; line-height: 1.25; color: #9aa; margin-top: 0.15rem; }

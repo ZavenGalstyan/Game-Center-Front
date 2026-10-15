@@ -1,75 +1,29 @@
 /**
- * Urban Skate Rush — Level Data Index
+ * Urban Skate Rush — level lookup.
  *
- * Exports all district levels
+ * Every level is a compact indoor skate room (data/rooms.js): one theme per
+ * district, and each level number gets its own layout variant. Rooms are
+ * cached so React re-renders and the physics share one object.
  */
+import { buildRoom } from "../rooms.js";
 
-import { DOWNTOWN_LEVEL } from "./downtown.js";
-import { INDUSTRIAL_LEVEL } from "./industrial.js";
-import { BEACH_LEVEL } from "./beach.js";
-import { NEON_LEVEL } from "./neon.js";
-import { MEGA_LEVEL } from "./mega.js";
+const cache = new Map();
+function room(district, variant) {
+  const key = `${district}:${variant}`;
+  if (!cache.has(key)) cache.set(key, buildRoom(district, variant));
+  return cache.get(key);
+}
 
-// All levels indexed by district ID
-export const LEVELS = {
-  downtown: DOWNTOWN_LEVEL,
-  industrial: INDUSTRIAL_LEVEL,
-  beach: BEACH_LEVEL,
-  neon: NEON_LEVEL,
-  mega: MEGA_LEVEL,
-};
+const DISTRICT_IDS = { downtown: 1, industrial: 2, beach: 3, neon: 4, mega: 5 };
 
-// Levels indexed by district number (1-5)
-export const LEVELS_BY_DISTRICT = {
-  1: DOWNTOWN_LEVEL,
-  2: INDUSTRIAL_LEVEL,
-  3: BEACH_LEVEL,
-  4: NEON_LEVEL,
-  5: MEGA_LEVEL,
-};
-
-// Get level for a specific mission
+/** Level for "missionN": district = ceil(N / 6), layout variant = N. */
 export function getLevelForMission(missionId) {
-  const missionNum = parseInt(missionId.replace("mission", ""), 10);
-
-  // District 1: Missions 1-6
-  if (missionNum >= 1 && missionNum <= 6) {
-    return DOWNTOWN_LEVEL;
-  }
-  // District 2: Missions 7-12
-  if (missionNum >= 7 && missionNum <= 12) {
-    return INDUSTRIAL_LEVEL;
-  }
-  // District 3: Missions 13-18
-  if (missionNum >= 13 && missionNum <= 18) {
-    return BEACH_LEVEL;
-  }
-  // District 4: Missions 19-24
-  if (missionNum >= 19 && missionNum <= 24) {
-    return NEON_LEVEL;
-  }
-  // District 5: Missions 25-30
-  if (missionNum >= 25 && missionNum <= 30) {
-    return MEGA_LEVEL;
-  }
-
-  // Default to downtown
-  return DOWNTOWN_LEVEL;
+  const n = parseInt(String(missionId).replace("mission", ""), 10) || 1;
+  return room(Math.min(5, Math.max(1, Math.ceil(n / 6))), n);
 }
 
-// Get level by district ID or number
+/** Free-skate room for a district id (number or old name). */
 export function getLevel(districtIdOrNum) {
-  if (typeof districtIdOrNum === "number") {
-    return LEVELS_BY_DISTRICT[districtIdOrNum] || DOWNTOWN_LEVEL;
-  }
-  return LEVELS[districtIdOrNum] || DOWNTOWN_LEVEL;
+  const d = typeof districtIdOrNum === "number" ? districtIdOrNum : DISTRICT_IDS[districtIdOrNum] || 1;
+  return room(Math.min(5, Math.max(1, d)), 0);
 }
-
-// Export individual levels for direct import
-export {
-  DOWNTOWN_LEVEL,
-  INDUSTRIAL_LEVEL,
-  BEACH_LEVEL,
-  NEON_LEVEL,
-  MEGA_LEVEL,
-};

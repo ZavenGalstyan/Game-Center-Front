@@ -1,40 +1,45 @@
 /**
  * Urban Skate Rush — HUD (Heads-Up Display)
  *
- * In-game UI showing score, combo, mission info, speed, and controls.
+ * Shows the level's single goal with a progress bar, the run time against
+ * the 3-star par, score/combo, speed and a short controls card.
  */
+
+const fmt = (t) => {
+  const m = Math.floor(t / 60);
+  const s = Math.floor(t % 60);
+  return `${m}:${String(s).padStart(2, "0")}`;
+};
+
+const UNIT = { rings: "rings", coins: "coins", jumps: "jumps", tricks: "tricks", grind: "m", score: "pts" };
 
 export default function Hud({
   mission,
+  goal,
+  progress = 0,
+  elapsed = 0,
   score,
   comboScore,
   comboTricks,
-  timeRemaining,
   speed,
   lastTrick,
   trickDisplayTime,
-  tokens,
-  checkpointsReached,
-  totalCheckpoints,
 }) {
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
-  };
-
+  const pct = goal ? Math.min(1, progress / goal.target) : 0;
+  const shown = goal?.kind === "grind" ? progress.toFixed(1) : Math.floor(progress).toLocaleString();
   return (
     <div className="usr-hud">
-      {/* Top left - Mission info */}
-      {mission && (
+      {/* Top left - level goal */}
+      {mission && goal && (
         <div className="usr-hud__mission">
-          <div className="usr-hud__mission-name">{mission.name}</div>
-          <div className="usr-hud__mission-obj">{mission.objective}</div>
-          {totalCheckpoints > 0 && (
-            <div style={{ fontSize: "0.625rem", color: "#00d4aa", marginTop: "0.25rem" }}>
-              Checkpoints: {checkpointsReached} / {totalCheckpoints}
-            </div>
-          )}
+          <div className="usr-hud__mission-name">Level {mission.id} · {mission.name}</div>
+          <div className="usr-hud__mission-obj">{goal.text}</div>
+          <div className="usr-hud__goalbar">
+            <i style={{ transform: `scaleX(${pct})` }} />
+          </div>
+          <div className="usr-hud__goalnum">
+            {shown} / {goal.target.toLocaleString()} {UNIT[goal.kind]}
+          </div>
         </div>
       )}
 
@@ -51,17 +56,14 @@ export default function Hud({
         )}
       </div>
 
-      {/* Top right - Score/Timer */}
+      {/* Top right - Score / time */}
       <div className="usr-hud__stats">
         <div className="usr-hud__score">{score.toLocaleString()}</div>
-        {mission?.requirements?.timeLimit && (
-          <div className={`usr-hud__timer${timeRemaining < 10 ? " usr-hud__timer--warning" : ""}`}>
-            {formatTime(timeRemaining)}
+        {mission && goal && (
+          <div className={`usr-hud__par${elapsed > goal.par ? " is-over" : ""}`}>
+            ⏱ {fmt(elapsed)} <span>★★★ under {fmt(goal.par)}</span>
           </div>
         )}
-        <div style={{ fontSize: "0.75rem", color: "#f7c331" }}>
-          {tokens} coins
-        </div>
       </div>
 
       {/* Bottom left - Speed */}
@@ -71,22 +73,13 @@ export default function Hud({
       </div>
 
       {/* Bottom right - Controls hint */}
-      <div style={{
-        position: "absolute",
-        bottom: "1rem",
-        right: "1rem",
-        background: "rgba(0,0,0,0.5)",
-        padding: "0.5rem",
-        borderRadius: "6px",
-        fontSize: "0.625rem",
-        color: "#666",
-        lineHeight: 1.6,
-      }}>
-        <div><span style={{ color: "#888" }}>WASD</span> Move</div>
-        <div><span style={{ color: "#888" }}>SPACE</span> Jump</div>
-        <div><span style={{ color: "#888" }}>Q/E/R</span> Tricks</div>
-        <div><span style={{ color: "#888" }}>F</span> Grind</div>
-        <div><span style={{ color: "#888" }}>ESC</span> Pause</div>
+      <div className="usr-hud__keys">
+        <div><b>W A S D</b> ride &amp; steer</div>
+        <div><b>SPACE</b> jump</div>
+        <div><b>Q / E / R</b> trick (in the air)</div>
+        <div><b>Rails</b> just jump onto them</div>
+        <div><b>Follow</b> the yellow arrow</div>
+        <div><b>ESC</b> pause</div>
       </div>
     </div>
   );
