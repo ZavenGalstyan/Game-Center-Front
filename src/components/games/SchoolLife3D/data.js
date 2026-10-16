@@ -132,9 +132,14 @@ export const HAIR_STYLES = [
 ];
 export const EYE_COLORS = ["#3b2a20", "#2d5b8a", "#3f7a4b", "#6b4a2a", "#555"];
 export const BOTTOMS = [
-  { id: "pants", name: "Trousers" },
-  { id: "skirt", name: "Skirt" },
-  { id: "shorts", name: "Shorts" },
+  { id: "pants", name: "Trousers", bodies: ["m", "f"] },
+  { id: "skirt", name: "Skirt", bodies: ["f"] },
+  { id: "shorts", name: "Shorts", bodies: ["m"] },
+];
+/** Body bases (character models): masculine / feminine proportions. */
+export const BODIES = [
+  { id: "m", name: "Masculine" },
+  { id: "f", name: "Feminine" },
 ];
 /** top / accent / bottom / shoes colours + a style tag the model reads. */
 export const OUTFITS = [
@@ -164,6 +169,7 @@ export const ACC_SLOTS = ["face", "head", "back", "neck", "chest"];
 
 export const DEFAULT_LOOK = {
   name: "Alex",
+  body: "m",
   skin: 1,
   hairStyle: "short",
   hairColor: "brown",
@@ -186,24 +192,24 @@ export const PERSONALITIES = {
   artsy: { name: "Artsy", likes: ["garden", "art"], warm: 1, activity: "study" },
 };
 
-const L = (skin, hairStyle, hairColor, outfit, bottom, extra = {}) => ({ skin, hairStyle, hairColor, outfit, bottom, eyes: extra.eyes ?? 0, build: extra.build ?? 1, acc: { face: "none", head: "none", back: "none", neck: "none", chest: "none", ...(extra.acc || {}) } });
+const L = (skin, hairStyle, hairColor, outfit, bottom, extra = {}) => ({ skin, hairStyle, hairColor, outfit, bottom, eyes: extra.eyes ?? 0, build: extra.build ?? 1, body: extra.body || "m", acc: { face: "none", head: "none", back: "none", neck: "none", chest: "none", ...(extra.acc || {}) } });
 
 export const STUDENTS = [
-  { id: "lily", name: "Lily Park", pers: "bookish", look: L(0, "long", "black", "preppy", "skirt", { acc: { face: "glasses", back: "backpack" } }), start: 22 },
+  { id: "lily", name: "Lily Park", pers: "bookish", look: L(0, "long", "black", "preppy", "skirt", { body: "f", acc: { face: "glasses", back: "backpack" } }), start: 22 },
   { id: "marcus", name: "Marcus Johnson", pers: "sporty", look: L(4, "buzz", "black", "sporty", "shorts", { build: 2 }), start: 26 },
-  { id: "ava", name: "Ava Thompson", pers: "friendly", look: L(1, "ponytail", "blonde", "casual", "skirt"), start: 32 },
+  { id: "ava", name: "Ava Thompson", pers: "friendly", look: L(1, "ponytail", "blonde", "casual", "skirt", { body: "f" }), start: 32 },
   { id: "noah", name: "Noah Kim", pers: "nerdy", look: L(1, "short", "black", "hoodie", "pants", { acc: { face: "glasses" } }), start: 20 },
-  { id: "zoe", name: "Zoe Martinez", pers: "artsy", look: L(2, "curly", "chestnut", "artist", "pants", { acc: { head: "headphones" } }), start: 24 },
+  { id: "zoe", name: "Zoe Martinez", pers: "artsy", look: L(2, "curly", "chestnut", "artist", "pants", { body: "f", acc: { head: "headphones" } }), start: 24 },
   { id: "ethan", name: "Ethan Brooks", pers: "funny", look: L(0, "spiky", "red", "casual", "shorts", { eyes: 1 }), start: 28 },
-  { id: "mia", name: "Mia Rossi", pers: "cool", look: L(2, "bob", "black", "varsity", "skirt", { acc: { face: "sunglasses" } }), start: 16 },
+  { id: "mia", name: "Mia Rossi", pers: "cool", look: L(2, "bob", "black", "varsity", "skirt", { body: "f", acc: { face: "sunglasses" } }), start: 16 },
   { id: "leo", name: "Leo Nguyen", pers: "shy", look: L(1, "short", "brown", "uniform", "pants", { acc: { back: "backpack" } }), start: 18 },
-  { id: "chloe", name: "Chloe Davis", pers: "sporty", look: L(3, "ponytail", "brown", "athlete", "shorts"), start: 24 },
+  { id: "chloe", name: "Chloe Davis", pers: "sporty", look: L(3, "ponytail", "brown", "athlete", "shorts", { body: "f" }), start: 24 },
   { id: "sam", name: "Sam Okoro", pers: "friendly", look: L(5, "curly", "black", "uniform", "pants", { build: 2 }), start: 30 },
-  { id: "priya", name: "Priya Shah", pers: "nerdy", look: L(3, "long", "black", "uniform", "skirt", { eyes: 3 }), start: 20 },
+  { id: "priya", name: "Priya Shah", pers: "nerdy", look: L(3, "long", "black", "uniform", "skirt", { body: "f", eyes: 3 }), start: 20 },
   { id: "jake", name: "Jake Miller", pers: "cool", look: L(0, "spiky", "blonde", "varsity", "pants", { eyes: 1, acc: { head: "cap" } }), start: 15 },
-  { id: "emma", name: "Emma Wilson", pers: "funny", look: L(0, "bun", "red", "casual", "pants", { eyes: 2 }), start: 27 },
+  { id: "emma", name: "Emma Wilson", pers: "funny", look: L(0, "bun", "red", "casual", "pants", { body: "f", eyes: 2 }), start: 27 },
   { id: "omar", name: "Omar Haddad", pers: "bookish", look: L(3, "short", "black", "preppy", "pants", { acc: { face: "glasses" } }), start: 21 },
-  { id: "sofia", name: "Sofia Lopez", pers: "artsy", look: L(2, "bun", "chestnut", "hoodie", "skirt", { acc: { neck: "scarf" } }), start: 23 },
+  { id: "sofia", name: "Sofia Lopez", pers: "artsy", look: L(2, "bun", "chestnut", "hoodie", "skirt", { body: "f", acc: { neck: "scarf" } }), start: 23 },
   { id: "ben", name: "Ben Carter", pers: "shy", look: L(1, "bob", "blonde", "sporty", "pants", { eyes: 1 }), start: 17 },
 ];
 
@@ -223,19 +229,19 @@ const T = (skin, hairStyle, hairColor, outfit, bottom, extra = {}) => ({ ...L(sk
 /** `home` is the room a teacher goes back to; `post` = where they stand while teaching. */
 export const TEACHERS = [
   { id: "patel", name: "Mr. Patel", subject: "math", home: "math101", look: T(3, "short", "black", "teacherA", "pants", { acc: { face: "glasses" }, build: 2 }) },
-  { id: "rivera", name: "Ms. Rivera", subject: "english", home: "eng102", look: T(2, "long", "brown", "teacherC", "skirt") },
+  { id: "rivera", name: "Ms. Rivera", subject: "english", home: "eng102", look: T(2, "long", "brown", "teacherC", "skirt", { body: "f" }) },
   { id: "okafor", name: "Dr. Okafor", subject: "science", home: "lab", look: T(5, "buzz", "black", "teacherD", "pants", { build: 2 }) },
-  { id: "lindqvist", name: "Mrs. Lindqvist", subject: "history", home: "hist201", look: T(0, "bun", "blonde", "teacherB", "skirt", { acc: { face: "glasses" } }) },
+  { id: "lindqvist", name: "Mrs. Lindqvist", subject: "history", home: "hist201", look: T(0, "bun", "blonde", "teacherB", "skirt", { body: "f", acc: { face: "glasses" } }) },
   { id: "chen", name: "Mr. Chen", subject: "cs", home: "comp", look: T(1, "spiky", "black", "teacherB", "pants", { acc: { face: "glasses" } }) },
   { id: "harris", name: "Coach Harris", subject: "pe", home: "gym", look: T(4, "buzz", "black", "coach", "pants", { build: 2, acc: { head: "cap" } }) },
   { id: "adebayo", name: "Principal Adebayo", subject: null, home: "principal", look: T(5, "short", "black", "principal", "pants", { build: 2 }) },
 ];
 /** Staff that keep to one spot (interactable, light animation). */
 export const STAFF = [
-  { id: "kim", name: "Mrs. Kim", role: "Receptionist", spot: "reception", look: T(1, "bob", "black", "staff", "skirt", { acc: { face: "glasses" } }) },
+  { id: "kim", name: "Mrs. Kim", role: "Receptionist", spot: "reception", look: T(1, "bob", "black", "staff", "skirt", { body: "f", acc: { face: "glasses" } }) },
   { id: "bruno", name: "Chef Bruno", role: "Cafeteria Cook", spot: "cook", look: T(0, "short", "brown", "cook", "pants", { build: 2 }) },
-  { id: "novak", name: "Ms. Novak", role: "Librarian", spot: "librarian", look: T(0, "long", "red", "teacherB", "skirt", { acc: { face: "glasses" } }) },
-  { id: "grace", name: "Nurse Grace", role: "School Nurse", spot: "nurse", look: T(3, "ponytail", "black", "teacherD", "pants") },
+  { id: "novak", name: "Ms. Novak", role: "Librarian", spot: "librarian", look: T(0, "long", "red", "teacherB", "skirt", { body: "f", acc: { face: "glasses" } }) },
+  { id: "grace", name: "Nurse Grace", role: "School Nurse", spot: "nurse", look: T(3, "ponytail", "black", "teacherD", "pants", { body: "f" }) },
 ];
 
 /* ================================================================ cafeteria */

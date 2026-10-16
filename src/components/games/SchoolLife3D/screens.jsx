@@ -3,7 +3,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 import {
-  SKIN, HAIR_COLORS, HAIR_STYLES, EYE_COLORS, OUTFITS, BOTTOMS, ACCESSORIES, ACC_SLOTS, unlocked, STUDENTS, PERSONALITIES,
+  SKIN, HAIR_COLORS, HAIR_STYLES, EYE_COLORS, OUTFITS, BOTTOMS, BODIES, ACCESSORIES, ACC_SLOTS, unlocked, STUDENTS, PERSONALITIES,
   SUBJECTS, SUBJECT_ORDER, ACADEMIC, MISSIONS, FOOD, VENDING, LEVEL_UNLOCKS, MAX_LEVEL, xpToNext, letter, LETTER_COLOR,
   friendTier, TIER_NAME, daySchedule, isExamDay, nextExamDay, examSubjects, BLOCKS, fmtTime, subjectInfo, ACTIVITIES, DAY_SPEED,
 } from "./data.js";
@@ -102,7 +102,10 @@ export function Creator({ look, setLook, level, mode, onDone, onCancel, onRotate
       hairColor: r(okC).id,
       eyes: Math.floor(Math.random() * EYE_COLORS.length),
       outfit: r(okO).id,
-      bottom: r(BOTTOMS).id,
+      ...(() => {
+        const body = r(BODIES).id;
+        return { body, bottom: r(BOTTOMS.filter((b) => b.bodies.includes(body))).id };
+      })(),
       build: Math.floor(Math.random() * 3),
       acc: Object.fromEntries(ACC_SLOTS.map((s) => [s, Math.random() < 0.35 ? r(accOk(s)) : "none"])),
     });
@@ -149,6 +152,10 @@ export function Creator({ look, setLook, level, mode, onDone, onCancel, onRotate
           </label>
         )}
         <div className="sl-field">
+          <span>Body</span>
+          <Choice items={BODIES} value={L.body || "m"} level={level} onPick={(id) => set({ body: id, bottom: BOTTOMS.find((b) => b.id === L.bottom)?.bodies.includes(id) ? L.bottom : "pants" })} />
+        </div>
+        <div className="sl-field">
           <span>Skin tone</span>
           <Swatches list={SKIN} value={L.skin} onPick={(i) => set({ skin: i })} />
         </div>
@@ -185,7 +192,7 @@ export function Creator({ look, setLook, level, mode, onDone, onCancel, onRotate
         </div>
         <div className="sl-field">
           <span>Bottoms</span>
-          <Choice items={BOTTOMS} value={L.bottom} level={level} onPick={(id) => set({ bottom: id })} />
+          <Choice items={BOTTOMS.filter((b) => b.bodies.includes(L.body || "m"))} value={L.bottom} level={level} onPick={(id) => set({ bottom: id })} />
         </div>
         {ACC_SLOTS.map((slot) => {
           const list = [{ id: "none", name: "None" }, ...ACCESSORIES.filter((a) => a.slot === slot)];

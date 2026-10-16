@@ -61,6 +61,7 @@ export function sanitizeLook(l) {
   }
   return {
     name: typeof o.name === "string" && o.name.trim() ? o.name.trim().slice(0, 16) : d.name,
+    body: o.body === "m" || o.body === "f" ? o.body : o.bottom === "skirt" ? "f" : d.body,
     skin: Number.isInteger(o.skin) && o.skin >= 0 && o.skin < SKIN.length ? o.skin : d.skin,
     hairStyle: HAIR_STYLES.some((h) => h.id === o.hairStyle) ? o.hairStyle : d.hairStyle,
     hairColor: HAIR_COLORS.some((h) => h.id === o.hairColor) ? o.hairColor : d.hairColor,

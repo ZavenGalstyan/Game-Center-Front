@@ -60,6 +60,7 @@ export function charViews(x = 0, z = -21, label = "") {
 /** Put a row of characters (built from looks) in front of the school, posed. */
 export async function lineup(looks, { z = -21, gap = 0.75, pose = "idle", t = 2 } = {}) {
   const M = await import("../models.js");
+  await M.loadCharacterAssets();
   const W = window.__sl.world;
   (window.__lineup || []).forEach((r) => r.root.removeFromParent());
   window.__lineup = looks.map((l, i) => {
