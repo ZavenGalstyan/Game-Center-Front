@@ -672,13 +672,14 @@ export function buildLayout() {
     const bx0 = xFlightB;
     const bx1 = xFlightB + 3;
     const Lh = F1 / 2;
-    L.ramps.push({ x1: ax0 + 0.15, x2: ax1 - 0.15, z1: 4, z2: 10.5, ya: 0, yb: Lh, id: `${id}A` });
-    L.ramps.push({ x1: bx0 + 0.15, x2: bx1 - 0.15, z1: 4, z2: 10.5, ya: F1, yb: Lh, id: `${id}B` });
+    // steps: how many visual steps the flight is drawn with (feet stand on their treads)
+    L.ramps.push({ x1: ax0 + 0.15, x2: ax1 - 0.15, z1: 4, z2: 10.5, ya: 0, yb: Lh, id: `${id}A`, steps: 13 });
+    L.ramps.push({ x1: bx0 + 0.15, x2: bx1 - 0.15, z1: 4, z2: 10.5, ya: F1, yb: Lh, id: `${id}B`, steps: 13 });
     // landing
     box(Math.min(ax0, bx0) + 0.15, Math.max(ax1, bx1) - 0.15, Lh - 0.25, Lh, 10.5, Z1 - 0.15, "#c9c2b4", { col: true, surf: true, m: "tile" });
     col(Math.min(ax0, bx0) + 0.15, Math.max(ax1, bx1) - 0.15, 0, Lh - 0.25, 10.5, Z1 - 0.15, { surf: false });
     // visual steps
-    const n = 13;
+    const n = 13; // keep in step with the ramps above
     for (let i = 0; i < n; i++) {
       const z0 = 4 + (6.5 * i) / n;
       const z1 = 4 + (6.5 * (i + 1)) / n;
@@ -687,13 +688,23 @@ export function buildLayout() {
       const yb = F1 - (Lh * i) / n;
       box(bx0 + 0.15, bx1 - 0.15, yb - 0.22, yb, z0, z1, i % 2 ? "#cfc8ba" : "#c6bfb0", { cast: false, fc: { py: "#bdb5a5" } });
       box(bx0 + 0.15, bx1 - 0.15, Lh - 0.3, yb - 0.22, z0, z1, "#e4ddcf", { cast: false });
+      // dark anti-slip strip along each step's nosing (A climbs +z, B descends +z)
+      box(ax0 + 0.2, ax1 - 0.2, ya, ya + 0.008, z0, z0 + 0.06, "#5e5a54", { cast: false });
+      box(bx0 + 0.2, bx1 - 0.2, yb, yb + 0.008, z1 - 0.06, z1, "#5e5a54", { cast: false });
     }
     // closed space under flight B (ground) + divider wall
     col(bx0 + 0.15, bx1 - 0.15, 0, Lh - 0.3, 3.15, 10.5, { surf: false, kind: "wall" });
     const divX = dir > 0 ? ax1 : ax0;
     wall("z", divX, 4, 10.5, 0, ROOF, [], { pos: HALLF, neg: HALLF, t: 0.2 });
-    // rails along the flights (visual)
-    for (const rx of [ax0 + 0.2, ax1 - 0.2]) rbox(rx, Lh / 2 + 0.95, 7.25, 0.06, 0.06, 6.8, 0, C.metal);
+    // wall handrails along both flights, 0.9 m above the line of the step nosings
+    const run = 6.5;
+    const len = Math.hypot(run, Lh) + 0.3;
+    const handrail = (x, side, y0, rise) => {
+      cyl(x, Lh / 2 + Lh / n + 0.9 + y0 - len / 2, 4 + run / 2, 0.028, len, C.metal, { seg: 8, rx: Math.atan2(rise > 0 ? run : -run, Lh) });
+      for (const t of [0.12, 0.5, 0.88]) box(x, x + side * 0.1, y0 + Lh / n + 0.9 + (rise > 0 ? t : 1 - t) * Lh - 0.05, y0 + Lh / n + 0.9 + (rise > 0 ? t : 1 - t) * Lh - 0.02, 4 + t * run - 0.02, 4 + t * run + 0.02, C.metal);
+    };
+    for (const [x, side] of [[ax0 + 0.2, -1], [ax1 - 0.2, 1]]) handrail(x, side, 0, 1);
+    for (const [x, side] of [[bx0 + 0.2, -1], [bx1 - 0.2, 1]]) handrail(x, side, Lh, -1);
     L.stairs.push({
       id,
       // NPC waypoints, ground → first floor
