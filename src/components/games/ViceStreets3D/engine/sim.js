@@ -296,7 +296,80 @@ export class Sim {
     svc("cafe", "rosa", "cafe", "cafe", "Café");
     svc("clothes", "clerk", "clothes", "clothes", "Clothes");
     svc("dealer", "sales", "dealer", "dealer", "Dealership");
+    this.spawnClub();
   }
+  /* ================================================================ Club Neon */
+  /** inside the club's walls? */
+  inClub(x, z) {
+    const C = this.city.club;
+    return !!C && x > C.x0 && x < C.x1 && z > C.z0 && z < C.z1;
+  }
+  onDanceFloor(x, z) {
+    const D = this.city.club?.dance;
+    return !!D && x > D.x0 && x < D.x1 && z > D.z0 && z < D.z1;
+  }
+  /** the crowd: dancers on the floor, the DJ on the stage, a bartender, a bouncer, regulars at the bar */
+  spawnClub() {
+    const C = this.city.club;
+    if (!C) return;
+    const R = rng(4711);
+    const D = C.dance;
+    const npc = (x, z, h, extra, look) => {
+      const n = makePerson("npc", x, z, look || randomLook(R, "key"), { name: "Clubber", ...extra });
+      n.y = this.city.surfaceAt(x, z) + (extra.raised || 0);
+      n.h = h;
+      n.mode = "idle";
+      this.addNpc(n);
+      return n;
+    };
+    this.club = { dancers: [] };
+    for (let k = 0; k < 16; k++) {
+      const x = D.x0 + 2 + R() * (D.x1 - D.x0 - 4);
+      const z = D.z0 + 2 + R() * (D.z1 - D.z0 - 4);
+      const n = npc(x, z, R() * Math.PI * 2, { club: "dancer", danceSeed: R() * 10, danceStyle: R.int(0, 3) });
+      this.club.dancers.push(n);
+    }
+    this.club.dj = npc((C.dj.x0 + C.dj.x1) / 2 + 1.4, (C.dj.z0 + C.dj.z1) / 2, -Math.PI / 2, { club: "dj", name: "DJ Kaia", raised: 0.75, danceSeed: 3, danceStyle: 4 }, randomLook(R, "beach"));
+    const bt = npc(647, -64.4, 0, { club: "bartender", name: "Marco" }, randomLook(R, "downtown"));
+    this.services.push({ id: "bar", kind: "bar", npc: bt, place: this.city.places.clubBar, label: "Bar" });
+    this.club.bouncer = npc(C.door.x - 2.4, C.door.z - 4.6, -Math.PI / 2, { club: "bouncer", name: "Bouncer" }, CAST.bouncer ? CAST.bouncer.look : randomLook(R, "downtown"));
+    for (const x of [638, 656]) {
+      const n = npc(x, -61.4, Math.PI, { club: "regular" });
+      n.talking = true;
+    }
+  }
+  /** dancers move to the beat, turn a little, drift slowly round the floor */
+  stepClub(dt) {
+    if (!this.club) return;
+    const D = this.city.club.dance;
+    for (const n of this.club.dancers) {
+      n.anim.dance = 1;
+      n.h += Math.sin(this.t * 0.25 + n.danceSeed) * 0.35 * dt;
+      n.x = clamp(n.x + Math.sin(this.t * 0.11 + n.danceSeed * 2) * 0.12 * dt, D.x0 + 1, D.x1 - 1);
+      n.z = clamp(n.z + Math.cos(this.t * 0.09 + n.danceSeed) * 0.12 * dt, D.z0 + 1, D.z1 - 1);
+    }
+    if (this.club.dj) this.club.dj.anim.dance = 0.6;
+    for (const n of this.npcs) if (n.club === "regular") n.anim.talk = 0.3;
+    // the player dances while E is toggled on the floor; walking stops it
+    const pl = this.player;
+    if (pl.dancing && (pl.mode !== "foot" || !this.onDanceFloor(pl.x, pl.z))) pl.dancing = false;
+    pl.anim.dance = pl.dancing ? 1 : 0;
+  }
+  /** a drink at the bar: fictional money for health */
+  buyDrink() {
+    const pl = this.player;
+    const price = 20;
+    if (this.prog.money < price) {
+      this.emit({ type: "toast", text: "Not enough money for a drink ($20)", kind: "warn" });
+      return false;
+    }
+    addMoney(this.prog, -price);
+    pl.hp = Math.min(PLAYER.maxHp, pl.hp + 30);
+    this.emit({ type: "toast", text: "Neon Mojito — +30 health (−$20)", kind: "good" });
+    this.emit({ type: "drink" });
+    return true;
+  }
+
   /** a mission NPC replaces the service NPC of the same character while it runs */
   hideServiceFor(castKey, hide) {
     const map = { ramon: "garage", rosa: "cafe" };
@@ -529,6 +602,7 @@ export class Sim {
     if (!this.ambient || true) this.traffic.step(dt);
     if (!this.ambient) this.police.step(dt);
     this.stepPickups(dt);
+    this.stepClub(dt);
     // physics for every car near the action
     const F = this.focus();
     for (const v of this.vehicles) {
@@ -583,6 +657,7 @@ export class Sim {
     const mx = inp.mx || 0;
     const mz = inp.mz || 0;
     const m = Math.min(1, Math.hypot(mx, mz));
+    if (pl.dancing && Math.hypot(inp.mx || 0, inp.mz || 0) > 0.2) pl.dancing = false;
     this.stepMelee(dt, inp);
     pl.sprint = !!inp.sprint && m > 0.1 && !pl.atk;
     // feet stay planted through a strike; a hit rocks you back for a moment
@@ -740,7 +815,14 @@ export class Sim {
       if (s) {
         pl.cool = 0.4;
         s.npc.h = headingOf(pl.x - s.npc.x, pl.z - s.npc.z);
-        this.emit({ type: "service", id: s.id });
+        if (s.id === "bar") this.buyDrink();
+        else this.emit({ type: "service", id: s.id });
+        return;
+      }
+      // the dance floor
+      if (this.onDanceFloor(pl.x, pl.z)) {
+        pl.cool = 0.4;
+        pl.dancing = !pl.dancing;
         return;
       }
       const v = this.enterCandidate();
@@ -782,7 +864,8 @@ export class Sim {
   nearService() {
     const pl = this.player;
     if (!this.services) return null;
-    return this.services.find((s) => !s.npc.hidden && dist(s.npc.x, s.npc.z, pl.x, pl.z) < 2.6) || null;
+    // (the club's bartender serves across the counter)
+    return this.services.find((s) => !s.npc.hidden && dist(s.npc.x, s.npc.z, pl.x, pl.z) < (s.id === "bar" ? 3.8 : 2.6)) || null;
   }
   nearOffer() {
     if (this.run) return null;
@@ -1655,7 +1738,8 @@ export class Sim {
       }
       if (!p) {
         const s = this.nearService();
-        if (s) p = { key: "E", text: { garage: "Talk to Tío Ramón (garage)", cafe: "Rosa's Café — eat ($15)", clothes: "Browse clothes", dealer: "Browse vehicles" }[s.id] };
+        if (s) p = { key: "E", text: { garage: "Talk to Tío Ramón (garage)", cafe: "Rosa's Café — eat ($15)", clothes: "Browse clothes", dealer: "Browse vehicles", bar: "Buy a Neon Mojito ($20, +30 health)" }[s.id] };
+        if (!p && this.onDanceFloor(pl.x, pl.z)) p = { key: "E", text: pl.dancing ? "Stop dancing" : "Dance", soft: true };
       }
       if (!p) {
         const v = this.enterCandidate();

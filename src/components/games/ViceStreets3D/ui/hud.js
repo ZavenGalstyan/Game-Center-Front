@@ -9,9 +9,9 @@
  * Blip positions are the same world coordinates the sim uses, so markers on
  * the maps match the 3-D world exactly.
  */
-import { DISTRICTS, COLS, ROWS, ROAD_HALF, BOUNDS, WATER } from "../engine/city.js";
+import { DISTRICTS, COLS, ROWS, ROAD_HALF, BOUNDS, WATER, ICOLS, ISLAND } from "../engine/city.js";
 
-export const MAP = { x0: BOUNDS.x0 - 10, x1: WATER.east + 40, z0: BOUNDS.z0 - 10, z1: WATER.south + 30, ppm: 1.6 };
+export const MAP = { x0: BOUNDS.x0 - 10, x1: ISLAND.x1 + 30, z0: BOUNDS.z0 - 10, z1: WATER.south + 30, ppm: 1.6 };
 const W = Math.round((MAP.x1 - MAP.x0) * MAP.ppm);
 const H = Math.round((MAP.z1 - MAP.z0) * MAP.ppm);
 const mx = (x) => (x - MAP.x0) * MAP.ppm;
@@ -36,8 +36,19 @@ export function mapImage(city, open, labels = true) {
   // sand
   g.fillStyle = "#d9c48f";
   g.fillRect(mx(286), mz(-191), mx(WATER.east) - mx(286), mz(WATER.south) - mz(-191));
+  // Coral Key: sandy shore and grass
+  g.fillStyle = "#d9c48f";
+  g.fillRect(mx(ISLAND.x0 - 6), mz(ISLAND.z0 - 6), (ISLAND.x1 - ISLAND.x0 + 12) * MAP.ppm, (ISLAND.z1 - ISLAND.z0 + 12) * MAP.ppm);
+  g.fillStyle = "#3f6b3a";
+  g.fillRect(mx(ICOLS[0] - 10), mz(ROWS[0] - 10), (ICOLS[3] - ICOLS[0] + 20) * MAP.ppm, (ROWS[4] - ROWS[0] + 20) * MAP.ppm);
   // district lots
-  const LOT = { downtown: "#8b8577", haven: "#57824a", beach: "#c9b78f", docks: "#6d7072", hills: "#4f7d45" };
+  const LOT = { downtown: "#8b8577", haven: "#57824a", beach: "#c9b78f", docks: "#6d7072", hills: "#4f7d45", key: "#6f9f5c" };
+  for (let i = 0; i < ICOLS.length - 1; i++) {
+    for (let j = 0; j < 4; j++) {
+      g.fillStyle = LOT.key;
+      g.fillRect(mx(ICOLS[i] + ROAD_HALF), mz(ROWS[j] + ROAD_HALF), (ICOLS[i + 1] - ICOLS[i] - ROAD_HALF * 2) * MAP.ppm, (ROWS[j + 1] - ROWS[j] - ROAD_HALF * 2) * MAP.ppm);
+    }
+  }
   for (let i = 0; i < COLS.length - 1; i++) {
     for (let j = 0; j < ROWS.length - 1; j++) {
       const cx = (COLS[i] + COLS[i + 1]) / 2;
@@ -94,7 +105,7 @@ export function mapImage(city, open, labels = true) {
   }
   if (!labels) return c;
   // district labels
-  const LABEL = { beach: [310, -40], downtown: [45, -100], haven: [-225, -120], docks: [-100, 200], hills: [-60, -320] };
+  const LABEL = { beach: [310, -40], downtown: [45, -100], haven: [-225, -120], docks: [-100, 200], hills: [-60, -320], key: [565, -205] };
   g.textAlign = "center";
   g.textBaseline = "middle";
   for (const [id, [x, z]] of Object.entries(LABEL)) {

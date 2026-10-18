@@ -74,6 +74,8 @@ export const CAST = {
   marcus: { name: "Marcus Vane", role: "Developer, Downtown", look: L("m", 4, "short", "black", "biz", "pants", { acc: { face: "glasses" }, faceSeed: 4 }) },
   ines: { name: "Ines Moreau", role: "Dock boss, Industrial Docks", look: L("f", 2, "ponytail", "chestnut", "dock", "pants", { faceSeed: 5 }) },
   victor: { name: "Victor Sterling", role: "Mogul, Sunset Hills", look: L("m", 0, "short", "blonde", "mogul", "pants", { eyes: 1, acc: { face: "sunglasses" }, faceSeed: 6 }) },
+  nina: { name: "Nina Coral", role: "Casino owner, Coral Key", look: L("f", 4, "long", "chestnut", "mogul", "skirt", { eyes: 2, acc: { face: "sunglasses" }, faceSeed: 12 }) },
+  bouncer: { name: "Bouncer", role: "Club Neon door", look: L("m", 1, "buzz", "black", "biz", "pants", { build: 2, acc: { face: "sunglasses" }, faceSeed: 13 }) },
   dash: { name: "Dash Okoro", role: "Street racer", look: L("m", 5, "curly", "black", "racerRival", "pants", { faceSeed: 7 }) },
   cop: { name: "Officer", role: "Vice Streets PD", look: L("m", 3, "short", "black", "cop", "pants", { acc: { head: "cap", chest: "badge" } }) },
   copF: { name: "Officer", role: "Vice Streets PD", look: L("f", 1, "bun", "brown", "cop", "pants", { acc: { head: "cap", chest: "badge" } }) },

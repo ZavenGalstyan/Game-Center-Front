@@ -521,11 +521,13 @@ export const STAGES = {
         return false;
       }
       n.mode = "boarding";
+      st.boardT = (st.boardT || 0) + dt;
       // walk to the passenger door (right side)
       const tx = car.x - Math.cos(car.h) * (car.st.wid / 2 + 0.5);
       const tz = car.z + Math.sin(car.h) * (car.st.wid / 2 + 0.5);
       const d = dist(n.x, n.z, tx, tz);
-      if (d < 0.5) {
+      // (squeezed by traffic: right beside the car is close enough after a moment)
+      if (d < 0.5 || (st.boardT > 2.5 && dist(n.x, n.z, car.x, car.z) < car.st.len / 2 + 1.6)) {
         n.inCar = car;
         n.mode = "seated";
         run.sim.emit({ type: "board" });

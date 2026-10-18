@@ -87,7 +87,8 @@ export function buildActivity(sim, id) {
     }
     case "parking": {
       if (!car) S.push({ type: "enter", any: true, text: "Get into a car" });
-      const bays = sim.city.parking.filter((p) => p.bay);
+      // the challenge uses the public lot's bays only (not the island's casino / marina lots)
+      const bays = sim.city.parking.filter((p) => p.bay && p.lot === "public");
       const pick = [];
       while (pick.length < 3) {
         const b = sim.rand.pick(bays);

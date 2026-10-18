@@ -14,6 +14,12 @@
  *   INDUSTRIAL DOCKS  warehouses, containers, cranes, quay   │
  *   ───────────────────────────────── harbour water ──────────────────
  *
+ *   CORAL KEY: an island east of Ocean Beach (x 412…718), its own 4 × 5
+ *   street grid (columns ICOLS, the same rows as the mainland) joined to the
+ *   beach road by two causeway bridges (z = 0 and z = 180). Casino, resort,
+ *   marina, shops, gardens and villas. Island grid indices start at 100
+ *   (gridNode(100 + i, j)), so every mainland index is unchanged.
+ *
  * Streets are a grid (8 columns × 6 rows of intersections, 90 m apart) plus
  * curved hill roads built as chains of short segments. Everything a system
  * needs comes from here:
@@ -36,8 +42,14 @@ export const HILL_HALF = 5;
 export const WALK_OFF = 8.2; // sidewalk walking line, from the road centre
 export const LANE_OFF = 2.2; // traffic lane centre, right of the road centre
 export const CURB = 0.12; // sidewalks / lots sit this much above the road
-export const BOUNDS = { x0: -373, x1: 345, z0: -402, z1: 284 };
+export const BOUNDS = { x0: -373, x1: 724, z0: -402, z1: 284 };
 export const WATER = { east: 342, south: 283 };
+/** Coral Key: island street columns, land rectangle and the bridge rows */
+export const ICOLS = [430, 520, 610, 700];
+export const ISLAND = { x0: 412, x1: 718, z0: -198, z1: 198 };
+export const BRIDGES = [0, 180];
+/** x of grid column i (mainland 0…7, island 100…103) */
+export const colX = (i) => (i >= 100 ? ICOLS[i - 100] : COLS[i]);
 
 export const DISTRICTS = {
   beach: { id: "beach", name: "Ocean Beach", color: "#ff8fb1" },
@@ -45,9 +57,11 @@ export const DISTRICTS = {
   haven: { id: "haven", name: "Little Haven", color: "#ffd166" },
   docks: { id: "docks", name: "Industrial Docks", color: "#9aa7b5" },
   hills: { id: "hills", name: "Sunset Hills", color: "#c79bff" },
+  key: { id: "key", name: "Coral Key", color: "#5ce1e6" },
 };
 
 export function districtAt(x, z) {
+  if (x > 380) return "key";
   if (z < -186) return "hills";
   if (x >= 180) return "beach";
   if (z > 90) return "docks";
@@ -128,6 +142,11 @@ function buildGraph() {
   // Ridge Road runs from Sunset Point (a dead-end lookout) along the top
   const point = addNode(-338, -372, { hill: true, lookout: true });
   chain([point, ...climbAt.map((p) => p[180])], 7);
+  // Coral Key grid and the two causeways from the beach road
+  ICOLS.forEach((x, i) => ROWS.slice(0, 5).forEach((z, j) => key.set(`${100 + i},${j}`, addNode(x, z, { gi: 100 + i, gj: j, grid: true, island: true }))));
+  for (let j = 0; j < 5; j++) for (let i = 0; i < ICOLS.length - 1; i++) addEdge(G(100 + i, j), G(101 + i, j), { axis: "ew" });
+  for (let i = 0; i < ICOLS.length; i++) for (let j = 0; j < 4; j++) addEdge(G(100 + i, j), G(100 + i, j + 1), { axis: "ns" });
+  for (const bz of BRIDGES) addEdge(G(COLS.indexOf(270), ROWS.indexOf(bz)), G(100, ROWS.indexOf(bz)), { axis: "ew", bridge: true });
   for (const n of nodes) n.y = groundAt(n.x, n.z);
   return { nodes, edges, G };
 }
@@ -175,6 +194,7 @@ function buildCity() {
   const zones = [];
   const places = {};
   const landmarks = [];
+  let club = null;
 
   const solid = (x0, z0, x1, z1, y1, kind, extra = {}) => {
     const s = { x0: Math.min(x0, x1), z0: Math.min(z0, z1), x1: Math.max(x0, x1), z1: Math.max(z0, z1), y0: groundAt((x0 + x1) / 2, (z0 + z1) / 2) - 1, y1, kind, ...extra };
@@ -211,11 +231,11 @@ function buildCity() {
     }
     return p;
   };
-  const block = (i, j) => ({ x0: COLS[i] + 10, x1: COLS[i + 1] - 10, z0: ROWS[j] + 10, z1: ROWS[j + 1] - 10, cx: (COLS[i] + COLS[i + 1]) / 2, cz: (ROWS[j] + ROWS[j + 1]) / 2 });
+  const block = (i, j) => ({ x0: colX(i) + 10, x1: colX(i + 1) - 10, z0: ROWS[j] + 10, z1: ROWS[j + 1] - 10, cx: (colX(i) + colX(i + 1)) / 2, cz: (ROWS[j] + ROWS[j + 1]) / 2 });
   /** a point on a block's sidewalk walking line: side N/S/E/W, t 0..1 along it */
   const walkPt = (i, j, side, t) => {
     const b = block(i, j);
-    const x = side === "W" ? COLS[i] + WALK_OFF : side === "E" ? COLS[i + 1] - WALK_OFF : b.x0 + (b.x1 - b.x0) * t;
+    const x = side === "W" ? colX(i) + WALK_OFF : side === "E" ? colX(i + 1) - WALK_OFF : b.x0 + (b.x1 - b.x0) * t;
     const z = side === "N" ? ROWS[j] + WALK_OFF : side === "S" ? ROWS[j + 1] - WALK_OFF : b.z0 + (b.z1 - b.z0) * t;
     return { x, z };
   };
@@ -224,8 +244,8 @@ function buildCity() {
     const p = walkPt(i, j, side, t);
     if (side === "N") p.z = ROWS[j] + 4.6;
     if (side === "S") p.z = ROWS[j + 1] - 4.6;
-    if (side === "W") p.x = COLS[i] + 4.6;
-    if (side === "E") p.x = COLS[i + 1] - 4.6;
+    if (side === "W") p.x = colX(i) + 4.6;
+    if (side === "E") p.x = colX(i + 1) - 4.6;
     // heading = traffic direction on that kerb (right-hand traffic)
     const h = side === "N" ? headingOf(1, 0) : side === "S" ? headingOf(-1, 0) : side === "W" ? headingOf(0, -1) : headingOf(0, 1);
     return { x: p.x, z: p.z, h };
@@ -286,7 +306,7 @@ function buildCity() {
     }
     for (const eid of n.edges) {
       const e = edges[eid];
-      if (e.kind !== "grid") continue;
+      if (e.kind !== "grid" || (e.bridge && n.island)) continue;
       const o = n.id === e.a ? 1 : -1;
       const ax = e.dx * o;
       const az = e.dz * o;
@@ -601,6 +621,15 @@ function buildCity() {
     if (R() < 0.35) props.push({ type: "umbrella", x: R.range(300, 330), z: z + R.range(-6, 6), y: 0.05, color: R.pick(["#ff6b6b", "#ffd93d", "#4ecdc4", "#ff9ff3", "#54a0ff"]) });
   }
   for (let z = -160; z < 270; z += 60) props.push({ type: "bench", x: 280, z: z + 9, y: CURB, rot: -Math.PI / 2, seat: true });
+  // the causeways cross the promenade and the sand: nothing stands in their way
+  for (let k = props.length - 1; k >= 0; k--) {
+    const p = props[k];
+    if (p.x > 262 && p.x < 345 && BRIDGES.some((bz) => Math.abs(p.z - bz) < ROAD_HALF + 3.5) && !p.solid) props.splice(k, 1);
+  }
+  for (let k = solids.length - 1; k >= 0; k--) {
+    const o = solids[k];
+    if (o.kind === "pole" && !o.prop && o.x0 > 274 && o.x1 < 345 && BRIDGES.some((bz) => o.z1 > bz - ROAD_HALF - 2 && o.z0 < bz + ROAD_HALF + 2)) solids.splice(k, 1);
+  }
   walks.push({ id: walks.length, promenade: true, district: "beach", pts: [{ x: 281, z: -176 }, { x: 281, z: 268 }], line: true });
   landmarks.push({ id: "beach", name: "Ocean Beach", x: 315, z: 40, r: 40 });
   zones.push({ kind: "beach", x0: 286, z0: -190, x1: WATER.east, z1: WATER.south });
@@ -680,7 +709,30 @@ function buildCity() {
   // world edges
   wall(BOUNDS.x0 - 2, BOUNDS.z0, BOUNDS.x0, BOUNDS.z1, 6, "edge");
   wall(BOUNDS.x0, BOUNDS.z0 - 2, BOUNDS.x1, BOUNDS.z0, 6, "edge");
-  wall(WATER.east, BOUNDS.z0, WATER.east + 2, BOUNDS.z1 + 2, 3, "water");
+  {
+    const gap = ROAD_HALF + 0.6;
+    let z = BOUNDS.z0;
+    for (const bz of [...BRIDGES].sort((a, b) => a - b)) {
+      wall(WATER.east, z, WATER.east + 2, bz - gap, 3, "water");
+      z = bz + gap;
+    }
+    wall(WATER.east, z, WATER.east + 2, BOUNDS.z1 + 2, 3, "water");
+    // causeway railings
+    for (const bz of BRIDGES) {
+      wall(WATER.east, bz - gap - 0.4, ISLAND.x0, bz - gap, 1.1, "rail");
+      wall(WATER.east, bz + gap, ISLAND.x0, bz + gap + 0.4, 1.1, "rail");
+    }
+    // Coral Key shore (west side open only at the causeways)
+    let zz = ISLAND.z0 - 2;
+    for (const bz of [...BRIDGES].sort((a, b) => a - b)) {
+      if (bz - gap > zz) wall(ISLAND.x0 - 2, zz, ISLAND.x0, bz - gap, 3, "water");
+      zz = bz + gap;
+    }
+    if (zz < ISLAND.z1 + 2) wall(ISLAND.x0 - 2, zz, ISLAND.x0, ISLAND.z1 + 2, 3, "water");
+    wall(ISLAND.x1, ISLAND.z0 - 2, ISLAND.x1 + 2, ISLAND.z1 + 2, 3, "water");
+    wall(ISLAND.x0, ISLAND.z0 - 2, ISLAND.x1, ISLAND.z0, 3, "water");
+    wall(ISLAND.x0, ISLAND.z1, ISLAND.x1, ISLAND.z1 + 2, 3, "water");
+  }
   wall(BOUNDS.x0, WATER.south, WATER.east, WATER.south + 2, 3, "water");
   wall(298, BOUNDS.z0, 300, -191, 8, "hedge");
   // hills hedge along z = -191 with gaps where the climbs start
@@ -864,6 +916,196 @@ function buildCity() {
     hp("coastClimb", "Coast climb", 230, -280);
   }
 
+  /* ---------------- Coral Key ---------------- */
+  {
+    const RI = rng(7311);
+    const KEY_PASTEL = ["#fbe3d0", "#e7f3f0", "#f6e7f3", "#fff4d6", "#d9f0ff", "#ffe0ec"];
+    const IB = (i, j) => block(100 + i, j);
+    // sidewalks, lamps, palms, bins and signs round every island block
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 4; j++) {
+        const gi = 100 + i;
+        const x0 = colX(gi) + WALK_OFF;
+        const x1 = colX(gi + 1) - WALK_OFF;
+        const z0 = ROWS[j] + WALK_OFF;
+        const z1 = ROWS[j + 1] - WALK_OFF;
+        walks.push({ id: walks.length, i: gi, j, district: "key", pts: [{ x: x0, z: z0 }, { x: x1, z: z0 }, { x: x1, z: z1 }, { x: x0, z: z1 }] });
+        for (const side of ["N", "S", "W", "E"]) {
+          for (let t = 0.08; t < 0.95; t += 0.28) {
+            const p = walkPt(gi, j, side, t);
+            const ox = side === "W" ? -1.6 : side === "E" ? 1.6 : 0;
+            const oz = side === "N" ? -1.6 : side === "S" ? 1.6 : 0;
+            const facing = side === "N" ? Math.PI : side === "S" ? 0 : side === "W" ? -Math.PI / 2 : Math.PI / 2;
+            if (Math.abs(t - 0.64) < 0.01) {
+              const q = walkPt(gi, j, side, 0.5);
+              const kx = side === "W" ? -1.1 : side === "E" ? 1.1 : 0;
+              const kz = side === "N" ? -1.1 : side === "S" ? 1.1 : 0;
+              if (side === "N" || side === "S") prop("sign", q.x + kx, q.z + kz, { rot: facing, kind: (i + j) % 3 });
+              else prop("bin", q.x + kx, q.z + kz, { rot: facing });
+            }
+            if (t < 0.1 || t > 0.9) prop("lamp", p.x + ox, p.z + oz, { rot: facing });
+            else prop("palm", p.x + ox, p.z + oz, { s: RI.range(0.9, 1.25), lean: RI.range(-0.12, 0.12) });
+          }
+        }
+        // kerbside parking
+        for (const side of ["N", "S", "W", "E"]) {
+          if (RI() > 0.45) continue;
+          const p = curbPt(gi, j, side, RI.range(0.35, 0.65));
+          if (side === "N") p.z += 0.75;
+          if (side === "S") p.z -= 0.75;
+          if (side === "W") p.x += 0.75;
+          if (side === "E") p.x -= 0.75;
+          parking.push({ x: p.x, z: p.z, h: p.h, lot: "street", district: "key" });
+        }
+      }
+    }
+    const KC = (id, name, i, j, side, t) => {
+      const p = curbPt(100 + i, j, side, t);
+      return place(id, { name, x: p.x, z: p.z, h: p.h, icon: null, curb: true });
+    };
+    const villa = (b, n = 2) => {
+      // big white villas with a pool each, hedged gardens, palms
+      const w = (b.x1 - b.x0 - 6) / n;
+      for (let k = 0; k < n; k++) {
+        const x0 = b.x0 + 3 + k * w;
+        const vw = Math.min(26, w - 8);
+        const vd = RI.range(16, 22);
+        building({ x0: x0 + 4, z0: b.z0 + 6, x1: x0 + 4 + vw, z1: b.z0 + 6 + vd, h: RI.range(7, 11), style: "mansion", roof: RI() < 0.5 ? "flat" : "pitched", color: RI.pick(KEY_PASTEL), district: "key" });
+        props.push({ type: "pool", x: x0 + 4 + vw / 2, z: b.z1 - 16, y: CURB, rot: 0 });
+        for (const [px, pz] of [[x0 + 3, b.z1 - 4], [x0 + w - 4, b.z1 - 4], [x0 + w - 4, b.z0 + 4]]) prop("palm", px, pz, { s: RI.range(1, 1.3), lean: RI.range(-0.2, 0.2) });
+      }
+    };
+    const shops = (b) => {
+      building({ x0: b.x0 + 2, z0: b.z0 + 2, x1: b.x1 - 2, z1: b.z0 + 26, h: 9, style: "shop", color: RI.pick(KEY_PASTEL), district: "key", awning: true, sign: RI.int(0, 9), name: "Palm Court", neon: "#5ce1e6" });
+      building({ x0: b.x0 + 2, z0: b.z1 - 26, x1: b.x0 + 34, z1: b.z1 - 2, h: 8, style: "shop", color: RI.pick(KEY_PASTEL), district: "key", awning: true, sign: RI.int(0, 9) });
+      building({ x0: b.x1 - 34, z0: b.z1 - 26, x1: b.x1 - 2, z1: b.z1 - 2, h: 8, style: "shop", color: RI.pick(KEY_PASTEL), district: "key", awning: true, sign: RI.int(0, 9) });
+      for (let k = 0; k < 4; k++) props.push({ type: "bench", x: b.x0 + 18 + k * 12, z: b.cz, y: CURB, rot: 0, seat: true });
+      zones.push({ kind: "plaza", x0: b.x0 + 4, z0: b.z0 + 30, x1: b.x1 - 4, z1: b.z1 - 30 });
+    };
+    // (0,1) Coral Casino — the island's landmark
+    {
+      const b = IB(0, 1);
+      const cas = building({ x0: b.x0 + 4, z0: b.z0 + 6, x1: b.x1 - 4, z1: b.z0 + 44, h: 24, style: "glass", color: "#ffe9a8", district: "key", name: "Coral Casino", neon: "#ffd23f", crown: true });
+      cas.door = "S";
+      props.push({ type: "fountain", x: b.x1 - 12, z: b.z1 - 13, y: CURB });
+      landmarks.push({ id: "casino", name: "Coral Casino", x: cas.cx, z: cas.cz, r: 40 });
+      place("casino", { name: "Coral Casino", x: b.cx, z: b.z0 + 45.5, icon: "contact", h: 0, foot: true });
+      for (let k = 0; k < 4; k++) parking.push({ x: b.x0 + 8 + k * 6, z: b.z1 - 4, h: 0, lot: "casino", bay: true, district: "key" });
+    }
+    // (1,1) Azure Resort: twin hotel towers and a pool deck
+    {
+      const b = IB(1, 1);
+      building({ x0: b.x0 + 2, z0: b.z0 + 4, x1: b.x0 + 28, z1: b.z1 - 4, h: 58, style: "hotel", color: "#bfe3e8", district: "key", stripes: true, name: "Azure Resort", neon: "#3fd8ff", sign: 3 });
+      building({ x0: b.x1 - 28, z0: b.z0 + 4, x1: b.x1 - 2, z1: b.z1 - 4, h: 44, style: "hotel", color: "#d9f0ff", district: "key", stripes: true });
+      props.push({ type: "pool", x: b.cx, z: b.cz - 12, y: CURB, rot: 0 });
+      props.push({ type: "pool", x: b.cx, z: b.cz + 14, y: CURB, rot: 0 });
+      landmarks.push({ id: "resort", name: "Azure Resort", x: b.cx, z: b.cz, r: 38 });
+    }
+    // (0,2) Key Marina: harbour office, boats in the channel, a lot
+    {
+      const b = IB(0, 2);
+      const m = building({ x0: b.x0 + 4, z0: b.z0 + 4, x1: b.x0 + 32, z1: b.z0 + 22, h: 7, style: "shop", color: "#e7f3f0", district: "key", awning: true, name: "Key Marina", neon: "#5ce1e6", sign: 6 });
+      m.door = "E";
+      place("keyMarina", { name: "Key Marina office", x: b.x0 + 33.6, z: b.z0 + 13, icon: "contact", h: Math.PI / 2, foot: true });
+      for (let k = 0; k < 5; k++) props.push({ type: "boat", x: 392, z: 22 + k * 16, y: -0.4 });
+      for (let k = 0; k < 6; k++) parking.push({ x: b.x0 + 46 + (k % 3) * 6, z: b.z0 + 16 + Math.floor(k / 3) * 12, h: 0, lot: "marinaKey", bay: true, district: "key" });
+      landmarks.push({ id: "keymarina", name: "Key Marina", x: b.cx, z: b.cz, r: 34 });
+    }
+    // (1,0) Coral Gardens: trees, benches, a fountain
+    {
+      const b = IB(1, 0);
+      zones.push({ kind: "park", x0: b.x0, z0: b.z0, x1: b.x1, z1: b.z1 });
+      for (let k = 0; k < 16; k++) prop("tree", RI.range(b.x0 + 5, b.x1 - 5), RI.range(b.z0 + 5, b.z1 - 5));
+      props.push({ type: "fountain", x: b.cx, z: b.cz, y: CURB });
+      for (let k = 0; k < 4; k++) props.push({ type: "bench", x: b.cx - 18 + k * 12, z: b.cz + 10, y: CURB, rot: 0, seat: true });
+      landmarks.push({ id: "gardens", name: "Coral Gardens", x: b.cx, z: b.cz, r: 30 });
+      place("gardens", { name: "Coral Gardens", x: b.cx, z: b.z1 + 0.6, icon: null, h: 0, foot: true });
+    }
+    // (1,2) Palm Court shops
+    shops(IB(1, 2));
+    // the rest: villas
+    for (const [i, j] of [[0, 0], [2, 0], [2, 2], [0, 3], [1, 3], [2, 3]]) villa(IB(i, j), i === 1 ? 3 : 2);
+    // (2,1) Club Neon: a real walk-in nightclub. Only its walls are solid (a
+    // door gap on the street side), so you can go inside: dance floor, bar,
+    // raised DJ stage, booths. render/club.js draws it.
+    {
+      const C = { x0: 624, x1: 678, z0: -68, z1: -22, h: 7.2, doorZ0: -48.5, doorZ1: -41.5, wall: 0.6 };
+      const rec = building({ x0: C.x0, z0: C.z0, x1: C.x1, z1: C.z1, h: C.h, style: "club", color: "#2a1240", district: "key", name: "Club Neon", hollow: true });
+      solids.splice(solids.indexOf(rec.solid), 1);
+      rec.solid = null;
+      const W = C.wall;
+      const wallS = (x0, z0, x1, z1) => solid(x0, z0, x1, z1, C.h, "building");
+      wallS(C.x0, C.z0, C.x0 + W, C.doorZ0);
+      wallS(C.x0, C.doorZ1, C.x0 + W, C.z1);
+      wallS(C.x0, C.z0, C.x1, C.z0 + W);
+      wallS(C.x0, C.z1 - W, C.x1, C.z1);
+      wallS(C.x1 - W, C.z0, C.x1, C.z1);
+      // interior: bar counter (north), raised DJ stage (east), booths (south)
+      const bar = { x0: 632, x1: 662, z0: -63.6, z1: -62.4 };
+      solid(bar.x0, bar.z0, bar.x1, bar.z1, 1.1, "furniture");
+      solid(bar.x0, C.z0 + W, bar.x1, C.z0 + W + 0.8, 2.6, "furniture"); // back bar
+      const dj = { x0: 666, x1: 674, z0: -52, z1: -36 };
+      solid(dj.x0, dj.z0, dj.x1, dj.z1, 0.75, "furniture");
+      const booths = [
+        { x0: 630, x1: 646, z0: -25.8, z1: -24.2 },
+        { x0: 652, x1: 668, z0: -25.8, z1: -24.2 },
+      ];
+      for (const b2 of booths) solid(b2.x0, b2.z0, b2.x1, b2.z1, 0.8, "furniture");
+      club = { ...C, bar, dj, booths, dance: { x0: 636, x1: 660, z0: -55, z1: -35 }, door: { x: C.x0, z: (C.doorZ0 + C.doorZ1) / 2 }, name: "Club Neon" };
+      place("clubDoor", { name: "Club Neon entrance", x: C.x0 - 2.2, z: club.door.z, icon: "contact", h: -Math.PI / 2, foot: true });
+      place("clubBar", { name: "Club Neon bar", x: 647, z: -61.2, icon: null, h: Math.PI, foot: true });
+      place("clubFloor", { name: "Club Neon dance floor", x: 648, z: -45, icon: null, h: 0, foot: true });
+      place("clubDJ", { name: "Club Neon DJ booth", x: 664.8, z: -44, icon: null, h: -Math.PI / 2, foot: true });
+      KC("clubCurb", "Club Neon kerb", 2, 1, "W", 0.5);
+      landmarks.push({ id: "club", name: "Club Neon", x: 651, z: -45, r: 26 });
+    }
+    // places for missions (kerbside unless on foot)
+    KC("casinoCurb", "Coral Casino drive", 0, 1, "W", 0.72);
+    KC("resortCurb", "Azure Resort drive", 1, 1, "W", 0.5);
+    KC("keyMarinaCurb", "Key Marina kerb", 0, 2, "W", 0.6);
+    KC("palmCourtCurb", "Palm Court", 1, 2, "N", 0.4);
+    KC("gardensCurb", "Coral Gardens kerb", 1, 0, "S", 0.5);
+    KC("villaNE", "Villa row north", 2, 0, "W", 0.5);
+    KC("villaSE", "Villa row south", 2, 3, "N", 0.5);
+    KC("keySouth", "Key south road", 1, 3, "S", 0.5);
+    KC("keyEast", "Key east road", 2, 1, "E", 0.5);
+    place("causeway", { name: "Causeway", x: 377, z: -2.2, h: Math.PI / 2, icon: null, curb: true });
+    place("causewaySouth", { name: "South causeway", x: 377, z: 182.2, h: -Math.PI / 2, icon: null, curb: true });
+    // on-foot spots on the sidewalk in front of the buildings (reachable from the kerb)
+    {
+      const p = walkPt(101, 2, "N", 0.5);
+      place("palmCourt", { name: "Palm Court shops", x: p.x, z: p.z - 0.4, icon: null, h: 0, foot: true });
+      const q = walkPt(102, 3, "N", 0.3);
+      place("villaDoor", { name: "Villa gate", x: q.x, z: q.z - 0.4, icon: null, h: 0, foot: true });
+    }
+  }
+
+  /* ---------------- bus shelters on the busier streets ---------------- */
+  {
+    const RB = rng(5150);
+    for (const w of walks) {
+      if (w.line || w.district === "hills" || w.district === "docks") continue;
+      for (const side of ["N", "S", "W", "E"]) {
+        if (RB() > 0.22) continue;
+        const q = walkPt(w.i, w.j, side, 0.3);
+        const kx = side === "W" ? -1.6 : side === "E" ? 1.6 : 0;
+        const kz = side === "N" ? -1.6 : side === "S" ? 1.6 : 0;
+        const x = q.x + kx;
+        const z = q.z + kz;
+        if (props.some((p) => Math.abs(p.x - x) < 3.2 && Math.abs(p.z - z) < 3.2)) continue;
+        if (crossings.some((c) => Math.hypot(c.x - x, c.z - z) < 7)) continue;
+        if (solids.some((o) => x + 1.8 > o.x0 && x - 1.8 < o.x1 && z + 1.8 > o.z0 && z - 1.8 < o.z1)) continue;
+        const rot = side === "N" ? Math.PI : side === "S" ? 0 : side === "W" ? -Math.PI / 2 : Math.PI / 2;
+        props.push({ type: "busstop", x, z, y: groundAt(x, z) + CURB, rot });
+        // the back panel is solid (open towards the road)
+        const bx = x - Math.sin(rot) * 0.55;
+        const bz = z - Math.cos(rot) * 0.55;
+        const along = side === "N" || side === "S";
+        solid(along ? bx - 1.7 : bx - 0.12, along ? bz - 0.12 : bz - 1.7, along ? bx + 1.7 : bx + 0.12, along ? bz + 0.12 : bz + 1.7, 2.5, "pole");
+      }
+    }
+  }
+
   /* ---------------- road spatial index ---------------- */
   const RC = 30;
   const rcell = new Map();
@@ -929,6 +1171,8 @@ function buildCity() {
     onRoad,
     surfaceAt,
     gridNode: (i, j) => G(i, j),
+    island: ISLAND,
+    club,
     walkPt,
     curbPt,
   };

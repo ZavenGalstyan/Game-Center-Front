@@ -16,6 +16,8 @@
  */
 import { clamp, dist, headingOf, wrapA } from "./util.js";
 
+/** NPC strikes on the player are scaled by this (difficulty) */
+export const NPC_DMG_SCALE = 1.3;
 /**
  * dmg: to NPCs (player attacks) · npcDmg: to the player (NPC attacks)
  * push: m/s shove · knock: always knocks down · knockback: long stagger shove
@@ -170,7 +172,7 @@ export function hitPlayer(sim, a, M) {
   const dx = pl.x - a.x;
   const dz = pl.z - a.z;
   const L = Math.hypot(dx, dz) || 1;
-  sim.hurtPlayer(M.npcDmg, "fight");
+  sim.hurtPlayer(M.npcDmg * NPC_DMG_SCALE, "fight");
   // flinch: an attack still winding up is interrupted
   if (pl.atk && pl.atk.t < MOVES[pl.atk.id].hitAt) {
     pl.atk = null;

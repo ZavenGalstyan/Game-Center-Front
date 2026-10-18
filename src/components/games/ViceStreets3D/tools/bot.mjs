@@ -47,6 +47,14 @@ export function createBot() {
       B.stuckT = 0;
       B.route = null;
     }
+    // held up by a jam that never clears (gridlocked junction): back out and go round
+    if (r !== "arrived" && B.realV < 0.3 && inp.throttle <= 0.2 && sim.gapAhead(car, 8) < 3) B.jamT = (B.jamT || 0) + 1 / 60;
+    else B.jamT = 0;
+    if (B.jamT > 8) {
+      B.jamT = 0;
+      B.unstick = 1.6;
+      B.route = null;
+    }
     if (B.unstick > 0) {
       B.unstick -= 1 / 60;
       return { throttle: -1, steer: -inp.steer || 0.6 };

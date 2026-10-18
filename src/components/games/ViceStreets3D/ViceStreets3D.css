@@ -1046,6 +1046,37 @@
   font-size: clamp(50px, 10cqw, 110px);
   color: var(--sun);
 }
+/* area name: top-left corner, fades in and out in ~1.6 s */
+.vs .vs-area {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(20, 10, 34, 0.55);
+  color: var(--pink-2);
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(13px, 1.6cqw, 17px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  pointer-events: none;
+  animation: vs-area 1.6s ease-out forwards;
+}
+@keyframes vs-area {
+  0% {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  12%,
+  75% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @keyframes vs-pop {
   from {
     opacity: 0;

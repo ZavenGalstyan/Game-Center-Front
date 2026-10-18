@@ -28,7 +28,7 @@ import { MOVES, startMove, stepMove } from "./combat.js";
  *   aggressive fights straight back, hits harder and more often, kicks
  *   brave      steps in to defend someone the player attacks nearby
  */
-export const PERSONAS = [["passive", 0.55], ["defensive", 0.25], ["aggressive", 0.12], ["brave", 0.08]];
+export const PERSONAS = [["passive", 0.46], ["defensive", 0.28], ["aggressive", 0.17], ["brave", 0.09]];
 const FIGHT = {
   passive: { block: 0.15, dodge: 0.1, cool: [1.3, 1.9], moves: ["jab", "cross"], quit: 40 },
   defensive: { block: 0.5, dodge: 0.15, cool: [1.0, 1.6], moves: ["jab", "cross", "jab", "rhook"], quit: 35 },
@@ -38,7 +38,7 @@ const FIGHT = {
 /** at most this many pedestrians fight the player at once */
 export const MAX_FIGHTERS = 3;
 
-export const PEDS = { max: 24, near: 28, far: 115, despawn: 140 };
+export const PEDS = { max: 32, near: 28, far: 115, despawn: 140 };
 let PID = 1;
 
 export function makePerson(kind, x, z, look, extra = {}) {
@@ -532,12 +532,30 @@ export class Peds {
         const dz = tgt.z - p.z;
         const d = Math.hypot(dx, dz);
         if (d < 0.35) {
+          p.bestD = 1e9;
           this.reachCorner(p);
           break;
         }
         sp = p.walkSpeed;
         mvx = dx / d;
         mvz = dz / d;
+        // something parked on the sidewalk (a car on the kerb): no progress for a
+        // couple of seconds → step aside round it instead of pushing into it forever
+        if (d > (p.bestD ?? 1e9) - 0.05) p.blockT = (p.blockT || 0) + dt;
+        else {
+          p.blockT = 0;
+          p.bestD = d;
+        }
+        if (p.blockT > 2) {
+          p.blockT = 0;
+          p.bestD = 1e9;
+          const side = p.id % 2 ? 1 : -1;
+          p.dvx = -mvz * side * 0.8 + mvx * 0.6;
+          p.dvz = mvx * side * 0.8 + mvz * 0.6;
+          p.mode = "dodge";
+          p.timer = 1.1;
+          p.panic = false;
+        }
         break;
       }
       case "wait": {

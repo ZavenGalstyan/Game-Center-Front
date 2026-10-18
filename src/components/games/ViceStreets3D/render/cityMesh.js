@@ -15,7 +15,7 @@
  */
 import * as THREE from "three";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
-import { COLS, ROWS, ROAD_HALF, HILL_HALF, CURB, WATER, BOUNDS, groundAt, districtAt, lightState, LIGHT_CYCLE } from "../engine/city.js";
+import { COLS, ROWS, ROAD_HALF, HILL_HALF, CURB, WATER, BOUNDS, ICOLS, ISLAND, BRIDGES, groundAt, districtAt, lightState, LIGHT_CYCLE } from "../engine/city.js";
 import { facade, signAtlas, awning, noise, chainLink } from "./textures.js";
 import { rng } from "../engine/util.js";
 
@@ -122,6 +122,7 @@ export function buildCityMesh(city, { shadows = true, quality = "high" } = {}) {
     beach: col("#e9d8b0"),
     docks: col("#8d8f8c"),
     hills: col("#79ad5f"),
+    key: col("#8cc96f"),
   };
   // asphalt base over the street grid
   {
@@ -161,11 +162,78 @@ export function buildCityMesh(city, { shadows = true, quality = "high" } = {}) {
     g.box(BOUNDS.x0 - 40, -0.2, -191, COLS[0] - ROAD_HALF, CURB, WATER.south, col("#5e9a4c"), null);
   }
   // beach promenade + sand
-  for (let z = -191; z < WATER.south; z += 80) {
-    const z1 = Math.min(WATER.south + 18, z + 80);
-    const g = chunk(300, z, "ground");
-    g.box(276, -0.2, z, 286, CURB, z1, SIDE, null);
-    g.box(286, -0.4, z, WATER.east + 12, 0.06, z1, col("#ecd9a6"), null);
+  {
+    // split the beach strip into spans that skip the causeway roads
+    const cuts = BRIDGES.map((bz) => [bz - ROAD_HALF, bz + ROAD_HALF]).sort((a, b) => a[0] - b[0]);
+    const spans = [];
+    let z = -191;
+    for (const [a, b] of cuts) {
+      spans.push([z, a]);
+      z = b;
+    }
+    spans.push([z, WATER.south + 18]);
+    for (const [za, zb] of spans) {
+      for (let q = za; q < zb; q += 80) {
+        const z1 = Math.min(zb, q + 80);
+        const g = chunk(300, q, "ground");
+        g.box(276, -0.2, q, 286, CURB, z1, SIDE, null);
+        g.box(286, -0.4, q, WATER.east + 12, 0.06, z1, col("#ecd9a6"), null);
+      }
+    }
+    // the causeway roads across the beach (asphalt at road level) …
+    for (const bz of BRIDGES) {
+      const g = chunk(310, bz, "ground");
+      g.box(276, -0.6, bz - ROAD_HALF, WATER.east + 0.5, 0, bz + ROAD_HALF, ASPH, null);
+    }
+  }
+  /* ---------------- Coral Key: shore, asphalt, blocks; the causeway decks ---------------- */
+  {
+    const SAND = col("#ecd9a6");
+    const g = chunk(ISLAND.x0 + 150, 0, "ground");
+    // sandy shore all round, grass inland
+    g.box(ISLAND.x0 - 6, -0.6, ISLAND.z0 - 6, ISLAND.x1 + 6, 0.06, ISLAND.z1 + 6, SAND, null);
+    const gx0 = ICOLS[0] - ROAD_HALF;
+    const gx1 = ICOLS[ICOLS.length - 1] + ROAD_HALF;
+    const gz0 = ROWS[0] - ROAD_HALF;
+    const gz1 = ROWS[4] + ROAD_HALF;
+    for (let x = gx0; x < gx1; x += CHUNK / 2) {
+      for (let z = gz0; z < gz1; z += CHUNK / 2) {
+        const x1 = Math.min(gx1, x + CHUNK / 2);
+        const z1 = Math.min(gz1, z + CHUNK / 2);
+        chunk(x, z, "ground").quad([x, 0.065, z1], [x1, 0.065, z1], [x1, 0.065, z], [x, 0.065, z], ASPH, [[x / 6, z1 / 6], [x1 / 6, z1 / 6], [x1 / 6, z / 6], [x / 6, z / 6]]);
+      }
+    }
+    for (let i = 0; i < ICOLS.length - 1; i++) {
+      for (let j = 0; j < 4; j++) {
+        const x0 = ICOLS[i] + ROAD_HALF;
+        const x1 = ICOLS[i + 1] - ROAD_HALF;
+        const z0 = ROWS[j] + ROAD_HALF;
+        const z1 = ROWS[j + 1] - ROAD_HALF;
+        const b = chunk((x0 + x1) / 2, (z0 + z1) / 2, "ground");
+        b.box(x0, -0.2, z0, x1, CURB, z1, SIDE, [1e9, 1e9]);
+        b.box(x0, CURB - 0.01, z0, x1, CURB + 0.004, z0 + 0.25, KERB, null, true, false);
+        b.box(x0, CURB - 0.01, z1 - 0.25, x1, CURB + 0.004, z1, KERB, null, true, false);
+        b.box(x0, CURB - 0.01, z0, x0 + 0.25, CURB + 0.004, z1, KERB, null, true, false);
+        b.box(x1 - 0.25, CURB - 0.01, z0, x1, CURB + 0.004, z1, KERB, null, true, false);
+        const park = city.zones.find((zn) => zn.kind === "park" && zn.x0 === x0 + 4 && zn.z0 === z0 + 4);
+        b.box(x0 + 4, CURB, z0 + 4, x1 - 4, CURB + 0.006, z1 - 4, park ? LOT.haven : LOT.key, null, true, false);
+      }
+    }
+    // causeway decks over the water: concrete slab, kerbs, railings, piers
+    const CONC = col("#c9c6bf");
+    const RAIL = col("#eef0f2");
+    for (const bz of BRIDGES) {
+      const d = chunk(377, bz, "ground");
+      d.box(WATER.east, -1.2, bz - ROAD_HALF - 1, ISLAND.x0, -0.02, bz + ROAD_HALF + 1, CONC, null);
+      d.box(WATER.east, -0.05, bz - ROAD_HALF, ISLAND.x0 + 0.5, 0, bz + ROAD_HALF, ASPH, null);
+      for (const sd of [-1, 1]) {
+        const zr = bz + sd * (ROAD_HALF + 0.6);
+        d.box(WATER.east, 0, zr - 0.35, ISLAND.x0, 0.3, zr + 0.35, CONC, null);
+        d.box(WATER.east, 0.95, zr - 0.06, ISLAND.x0, 1.05, zr + 0.06, RAIL, null);
+        for (let x = WATER.east + 2; x < ISLAND.x0; x += 4) d.box(x - 0.05, 0.3, zr - 0.05, x + 0.05, 1, zr + 0.05, RAIL, null);
+      }
+      for (let x = WATER.east + 12; x < ISLAND.x0 - 4; x += 18) d.box(x - 1.2, -6, bz - 4, x + 1.2, -1.2, bz + 4, CONC, null);
+    }
   }
   // quay: concrete apron south of the docks road
   for (let x = BOUNDS.x0; x < 286; x += 80) {
@@ -358,6 +426,7 @@ export function buildCityMesh(city, { shadows = true, quality = "high" } = {}) {
   };
   const awnings = new GB();
   for (const b of city.buildings) {
+    if (b.hollow) continue; // walk-in buildings (Club Neon) are drawn by their own module
     const kind = b.style === "tower" || b.style === "police" || b.style === "hospital" ? "tower" : b.style === "hotel" ? "hotel" : b.style === "shop" || b.style === "depot" ? "shop" : b.style === "house" || b.style === "mansion" ? "house" : b.style === "warehouse" || b.style === "garage" ? "warehouse" : "glass";
     const wc = col(b.color);
     const walls = chunk(b.cx, b.cz, `wall:${kind}`);
@@ -546,6 +615,7 @@ export function buildCityMesh(city, { shadows = true, quality = "high" } = {}) {
   {
     const land = new GB();
     land.box(BOUNDS.x0 - 400, -3, BOUNDS.z0 - 400, WATER.east - 0.5, -0.05, WATER.south - 0.5, col("#5e9a4c"), null);
+    land.box(ISLAND.x0 - 5, -3, ISLAND.z0 - 5, ISLAND.x1 + 5, -0.05, ISLAND.z1 + 5, col("#5e9a4c"), null);
     const geo = land.geometry();
     const m = new THREE.Mesh(geo, plainMat);
     group.add(m);
@@ -554,6 +624,8 @@ export function buildCityMesh(city, { shadows = true, quality = "high" } = {}) {
 
   /* ---------------- instanced props ---------------- */
   const inst = buildProps(city, group, disposables, { shadows, quality });
+  const extras = buildRooftops(city, group, disposables);
+  buildSkyline(group, disposables);
 
   return {
     group,
@@ -567,6 +639,8 @@ export function buildCityMesh(city, { shadows = true, quality = "high" } = {}) {
       signMat.emissiveIntensity = 0.35 + night * 2.2;
       waterMat.emissiveIntensity = 0.35 - night * 0.25;
       inst.update(t, night, sim);
+      extras.update(t, night);
+      if (group.userData.skylineMat) group.userData.skylineMat.emissiveIntensity = night * 0.9;
     },
     breakables: inst.breakables,
     dispose() {
@@ -752,6 +826,25 @@ function barrierGeometry() {
   }
   return mergeGeometries(parts.map((g) => g.toNonIndexed()));
 }
+/** a bus shelter: open to the road (+z), frosted back panel, roof, bench, ad box */
+function busStopGeometry() {
+  const parts = [];
+  const add = (w, h, d, x, y, z, hex) => {
+    const g = new THREE.BoxGeometry(w, h, d);
+    g.translate(x, y, z);
+    paint(g, hex);
+    parts.push(g);
+  };
+  for (const x of [-1.6, 1.6]) add(0.08, 2.4, 0.08, x, 1.2, -0.5, "#9aa1a8");
+  for (const x of [-1.6, 1.6]) add(0.08, 2.4, 0.08, x, 1.2, 0.5, "#9aa1a8");
+  add(3.6, 0.1, 1.4, 0, 2.45, 0, "#2f3a46");
+  add(3.2, 1.7, 0.05, 0, 1.3, -0.55, "#bcd3dd");
+  add(0.05, 1.7, 1.0, -1.6, 1.3, 0, "#bcd3dd");
+  add(2.4, 0.08, 0.4, 0, 0.48, -0.3, "#a0703f");
+  for (const x of [-1, 1]) add(0.06, 0.48, 0.3, x, 0.24, -0.3, "#3b3f45");
+  add(1.2, 1.6, 0.12, 1.6, 1.3, 0, "#ff8fb1");
+  return mergeGeometries(parts.map((g) => g.toNonIndexed()));
+}
 function paint(g, hex) {
   const c = new THREE.Color(hex);
   const n = g.attributes.position.count;
@@ -865,6 +958,8 @@ function buildProps(city, group, disposables, { shadows }) {
     disposables.push(debrisGeo["sign" + k]);
     instanced(debrisGeo["sign" + k].clone(), ic, of("sign").filter((p) => (p.kind | 0) === k), atRot, false, own1);
   }
+  // bus shelters
+  instanced(busStopGeometry(), ic, of("busstop"), atRot, true);
   for (const t of ["bin", "picket", "barrier"]) {
     debrisGeo[t] = { bin: binGeometry, picket: picketGeometry, barrier: barrierGeometry }[t]();
     disposables.push(debrisGeo[t]);
@@ -1100,4 +1195,203 @@ function buildProps(city, group, disposables, { shadows }) {
       /* geometries/materials are in the shared disposables list */
     },
   };
+}
+
+/* ====================================================================== rooftops */
+/**
+ * Every flat roof gets equipment (AC units, water tanks on the taller ones,
+ * antennas with aircraft-warning lights on towers) and a few shops / hotels
+ * carry lit billboards with fictional ads. All instanced.
+ */
+function buildRooftops(city, group, disposables) {
+  const R = rng(9119);
+  const ac = [];
+  const tanks = [];
+  const masts = [];
+  const boards = [];
+  for (const b of city.buildings) {
+    if (b.hollow || b.crown || b.roof === "pitched") continue;
+    const top = b.y + 0.4 + b.h + 0.02;
+    const w = b.x1 - b.x0;
+    const d = b.z1 - b.z0;
+    if (w < 8 || d < 8) continue;
+    const n = Math.min(6, Math.floor((w * d) / 220));
+    for (let k = 0; k < n; k++) ac.push({ x: b.x0 + 2 + R() * (w - 4), z: b.z0 + 2 + R() * (d - 4), y: top, r: R() < 0.5 ? 0 : Math.PI / 2 });
+    if (b.h > 18 && R() < 0.7) tanks.push({ x: b.x0 + 3 + R() * (w - 6), z: b.z0 + 3 + R() * (d - 6), y: top });
+    if (b.h > 34) masts.push({ x: b.cx + (R() - 0.5) * w * 0.3, z: b.cz + (R() - 0.5) * d * 0.3, y: top, h: 6 + R() * 8 });
+    if ((b.style === "shop" || b.style === "hotel") && b.h < 34 && R() < 0.35 && boards.length < 22) {
+      // face the nearest street side
+      const sides = [[b.x0, b.cz, -Math.PI / 2, d], [b.x1, b.cz, Math.PI / 2, d], [b.cx, b.z0, Math.PI, w], [b.cx, b.z1, 0, w]];
+      const s = sides[Math.floor(R() * 4)];
+      boards.push({ x: s[0], z: s[1], rot: s[2], y: top, ad: boards.length % 4 });
+    }
+  }
+  const _m = new THREE.Matrix4();
+  const _q = new THREE.Quaternion();
+  const _p = new THREE.Vector3();
+  const _s = new THREE.Vector3(1, 1, 1);
+  const _e = new THREE.Euler();
+  const inst = (geo, mat, list, place) => {
+    if (!list.length) return null;
+    const mesh = new THREE.InstancedMesh(geo, mat, list.length);
+    list.forEach((it, i) => {
+      place(it);
+      mesh.setMatrixAt(i, _m);
+    });
+    mesh.computeBoundingSphere();
+    group.add(mesh);
+    disposables.push(geo);
+    return mesh;
+  };
+  const metal = new THREE.MeshStandardMaterial({ color: "#a7adb4", roughness: 0.5, metalness: 0.6 });
+  const darkMetal = new THREE.MeshStandardMaterial({ color: "#5d636b", roughness: 0.6, metalness: 0.5 });
+  disposables.push(metal, darkMetal);
+  // AC unit: box with a fan disc on top
+  const acGeo = (() => {
+    const a = new THREE.BoxGeometry(1.6, 1.0, 1.2);
+    a.translate(0, 0.5, 0);
+    const f = new THREE.CylinderGeometry(0.4, 0.4, 0.06, 14);
+    f.translate(0.3, 1.03, 0);
+    return mergeGeometries([a.toNonIndexed(), f.toNonIndexed()]);
+  })();
+  inst(acGeo, metal, ac, (o) => _m.compose(_p.set(o.x, o.y, o.z), _q.setFromEuler(_e.set(0, o.r, 0)), _s.set(1, 1, 1)));
+  // water tank on four legs
+  const tankGeo = (() => {
+    const parts = [];
+    const c = new THREE.CylinderGeometry(1.3, 1.3, 2.2, 16);
+    c.translate(0, 2.6, 0);
+    parts.push(c);
+    const cap = new THREE.ConeGeometry(1.4, 0.6, 16);
+    cap.translate(0, 4.0, 0);
+    parts.push(cap);
+    for (const [x, z] of [[-0.9, -0.9], [0.9, -0.9], [-0.9, 0.9], [0.9, 0.9]]) {
+      const l = new THREE.BoxGeometry(0.12, 1.5, 0.12);
+      l.translate(x, 0.75, z);
+      parts.push(l);
+    }
+    return mergeGeometries(parts.map((g) => g.toNonIndexed()));
+  })();
+  inst(tankGeo, darkMetal, tanks, (o) => _m.compose(_p.set(o.x, o.y, o.z), _q.identity(), _s.set(1, 1, 1)));
+  // antenna mast (unit height, scaled) + a red warning light that blinks at night
+  const mastGeo = new THREE.CylinderGeometry(0.06, 0.12, 1, 6);
+  mastGeo.translate(0, 0.5, 0);
+  inst(mastGeo, metal, masts, (o) => _m.compose(_p.set(o.x, o.y, o.z), _q.identity(), _s.set(1, o.h, 1)));
+  const beacon = new THREE.MeshBasicMaterial({ color: "#ff2020" });
+  disposables.push(beacon);
+  const beaconGeo = new THREE.SphereGeometry(0.22, 8, 6);
+  const beacons = inst(beaconGeo, beacon, masts, (o) => _m.compose(_p.set(o.x, o.y + o.h + 0.1, o.z), _q.identity(), _s.set(1, 1, 1)));
+  // billboards: frame + an ad panel (4 fictional ads), lit at night
+  const ads = ["SUNBURST COLA|Taste the coast", "VICE 98.7 FM|Neon nights, all night", "CORAL KEY|Casino · Resort · Club", "VENTO GT|Born on the boulevard"];
+  const adCols = [["#ff7a00", "#ffd23f"], ["#7b2cff", "#ff4fa0"], ["#00a6c8", "#3fffd8"], ["#111318", "#ff3b30"]];
+  const adMats = ads.map((txt, k) => {
+    const c = document.createElement("canvas");
+    c.width = 512;
+    c.height = 256;
+    const g = c.getContext("2d");
+    const grd = g.createLinearGradient(0, 0, 512, 256);
+    grd.addColorStop(0, adCols[k][0]);
+    grd.addColorStop(1, adCols[k][1]);
+    g.fillStyle = grd;
+    g.fillRect(0, 0, 512, 256);
+    const [a, b] = txt.split("|");
+    g.fillStyle = "#ffffff";
+    g.textAlign = "center";
+    g.font = "italic 900 64px Arial Black, Arial";
+    g.fillText(a, 256, 120);
+    g.font = "bold 32px Arial";
+    g.fillText(b, 256, 180);
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace;
+    const mat = new THREE.MeshStandardMaterial({ map: t, emissive: "#ffffff", emissiveMap: t, emissiveIntensity: 0.15, roughness: 0.6 });
+    disposables.push(t, mat);
+    return mat;
+  });
+  const boardGeo = new THREE.PlaneGeometry(9, 4.5);
+  const frameGeo = (() => {
+    const parts = [];
+    const back = new THREE.BoxGeometry(9.4, 4.9, 0.25);
+    back.translate(0, 0, -0.15);
+    parts.push(back);
+    for (const x of [-3, 3]) {
+      const l = new THREE.BoxGeometry(0.25, 3, 0.25);
+      l.translate(x, -3.9, -0.15);
+      parts.push(l);
+    }
+    return mergeGeometries(parts.map((g) => g.toNonIndexed()));
+  })();
+  disposables.push(boardGeo, frameGeo);
+  for (const o of boards) {
+    const fx = Math.sin(o.rot);
+    const fz = Math.cos(o.rot);
+    // set back from the roof edge, panel facing out over the street
+    const x = o.x - fx * 2.2;
+    const z = o.z - fz * 2.2;
+    const frame = new THREE.Mesh(frameGeo, darkMetal);
+    frame.position.set(x, o.y + 5.5, z);
+    frame.rotation.y = o.rot;
+    const panel = new THREE.Mesh(boardGeo, adMats[o.ad]);
+    panel.position.set(x + fx * 0.02, o.y + 5.5, z + fz * 0.02);
+    panel.rotation.y = o.rot;
+    group.add(frame, panel);
+  }
+  return {
+    update(t, night) {
+      for (const mat of adMats) mat.emissiveIntensity = 0.15 + night * 1.1;
+      if (beacons) beacons.visible = night < 0.2 || Math.floor(t * 1.2) % 2 === 0;
+    },
+  };
+}
+
+/* ====================================================================== skyline */
+/**
+ * Distant districts all round the playable city (west inland, across the
+ * harbour to the south, beyond the island to the east, behind the hills):
+ * render-only towers and blocks that fade into the haze, so the city reads as
+ * part of a much bigger metropolis. Windows light up at night.
+ */
+function buildSkyline(group, disposables) {
+  const R = rng(3030);
+  const list = [];
+  const band = (x0, x1, z0, z1, n, hMin, hMax) => {
+    for (let k = 0; k < n; k++) {
+      const w = 18 + R() * 30;
+      const d = 18 + R() * 30;
+      list.push({ x: x0 + R() * (x1 - x0), z: z0 + R() * (z1 - z0), w, d, h: hMin + Math.pow(R(), 1.6) * (hMax - hMin) });
+    }
+  };
+  band(-900, -430, -450, 330, 70, 12, 95); // inland, west
+  band(-520, 380, 360, 760, 70, 10, 120); // across the harbour, south
+  band(780, 1150, -420, 360, 45, 14, 130); // beyond Coral Key, east
+  band(-500, 300, -900, -480, 50, 20, 70); // behind the hills, north
+  // window texture: rows of lit / unlit windows
+  const c = document.createElement("canvas");
+  c.width = 64;
+  c.height = 128;
+  const g = c.getContext("2d");
+  g.fillStyle = "#000";
+  g.fillRect(0, 0, 64, 128);
+  for (let y = 4; y < 128; y += 8) for (let x = 4; x < 64; x += 8) {
+    g.fillStyle = Math.random() < 0.35 ? "#ffd58a" : "#1a1d24";
+    g.fillRect(x, y, 5, 5);
+  }
+  const winTex = new THREE.CanvasTexture(c);
+  winTex.colorSpace = THREE.SRGBColorSpace;
+  winTex.wrapS = winTex.wrapT = THREE.RepeatWrapping;
+  winTex.repeat.set(2, 5);
+  const mat = new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: 0.8, emissive: "#ffffff", emissiveMap: winTex, emissiveIntensity: 0 });
+  const geo = new THREE.BoxGeometry(1, 1, 1);
+  geo.translate(0, 0.5, 0);
+  disposables.push(winTex, mat, geo);
+  const mesh = new THREE.InstancedMesh(geo, mat, list.length);
+  const _m = new THREE.Matrix4();
+  const cols = ["#b9c3cf", "#c9c2b6", "#a9b6c4", "#d4c8b8", "#9fa9b3", "#c8b8c9"].map((h) => new THREE.Color(h));
+  list.forEach((o, i) => {
+    _m.makeScale(o.w, o.h, o.d).setPosition(o.x, -0.5, o.z);
+    mesh.setMatrixAt(i, _m);
+    mesh.setColorAt(i, cols[i % cols.length]);
+  });
+  mesh.computeBoundingSphere();
+  group.add(mesh);
+  // windows glow at night (cityMesh.update drives the intensity)
+  group.userData.skylineMat = mat;
 }

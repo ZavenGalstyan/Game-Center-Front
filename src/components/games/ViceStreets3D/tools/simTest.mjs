@@ -14,7 +14,7 @@
  */
 import { Sim, STEP, missionSpawn, PLAYER, bailDamage } from "../engine/sim.js";
 import { MOVES, startMove, stepMove } from "../engine/combat.js";
-import { getCity, lightState, COLS, ROWS, ROAD_HALF, BREAKABLE } from "../engine/city.js";
+import { getCity, lightState, COLS, ROWS, ROAD_HALF, BREAKABLE, ISLAND, BRIDGES } from "../engine/city.js";
 import { BODY_TIME, MAX_FIGHTERS, benchSeat, SEAT_TOP } from "../engine/peds.js";
 import { wrapA, rng } from "../engine/util.js";
 import { bodyCircles } from "../engine/vehicle.js";
@@ -46,7 +46,7 @@ const insideSolid = (x, z, m = 0) => city.solids.some((s) => s.kind !== "pole" &
 /* ====================================================================== city */
 function testCity() {
   section("City");
-  check("five districts present", new Set(city.buildings.map((b) => b.district)).size === 5);
+  check("six districts present (incl. Coral Key)", new Set(city.buildings.map((b) => b.district)).size === 6, [...new Set(city.buildings.map((b) => b.district))].join(","));
   check("road graph has grid + hill roads", city.edges.some((e) => e.kind === "grid") && city.edges.some((e) => e.kind === "hill"), `${city.nodes.length} nodes / ${city.edges.length} edges`);
   // every node reachable from downtown with all districts open
   const start = city.gridNode(4, 1).id;
@@ -79,6 +79,30 @@ function testCity() {
   }
   check("no lane is blocked by a building / prop", laneBlocked === 0, `${laneBlocked} samples`);
   check("landmarks to discover", city.landmarks.length >= 8, `${city.landmarks.length}`);
+  // Coral Key: a whole extra district reached over two causeways
+  {
+    const isl = city.nodes.filter((n) => n.island);
+    const from = city.gridNode(4, 1).id;
+    const reach = isl.every((n) => astar(city, from, n.id));
+    const bridges = city.edges.filter((e) => e.bridge);
+    // with one causeway closed, the other still connects
+    const viaOne = astar(city, from, city.gridNode(102, 3).id, (e) => e === bridges[0]);
+    check("Coral Key island: 20 junctions, reachable by road", isl.length === 20 && reach, `${isl.length} junctions`);
+    check("two causeways, either one connects the island", bridges.length === 2 && !!viaOne);
+    check("Coral Key has buildings, landmarks and mission places", city.buildings.filter((b) => b.district === "key").length >= 18 && ["casino", "resort", "keymarina", "gardens"].every((id) => city.landmarks.some((l) => l.id === id)) && ["casinoCurb", "keyMarina", "palmCourt", "villaDoor"].every((id) => city.places[id]));
+    // nobody can drive or walk into the sea: the shore is walled, the causeways railed
+    const col = new Collision(city);
+    let leaks = 0;
+    for (let z = -190; z <= 190; z += 7) {
+      const p = { x: ISLAND.x0 - 1, z };
+      col.pushCircle(p, 0.5, 0, 1.7, 0.45);
+      if (!BRIDGES.some((bz) => Math.abs(z - bz) < ROAD_HALF + 1) && p.x < ISLAND.x0 - 0.3 && p.x > ISLAND.x0 - 1.8) leaks++;
+    }
+    check("island shore and causeway railings are solid", leaks === 0, `${leaks} gaps`);
+    const city2 = city.edges.length;
+    void city2;
+  }
+  check("30 story missions (20 main + 10 Coral Key)", MISSIONS.length === 30 && MISSIONS.filter((m) => m.arc === "key").length === 10);
   check("services: garage, dealer, clothes, café, hospital, police", ["garage", "dealer", "clothes", "cafe", "hospital", "police"].every((k) => city.places[k]));
   // signal phases: N-S and E-W never green together
   const n = city.lightsAt[0];
@@ -704,13 +728,17 @@ function testCombat() {
   sim.police.setWanted(1);
   let cop = null;
   for (let i = 0; i < 60 * 20 && !cop; i++) {
+    // (keep the star: the units are far off and would otherwise lose the trail)
+    if (sim.police.wanted < 1) sim.police.setWanted(1);
     sim.step(STEP, {});
     cop = sim.police.foot[0];
   }
   if (!cop) {
     const u = sim.police.units[0];
     if (u) Object.assign(u, { x: sim.player.x + 6, z: sim.player.z, vx: 0, vz: 0 });
-    for (let i = 0; i < 60 && !cop; i++) {
+    for (let i = 0; i < 120 && !cop; i++) {
+      if (u) Object.assign(u, { vx: 0, vz: 0 });
+      if (sim.police.wanted < 1) sim.police.setWanted(1);
       sim.step(STEP, {});
       cop = sim.police.foot[0];
     }
@@ -1005,6 +1033,43 @@ function testRoster() {
   }
   check("live traffic uses the new vehicles", [...seen].filter((t) => !["compact", "sedan", "taxi", "suv", "van", "muscle", "sports"].includes(t)).length >= 3, [...seen].join(","));
   check("traffic stays bounded", maxCars <= sim.traffic.max, `${maxCars}/${sim.traffic.max}`);
+}
+
+
+/* ====================================================================== Club Neon */
+function testClub() {
+  section("Club Neon");
+  const sim = freshSim({ seed: 140 });
+  const C = sim.city.club;
+  const pl = sim.player;
+  check("Club Neon exists on Coral Key with a crowd, DJ, bartender and bouncer", !!C && sim.club.dancers.length >= 12 && !!sim.club.dj && !!sim.club.bouncer && sim.services.some((s) => s.id === "bar"));
+  // walk in through the door from the street
+  Object.assign(pl, { x: C.x0 - 6, z: C.door.z, h: Math.PI / 2, vx: 0, vz: 0, mode: "foot" });
+  pl.y = sim.city.surfaceAt(pl.x, pl.z);
+  stepN(sim, 60 * 4, { mx: 1, mz: 0 });
+  check("you can walk in through the door", sim.inClub(pl.x, pl.z), pl.x.toFixed(1));
+  // but not through the walls
+  Object.assign(pl, { x: C.x0 - 3, z: C.z0 + 8, vx: 0, vz: 0 });
+  stepN(sim, 60 * 3, { mx: 1, mz: 0 });
+  check("the walls are solid away from the door", !sim.inClub(pl.x, pl.z), pl.x.toFixed(1));
+  // the bar: a drink costs $20 and heals
+  const bar = sim.city.places.clubBar;
+  Object.assign(pl, { x: bar.x, z: bar.z + 0.4, vx: 0, vz: 0, hp: 50 });
+  stepN(sim, 30);
+  const m0 = sim.prog.money;
+  stepN(sim, 1, { interact: true });
+  check("a drink at the bar: −$20, +30 health", sim.prog.money === m0 - 20 && Math.abs(pl.hp - 80) < 1.5, `$${m0}→${sim.prog.money}, hp ${pl.hp}`);
+  // dance on the floor; walking off stops it
+  const fl = sim.city.places.clubFloor;
+  Object.assign(pl, { x: fl.x, z: fl.z, vx: 0, vz: 0 });
+  stepN(sim, 40);
+  check("prompt to dance on the floor", sim.prompt && /Dance/.test(sim.prompt.text), sim.prompt?.text);
+  stepN(sim, 1, { interact: true });
+  stepN(sim, 30);
+  check("E dances, the animation flag is on", pl.dancing && pl.anim.dance === 1);
+  stepN(sim, 20, { mx: 1, mz: 0 });
+  check("moving stops dancing", !pl.dancing && pl.anim.dance === 0);
+  check("dancers stay on the dance floor", sim.club.dancers.every((n) => sim.onDanceFloor(n.x, n.z) && n.anim.dance === 1));
 }
 
 /* ====================================================================== cars vs people */
@@ -1417,7 +1482,7 @@ function testWorldClock() {
   // every mission start point is reachable and on the map
   check("all mission start points resolve to map positions", MISSIONS.every((m) => {
     const s = missionSpawn(city, m);
-    return Number.isFinite(s.x) && Number.isFinite(s.z) && Math.abs(s.x) < 400 && Math.abs(s.z) < 420;
+    return Number.isFinite(s.x) && Number.isFinite(s.z) && s.x > city.bounds.x0 && s.x < city.bounds.x1 && s.z > city.bounds.z0 && s.z < city.bounds.z1;
   }));
 }
 
@@ -1436,7 +1501,7 @@ function testMissions() {
     if (win) ok++;
     check(`M${String(m.id).padStart(2, "0")} ${m.title}`, !!win, `${res.join("")}${win ? ` · ${win.t.toFixed(0)} s` : ""}`);
   }
-  console.log(`  ${ok}/20 missions completed by the bot`);
+  console.log(`  ${ok}/${MISSIONS.length} missions completed by the bot`);
 }
 function testActivities() {
   section("Side activities (bot plays each; up to 4 seeds)");
@@ -1468,6 +1533,7 @@ if (mode === "quick" || mode === "all") {
   testBail();
   testBenches();
   testRoster();
+  testClub();
   testCarPeople();
   testHandling();
   testBreakables();

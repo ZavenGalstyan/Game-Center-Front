@@ -1150,7 +1150,9 @@ export function animateRig(rig, s, dt) {
   };
   const P = s.punch;
   const M = P ? MOVES[P.move] : null;
-  const guard = s.fight > 0 || P || s.block > 0;
+  // the guard only while squared up (standing / shuffling) or striking —
+  // walking or running away after a fight uses the normal arm swing
+  const guard = P || s.block > 0 || (s.fight > 0 && sp < 1.2);
   if (guard) {
     // boxing guard: lead (left) fist forward at chin height, rear fist by the
     // jaw, elbows in, chin down; feet staggered (left forward), knees soft
@@ -1284,6 +1286,64 @@ export function animateRig(rig, s, dt) {
     }
     T.smile = -0.8;
     T.mouth = 0.4;
+  }
+  if (s.dance > 0 && !moving) {
+    // dancing on the beat (124 BPM like the club music): knee bounce, hip
+    // sway, head nod, and one of five arm styles
+    const D = clamp(s.dance, 0, 1);
+    const ph = t * (124 / 60) * Math.PI * 2 + seed;
+    const bounce = (1 + Math.sin(ph)) / 2;
+    const sway = Math.sin(ph / 2);
+    const st = s.danceStyle ?? Math.floor(seed * 7) % 4;
+    const set = (key, v) => (T[key] = T[key] * (1 - D) + v * D);
+    set("drop", 0.04 + bounce * 0.07);
+    set("kneeL", 0.2 + bounce * 0.25);
+    set("kneeR", 0.2 + bounce * 0.25);
+    set("legLX", -0.1 - bounce * 0.12);
+    set("legRX", -0.1 - bounce * 0.12);
+    set("spineZ", sway * 0.13);
+    set("chestY", sway * 0.28);
+    set("headX", 0.08 + Math.sin(ph) * 0.13);
+    set("headY", sway * 0.25);
+    if (st === 0) {
+      // fist pump
+      set("armRZ", -2.35 + Math.max(0, Math.sin(ph)) * 0.35);
+      set("armRX", -0.2);
+      set("foreR", -0.35 - bounce * 0.4);
+      set("armLX", -0.7);
+      set("foreL", -1.7);
+    } else if (st === 1) {
+      // arms swinging in front, alternating
+      set("armLX", -0.75 + sway * 0.45);
+      set("armRX", -0.75 - sway * 0.45);
+      set("foreL", -1.6);
+      set("foreR", -1.6);
+    } else if (st === 2) {
+      // hands in the air
+      set("armLZ", 2.45 + sway * 0.15);
+      set("armRZ", -2.45 + sway * 0.15);
+      set("foreL", -0.4 - bounce * 0.3);
+      set("foreR", -0.4 - bounce * 0.3);
+    } else if (st === 3) {
+      // shoulder shimmy
+      set("armLX", -0.45);
+      set("armRX", -0.45);
+      set("foreL", -1.95);
+      set("foreR", -1.95);
+      set("chestY", sway * 0.45);
+    } else {
+      // DJ: a hand on the decks, the other on the headphones
+      set("armRX", -1.05 + Math.sin(ph * 2) * 0.08);
+      set("foreR", -0.8);
+      set("armLZ", 1.95);
+      set("armLX", -0.6);
+      set("foreL", -2.4);
+      set("headX", 0.22 + Math.sin(ph) * 0.18);
+    }
+    T.smile = 0.8;
+    T.wIdle = 1;
+    T.wWalk = 0;
+    T.wRun = 0;
   }
   if (s.tuck > 0) {
     // tucked roll: knees to the chest, chin down, arms wrapped round the shins

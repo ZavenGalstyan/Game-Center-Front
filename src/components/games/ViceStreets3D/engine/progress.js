@@ -16,8 +16,8 @@ import { MISSIONS, missionById } from "../data/missions.js";
 export const STORAGE_KEY = "vice-streets-3d-progress";
 export const MAX_LEVEL = 25;
 export const xpForLevel = (L) => 200 + 90 * (L - 1);
-export const START_DISTRICTS = ["beach", "downtown", "haven"];
-export const ALL_DISTRICTS = ["beach", "downtown", "haven", "docks", "hills"];
+export const START_DISTRICTS = ["beach", "downtown", "haven", "key"];
+export const ALL_DISTRICTS = ["beach", "downtown", "haven", "docks", "hills", "key"];
 
 export const GARAGE_UPS = [
   { id: "capacity", name: "Garage Extension", desc: "More parking: 3 → 5 → 8 vehicles", prices: [6000, 15000] },

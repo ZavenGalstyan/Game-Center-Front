@@ -80,6 +80,13 @@ export default function ViceStreets3D({ restartSignal = 0, muted = false }) {
   const [ending, setEnding] = useState(null);
   const [toasts, setToasts] = useState([]);
   const [banner, setBanner] = useState(null);
+  // the area you are in: a small corner label for a moment, never centre-screen
+  const [area, setArea] = useState(null);
+  const showArea = useCallback((name) => {
+    const id = Date.now() + Math.random();
+    setArea({ id, name });
+    setTimeout(() => setArea((a) => (a && a.id === id ? null : a)), 1600);
+  }, []);
   const [dialog, setDialog] = useState(null);
   const [say, setSay] = useState(null);
   const [msg, setMsg] = useState("");
@@ -167,8 +174,10 @@ export default function ViceStreets3D({ restartSignal = 0, muted = false }) {
   const offersFor = useCallback((sim) => {
     const P = progRef.current;
     const out = [];
-    const m = MISSIONS.find((x) => missionState(P, x) === "open");
-    if (m) {
+    // the next open mission of each story line (main story, Coral Key arc)
+    for (const arc of [undefined, "key"]) {
+      const m = MISSIONS.find((x) => x.arc === arc && missionState(P, x) === "open");
+      if (!m) continue;
       const at = sim.resolve(m.start.at);
       out.push({ kind: "mission", id: m.id, x: at.x, z: at.z, label: `Start mission ${m.id}: ${m.title}` });
     }
@@ -219,7 +228,7 @@ export default function ViceStreets3D({ restartSignal = 0, muted = false }) {
       edges.current = {};
       gps.current = { route: null, t: 0, waypoint: null, key: "" };
       hud.current.last = {};
-      hud.current.district = null;
+      hud.current.areaName = null;
       hud.current.saveT = 8;
       setResult(null);
       setEnding(null);
@@ -433,6 +442,9 @@ export default function ViceStreets3D({ restartSignal = 0, muted = false }) {
             break;
           case "fightBack":
             if (d(e.x, e.z) < 20) toast("They're fighting back!", "warn");
+            break;
+          case "drink":
+            audio.coin();
             break;
           case "cash":
             audio.coin();
@@ -709,14 +721,16 @@ export default function ViceStreets3D({ restartSignal = 0, muted = false }) {
     const F = sim.focus();
     const dist = DISTRICTS[sim.city.districtAt(F.x, F.z)].name;
     set("district", dist);
-    if (H.district !== dist) {
-      if (H.district) showBanner(dist.toUpperCase(), "", "district", 1800);
-      H.district = dist;
+    // (H.district is the HUD element; the last area shown is tracked separately)
+    if (H.areaName !== dist) {
+      // shown once on arrival (also when a session starts), in the corner
+      showArea(dist);
+      H.areaName = dist;
     }
     const li = levelInfo(P.xp);
     set("level", `LV ${li.level}`);
     bar("xpBar", li.frac);
-  }, [showBanner]);
+  }, [showArea, showBanner]);
 
   /* ------------------------------------------------------------ frame */
   const frameRef = useRef(null);
@@ -768,7 +782,18 @@ export default function ViceStreets3D({ restartSignal = 0, muted = false }) {
     }
     // draw between the last two physics steps: smooth motion at any frame rate
     world.render(sim, cam.current, dt, P.settings, stepping ? T.acc / STEP : 1);
-    audio.update(sim, dt, { paused: !!ov });
+    {
+      // Club Neon's music: loud inside, a muffled thump within ~90 m
+      const F = sim.focus();
+      const CL = sim.city.club;
+      let club = { level: 0, inside: false };
+      if (CL && !sim.ambient) {
+        const inside = sim.inClub(F.x, F.z);
+        const d = Math.hypot(F.x - (CL.x0 + CL.x1) / 2, F.z - (CL.z0 + CL.z1) / 2);
+        club = { inside, level: inside ? 1 : Math.max(0, 1 - Math.max(0, d - 26) / 65) };
+      }
+      audio.update(sim, dt, { paused: !!ov, club });
+    }
     // GPS route ~1 Hz to the mission marker or the map waypoint
     const G = gps.current;
     G.t -= dt;
@@ -1242,6 +1267,11 @@ export default function ViceStreets3D({ restartSignal = 0, muted = false }) {
               </div>
             ))}
           </div>
+          {area && (
+            <div key={area.id} className="vs-area">
+              {area.name}
+            </div>
+          )}
           {banner && (
             <div key={banner.id} className={`vs-banner ${banner.kind}`}>
               <b>{banner.title}</b>

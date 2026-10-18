@@ -97,6 +97,14 @@ class Audio {
     this.hum = this.loopNoise(this.amb, "lowpass", 380, 0.7, this.brown);
     this.surf = this.loopNoise(this.amb, "lowpass", 900, 0.6);
     this.surfLfo = 0;
+    // Club Neon: its own bus through a low-pass (muffled through the walls outside)
+    this.clubBus = c.createGain();
+    this.clubBus.gain.value = 0;
+    this.clubF = c.createBiquadFilter();
+    this.clubF.type = "lowpass";
+    this.clubF.frequency.value = 600;
+    this.clubBus.connect(this.clubF);
+    this.clubF.connect(this.master);
     this.ready = true;
     this.apply();
   }
@@ -172,6 +180,66 @@ class Audio {
     const radio = car && this.radioOn && !opts.paused;
     this.music.gain.setTargetAtTime(radio ? 0.11 : 0, t, 0.4);
     if (radio) this.radioTick();
+    // the club: full and bright inside, a muffled thump outside nearby
+    const cl = opts.club || { level: 0, inside: false };
+    const lv = opts.paused ? 0 : cl.level;
+    this.clubBus.gain.setTargetAtTime(lv * (cl.inside ? 0.3 : 0.22), t, 0.25);
+    this.clubF.frequency.setTargetAtTime(cl.inside ? 16000 : 380, t, 0.2);
+    if (lv > 0.01) this.clubTick();
+  }
+  /* ---------------------------------------------------------------- club: an original 124 BPM house loop */
+  clubTick() {
+    const c = this.ctx;
+    const beat = 60 / 124;
+    if (!this.cNext || this.cNext < c.currentTime) this.cNext = c.currentTime + 0.05;
+    this.cStep = this.cStep || 0;
+    const B = this.clubBus;
+    // F#m – D – A – E, offbeat bass, four-on-the-floor kick, claps on 2 and 4
+    const CH = [[54, 57, 61], [50, 54, 57], [57, 61, 64], [52, 56, 59]];
+    while (this.cNext < c.currentTime + 0.2) {
+      const s = this.cStep;
+      const at = this.cNext;
+      const ch = CH[Math.floor(s / 16) % 4];
+      if (s % 4 === 0) this.kick(at, B);
+      if (s % 8 === 4) this.clap(at, B);
+      if (s % 4 === 2) this.note(ch[0] - 24, at, beat * 0.45, "sawtooth", 0.35, B, 500);
+      this.hat(at, s % 4 === 2 ? 0.12 : 0.05, B);
+      if (s % 16 === 0 || s % 16 === 10) for (const n of ch) this.note(n + 12, at, beat * 0.5, "sawtooth", 0.07, B, 2600);
+      if (s % 2 === 1 && (s >> 3) % 2 === 1) this.note(ch[(s >> 1) % 3] + 24, at, beat * 0.25, "square", 0.05, B, 3500);
+      this.cNext += beat / 4;
+      this.cStep++;
+    }
+  }
+  kick(at, dest) {
+    const c = this.ctx;
+    const o = c.createOscillator();
+    o.type = "sine";
+    o.frequency.setValueAtTime(140, at);
+    o.frequency.exponentialRampToValueAtTime(42, at + 0.12);
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.9, at);
+    g.gain.exponentialRampToValueAtTime(0.001, at + 0.3);
+    o.connect(g);
+    g.connect(dest);
+    o.start(at);
+    o.stop(at + 0.32);
+  }
+  clap(at, dest) {
+    const c = this.ctx;
+    const s = c.createBufferSource();
+    s.buffer = this.noise;
+    const f = c.createBiquadFilter();
+    f.type = "bandpass";
+    f.frequency.value = 1400;
+    f.Q.value = 0.8;
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.35, at);
+    g.gain.exponentialRampToValueAtTime(0.001, at + 0.16);
+    s.connect(f);
+    f.connect(g);
+    g.connect(dest);
+    s.start(at, Math.random());
+    s.stop(at + 0.18);
   }
   /* ---------------------------------------------------------------- radio: an original tropical synth loop */
   radioTick() {

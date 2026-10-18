@@ -30,10 +30,12 @@ import { CAST } from "../data/people.js";
 import { dist, clamp, headingOf, wrapA } from "./util.js";
 import { zoneAt } from "./city.js";
 
-export const UNITS = [2, 2, 3, 4, 5, 6];
-export const evadeTime = (w) => 8 + 4 * w;
+export const UNITS = [2, 3, 3, 4, 5, 6];
+export const evadeTime = (w) => 10 + 5 * w;
 /** the fastest a cruiser will drive in pursuit, by wanted level (m/s) */
-export const PURSUIT_SPEED = [24, 27, 30, 33, 37, 41];
+export const PURSUIT_SPEED = [25, 29, 32, 35, 39, 43];
+/** roadblocks are set up from this many stars */
+export const ROADBLOCK_STARS = 3;
 
 export class Police {
   constructor(sim) {
@@ -287,7 +289,7 @@ export class Police {
       this.heat = Math.max(0, this.heat - dt * 4);
     }
     // roadblocks at 4+ stars
-    if (this.wanted >= 4 && pl.mode === "car") {
+    if (this.wanted >= ROADBLOCK_STARS && pl.mode === "car") {
       this.roadblockT -= dt;
       if (this.roadblockT <= 0) {
         this.roadblockT = this.wanted >= 5 ? 16 : 24;

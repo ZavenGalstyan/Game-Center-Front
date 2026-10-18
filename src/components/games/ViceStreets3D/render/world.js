@@ -15,11 +15,13 @@
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { buildCityMesh } from "./cityMesh.js";
+import { buildClub } from "./club.js";
 import { benchSeat } from "../engine/peds.js";
 import { createCarModel, disposeCarCache } from "./cars.js";
 import { buildCharacter, animateRig, disposeRig, disposeCharacterCache, charMaterial, loadCharacterAssets } from "./people.js";
 import { disposeTextures } from "./textures.js";
-import { clamp, damp, dampA, lerp, wrapA } from "../engine/util.js";
+import { clamp, damp, dampA, lerp, wrapA, rng } from "../engine/util.js";
+import { CAST, randomLook } from "../data/people.js";
 
 const QUAL = {
   low: { dpr: 1, shadows: false, map: 0, far: 420, aa: false },
@@ -114,6 +116,8 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
 
   const cityMesh = buildCityMesh(city, { shadows: Q.shadows, quality });
   scene.add(cityMesh.group);
+  const club = buildClub(scene, city);
+  let clubDim = 0;
   loadCharacterAssets();
 
   /* ------------------------------------------------------------ models */
@@ -144,7 +148,52 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
     }
     return m;
   }
+  /**
+   * Real people behind the wheel: every AI-driven car within 75 m gets a full
+   * character in the driver's seat (police officers in uniform), posed with
+   * hands on the wheel and turning it; further away the low-cost stand-in.
+   */
+  const drivers = new Map(); // car id → rig
+  function driverLook(v, city) {
+    if (v.role === "police") return CAST.cop.look;
+    return randomLook(rng(1000 + v.id * 7919), city.districtAt(v.x, v.z));
+  }
+  function dropDriver(id) {
+    const r = drivers.get(id);
+    if (!r) return;
+    disposeRig(r);
+    drivers.delete(id);
+  }
+  function syncDriver(v, m, d, dt, sim) {
+    const wants = v.driver === "ai" && !(v.role === "police" && v.copOut) && !v.wrecked;
+    let r = drivers.get(v.id);
+    if (!wants || d > 75) {
+      if (r) dropDriver(v.id);
+      m.dummy.visible = wants;
+      return;
+    }
+    if (!r) {
+      r = buildCharacter(driverLook(v, sim.city));
+      r.seed = (v.id * 0.53) % 6.28;
+      r.acc = 1;
+      scene.add(r.root);
+      drivers.set(v.id, r);
+    }
+    m.dummy.visible = false;
+    m.seat.updateWorldMatrix(true, false);
+    m.seat.getWorldPosition(_v);
+    m.seat.getWorldQuaternion(_q);
+    r.root.position.set(_v.x, _v.y - 0.47 * (r.scale || 1), _v.z);
+    r.root.quaternion.copy(_q);
+    r.setLOD(d > 30 ? 1 : 0);
+    // far drivers animate less often
+    r.acc = (r.acc || 0) + dt;
+    if (d > 35 && r.acc < 0.1) return;
+    animateRig(r, { pose: "drive", steer: (v.wheelSteer || 0) / 0.6, t: time, seed: r.seed, speed: 0 }, r.acc);
+    r.acc = 0;
+  }
   function dropCar(id) {
+    dropDriver(id);
     const m = cars.get(id);
     if (!m) return;
     scene.remove(m.group);
@@ -225,7 +274,7 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
       const m = carModel(v);
       m.update(v, time, night > 0.5, dt, alpha);
       m.setDetail(d < 70 ? 0 : 1);
-      m.dummy.visible = v.driver === "ai" && !(v.role === "police" && v.copOut);
+      syncDriver(v, m, d, dt, sim);
       // damage smoke / fire
       if (v.wrecked || v.hp < v.st.hp * 0.35) fx.smoke(v, dt, v.wrecked);
     }
@@ -302,7 +351,7 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
         continue;
       }
       const pose = A.sit ? "sit" : A.talk > 0 && (p.speed || 0) < 0.2 ? "talk" : "stand";
-      animateRig(r, { pose, speed: p.speed || A.speed || 0, t: time, seed: r.seed, wave: A.wave, interact: A.interact, talking: A.talk > 0, ground, celebrate: A.celebrate, surrender: A.surrender, stagger: A.stagger > 0 ? Math.min(1, A.stagger * 3) : 0, punch: A.punch, cower: A.cower, fight: A.fight, block: A.block, dodge: A.dodge, hitSide: A.hitSide, hitKind: A.hitKind }, step);
+      animateRig(r, { pose, speed: p.speed || A.speed || 0, t: time, seed: r.seed, wave: A.wave, interact: A.interact, talking: A.talk > 0, ground, celebrate: A.celebrate, surrender: A.surrender, stagger: A.stagger > 0 ? Math.min(1, A.stagger * 3) : 0, punch: A.punch, cower: A.cower, fight: A.fight, block: A.block, dodge: A.dodge, hitSide: A.hitSide, hitKind: A.hitKind, dance: A.dance, danceStyle: p.danceStyle }, step);
     }
     // the player
     const pl = sim.player;
@@ -341,7 +390,7 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
       } else {
         const f = poseBody(r, q, A, dt);
         if (f > 0.02) animateRig(r, { pose: "stand", t: time, seed: r.seed, hurt: 1, limp: f }, dt);
-        else animateRig(r, { pose: "stand", speed: pl.speed, air: A.air, t: time, seed: r.seed, interact: A.interact, celebrate: A.celebrate, hurt: A.hurt, surrender: A.surrender, ground, punch: A.punch, stagger: A.stagger > 0 ? Math.min(1, A.stagger * 3) : 0, fight: pl.atk || sim.t - (pl.chainT ?? -9) < 2.5 || sim.peds.fighters() > 0 ? 1 : 0 }, dt);
+        else animateRig(r, { pose: "stand", speed: pl.speed, air: A.air, t: time, seed: r.seed, interact: A.interact, celebrate: A.celebrate, hurt: A.hurt, surrender: A.surrender, ground, punch: A.punch, stagger: A.stagger > 0 ? Math.min(1, A.stagger * 3) : 0, dance: A.dance, danceStyle: 2, fight: pl.atk || sim.t - (pl.chainT ?? -9) < 2.5 || sim.peds.fighters() > 0 ? 1 : 0 }, dt);
       }
     }
     for (const id of [...people.keys()]) if (!seen.has(id)) dropRig(id);
@@ -405,6 +454,8 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
     if (cam.first || cam.pull == null) cam.pull = want;
     else cam.pull += (want - cam.pull) * (1 - Math.exp(-(want < cam.pull ? 30 : 6) * dt));
     _des.sub(cam.pivot).multiplyScalar(cam.pull).add(cam.pivot);
+    // under the club's ceiling
+    if (city.club && sim.inClub(cam.pivot.x, cam.pivot.z)) _des.y = Math.min(_des.y, city.club.h - 0.7);
     // keep above the ground
     const gy = city.groundAt(_des.x, _des.z) + 0.6;
     if (_des.y < gy) _des.y = gy;
@@ -531,6 +582,17 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
     alpha = clamp(a, 0, 1);
     time += dt;
     const night = updateLighting(sim);
+    // inside Club Neon: the roof keeps the daylight out — the neon does the lighting
+    {
+      const inClub = club ? club.update(sim.t, ip(sim.player.mode === "car" && sim.player.car ? sim.player.car : sim.player), sim) : false;
+      clubDim += ((inClub ? 1 : 0) - clubDim) * Math.min(1, dt * 4);
+      if (clubDim > 0.001) {
+        const k = 1 - clubDim * 0.78;
+        sun.intensity *= k;
+        hemi.intensity *= 1 - clubDim * 0.6;
+        scene.environmentIntensity *= 1 - clubDim * 0.5;
+      }
+    }
     cityMesh.update(sim.t, night, sim);
     syncCars(sim, dt, night);
     syncPeople(sim, dt);
@@ -558,6 +620,7 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
   function dispose() {
     reset();
     cityMesh.dispose();
+    club?.dispose();
     markers.dispose();
     fx.dispose();
     cashGeo.note.dispose();

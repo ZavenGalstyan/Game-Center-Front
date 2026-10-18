@@ -15,7 +15,7 @@ import { followRoute, nodeClear, otherEnd, turnMid } from "./nav.js";
 import { LANE_OFF } from "./city.js";
 import { dist } from "./util.js";
 
-export const TRAFFIC = { max: 16, near: 75, far: 170, despawn: 215 };
+export const TRAFFIC = { max: 20, near: 75, far: 170, despawn: 215 };
 
 /** a vehicle type that suits the district the car appears in */
 function pickType(R, district) {
