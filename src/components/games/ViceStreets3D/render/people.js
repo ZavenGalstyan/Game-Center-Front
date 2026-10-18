@@ -1071,6 +1071,22 @@ export function animateRig(rig, s, dt) {
       T.chestX = 0;
     }
     if (s.raise || s.wave > 0) Object.assign(T, { armRZ: -2.75, armRX: -0.25, foreR: -0.3 });
+    // in a vehicle: the feet must rest on its floor, however low the seat is.
+    // footDrop = how far the floor is below the hips; solve the thigh angle
+    // (θ, from hanging) for a knee bend κ so thigh·cosθ + shin·cos(θ−κ) = drop
+    // — legs stretch out in a low sports car, bend more in a van.
+    if (s.footDrop != null) {
+      const seg = Math.max(0.3, (rig.legY - 0.08) / 2);
+      const drop = clamp(s.footDrop, 0.04, seg * 1.9);
+      const kap = clamp(0.2 + drop * 1.6, 0.25, 1.1);
+      let th = 1.3;
+      for (let it = 0; it < 14; it++) {
+        const f = seg * Math.cos(th) + seg * Math.cos(th - kap) - drop;
+        const df = -seg * Math.sin(th) - seg * Math.sin(th - kap);
+        th = clamp(th - f / (Math.abs(df) > 1e-4 ? df : -1e-4), 0.5, 1.75);
+      }
+      Object.assign(T, { legLX: -th, legRX: -th, kneeL: kap, kneeR: kap, footL: -0.12 + (th - kap - 0.6) * 0.3, footR: -0.12 + (th - kap - 0.6) * 0.3 });
+    }
   } else if (s.air) {
     Object.assign(T, { legLX: -0.75, legRX: 0.2, kneeL: 1.2, kneeR: 0.7, armLZ: 0.55, armRZ: -0.55, armLX: -0.4, armRX: 0.3, spineX: 0.06 });
   } else if (moving) {

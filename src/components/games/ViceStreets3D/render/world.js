@@ -158,6 +158,8 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
     if (v.role === "police") return CAST.cop.look;
     return randomLook(rng(1000 + v.id * 7919), city.districtAt(v.x, v.z));
   }
+  /** how far below the hips a car's floor is (see animateRig footDrop) */
+  const footDrop = (m) => m.geo.seatY + 0.06 - (0.22 * m.geo.H + 0.06) - 0.03;
   function dropDriver(id) {
     const r = drivers.get(id);
     if (!r) return;
@@ -189,7 +191,7 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
     // far drivers animate less often
     r.acc = (r.acc || 0) + dt;
     if (d > 35 && r.acc < 0.1) return;
-    animateRig(r, { pose: "drive", steer: (v.wheelSteer || 0) / 0.6, t: time, seed: r.seed, speed: 0 }, r.acc);
+    animateRig(r, { pose: "drive", steer: (v.wheelSteer || 0) / 0.6, t: time, seed: r.seed, speed: 0, footDrop: footDrop(m) }, r.acc);
     r.acc = 0;
   }
   function dropCar(id) {
@@ -328,7 +330,7 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
         m.passenger.getWorldQuaternion(_q);
         r.root.position.set(_v.x, _v.y - 0.47 * (r.scale || 1), _v.z);
         r.root.quaternion.copy(_q);
-        animateRig(r, { pose: "sit", t: time, seed: r.seed, talking: A.talk > 0 }, step);
+        animateRig(r, { pose: "sit", t: time, seed: r.seed, talking: A.talk > 0, footDrop: footDrop(m) }, step);
         continue;
       }
       r.root.visible = true;
@@ -386,7 +388,7 @@ export function createWorld(canvas, { city, quality = "high", ambient = false } 
         if (pl.mode === "car") r.root.quaternion.copy(_q);
         else r.root.quaternion.setFromAxisAngle(_v.set(0, 1, 0), q.h);
         r.fall = 0;
-        animateRig(r, { pose: k > 0.45 ? "drive" : "stand", steer: car.wheelSteer / 0.6, speed: pl.mode === "enter" && A.speed ? A.speed : 0, t: time, seed: r.seed, snap: false }, dt);
+        animateRig(r, { pose: k > 0.45 ? "drive" : "stand", steer: car.wheelSteer / 0.6, speed: pl.mode === "enter" && A.speed ? A.speed : 0, t: time, seed: r.seed, snap: false, footDrop: k > 0.45 ? footDrop(m) : null }, dt);
       } else {
         const f = poseBody(r, q, A, dt);
         if (f > 0.02) animateRig(r, { pose: "stand", t: time, seed: r.seed, hurt: 1, limp: f }, dt);
