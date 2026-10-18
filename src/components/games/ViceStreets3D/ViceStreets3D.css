@@ -1,0 +1,1210 @@
+/* ==========================================================================
+   Vice Streets 3D — scoped entirely under `.vs` so nothing leaks into the
+   Game Center or other games. Sizes derive from the stage (container-type:
+   size) so menus and HUD fit any GamePlayer size without page scrolling.
+   No backdrop-filter: it stalls compositing over the WebGL canvas.
+   ========================================================================== */
+.vs {
+  --pink: #ff4fa0;
+  --pink-2: #ff8fc4;
+  --teal: #2fe3d0;
+  --teal-2: #13a99a;
+  --sun: #ffb347;
+  --ink: #fdf7f2;
+  --dim: #b9b3c8;
+  --panel: rgba(18, 14, 34, 0.94);
+  --panel-2: rgba(30, 22, 52, 0.96);
+  --line: rgba(255, 79, 160, 0.28);
+  --good: #4ade80;
+  --bad: #ff5a5a;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--ink);
+  background: #120e22;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: size;
+  container-name: vs;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+.vs * {
+  box-sizing: border-box;
+}
+.vs-canvas-host,
+.vs-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.vs button {
+  font: inherit;
+  color: inherit;
+}
+.vs-nogl {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  z-index: 5;
+}
+
+/* ------------------------------------------------------------ buttons, bars */
+.vs-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.12s, border-color 0.12s, background 0.12s;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.vs-btn small {
+  font-weight: 500;
+  color: var(--dim);
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.vs-btn:hover:not(:disabled) {
+  border-color: var(--pink);
+  background: linear-gradient(180deg, rgba(255, 79, 160, 0.2), rgba(255, 79, 160, 0.06));
+  transform: translateY(-1px);
+}
+.vs-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.vs-btn.primary {
+  background: linear-gradient(135deg, var(--pink), #ff7a59);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(255, 79, 160, 0.35);
+}
+.vs-btn.primary small {
+  color: rgba(255, 255, 255, 0.85);
+}
+.vs-btn.small {
+  width: auto;
+  padding: 6px 12px;
+  font-size: 13px;
+  align-items: center;
+}
+.vs-bar {
+  display: inline-block;
+  width: 100%;
+  max-width: 180px;
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  vertical-align: middle;
+}
+.vs-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+}
+.vs-row2,
+.vs-row3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+}
+.vs-row3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.vs-msg {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(47, 227, 208, 0.12);
+  border: 1px solid rgba(47, 227, 208, 0.4);
+  font-size: 13px;
+}
+.vs .hint {
+  color: var(--dim);
+  font-size: 12px;
+}
+
+/* ------------------------------------------------------------ logo + main menu */
+.vs-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 0.9;
+  font-weight: 900;
+  font-style: italic;
+}
+.vs-logo .l1 {
+  font-size: clamp(34px, 7.5cqw, 76px);
+  background: linear-gradient(180deg, #ffe08a 0%, #ff8a4c 45%, #ff3d9a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 3px 0 #3a0b3f) drop-shadow(0 0 18px rgba(255, 79, 160, 0.55));
+  letter-spacing: -0.02em;
+}
+.vs-logo .l2 {
+  font-size: clamp(24px, 4.5cqw, 46px);
+  color: var(--teal);
+  text-shadow: 0 0 14px rgba(47, 227, 208, 0.8), 0 3px 0 #052a33;
+  margin-left: 4px;
+}
+.vs-logo .tag {
+  margin-top: 10px;
+  font-size: clamp(11px, 1.4cqw, 15px);
+  letter-spacing: 0.4em;
+  font-style: normal;
+  color: #fff;
+  opacity: 0.85;
+}
+.vs-logo.small .l1 {
+  font-size: 26px;
+}
+.vs-logo.small .l2 {
+  font-size: 18px;
+}
+.vs-logo-corner {
+  position: absolute;
+  left: 18px;
+  top: 14px;
+  z-index: 6;
+  pointer-events: none;
+}
+.vs-menu {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  padding: clamp(16px, 4cqw, 44px);
+  background: linear-gradient(90deg, rgba(18, 10, 34, 0.15) 0%, rgba(18, 10, 34, 0.65) 62%, rgba(18, 10, 34, 0.85) 100%);
+}
+.vs-menu .vs-logo {
+  grid-column: 1;
+  grid-row: 1;
+}
+.vs-menu-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.vs-menu > .vs-menu-col {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+}
+.vs-menu-stats {
+  grid-column: 1;
+  grid-row: 3;
+  align-self: end;
+  font-size: 14px;
+  color: var(--dim);
+  text-shadow: 0 1px 3px #000;
+}
+.vs-menu-stats b {
+  color: #fff;
+}
+
+/* ------------------------------------------------------------ panels */
+.vs-screen,
+.vs-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  padding: clamp(10px, 2.5cqw, 28px);
+  background: rgba(10, 6, 22, 0.55);
+}
+.vs-overlay.vs-ov-map {
+  padding: 10px;
+  background: rgba(6, 10, 20, 0.85);
+}
+.vs-panel {
+  width: min(560px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(14px, 2.4cqw, 24px);
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.vs-panel.vs-wide {
+  width: min(980px, 100%);
+  height: 100%;
+}
+.vs-panel.vs-small {
+  width: min(440px, 100%);
+}
+.vs-panel header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.vs-panel header h2 {
+  flex: 1;
+}
+.vs-panel header .vs-btn {
+  width: auto;
+}
+.vs-panel h2 {
+  margin: 0;
+  font-size: clamp(20px, 2.6cqw, 28px);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+.vs-panel h3 {
+  margin: 8px 0 4px;
+  font-size: 15px;
+  color: var(--teal);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.vs-panel p {
+  margin: 0;
+  line-height: 1.5;
+  color: #e9e3f2;
+  font-size: 14px;
+}
+.vs-scroll {
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1;
+  padding-right: 4px;
+}
+.vs-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.vs-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 79, 160, 0.4);
+  border-radius: 3px;
+}
+.vs .money {
+  font-weight: 800;
+  color: var(--good);
+  font-size: 18px;
+}
+
+/* missions */
+.vs-missions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.vs-mission {
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.vs-mission .num {
+  font-size: 22px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--pink);
+  text-align: center;
+}
+.vs-mission .info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.vs-mission small {
+  color: var(--dim);
+  font-size: 12px;
+}
+.vs-mission small.why {
+  color: var(--sun);
+}
+.vs-mission .act {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.vs-mission.done .num {
+  color: var(--good);
+}
+.vs-mission.locked,
+.vs-mission.rep,
+.vs-mission.level {
+  opacity: 0.6;
+}
+.vs .pill {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+.vs .pill.done {
+  background: rgba(74, 222, 128, 0.18);
+  color: var(--good);
+}
+.vs .pill.open {
+  background: rgba(255, 79, 160, 0.2);
+  color: var(--pink-2);
+}
+
+/* briefing / result */
+.vs-brief .kicker,
+.vs-result .kicker {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.vs-brief .giver {
+  font-size: 13px;
+  color: var(--dim);
+}
+.vs-rewards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.vs-rewards span {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  font-weight: 700;
+  font-size: 14px;
+}
+.vs-result.win h2 {
+  color: var(--sun);
+  text-shadow: 0 0 18px rgba(255, 179, 71, 0.5);
+}
+.vs-result.lose h2 {
+  color: var(--bad);
+}
+.vs-result .title {
+  font-weight: 700;
+}
+.vs-result .reason {
+  color: var(--bad);
+}
+.vs-result .notes {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #e9e3f2;
+}
+
+/* settings / how-to / profile */
+.vs-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.vs-settings label {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+.vs-settings label.chk {
+  display: flex;
+}
+.vs-settings select,
+.vs-settings input[type="range"] {
+  width: 100%;
+  accent-color: var(--pink);
+  background: #241a3e;
+  color: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px;
+}
+.vs-how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 10px 0;
+}
+.vs .krow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  margin: 5px 0;
+}
+.vs kbd {
+  min-width: 34px;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: #fff;
+  color: #1a1030;
+  font-weight: 800;
+  font-size: 12px;
+  text-align: center;
+  font-family: inherit;
+}
+.vs-profile .big {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.vs-profile .big > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+.vs-profile .big b {
+  font-size: 28px;
+  font-weight: 900;
+}
+.vs-profile .big small {
+  color: var(--dim);
+}
+.vs-profile .grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.vs-profile p {
+  font-size: 13px;
+  margin: 3px 0;
+}
+
+/* shops */
+.vs-shop-body {
+  display: grid;
+  grid-template-columns: minmax(170px, 260px) 1fr;
+  gap: 14px;
+  min-height: 0;
+  flex: 1;
+}
+.vs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.vs-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  text-align: left;
+  cursor: pointer;
+}
+.vs-item small {
+  color: var(--dim);
+  font-size: 12px;
+}
+.vs-item span {
+  font-size: 13px;
+  color: var(--good);
+}
+.vs-item.locked span {
+  color: var(--sun);
+}
+.vs-item.sel {
+  border-color: var(--pink);
+  background: rgba(255, 79, 160, 0.14);
+}
+.vs-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  overflow-y: auto;
+}
+.vs-detail h3 small {
+  color: var(--dim);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+.vs-preview {
+  width: 100%;
+  height: clamp(110px, 28cqh, 220px);
+  border-radius: 12px;
+  background: radial-gradient(ellipse at 50% 80%, rgba(255, 79, 160, 0.25), rgba(47, 227, 208, 0.08) 60%, transparent 75%), #1b1433;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.vs-preview canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.vs-stats {
+  display: grid;
+  gap: 4px;
+}
+.vs-stats > div {
+  display: grid;
+  grid-template-columns: 90px 1fr 70px;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+.vs-stats .vs-bar {
+  max-width: none;
+}
+.vs-stats .t {
+  text-align: right;
+  color: var(--dim);
+}
+.vs-tabs {
+  display: flex;
+  gap: 4px;
+}
+.vs-tabs button {
+  flex: 1;
+  padding: 7px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+.vs-tabs button.sel {
+  background: var(--pink);
+  border-color: var(--pink);
+}
+.vs-ups {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.vs-up {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.vs-up > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.vs-up small {
+  color: var(--dim);
+  font-size: 12px;
+}
+.vs .pips {
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+.vs .pips i {
+  width: 18px;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+}
+.vs .pips i.on {
+  background: var(--teal);
+}
+.vs-paints {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 8px;
+}
+.vs-swatch {
+  height: 64px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  padding: 4px;
+}
+.vs-swatch small {
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 4px;
+  padding: 1px 4px;
+  line-height: 1.2;
+}
+.vs-swatch.sel {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px var(--pink);
+}
+.vs-service {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.vs-empty {
+  padding: 30px;
+  text-align: center;
+  color: var(--dim);
+}
+.vs-outfits {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+.vs-outfit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.vs-outfit.sel {
+  border-color: var(--pink);
+}
+.vs-outfit .vs-sw {
+  display: flex;
+  height: 46px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.vs-outfit .vs-sw i {
+  flex: 1;
+}
+
+/* ------------------------------------------------------------ HUD */
+.vs-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.vs-hud .vs-dialog,
+.vs-hud .vs-click,
+.vs-hud .vs-touch {
+  pointer-events: auto;
+}
+.vs-top-right {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+.vs-money {
+  font-size: clamp(20px, 2.6cqw, 30px);
+  font-weight: 900;
+  color: #6dff9a;
+  font-style: italic;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.4);
+}
+.vs-stars {
+  display: flex;
+  gap: 3px;
+  font-size: clamp(18px, 2.2cqw, 26px);
+}
+.vs-stars span {
+  color: rgba(255, 255, 255, 0.22);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.6);
+}
+.vs-stars span[data-s="on"] {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+.vs-stars span[data-s="flash"] {
+  color: #fff;
+  animation: vs-flash 0.7s steps(2) infinite;
+}
+@keyframes vs-flash {
+  50% {
+    color: rgba(255, 255, 255, 0.25);
+  }
+}
+.vs-evade,
+.vs-bust {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--teal);
+}
+.vs-bust {
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  transform: translateX(-50%);
+  align-items: center;
+  color: var(--bad);
+  font-weight: 800;
+}
+.vs-meter {
+  display: block;
+  width: 140px;
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.vs-meter i {
+  display: block;
+  height: 100%;
+  background: var(--teal);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+.vs-bust .vs-meter i {
+  background: var(--bad);
+}
+.vs-clock {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+.vs-obj {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  max-width: min(440px, 46cqw);
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(14, 10, 28, 0.78);
+  border-left: 4px solid var(--pink);
+}
+.vs-obj .t {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink-2);
+}
+.vs-obj .x {
+  font-size: clamp(14px, 1.7cqw, 18px);
+  font-weight: 700;
+  margin-top: 2px;
+}
+.vs-obj .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--dim);
+}
+.vs-obj .vs-tm {
+  font-weight: 800;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.vs-obj .vs-tm[data-low="1"] {
+  color: var(--bad);
+}
+.vs-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 18%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(14, 10, 28, 0.7);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.vs-bottom-left {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+.vs-mini {
+  width: clamp(120px, 17cqw, 190px);
+  height: clamp(120px, 17cqw, 190px);
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+.vs-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: clamp(120px, 17cqw, 190px);
+}
+.vs-bars .vs-meter {
+  width: 100%;
+}
+.vs-lvl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+.vs-lvl b {
+  color: var(--sun);
+  text-shadow: 0 1px 2px #000;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.vs-meter.xp i {
+  background: var(--sun);
+}
+.vs-meter.hp i {
+  background: linear-gradient(90deg, #22c55e, #6dff9a);
+}
+.vs-hp[data-low="1"] .vs-meter.hp i {
+  background: var(--bad);
+  animation: vs-flash 0.6s steps(2) infinite;
+}
+.vs-car {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+.vs-car .spd b {
+  font-size: clamp(30px, 4.5cqw, 52px);
+  font-weight: 900;
+  font-style: italic;
+  font-variant-numeric: tabular-nums;
+}
+.vs-car .spd small {
+  margin-left: 4px;
+  font-size: 13px;
+  color: var(--dim);
+}
+.vs-car .nm {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teal);
+}
+.vs-car .vs-meter {
+  width: 150px;
+}
+.vs-prompt {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 8px;
+  border-radius: 999px;
+  background: rgba(14, 10, 28, 0.82);
+  border: 1px solid var(--line);
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.vs-prompt[data-warn="1"] {
+  border-color: var(--bad);
+}
+.vs-say {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1a1030;
+  font-weight: 600;
+  font-size: 14px;
+}
+.vs-dialog {
+  position: absolute;
+  left: 50%;
+  bottom: 16%;
+  transform: translateX(-50%);
+  width: min(620px, 92%);
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(14, 10, 28, 0.92);
+  border: 1px solid var(--pink);
+  cursor: pointer;
+}
+.vs-dialog b {
+  color: var(--pink-2);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.vs-dialog p {
+  margin: 6px 0;
+  font-size: clamp(14px, 1.8cqw, 17px);
+  line-height: 1.45;
+}
+.vs-dialog small {
+  color: var(--dim);
+  font-size: 11px;
+}
+.vs-toasts {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.vs-toast {
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(14, 10, 28, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 13px;
+  font-weight: 600;
+  animation: vs-in 0.2s ease-out;
+  white-space: nowrap;
+}
+.vs-toast.good {
+  border-color: var(--good);
+}
+.vs-toast.bad {
+  border-color: var(--bad);
+  color: #ffd0d0;
+}
+.vs-toast.warn {
+  border-color: var(--sun);
+}
+@keyframes vs-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+.vs-banner {
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  animation: vs-pop 0.35s ease-out;
+  text-shadow: 0 3px 0 rgba(58, 11, 63, 0.9), 0 0 18px rgba(255, 79, 160, 0.6);
+}
+.vs-banner b {
+  font-size: clamp(26px, 5cqw, 54px);
+  font-weight: 900;
+  font-style: italic;
+  color: #fff;
+}
+.vs-banner small {
+  font-size: clamp(13px, 1.8cqw, 18px);
+  font-weight: 700;
+  color: var(--teal);
+}
+.vs-banner.district b {
+  font-size: clamp(18px, 3cqw, 30px);
+  color: var(--pink-2);
+}
+.vs-banner.win b,
+.vs-banner.level b {
+  color: var(--sun);
+}
+.vs-banner.count b {
+  font-size: clamp(50px, 10cqw, 110px);
+  color: var(--sun);
+}
+@keyframes vs-pop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+}
+.vs-click {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 6, 22, 0.35);
+  cursor: pointer;
+}
+.vs-click > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 26px;
+  border-radius: 14px;
+  background: rgba(14, 10, 28, 0.88);
+  border: 1px solid var(--pink);
+}
+.vs-click b {
+  font-size: 20px;
+}
+.vs-click small {
+  color: var(--dim);
+}
+
+/* map */
+.vs-mapwrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.vs-map {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border-radius: 12px;
+  cursor: crosshair;
+}
+.vs-legend {
+  font-size: 12px;
+  color: var(--dim);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: center;
+}
+.vs-legend span {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+}
+.vs-legend i {
+  font-style: normal;
+  font-weight: 800;
+}
+
+/* busted / wasted */
+.vs-ending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  max-width: 560px;
+}
+.vs-ending h1 {
+  margin: 0;
+  font-size: clamp(50px, 11cqw, 120px);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+.vs-ending.busted h1 {
+  color: #6ea8ff;
+  text-shadow: 0 0 30px rgba(110, 168, 255, 0.7), 0 4px 0 #0b1a3a;
+}
+.vs-ending.wasted h1 {
+  color: #ff4a4a;
+  text-shadow: 0 0 30px rgba(255, 74, 74, 0.7), 0 4px 0 #3a0b0b;
+}
+.vs-ending .vs-btn {
+  width: auto;
+}
+
+/* touch */
+.vs-touch {
+  position: absolute;
+  right: 12px;
+  bottom: 120px;
+}
+.vs-tpad {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  gap: 8px;
+}
+.vs-tbtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(14, 10, 28, 0.6);
+  font-weight: 900;
+  font-size: 16px;
+}
+.vs-tbtn.big {
+  border-color: var(--pink);
+}
+
+/* ------------------------------------------------------------ small stages */
+@container vs (max-width: 720px) {
+  .vs-menu {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    overflow-y: auto;
+  }
+  .vs-menu > .vs-menu-col {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .vs-shop-body {
+    grid-template-columns: 1fr;
+  }
+  .vs-list {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex: none;
+  }
+  .vs-item {
+    min-width: 140px;
+  }
+  .vs-profile .big,
+  .vs-profile .grid2 {
+    grid-template-columns: 1fr;
+  }
+  .vs-obj {
+    max-width: 60cqw;
+  }
+}
+@container vs (max-height: 520px) {
+  .vs-menu-col {
+    gap: 4px;
+  }
+  .vs-btn {
+    padding: 6px 12px;
+  }
+  .vs-btn small {
+    display: none;
+  }
+  .vs-preview {
+    height: 100px;
+  }
+}
