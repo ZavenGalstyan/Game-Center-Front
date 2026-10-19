@@ -303,6 +303,17 @@ const HulkOpenWorld3D = lazy(() => import("./HulkOpenWorld3D/HulkOpenWorld3D.jsx
  *  police system, 20 story missions, 5 side activities, a dealership and a
  *  tuning garage (Action); lazy so the catalogue never pays for its WebGL chunk. */
 const ViceStreets3D = lazy(() => import("./ViceStreets3D/ViceStreets3D.jsx"));
+/** Doll Repair Workshop — a plain Three.js 3D doll restoration & workshop
+ *  sim: eight procedural doll types with real damage states, inspection,
+ *  cleaning, crack tracing, part fitting, hair, face painting, sewing,
+ *  customization, 30 customer orders, economy, upgrades and a gallery
+ *  (Simulation); lazy so the catalogue never pays for its WebGL chunk. */
+const DollRepairWorkshop = lazy(() => import("./DollRepairWorkshop/DollRepairWorkshop.jsx"));
+/** Texas Hold'em Poker — No-Limit Hold'em vs six AI personalities: a pure,
+ *  headless-tested rules engine (side pots, short all-ins, heads-up rules),
+ *  Quick Play, Tournament and Practice modes, progression and cosmetic
+ *  themes (Card); lazy so the catalogue doesn't pull in its engine. */
+const TexasHoldemPoker = lazy(() => import("./TexasHoldemPoker/TexasHoldemPoker.jsx"));
 
 /**
  * Maps a backend game's `name` to the React component that plays it.
@@ -382,6 +393,9 @@ const GAME_COMPONENTS = {
   "School Life Simulator 3D": SchoolLife3D,
   "Hulk: Open World 3D": HulkOpenWorld3D,
   "Vice Streets 3D": ViceStreets3D,
+  "Doll Repair Workshop": DollRepairWorkshop,
+  "Texas Hold'em Poker": TexasHoldemPoker,
+  "Texas Hold’em Poker": TexasHoldemPoker, // typographic apostrophe, as admin forms often autocorrect it
 };
 
 /**
@@ -391,7 +405,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D", "Zombie Outbreak", "Mario Adventure 3D", "Dimension Dash", "Web Hero: City Defender", "Web Hero", "Urban Skate Rush", "Alpine Rush", "Ping Pong Clash", "Backgammon Classic", "Checkers Classic", "Swimming Champions", "Zoo Simulator 3D", "Prison Escape 3D", "Sky Combat 3D", "Throw Masters", "Tank Warfare 3D", "Wild Kingdom 3D", "School Life Simulator 3D", "Hulk: Open World 3D", "Vice Streets 3D"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D", "Zombie Outbreak", "Mario Adventure 3D", "Dimension Dash", "Web Hero: City Defender", "Web Hero", "Urban Skate Rush", "Alpine Rush", "Ping Pong Clash", "Backgammon Classic", "Checkers Classic", "Swimming Champions", "Zoo Simulator 3D", "Prison Escape 3D", "Sky Combat 3D", "Throw Masters", "Tank Warfare 3D", "Wild Kingdom 3D", "School Life Simulator 3D", "Hulk: Open World 3D", "Vice Streets 3D", "Doll Repair Workshop", "Texas Hold'em Poker", "Texas Hold’em Poker"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different
