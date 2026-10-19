@@ -1,0 +1,348 @@
+/* Air Hockey — scoped under .ahk. The root is a size container so the HUD and
+   screens scale with the GamePlayer stage (and fullscreen). Wide stages
+   (aspect ≥ 1.5, matching WIDE in AirHockey.jsx) put the scoreboard beside the
+   table; narrower ones get a scoreboard band above it. */
+.ahk {
+  --ink: #eef3ff;
+  --ink-soft: #95a3cf;
+  --cyan: #22e6ff;
+  --red: #ff3b5c;
+  --violet: #a46bff;
+  --panel: rgba(13, 22, 56, 0.82);
+  container: ahk / size;
+  position: relative;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  touch-action: none;
+  color: var(--ink);
+  background:
+    radial-gradient(55% 45% at 50% 0%, rgba(255, 59, 92, 0.14), transparent 70%),
+    radial-gradient(55% 45% at 50% 100%, rgba(34, 230, 255, 0.14), transparent 70%),
+    linear-gradient(180deg, #070c22 0%, #0a1230 50%, #060a1c 100%);
+  font-family: "Nunito", "Segoe UI Rounded", ui-rounded, "Segoe UI", system-ui, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.ahk-stage {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+}
+.ahk-stage.is-playing { cursor: none; }
+.ahk-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ---------- HUD ---------- */
+.ahk-hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 13cqh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2cqw;
+  padding: 0 3cqw;
+  pointer-events: none;
+}
+.ahk-board {
+  display: flex;
+  align-items: stretch;
+  border-radius: min(2cqh, 3cqw);
+  background: var(--panel);
+  box-shadow: 0 1cqh 3cqh rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(164, 107, 255, 0.35);
+  overflow: hidden;
+}
+.ahk-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: min(11cqh, 16cqw);
+  padding: min(0.8cqh, 1.4cqw) min(2cqh, 3cqw);
+}
+.ahk-team--cpu { box-shadow: inset 0 -0.5cqh 0 rgba(255, 59, 92, 0.75); }
+.ahk-team--you { box-shadow: inset 0 -0.5cqh 0 rgba(34, 230, 255, 0.75); }
+.ahk-team span,
+.ahk-streak span {
+  font-size: min(1.7cqh, 2.8cqw);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.ahk-team strong {
+  font-size: min(5cqh, 8cqw);
+  font-weight: 900;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+.ahk-team--cpu strong { color: var(--red); text-shadow: 0 0 2cqh rgba(255, 59, 92, 0.6); }
+.ahk-team--you strong { color: var(--cyan); text-shadow: 0 0 2cqh rgba(34, 230, 255, 0.6); }
+.ahk-team strong.is-bump { animation: ahk-bump 420ms ease; }
+.ahk-board-mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 min(1.4cqh, 2cqw);
+  border-inline: 1px solid rgba(164, 107, 255, 0.25);
+}
+.ahk-board-mid em {
+  font-style: normal;
+  font-size: min(1.6cqh, 2.6cqw);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--violet);
+}
+.ahk-board-mid small {
+  font-size: min(1.5cqh, 2.5cqw);
+  font-weight: 800;
+  text-transform: capitalize;
+  color: var(--ink-soft);
+}
+.ahk-hud-right {
+  display: flex;
+  align-items: center;
+  gap: min(1.4cqh, 2cqw);
+}
+.ahk-streak {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: min(0.8cqh, 1.4cqw) min(1.8cqh, 2.6cqw);
+  border-radius: min(2cqh, 3cqw);
+  background: var(--panel);
+  box-shadow: inset 0 0 0 1px rgba(255, 210, 90, 0.3);
+}
+.ahk-streak strong {
+  font-size: min(3.4cqh, 5.4cqw);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffd25a;
+  white-space: nowrap;
+}
+.ahk-streak i {
+  font-style: normal;
+  font-size: 0.5em;
+  color: var(--ink-soft);
+}
+.ahk-pause {
+  display: grid;
+  place-items: center;
+  width: min(6.4cqh, 10cqw);
+  height: min(6.4cqh, 10cqw);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--panel);
+  box-shadow: inset 0 0 0 1px rgba(164, 107, 255, 0.5);
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease;
+}
+.ahk-pause:hover { background: rgba(30, 40, 96, 0.9); }
+.ahk-pause:active { transform: scale(0.92); }
+.ahk-pause:disabled { opacity: 0.45; cursor: default; }
+.ahk-pause:focus-visible { outline: 3px solid rgba(34, 230, 255, 0.6); outline-offset: 3px; }
+.ahk-pause svg { width: 46%; height: 46%; fill: var(--ink); }
+
+/* Wide stage: table fills the height, scoreboard stacks CPU-over-You on the left. */
+@container ahk (min-aspect-ratio: 3 / 2) {
+  .ahk-hud {
+    height: auto;
+    align-items: flex-start;
+    padding: 3cqh 2.4cqh;
+  }
+  .ahk-board { flex-direction: column; }
+  .ahk-team { min-width: 16cqh; padding: 1cqh 2.4cqh; }
+  .ahk-team span, .ahk-streak span { font-size: 1.8cqh; }
+  .ahk-team strong { font-size: 7cqh; }
+  .ahk-board-mid { padding: 0.8cqh 0; border-inline: 0; border-block: 1px solid rgba(164, 107, 255, 0.25); }
+  .ahk-board-mid em { font-size: 1.6cqh; }
+  .ahk-board-mid small { font-size: 1.5cqh; }
+  .ahk-hud-right { flex-direction: row-reverse; align-items: flex-start; }
+  .ahk-streak strong { font-size: 3.6cqh; }
+  .ahk-pause { width: 6.4cqh; height: 6.4cqh; }
+}
+
+/* ---------- goal banner ---------- */
+.ahk-goal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  animation: ahk-goal 1.4s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+}
+.ahk-goal strong {
+  font-size: min(13cqh, 18cqw);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+.ahk-goal span {
+  font-size: min(2.6cqh, 4cqw);
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.ahk-goal--you { color: var(--cyan); text-shadow: 0 0 3cqh rgba(34, 230, 255, 0.9), 0 0 8cqh rgba(34, 230, 255, 0.5); }
+.ahk-goal--cpu { color: var(--red); text-shadow: 0 0 3cqh rgba(255, 59, 92, 0.9), 0 0 8cqh rgba(255, 59, 92, 0.5); }
+
+/* ---------- screens ---------- */
+.ahk-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: min(2.2cqh, 3.4cqw);
+  padding: 5cqw;
+  text-align: center;
+  background: radial-gradient(circle at 50% 45%, rgba(12, 20, 54, 0.82), rgba(3, 6, 18, 0.94));
+  animation: ahk-fade 260ms ease backwards;
+}
+.ahk-overlay--over { animation-delay: 500ms; } /* let the winning goal land first */
+.ahk-overlay h3 {
+  margin: 0;
+  font-size: min(9cqh, 13cqw);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--red);
+  text-shadow: 0 0 3cqh rgba(255, 59, 92, 0.55);
+}
+.ahk-overlay.is-win h3 {
+  color: #ffd25a;
+  text-shadow: 0 0 3cqh rgba(255, 210, 90, 0.6);
+  animation: ahk-pulse 1.4s ease-in-out infinite;
+}
+.ahk-overlay small {
+  font-size: min(1.9cqh, 3cqw);
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.ahk-overlay small.ahk-note { color: #ffd25a; }
+
+.ahk-title {
+  margin: 0;
+  font-size: min(10cqh, 13cqw);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.is-cyan { color: var(--cyan); text-shadow: 0 0 2.4cqh rgba(34, 230, 255, 0.7); }
+.is-red { color: var(--red); text-shadow: 0 0 2.4cqh rgba(255, 59, 92, 0.7); }
+.ahk-tag {
+  margin: 0;
+  font-size: min(2.2cqh, 3.4cqw);
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  color: var(--ink-soft);
+}
+.ahk-final-score {
+  margin: 0;
+  font-size: min(8cqh, 12cqw);
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+}
+.ahk-streak-line {
+  margin: 0;
+  font-size: min(2.4cqh, 3.6cqw);
+  font-weight: 800;
+  color: var(--ink);
+}
+.ahk-badge {
+  margin: 0;
+  font-size: min(2.6cqh, 4cqw);
+  font-weight: 900;
+  color: #ffd25a;
+  animation: ahk-pulse 1.2s ease-in-out infinite;
+}
+
+.ahk-levels {
+  display: flex;
+  padding: min(0.6cqh, 1cqw);
+  border-radius: 999px;
+  background: rgba(13, 22, 56, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(164, 107, 255, 0.35);
+}
+.ahk-level {
+  min-width: min(13cqh, 20cqw);
+  padding: min(1.1cqh, 1.8cqw) min(2cqh, 3cqw);
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-size: min(2.2cqh, 3.4cqw);
+  font-weight: 900;
+  text-transform: capitalize;
+  color: var(--ink-soft);
+  background: transparent;
+  cursor: pointer;
+  transition: color 150ms ease, background 150ms ease, box-shadow 150ms ease;
+}
+.ahk-level:hover { color: var(--ink); }
+.ahk-level.is-on {
+  color: #071028;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  box-shadow: 0 0 2cqh rgba(34, 230, 255, 0.45);
+}
+.ahk-level:focus-visible { outline: 3px solid rgba(34, 230, 255, 0.7); outline-offset: 2px; }
+
+.ahk-btn {
+  padding: min(1.8cqh, 2.8cqw) min(5.4cqh, 8cqw);
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-size: min(3cqh, 4.6cqw);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #071028;
+  background: linear-gradient(90deg, var(--cyan), var(--violet), var(--red));
+  box-shadow: 0 0 3cqh rgba(164, 107, 255, 0.5), 0 0.6cqh 0 rgba(70, 40, 150, 0.9);
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+.ahk-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.ahk-btn:active { transform: translateY(0.4cqh); }
+.ahk-btn:focus-visible { outline: 3px solid rgba(34, 230, 255, 0.7); outline-offset: 3px; }
+
+@keyframes ahk-bump {
+  40% { transform: scale(1.45); color: #fff; }
+}
+@keyframes ahk-fade {
+  from { opacity: 0; transform: scale(0.97); }
+}
+@keyframes ahk-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+@keyframes ahk-goal {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.4) rotate(-6deg); }
+  18% { opacity: 1; transform: translate(-50%, -50%) scale(1.12) rotate(-4deg); }
+  30% { transform: translate(-50%, -50%) scale(1) rotate(-4deg); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.06) rotate(-4deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ahk-team strong.is-bump, .ahk-overlay, .ahk-overlay.is-win h3, .ahk-badge { animation: none; }
+  .ahk-goal { animation-duration: 1ms; animation-fill-mode: none; transform: translate(-50%, -50%); }
+}
