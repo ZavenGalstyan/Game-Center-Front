@@ -117,7 +117,94 @@ function makeTemplate(file) {
     inv[b.name] = sk.boneInverses[i].clone();
     restWorld[b.name] = new THREE.Vector3().setFromMatrixPosition(sk.boneInverses[i].clone().invert());
   });
-  return { names, index: Object.fromEntries(names.map((n, i) => [n, i])), inv, restWorld, armature: sk.bones[0].parent };
+  // The asset rig is an IK rig: FootL / FootR hang off Root (they are the IK
+  // targets), not off the shins, and the clips only key their rotation. The
+  // foot head sits exactly on the shin's tail in bind pose; keep that offset
+  // (in shin space) so the feet can be placed on the ankles every frame.
+  const bindOf = (n) => inv[n].clone().invert();
+  const ankle = {};
+  for (const s of ["L", "R"]) ankle[s] = new THREE.Vector3().setFromMatrixPosition(bindOf(`Foot${s}`)).applyMatrix4(bindOf(`LowerLeg${s}`).invert());
+  return { names, index: Object.fromEntries(names.map((n, i) => [n, i])), inv, restWorld, ankle, armature: sk.bones[0].parent };
+}
+
+/** Shoe extents around the foot bone head (bind space): toe reach, heel reach and sole depth. */
+function soleOf(file) {
+  const foot = file.skel.bones.find((b) => b.name === "FootL");
+  const head = new THREE.Vector3().setFromMatrixPosition(file.skel.boneInverses[file.skel.bones.indexOf(foot)].clone().invert());
+  const box = new THREE.Box3();
+  for (const prim of file.parts.Feet) for (const p of points(prim)) if (p.x > 0) box.expandByPoint(p);
+  return { toe: box.max.z - head.z, heel: head.z - box.min.z, depth: head.y - box.min.y };
+}
+
+const LOWER = /^(Body|UpperLeg[LR]|LowerLeg[LR]|Foot[LR]|PT[LR])\./;
+/**
+ * The asset's Idle (and Wave, built on it) stands contrapposto: pelvis turned
+ * 27°, left foot set back and turned out ~60°, right foot forward — from most
+ * angles that reads as a twisted, crossed foot. Take the pelvis, legs and feet
+ * from Idle_Neutral (feet square under the hips) and re-express the spine so
+ * the upper body keeps exactly the world pose and motion it had.
+ */
+function squareStance(tpl, clip, neutral) {
+  const tr = (c, n) => c.tracks.find((t) => t.name === n);
+  const bodyC = tr(clip, "Body.quaternion");
+  const bodyN = tr(neutral, "Body.quaternion");
+  const abd = tr(clip, "Abdomen.quaternion");
+  if (!bodyC || !bodyN || !abd) return clip;
+  const hipsQ = tpl.armature.getObjectByName("Hips").quaternion;
+  const hipsI = hipsQ.clone().invert();
+  const iC = bodyC.createInterpolant();
+  const iN = bodyN.createInterpolant();
+  const qc = new THREE.Quaternion();
+  const qn = new THREE.Quaternion();
+  const qa = new THREE.Quaternion();
+  const vals = new Float32Array(abd.values.length);
+  abd.times.forEach((t, i) => {
+    qc.fromArray(iC.evaluate(t));
+    qn.fromArray(iN.evaluate(t % neutral.duration));
+    qa.fromArray(abd.values, i * 4);
+    // abdomen' = hips⁻¹ · bodyN⁻¹ · bodyC · hips · abdomen
+    qn.invert().multiply(qc).multiply(hipsQ).multiply(qa).premultiply(hipsI).normalize();
+    qn.toArray(vals, i * 4);
+  });
+  const tracks = clip.tracks.filter((t) => !LOWER.test(t.name) && t !== abd).map((t) => t.clone());
+  tracks.push(new THREE.QuaternionKeyframeTrack("Abdomen.quaternion", abd.times.slice(), vals));
+  for (const t of neutral.tracks) if (LOWER.test(t.name)) tracks.push(t.clone());
+  return new THREE.AnimationClip(clip.name, clip.duration, tracks);
+}
+
+/**
+ * Measure a locomotion clip on the template skeleton: the ground speed of the
+ * planted foot (m/s at scale 1) and the cycle phase at which the left foot is
+ * at mid-stance, so walk and run can be blended in step and played at the
+ * rate that keeps the planted foot still.
+ */
+function analyzeGait(tpl, clip) {
+  const arm = tpl.armature.clone(true);
+  for (const ch of [...arm.children]) if (!ch.isBone) arm.remove(ch);
+  const shin = arm.getObjectByName("LowerLegL");
+  const mixer = new THREE.AnimationMixer(arm);
+  mixer.clipAction(clip).play();
+  const N = 120;
+  const pts = [];
+  for (let i = 0; i < N; i++) {
+    mixer.setTime((clip.duration * i) / N);
+    arm.updateMatrixWorld(true);
+    const a = tpl.ankle.L.clone().applyMatrix4(shin.matrixWorld);
+    pts.push({ ph: i / N, y: a.y, z: a.z });
+  }
+  mixer.stopAllAction();
+  const minY = Math.min(...pts.map((p) => p.y));
+  // the planted samples form one contiguous run (mod 1): find where it begins and unwrap it
+  const planted = (i) => pts[(i + N) % N].y < minY + 0.01;
+  let i0 = 0;
+  while (i0 < N && !(planted(i0) && !planted(i0 - 1))) i0++;
+  const run = [];
+  for (let i = i0; i < i0 + N && planted(i); i++) run.push({ ph: i / N, z: pts[i % N].z });
+  const n = run.length;
+  const mt = run.reduce((s, p) => s + p.ph, 0) / n;
+  const mz = run.reduce((s, p) => s + p.z, 0) / n;
+  const k = run.reduce((s, p) => s + (p.ph - mt) * (p.z - mz), 0) / (run.reduce((s, p) => s + (p.ph - mt) ** 2, 0) || 1);
+  return { speed: -k / clip.duration, mid: mt % 1, dur: clip.duration };
 }
 
 export function loadCharacterAssets() {
@@ -131,7 +218,12 @@ export function loadCharacterAssets() {
     }
     A.promise = Promise.all(jobs)
       .then(() => {
-        for (const b of ["m", "f"]) A.tpl[b] = makeTemplate(A[b][FILES[b][0]]);
+        for (const b of ["m", "f"]) {
+          A.tpl[b] = makeTemplate(A[b][FILES[b][0]]);
+          A.tpl[b].sole = soleOf(A[b][FILES[b][0]]);
+          for (const n of ["Idle", "Wave"]) A.clips[b][n] = squareStance(A.tpl[b], A.clips[b][n], A.clips[b].Idle_Neutral);
+          A.tpl[b].gait = { walk: analyzeGait(A.tpl[b], A.clips[b].Walk), run: analyzeGait(A.tpl[b], A.clips[b].Run) };
+        }
         A.ready = true;
         A.waiting.splice(0).forEach((fn) => fn());
       })
@@ -746,9 +838,10 @@ const CH = [
 ];
 const T0 = Object.fromEntries(CH.map((k) => [k, 0]));
 T0.wIdle = 1;
-/** Ground speed (m/s, at scale 1) the Walk / Run clips cover at timeScale 1. */
-const WALK_SPEED = 1.45;
-const RUN_SPEED = 4.3;
+/** Highest comfortable gait cycle rate (cycles/s, two steps each) for walking / running. */
+const GAIT_RATE = [1.55, 2.3];
+/** Longest stride, relative to the clip's, used when moving faster than that cadence allows. */
+const MAX_STRIDE = 1.25;
 
 const _qa = new THREE.Quaternion();
 const _qp = new THREE.Quaternion();
@@ -762,6 +855,153 @@ function rotC(rig, bone, x, y, z, ang) {
   _qi.copy(_qp).invert();
   _qa.setFromAxisAngle(_ax.set(x, y, z), ang);
   bone.quaternion.premultiply(_qp).premultiply(_qa).premultiply(_qi);
+}
+
+/* ---- legs: feet on the ankles, stride scaling and ground following ----
+ * All of this works in armature space (the rig's unscaled skeleton space,
+ * x left, y up, z forward). */
+const _mB = new THREE.Matrix4();
+const _mU = new THREE.Matrix4();
+const _mL = new THREE.Matrix4();
+const _mRi = new THREE.Matrix4();
+const _qP = new THREE.Quaternion();
+const _qD = new THREE.Quaternion();
+const _f = new THREE.Vector3();
+const _t = new THREE.Vector3();
+const _w = new THREE.Vector3();
+const _fw = new THREE.Vector3();
+const _up = new THREE.Vector3();
+const _p1 = new THREE.Vector3();
+const _p2 = new THREE.Vector3();
+const _qR = new THREE.Quaternion();
+const _qF = new THREE.Quaternion();
+const LEG = {
+  L: { hip: new THREE.Vector3(), knee: new THREE.Vector3(), ankle: new THREE.Vector3(), target: new THREE.Vector3(), slope: 0 },
+  R: { hip: new THREE.Vector3(), knee: new THREE.Vector3(), ankle: new THREE.Vector3(), target: new THREE.Vector3(), slope: 0 },
+};
+
+/** Thigh / shin chain of one leg → hip, knee and ankle positions (armature space). */
+function legChain(rig, s, o) {
+  const ul = rig.bones[`UpperLeg${s}`];
+  const ll = rig.bones[`LowerLeg${s}`];
+  ul.updateMatrix();
+  ll.updateMatrix();
+  _mU.multiplyMatrices(_mB, ul.matrix);
+  _mL.multiplyMatrices(_mU, ll.matrix);
+  o.hip.setFromMatrixPosition(_mU);
+  o.knee.setFromMatrixPosition(_mL);
+  o.ankle.copy(A.tpl[rig.base].ankle[s]).applyMatrix4(_mL);
+}
+
+/** Turn `bone` (whose parent sits at armature matrix `parentM`) so armature-space direction `from` points along `to`. */
+function aimBone(bone, parentM, from, to) {
+  _qP.setFromRotationMatrix(parentM);
+  _qD.setFromUnitVectors(from.normalize(), to.normalize());
+  bone.quaternion.premultiply(_qP).premultiply(_qD).premultiply(_qP.invert());
+}
+
+/** Two-bone IK: bend the leg (keeping its knee plane) so the ankle reaches o.target. */
+function solveLeg(rig, s, o) {
+  const ul = rig.bones[`UpperLeg${s}`];
+  const ll = rig.bones[`LowerLeg${s}`];
+  const L1 = o.knee.distanceTo(o.hip);
+  const L2 = o.ankle.distanceTo(o.knee);
+  const dir = _t.subVectors(o.target, o.hip);
+  const d = clamp(dir.length(), Math.abs(L1 - L2) + 1e-4, (L1 + L2) * 0.9995);
+  dir.normalize();
+  // knee keeps bending the way the clip bends it
+  const pole = _w.subVectors(o.knee, o.hip);
+  pole.z += 0.02; // a nearly straight leg still bends its knee forward
+  pole.addScaledVector(dir, -pole.dot(dir));
+  if (pole.lengthSq() < 1e-10) pole.set(0, 0, 1).addScaledVector(dir, -dir.z);
+  pole.normalize();
+  const a = (L1 * L1 - L2 * L2 + d * d) / (2 * d);
+  const h = Math.sqrt(Math.max(0, L1 * L1 - a * a));
+  const knee = pole.multiplyScalar(h).addScaledVector(dir, a).add(o.hip);
+  const reach = dir.multiplyScalar(d).add(o.hip);
+  aimBone(ul, _mB, _f.subVectors(o.knee, o.hip), knee.clone().sub(o.hip));
+  legChain(rig, s, o);
+  aimBone(ll, _mU, _f.subVectors(o.ankle, o.knee), reach.sub(o.knee));
+  legChain(rig, s, o);
+}
+
+/** Ground height (m, relative to the character's own ground) under an armature-space point. */
+function groundUnder(rig, ground, p) {
+  _w.copy(p).applyMatrix4(rig.body.matrix).applyMatrix4(rig.root.matrix);
+  return clamp(ground(_w.x, _w.z, rig.root.position.y) - rig.root.position.y, -0.3, 0.3);
+}
+
+/**
+ * Put the feet on the ankles (their bones are IK targets off Root that the clips
+ * never move) and lengthen the stride by `kz`. When `grounded`, keep the soles
+ * from sinking below the floor and, given a ground sampler, follow uneven
+ * ground per foot (height and slope). `lift` is how far the body is already
+ * raised (m, e.g. a celebration hop or a crouch). Returns how far to lower the
+ * body (m, ≤ 0) so the lower foot can reach its ground.
+ */
+function placeLegs(rig, kz, grounded, ground, lift, dt) {
+  const Bn = rig.bones;
+  const sole = A.tpl[rig.base].sole;
+  Bn.Root.updateMatrix();
+  Bn.Body.updateMatrix();
+  _mB.multiplyMatrices(Bn.Root.matrix, Bn.Body.matrix);
+  _mRi.copy(Bn.Root.matrix).invert();
+  _qR.setFromRotationMatrix(Bn.Root.matrix);
+  rig.body.updateMatrix();
+  rig.root.updateMatrix();
+  const gnd = rig.gnd || (rig.gnd = { L: 0, R: 0, pelvis: 0 });
+  for (const s of ["L", "R"]) {
+    const o = LEG[s];
+    legChain(rig, s, o);
+    o.target.copy(o.ankle);
+    o.target.z = o.hip.z + (o.ankle.z - o.hip.z) * kz;
+    o.slope = 0;
+    gnd[s] = 0;
+    if (ground) {
+      // sample under the heel, middle and toe of the foot: three heights in a line are
+      // a slope the foot lies along; a jump is a step edge, where it stays level on the tread
+      _qF.multiplyQuaternions(_qR, Bn[`Foot${s}`].quaternion);
+      _fw.set(0, 1, 0).applyQuaternion(_qF).setY(0);
+      if (_fw.lengthSq() < 0.04) _fw.set(0, 0, 1);
+      _fw.normalize();
+      const hH = groundUnder(rig, ground, _p1.copy(o.target).addScaledVector(_fw, -sole.heel));
+      const hM = groundUnder(rig, ground, _p1.copy(o.target).addScaledVector(_fw, (sole.toe - sole.heel) / 2));
+      const hT = groundUnder(rig, ground, _p1.copy(o.target).addScaledVector(_fw, sole.toe));
+      if (Math.abs(hM - (hH + hT) / 2) < 0.02) {
+        gnd[s] = hH + ((hT - hH) * sole.heel) / (sole.toe + sole.heel);
+        o.slope = Math.atan2(hT - hH, (sole.toe + sole.heel) * rig.body.scale.z);
+      } else gnd[s] = Math.max(hH, hM);
+    }
+  }
+  gnd.pelvis += (Math.min(0, gnd.L, gnd.R) - gnd.pelvis) * Math.min(1, dt * 10);
+  const sy = rig.body.scale.y;
+  for (const s of ["L", "R"]) {
+    const o = LEG[s];
+    const foot = Bn[`Foot${s}`];
+    if (grounded) {
+      const floor = (gnd[s] - gnd.pelvis - lift) / sy;
+      o.target.y += (gnd[s] - gnd.pelvis) / sy;
+      // foot axes in armature space: +Y runs heel → toe, −Z is the top of the foot
+      _qF.multiplyQuaternions(_qR, foot.quaternion);
+      _fw.set(0, 1, 0).applyQuaternion(_qF);
+      _up.set(0, 0, -1).applyQuaternion(_qF);
+      // a foot near the floor lies along the slope under it (ramps)
+      const near = 1 - clamp((o.target.y - floor - sole.depth) / 0.08, 0, 1);
+      if (o.slope && near > 0 && Math.hypot(_fw.x, _fw.z) > 0.5) {
+        _ax.set(_fw.z, 0, -_fw.x).normalize();
+        _qD.setFromAxisAngle(_ax, -clamp(o.slope, -0.6, 0.6) * near);
+        foot.quaternion.premultiply(_qR).premultiply(_qD).premultiply(_qP.copy(_qR).invert());
+        _fw.applyQuaternion(_qD);
+        _up.applyQuaternion(_qD);
+      }
+      // the sole (heel and toe line) never goes below the floor
+      const low = Math.min(-_fw.y * sole.heel - _up.y * sole.depth, _fw.y * sole.toe - _up.y * sole.depth * 0.4);
+      o.target.y = Math.max(o.target.y, floor - low);
+    }
+    if (o.target.distanceToSquared(o.ankle) > 1e-10) solveLeg(rig, s, o);
+    foot.position.copy(o.ankle).applyMatrix4(_mRi);
+  }
+  return gnd.pelvis;
 }
 
 /**
@@ -930,9 +1170,26 @@ export function animateRig(rig, s, dt) {
     bn.quaternion.copy(q);
     bn.position.copy(p);
   }
-  const sc = rig.scale || 1;
-  X.walk.timeScale = clamp(sp / (WALK_SPEED * sc), 0.5, 2.2);
-  X.run.timeScale = clamp(sp / (RUN_SPEED * sc), 0.6, 1.6);
+  // one gait clock drives both Walk and Run so a blend of the two stays in step
+  // (left mid-stance at phase 0 in each). The cycle rate makes the planted foot
+  // cover the ground speed; above a natural cadence the stride lengthens instead.
+  const G = A.tpl[rig.base].gait;
+  const loco = C.wWalk + C.wRun;
+  const runK = loco > 1e-3 ? C.wRun / loco : T.wRun;
+  const stride = (G.walk.speed * G.walk.dur + (G.run.speed * G.run.dur - G.walk.speed * G.walk.dur) * runK) * rig.body.scale.z;
+  const f0 = sp / stride;
+  const maxRate = GAIT_RATE[0] + (GAIT_RATE[1] - GAIT_RATE[0]) * runK;
+  const kTarget = moving ? clamp(f0 / maxRate, 1, MAX_STRIDE) : 1;
+  rig.strideK = (rig.strideK || 1) + (kTarget - (rig.strideK || 1)) * Math.min(1, dt * 6);
+  rig.gaitPh = ((rig.gaitPh || 0) + (moving ? (dt * f0) / rig.strideK : 0)) % 1;
+  X.walk.timeScale = 0;
+  X.run.timeScale = 0;
+  X.walk.time = ((rig.gaitPh + G.walk.mid) % 1) * G.walk.dur;
+  X.run.time = ((rig.gaitPh + G.run.mid) % 1) * G.run.dur;
+  // AnimationMixer only writes a property whose blended value changed since its
+  // previous update, but every bone was just reset to rest: invalidate the
+  // previous results so constant tracks (e.g. a still foot) are written too.
+  for (const b of rig.mixer._bindings) b.buffer[rig.mixer._accuIndex * b.valueSize + b.valueSize] = NaN;
   rig.mixer.update(dt);
 
   // ---- procedural layer (character space, parents first)
@@ -959,7 +1216,10 @@ export function animateRig(rig, s, dt) {
   rotC(rig, Bn.LowerLegR, 1, 0, 0, C.kneeR);
   rotC(rig, Bn.FootL, 1, 0, 0, C.footL);
   rotC(rig, Bn.FootR, 1, 0, 0, C.footR);
-  rig.body.position.y = C.bodyY - C.drop;
+  const locoW = clamp(loco / wsum, 0, 1) * (1 - kw);
+  const grounded = !sitting && !s.air;
+  const pelvis = placeLegs(rig, 1 + (rig.strideK - 1) * locoW, grounded, grounded ? s.ground : null, C.bodyY - C.drop, dt);
+  rig.body.position.y = C.bodyY - C.drop + pelvis;
 
   // ---- face: blinking + mouth
   FA.blinkT -= dt;

@@ -781,9 +781,32 @@ export function createWorld(canvas, { preserve = false, quality = "high" } = {})
   let frame = 0;
   const tmpV = new THREE.Vector3();
   const ANIM_NEAR = quality === "low" ? 22 : 36;
+  /**
+   * Ground height under a character's foot, for foot placement. Movement walks
+   * stairs as smooth ramps; the feet stand on the drawn steps' flat treads.
+   */
+  const footGround = (space, x, z, y) => {
+    const g = space.groundAt(x, z, y);
+    for (const r of space.ramps) {
+      if (!r.steps || x < r.x1 || x > r.x2 || z < r.z1 || z > r.z2) continue;
+      const h = (k) => r.ya + (r.yb - r.ya) * k;
+      const f = clamp((z - r.z1) / (r.z2 - r.z1), 0, 1) * r.steps;
+      const i = Math.min(r.steps - 1, Math.floor(f));
+      const tread = Math.max(h(i / r.steps), h((i + 1) / r.steps));
+      // only when this flight is the ground found there (not a floor above or below it)
+      if (Math.abs(h(f / r.steps) - g) < 1e-3) return tread;
+    }
+    return g;
+  };
+  let groundSim = null;
+  let groundFn = null;
   function render(state, dt) {
     frame++;
     const { sim, mode } = state;
+    if (sim !== groundSim) {
+      groundSim = sim;
+      groundFn = sim ? (x, z, y) => footGround(sim.space, x, z, y) : null;
+    }
     const t = performance.now() / 1000;
     if (sim) {
       ensureNPCs(sim);
@@ -845,6 +868,7 @@ export function createWorld(canvas, { preserve = false, quality = "high" } = {})
           phase: p.anim.phase,
           t,
           air: !p.onGround && !p.seat,
+          ground: groundFn,
           interact: p.anim.interact,
           celebrate: p.anim.celebrate,
           shoot: p.anim.shoot,
@@ -900,6 +924,7 @@ export function createWorld(canvas, { preserve = false, quality = "high" } = {})
             mood: n.moodT > 0 ? n.mood : null,
             talking: !!n.bubble || sim.talking === n || (n.state === "chatting" && Math.sin(t * 0.6 + rig.seed * 2.3) > 0.35),
             listen: n.type === "student" && n.pose === "sitClass" && sim.currentClass() && sim.currentClass().status !== "done",
+            ground: d < ANIM_NEAR ? groundFn : null,
           }, d < ANIM_NEAR ? dt : dt * 4);
         }
         if (d < 18 && (n.bubble || (n.moodT > 0 && n.mood && n.mood !== "neutral"))) near.push([d, n]);
