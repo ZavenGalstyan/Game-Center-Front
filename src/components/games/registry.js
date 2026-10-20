@@ -351,6 +351,16 @@ const DartsChampionship3D = lazy(() => import("./DartsChampionship3D/DartsChampi
  *  gravity + wind arrow flight, moving targets and obstacles, 50 levels in
  *  five worlds (Sports); lazy so the catalogue never pays for its WebGL chunk. */
 const ArcheryMaster3D = lazy(() => import("./ArcheryMaster3D/ArcheryMaster3D.jsx"));
+/** Haunted Mansion Escape — first-person point-and-click escape room in a
+ *  plain Three.js Victorian mansion: ten rooms, data-driven puzzles judged by
+ *  a pure engine (Escape Room); lazy so the catalogue never pays for its
+ *  WebGL chunk. */
+const HauntedMansionEscape = lazy(() => import("./HauntedMansionEscape/HauntedMansionEscape.jsx"));
+/** Space Station Escape — first-person sci-fi escape room in a plain
+ *  Three.js space station: six sectors, an oxygen timer, data-driven puzzles
+ *  judged by a pure engine (Escape Room); lazy so the catalogue never pays
+ *  for its WebGL chunk. */
+const SpaceStationEscape = lazy(() => import("./SpaceStationEscape/SpaceStationEscape.jsx"));
 
 /**
  * Maps a backend game's `name` to the React component that plays it.
@@ -443,6 +453,8 @@ const GAME_COMPONENTS = {
   "Bowling Master 3D": BowlingMaster3D,
   "Darts Championship 3D": DartsChampionship3D,
   "Archery Master 3D": ArcheryMaster3D,
+  "Haunted Mansion Escape": HauntedMansionEscape,
+  "Space Station Escape": SpaceStationEscape,
 };
 
 /**
@@ -452,7 +464,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D", "Zombie Outbreak", "Mario Adventure 3D", "Dimension Dash", "Web Hero: City Defender", "Web Hero", "Urban Skate Rush", "Alpine Rush", "Ping Pong Clash", "Backgammon Classic", "Checkers Classic", "Swimming Champions", "Zoo Simulator 3D", "Prison Escape 3D", "Sky Combat 3D", "Throw Masters", "Tank Warfare 3D", "Wild Kingdom 3D", "School Life Simulator 3D", "Hulk: Open World 3D", "Vice Streets 3D", "Doll Repair Workshop", "Texas Hold'em Poker", "Texas Hold’em Poker", "Armenian Blot Heritage", "2048 Puzzle", "Snake Classic", "Memory Cards", "Color Switch", "Air Hockey", "Dinosaur Island 3D", "Bowling Master 3D", "Darts Championship 3D", "Archery Master 3D"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D", "Zombie Outbreak", "Mario Adventure 3D", "Dimension Dash", "Web Hero: City Defender", "Web Hero", "Urban Skate Rush", "Alpine Rush", "Ping Pong Clash", "Backgammon Classic", "Checkers Classic", "Swimming Champions", "Zoo Simulator 3D", "Prison Escape 3D", "Sky Combat 3D", "Throw Masters", "Tank Warfare 3D", "Wild Kingdom 3D", "School Life Simulator 3D", "Hulk: Open World 3D", "Vice Streets 3D", "Doll Repair Workshop", "Texas Hold'em Poker", "Texas Hold’em Poker", "Armenian Blot Heritage", "2048 Puzzle", "Snake Classic", "Memory Cards", "Color Switch", "Air Hockey", "Dinosaur Island 3D", "Bowling Master 3D", "Darts Championship 3D", "Archery Master 3D", "Haunted Mansion Escape", "Space Station Escape"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different

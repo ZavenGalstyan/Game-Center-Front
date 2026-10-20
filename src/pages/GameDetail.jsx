@@ -76,6 +76,8 @@ const GAME_TAGLINES = {
   "Bowling Master 3D": "AIM • ROLL • STRIKE",
   "Darts Championship 3D": "AIM • THROW • BULLSEYE",
   "Archery Master 3D": "AIM • SHOOT • CONQUER",
+  "Haunted Mansion Escape": "EXPLORE • SOLVE • ESCAPE",
+  "Space Station Escape": "REPAIR • UNLOCK • SURVIVE",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
