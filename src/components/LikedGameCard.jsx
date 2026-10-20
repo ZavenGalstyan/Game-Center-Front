@@ -43,7 +43,7 @@ function IconGamepad() {
 export default function LikedGameCard({ game, onUnlike, removing = false }) {
   const navigate = useNavigate();
   const id = game.id || game._id;
-  const type = game.type || game.category;
+  const type = game.mainCategory || game.type || game.category;
 
   // Get image from the same source as GameCard (gameHelpers)
   const artwork = getGameArtwork(game);

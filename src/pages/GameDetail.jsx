@@ -5,6 +5,7 @@ import GamePlayer from "../components/game/GamePlayer.jsx";
 import GameLikeButton from "../components/game/GameLikeButton.jsx";
 import GameRenderer from "../components/games/GameRenderer.jsx";
 import { getGameComponent, gameSupportsMute } from "../components/games/registry.js";
+import { getMainCategory, getSecondaryCategories } from "../lib/gameHelpers.jsx";
 
 /**
  * Single Game Page Shell
@@ -73,6 +74,12 @@ const GAME_TAGLINES = {
   "Color Platforms": "Match colors, time your jumps, and conquer each platform.",
   "Mario Adventure 3D": "Jump, stomp, and power-up through vibrant 3D kingdoms.",
   "Dimension Dash": "Shift between dimensions and dash through high-speed challenges.",
+  "Bowling Master 3D": "AIM • ROLL • STRIKE",
+  "Darts Championship 3D": "AIM • THROW • BULLSEYE",
+  "Archery Master 3D": "AIM • SHOOT • CONQUER",
+  "Haunted Mansion Escape": "EXPLORE • SOLVE • ESCAPE",
+  "Space Station Escape": "REPAIR • UNLOCK • SURVIVE",
+  "Outpost 47: Frozen Secrets": "EXPLORE • SURVIVE • UNCOVER",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -192,6 +199,8 @@ export default function GameDetail() {
   // The Mute button only lights up for games that actually honour the prop —
   // every other game behaves exactly as before.
   const canMute = gameSupportsMute(game);
+  const mainCategory = getMainCategory(game);
+  const secondaryCategories = getSecondaryCategories(game);
 
   return (
     <article className="game-page">
@@ -209,12 +218,12 @@ export default function GameDetail() {
       <header className="game-page__header">
         <div className="game-page__title-row">
           <h1 className="game-page__title">{game.name}</h1>
-          {game.type && (
+          {mainCategory && (
             <Link
-              to={`/?typeId=${game.type.id}`}
+              to={`/?typeId=${mainCategory.id}`}
               className="game-page__category"
             >
-              {game.type.name}
+              {mainCategory.name}
             </Link>
           )}
         </div>
@@ -243,13 +252,18 @@ export default function GameDetail() {
         <p className="game-page__about-eyebrow">About the Game</p>
         <div className="game-page__about-header">
           <h2 className="game-page__about-title">{game.name}</h2>
-          {game.type && (
-            <Link
-              to={`/?typeId=${game.type.id}`}
-              className="game-page__tag"
-            >
-              {game.type.name}
-            </Link>
+          {mainCategory && (
+            <div className="game-page__about-tags">
+              {[mainCategory, ...secondaryCategories].map((c) => (
+                <Link
+                  key={c.id}
+                  to={`/?typeId=${c.id}`}
+                  className="game-page__tag"
+                >
+                  {c.name}
+                </Link>
+              ))}
+            </div>
           )}
         </div>
         <p className="game-page__about-text">{game.description}</p>

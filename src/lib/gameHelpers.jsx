@@ -299,17 +299,34 @@ export function inferGameTags(game) {
 }
 
 /**
+ * The game's main category ({ id, name, slug }) or null.
+ * Falls back to the legacy `type` field for older API responses.
+ */
+export function getMainCategory(game) {
+  return game?.mainCategory || game?.type || null;
+}
+
+/**
+ * The game's secondary categories ([{ id, name, slug }]), never null.
+ */
+export function getSecondaryCategories(game) {
+  return Array.isArray(game?.secondaryCategories) ? game.secondaryCategories : [];
+}
+
+/**
  * Get display tags for a game.
- * Uses explicit type first, then falls back to inference.
+ * Uses the main category, then secondary categories, then falls back to inference.
  */
 export function getGameDisplayTags(game) {
   if (!game) return [];
 
   const tags = [];
 
-  // Use explicit type/category first
-  if (game.type?.name) {
-    tags.push(game.type.name);
+  // Use explicit categories first: main, then secondary
+  for (const c of [getMainCategory(game), ...getSecondaryCategories(game)]) {
+    if (c?.name && !tags.includes(c.name) && tags.length < 3) {
+      tags.push(c.name);
+    }
   }
 
   // Add inferred tags if we don't have enough
@@ -1195,7 +1212,7 @@ export function getGameArtwork(game) {
 
 /**
  * Get all games organized by category for section display.
- * Groups games by their type and returns sections.
+ * Groups games by their main category (so each game appears once) and returns sections.
  */
 export function organizeGamesByCategory(games) {
   if (!games || !games.length) return [];
@@ -1204,7 +1221,7 @@ export function organizeGamesByCategory(games) {
   const uncategorized = [];
 
   for (const game of games) {
-    const categoryName = game.type?.name;
+    const categoryName = getMainCategory(game)?.name;
     if (categoryName) {
       if (!byCategory[categoryName]) {
         byCategory[categoryName] = [];

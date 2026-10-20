@@ -2,7 +2,11 @@ import { useCallback, useEffect, useState, useMemo } from "react";
 import { useSearchParams, useOutletContext } from "react-router-dom";
 import { api } from "../lib/api.js";
 import { useGameTypes } from "../data/gameTypes.jsx";
-import { organizeGamesByCategory } from "../lib/gameHelpers.jsx";
+import {
+  organizeGamesByCategory,
+  getMainCategory,
+  getSecondaryCategories,
+} from "../lib/gameHelpers.jsx";
 import GameCard from "../components/GameCard.jsx";
 import GameDiscoveryHero from "../components/GameDiscoveryHero.jsx";
 import { Button, LoadingState, EmptyState, CategoryEmptyState, Alert, Section } from "../components/ui";
@@ -31,7 +35,7 @@ export default function GamesPage() {
     setGames([]);
     setPagination(null);
     api
-      .listGames({ limit: PAGE_SIZE, offset: 0, typeId })
+      .listGames({ limit: PAGE_SIZE, offset: 0, categoryId: typeId })
       .then(({ data, pagination }) => {
         if (cancelled) return;
         setGames(data);
@@ -51,9 +55,14 @@ export default function GamesPage() {
       const { data, pagination: next } = await api.listGames({
         limit: PAGE_SIZE,
         offset: pagination.nextOffset,
-        typeId,
+        categoryId: typeId,
       });
-      setGames((prev) => [...prev, ...data]);
+      // The backend orders category pages main-first; guard against a game
+      // shifting between pages (e.g. created meanwhile) showing up twice.
+      setGames((prev) => {
+        const seen = new Set(prev.map((g) => g.id));
+        return [...prev, ...data.filter((g) => !seen.has(g.id))];
+      });
       setPagination(next);
     } catch (e) {
       setError(e.message || "Could not load more games");
@@ -70,12 +79,14 @@ export default function GamesPage() {
     return games.filter((game) => {
       const name = (game.name || "").toLowerCase();
       const description = (game.description || "").toLowerCase();
-      const category = (game.type?.name || "").toLowerCase();
+      const categories = [getMainCategory(game), ...getSecondaryCategories(game)].map((c) =>
+        (c?.name || "").toLowerCase()
+      );
 
       return (
         name.includes(query) ||
         description.includes(query) ||
-        category.includes(query)
+        categories.some((c) => c.includes(query))
       );
     });
   }, [games, searchQuery]);
