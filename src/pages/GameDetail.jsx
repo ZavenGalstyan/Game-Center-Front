@@ -73,6 +73,9 @@ const GAME_TAGLINES = {
   "Color Platforms": "Match colors, time your jumps, and conquer each platform.",
   "Mario Adventure 3D": "Jump, stomp, and power-up through vibrant 3D kingdoms.",
   "Dimension Dash": "Shift between dimensions and dash through high-speed challenges.",
+  "Bowling Master 3D": "AIM • ROLL • STRIKE",
+  "Darts Championship 3D": "AIM • THROW • BULLSEYE",
+  "Archery Master 3D": "AIM • SHOOT • CONQUER",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
