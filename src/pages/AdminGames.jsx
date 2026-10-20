@@ -3,6 +3,7 @@ import { useToast } from "../components/Toast.jsx";
 import { useAuth } from "../auth/AuthContext.jsx";
 import { useGameTypes } from "../data/gameTypes.jsx";
 import { api } from "../lib/api.js";
+import { getMainCategory, getSecondaryCategories } from "../lib/gameHelpers.jsx";
 import {
   mapServerErrors,
   validateGameDescription,
@@ -23,13 +24,30 @@ import {
 
 const PAGE_SIZE = 20;
 
+/**
+ * Server errors for list items come back as `secondaryCategories[2]`; show
+ * them on the field itself.
+ */
+function mapGameServerErrors(errors) {
+  const out = {};
+  for (const [field, message] of Object.entries(mapServerErrors(errors))) {
+    const key = field.replace(/\[\d+\]$/, "");
+    if (!out[key]) out[key] = message;
+  }
+  return out;
+}
+
 function GameFormModal({ initial, types, onClose, onSaved }) {
   const editing = Boolean(initial);
   const { handleAuthExpired } = useAuth();
+  const initialMain = initial?.mainCategory?.id || initial?.type?.id || "";
   const [values, setValues] = useState({
     name: initial?.name || "",
     description: initial?.description || "",
-    typeId: initial?.type?.id || "",
+    mainCategory: initialMain,
+    secondaryCategories: (initial?.secondaryCategories || [])
+      .map((c) => c.id)
+      .filter((id) => id !== initialMain),
   });
   const [errors, setErrors] = useState({});
   const [formError, setFormError] = useState(null);
@@ -41,13 +59,43 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
     setFormError(null);
   };
 
+  // A category can't be both main and secondary: picking it as main drops it
+  // from the secondary list.
+  const setMainCategory = (e) => {
+    const id = e.target.value;
+    setValues((v) => ({
+      ...v,
+      mainCategory: id,
+      secondaryCategories: v.secondaryCategories.filter((s) => s !== id),
+    }));
+    setErrors((p) => ({ ...p, mainCategory: undefined, secondaryCategories: undefined }));
+    setFormError(null);
+  };
+
+  const toggleSecondary = (id) => {
+    setValues((v) => ({
+      ...v,
+      secondaryCategories: v.secondaryCategories.includes(id)
+        ? v.secondaryCategories.filter((s) => s !== id)
+        : [...v.secondaryCategories, id],
+    }));
+    setErrors((p) => ({ ...p, secondaryCategories: undefined }));
+    setFormError(null);
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
     if (submitting) return;
+    const secondary = values.secondaryCategories;
     const next = {
       name: validateGameName(values.name),
       description: validateGameDescription(values.description),
-      typeId: values.typeId ? null : "Pick a game type",
+      mainCategory: values.mainCategory ? null : "Pick a main category",
+      secondaryCategories: secondary.includes(values.mainCategory)
+        ? "The main category can't also be a secondary category"
+        : new Set(secondary).size !== secondary.length
+        ? "Secondary categories must be unique"
+        : null,
     };
     setErrors(next);
     if (Object.values(next).some(Boolean)) return;
@@ -58,14 +106,15 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
       const payload = {
         name: values.name.trim(),
         description: values.description.trim(),
-        typeId: values.typeId,
+        mainCategory: values.mainCategory,
+        secondaryCategories: secondary,
       };
       if (editing) await api.updateGame(initial.id, payload);
       else await api.createGame(payload);
       onSaved(editing ? "Game updated" : "Game created");
     } catch (err) {
       if (err.status === 401) handleAuthExpired();
-      else if (err.status === 400 && err.errors) setErrors(mapServerErrors(err.errors));
+      else if (err.status === 400 && err.errors) setErrors(mapGameServerErrors(err.errors));
       else setFormError(err.message || "Could not save game");
     } finally {
       setSubmitting(false);
@@ -73,6 +122,11 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
   };
 
   const typeOptions = types.map((t) => ({ value: t.id, label: t.name }));
+  const typeNames = Object.fromEntries(types.map((t) => [t.id, t.name]));
+  const secondaryOptions = types.filter((t) => t.id !== values.mainCategory);
+  const selectedSecondaryNames = values.secondaryCategories
+    .map((id) => typeNames[id])
+    .filter(Boolean);
 
   return (
     <Modal title={editing ? `Edit ${initial.name}` : "Add game"} onClose={onClose} className="admin-games-modal">
@@ -108,17 +162,69 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
             required
           />
         </FormField>
-        <FormField label="Game type" error={errors.typeId} htmlFor="g-type" required>
+        <FormField label="Main category" error={errors.mainCategory} htmlFor="g-type" required>
           <Select
             id="g-type"
-            value={values.typeId}
-            onChange={setField("typeId")}
+            value={values.mainCategory}
+            onChange={setMainCategory}
             disabled={submitting}
-            error={Boolean(errors.typeId)}
+            error={Boolean(errors.mainCategory)}
             options={typeOptions}
-            placeholder="Select a type..."
+            placeholder="Select a main category..."
             required
           />
+        </FormField>
+        <FormField
+          label="Secondary categories"
+          error={errors.secondaryCategories}
+          hint={
+            selectedSecondaryNames.length > 0
+              ? `Selected (${selectedSecondaryNames.length}): ${selectedSecondaryNames.join(", ")}`
+              : "Optional - the game also appears on these category pages"
+          }
+          htmlFor="g-secondary"
+        >
+          <div
+            id="g-secondary"
+            className="admin-games-modal__chips"
+            role="group"
+            aria-label="Secondary categories"
+          >
+            {secondaryOptions.map((t) => {
+              const selected = values.secondaryCategories.includes(t.id);
+              return (
+                <button
+                  key={t.id}
+                  type="button"
+                  className={
+                    selected
+                      ? "admin-games-modal__chip admin-games-modal__chip--selected"
+                      : "admin-games-modal__chip"
+                  }
+                  aria-pressed={selected}
+                  onClick={() => toggleSecondary(t.id)}
+                  disabled={submitting}
+                >
+                  {selected && (
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  )}
+                  {t.name}
+                </button>
+              );
+            })}
+          </div>
         </FormField>
         <div className="admin-games-modal__footer">
           <Button variant="ghost" type="button" onClick={onClose} disabled={submitting}>
@@ -221,7 +327,7 @@ export default function AdminGames() {
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Type</th>
+                  <th>Categories</th>
                   <th>Created</th>
                   <th aria-label="Actions"></th>
                 </tr>
@@ -233,8 +339,21 @@ export default function AdminGames() {
                       <span className="admin-games__game-name">{g.name}</span>
                     </td>
                     <td>
-                      {g.type?.name ? (
-                        <span className="admin-games__type-badge">{g.type.name}</span>
+                      {getMainCategory(g)?.name ? (
+                        <div className="admin-games__categories">
+                          <span className="admin-games__type-badge" title="Main category">
+                            {getMainCategory(g).name}
+                          </span>
+                          {getSecondaryCategories(g).map((c) => (
+                            <span
+                              key={c.id}
+                              className="admin-games__type-badge admin-games__type-badge--secondary"
+                              title="Secondary category"
+                            >
+                              {c.name}
+                            </span>
+                          ))}
+                        </div>
                       ) : (
                         <span className="admin-games__type-empty">—</span>
                       )}

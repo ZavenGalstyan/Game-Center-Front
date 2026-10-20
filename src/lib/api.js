@@ -123,22 +123,26 @@ export const api = {
   /* ---------------------------------- Games --------------------------------- */
 
   // Returns the full envelope: { data: Game[], pagination: {...} }.
-  listGames: ({ limit = 20, offset = 0, typeId } = {}) => {
+  // With `categoryId` the backend returns main-category matches first, then
+  // secondary-category matches (each item carries `categoryMatch`).
+  listGames: ({ limit = 20, offset = 0, categoryId, search } = {}) => {
     const qs = new URLSearchParams({
       limit: String(limit),
       offset: String(offset),
-      ...(typeId ? { typeId } : {}),
+      ...(categoryId ? { categoryId } : {}),
+      ...(search ? { search } : {}),
     });
     return request(`/api/games?${qs.toString()}`, { raw: true });
   },
 
   getGame: (id) => request(`/api/games/${id}`),
 
-  createGame: ({ name, description, typeId }) =>
+  // mainCategory: GameType id (required); secondaryCategories: GameType ids.
+  createGame: ({ name, description, mainCategory, secondaryCategories = [] }) =>
     request("/api/games", {
       method: "POST",
       auth: true,
-      body: { name, description, typeId },
+      body: { name, description, mainCategory, secondaryCategories },
     }),
 
   updateGame: (id, body) =>
