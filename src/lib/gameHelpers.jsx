@@ -57,6 +57,7 @@ import zombieOutbreakBg from "../images/ZombieOutbreakbg.png";
 import mountainJourneyBg from "../images/MountainJourneybg.png";
 import pirateCoveBg from "../images/PirateCovebg.png";
 import nightCorridorBg from "../images/NightCorridorbg.png";
+import archeryMaster3dBg from "../images/archery-master-3d.png";
 
 /**
  * Category to icon mapping.
@@ -1044,6 +1045,7 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(1, 8, 10, 0.82) 73%,
       rgba(1, 5, 7, 0.88) 100%)`,
   },
+  "archery master 3d": { image: archeryMaster3dBg, shade: WIDE_ART_SHADE },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();
