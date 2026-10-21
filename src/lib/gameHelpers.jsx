@@ -57,6 +57,19 @@ import zombieOutbreakBg from "../images/ZombieOutbreakbg.png";
 import mountainJourneyBg from "../images/MountainJourneybg.png";
 import pirateCoveBg from "../images/PirateCovebg.png";
 import nightCorridorBg from "../images/NightCorridorbg.png";
+import archeryMaster3dBg from "../images/archery-master-3d.png";
+import dartsChampionship3dBg from "../images/Dart3d.png";
+import bowlingMaster3dBg from "../images/Bowling3d.png";
+import airHockeyBg from "../images/AirHockey.png";
+import swimmingChampionsBg from "../images/SwimmingChampions.png";
+import pingPongClashBg from "../images/PingPong.png";
+import colorSwitchBg from "../images/ColorSwitch.png";
+import snakeClassicBg from "../images/SnakeClassic.png";
+import checkersClassicBg from "../images/CheckersClassic.png";
+import backgammonClassicBg from "../images/BackgammonClassic.png";
+import memoryCardsBg from "../images/MemoryCards.png";
+import puzzle2048Bg from "../images/2048.png";
+import dollRepairWorkshopBg from "../images/DollRepairWorkshop.png";
 
 /**
  * Category to icon mapping.
@@ -1044,6 +1057,19 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(1, 8, 10, 0.82) 73%,
       rgba(1, 5, 7, 0.88) 100%)`,
   },
+  "archery master 3d": { image: archeryMaster3dBg, shade: WIDE_ART_SHADE },
+  "darts championship 3d": { image: dartsChampionship3dBg, shade: WIDE_ART_SHADE },
+  "bowling master 3d": { image: bowlingMaster3dBg, shade: WIDE_ART_SHADE },
+  "air hockey": { image: airHockeyBg, shade: WIDE_ART_SHADE },
+  "swimming champions": { image: swimmingChampionsBg, shade: WIDE_ART_SHADE },
+  "ping pong clash": { image: pingPongClashBg, shade: WIDE_ART_SHADE },
+  "color switch": { image: colorSwitchBg, shade: WIDE_ART_SHADE },
+  "snake classic": { image: snakeClassicBg, shade: WIDE_ART_SHADE },
+  "checkers classic": { image: checkersClassicBg, shade: WIDE_ART_SHADE },
+  "backgammon classic": { image: backgammonClassicBg, shade: WIDE_ART_SHADE },
+  "memory cards": { image: memoryCardsBg, shade: WIDE_ART_SHADE },
+  "2048 puzzle": { image: puzzle2048Bg, shade: WIDE_ART_SHADE },
+  "doll repair workshop": { image: dollRepairWorkshopBg, shade: WIDE_ART_SHADE },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();
