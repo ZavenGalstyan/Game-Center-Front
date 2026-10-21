@@ -58,6 +58,7 @@ import mountainJourneyBg from "../images/MountainJourneybg.png";
 import pirateCoveBg from "../images/PirateCovebg.png";
 import nightCorridorBg from "../images/NightCorridorbg.png";
 import archeryMaster3dBg from "../images/archery-master-3d.png";
+import dartsChampionship3dBg from "../images/Dart3d.png";
 
 /**
  * Category to icon mapping.
@@ -1046,6 +1047,7 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(1, 5, 7, 0.88) 100%)`,
   },
   "archery master 3d": { image: archeryMaster3dBg, shade: WIDE_ART_SHADE },
+  "darts championship 3d": { image: dartsChampionship3dBg, shade: WIDE_ART_SHADE },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();

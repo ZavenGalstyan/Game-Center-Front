@@ -3570,6 +3570,30 @@ h3 {
   z-index: -1;
 }
 
+.game-page__about[data-decoration="darts-championship"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='dcBoard' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,143,0.12)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,180,120,0.1)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,140,100,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dcDart' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,170,80,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(180,150,70,0.12)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dcFlight' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,143,0.16)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,200,130,0.1)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Dartboard outer ring (wire frame) --%3E%3Ccircle cx='32' cy='32' r='28' fill='none' stroke='rgba(0,232,143,0.06)' stroke-width='2'/%3E%3C!-- Dartboard double ring --%3E%3Ccircle cx='32' cy='32' r='25' fill='none' stroke='rgba(0,200,130,0.08)' stroke-width='3'/%3E%3C!-- Dartboard outer single --%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='rgba(0,180,120,0.07)' stroke-width='1.5'/%3E%3C!-- Dartboard triple ring --%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='rgba(0,232,143,0.1)' stroke-width='3'/%3E%3C!-- Dartboard inner single --%3E%3Ccircle cx='32' cy='32' r='12' fill='none' stroke='rgba(0,180,120,0.08)' stroke-width='1.5'/%3E%3C!-- Outer bull (25 ring) --%3E%3Ccircle cx='32' cy='32' r='6' fill='rgba(0,200,130,0.08)' stroke='rgba(0,232,143,0.12)' stroke-width='2'/%3E%3C!-- Inner bull (bullseye 50) --%3E%3Ccircle cx='32' cy='32' r='2.5' fill='rgba(0,232,143,0.18)' stroke='rgba(255,255,255,0.1)' stroke-width='0.8'/%3E%3C!-- Bullseye highlight --%3E%3Ccircle cx='31.5' cy='31.5' r='1' fill='rgba(255,255,255,0.15)'/%3E%3C!-- Radial segment lines (wire dividers) --%3E%3Cg stroke='rgba(0,200,130,0.06)' stroke-width='0.8'%3E%3Cline x1='32' y1='4' x2='32' y2='60'/%3E%3Cline x1='4' y1='32' x2='60' y2='32'/%3E%3Cline x1='12' y1='12' x2='52' y2='52'/%3E%3Cline x1='52' y1='12' x2='12' y2='52'/%3E%3Cline x1='8' y1='22' x2='56' y2='42'/%3E%3Cline x1='8' y1='42' x2='56' y2='22'/%3E%3Cline x1='22' y1='8' x2='42' y2='56'/%3E%3Cline x1='42' y1='8' x2='22' y2='56'/%3E%3C/g%3E%3C!-- Dart 1: hitting bullseye --%3E%3Cpath d='M32 32 L32 18' stroke='url(%23dcDart)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M32 18 L30 14 L32 16 L34 14 Z' fill='url(%23dcFlight)' stroke='rgba(0,232,143,0.15)' stroke-width='0.5'/%3E%3Ccircle cx='32' cy='32' r='1.2' fill='rgba(200,170,80,0.25)'/%3E%3C!-- Dart 2: in triple 20 area --%3E%3Cpath d='M72 28 L58 36' stroke='url(%23dcDart)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M72 28 L76 24 L73 28 L77 30 Z' fill='url(%23dcFlight)' stroke='rgba(0,232,143,0.12)' stroke-width='0.5'/%3E%3Ccircle cx='58' cy='36' r='1' fill='rgba(200,170,80,0.2)'/%3E%3C!-- Dart 3: in double ring --%3E%3Cpath d='M78 62 L62 52' stroke='url(%23dcDart)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M78 62 L82 60 L79 64 L83 66 Z' fill='url(%23dcFlight)' stroke='rgba(0,232,143,0.12)' stroke-width='0.5'/%3E%3Ccircle cx='62' cy='52' r='1' fill='rgba(200,170,80,0.2)'/%3E%3C!-- Motion trail for dart 1 --%3E%3Cpath d='M32 12 L32 6' stroke='rgba(0,232,143,0.08)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M32 4 L32 2' stroke='rgba(0,232,143,0.05)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Motion trail for dart 2 --%3E%3Cpath d='M76 24 L82 20' stroke='rgba(0,232,143,0.07)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M84 18 L88 15' stroke='rgba(0,232,143,0.04)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Motion trail for dart 3 --%3E%3Cpath d='M82 64 L88 68' stroke='rgba(0,232,143,0.06)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Championship laurel hints (left) --%3E%3Cpath d='M6 70 Q10 65 8 58 Q14 62 12 68 Q8 72 6 70' fill='rgba(180,150,70,0.08)' stroke='rgba(200,170,80,0.06)' stroke-width='0.5'/%3E%3Cpath d='M4 78 Q8 74 6 68 Q11 71 10 76 Q6 80 4 78' fill='rgba(180,150,70,0.06)' stroke='rgba(200,170,80,0.05)' stroke-width='0.5'/%3E%3C!-- Championship laurel hints (right) --%3E%3Cpath d='M94 70 Q90 65 92 58 Q86 62 88 68 Q92 72 94 70' fill='rgba(180,150,70,0.08)' stroke='rgba(200,170,80,0.06)' stroke-width='0.5'/%3E%3Cpath d='M96 78 Q92 74 94 68 Q89 71 90 76 Q94 80 96 78' fill='rgba(180,150,70,0.06)' stroke='rgba(200,170,80,0.05)' stroke-width='0.5'/%3E%3C!-- Small star accents --%3E%3Cpath d='M85 8 L86 11 L89 11 L87 13 L88 16 L85 14 L82 16 L83 13 L81 11 L84 11 Z' fill='rgba(200,170,80,0.1)'/%3E%3Cpath d='M15 88 L16 90 L18 90 L17 91.5 L17.5 93.5 L15 92 L12.5 93.5 L13 91.5 L12 90 L14 90 Z' fill='rgba(0,232,143,0.08)'/%3E%3C!-- Speed particles --%3E%3Ccircle cx='30' cy='8' r='1.2' fill='rgba(0,232,143,0.1)'/%3E%3Ccircle cx='34' cy='10' r='0.8' fill='rgba(0,232,143,0.08)'/%3E%3Ccircle cx='80' cy='22' r='1' fill='rgba(200,170,80,0.09)'/%3E%3Ccircle cx='86' cy='70' r='0.9' fill='rgba(0,232,143,0.07)'/%3E%3C!-- Subtle glow at bullseye --%3E%3Ccircle cx='32' cy='32' r='4' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1' stroke-dasharray='1.5,1.5'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="darts-championship"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 58% 50% at 52% 48%, rgba(0, 232, 143, 0.06) 0%, rgba(180, 150, 70, 0.04) 30%, rgba(0, 180, 120, 0.02) 55%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -4447,6 +4471,21 @@ h3 {
     height: 300px;
   }
 
+  /* Darts Championship 3D tablet */
+  .game-page__about[data-decoration="darts-championship"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="darts-championship"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -5312,6 +5351,21 @@ h3 {
     height: 240px;
   }
 
+  /* Darts Championship 3D mobile */
+  .game-page__about[data-decoration="darts-championship"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="darts-championship"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -6019,6 +6073,21 @@ h3 {
   }
 
   .game-page__about[data-decoration="archery-master"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Darts Championship 3D small mobile */
+  .game-page__about[data-decoration="darts-championship"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="darts-championship"]::after {
     right: -25px;
     bottom: -35px;
     width: 190px;

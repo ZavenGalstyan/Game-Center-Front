@@ -75,7 +75,7 @@ const GAME_TAGLINES = {
   "Mario Adventure 3D": "Jump, stomp, and power-up through vibrant 3D kingdoms.",
   "Dimension Dash": "Shift between dimensions and dash through high-speed challenges.",
   "Bowling Master 3D": "AIM • ROLL • STRIKE",
-  "Darts Championship 3D": "AIM • THROW • BULLSEYE",
+  "Darts Championship 3D": "Test your precision, master challenging checkouts, and compete against skilled AI opponents in exciting 301 and 501 darts matches.",
   "Archery Master 3D": "Master your aim, hit challenging targets, and conquer 50 exciting archery levels across five unique worlds.",
   "Haunted Mansion Escape": "EXPLORE • SOLVE • ESCAPE",
   "Space Station Escape": "REPAIR • UNLOCK • SURVIVE",
@@ -138,6 +138,7 @@ const GAME_DECORATIONS = {
   "Mario Adventure 3D": "mario-adventure",
   "Dimension Dash": "dimension-dash",
   "Archery Master 3D": "archery-master",
+  "Darts Championship 3D": "darts-championship",
 };
 
 // Fallback: generate a short tagline from description if not predefined
