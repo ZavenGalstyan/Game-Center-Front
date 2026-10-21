@@ -81,6 +81,7 @@ const GAME_TAGLINES = {
   "Space Station Escape": "REPAIR • UNLOCK • SURVIVE",
   "Outpost 47: Frozen Secrets": "EXPLORE • SURVIVE • UNCOVER",
   "Motel 6: Last Guest": "CHECK • DECIDE • SURVIVE",
+  "Ultimate MMA Championship 3D": "FIGHT • DOMINATE • BECOME CHAMPION",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
