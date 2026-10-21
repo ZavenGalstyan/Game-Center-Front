@@ -233,8 +233,25 @@ function core() {
   run(m, 1, { attack: "cross" });
   run(m, 60);
   ok(m.result && (m.result.method === "KO" || m.result.method === "TKO") && m.result.winner === 0, "KO ends the fight", JSON.stringify(m.result?.method));
-  run(m, 60 * 5);
+  const lx = m.f[1].pos.x;
+  const wx = m.f[0].pos.x;
+  run(m, 120, { mz: 1, mx: 0.5 });
+  ok(Math.hypot(m.f[0].pos.x - wx, m.f[0].pos.z) > 0.8, "winner can still walk after the knockout", (m.f[0].pos.x - wx).toFixed(2));
+  ok(Math.abs(m.f[1].pos.x - lx) < 0.6 && m.f[1].act.type === "ko", "KO'd fighter stays down");
+  run(m, 60 * 5, { mz: -1 });
   ok(m.phase === "ended", "phase ends after a finish", m.phase);
+  const px = m.f[0].pos.x;
+  run(m, 60, { mx: 1 });
+  ok(Math.abs(m.f[0].pos.x - px) + Math.abs(m.f[0].pos.z) > 0.3, "winner still free to move after the fight ends");
+  // submission winner lets go, stands up and can move
+  const ms = mk("moraes", "vale", { seed: 3 });
+  GR.enterGround(ms, ms.f[1], ms.f[0], "guard", { x: 0, z: 0 }, 0);
+  ms.submission(ms.f[0], ms.f[1], "armbar");
+  run(ms, 60 * 3);
+  const sx = ms.f[0].pos.x;
+  const sz = ms.f[0].pos.z;
+  run(ms, 90, { mz: 1 });
+  ok(ms.f[0].act.type !== "subWin" && Math.hypot(ms.f[0].pos.x - sx, ms.f[0].pos.z - sz) > 0.5, "submission winner gets up and can move", ms.f[0].act.type);
 }
 
 /* ================================================================== grapple */

@@ -362,8 +362,8 @@ export default function UltimateMMA3D({ restartSignal = 0, muted = false }) {
         sq.t += dt;
         if (sq.stage === "finish") {
           const isKO = sq.method === "KO" || sq.method === "TKO";
-          if (isKO && sq.t > 1.7) {
-            if (w.startReplay(3.4)) {
+          if (isKO && sq.t > 1.2) {
+            if (w.startReplay(2.6)) {
               sq.stage = "replay";
               setOverlay("replay");
             } else {
@@ -901,7 +901,7 @@ export default function UltimateMMA3D({ restartSignal = 0, muted = false }) {
                   if (seqRef.current) seqRef.current = { ...seqRef.current, stage: "victory", t: 0 };
                 }}
               >
-                Skip ▸
+                Skip ▸ (Space)
               </button>
             </div>
           )}

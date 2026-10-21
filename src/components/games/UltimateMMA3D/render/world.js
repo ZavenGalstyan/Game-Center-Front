@@ -356,7 +356,7 @@ export function createWorld(host, { quality = "high", test = false } = {}) {
     if (record.length < 10) return false;
     const end = record[record.length - 1].t;
     const frames = record.filter((r) => r.t >= end - secs);
-    replay = { frames, t: frames[0].t, end, speed: 0.4 };
+    replay = { frames, t: frames[0].t, end, speed: 0.5 };
     if (referee) referee.root.visible = false; // keep the replay camera's view clear
     const loser = match?.result ? match.f[1 - match.result.winner] : null;
     director.setMode("replay", true);

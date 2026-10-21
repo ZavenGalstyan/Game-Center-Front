@@ -30,7 +30,8 @@ export function targetsFor(f, m, clips) {
   const T = [];
   const add = (clip, w, o = {}) => T.push({ clip, w, ...o });
   const ended = m.phase === "stopped" || m.phase === "ended" || m.phase === "decision";
-  if (ended && m.result && a.type !== "ko" && a.type !== "tapped" && a.type !== "down" && m.phaseT > 1.2) {
+  const roaming = Math.hypot(f.vel.x, f.vel.z) > 0.3;
+  if (ended && m.result && a.type !== "ko" && a.type !== "tapped" && a.type !== "down" && a.type !== "getup" && a.type !== "subWin" && m.phaseT > 1.2 && !(m.result.winner === f.side && roaming)) {
     if (m.result.winner === f.side) add("Victory", 1, { speed: 1, fade: 0.5 });
     else if (m.result.winner < 0) add("Stance", 1, { speed: 0.6, fade: 0.5 });
     else add("Defeat", 1, { speed: 1, fade: 0.6 });
@@ -152,8 +153,8 @@ export function targetsFor(f, m, clips) {
   const sp = Math.hypot(vf, vl);
   const tired = f.sta < staMax(f) * 0.18;
   let base = f.guard === "body" ? "BlockBody" : f.guard ? "Block" : f.daze > 55 ? "Rocked" : tired ? "Tired" : "Stance";
-  if (m.phase === "rest" || m.phase === "roundEnd") base = tired ? "Tired" : "Stance";
-  const wStep = clamp(sp / 0.5, 0, 1) * (m.phase === "fight" || m.phase === "ready" ? 1 : 0.8);
+  if (m.phase === "rest" || m.phase === "roundEnd" || ended) base = tired ? "Tired" : "Stance";
+  const wStep = clamp(sp / 0.5, 0, 1) * (m.phase === "rest" || m.phase === "roundEnd" ? 0.8 : 1);
   const wf = sp > 1e-3 ? Math.abs(vf) / (Math.abs(vf) + Math.abs(vl)) : 0;
   add(base, Math.max(0.02, 1 - wStep * 0.85), { speed: 1, fade: 0.14 });
   if (wStep > 0.01) {

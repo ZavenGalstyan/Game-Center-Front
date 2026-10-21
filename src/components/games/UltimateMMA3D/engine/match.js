@@ -231,17 +231,35 @@ export class Match {
         this.idleStep(dt, true);
         if (this.phaseT > 4) this.setPhase("ended");
         return;
+      case "ended":
+        if (this.result) this.idleStep(dt, true); // celebration continues behind the result screen
+        return;
       default:
         return;
     }
   }
 
   /** Fighters breathe / finish their current action but take no input. */
-  idleStep(dt, frozenLoser = false) {
+  /**
+   * Fighters finish their current action but take no fight input. After a
+   * finish (`celebrate`) the loser stays down and the WINNER keeps walking
+   * freely under his controller's movement buttons (celebration lap).
+   */
+  idleStep(dt, celebrate = false) {
+    const winner = celebrate && this.result ? this.result.winner : -1;
     for (const f of this.f) {
       const o = this.f[1 - f.side];
-      if (f.act.type === "ko" || f.act.type === "tapped" || f.act.type === "subWin") {
+      if (f.act.type === "ko" || f.act.type === "tapped") {
         f.act.t += dt;
+        continue;
+      }
+      if (f.act.type === "subWin") {
+        // let go of the hold and get up after a moment
+        f.act.t += dt;
+        if (f.act.t > 1.4) {
+          f.act = { type: "getup", t: 0, dur: 1.1, from: this.ground && this.ground.top === f.side ? "top" : "ground" };
+          this.ground = null;
+        }
         continue;
       }
       if (f.act.type === "down" || f.act.type === "getup") {
@@ -250,6 +268,7 @@ export class Match {
         continue;
       }
       if (this.ground || this.clinch || this.sub) {
+        if (celebrate && this.result && f.side !== winner) continue; // loser stays where he lies
         this.ground = this.clinch = this.sub = this.transition = null;
         f.act = { type: "getup", t: 0, dur: 1.0 };
         continue;
@@ -259,11 +278,39 @@ export class Match {
         f.act.t = (f.act.t || 0) + dt;
         if (f.act.t > (f.act.dur || 0.5)) f.act = { type: "idle", t: 0 };
       }
-      f.intent = { mx: 0, mz: 0, guard: null };
-      if (!frozenLoser) stepMovement(f, o, dt);
-      else {
-        f.vel.x *= 0.9;
-        f.vel.z *= 0.9;
+      if (f.side === winner) {
+        // free roam in a fixed frame (the fight line at the finish = what the camera shows),
+        // facing where he walks
+        if (this.roamYaw === undefined) this.roamYaw = f.yaw;
+        const B = this.buttons[f.side];
+        const mobile = f.act.type === "idle" || f.act.type === "move";
+        const fx = Math.sin(this.roamYaw);
+        const fz = Math.cos(this.roamYaw);
+        const sp = mobile ? 1.3 : 0;
+        const tx = (fx * B.mz + fz * B.mx) * sp;
+        const tz = (fz * B.mz - fx * B.mx) * sp;
+        const acc = 10 * dt;
+        f.vel.x += clamp(tx - f.vel.x, -acc, acc);
+        f.vel.z += clamp(tz - f.vel.z, -acc, acc);
+        f.pos.x += f.vel.x * dt;
+        f.pos.z += f.vel.z * dt;
+        const v = Math.hypot(f.vel.x, f.vel.z);
+        if (mobile) f.act.type = v > 0.15 ? "move" : "idle";
+        if (v > 0.3) {
+          let d = Math.atan2(f.vel.x, f.vel.z) - f.yaw;
+          while (d > Math.PI) d -= Math.PI * 2;
+          while (d < -Math.PI) d += Math.PI * 2;
+          f.yaw = wrapAngle(f.yaw + clamp(d, -7 * dt, 7 * dt));
+        }
+      } else {
+        f.intent = { mx: 0, mz: 0, guard: null };
+        if (!celebrate) stepMovement(f, o, dt);
+        else {
+          f.vel.x *= 0.9;
+          f.vel.z *= 0.9;
+          f.pos.x += f.vel.x * dt;
+          f.pos.z += f.vel.z * dt;
+        }
       }
       clampToCage(f);
       stepStamina(f, dt);
