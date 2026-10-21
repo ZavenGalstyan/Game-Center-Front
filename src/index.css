@@ -3545,6 +3545,337 @@ h3 {
   z-index: -1;
 }
 
+/* Archery Master 3D: professional recurve bow, arrow, and bullseye target with motion trails */
+.game-page__about[data-decoration="archery-master"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='amBow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(180,140,80,0.18)'/%3E%3Cstop offset='50%25' stop-color='rgba(140,100,60,0.14)'/%3E%3Cstop offset='100%25' stop-color='rgba(100,70,40,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='amTarget' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,143,0.14)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,180,120,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='amArrow' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,180,100,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(180,150,80,0.12)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Bullseye target - outer rings --%3E%3Ccircle cx='72' cy='28' r='22' fill='none' stroke='rgba(0,232,143,0.08)' stroke-width='3'/%3E%3Ccircle cx='72' cy='28' r='17' fill='none' stroke='rgba(0,200,130,0.1)' stroke-width='2.5'/%3E%3Ccircle cx='72' cy='28' r='12' fill='none' stroke='rgba(0,180,120,0.12)' stroke-width='2'/%3E%3Ccircle cx='72' cy='28' r='7' fill='none' stroke='rgba(0,160,110,0.14)' stroke-width='1.8'/%3E%3C!-- Bullseye center --%3E%3Ccircle cx='72' cy='28' r='3.5' fill='rgba(0,232,143,0.15)'/%3E%3Ccircle cx='72' cy='28' r='1.5' fill='rgba(255,255,255,0.12)'/%3E%3C!-- Target stand hints --%3E%3Cpath d='M60 48 L72 50 L84 48' fill='none' stroke='rgba(0,232,143,0.06)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Recurve bow body - elegant curved shape --%3E%3Cpath d='M18 85 Q8 70 12 52 Q16 38 22 28 Q26 22 30 20' fill='none' stroke='url(%23amBow)' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M30 20 Q36 18 40 22 Q44 28 42 38' fill='none' stroke='url(%23amBow)' stroke-width='3.5' stroke-linecap='round'/%3E%3C!-- Bow limb tips with recurve --%3E%3Cpath d='M18 85 Q14 90 10 92' fill='none' stroke='rgba(140,100,60,0.12)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M42 38 Q46 42 50 42' fill='none' stroke='rgba(140,100,60,0.12)' stroke-width='2.5' stroke-linecap='round'/%3E%3C!-- Bowstring --%3E%3Cpath d='M10 92 Q28 65 50 42' fill='none' stroke='rgba(200,180,140,0.1)' stroke-width='1' stroke-dasharray='none'/%3E%3C!-- Bow grip detail --%3E%3Cellipse cx='24' cy='55' rx='3' ry='6' fill='rgba(160,120,70,0.1)' transform='rotate(-15 24 55)'/%3E%3C!-- Arrow shaft flying toward target --%3E%3Cpath d='M32 72 L58 38' fill='none' stroke='url(%23amArrow)' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Arrow tip (broadhead) --%3E%3Cpath d='M58 38 L65 30 M58 38 L63 35 L66 32' fill='none' stroke='rgba(200,180,100,0.18)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Arrow fletching --%3E%3Cpath d='M32 72 L28 76 L34 73 M32 72 L30 78 L35 74' fill='none' stroke='rgba(0,232,143,0.12)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Motion trail lines --%3E%3Cpath d='M28 75 L22 82' stroke='rgba(0,232,143,0.08)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M35 68 L30 74' stroke='rgba(0,232,143,0.06)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M40 62 L36 67' stroke='rgba(0,232,143,0.05)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Speed particles --%3E%3Ccircle cx='25' cy='78' r='1.5' fill='rgba(0,232,143,0.1)'/%3E%3Ccircle cx='38' cy='65' r='1.2' fill='rgba(0,232,143,0.08)'/%3E%3Ccircle cx='48' cy='52' r='1' fill='rgba(200,180,100,0.08)'/%3E%3Ccircle cx='22' cy='70' r='0.8' fill='rgba(0,232,143,0.07)'/%3E%3C!-- Decorative particles around target --%3E%3Ccircle cx='55' cy='22' r='1.5' fill='rgba(0,232,143,0.09)'/%3E%3Ccircle cx='88' cy='35' r='1.8' fill='rgba(0,200,130,0.08)'/%3E%3Ccircle cx='82' cy='15' r='1.2' fill='rgba(0,232,143,0.07)'/%3E%3Ccircle cx='60' cy='40' r='1' fill='rgba(200,180,100,0.06)'/%3E%3C!-- Impact hint at bullseye --%3E%3Ccircle cx='72' cy='28' r='5' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1' stroke-dasharray='2,2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="archery-master"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 58% 50% at 52% 48%, rgba(0, 232, 143, 0.06) 0%, rgba(180, 150, 80, 0.04) 30%, rgba(0, 180, 120, 0.02) 55%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.game-page__about[data-decoration="darts-championship"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='dcBoard' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,143,0.12)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,180,120,0.1)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,140,100,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dcDart' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,170,80,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(180,150,70,0.12)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dcFlight' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,143,0.16)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,200,130,0.1)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Dartboard outer ring (wire frame) --%3E%3Ccircle cx='32' cy='32' r='28' fill='none' stroke='rgba(0,232,143,0.06)' stroke-width='2'/%3E%3C!-- Dartboard double ring --%3E%3Ccircle cx='32' cy='32' r='25' fill='none' stroke='rgba(0,200,130,0.08)' stroke-width='3'/%3E%3C!-- Dartboard outer single --%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='rgba(0,180,120,0.07)' stroke-width='1.5'/%3E%3C!-- Dartboard triple ring --%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='rgba(0,232,143,0.1)' stroke-width='3'/%3E%3C!-- Dartboard inner single --%3E%3Ccircle cx='32' cy='32' r='12' fill='none' stroke='rgba(0,180,120,0.08)' stroke-width='1.5'/%3E%3C!-- Outer bull (25 ring) --%3E%3Ccircle cx='32' cy='32' r='6' fill='rgba(0,200,130,0.08)' stroke='rgba(0,232,143,0.12)' stroke-width='2'/%3E%3C!-- Inner bull (bullseye 50) --%3E%3Ccircle cx='32' cy='32' r='2.5' fill='rgba(0,232,143,0.18)' stroke='rgba(255,255,255,0.1)' stroke-width='0.8'/%3E%3C!-- Bullseye highlight --%3E%3Ccircle cx='31.5' cy='31.5' r='1' fill='rgba(255,255,255,0.15)'/%3E%3C!-- Radial segment lines (wire dividers) --%3E%3Cg stroke='rgba(0,200,130,0.06)' stroke-width='0.8'%3E%3Cline x1='32' y1='4' x2='32' y2='60'/%3E%3Cline x1='4' y1='32' x2='60' y2='32'/%3E%3Cline x1='12' y1='12' x2='52' y2='52'/%3E%3Cline x1='52' y1='12' x2='12' y2='52'/%3E%3Cline x1='8' y1='22' x2='56' y2='42'/%3E%3Cline x1='8' y1='42' x2='56' y2='22'/%3E%3Cline x1='22' y1='8' x2='42' y2='56'/%3E%3Cline x1='42' y1='8' x2='22' y2='56'/%3E%3C/g%3E%3C!-- Dart 1: hitting bullseye --%3E%3Cpath d='M32 32 L32 18' stroke='url(%23dcDart)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M32 18 L30 14 L32 16 L34 14 Z' fill='url(%23dcFlight)' stroke='rgba(0,232,143,0.15)' stroke-width='0.5'/%3E%3Ccircle cx='32' cy='32' r='1.2' fill='rgba(200,170,80,0.25)'/%3E%3C!-- Dart 2: in triple 20 area --%3E%3Cpath d='M72 28 L58 36' stroke='url(%23dcDart)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M72 28 L76 24 L73 28 L77 30 Z' fill='url(%23dcFlight)' stroke='rgba(0,232,143,0.12)' stroke-width='0.5'/%3E%3Ccircle cx='58' cy='36' r='1' fill='rgba(200,170,80,0.2)'/%3E%3C!-- Dart 3: in double ring --%3E%3Cpath d='M78 62 L62 52' stroke='url(%23dcDart)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M78 62 L82 60 L79 64 L83 66 Z' fill='url(%23dcFlight)' stroke='rgba(0,232,143,0.12)' stroke-width='0.5'/%3E%3Ccircle cx='62' cy='52' r='1' fill='rgba(200,170,80,0.2)'/%3E%3C!-- Motion trail for dart 1 --%3E%3Cpath d='M32 12 L32 6' stroke='rgba(0,232,143,0.08)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M32 4 L32 2' stroke='rgba(0,232,143,0.05)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Motion trail for dart 2 --%3E%3Cpath d='M76 24 L82 20' stroke='rgba(0,232,143,0.07)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M84 18 L88 15' stroke='rgba(0,232,143,0.04)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Motion trail for dart 3 --%3E%3Cpath d='M82 64 L88 68' stroke='rgba(0,232,143,0.06)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Championship laurel hints (left) --%3E%3Cpath d='M6 70 Q10 65 8 58 Q14 62 12 68 Q8 72 6 70' fill='rgba(180,150,70,0.08)' stroke='rgba(200,170,80,0.06)' stroke-width='0.5'/%3E%3Cpath d='M4 78 Q8 74 6 68 Q11 71 10 76 Q6 80 4 78' fill='rgba(180,150,70,0.06)' stroke='rgba(200,170,80,0.05)' stroke-width='0.5'/%3E%3C!-- Championship laurel hints (right) --%3E%3Cpath d='M94 70 Q90 65 92 58 Q86 62 88 68 Q92 72 94 70' fill='rgba(180,150,70,0.08)' stroke='rgba(200,170,80,0.06)' stroke-width='0.5'/%3E%3Cpath d='M96 78 Q92 74 94 68 Q89 71 90 76 Q94 80 96 78' fill='rgba(180,150,70,0.06)' stroke='rgba(200,170,80,0.05)' stroke-width='0.5'/%3E%3C!-- Small star accents --%3E%3Cpath d='M85 8 L86 11 L89 11 L87 13 L88 16 L85 14 L82 16 L83 13 L81 11 L84 11 Z' fill='rgba(200,170,80,0.1)'/%3E%3Cpath d='M15 88 L16 90 L18 90 L17 91.5 L17.5 93.5 L15 92 L12.5 93.5 L13 91.5 L12 90 L14 90 Z' fill='rgba(0,232,143,0.08)'/%3E%3C!-- Speed particles --%3E%3Ccircle cx='30' cy='8' r='1.2' fill='rgba(0,232,143,0.1)'/%3E%3Ccircle cx='34' cy='10' r='0.8' fill='rgba(0,232,143,0.08)'/%3E%3Ccircle cx='80' cy='22' r='1' fill='rgba(200,170,80,0.09)'/%3E%3Ccircle cx='86' cy='70' r='0.9' fill='rgba(0,232,143,0.07)'/%3E%3C!-- Subtle glow at bullseye --%3E%3Ccircle cx='32' cy='32' r='4' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1' stroke-dasharray='1.5,1.5'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="darts-championship"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 58% 50% at 52% 48%, rgba(0, 232, 143, 0.06) 0%, rgba(180, 150, 70, 0.04) 30%, rgba(0, 180, 120, 0.02) 55%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Bowling Master 3D: glossy bowling ball striking a triangular formation of pins with impact particles */
+.game-page__about[data-decoration="bowling-master"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='bmBall' x1='20%25' y1='20%25' x2='80%25' y2='80%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,143,0.22)'/%3E%3Cstop offset='40%25' stop-color='rgba(0,180,120,0.18)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,120,90,0.12)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bmPin' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.18)'/%3E%3Cstop offset='50%25' stop-color='rgba(240,240,240,0.14)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,220,220,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bmStripe' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,60,60,0.2)'/%3E%3Cstop offset='50%25' stop-color='rgba(180,50,50,0.18)'/%3E%3Cstop offset='100%25' stop-color='rgba(160,40,40,0.15)'/%3E%3C/linearGradient%3E%3CradialGradient id='bmBallShine' cx='35%25' cy='35%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Bowling lane hint --%3E%3Cpath d='M8 92 L35 75 L95 75' fill='none' stroke='rgba(180,150,80,0.06)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M12 95 L38 78 L95 78' fill='none' stroke='rgba(180,150,80,0.04)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Pin row 4 (back) - positions 7,8,9,10 --%3E%3Cg class='pin-back'%3E%3C!-- Pin 7 --%3E%3Cellipse cx='58' cy='18' rx='3.5' ry='2' fill='url(%23bmPin)'/%3E%3Cpath d='M55.5 18 Q54.5 14 55.5 11 Q58 8 60.5 11 Q61.5 14 60.5 18' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.08)' stroke-width='0.5'/%3E%3Cpath d='M55.8 12 L60.2 12' stroke='url(%23bmStripe)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Pin 8 --%3E%3Cellipse cx='66' cy='18' rx='3.5' ry='2' fill='url(%23bmPin)'/%3E%3Cpath d='M63.5 18 Q62.5 14 63.5 11 Q66 8 68.5 11 Q69.5 14 68.5 18' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.08)' stroke-width='0.5'/%3E%3Cpath d='M63.8 12 L68.2 12' stroke='url(%23bmStripe)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Pin 9 --%3E%3Cellipse cx='74' cy='18' rx='3.5' ry='2' fill='url(%23bmPin)'/%3E%3Cpath d='M71.5 18 Q70.5 14 71.5 11 Q74 8 76.5 11 Q77.5 14 76.5 18' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.08)' stroke-width='0.5'/%3E%3Cpath d='M71.8 12 L76.2 12' stroke='url(%23bmStripe)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Pin 10 --%3E%3Cellipse cx='82' cy='18' rx='3.5' ry='2' fill='url(%23bmPin)'/%3E%3Cpath d='M79.5 18 Q78.5 14 79.5 11 Q82 8 84.5 11 Q85.5 14 84.5 18' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.08)' stroke-width='0.5'/%3E%3Cpath d='M79.8 12 L84.2 12' stroke='url(%23bmStripe)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Pin row 3 - positions 4,5,6 --%3E%3Cg class='pin-mid'%3E%3C!-- Pin 4 --%3E%3Cellipse cx='62' cy='26' rx='3.5' ry='2' fill='url(%23bmPin)'/%3E%3Cpath d='M59.5 26 Q58.5 22 59.5 19 Q62 16 64.5 19 Q65.5 22 64.5 26' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.08)' stroke-width='0.5'/%3E%3Cpath d='M59.8 20 L64.2 20' stroke='url(%23bmStripe)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Pin 5 --%3E%3Cellipse cx='70' cy='26' rx='3.5' ry='2' fill='url(%23bmPin)'/%3E%3Cpath d='M67.5 26 Q66.5 22 67.5 19 Q70 16 72.5 19 Q73.5 22 72.5 26' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.08)' stroke-width='0.5'/%3E%3Cpath d='M67.8 20 L72.2 20' stroke='url(%23bmStripe)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Pin 6 --%3E%3Cellipse cx='78' cy='26' rx='3.5' ry='2' fill='url(%23bmPin)'/%3E%3Cpath d='M75.5 26 Q74.5 22 75.5 19 Q78 16 80.5 19 Q81.5 22 80.5 26' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.08)' stroke-width='0.5'/%3E%3Cpath d='M75.8 20 L80.2 20' stroke='url(%23bmStripe)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Pin row 2 - positions 2,3 --%3E%3Cg class='pin-front-mid'%3E%3C!-- Pin 2 --%3E%3Cellipse cx='66' cy='34' rx='3.8' ry='2.2' fill='url(%23bmPin)'/%3E%3Cpath d='M63.2 34 Q62 29.5 63.2 26 Q66 22.5 68.8 26 Q70 29.5 68.8 34' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.1)' stroke-width='0.5'/%3E%3Cpath d='M63.5 27.5 L68.5 27.5' stroke='url(%23bmStripe)' stroke-width='1.4' stroke-linecap='round'/%3E%3C!-- Pin 3 --%3E%3Cellipse cx='74' cy='34' rx='3.8' ry='2.2' fill='url(%23bmPin)'/%3E%3Cpath d='M71.2 34 Q70 29.5 71.2 26 Q74 22.5 76.8 26 Q78 29.5 76.8 34' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.1)' stroke-width='0.5'/%3E%3Cpath d='M71.5 27.5 L76.5 27.5' stroke='url(%23bmStripe)' stroke-width='1.4' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Pin 1 (headpin) - being struck --%3E%3Cg class='headpin' transform='rotate(-15 70 44)'%3E%3Cellipse cx='70' cy='44' rx='4' ry='2.4' fill='url(%23bmPin)'/%3E%3Cpath d='M67 44 Q65.5 39 67 35 Q70 31 73 35 Q74.5 39 73 44' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.12)' stroke-width='0.5'/%3E%3Cpath d='M67.3 36.5 L72.7 36.5' stroke='url(%23bmStripe)' stroke-width='1.6' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Scattered pin (flying) --%3E%3Cg transform='rotate(35 85 55)'%3E%3Cellipse cx='85' cy='55' rx='3.2' ry='1.8' fill='url(%23bmPin)'/%3E%3Cpath d='M82.8 55 Q82 51.5 82.8 49 Q85 46 87.2 49 Q88 51.5 87.2 55' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.08)' stroke-width='0.4'/%3E%3Cpath d='M83 50 L87 50' stroke='url(%23bmStripe)' stroke-width='1' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Another scattered pin --%3E%3Cg transform='rotate(-25 52 58)'%3E%3Cellipse cx='52' cy='58' rx='3' ry='1.6' fill='url(%23bmPin)'/%3E%3Cpath d='M50 58 Q49.2 55 50 52.5 Q52 50 54 52.5 Q54.8 55 54 58' fill='url(%23bmPin)' stroke='rgba(255,255,255,0.06)' stroke-width='0.4'/%3E%3Cpath d='M50.2 53.5 L53.8 53.5' stroke='url(%23bmStripe)' stroke-width='0.9' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Bowling ball --%3E%3Ccircle cx='28' cy='58' r='16' fill='url(%23bmBall)' stroke='rgba(0,232,143,0.15)' stroke-width='1'/%3E%3Ccircle cx='28' cy='58' r='16' fill='url(%23bmBallShine)'/%3E%3C!-- Ball finger holes --%3E%3Cellipse cx='24' cy='52' rx='2.2' ry='2.8' fill='rgba(0,80,60,0.25)' transform='rotate(-10 24 52)'/%3E%3Cellipse cx='32' cy='52' rx='2.2' ry='2.8' fill='rgba(0,80,60,0.25)' transform='rotate(10 32 52)'/%3E%3Cellipse cx='28' cy='48' rx='1.8' ry='2.2' fill='rgba(0,80,60,0.2)'/%3E%3C!-- Ball highlight --%3E%3Cellipse cx='22' cy='50' rx='4' ry='3' fill='rgba(255,255,255,0.08)' transform='rotate(-20 22 50)'/%3E%3C!-- Motion trails from ball --%3E%3Cpath d='M10 62 L18 60' stroke='rgba(0,232,143,0.1)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M6 58 L14 57' stroke='rgba(0,232,143,0.07)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M4 54 L10 53' stroke='rgba(0,232,143,0.05)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Impact burst particles --%3E%3Ccircle cx='48' cy='48' r='1.8' fill='rgba(0,232,143,0.12)'/%3E%3Ccircle cx='55' cy='42' r='1.5' fill='rgba(0,232,143,0.1)'/%3E%3Ccircle cx='60' cy='50' r='1.2' fill='rgba(180,150,80,0.1)'/%3E%3Ccircle cx='45' cy='55' r='1.4' fill='rgba(0,232,143,0.08)'/%3E%3Ccircle cx='52' cy='62' r='1' fill='rgba(180,150,80,0.07)'/%3E%3C!-- Scatter lines --%3E%3Cpath d='M42 50 L38 46' stroke='rgba(0,232,143,0.08)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M58 48 L62 44' stroke='rgba(0,232,143,0.07)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M50 58 L48 64' stroke='rgba(180,150,80,0.06)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Score hint (strike X) --%3E%3Cpath d='M88 82 L94 88 M94 82 L88 88' stroke='rgba(200,170,80,0.12)' stroke-width='1.8' stroke-linecap='round'/%3E%3Crect x='84' y='78' width='14' height='14' rx='2' fill='none' stroke='rgba(200,170,80,0.08)' stroke-width='1'/%3E%3C!-- Decorative particles --%3E%3Ccircle cx='92' cy='35' r='1.5' fill='rgba(0,232,143,0.08)'/%3E%3Ccircle cx='18' cy='42' r='1.2' fill='rgba(0,232,143,0.07)'/%3E%3Ccircle cx='38' cy='72' r='1' fill='rgba(180,150,80,0.06)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="bowling-master"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 58% 50% at 52% 48%, rgba(0, 232, 143, 0.06) 0%, rgba(180, 150, 80, 0.04) 30%, rgba(0, 180, 120, 0.02) 55%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Air Hockey: neon air hockey table with player and AI mallets, fast-moving puck with motion trails */
+.game-page__about[data-decoration="air-hockey"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='ahTable' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,40,60,0.18)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,60,80,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,30,50,0.12)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ahPlayerMallet' x1='20%25' y1='20%25' x2='80%25' y2='80%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,220,0.28)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,200,200,0.22)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,160,180,0.16)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ahAiMallet' x1='20%25' y1='20%25' x2='80%25' y2='80%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,80,120,0.28)'/%3E%3Cstop offset='50%25' stop-color='rgba(220,60,100,0.22)'/%3E%3Cstop offset='100%25' stop-color='rgba(180,40,80,0.16)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ahPuck' x1='30%25' y1='30%25' x2='70%25' y2='70%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.25)'/%3E%3Cstop offset='50%25' stop-color='rgba(200,220,255,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(150,180,220,0.15)'/%3E%3C/linearGradient%3E%3CradialGradient id='ahGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,220,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,232,220,0)'/%3E%3C/radialGradient%3E%3CradialGradient id='ahPuckGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,230,255,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,230,255,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Table surface (angled perspective) --%3E%3Cpath d='M15 25 L85 20 L90 80 L10 85 Z' fill='url(%23ahTable)' stroke='rgba(0,232,220,0.12)' stroke-width='1.5'/%3E%3C!-- Table inner border/rail --%3E%3Cpath d='M18 28 L82 23 L86 77 L14 81 Z' fill='none' stroke='rgba(0,200,220,0.1)' stroke-width='1'/%3E%3C!-- Center line --%3E%3Cpath d='M16.5 55 L87.5 50' stroke='rgba(0,232,220,0.08)' stroke-width='1' stroke-dasharray='4 2'/%3E%3C!-- Center circle --%3E%3Cellipse cx='52' cy='52' rx='10' ry='8' fill='none' stroke='rgba(0,232,220,0.1)' stroke-width='1'/%3E%3Ccircle cx='52' cy='52' r='2' fill='rgba(0,232,220,0.08)'/%3E%3C!-- Player goal (bottom) --%3E%3Cpath d='M36 83 L64 82' stroke='rgba(0,232,220,0.2)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M38 85 L62 84' stroke='rgba(0,180,200,0.12)' stroke-width='2' stroke-linecap='round'/%3E%3C!-- AI goal (top) --%3E%3Cpath d='M38 22 L62 21' stroke='rgba(255,80,120,0.2)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M40 20 L60 19' stroke='rgba(200,60,100,0.12)' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Goal glow effects --%3E%3Cellipse cx='50' cy='83' rx='14' ry='4' fill='rgba(0,232,220,0.04)'/%3E%3Cellipse cx='50' cy='21' rx='12' ry='3' fill='rgba(255,80,120,0.04)'/%3E%3C!-- Puck with motion trails --%3E%3Cpath d='M25 58 L38 54' stroke='rgba(200,230,255,0.08)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M18 60 L30 56' stroke='rgba(200,230,255,0.05)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M12 62 L22 58' stroke='rgba(200,230,255,0.03)' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Puck glow --%3E%3Ccircle cx='45' cy='52' r='8' fill='url(%23ahPuckGlow)'/%3E%3C!-- Puck --%3E%3Ccircle cx='45' cy='52' r='5' fill='url(%23ahPuck)' stroke='rgba(200,230,255,0.2)' stroke-width='0.8'/%3E%3Ccircle cx='45' cy='52' r='3' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='0.5'/%3E%3C!-- Puck highlight --%3E%3Cellipse cx='43' cy='50' rx='2' ry='1.2' fill='rgba(255,255,255,0.12)'/%3E%3C!-- Player mallet (cyan, bottom) --%3E%3Ccircle cx='50' cy='72' r='10' fill='url(%23ahGlow)'/%3E%3Ccircle cx='50' cy='72' r='7' fill='url(%23ahPlayerMallet)' stroke='rgba(0,232,220,0.25)' stroke-width='1'/%3E%3Ccircle cx='50' cy='72' r='4' fill='rgba(0,80,90,0.2)' stroke='rgba(0,200,220,0.15)' stroke-width='0.8'/%3E%3C!-- Player mallet highlight --%3E%3Cellipse cx='47' cy='69' rx='2.5' ry='1.5' fill='rgba(0,255,255,0.1)'/%3E%3C!-- AI mallet (pink/red, top) --%3E%3Ccircle cx='55' cy='32' r='9' fill='rgba(255,80,120,0.06)'/%3E%3Ccircle cx='55' cy='32' r='6.5' fill='url(%23ahAiMallet)' stroke='rgba(255,80,120,0.25)' stroke-width='1'/%3E%3Ccircle cx='55' cy='32' r='3.5' fill='rgba(100,30,50,0.2)' stroke='rgba(220,60,100,0.15)' stroke-width='0.8'/%3E%3C!-- AI mallet highlight --%3E%3Cellipse cx='52.5' cy='29.5' rx='2' ry='1.2' fill='rgba(255,150,180,0.1)'/%3E%3C!-- Impact particles around puck --%3E%3Ccircle cx='52' cy='48' r='1.2' fill='rgba(0,232,220,0.12)'/%3E%3Ccircle cx='38' cy='55' r='1' fill='rgba(200,230,255,0.1)'/%3E%3Ccircle cx='48' cy='58' r='0.8' fill='rgba(0,232,220,0.08)'/%3E%3Ccircle cx='42' cy='46' r='1.1' fill='rgba(200,230,255,0.09)'/%3E%3C!-- Decorative speed lines --%3E%3Cpath d='M30 50 L35 49' stroke='rgba(0,232,220,0.06)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M32 54 L38 52' stroke='rgba(0,232,220,0.05)' stroke-width='0.6' stroke-linecap='round'/%3E%3C!-- Corner accents --%3E%3Ccircle cx='18' cy='28' r='2' fill='rgba(0,232,220,0.06)'/%3E%3Ccircle cx='82' cy='23' r='2' fill='rgba(255,80,120,0.06)'/%3E%3Ccircle cx='86' cy='77' r='2' fill='rgba(0,232,220,0.05)'/%3E%3Ccircle cx='14' cy='81' r='2' fill='rgba(0,232,220,0.05)'/%3E%3C!-- Score indicators --%3E%3Crect x='88' y='38' width='8' height='12' rx='1.5' fill='none' stroke='rgba(0,232,220,0.08)' stroke-width='0.8'/%3E%3Ctext x='92' y='47' font-size='6' fill='rgba(0,232,220,0.12)' text-anchor='middle' font-family='sans-serif'%3E7%3C/text%3E%3Crect x='88' y='52' width='8' height='12' rx='1.5' fill='none' stroke='rgba(255,80,120,0.08)' stroke-width='0.8'/%3E%3Ctext x='92' y='61' font-size='6' fill='rgba(255,80,120,0.12)' text-anchor='middle' font-family='sans-serif'%3E5%3C/text%3E%3C!-- Ambient glow particles --%3E%3Ccircle cx='25' cy='40' r='1.3' fill='rgba(0,232,220,0.06)'/%3E%3Ccircle cx='75' cy='65' r='1' fill='rgba(255,80,120,0.05)'/%3E%3Ccircle cx='70' cy='45' r='0.9' fill='rgba(0,232,220,0.05)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="air-hockey"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 58% 50% at 52% 48%, rgba(0, 232, 220, 0.06) 0%, rgba(255, 80, 120, 0.03) 30%, rgba(0, 180, 200, 0.02) 55%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Swimming Champions: dynamic freestyle swimmer with turquoise waves, splashes, bubbles, lane dividers, and golden highlights */
+.game-page__about[data-decoration="swimming-champions"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='scPool' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,80,120,0.15)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,120,160,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,60,100,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='scWave1' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,200,220,0.2)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,180,200,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,220,240,0.18)'/%3E%3C/linearGradient%3E%3ClinearGradient id='scWave2' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,180,200,0.15)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,200,220,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,160,190,0.14)'/%3E%3C/linearGradient%3E%3ClinearGradient id='scSwimmer' x1='20%25' y1='20%25' x2='80%25' y2='80%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,200,160,0.28)'/%3E%3Cstop offset='50%25' stop-color='rgba(240,180,140,0.22)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,160,120,0.18)'/%3E%3C/linearGradient%3E%3ClinearGradient id='scSwimsuit' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,180,220,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,140,180,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='scGold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,215,0,0.25)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,200,50,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,180,40,0.15)'/%3E%3C/linearGradient%3E%3ClinearGradient id='scLane' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,80,80,0.18)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,255,255,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,80,80,0.18)'/%3E%3C/linearGradient%3E%3CradialGradient id='scGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,220,240,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,220,240,0)'/%3E%3C/radialGradient%3E%3CradialGradient id='scBubble' cx='30%25' cy='30%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,240,255,0.1)'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Pool water background --%3E%3Crect x='5' y='25' width='90' height='70' rx='3' fill='url(%23scPool)'/%3E%3C!-- Lane dividers in perspective --%3E%3Cpath d='M8 30 Q50 28 92 32' stroke='url(%23scLane)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='15' cy='29.5' r='1.8' fill='rgba(255,80,80,0.15)'/%3E%3Ccircle cx='28' cy='29' r='1.8' fill='rgba(255,255,255,0.12)'/%3E%3Ccircle cx='41' cy='28.8' r='1.8' fill='rgba(255,80,80,0.15)'/%3E%3Ccircle cx='54' cy='29' r='1.8' fill='rgba(255,255,255,0.12)'/%3E%3Ccircle cx='67' cy='29.5' r='1.8' fill='rgba(255,80,80,0.15)'/%3E%3Ccircle cx='80' cy='30.5' r='1.8' fill='rgba(255,255,255,0.12)'/%3E%3Cpath d='M8 55 Q50 52 92 58' stroke='url(%23scLane)' stroke-width='2' fill='none' stroke-linecap='round' opacity='0.7'/%3E%3Ccircle cx='20' cy='54' r='1.5' fill='rgba(255,80,80,0.12)'/%3E%3Ccircle cx='38' cy='53' r='1.5' fill='rgba(255,255,255,0.1)'/%3E%3Ccircle cx='56' cy='53.5' r='1.5' fill='rgba(255,80,80,0.12)'/%3E%3Ccircle cx='74' cy='55' r='1.5' fill='rgba(255,255,255,0.1)'/%3E%3C!-- Water waves --%3E%3Cpath d='M5 42 Q15 38 25 42 T45 42 T65 42 T85 42 T95 42' stroke='url(%23scWave1)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M5 48 Q18 44 30 48 T55 48 T80 48 T95 48' stroke='url(%23scWave2)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M8 65 Q20 62 32 65 T56 65 T80 65 T92 65' stroke='rgba(0,200,220,0.1)' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3C!-- Underwater glow --%3E%3Cellipse cx='50' cy='55' rx='35' ry='20' fill='url(%23scGlow)'/%3E%3C!-- Dynamic swimmer - freestyle position --%3E%3Cg transform='translate(25, 36) rotate(-8)'%3E%3C!-- Body/torso --%3E%3Cellipse cx='22' cy='8' rx='12' ry='5' fill='url(%23scSwimsuit)'/%3E%3C!-- Head with cap --%3E%3Ccircle cx='8' cy='6' r='5' fill='url(%23scSwimmer)'/%3E%3Cellipse cx='8' cy='4' rx='5.5' ry='3.5' fill='rgba(0,180,220,0.25)'/%3E%3C!-- Goggles --%3E%3Cellipse cx='6' cy='6' rx='2' ry='1' fill='rgba(40,40,40,0.2)'/%3E%3Cpath d='M4 6 L8 5.5' stroke='rgba(0,0,0,0.15)' stroke-width='0.5'/%3E%3C!-- Extended arm (reaching forward) --%3E%3Cpath d='M12 4 Q0 2 -8 8' stroke='url(%23scSwimmer)' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='-8' cy='8' r='2' fill='rgba(255,200,160,0.22)'/%3E%3C!-- Trailing arm --%3E%3Cpath d='M14 10 Q22 18 30 12' stroke='url(%23scSwimmer)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='30' cy='12' r='1.8' fill='rgba(255,200,160,0.2)'/%3E%3C!-- Legs with kick motion --%3E%3Cpath d='M32 6 Q42 3 48 8' stroke='url(%23scSwimmer)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M32 10 Q40 14 46 10' stroke='url(%23scSwimmer)' stroke-width='2.8' fill='none' stroke-linecap='round'/%3E%3C!-- Feet --%3E%3Cellipse cx='48' cy='8' rx='2.5' ry='1.2' fill='rgba(255,200,160,0.18)'/%3E%3Cellipse cx='46' cy='10' rx='2.2' ry='1' fill='rgba(255,200,160,0.16)'/%3E%3C/g%3E%3C!-- Motion trails behind swimmer --%3E%3Cpath d='M70 44 L82 42' stroke='rgba(0,220,240,0.12)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M75 48 L88 45' stroke='rgba(0,200,220,0.08)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M72 52 L85 50' stroke='rgba(0,180,200,0.06)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Splash effects --%3E%3Cpath d='M18 32 Q15 26 18 22' stroke='rgba(200,240,255,0.18)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M22 30 Q20 24 24 20' stroke='rgba(200,240,255,0.15)' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M26 32 Q28 26 25 23' stroke='rgba(200,240,255,0.12)' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3C!-- Splash droplets --%3E%3Ccircle cx='16' cy='20' r='1.5' fill='rgba(200,240,255,0.2)'/%3E%3Ccircle cx='24' cy='18' r='1.2' fill='rgba(200,240,255,0.18)'/%3E%3Ccircle cx='20' cy='22' r='1' fill='rgba(200,240,255,0.15)'/%3E%3Ccircle cx='28' cy='24' r='0.8' fill='rgba(200,240,255,0.12)'/%3E%3C!-- Bubbles --%3E%3Ccircle cx='35' cy='52' r='2.5' fill='url(%23scBubble)' stroke='rgba(200,240,255,0.15)' stroke-width='0.5'/%3E%3Ccircle cx='42' cy='58' r='2' fill='url(%23scBubble)' stroke='rgba(200,240,255,0.12)' stroke-width='0.4'/%3E%3Ccircle cx='30' cy='60' r='1.8' fill='url(%23scBubble)' stroke='rgba(200,240,255,0.1)' stroke-width='0.3'/%3E%3Ccircle cx='48' cy='55' r='1.5' fill='url(%23scBubble)'/%3E%3Ccircle cx='38' cy='64' r='1.3' fill='url(%23scBubble)'/%3E%3Ccircle cx='55' cy='62' r='1' fill='rgba(200,240,255,0.1)'/%3E%3Ccircle cx='28' cy='68' r='1.2' fill='rgba(200,240,255,0.08)'/%3E%3Ccircle cx='45' cy='70' r='0.8' fill='rgba(200,240,255,0.06)'/%3E%3C!-- Championship golden accents --%3E%3Cpath d='M82 72 L88 68 L94 72 L91 79 L85 79 Z' fill='url(%23scGold)' stroke='rgba(255,215,0,0.2)' stroke-width='0.8'/%3E%3Ccircle cx='88' cy='73' r='2' fill='rgba(255,230,100,0.15)'/%3E%3Cpath d='M86 76 L88 72 L90 76' stroke='rgba(255,215,0,0.18)' stroke-width='0.6' fill='none'/%3E%3C!-- Second medal hint --%3E%3Ccircle cx='78' cy='78' r='4' fill='none' stroke='url(%23scGold)' stroke-width='1.2'/%3E%3Ccircle cx='78' cy='78' r='2.5' fill='rgba(255,215,0,0.1)'/%3E%3C!-- Pool edge highlight --%3E%3Cpath d='M5 25 L95 25' stroke='rgba(255,255,255,0.08)' stroke-width='1.5'/%3E%3Cpath d='M5 26 L95 26' stroke='rgba(0,160,200,0.1)' stroke-width='1'/%3E%3C!-- Starting block hint --%3E%3Crect x='8' y='20' width='8' height='5' rx='1' fill='rgba(180,180,180,0.1)' stroke='rgba(200,200,200,0.08)' stroke-width='0.5'/%3E%3Crect x='9' y='21' width='6' height='3' rx='0.5' fill='rgba(0,180,220,0.08)'/%3E%3C!-- Timer display --%3E%3Crect x='80' y='20' width='14' height='8' rx='1.5' fill='rgba(0,40,60,0.15)' stroke='rgba(0,200,220,0.1)' stroke-width='0.6'/%3E%3Ctext x='87' y='26' font-size='5' fill='rgba(0,232,220,0.2)' text-anchor='middle' font-family='sans-serif'%3E1:23%3C/text%3E%3C!-- Underwater light rays --%3E%3Cpath d='M60 30 L65 85' stroke='rgba(0,220,240,0.04)' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M40 28 L42 90' stroke='rgba(0,200,220,0.03)' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M75 32 L80 88' stroke='rgba(0,180,200,0.025)' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="swimming-champions"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 58% 50% at 52% 48%, rgba(0, 200, 220, 0.06) 0%, rgba(255, 215, 0, 0.03) 30%, rgba(0, 180, 200, 0.02) 55%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Ping Pong Clash: dynamic table tennis scene with red and blue paddles, white ball with spin trails, perspective table with net */
+.game-page__about[data-decoration="ping-pong-clash"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='ppTable' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,60,100,0.18)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,80,120,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,50,90,0.12)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ppRedPaddle' x1='20%25' y1='20%25' x2='80%25' y2='80%25'%3E%3Cstop offset='0%25' stop-color='rgba(220,60,60,0.32)'/%3E%3Cstop offset='50%25' stop-color='rgba(180,40,50,0.26)'/%3E%3Cstop offset='100%25' stop-color='rgba(140,30,40,0.2)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ppBluePaddle' x1='20%25' y1='20%25' x2='80%25' y2='80%25'%3E%3Cstop offset='0%25' stop-color='rgba(40,120,200,0.32)'/%3E%3Cstop offset='50%25' stop-color='rgba(30,100,180,0.26)'/%3E%3Cstop offset='100%25' stop-color='rgba(20,80,150,0.2)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ppHandle' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(160,120,80,0.28)'/%3E%3Cstop offset='50%25' stop-color='rgba(140,100,60,0.22)'/%3E%3Cstop offset='100%25' stop-color='rgba(120,80,50,0.18)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ppBall' x1='30%25' y1='30%25' x2='70%25' y2='70%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(240,240,245,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,225,230,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ppNet' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,200,200,0.12)'/%3E%3C/linearGradient%3E%3CradialGradient id='ppBallGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/radialGradient%3E%3CradialGradient id='ppImpact' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,200,220,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,200,220,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Table surface in perspective --%3E%3Cpath d='M10 35 L90 30 L95 85 L5 90 Z' fill='url(%23ppTable)' stroke='rgba(0,180,220,0.12)' stroke-width='1.5'/%3E%3C!-- Table inner border --%3E%3Cpath d='M13 38 L87 33 L91 82 L9 87 Z' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='1.2'/%3E%3C!-- Center line --%3E%3Cpath d='M50 32 L50 87' stroke='rgba(255,255,255,0.08)' stroke-width='1'/%3E%3C!-- Side lines --%3E%3Cpath d='M12 62 L88 57' stroke='rgba(255,255,255,0.06)' stroke-width='0.8'/%3E%3C!-- Net posts --%3E%3Crect x='6' y='54' width='3' height='12' rx='0.8' fill='rgba(100,100,100,0.15)' stroke='rgba(150,150,150,0.1)' stroke-width='0.5'/%3E%3Crect x='91' y='50' width='3' height='11' rx='0.8' fill='rgba(100,100,100,0.15)' stroke='rgba(150,150,150,0.1)' stroke-width='0.5'/%3E%3C!-- Net --%3E%3Cpath d='M9 55 Q50 52 94 51' stroke='url(%23ppNet)' stroke-width='1.5' fill='none'/%3E%3Cpath d='M9 58 Q50 55 94 54' stroke='rgba(255,255,255,0.08)' stroke-width='0.6' fill='none'/%3E%3Cpath d='M9 61 Q50 58 94 57' stroke='rgba(255,255,255,0.06)' stroke-width='0.5' fill='none'/%3E%3C!-- Net vertical threads --%3E%3Cpath d='M25 53 L25 60' stroke='rgba(255,255,255,0.05)' stroke-width='0.4'/%3E%3Cpath d='M40 52.5 L40 59' stroke='rgba(255,255,255,0.05)' stroke-width='0.4'/%3E%3Cpath d='M55 52 L55 58.5' stroke='rgba(255,255,255,0.05)' stroke-width='0.4'/%3E%3Cpath d='M70 51.5 L70 58' stroke='rgba(255,255,255,0.05)' stroke-width='0.4'/%3E%3C!-- Red paddle (player, foreground, dynamic angle) --%3E%3Cg transform='translate(25, 68) rotate(-25)'%3E%3C!-- Paddle head --%3E%3Cellipse cx='0' cy='0' rx='14' ry='11' fill='url(%23ppRedPaddle)' stroke='rgba(220,60,60,0.25)' stroke-width='1'/%3E%3Cellipse cx='0' cy='0' rx='12' ry='9' fill='none' stroke='rgba(255,100,100,0.12)' stroke-width='0.6'/%3E%3C!-- Rubber texture hint --%3E%3Cellipse cx='-3' cy='-2' rx='5' ry='3.5' fill='rgba(255,150,150,0.08)'/%3E%3C!-- Handle --%3E%3Crect x='-3' y='9' width='6' height='14' rx='2' fill='url(%23ppHandle)' stroke='rgba(160,120,80,0.2)' stroke-width='0.6'/%3E%3Crect x='-2' y='10' width='4' height='8' rx='1' fill='rgba(180,140,100,0.1)'/%3E%3C/g%3E%3C!-- Blue paddle (opponent, background, different angle) --%3E%3Cg transform='translate(72, 38) rotate(20)'%3E%3C!-- Paddle head --%3E%3Cellipse cx='0' cy='0' rx='12' ry='9.5' fill='url(%23ppBluePaddle)' stroke='rgba(40,120,200,0.25)' stroke-width='1'/%3E%3Cellipse cx='0' cy='0' rx='10' ry='7.5' fill='none' stroke='rgba(80,160,240,0.12)' stroke-width='0.5'/%3E%3C!-- Rubber texture hint --%3E%3Cellipse cx='2' cy='-1.5' rx='4' ry='3' fill='rgba(100,180,255,0.08)'/%3E%3C!-- Handle --%3E%3Crect x='-2.5' y='8' width='5' height='12' rx='1.8' fill='url(%23ppHandle)' stroke='rgba(160,120,80,0.18)' stroke-width='0.5'/%3E%3Crect x='-1.5' y='9' width='3' height='7' rx='0.8' fill='rgba(180,140,100,0.08)'/%3E%3C/g%3E%3C!-- Ball motion trails (curved for spin effect) --%3E%3Cpath d='M70 48 Q60 44 52 46' stroke='rgba(255,255,255,0.12)' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Cpath d='M78 50 Q65 45 55 47' stroke='rgba(255,255,255,0.08)' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Cpath d='M85 52 Q72 47 60 48' stroke='rgba(255,255,255,0.05)' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C!-- Spin arc indicators --%3E%3Cpath d='M48 42 Q45 40 46 37' stroke='rgba(0,200,220,0.1)' stroke-width='1' stroke-linecap='round' fill='none'/%3E%3Cpath d='M50 44 Q46 43 47 40' stroke='rgba(0,200,220,0.08)' stroke-width='0.8' stroke-linecap='round' fill='none'/%3E%3C!-- Ball glow --%3E%3Ccircle cx='45' cy='44' r='10' fill='url(%23ppBallGlow)'/%3E%3C!-- Ball --%3E%3Ccircle cx='45' cy='44' r='5.5' fill='url(%23ppBall)' stroke='rgba(255,255,255,0.25)' stroke-width='0.8'/%3E%3Ccircle cx='45' cy='44' r='4' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='0.4'/%3E%3C!-- Ball highlight --%3E%3Cellipse cx='43' cy='42' rx='2' ry='1.3' fill='rgba(255,255,255,0.18)'/%3E%3C!-- Ball seam --%3E%3Cpath d='M42 47 Q45 44 48 47' stroke='rgba(200,200,200,0.08)' stroke-width='0.4' fill='none'/%3E%3C!-- Impact particles --%3E%3Ccircle cx='52' cy='40' r='1.5' fill='url(%23ppImpact)'/%3E%3Ccircle cx='48' cy='38' r='1.2' fill='rgba(0,200,220,0.1)'/%3E%3Ccircle cx='55' cy='42' r='1' fill='rgba(255,255,255,0.08)'/%3E%3Ccircle cx='50' cy='48' r='0.9' fill='rgba(0,180,200,0.08)'/%3E%3Ccircle cx='40' cy='40' r='1.1' fill='rgba(255,255,255,0.06)'/%3E%3Ccircle cx='56' cy='46' r='0.8' fill='rgba(0,200,220,0.06)'/%3E%3C!-- Speed lines --%3E%3Cpath d='M60 45 L65 44' stroke='rgba(0,200,220,0.08)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M58 48 L64 46' stroke='rgba(0,180,200,0.06)' stroke-width='0.6' stroke-linecap='round'/%3E%3Cpath d='M62 42 L67 41' stroke='rgba(0,200,220,0.05)' stroke-width='0.5' stroke-linecap='round'/%3E%3C!-- Energetic lighting accents --%3E%3Ccircle cx='30' cy='72' r='12' fill='rgba(220,60,60,0.04)'/%3E%3Ccircle cx='70' cy='40' r='10' fill='rgba(40,120,200,0.04)'/%3E%3C!-- Table corner accents --%3E%3Ccircle cx='10' cy='35' r='2' fill='rgba(0,200,220,0.06)'/%3E%3Ccircle cx='90' cy='30' r='2' fill='rgba(0,200,220,0.05)'/%3E%3Ccircle cx='95' cy='85' r='2' fill='rgba(0,200,220,0.05)'/%3E%3Ccircle cx='5' cy='90' r='2' fill='rgba(0,200,220,0.05)'/%3E%3C!-- Score display --%3E%3Crect x='40' y='18' width='20' height='10' rx='2' fill='rgba(0,40,60,0.12)' stroke='rgba(0,180,220,0.1)' stroke-width='0.6'/%3E%3Ctext x='46' y='25' font-size='6' fill='rgba(220,60,60,0.18)' font-family='sans-serif'%3E11%3C/text%3E%3Ctext x='50' y='25' font-size='5' fill='rgba(255,255,255,0.1)' font-family='sans-serif'%3E-%3C/text%3E%3Ctext x='54' y='25' font-size='6' fill='rgba(40,120,200,0.18)' font-family='sans-serif'%3E9%3C/text%3E%3C!-- Ambient glow particles --%3E%3Ccircle cx='18' cy='50' r='1.3' fill='rgba(0,200,220,0.06)'/%3E%3Ccircle cx='82' cy='70' r='1' fill='rgba(220,60,60,0.05)'/%3E%3Ccircle cx='38' cy='80' r='1.1' fill='rgba(40,120,200,0.05)'/%3E%3Ccircle cx='75' cy='25' r='0.9' fill='rgba(0,200,220,0.04)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-page__about[data-decoration="ping-pong-clash"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 58% 50% at 52% 48%, rgba(0, 200, 220, 0.06) 0%, rgba(220, 60, 60, 0.03) 30%, rgba(40, 120, 200, 0.02) 55%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Color Switch decoration: rotating color wheel with bouncing ball and star */
+.game-page__about[data-decoration="color-switch"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='csCyan' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,220,220,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,180,200,0.04)'/%3E%3C/linearGradient%3E%3ClinearGradient id='csPink' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,80,150,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,50,120,0.04)'/%3E%3C/linearGradient%3E%3ClinearGradient id='csYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,220,50,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,180,30,0.04)'/%3E%3C/linearGradient%3E%3ClinearGradient id='csPurple' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(180,80,255,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(140,50,200,0.04)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Main color wheel segments --%3E%3Cpath d='M65 50 A20 20 0 0 1 65 90' fill='none' stroke='url(%23csCyan)' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M65 90 A20 20 0 0 1 25 90' fill='none' stroke='url(%23csPink)' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M25 90 A20 20 0 0 1 25 50' fill='none' stroke='url(%23csYellow)' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M25 50 A20 20 0 0 1 65 50' fill='none' stroke='url(%23csPurple)' stroke-width='8' stroke-linecap='round'/%3E%3C!-- Outer ring glow --%3E%3Ccircle cx='45' cy='70' r='24' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='1'/%3E%3C!-- Small rotating ring top-right --%3E%3Cpath d='M82 28 A8 8 0 0 1 82 44' fill='none' stroke='rgba(0,220,220,0.06)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M82 44 A8 8 0 0 1 66 44' fill='none' stroke='rgba(255,80,150,0.06)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M66 44 A8 8 0 0 1 66 28' fill='none' stroke='rgba(255,220,50,0.06)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M66 28 A8 8 0 0 1 82 28' fill='none' stroke='rgba(180,80,255,0.06)' stroke-width='3' stroke-linecap='round'/%3E%3C!-- Bouncing ball with glow --%3E%3Ccircle cx='45' cy='38' r='6' fill='rgba(0,220,220,0.1)' stroke='rgba(0,240,240,0.12)' stroke-width='1.5'/%3E%3Ccircle cx='45' cy='38' r='4' fill='rgba(0,255,255,0.08)'/%3E%3Ccircle cx='43' cy='36' r='1.5' fill='rgba(255,255,255,0.06)'/%3E%3C!-- Motion trail curves --%3E%3Cpath d='M45 52 Q42 48 45 44' fill='none' stroke='rgba(0,220,220,0.05)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M43 54 Q38 50 42 46' fill='none' stroke='rgba(0,200,220,0.035)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M47 54 Q52 50 48 46' fill='none' stroke='rgba(0,200,220,0.035)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Golden collectible star --%3E%3Cpolygon points='85,68 87,74 93,74 88,78 90,84 85,80 80,84 82,78 77,74 83,74' fill='rgba(255,200,50,0.08)' stroke='rgba(255,220,80,0.1)' stroke-width='0.8'/%3E%3C!-- Small particles and sparks --%3E%3Ccircle cx='32' cy='45' r='1.5' fill='rgba(255,80,150,0.06)'/%3E%3Ccircle cx='58' cy='42' r='1.2' fill='rgba(180,80,255,0.05)'/%3E%3Ccircle cx='70' cy='58' r='1' fill='rgba(255,220,50,0.06)'/%3E%3Ccircle cx='28' cy='62' r='1.3' fill='rgba(0,220,220,0.05)'/%3E%3Ccircle cx='62' cy='75' r='0.8' fill='rgba(255,80,150,0.04)'/%3E%3C!-- Geometric obstacles --%3E%3Crect x='18' y='30' width='6' height='6' rx='1' fill='none' stroke='rgba(255,220,50,0.05)' stroke-width='1' transform='rotate(15 21 33)'/%3E%3Cpolygon points='75,92 78,98 72,98' fill='none' stroke='rgba(180,80,255,0.045)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Color Switch ambient glow with multi-color effect */
+.game-page__about[data-decoration="color-switch"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(0, 220, 220, 0.05) 0%, rgba(255, 80, 150, 0.03) 25%, rgba(255, 220, 50, 0.025) 45%, rgba(180, 80, 255, 0.02) 60%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Snake Classic decoration: curved segmented snake, glowing apple, grid field */
+.game-page__about[data-decoration="snake-classic"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='snakeBody' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,255,100,0.12)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,200,80,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,160,60,0.05)'/%3E%3C/linearGradient%3E%3ClinearGradient id='snakeHead' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,255,120,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,220,90,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='appleGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,60,60,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,30,30,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='gridLine' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,232,143,0.04)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,180,100,0.02)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Perspective grid field --%3E%3Cpath d='M25 85 L40 70 L90 70 L75 85 Z' fill='none' stroke='url(%23gridLine)' stroke-width='0.5'/%3E%3Cline x1='32' y1='78' x2='52' y2='70' stroke='rgba(0,232,143,0.025)' stroke-width='0.4'/%3E%3Cline x1='40' y1='78' x2='60' y2='70' stroke='rgba(0,232,143,0.025)' stroke-width='0.4'/%3E%3Cline x1='48' y1='78' x2='68' y2='70' stroke='rgba(0,232,143,0.025)' stroke-width='0.4'/%3E%3Cline x1='56' y1='78' x2='76' y2='70' stroke='rgba(0,232,143,0.025)' stroke-width='0.4'/%3E%3Cline x1='64' y1='78' x2='84' y2='70' stroke='rgba(0,232,143,0.025)' stroke-width='0.4'/%3E%3Cline x1='30' y1='82' x2='82' y2='82' stroke='rgba(0,232,143,0.02)' stroke-width='0.4' transform='skewX(-15)'/%3E%3Cline x1='35' y1='76' x2='87' y2='76' stroke='rgba(0,232,143,0.02)' stroke-width='0.4' transform='skewX(-15)'/%3E%3C!-- Boundary blocks --%3E%3Crect x='22' y='82' width='5' height='5' rx='0.5' fill='rgba(0,180,120,0.04)' stroke='rgba(0,232,143,0.06)' stroke-width='0.6'/%3E%3Crect x='78' y='68' width='5' height='5' rx='0.5' fill='rgba(0,180,120,0.04)' stroke='rgba(0,232,143,0.06)' stroke-width='0.6'/%3E%3Crect x='85' y='75' width='4' height='4' rx='0.5' fill='rgba(0,160,100,0.03)' stroke='rgba(0,232,143,0.045)' stroke-width='0.5'/%3E%3C!-- Snake body - curved segmented path --%3E%3Cpath d='M78 42 Q72 38 66 42 Q58 48 52 44 Q44 38 38 45 Q30 54 35 62 Q42 72 52 68' fill='none' stroke='url(%23snakeBody)' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Snake body segments overlay --%3E%3Ccircle cx='74' cy='41' r='3.5' fill='rgba(0,255,100,0.06)' stroke='rgba(0,232,143,0.08)' stroke-width='0.5'/%3E%3Ccircle cx='66' cy='43' r='3.5' fill='rgba(0,255,100,0.055)' stroke='rgba(0,232,143,0.07)' stroke-width='0.5'/%3E%3Ccircle cx='58' cy='46' r='3.5' fill='rgba(0,255,100,0.05)' stroke='rgba(0,232,143,0.065)' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='44' r='3.5' fill='rgba(0,255,100,0.045)' stroke='rgba(0,232,143,0.06)' stroke-width='0.5'/%3E%3Ccircle cx='43' cy='42' r='3.5' fill='rgba(0,255,100,0.04)' stroke='rgba(0,232,143,0.055)' stroke-width='0.5'/%3E%3Ccircle cx='36' cy='48' r='3.5' fill='rgba(0,255,100,0.035)' stroke='rgba(0,232,143,0.05)' stroke-width='0.5'/%3E%3Ccircle cx='33' cy='56' r='3.5' fill='rgba(0,255,100,0.03)' stroke='rgba(0,232,143,0.045)' stroke-width='0.5'/%3E%3Ccircle cx='38' cy='64' r='3.5' fill='rgba(0,255,100,0.025)' stroke='rgba(0,232,143,0.04)' stroke-width='0.5'/%3E%3Ccircle cx='47' cy='68' r='3' fill='rgba(0,255,100,0.02)' stroke='rgba(0,232,143,0.035)' stroke-width='0.4'/%3E%3C!-- Snake head --%3E%3Cellipse cx='80' cy='42' rx='5' ry='4' fill='url(%23snakeHead)' stroke='rgba(0,255,120,0.12)' stroke-width='0.8'/%3E%3C!-- Snake eyes --%3E%3Ccircle cx='82' cy='40' r='1.2' fill='rgba(255,255,255,0.12)'/%3E%3Ccircle cx='82' cy='40' r='0.6' fill='rgba(0,0,0,0.15)'/%3E%3Ccircle cx='79' cy='40' r='1' fill='rgba(255,255,255,0.1)'/%3E%3Ccircle cx='79' cy='40' r='0.5' fill='rgba(0,0,0,0.12)'/%3E%3C!-- Snake tongue --%3E%3Cpath d='M85 42 L88 41 M85 42 L88 43' stroke='rgba(255,80,80,0.1)' stroke-width='0.6' stroke-linecap='round'/%3E%3C!-- Glowing red apple/food --%3E%3Ccircle cx='92' cy='35' r='5' fill='url(%23appleGlow)' stroke='rgba(255,80,60,0.15)' stroke-width='1'/%3E%3Ccircle cx='92' cy='35' r='3.5' fill='rgba(255,50,50,0.1)'/%3E%3Ccircle cx='90' cy='33' r='1.2' fill='rgba(255,255,255,0.08)'/%3E%3C!-- Apple stem and leaf --%3E%3Cpath d='M92 30 L92 28' stroke='rgba(100,80,40,0.1)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cellipse cx='94' cy='29' rx='2' ry='1' fill='rgba(0,200,80,0.08)' transform='rotate(25 94 29)'/%3E%3C!-- Apple glow effect --%3E%3Ccircle cx='92' cy='35' r='8' fill='none' stroke='rgba(255,60,60,0.04)' stroke-width='2'/%3E%3Ccircle cx='92' cy='35' r='11' fill='none' stroke='rgba(255,40,40,0.02)' stroke-width='1.5'/%3E%3C!-- Smaller collectible food items --%3E%3Ccircle cx='25' cy='35' r='2.5' fill='rgba(255,80,60,0.06)' stroke='rgba(255,100,80,0.08)' stroke-width='0.5'/%3E%3Ccircle cx='25' cy='35' r='1.5' fill='rgba(255,60,60,0.04)'/%3E%3Ccircle cx='60' cy='25' r='2' fill='rgba(255,80,60,0.05)' stroke='rgba(255,100,80,0.06)' stroke-width='0.4'/%3E%3C!-- Particles and sparkles --%3E%3Ccircle cx='70' cy='28' r='1' fill='rgba(0,255,150,0.06)'/%3E%3Ccircle cx='45' cy='32' r='0.8' fill='rgba(0,232,143,0.05)'/%3E%3Ccircle cx='55' cy='58' r='1.2' fill='rgba(0,255,120,0.04)'/%3E%3Ccircle cx='28' cy='55' r='0.7' fill='rgba(0,220,140,0.045)'/%3E%3Ccircle cx='65' cy='60' r='0.9' fill='rgba(0,255,150,0.035)'/%3E%3Ccircle cx='82' cy='55' r='1' fill='rgba(0,232,143,0.04)'/%3E%3C!-- Cyan accent sparkles --%3E%3Ccircle cx='18' cy='45' r='1.3' fill='rgba(0,220,220,0.05)'/%3E%3Ccircle cx='75' cy='22' r='1' fill='rgba(0,200,220,0.04)'/%3E%3Ccircle cx='40' cy='75' r='0.8' fill='rgba(0,220,200,0.035)'/%3E%3C!-- Motion trail behind snake head --%3E%3Cpath d='M78 42 Q82 40 85 42' fill='none' stroke='rgba(0,255,120,0.04)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M76 44 Q80 42 84 44' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Score display element --%3E%3Crect x='15' y='18' width='18' height='8' rx='1.5' fill='none' stroke='rgba(0,232,143,0.05)' stroke-width='0.6'/%3E%3Ctext x='24' y='24' font-size='4' fill='rgba(0,255,150,0.06)' text-anchor='middle' font-family='monospace'%3E000%3C/text%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Snake Classic ambient glow with green and red accents */
+.game-page__about[data-decoration="snake-classic"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(0, 255, 100, 0.045) 0%, rgba(0, 232, 143, 0.03) 30%, rgba(255, 60, 60, 0.02) 55%, rgba(0, 200, 180, 0.015) 70%, transparent 85%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Checkers Classic decoration: wooden board in perspective, glossy pieces, crowned kings */
+.game-page__about[data-decoration="checkers-classic"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='woodBoard' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(139,90,43,0.12)'/%3E%3Cstop offset='50%25' stop-color='rgba(160,100,50,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(120,75,35,0.05)'/%3E%3C/linearGradient%3E%3ClinearGradient id='darkSquare' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(80,50,30,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(60,35,20,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='lightSquare' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(245,235,220,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,220,200,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ivoryPiece' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,250,240,0.2)'/%3E%3Cstop offset='50%25' stop-color='rgba(245,235,215,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(235,225,200,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='darkPiece' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(50,35,25,0.22)'/%3E%3Cstop offset='50%25' stop-color='rgba(35,25,18,0.18)'/%3E%3Cstop offset='100%25' stop-color='rgba(25,18,12,0.12)'/%3E%3C/linearGradient%3E%3ClinearGradient id='goldCrown' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,200,80,0.25)'/%3E%3Cstop offset='50%25' stop-color='rgba(230,170,50,0.18)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,150,40,0.12)'/%3E%3C/linearGradient%3E%3ClinearGradient id='boardFrame' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(100,65,30,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(80,50,25,0.08)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Board frame with wood grain --%3E%3Crect x='18' y='32' width='64' height='52' rx='2' fill='url(%23boardFrame)' stroke='rgba(139,90,43,0.1)' stroke-width='1.5'/%3E%3C!-- Inner board --%3E%3Crect x='22' y='36' width='56' height='44' fill='url(%23woodBoard)' stroke='rgba(120,75,35,0.06)' stroke-width='0.5'/%3E%3C!-- Checkerboard pattern (8x8 simplified to 4x4 visible) --%3E%3Crect x='22' y='36' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='29' y='36' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='36' y='36' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='43' y='36' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='50' y='36' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='57' y='36' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='64' y='36' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='71' y='36' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='22' y='41.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='29' y='41.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='36' y='41.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='43' y='41.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='50' y='41.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='57' y='41.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='64' y='41.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='71' y='41.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='22' y='47' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='29' y='47' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='36' y='47' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='43' y='47' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='50' y='47' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='57' y='47' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='64' y='47' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='71' y='47' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='22' y='52.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='29' y='52.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='36' y='52.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='43' y='52.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='50' y='52.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='57' y='52.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='64' y='52.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='71' y='52.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='22' y='58' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='29' y='58' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='36' y='58' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='43' y='58' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='50' y='58' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='57' y='58' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='64' y='58' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='71' y='58' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='22' y='63.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='29' y='63.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='36' y='63.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='43' y='63.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='50' y='63.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='57' y='63.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='64' y='63.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='71' y='63.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='22' y='69' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='29' y='69' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='36' y='69' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='43' y='69' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='50' y='69' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='57' y='69' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='64' y='69' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='71' y='69' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='22' y='74.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='29' y='74.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='36' y='74.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='43' y='74.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='50' y='74.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='57' y='74.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3Crect x='64' y='74.5' width='7' height='5.5' fill='url(%23darkSquare)'/%3E%3Crect x='71' y='74.5' width='7' height='5.5' fill='url(%23lightSquare)'/%3E%3C!-- Dark pieces on board --%3E%3Cellipse cx='32.5' cy='39' rx='2.8' ry='1.8' fill='url(%23darkPiece)' stroke='rgba(40,28,18,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='32.5' cy='38' rx='2.5' ry='1.4' fill='rgba(50,35,25,0.12)'/%3E%3Ccircle cx='31.5' cy='37.5' r='0.6' fill='rgba(255,255,255,0.06)'/%3E%3Cellipse cx='46.5' cy='39' rx='2.8' ry='1.8' fill='url(%23darkPiece)' stroke='rgba(40,28,18,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='46.5' cy='38' rx='2.5' ry='1.4' fill='rgba(50,35,25,0.12)'/%3E%3Ccircle cx='45.5' cy='37.5' r='0.6' fill='rgba(255,255,255,0.06)'/%3E%3Cellipse cx='60.5' cy='39' rx='2.8' ry='1.8' fill='url(%23darkPiece)' stroke='rgba(40,28,18,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='60.5' cy='38' rx='2.5' ry='1.4' fill='rgba(50,35,25,0.12)'/%3E%3Ccircle cx='59.5' cy='37.5' r='0.6' fill='rgba(255,255,255,0.06)'/%3E%3Cellipse cx='74.5' cy='39' rx='2.8' ry='1.8' fill='url(%23darkPiece)' stroke='rgba(40,28,18,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='74.5' cy='38' rx='2.5' ry='1.4' fill='rgba(50,35,25,0.12)'/%3E%3Ccircle cx='73.5' cy='37.5' r='0.6' fill='rgba(255,255,255,0.06)'/%3E%3Cellipse cx='25.5' cy='44.5' rx='2.8' ry='1.8' fill='url(%23darkPiece)' stroke='rgba(40,28,18,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='25.5' cy='43.5' rx='2.5' ry='1.4' fill='rgba(50,35,25,0.12)'/%3E%3Ccircle cx='24.5' cy='43' r='0.6' fill='rgba(255,255,255,0.06)'/%3E%3Cellipse cx='53.5' cy='44.5' rx='2.8' ry='1.8' fill='url(%23darkPiece)' stroke='rgba(40,28,18,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='53.5' cy='43.5' rx='2.5' ry='1.4' fill='rgba(50,35,25,0.12)'/%3E%3Ccircle cx='52.5' cy='43' r='0.6' fill='rgba(255,255,255,0.06)'/%3E%3C!-- Ivory pieces on board --%3E%3Cellipse cx='32.5' cy='72' rx='2.8' ry='1.8' fill='url(%23ivoryPiece)' stroke='rgba(200,180,150,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='32.5' cy='71' rx='2.5' ry='1.4' fill='rgba(255,250,235,0.12)'/%3E%3Ccircle cx='31.5' cy='70.5' r='0.6' fill='rgba(255,255,255,0.1)'/%3E%3Cellipse cx='46.5' cy='72' rx='2.8' ry='1.8' fill='url(%23ivoryPiece)' stroke='rgba(200,180,150,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='46.5' cy='71' rx='2.5' ry='1.4' fill='rgba(255,250,235,0.12)'/%3E%3Ccircle cx='45.5' cy='70.5' r='0.6' fill='rgba(255,255,255,0.1)'/%3E%3Cellipse cx='60.5' cy='72' rx='2.8' ry='1.8' fill='url(%23ivoryPiece)' stroke='rgba(200,180,150,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='60.5' cy='71' rx='2.5' ry='1.4' fill='rgba(255,250,235,0.12)'/%3E%3Ccircle cx='59.5' cy='70.5' r='0.6' fill='rgba(255,255,255,0.1)'/%3E%3Cellipse cx='25.5' cy='77.5' rx='2.8' ry='1.8' fill='url(%23ivoryPiece)' stroke='rgba(200,180,150,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='25.5' cy='76.5' rx='2.5' ry='1.4' fill='rgba(255,250,235,0.12)'/%3E%3Ccircle cx='24.5' cy='76' r='0.6' fill='rgba(255,255,255,0.1)'/%3E%3Cellipse cx='53.5' cy='77.5' rx='2.8' ry='1.8' fill='url(%23ivoryPiece)' stroke='rgba(200,180,150,0.15)' stroke-width='0.6'/%3E%3Cellipse cx='53.5' cy='76.5' rx='2.5' ry='1.4' fill='rgba(255,250,235,0.12)'/%3E%3Ccircle cx='52.5' cy='76' r='0.6' fill='rgba(255,255,255,0.1)'/%3E%3C!-- Crowned king piece (ivory) --%3E%3Cellipse cx='39.5' cy='55.5' rx='3.2' ry='2' fill='url(%23ivoryPiece)' stroke='rgba(200,180,150,0.18)' stroke-width='0.8'/%3E%3Cellipse cx='39.5' cy='54.3' rx='2.8' ry='1.6' fill='rgba(255,250,235,0.14)'/%3E%3Ccircle cx='38.5' cy='53.8' r='0.7' fill='rgba(255,255,255,0.12)'/%3E%3Cpath d='M37 52.5 L38.5 50 L39.5 51.5 L40.5 50 L42 52.5' fill='url(%23goldCrown)' stroke='rgba(255,200,80,0.2)' stroke-width='0.5' stroke-linejoin='round'/%3E%3Ccircle cx='38.5' cy='50.2' r='0.5' fill='rgba(255,220,100,0.15)'/%3E%3Ccircle cx='40.5' cy='50.2' r='0.5' fill='rgba(255,220,100,0.15)'/%3E%3Ccircle cx='39.5' cy='51.7' r='0.4' fill='rgba(255,230,120,0.12)'/%3E%3C!-- Crowned king piece (dark) --%3E%3Cellipse cx='67.5' cy='50' rx='3.2' ry='2' fill='url(%23darkPiece)' stroke='rgba(40,28,18,0.18)' stroke-width='0.8'/%3E%3Cellipse cx='67.5' cy='48.8' rx='2.8' ry='1.6' fill='rgba(50,35,25,0.14)'/%3E%3Ccircle cx='66.5' cy='48.3' r='0.7' fill='rgba(255,255,255,0.08)'/%3E%3Cpath d='M65 47 L66.5 44.5 L67.5 46 L68.5 44.5 L70 47' fill='url(%23goldCrown)' stroke='rgba(255,200,80,0.2)' stroke-width='0.5' stroke-linejoin='round'/%3E%3Ccircle cx='66.5' cy='44.7' r='0.5' fill='rgba(255,220,100,0.15)'/%3E%3Ccircle cx='68.5' cy='44.7' r='0.5' fill='rgba(255,220,100,0.15)'/%3E%3Ccircle cx='67.5' cy='46.2' r='0.4' fill='rgba(255,230,120,0.12)'/%3E%3C!-- Piece being moved with motion trail --%3E%3Cellipse cx='53' cy='58' rx='3' ry='1.9' fill='url(%23darkPiece)' stroke='rgba(40,28,18,0.16)' stroke-width='0.7'/%3E%3Cellipse cx='53' cy='57' rx='2.7' ry='1.5' fill='rgba(50,35,25,0.13)'/%3E%3Ccircle cx='52' cy='56.5' r='0.65' fill='rgba(255,255,255,0.07)'/%3E%3C!-- Motion trail arcs --%3E%3Cpath d='M46 63 Q49 60 53 58' fill='none' stroke='rgba(139,90,43,0.06)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M45 64 Q48 61 52 59' fill='none' stroke='rgba(139,90,43,0.035)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Captured piece off board --%3E%3Cellipse cx='86' cy='45' rx='2.5' ry='1.6' fill='url(%23ivoryPiece)' stroke='rgba(200,180,150,0.1)' stroke-width='0.5' opacity='0.6'/%3E%3Cellipse cx='86' cy='44.2' rx='2.2' ry='1.2' fill='rgba(255,250,235,0.08)'/%3E%3Cellipse cx='88' cy='52' rx='2.5' ry='1.6' fill='url(%23ivoryPiece)' stroke='rgba(200,180,150,0.1)' stroke-width='0.5' opacity='0.6'/%3E%3Cellipse cx='88' cy='51.2' rx='2.2' ry='1.2' fill='rgba(255,250,235,0.08)'/%3E%3C!-- Ambient sparkles and highlights --%3E%3Ccircle cx='30' cy='48' r='0.8' fill='rgba(255,200,80,0.06)'/%3E%3Ccircle cx='55' cy='65' r='1' fill='rgba(255,220,100,0.05)'/%3E%3Ccircle cx='72' cy='58' r='0.7' fill='rgba(255,200,80,0.045)'/%3E%3Ccircle cx='40' cy='68' r='0.9' fill='rgba(0,180,120,0.04)'/%3E%3Ccircle cx='65' cy='75' r='0.8' fill='rgba(255,220,100,0.04)'/%3E%3Ccircle cx='28' cy='60' r='0.6' fill='rgba(0,200,150,0.035)'/%3E%3C!-- Wood grain texture lines --%3E%3Cpath d='M20 35 Q25 33 30 35' fill='none' stroke='rgba(139,90,43,0.03)' stroke-width='0.3'/%3E%3Cpath d='M70 82 Q75 80 80 82' fill='none' stroke='rgba(139,90,43,0.03)' stroke-width='0.3'/%3E%3Cpath d='M15 55 Q18 53 21 55' fill='none' stroke='rgba(120,75,35,0.025)' stroke-width='0.25'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Checkers Classic ambient glow with warm wood, amber, gold accents */
+.game-page__about[data-decoration="checkers-classic"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(200, 150, 80, 0.045) 0%, rgba(180, 120, 60, 0.03) 25%, rgba(255, 200, 80, 0.025) 45%, rgba(0, 180, 120, 0.015) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Backgammon Classic decoration: luxurious wooden board with triangular points, dice, dice cup */
+.game-page__about[data-decoration="backgammon-classic"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='bgWalnutFrame' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(90,60,35,0.15)'/%3E%3Cstop offset='50%25' stop-color='rgba(110,70,40,0.1)'/%3E%3Cstop offset='100%25' stop-color='rgba(75,50,30,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bgBoardFelt' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(15,45,35,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(10,35,28,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bgBurgundyPoint' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(128,30,45,0.18)'/%3E%3Cstop offset='50%25' stop-color='rgba(110,25,40,0.14)'/%3E%3Cstop offset='100%25' stop-color='rgba(95,20,35,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bgIvoryPoint' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,250,235,0.16)'/%3E%3Cstop offset='50%25' stop-color='rgba(245,240,220,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(235,230,210,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bgDarkChecker' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(45,32,22,0.24)'/%3E%3Cstop offset='50%25' stop-color='rgba(35,25,18,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(28,20,14,0.14)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bgIvoryChecker' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,252,245,0.22)'/%3E%3Cstop offset='50%25' stop-color='rgba(250,245,230,0.18)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,235,215,0.12)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bgDice' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,252,248,0.28)'/%3E%3Cstop offset='50%25' stop-color='rgba(250,248,242,0.22)'/%3E%3Cstop offset='100%25' stop-color='rgba(245,242,235,0.16)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bgDiceCup' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(80,45,25,0.2)'/%3E%3Cstop offset='50%25' stop-color='rgba(65,38,22,0.16)'/%3E%3Cstop offset='100%25' stop-color='rgba(55,32,18,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bgGoldAccent' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(212,175,55,0.2)'/%3E%3Cstop offset='50%25' stop-color='rgba(190,155,45,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(170,140,40,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bgEmeraldAccent' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,120,80,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,100,65,0.06)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Board outer frame with walnut wood --%3E%3Crect x='15' y='28' width='70' height='58' rx='2.5' fill='url(%23bgWalnutFrame)' stroke='rgba(90,60,35,0.12)' stroke-width='1.8'/%3E%3C!-- Gold inlay line on frame --%3E%3Crect x='17' y='30' width='66' height='54' rx='1.5' fill='none' stroke='url(%23bgGoldAccent)' stroke-width='0.6'/%3E%3C!-- Board felt interior --%3E%3Crect x='19' y='32' width='62' height='50' fill='url(%23bgBoardFelt)' stroke='rgba(15,45,35,0.06)' stroke-width='0.4'/%3E%3C!-- Center bar --%3E%3Crect x='48' y='32' width='4' height='50' fill='url(%23bgWalnutFrame)' stroke='rgba(90,60,35,0.08)' stroke-width='0.3'/%3E%3C!-- Top triangular points - left side (6 points) --%3E%3Cpolygon points='21,32 24.5,52 28,32' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='25.5,32 29,52 32.5,32' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='30,32 33.5,52 37,32' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='34.5,32 38,52 41.5,32' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='39,32 42.5,52 46,32' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='43.5,32 47,52 48,32' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3C!-- Top triangular points - right side (6 points) --%3E%3Cpolygon points='52,32 55.5,52 59,32' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='56.5,32 60,52 63.5,32' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='61,32 64.5,52 68,32' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='65.5,32 69,52 72.5,32' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='70,32 73.5,52 77,32' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='74.5,32 78,52 81,32' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3C!-- Bottom triangular points - left side (6 points) --%3E%3Cpolygon points='21,82 24.5,62 28,82' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='25.5,82 29,62 32.5,82' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='30,82 33.5,62 37,82' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='34.5,82 38,62 41.5,82' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='39,82 42.5,62 46,82' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='43.5,82 47,62 48,82' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3C!-- Bottom triangular points - right side (6 points) --%3E%3Cpolygon points='52,82 55.5,62 59,82' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='56.5,82 60,62 63.5,82' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='61,82 64.5,62 68,82' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='65.5,82 69,62 72.5,82' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='70,82 73.5,62 77,82' fill='url(%23bgBurgundyPoint)' stroke='rgba(128,30,45,0.08)' stroke-width='0.3'/%3E%3Cpolygon points='74.5,82 78,62 81,82' fill='url(%23bgIvoryPoint)' stroke='rgba(245,240,220,0.08)' stroke-width='0.3'/%3E%3C!-- Dark checker stacks on top points --%3E%3Cellipse cx='24.5' cy='35' rx='2.8' ry='1.6' fill='url(%23bgDarkChecker)' stroke='rgba(45,32,22,0.15)' stroke-width='0.5'/%3E%3Cellipse cx='24.5' cy='33.5' rx='2.5' ry='1.3' fill='rgba(55,40,28,0.12)'/%3E%3Cellipse cx='24.5' cy='38' rx='2.8' ry='1.6' fill='url(%23bgDarkChecker)' stroke='rgba(45,32,22,0.15)' stroke-width='0.5'/%3E%3Cellipse cx='24.5' cy='36.5' rx='2.5' ry='1.3' fill='rgba(55,40,28,0.12)'/%3E%3Ccircle cx='23.5' cy='33' r='0.5' fill='rgba(255,255,255,0.06)'/%3E%3C!-- Ivory checker stacks on bottom points --%3E%3Cellipse cx='24.5' cy='79' rx='2.8' ry='1.6' fill='url(%23bgIvoryChecker)' stroke='rgba(200,190,170,0.15)' stroke-width='0.5'/%3E%3Cellipse cx='24.5' cy='77.5' rx='2.5' ry='1.3' fill='rgba(255,252,245,0.14)'/%3E%3Cellipse cx='24.5' cy='76' rx='2.8' ry='1.6' fill='url(%23bgIvoryChecker)' stroke='rgba(200,190,170,0.15)' stroke-width='0.5'/%3E%3Cellipse cx='24.5' cy='74.5' rx='2.5' ry='1.3' fill='rgba(255,252,245,0.14)'/%3E%3Ccircle cx='23.5' cy='74' r='0.5' fill='rgba(255,255,255,0.1)'/%3E%3C!-- More dark checkers on right side --%3E%3Cellipse cx='73.5' cy='35' rx='2.8' ry='1.6' fill='url(%23bgDarkChecker)' stroke='rgba(45,32,22,0.15)' stroke-width='0.5'/%3E%3Cellipse cx='73.5' cy='33.5' rx='2.5' ry='1.3' fill='rgba(55,40,28,0.12)'/%3E%3Cellipse cx='73.5' cy='38' rx='2.8' ry='1.6' fill='url(%23bgDarkChecker)' stroke='rgba(45,32,22,0.15)' stroke-width='0.5'/%3E%3Cellipse cx='73.5' cy='36.5' rx='2.5' ry='1.3' fill='rgba(55,40,28,0.12)'/%3E%3Cellipse cx='73.5' cy='41' rx='2.8' ry='1.6' fill='url(%23bgDarkChecker)' stroke='rgba(45,32,22,0.15)' stroke-width='0.5'/%3E%3Cellipse cx='73.5' cy='39.5' rx='2.5' ry='1.3' fill='rgba(55,40,28,0.12)'/%3E%3Ccircle cx='72.5' cy='33' r='0.5' fill='rgba(255,255,255,0.06)'/%3E%3C!-- Ivory checkers on right bottom --%3E%3Cellipse cx='60' cy='79' rx='2.8' ry='1.6' fill='url(%23bgIvoryChecker)' stroke='rgba(200,190,170,0.15)' stroke-width='0.5'/%3E%3Cellipse cx='60' cy='77.5' rx='2.5' ry='1.3' fill='rgba(255,252,245,0.14)'/%3E%3Cellipse cx='60' cy='76' rx='2.8' ry='1.6' fill='url(%23bgIvoryChecker)' stroke='rgba(200,190,170,0.15)' stroke-width='0.5'/%3E%3Cellipse cx='60' cy='74.5' rx='2.5' ry='1.3' fill='rgba(255,252,245,0.14)'/%3E%3Cellipse cx='60' cy='73' rx='2.8' ry='1.6' fill='url(%23bgIvoryChecker)' stroke='rgba(200,190,170,0.15)' stroke-width='0.5'/%3E%3Cellipse cx='60' cy='71.5' rx='2.5' ry='1.3' fill='rgba(255,252,245,0.14)'/%3E%3Ccircle cx='59' cy='71' r='0.5' fill='rgba(255,255,255,0.1)'/%3E%3C!-- Middle checker (being moved) --%3E%3Cellipse cx='38' cy='57' rx='3' ry='1.8' fill='url(%23bgDarkChecker)' stroke='rgba(45,32,22,0.16)' stroke-width='0.6'/%3E%3Cellipse cx='38' cy='55.8' rx='2.7' ry='1.5' fill='rgba(55,40,28,0.13)'/%3E%3Ccircle cx='37' cy='55.3' r='0.55' fill='rgba(255,255,255,0.07)'/%3E%3C!-- Motion trail for moving checker --%3E%3Cpath d='M30 65 Q34 61 38 57' fill='none' stroke='rgba(90,60,35,0.05)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M29 66 Q33 62 37 58' fill='none' stroke='rgba(90,60,35,0.03)' stroke-width='0.6' stroke-linecap='round'/%3E%3C!-- Dice 1 (showing 5) with dynamic angle --%3E%3Cg transform='rotate(-12, 87, 40)'%3E%3Crect x='82' y='35' width='10' height='10' rx='1.5' fill='url(%23bgDice)' stroke='rgba(200,190,180,0.15)' stroke-width='0.6'/%3E%3Ccircle cx='84.5' cy='37.5' r='1' fill='rgba(25,20,15,0.3)'/%3E%3Ccircle cx='89.5' cy='37.5' r='1' fill='rgba(25,20,15,0.3)'/%3E%3Ccircle cx='87' cy='40' r='1' fill='rgba(25,20,15,0.3)'/%3E%3Ccircle cx='84.5' cy='42.5' r='1' fill='rgba(25,20,15,0.3)'/%3E%3Ccircle cx='89.5' cy='42.5' r='1' fill='rgba(25,20,15,0.3)'/%3E%3Ccircle cx='83.5' cy='36' r='0.4' fill='rgba(255,255,255,0.15)'/%3E%3C/g%3E%3C!-- Dice 2 (showing 3) with dynamic angle --%3E%3Cg transform='rotate(8, 87, 55)'%3E%3Crect x='82' y='50' width='10' height='10' rx='1.5' fill='url(%23bgDice)' stroke='rgba(200,190,180,0.15)' stroke-width='0.6'/%3E%3Ccircle cx='84.5' cy='52.5' r='1' fill='rgba(25,20,15,0.3)'/%3E%3Ccircle cx='87' cy='55' r='1' fill='rgba(25,20,15,0.3)'/%3E%3Ccircle cx='89.5' cy='57.5' r='1' fill='rgba(25,20,15,0.3)'/%3E%3Ccircle cx='83.5' cy='51' r='0.4' fill='rgba(255,255,255,0.15)'/%3E%3C/g%3E%3C!-- Dice motion trails --%3E%3Cpath d='M80 38 Q83 36 85 37' fill='none' stroke='rgba(212,175,55,0.04)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M79 53 Q82 51 84 52' fill='none' stroke='rgba(212,175,55,0.035)' stroke-width='0.6' stroke-linecap='round'/%3E%3C!-- Leather dice cup --%3E%3Cellipse cx='92' cy='72' rx='5' ry='2.5' fill='url(%23bgDiceCup)' stroke='rgba(80,45,25,0.12)' stroke-width='0.5'/%3E%3Cpath d='M87 72 L87 62 Q87 59 92 59 Q97 59 97 62 L97 72' fill='url(%23bgDiceCup)' stroke='rgba(80,45,25,0.1)' stroke-width='0.6'/%3E%3Cellipse cx='92' cy='62' rx='5' ry='2' fill='rgba(55,32,18,0.08)' stroke='rgba(80,45,25,0.06)' stroke-width='0.3'/%3E%3C!-- Gold rim on cup --%3E%3Cellipse cx='92' cy='72' rx='5.2' ry='2.6' fill='none' stroke='url(%23bgGoldAccent)' stroke-width='0.5'/%3E%3C!-- Stitching on cup --%3E%3Cpath d='M88 65 L88 70' fill='none' stroke='rgba(212,175,55,0.08)' stroke-width='0.3' stroke-dasharray='0.8,0.8'/%3E%3Cpath d='M96 65 L96 70' fill='none' stroke='rgba(212,175,55,0.08)' stroke-width='0.3' stroke-dasharray='0.8,0.8'/%3E%3C!-- Cup highlight --%3E%3Cpath d='M89 63 L89 70' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Ambient sparkles --%3E%3Ccircle cx='35' cy='45' r='0.7' fill='rgba(212,175,55,0.05)'/%3E%3Ccircle cx='65' cy='70' r='0.8' fill='rgba(212,175,55,0.045)'/%3E%3Ccircle cx='28' cy='68' r='0.6' fill='rgba(0,120,80,0.04)'/%3E%3Ccircle cx='70' cy='50' r='0.7' fill='rgba(255,250,235,0.05)'/%3E%3Ccircle cx='55' cy='38' r='0.5' fill='rgba(128,30,45,0.04)'/%3E%3Ccircle cx='42' cy='75' r='0.6' fill='rgba(212,175,55,0.04)'/%3E%3C!-- Wood grain texture on frame --%3E%3Cpath d='M16 30 Q20 28 24 30' fill='none' stroke='rgba(90,60,35,0.025)' stroke-width='0.25'/%3E%3Cpath d='M76 85 Q80 83 84 85' fill='none' stroke='rgba(90,60,35,0.025)' stroke-width='0.25'/%3E%3Cpath d='M13 50 Q15 48 17 50' fill='none' stroke='rgba(75,50,30,0.02)' stroke-width='0.2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Backgammon Classic ambient glow with warm walnut, gold, burgundy, emerald accents */
+.game-page__about[data-decoration="backgammon-classic"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(90, 60, 35, 0.045) 0%, rgba(128, 30, 45, 0.03) 25%, rgba(212, 175, 55, 0.025) 45%, rgba(0, 120, 80, 0.015) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Memory Cards decoration: elegant purple cards with gold borders, matching pairs, floating flip card */
+.game-page__about[data-decoration="memory-cards"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='mcPurpleCard' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(120,60,160,0.2)'/%3E%3Cstop offset='50%25' stop-color='rgba(100,45,140,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(80,35,120,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='mcCardBack' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(90,50,130,0.22)'/%3E%3Cstop offset='50%25' stop-color='rgba(75,40,115,0.18)'/%3E%3Cstop offset='100%25' stop-color='rgba(60,30,100,0.12)'/%3E%3C/linearGradient%3E%3ClinearGradient id='mcCardFace' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,252,245,0.22)'/%3E%3Cstop offset='50%25' stop-color='rgba(250,248,240,0.18)'/%3E%3Cstop offset='100%25' stop-color='rgba(245,242,235,0.12)'/%3E%3C/linearGradient%3E%3ClinearGradient id='mcGoldBorder' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(212,175,55,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(190,155,45,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(170,140,40,0.2)'/%3E%3C/linearGradient%3E%3ClinearGradient id='mcCrown' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,200,80,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(230,170,50,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,150,40,0.2)'/%3E%3C/linearGradient%3E%3ClinearGradient id='mcEmerald' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,180,120,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,140,90,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='mcFlipGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(140,80,180,0.18)'/%3E%3Cstop offset='50%25' stop-color='rgba(120,60,160,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,248,240,0.1)'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Background grid of face-down cards in perspective --%3E%3Cg transform='skewX(-8) skewY(2)'%3E%3Crect x='18' y='68' width='11' height='15' rx='1.5' fill='url(%23mcCardBack)' stroke='url(%23mcGoldBorder)' stroke-width='0.6'/%3E%3Crect x='20' y='70' width='7' height='11' rx='0.8' fill='none' stroke='rgba(212,175,55,0.12)' stroke-width='0.4'/%3E%3Cpath d='M23.5 73 L23.5 78 M21 75.5 L26 75.5' stroke='rgba(140,80,180,0.08)' stroke-width='0.5'/%3E%3C/g%3E%3Cg transform='skewX(-6) skewY(1)'%3E%3Crect x='32' y='70' width='11' height='15' rx='1.5' fill='url(%23mcCardBack)' stroke='url(%23mcGoldBorder)' stroke-width='0.6'/%3E%3Crect x='34' y='72' width='7' height='11' rx='0.8' fill='none' stroke='rgba(212,175,55,0.12)' stroke-width='0.4'/%3E%3Cpath d='M37.5 75 L37.5 80 M35 77.5 L40 77.5' stroke='rgba(140,80,180,0.08)' stroke-width='0.5'/%3E%3C/g%3E%3Cg transform='skewX(-4)'%3E%3Crect x='46' y='72' width='11' height='15' rx='1.5' fill='url(%23mcCardBack)' stroke='url(%23mcGoldBorder)' stroke-width='0.6'/%3E%3Crect x='48' y='74' width='7' height='11' rx='0.8' fill='none' stroke='rgba(212,175,55,0.12)' stroke-width='0.4'/%3E%3Cpath d='M51.5 77 L51.5 82 M49 79.5 L54 79.5' stroke='rgba(140,80,180,0.08)' stroke-width='0.5'/%3E%3C/g%3E%3C!-- First matching face-up card with crown symbol --%3E%3Crect x='60' y='42' width='14' height='19' rx='2' fill='url(%23mcCardFace)' stroke='url(%23mcGoldBorder)' stroke-width='0.8'/%3E%3Crect x='62' y='44' width='10' height='15' rx='1' fill='none' stroke='rgba(212,175,55,0.15)' stroke-width='0.5'/%3E%3C!-- Crown symbol on card 1 --%3E%3Cpath d='M63.5 50 L65.5 46 L67 49 L68.5 46 L70.5 50 L70 53 L64 53 Z' fill='url(%23mcCrown)' stroke='rgba(212,175,55,0.25)' stroke-width='0.5' stroke-linejoin='round'/%3E%3Ccircle cx='65.5' cy='46.5' r='0.8' fill='rgba(255,220,100,0.25)'/%3E%3Ccircle cx='68.5' cy='46.5' r='0.8' fill='rgba(255,220,100,0.25)'/%3E%3Ccircle cx='67' cy='49.2' r='0.6' fill='rgba(255,230,120,0.2)'/%3E%3C!-- Emerald gem in crown --%3E%3Cellipse cx='67' cy='51.5' rx='1.5' ry='1' fill='url(%23mcEmerald)' stroke='rgba(0,180,120,0.15)' stroke-width='0.4'/%3E%3Ccircle cx='66.5' cy='51.2' r='0.4' fill='rgba(255,255,255,0.12)'/%3E%3C!-- Card corner symbols --%3E%3Cpath d='M63 56 L63.8 54.5 L64.5 55.5 L65.2 54.5 L66 56' fill='rgba(212,175,55,0.12)' stroke='rgba(212,175,55,0.1)' stroke-width='0.3'/%3E%3C!-- Card 1 shine --%3E%3Ccircle cx='62' cy='44' r='0.6' fill='rgba(255,255,255,0.12)'/%3E%3C!-- Second matching face-up card with crown symbol --%3E%3Crect x='76' y='38' width='14' height='19' rx='2' fill='url(%23mcCardFace)' stroke='url(%23mcGoldBorder)' stroke-width='0.8'/%3E%3Crect x='78' y='40' width='10' height='15' rx='1' fill='none' stroke='rgba(212,175,55,0.15)' stroke-width='0.5'/%3E%3C!-- Crown symbol on card 2 (matching) --%3E%3Cpath d='M79.5 46 L81.5 42 L83 45 L84.5 42 L86.5 46 L86 49 L80 49 Z' fill='url(%23mcCrown)' stroke='rgba(212,175,55,0.25)' stroke-width='0.5' stroke-linejoin='round'/%3E%3Ccircle cx='81.5' cy='42.5' r='0.8' fill='rgba(255,220,100,0.25)'/%3E%3Ccircle cx='84.5' cy='42.5' r='0.8' fill='rgba(255,220,100,0.25)'/%3E%3Ccircle cx='83' cy='45.2' r='0.6' fill='rgba(255,230,120,0.2)'/%3E%3C!-- Emerald gem in crown --%3E%3Cellipse cx='83' cy='47.5' rx='1.5' ry='1' fill='url(%23mcEmerald)' stroke='rgba(0,180,120,0.15)' stroke-width='0.4'/%3E%3Ccircle cx='82.5' cy='47.2' r='0.4' fill='rgba(255,255,255,0.12)'/%3E%3C!-- Card corner symbols --%3E%3Cpath d='M79 52 L79.8 50.5 L80.5 51.5 L81.2 50.5 L82 52' fill='rgba(212,175,55,0.12)' stroke='rgba(212,175,55,0.1)' stroke-width='0.3'/%3E%3C!-- Card 2 shine --%3E%3Ccircle cx='78' cy='40' r='0.6' fill='rgba(255,255,255,0.12)'/%3E%3C!-- Match glow between the two cards --%3E%3Cellipse cx='75' cy='48' rx='20' ry='14' fill='none' stroke='rgba(255,200,80,0.06)' stroke-width='2'/%3E%3Cellipse cx='75' cy='48' rx='24' ry='17' fill='none' stroke='rgba(255,200,80,0.03)' stroke-width='1.5'/%3E%3C!-- Floating card mid-flip showing transformation --%3E%3Cg transform='rotate(-15, 42, 35)'%3E%3C!-- Card shadow underneath --%3E%3Cellipse cx='44' cy='52' rx='6' ry='1.5' fill='rgba(0,0,0,0.06)'/%3E%3C!-- Card body (showing partial flip - mixed face/back) --%3E%3Cpath d='M36 28 L36 48 Q36 50 38 50 L48 50 Q50 50 50 48 L50 32 L44 28 Z' fill='url(%23mcFlipGrad)' stroke='url(%23mcGoldBorder)' stroke-width='0.7'/%3E%3C!-- Flip edge showing depth --%3E%3Cpath d='M50 32 L44 28 L44 48 Q44 49 45 49.5 L50 48' fill='rgba(180,120,200,0.1)' stroke='rgba(212,175,55,0.12)' stroke-width='0.4'/%3E%3C!-- Partial pattern visible --%3E%3Ccircle cx='42' cy='38' r='3' fill='none' stroke='rgba(212,175,55,0.1)' stroke-width='0.5'/%3E%3Cpath d='M40 38 L42 35 L44 38' fill='rgba(255,200,80,0.08)' stroke='rgba(212,175,55,0.1)' stroke-width='0.3'/%3E%3C/g%3E%3C!-- Flip motion arc --%3E%3Cpath d='M38 55 Q32 45 36 32' fill='none' stroke='rgba(140,80,180,0.06)' stroke-width='1.2' stroke-linecap='round' stroke-dasharray='2,2'/%3E%3Cpath d='M40 56 Q34 46 38 34' fill='none' stroke='rgba(140,80,180,0.04)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Additional face-down card (top area) --%3E%3Crect x='20' y='25' width='12' height='16' rx='1.8' fill='url(%23mcCardBack)' stroke='url(%23mcGoldBorder)' stroke-width='0.6'/%3E%3Crect x='22' y='27' width='8' height='12' rx='1' fill='none' stroke='rgba(212,175,55,0.12)' stroke-width='0.4'/%3E%3Ccircle cx='26' cy='33' r='2.5' fill='none' stroke='rgba(140,80,180,0.1)' stroke-width='0.5'/%3E%3Cpath d='M24.5 33 L26 30.5 L27.5 33' fill='rgba(140,80,180,0.06)' stroke='rgba(140,80,180,0.08)' stroke-width='0.3'/%3E%3C!-- Geometric pattern decoration --%3E%3Cpath d='M26 36 L24 33 L26 30 L28 33 Z' fill='none' stroke='rgba(212,175,55,0.08)' stroke-width='0.4'/%3E%3C!-- Magical sparkles and particles --%3E%3Ccircle cx='55' cy='35' r='1.2' fill='rgba(255,200,80,0.12)'/%3E%3Ccircle cx='55' cy='35' r='0.6' fill='rgba(255,230,120,0.15)'/%3E%3Ccircle cx='72' cy='32' r='1' fill='rgba(212,175,55,0.1)'/%3E%3Ccircle cx='72' cy='32' r='0.5' fill='rgba(255,220,100,0.12)'/%3E%3Ccircle cx='88' cy='62' r='0.9' fill='rgba(255,200,80,0.08)'/%3E%3Ccircle cx='30' cy='50' r='0.8' fill='rgba(140,80,180,0.08)'/%3E%3Ccircle cx='65' cy='65' r='1.1' fill='rgba(212,175,55,0.07)'/%3E%3Ccircle cx='50' cy='28' r='0.7' fill='rgba(0,180,120,0.06)'/%3E%3C!-- Purple particles --%3E%3Ccircle cx='58' cy='58' r='0.9' fill='rgba(140,80,180,0.07)'/%3E%3Ccircle cx='82' cy='58' r='0.7' fill='rgba(120,60,160,0.06)'/%3E%3Ccircle cx='35' cy='62' r='0.8' fill='rgba(160,100,200,0.05)'/%3E%3Ccircle cx='92' cy='48' r='0.6' fill='rgba(140,80,180,0.05)'/%3E%3C!-- Gold dust trail --%3E%3Ccircle cx='48' cy='42' r='0.5' fill='rgba(255,200,80,0.08)'/%3E%3Ccircle cx='52' cy='40' r='0.4' fill='rgba(212,175,55,0.07)'/%3E%3Ccircle cx='46' cy='38' r='0.45' fill='rgba(255,220,100,0.06)'/%3E%3C!-- Emerald accent sparkles --%3E%3Ccircle cx='70' cy='58' r='0.7' fill='rgba(0,180,120,0.06)'/%3E%3Ccircle cx='25' cy='42' r='0.6' fill='rgba(0,160,100,0.05)'/%3E%3Ccircle cx='85' cy='70' r='0.5' fill='rgba(0,200,130,0.04)'/%3E%3C!-- Timer/score element suggestion --%3E%3Crect x='12' y='15' width='16' height='6' rx='1' fill='none' stroke='rgba(212,175,55,0.06)' stroke-width='0.5'/%3E%3Ctext x='20' y='20' font-size='3.5' fill='rgba(255,200,80,0.08)' text-anchor='middle' font-family='monospace'%3E0:42%3C/text%3E%3C!-- Star burst for match celebration --%3E%3Cpath d='M75 30 L76 32 L78 32 L76.5 33.5 L77 36 L75 34.5 L73 36 L73.5 33.5 L72 32 L74 32 Z' fill='rgba(255,200,80,0.1)' stroke='rgba(212,175,55,0.08)' stroke-width='0.3'/%3E%3Cpath d='M90 25 L90.8 27 L93 27 L91.2 28.5 L91.8 31 L90 29.5 L88.2 31 L88.8 28.5 L87 27 L89.2 27 Z' fill='rgba(255,220,100,0.08)' stroke='rgba(212,175,55,0.06)' stroke-width='0.25'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Memory Cards ambient glow with purple, gold, and emerald accents */
+.game-page__about[data-decoration="memory-cards"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(140, 80, 180, 0.05) 0%, rgba(120, 60, 160, 0.035) 25%, rgba(212, 175, 55, 0.03) 45%, rgba(0, 180, 120, 0.015) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 2048 Puzzle decoration: 4x4 grid with numbered tiles, golden 2048 tile focus, merging tiles with motion trails */
+.game-page__about[data-decoration="2048-puzzle"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='p2048Board' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(187,173,160,0.18)'/%3E%3Cstop offset='50%25' stop-color='rgba(170,157,145,0.14)'/%3E%3Cstop offset='100%25' stop-color='rgba(155,143,130,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Cell' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(205,192,180,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(190,178,166,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(238,228,218,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(225,215,205,0.18)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(236,224,200,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(222,210,188,0.18)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile8' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(242,177,121,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(228,165,110,0.2)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile16' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(245,149,99,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(232,138,90,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile32' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(246,124,95,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(233,113,86,0.24)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile64' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(246,94,59,0.35)'/%3E%3Cstop offset='100%25' stop-color='rgba(233,85,52,0.26)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile128' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(237,207,114,0.35)'/%3E%3Cstop offset='100%25' stop-color='rgba(224,195,105,0.26)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile256' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(237,204,97,0.38)'/%3E%3Cstop offset='100%25' stop-color='rgba(224,192,88,0.28)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile512' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(237,200,80,0.4)'/%3E%3Cstop offset='100%25' stop-color='rgba(224,188,72,0.3)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile1024' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(237,197,63,0.42)'/%3E%3Cstop offset='100%25' stop-color='rgba(224,185,56,0.32)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile2048' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(237,194,46,0.5)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,215,80,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(224,182,40,0.38)'/%3E%3C/linearGradient%3E%3CradialGradient id='p2048Glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,220,100,0.25)'/%3E%3Cstop offset='60%25' stop-color='rgba(255,200,60,0.1)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,180,40,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Main 4x4 board in slight perspective --%3E%3Cg transform='skewX(-5) skewY(2)'%3E%3C!-- Board background --%3E%3Crect x='35' y='30' width='56' height='56' rx='4' fill='url(%23p2048Board)' stroke='rgba(160,148,136,0.15)' stroke-width='1'/%3E%3C!-- Empty cells grid --%3E%3Crect x='38' y='33' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='51' y='33' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='64' y='33' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='77' y='33' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='38' y='46' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='51' y='46' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='64' y='46' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='77' y='46' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='38' y='59' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='51' y='59' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='64' y='59' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='77' y='59' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='38' y='72' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='51' y='72' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='64' y='72' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='77' y='72' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3C!-- Tile: 2 --%3E%3Crect x='38' y='33' width='11' height='11' rx='2' fill='url(%23p2048Tile2)'/%3E%3Ctext x='43.5' y='41' font-size='6' fill='rgba(119,110,101,0.35)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E2%3C/text%3E%3C!-- Tile: 4 --%3E%3Crect x='64' y='33' width='11' height='11' rx='2' fill='url(%23p2048Tile4)'/%3E%3Ctext x='69.5' y='41' font-size='6' fill='rgba(119,110,101,0.35)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E4%3C/text%3E%3C!-- Tile: 8 --%3E%3Crect x='51' y='46' width='11' height='11' rx='2' fill='url(%23p2048Tile8)'/%3E%3Ctext x='56.5' y='54' font-size='6' fill='rgba(255,255,255,0.4)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E8%3C/text%3E%3C!-- Tile: 16 --%3E%3Crect x='77' y='46' width='11' height='11' rx='2' fill='url(%23p2048Tile16)'/%3E%3Ctext x='82.5' y='54' font-size='5' fill='rgba(255,255,255,0.42)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E16%3C/text%3E%3C!-- Tile: 32 --%3E%3Crect x='38' y='59' width='11' height='11' rx='2' fill='url(%23p2048Tile32)'/%3E%3Ctext x='43.5' y='67' font-size='5' fill='rgba(255,255,255,0.44)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E32%3C/text%3E%3C!-- Tile: 64 --%3E%3Crect x='64' y='59' width='11' height='11' rx='2' fill='url(%23p2048Tile64)'/%3E%3Ctext x='69.5' y='67' font-size='5' fill='rgba(255,255,255,0.46)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E64%3C/text%3E%3C!-- Tile: 128 --%3E%3Crect x='38' y='72' width='11' height='11' rx='2' fill='url(%23p2048Tile128)'/%3E%3Ctext x='43.5' y='80' font-size='4' fill='rgba(255,255,255,0.45)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E128%3C/text%3E%3C!-- Tile: 256 --%3E%3Crect x='51' y='72' width='11' height='11' rx='2' fill='url(%23p2048Tile256)'/%3E%3Ctext x='56.5' y='80' font-size='4' fill='rgba(255,255,255,0.45)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E256%3C/text%3E%3C!-- Tile: 512 --%3E%3Crect x='64' y='72' width='11' height='11' rx='2' fill='url(%23p2048Tile512)'/%3E%3Ctext x='69.5' y='80' font-size='4' fill='rgba(255,255,255,0.48)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E512%3C/text%3E%3C/g%3E%3C!-- Prominent golden 2048 tile floating with glow --%3E%3Cellipse cx='22' cy='38' rx='16' ry='14' fill='url(%23p2048Glow)'/%3E%3Crect x='10' y='26' width='24' height='24' rx='4' fill='url(%23p2048Tile2048)' stroke='rgba(255,200,60,0.25)' stroke-width='1'/%3E%3Ctext x='22' y='42' font-size='8' fill='rgba(255,255,255,0.55)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E2048%3C/text%3E%3C!-- Shine on 2048 tile --%3E%3Ccircle cx='14' cy='30' r='2' fill='rgba(255,255,255,0.15)'/%3E%3Ccircle cx='13' cy='31' r='1' fill='rgba(255,255,255,0.2)'/%3E%3C!-- Two tiles merging with motion trail --%3E%3Cg transform='translate(8, 60)'%3E%3C!-- Motion trail --%3E%3Crect x='0' y='1' width='6' height='8' rx='1' fill='rgba(237,204,97,0.06)'/%3E%3Crect x='4' y='0.5' width='6' height='9' rx='1' fill='rgba(237,204,97,0.1)'/%3E%3C!-- Merging tile 1 --%3E%3Crect x='8' y='0' width='10' height='10' rx='2' fill='url(%23p2048Tile1024)'/%3E%3Ctext x='13' y='7' font-size='3.5' fill='rgba(255,255,255,0.45)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E1024%3C/text%3E%3C!-- Merging tile 2 --%3E%3Crect x='16' y='0' width='10' height='10' rx='2' fill='url(%23p2048Tile1024)'/%3E%3Ctext x='21' y='7' font-size='3.5' fill='rgba(255,255,255,0.45)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E1024%3C/text%3E%3C!-- Directional arrow --%3E%3Cpath d='M6 5 L9 5 M8 3 L10 5 L8 7' fill='none' stroke='rgba(255,200,60,0.15)' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Merge glow --%3E%3Cellipse cx='17' cy='5' rx='8' ry='6' fill='none' stroke='rgba(255,220,100,0.08)' stroke-width='1.5'/%3E%3C/g%3E%3C!-- Floating particles in warm colors --%3E%3Ccircle cx='30' cy='18' r='1.2' fill='rgba(255,200,80,0.12)'/%3E%3Ccircle cx='30' cy='18' r='0.6' fill='rgba(255,230,120,0.15)'/%3E%3Ccircle cx='8' cy='52' r='1' fill='rgba(242,177,121,0.1)'/%3E%3Ccircle cx='8' cy='52' r='0.5' fill='rgba(255,200,140,0.12)'/%3E%3Ccircle cx='95' cy='25' r='0.9' fill='rgba(237,204,97,0.1)'/%3E%3Ccircle cx='92' cy='68' r='1.1' fill='rgba(246,149,99,0.08)'/%3E%3Ccircle cx='15' cy='85' r='0.8' fill='rgba(237,197,63,0.09)'/%3E%3Ccircle cx='48' cy='15' r='0.7' fill='rgba(255,215,80,0.08)'/%3E%3Ccircle cx='32' cy='88' r='0.9' fill='rgba(246,124,95,0.07)'/%3E%3Ccircle cx='5' cy='35' r='0.6' fill='rgba(237,207,114,0.08)'/%3E%3C!-- Gold dust trail from 2048 tile --%3E%3Ccircle cx='36' cy='30' r='0.5' fill='rgba(255,200,80,0.1)'/%3E%3Ccircle cx='38' cy='26' r='0.4' fill='rgba(255,215,100,0.08)'/%3E%3Ccircle cx='34' cy='24' r='0.45' fill='rgba(237,194,46,0.09)'/%3E%3Ccircle cx='40' cy='22' r='0.35' fill='rgba(255,220,80,0.07)'/%3E%3C!-- Star burst for achievement feel --%3E%3Cpath d='M6 20 L7 22 L9 22 L7.5 23.5 L8 26 L6 24.5 L4 26 L4.5 23.5 L3 22 L5 22 Z' fill='rgba(255,200,80,0.1)' stroke='rgba(237,194,46,0.08)' stroke-width='0.3'/%3E%3Cpath d='M92 82 L92.8 84 L95 84 L93.2 85.5 L93.8 88 L92 86.5 L90.2 88 L90.8 85.5 L89 84 L91.2 84 Z' fill='rgba(255,220,100,0.08)' stroke='rgba(237,204,97,0.06)' stroke-width='0.25'/%3E%3C!-- Swipe hint arrows --%3E%3Cpath d='M4 75 L8 75 M6 73 L8 75 L6 77' fill='none' stroke='rgba(187,173,160,0.08)' stroke-width='0.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M88 15 L88 19 M86 17 L88 19 L90 17' fill='none' stroke='rgba(187,173,160,0.08)' stroke-width='0.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* 2048 Puzzle ambient glow with warm cream, orange, and gold accents */
+.game-page__about[data-decoration="2048-puzzle"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(237, 194, 46, 0.06) 0%, rgba(255, 200, 80, 0.04) 25%, rgba(246, 149, 99, 0.03) 45%, rgba(187, 173, 160, 0.02) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Doll Repair Workshop: cozy workshop with teddy bear, sewing tools, thread, buttons, paintbrush, sparkles */
+.game-page__about[data-decoration="doll-repair-workshop"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='dollWood' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(180,130,80,0.12)'/%3E%3Cstop offset='50%25' stop-color='rgba(160,110,65,0.1)'/%3E%3Cstop offset='100%25' stop-color='rgba(140,95,55,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollBear' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,160,120,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(180,140,100,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(160,120,85,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollBearDark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(160,120,80,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(140,100,65,0.18)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollPink' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,200,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,150,180,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,130,160,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollLavender' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,170,220,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(180,150,200,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollCream' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,250,240,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(250,240,225,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollGold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,200,100,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(240,180,80,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,160,60,0.2)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollNeedle' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,200,210,0.4)'/%3E%3Cstop offset='50%25' stop-color='rgba(180,180,190,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(160,160,175,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollScissors' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(180,180,195,0.35)'/%3E%3Cstop offset='100%25' stop-color='rgba(150,150,165,0.25)'/%3E%3C/linearGradient%3E%3CradialGradient id='dollSparkle' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.4)'/%3E%3Cstop offset='40%25' stop-color='rgba(255,230,200,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,200,150,0)'/%3E%3C/radialGradient%3E%3CradialGradient id='dollGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,200,0.15)'/%3E%3Cstop offset='60%25' stop-color='rgba(255,150,180,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,130,160,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Warm wooden workshop table surface --%3E%3Crect x='5' y='70' width='90' height='25' rx='2' fill='url(%23dollWood)' stroke='rgba(140,95,55,0.1)' stroke-width='0.5'/%3E%3Cline x1='10' y1='75' x2='88' y2='75' stroke='rgba(120,80,45,0.06)' stroke-width='0.5'/%3E%3Cline x1='12' y1='82' x2='85' y2='82' stroke='rgba(120,80,45,0.05)' stroke-width='0.4'/%3E%3Cline x1='15' y1='88' x2='80' y2='88' stroke='rgba(120,80,45,0.04)' stroke-width='0.3'/%3E%3C!-- Main teddy bear being restored --%3E%3Cg transform='translate(35, 25)'%3E%3C!-- Magic glow around bear --%3E%3Cellipse cx='15' cy='25' rx='22' ry='28' fill='url(%23dollGlow)'/%3E%3C!-- Bear body --%3E%3Cellipse cx='15' cy='32' rx='12' ry='14' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.15)' stroke-width='0.8'/%3E%3C!-- Bear head --%3E%3Ccircle cx='15' cy='12' r='11' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.15)' stroke-width='0.8'/%3E%3C!-- Bear ears --%3E%3Ccircle cx='6' cy='4' r='4' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.6'/%3E%3Ccircle cx='6' cy='4' r='2' fill='url(%23dollBearDark)'/%3E%3Ccircle cx='24' cy='4' r='4' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.6'/%3E%3Ccircle cx='24' cy='4' r='2' fill='url(%23dollBearDark)'/%3E%3C!-- Bear muzzle --%3E%3Cellipse cx='15' cy='15' rx='5' ry='4' fill='url(%23dollCream)'/%3E%3Ccircle cx='15' cy='13' r='1.5' fill='rgba(80,60,50,0.25)'/%3E%3C!-- Bear eyes --%3E%3Ccircle cx='10' cy='10' r='1.8' fill='rgba(50,35,30,0.35)'/%3E%3Ccircle cx='10' cy='9.5' r='0.6' fill='rgba(255,255,255,0.25)'/%3E%3Ccircle cx='20' cy='10' r='1.8' fill='rgba(50,35,30,0.35)'/%3E%3Ccircle cx='20' cy='9.5' r='0.6' fill='rgba(255,255,255,0.25)'/%3E%3C!-- Bear arms --%3E%3Cellipse cx='3' cy='28' rx='4' ry='6' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.5' transform='rotate(-20 3 28)'/%3E%3Cellipse cx='27' cy='28' rx='4' ry='6' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.5' transform='rotate(20 27 28)'/%3E%3C!-- Bear legs --%3E%3Cellipse cx='8' cy='44' rx='4' ry='5' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.5'/%3E%3Cellipse cx='22' cy='44' rx='4' ry='5' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.5'/%3E%3C!-- Pink heart patch on bear --%3E%3Cpath d='M12 30 C12 28 14 26 15 28 C16 26 18 28 18 30 C18 33 15 36 15 36 C15 36 12 33 12 30 Z' fill='url(%23dollPink)' stroke='rgba(255,150,180,0.2)' stroke-width='0.5'/%3E%3C!-- Stitching marks showing repair --%3E%3Cpath d='M5 22 Q8 24 5 26' fill='none' stroke='rgba(255,150,180,0.25)' stroke-width='0.6' stroke-dasharray='1.5 1'/%3E%3Cpath d='M25 20 Q28 23 25 26' fill='none' stroke='rgba(255,150,180,0.25)' stroke-width='0.6' stroke-dasharray='1.5 1'/%3E%3C!-- Cute blush --%3E%3Cellipse cx='7' cy='14' rx='2' ry='1' fill='rgba(255,150,150,0.15)'/%3E%3Cellipse cx='23' cy='14' rx='2' ry='1' fill='rgba(255,150,150,0.15)'/%3E%3C!-- Bow on bear --%3E%3Cpath d='M10 20 Q8 18 10 16 Q12 18 10 20 M20 20 Q22 18 20 16 Q18 18 20 20' fill='url(%23dollPink)' stroke='rgba(255,130,160,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='15' cy='18' r='1.5' fill='url(%23dollPink)'/%3E%3C/g%3E%3C!-- Pink thread spool --%3E%3Cg transform='translate(8, 50)'%3E%3Crect x='0' y='0' width='10' height='14' rx='1' fill='url(%23dollPink)' stroke='rgba(255,150,180,0.2)' stroke-width='0.5'/%3E%3Crect x='1' y='-1' width='8' height='2' rx='0.5' fill='url(%23dollCream)'/%3E%3Crect x='1' y='13' width='8' height='2' rx='0.5' fill='url(%23dollCream)'/%3E%3C!-- Thread lines on spool --%3E%3Cline x1='1' y1='3' x2='9' y2='3' stroke='rgba(255,130,160,0.15)' stroke-width='0.4'/%3E%3Cline x1='1' y1='6' x2='9' y2='6' stroke='rgba(255,130,160,0.15)' stroke-width='0.4'/%3E%3Cline x1='1' y1='9' x2='9' y2='9' stroke='rgba(255,130,160,0.15)' stroke-width='0.4'/%3E%3C!-- Thread coming off spool --%3E%3Cpath d='M9 7 Q15 5 20 10 Q28 18 35 15 Q45 10 48 25' fill='none' stroke='rgba(255,150,180,0.25)' stroke-width='0.8' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Sewing needle with thread --%3E%3Cg transform='translate(58, 55) rotate(-35)'%3E%3C!-- Needle --%3E%3Cpath d='M0 0 L22 0' stroke='url(%23dollNeedle)' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='21' cy='0' r='0.8' fill='rgba(200,200,210,0.3)'/%3E%3Cellipse cx='2' cy='0' rx='0.8' ry='1.2' fill='none' stroke='rgba(200,200,210,0.35)' stroke-width='0.5'/%3E%3C!-- Thread through needle eye --%3E%3Cpath d='M2 0 Q-5 5 -8 2 Q-12 -3 -8 -8' fill='none' stroke='rgba(255,150,180,0.3)' stroke-width='0.7' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Delicate scissors --%3E%3Cg transform='translate(72, 72) rotate(25)'%3E%3C!-- Scissor blades --%3E%3Cpath d='M0 0 L12 -3' stroke='url(%23dollScissors)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M0 0 L12 3' stroke='url(%23dollScissors)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Scissor handles --%3E%3Cellipse cx='-4' cy='-2' rx='3' ry='2' fill='none' stroke='url(%23dollGold)' stroke-width='1'/%3E%3Cellipse cx='-4' cy='2' rx='3' ry='2' fill='none' stroke='url(%23dollGold)' stroke-width='1'/%3E%3C!-- Pivot --%3E%3Ccircle cx='0' cy='0' r='1' fill='url(%23dollGold)'/%3E%3C/g%3E%3C!-- Buttons scattered --%3E%3Ccircle cx='18' cy='78' r='3' fill='url(%23dollLavender)' stroke='rgba(180,150,200,0.15)' stroke-width='0.5'/%3E%3Ccircle cx='17' cy='77' r='0.5' fill='rgba(160,130,180,0.2)'/%3E%3Ccircle cx='19' cy='77' r='0.5' fill='rgba(160,130,180,0.2)'/%3E%3Ccircle cx='17' cy='79' r='0.5' fill='rgba(160,130,180,0.2)'/%3E%3Ccircle cx='19' cy='79' r='0.5' fill='rgba(160,130,180,0.2)'/%3E%3Ccircle cx='28' cy='82' r='2.5' fill='url(%23dollPink)' stroke='rgba(255,150,180,0.15)' stroke-width='0.4'/%3E%3Ccircle cx='27.5' cy='81.5' r='0.4' fill='rgba(255,130,160,0.2)'/%3E%3Ccircle cx='28.5' cy='81.5' r='0.4' fill='rgba(255,130,160,0.2)'/%3E%3Ccircle cx='27.5' cy='82.5' r='0.4' fill='rgba(255,130,160,0.2)'/%3E%3Ccircle cx='28.5' cy='82.5' r='0.4' fill='rgba(255,130,160,0.2)'/%3E%3Ccircle cx='82' cy='85' r='2' fill='url(%23dollCream)' stroke='rgba(240,230,210,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='81.5' cy='84.5' r='0.35' fill='rgba(200,180,150,0.2)'/%3E%3Ccircle cx='82.5' cy='84.5' r='0.35' fill='rgba(200,180,150,0.2)'/%3E%3Ccircle cx='81.5' cy='85.5' r='0.35' fill='rgba(200,180,150,0.2)'/%3E%3Ccircle cx='82.5' cy='85.5' r='0.35' fill='rgba(200,180,150,0.2)'/%3E%3C!-- Fabric patches --%3E%3Crect x='85' y='60' width='8' height='8' rx='1' fill='url(%23dollPink)' stroke='rgba(255,150,180,0.15)' stroke-width='0.4' transform='rotate(10 89 64)'/%3E%3Crect x='3' y='75' width='6' height='6' rx='0.8' fill='url(%23dollLavender)' stroke='rgba(180,150,200,0.12)' stroke-width='0.3' transform='rotate(-8 6 78)'/%3E%3C!-- Tiny paintbrush --%3E%3Cg transform='translate(65, 82) rotate(-15)'%3E%3Crect x='0' y='-1' width='12' height='2' rx='0.5' fill='url(%23dollWood)'/%3E%3Crect x='12' y='-1.5' width='4' height='3' rx='0.3' fill='url(%23dollGold)'/%3E%3Cpath d='M16 -1 Q18 0 16 1' fill='rgba(200,160,120,0.25)'/%3E%3C/g%3E%3C!-- Lavender thread spool (smaller) --%3E%3Cg transform='translate(88, 72)'%3E%3Crect x='0' y='0' width='7' height='10' rx='0.8' fill='url(%23dollLavender)' stroke='rgba(180,150,200,0.15)' stroke-width='0.4'/%3E%3Crect x='0.5' y='-0.5' width='6' height='1.5' rx='0.4' fill='url(%23dollCream)'/%3E%3Crect x='0.5' y='9' width='6' height='1.5' rx='0.4' fill='url(%23dollCream)'/%3E%3C/g%3E%3C!-- Magic sparkles around the scene --%3E%3Ccircle cx='25' cy='18' r='1.5' fill='url(%23dollSparkle)'/%3E%3Cpath d='M25 16 L25 20 M23 18 L27 18' stroke='rgba(255,255,255,0.25)' stroke-width='0.5' stroke-linecap='round'/%3E%3Ccircle cx='70' cy='28' r='1.2' fill='url(%23dollSparkle)'/%3E%3Cpath d='M70 26.5 L70 29.5 M68.5 28 L71.5 28' stroke='rgba(255,255,255,0.2)' stroke-width='0.4' stroke-linecap='round'/%3E%3Ccircle cx='58' cy='42' r='1' fill='url(%23dollSparkle)'/%3E%3Cpath d='M58 40.8 L58 43.2 M56.8 42 L59.2 42' stroke='rgba(255,255,255,0.18)' stroke-width='0.35' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='55' r='0.9' fill='url(%23dollSparkle)'/%3E%3Cpath d='M32 54 L32 56 M31 55 L33 55' stroke='rgba(255,255,255,0.15)' stroke-width='0.3' stroke-linecap='round'/%3E%3Ccircle cx='78' cy='48' r='1.1' fill='url(%23dollSparkle)'/%3E%3Cpath d='M78 46.8 L78 49.2 M76.8 48 L79.2 48' stroke='rgba(255,255,255,0.18)' stroke-width='0.35' stroke-linecap='round'/%3E%3Ccircle cx='15' cy='35' r='0.8' fill='url(%23dollSparkle)'/%3E%3Ccircle cx='85' cy='35' r='0.7' fill='url(%23dollSparkle)'/%3E%3Ccircle cx='42' cy='12' r='0.9' fill='url(%23dollSparkle)'/%3E%3Ccircle cx='92' cy='55' r='0.6' fill='url(%23dollSparkle)'/%3E%3Ccircle cx='5' cy='45' r='0.7' fill='url(%23dollSparkle)'/%3E%3C!-- Golden dust particles --%3E%3Ccircle cx='30' cy='28' r='0.5' fill='rgba(255,200,100,0.15)'/%3E%3Ccircle cx='65' cy='35' r='0.4' fill='rgba(255,200,100,0.12)'/%3E%3Ccircle cx='22' cy='48' r='0.45' fill='rgba(255,200,100,0.1)'/%3E%3Ccircle cx='75' cy='55' r='0.5' fill='rgba(255,200,100,0.12)'/%3E%3Ccircle cx='45' cy='65' r='0.4' fill='rgba(255,200,100,0.1)'/%3E%3Ccircle cx='55' cy='20' r='0.35' fill='rgba(255,200,100,0.1)'/%3E%3Ccircle cx='12' cy='25' r='0.4' fill='rgba(255,180,200,0.12)'/%3E%3Ccircle cx='88' cy='42' r='0.35' fill='rgba(200,170,220,0.1)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Doll Repair Workshop ambient glow with pink, lavender, cream, and golden accents */
+.game-page__about[data-decoration="doll-repair-workshop"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(255, 180, 200, 0.06) 0%, rgba(200, 170, 220, 0.04) 25%, rgba(255, 200, 150, 0.03) 45%, rgba(255, 250, 240, 0.02) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -4407,6 +4738,201 @@ h3 {
     height: 300px;
   }
 
+  /* Archery Master 3D tablet */
+  .game-page__about[data-decoration="archery-master"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="archery-master"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Darts Championship 3D tablet */
+  .game-page__about[data-decoration="darts-championship"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="darts-championship"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Bowling Master 3D tablet */
+  .game-page__about[data-decoration="bowling-master"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="bowling-master"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Air Hockey tablet */
+  .game-page__about[data-decoration="air-hockey"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="air-hockey"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Swimming Champions tablet */
+  .game-page__about[data-decoration="swimming-champions"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="swimming-champions"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Ping Pong Clash tablet */
+  .game-page__about[data-decoration="ping-pong-clash"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="ping-pong-clash"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Color Switch tablet */
+  .game-page__about[data-decoration="color-switch"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="color-switch"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Snake Classic tablet */
+  .game-page__about[data-decoration="snake-classic"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="snake-classic"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Checkers Classic tablet */
+  .game-page__about[data-decoration="checkers-classic"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="checkers-classic"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Backgammon Classic tablet */
+  .game-page__about[data-decoration="backgammon-classic"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="backgammon-classic"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Memory Cards tablet */
+  .game-page__about[data-decoration="memory-cards"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="memory-cards"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* 2048 Puzzle tablet */
+  .game-page__about[data-decoration="2048-puzzle"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="2048-puzzle"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Doll Repair Workshop tablet */
+  .game-page__about[data-decoration="doll-repair-workshop"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="doll-repair-workshop"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -5257,6 +5783,201 @@ h3 {
     height: 240px;
   }
 
+  /* Archery Master 3D mobile */
+  .game-page__about[data-decoration="archery-master"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="archery-master"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Darts Championship 3D mobile */
+  .game-page__about[data-decoration="darts-championship"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="darts-championship"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Bowling Master 3D mobile */
+  .game-page__about[data-decoration="bowling-master"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="bowling-master"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Air Hockey mobile */
+  .game-page__about[data-decoration="air-hockey"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="air-hockey"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Swimming Champions mobile */
+  .game-page__about[data-decoration="swimming-champions"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="swimming-champions"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Ping Pong Clash mobile */
+  .game-page__about[data-decoration="ping-pong-clash"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="ping-pong-clash"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Color Switch mobile */
+  .game-page__about[data-decoration="color-switch"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="color-switch"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Snake Classic mobile */
+  .game-page__about[data-decoration="snake-classic"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="snake-classic"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Checkers Classic mobile */
+  .game-page__about[data-decoration="checkers-classic"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="checkers-classic"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Backgammon Classic mobile */
+  .game-page__about[data-decoration="backgammon-classic"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="backgammon-classic"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Memory Cards mobile */
+  .game-page__about[data-decoration="memory-cards"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="memory-cards"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* 2048 Puzzle mobile */
+  .game-page__about[data-decoration="2048-puzzle"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="2048-puzzle"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Doll Repair Workshop mobile */
+  .game-page__about[data-decoration="doll-repair-workshop"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="doll-repair-workshop"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -5954,6 +6675,201 @@ h3 {
     width: 190px;
     height: 190px;
   }
+
+  /* Archery Master 3D small mobile */
+  .game-page__about[data-decoration="archery-master"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="archery-master"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Darts Championship 3D small mobile */
+  .game-page__about[data-decoration="darts-championship"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="darts-championship"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Bowling Master 3D small mobile */
+  .game-page__about[data-decoration="bowling-master"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="bowling-master"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Air Hockey small mobile */
+  .game-page__about[data-decoration="air-hockey"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="air-hockey"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Swimming Champions small mobile */
+  .game-page__about[data-decoration="swimming-champions"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="swimming-champions"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Ping Pong Clash small mobile */
+  .game-page__about[data-decoration="ping-pong-clash"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="ping-pong-clash"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Color Switch small mobile */
+  .game-page__about[data-decoration="color-switch"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="color-switch"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Snake Classic small mobile */
+  .game-page__about[data-decoration="snake-classic"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="snake-classic"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Checkers Classic small mobile */
+  .game-page__about[data-decoration="checkers-classic"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="checkers-classic"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Backgammon Classic small mobile */
+  .game-page__about[data-decoration="backgammon-classic"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="backgammon-classic"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Memory Cards small mobile */
+  .game-page__about[data-decoration="memory-cards"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="memory-cards"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* 2048 Puzzle small mobile */
+  .game-page__about[data-decoration="2048-puzzle"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="2048-puzzle"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Doll Repair Workshop small mobile */
+  .game-page__about[data-decoration="doll-repair-workshop"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="doll-repair-workshop"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
 }
 
 /* ---------- Extra small: ≤380px ---------- */
@@ -6068,7 +6984,21 @@ h3 {
   .game-page__about[data-decoration="stack-tower"]::after,
   .game-page__about[data-decoration="jump-ball"]::after,
   .game-page__about[data-decoration="helix-drop"]::after,
-  .game-page__about[data-decoration="delivery-rush"]::after {
+  .game-page__about[data-decoration="delivery-rush"]::after,
+  .game-page__about[data-decoration="checkers-classic"]::after,
+  .game-page__about[data-decoration="2048-puzzle"]::after,
+  .game-page__about[data-decoration="doll-repair-workshop"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  .game-page__about[data-decoration="backgammon-classic"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .game-page__about[data-decoration="backgammon-classic"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
