@@ -80,6 +80,7 @@ const GAME_TAGLINES = {
   "Haunted Mansion Escape": "EXPLORE • SOLVE • ESCAPE",
   "Space Station Escape": "REPAIR • UNLOCK • SURVIVE",
   "Outpost 47: Frozen Secrets": "EXPLORE • SURVIVE • UNCOVER",
+  "Motel 6: Last Guest": "CHECK • DECIDE • SURVIVE",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
