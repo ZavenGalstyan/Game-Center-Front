@@ -3824,6 +3824,32 @@ h3 {
   z-index: -1;
 }
 
+/* 2048 Puzzle decoration: 4x4 grid with numbered tiles, golden 2048 tile focus, merging tiles with motion trails */
+.game-page__about[data-decoration="2048-puzzle"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='p2048Board' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(187,173,160,0.18)'/%3E%3Cstop offset='50%25' stop-color='rgba(170,157,145,0.14)'/%3E%3Cstop offset='100%25' stop-color='rgba(155,143,130,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Cell' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(205,192,180,0.12)'/%3E%3Cstop offset='100%25' stop-color='rgba(190,178,166,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(238,228,218,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(225,215,205,0.18)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(236,224,200,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(222,210,188,0.18)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile8' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(242,177,121,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(228,165,110,0.2)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile16' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(245,149,99,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(232,138,90,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile32' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(246,124,95,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(233,113,86,0.24)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile64' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(246,94,59,0.35)'/%3E%3Cstop offset='100%25' stop-color='rgba(233,85,52,0.26)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile128' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(237,207,114,0.35)'/%3E%3Cstop offset='100%25' stop-color='rgba(224,195,105,0.26)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile256' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(237,204,97,0.38)'/%3E%3Cstop offset='100%25' stop-color='rgba(224,192,88,0.28)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile512' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(237,200,80,0.4)'/%3E%3Cstop offset='100%25' stop-color='rgba(224,188,72,0.3)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile1024' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(237,197,63,0.42)'/%3E%3Cstop offset='100%25' stop-color='rgba(224,185,56,0.32)'/%3E%3C/linearGradient%3E%3ClinearGradient id='p2048Tile2048' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(237,194,46,0.5)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,215,80,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(224,182,40,0.38)'/%3E%3C/linearGradient%3E%3CradialGradient id='p2048Glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,220,100,0.25)'/%3E%3Cstop offset='60%25' stop-color='rgba(255,200,60,0.1)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,180,40,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Main 4x4 board in slight perspective --%3E%3Cg transform='skewX(-5) skewY(2)'%3E%3C!-- Board background --%3E%3Crect x='35' y='30' width='56' height='56' rx='4' fill='url(%23p2048Board)' stroke='rgba(160,148,136,0.15)' stroke-width='1'/%3E%3C!-- Empty cells grid --%3E%3Crect x='38' y='33' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='51' y='33' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='64' y='33' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='77' y='33' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='38' y='46' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='51' y='46' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='64' y='46' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='77' y='46' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='38' y='59' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='51' y='59' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='64' y='59' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='77' y='59' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='38' y='72' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='51' y='72' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='64' y='72' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3Crect x='77' y='72' width='11' height='11' rx='2' fill='url(%23p2048Cell)'/%3E%3C!-- Tile: 2 --%3E%3Crect x='38' y='33' width='11' height='11' rx='2' fill='url(%23p2048Tile2)'/%3E%3Ctext x='43.5' y='41' font-size='6' fill='rgba(119,110,101,0.35)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E2%3C/text%3E%3C!-- Tile: 4 --%3E%3Crect x='64' y='33' width='11' height='11' rx='2' fill='url(%23p2048Tile4)'/%3E%3Ctext x='69.5' y='41' font-size='6' fill='rgba(119,110,101,0.35)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E4%3C/text%3E%3C!-- Tile: 8 --%3E%3Crect x='51' y='46' width='11' height='11' rx='2' fill='url(%23p2048Tile8)'/%3E%3Ctext x='56.5' y='54' font-size='6' fill='rgba(255,255,255,0.4)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E8%3C/text%3E%3C!-- Tile: 16 --%3E%3Crect x='77' y='46' width='11' height='11' rx='2' fill='url(%23p2048Tile16)'/%3E%3Ctext x='82.5' y='54' font-size='5' fill='rgba(255,255,255,0.42)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E16%3C/text%3E%3C!-- Tile: 32 --%3E%3Crect x='38' y='59' width='11' height='11' rx='2' fill='url(%23p2048Tile32)'/%3E%3Ctext x='43.5' y='67' font-size='5' fill='rgba(255,255,255,0.44)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E32%3C/text%3E%3C!-- Tile: 64 --%3E%3Crect x='64' y='59' width='11' height='11' rx='2' fill='url(%23p2048Tile64)'/%3E%3Ctext x='69.5' y='67' font-size='5' fill='rgba(255,255,255,0.46)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E64%3C/text%3E%3C!-- Tile: 128 --%3E%3Crect x='38' y='72' width='11' height='11' rx='2' fill='url(%23p2048Tile128)'/%3E%3Ctext x='43.5' y='80' font-size='4' fill='rgba(255,255,255,0.45)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E128%3C/text%3E%3C!-- Tile: 256 --%3E%3Crect x='51' y='72' width='11' height='11' rx='2' fill='url(%23p2048Tile256)'/%3E%3Ctext x='56.5' y='80' font-size='4' fill='rgba(255,255,255,0.45)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E256%3C/text%3E%3C!-- Tile: 512 --%3E%3Crect x='64' y='72' width='11' height='11' rx='2' fill='url(%23p2048Tile512)'/%3E%3Ctext x='69.5' y='80' font-size='4' fill='rgba(255,255,255,0.48)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E512%3C/text%3E%3C/g%3E%3C!-- Prominent golden 2048 tile floating with glow --%3E%3Cellipse cx='22' cy='38' rx='16' ry='14' fill='url(%23p2048Glow)'/%3E%3Crect x='10' y='26' width='24' height='24' rx='4' fill='url(%23p2048Tile2048)' stroke='rgba(255,200,60,0.25)' stroke-width='1'/%3E%3Ctext x='22' y='42' font-size='8' fill='rgba(255,255,255,0.55)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E2048%3C/text%3E%3C!-- Shine on 2048 tile --%3E%3Ccircle cx='14' cy='30' r='2' fill='rgba(255,255,255,0.15)'/%3E%3Ccircle cx='13' cy='31' r='1' fill='rgba(255,255,255,0.2)'/%3E%3C!-- Two tiles merging with motion trail --%3E%3Cg transform='translate(8, 60)'%3E%3C!-- Motion trail --%3E%3Crect x='0' y='1' width='6' height='8' rx='1' fill='rgba(237,204,97,0.06)'/%3E%3Crect x='4' y='0.5' width='6' height='9' rx='1' fill='rgba(237,204,97,0.1)'/%3E%3C!-- Merging tile 1 --%3E%3Crect x='8' y='0' width='10' height='10' rx='2' fill='url(%23p2048Tile1024)'/%3E%3Ctext x='13' y='7' font-size='3.5' fill='rgba(255,255,255,0.45)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E1024%3C/text%3E%3C!-- Merging tile 2 --%3E%3Crect x='16' y='0' width='10' height='10' rx='2' fill='url(%23p2048Tile1024)'/%3E%3Ctext x='21' y='7' font-size='3.5' fill='rgba(255,255,255,0.45)' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E1024%3C/text%3E%3C!-- Directional arrow --%3E%3Cpath d='M6 5 L9 5 M8 3 L10 5 L8 7' fill='none' stroke='rgba(255,200,60,0.15)' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Merge glow --%3E%3Cellipse cx='17' cy='5' rx='8' ry='6' fill='none' stroke='rgba(255,220,100,0.08)' stroke-width='1.5'/%3E%3C/g%3E%3C!-- Floating particles in warm colors --%3E%3Ccircle cx='30' cy='18' r='1.2' fill='rgba(255,200,80,0.12)'/%3E%3Ccircle cx='30' cy='18' r='0.6' fill='rgba(255,230,120,0.15)'/%3E%3Ccircle cx='8' cy='52' r='1' fill='rgba(242,177,121,0.1)'/%3E%3Ccircle cx='8' cy='52' r='0.5' fill='rgba(255,200,140,0.12)'/%3E%3Ccircle cx='95' cy='25' r='0.9' fill='rgba(237,204,97,0.1)'/%3E%3Ccircle cx='92' cy='68' r='1.1' fill='rgba(246,149,99,0.08)'/%3E%3Ccircle cx='15' cy='85' r='0.8' fill='rgba(237,197,63,0.09)'/%3E%3Ccircle cx='48' cy='15' r='0.7' fill='rgba(255,215,80,0.08)'/%3E%3Ccircle cx='32' cy='88' r='0.9' fill='rgba(246,124,95,0.07)'/%3E%3Ccircle cx='5' cy='35' r='0.6' fill='rgba(237,207,114,0.08)'/%3E%3C!-- Gold dust trail from 2048 tile --%3E%3Ccircle cx='36' cy='30' r='0.5' fill='rgba(255,200,80,0.1)'/%3E%3Ccircle cx='38' cy='26' r='0.4' fill='rgba(255,215,100,0.08)'/%3E%3Ccircle cx='34' cy='24' r='0.45' fill='rgba(237,194,46,0.09)'/%3E%3Ccircle cx='40' cy='22' r='0.35' fill='rgba(255,220,80,0.07)'/%3E%3C!-- Star burst for achievement feel --%3E%3Cpath d='M6 20 L7 22 L9 22 L7.5 23.5 L8 26 L6 24.5 L4 26 L4.5 23.5 L3 22 L5 22 Z' fill='rgba(255,200,80,0.1)' stroke='rgba(237,194,46,0.08)' stroke-width='0.3'/%3E%3Cpath d='M92 82 L92.8 84 L95 84 L93.2 85.5 L93.8 88 L92 86.5 L90.2 88 L90.8 85.5 L89 84 L91.2 84 Z' fill='rgba(255,220,100,0.08)' stroke='rgba(237,204,97,0.06)' stroke-width='0.25'/%3E%3C!-- Swipe hint arrows --%3E%3Cpath d='M4 75 L8 75 M6 73 L8 75 L6 77' fill='none' stroke='rgba(187,173,160,0.08)' stroke-width='0.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M88 15 L88 19 M86 17 L88 19 L90 17' fill='none' stroke='rgba(187,173,160,0.08)' stroke-width='0.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* 2048 Puzzle ambient glow with warm cream, orange, and gold accents */
+.game-page__about[data-decoration="2048-puzzle"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(237, 194, 46, 0.06) 0%, rgba(255, 200, 80, 0.04) 25%, rgba(246, 149, 99, 0.03) 45%, rgba(187, 173, 160, 0.02) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -4851,6 +4877,21 @@ h3 {
     height: 300px;
   }
 
+  /* 2048 Puzzle tablet */
+  .game-page__about[data-decoration="2048-puzzle"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="2048-puzzle"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -5866,6 +5907,21 @@ h3 {
     height: 240px;
   }
 
+  /* 2048 Puzzle mobile */
+  .game-page__about[data-decoration="2048-puzzle"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="2048-puzzle"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -6728,6 +6784,21 @@ h3 {
     width: 190px;
     height: 190px;
   }
+
+  /* 2048 Puzzle small mobile */
+  .game-page__about[data-decoration="2048-puzzle"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="2048-puzzle"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
 }
 
 /* ---------- Extra small: ≤380px ---------- */
@@ -6843,7 +6914,8 @@ h3 {
   .game-page__about[data-decoration="jump-ball"]::after,
   .game-page__about[data-decoration="helix-drop"]::after,
   .game-page__about[data-decoration="delivery-rush"]::after,
-  .game-page__about[data-decoration="checkers-classic"]::after {
+  .game-page__about[data-decoration="checkers-classic"]::after,
+  .game-page__about[data-decoration="2048-puzzle"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

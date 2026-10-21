@@ -68,6 +68,7 @@ import snakeClassicBg from "../images/SnakeClassic.png";
 import checkersClassicBg from "../images/CheckersClassic.png";
 import backgammonClassicBg from "../images/BackgammonClassic.png";
 import memoryCardsBg from "../images/MemoryCards.png";
+import puzzle2048Bg from "../images/2048.png";
 
 /**
  * Category to icon mapping.
@@ -1066,6 +1067,7 @@ const GAME_CARD_BACKGROUNDS = {
   "checkers classic": { image: checkersClassicBg, shade: WIDE_ART_SHADE },
   "backgammon classic": { image: backgammonClassicBg, shade: WIDE_ART_SHADE },
   "memory cards": { image: memoryCardsBg, shade: WIDE_ART_SHADE },
+  "2048 puzzle": { image: puzzle2048Bg, shade: WIDE_ART_SHADE },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();

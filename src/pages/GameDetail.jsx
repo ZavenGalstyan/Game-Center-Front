@@ -88,6 +88,7 @@ const GAME_TAGLINES = {
   "Checkers Classic": "Plan your moves, capture your opponent's pieces, and become a master of classic checkers strategy.",
   "Backgammon Classic": "Roll the dice, plan your moves, and outsmart your opponent in a timeless game of strategy and skill.",
   "Memory Cards": "Flip beautifully designed cards, discover matching pairs, and challenge your memory to clear the board as quickly as possible.",
+  "2048 Puzzle": "Slide and merge matching number tiles, plan your moves carefully, and challenge yourself to reach the legendary 2048 tile.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -156,6 +157,7 @@ const GAME_DECORATIONS = {
   "Checkers Classic": "checkers-classic",
   "Backgammon Classic": "backgammon-classic",
   "Memory Cards": "memory-cards",
+  "2048 Puzzle": "2048-puzzle",
 };
 
 // Fallback: generate a short tagline from description if not predefined
