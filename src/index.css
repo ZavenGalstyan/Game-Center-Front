@@ -3850,6 +3850,32 @@ h3 {
   z-index: -1;
 }
 
+/* Doll Repair Workshop: cozy workshop with teddy bear, sewing tools, thread, buttons, paintbrush, sparkles */
+.game-page__about[data-decoration="doll-repair-workshop"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='dollWood' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(180,130,80,0.12)'/%3E%3Cstop offset='50%25' stop-color='rgba(160,110,65,0.1)'/%3E%3Cstop offset='100%25' stop-color='rgba(140,95,55,0.08)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollBear' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,160,120,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(180,140,100,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(160,120,85,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollBearDark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(160,120,80,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(140,100,65,0.18)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollPink' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,200,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,150,180,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,130,160,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollLavender' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,170,220,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(180,150,200,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollCream' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,250,240,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(250,240,225,0.22)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollGold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,200,100,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(240,180,80,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,160,60,0.2)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollNeedle' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,200,210,0.4)'/%3E%3Cstop offset='50%25' stop-color='rgba(180,180,190,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(160,160,175,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='dollScissors' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(180,180,195,0.35)'/%3E%3Cstop offset='100%25' stop-color='rgba(150,150,165,0.25)'/%3E%3C/linearGradient%3E%3CradialGradient id='dollSparkle' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.4)'/%3E%3Cstop offset='40%25' stop-color='rgba(255,230,200,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,200,150,0)'/%3E%3C/radialGradient%3E%3CradialGradient id='dollGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,200,0.15)'/%3E%3Cstop offset='60%25' stop-color='rgba(255,150,180,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,130,160,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Warm wooden workshop table surface --%3E%3Crect x='5' y='70' width='90' height='25' rx='2' fill='url(%23dollWood)' stroke='rgba(140,95,55,0.1)' stroke-width='0.5'/%3E%3Cline x1='10' y1='75' x2='88' y2='75' stroke='rgba(120,80,45,0.06)' stroke-width='0.5'/%3E%3Cline x1='12' y1='82' x2='85' y2='82' stroke='rgba(120,80,45,0.05)' stroke-width='0.4'/%3E%3Cline x1='15' y1='88' x2='80' y2='88' stroke='rgba(120,80,45,0.04)' stroke-width='0.3'/%3E%3C!-- Main teddy bear being restored --%3E%3Cg transform='translate(35, 25)'%3E%3C!-- Magic glow around bear --%3E%3Cellipse cx='15' cy='25' rx='22' ry='28' fill='url(%23dollGlow)'/%3E%3C!-- Bear body --%3E%3Cellipse cx='15' cy='32' rx='12' ry='14' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.15)' stroke-width='0.8'/%3E%3C!-- Bear head --%3E%3Ccircle cx='15' cy='12' r='11' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.15)' stroke-width='0.8'/%3E%3C!-- Bear ears --%3E%3Ccircle cx='6' cy='4' r='4' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.6'/%3E%3Ccircle cx='6' cy='4' r='2' fill='url(%23dollBearDark)'/%3E%3Ccircle cx='24' cy='4' r='4' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.6'/%3E%3Ccircle cx='24' cy='4' r='2' fill='url(%23dollBearDark)'/%3E%3C!-- Bear muzzle --%3E%3Cellipse cx='15' cy='15' rx='5' ry='4' fill='url(%23dollCream)'/%3E%3Ccircle cx='15' cy='13' r='1.5' fill='rgba(80,60,50,0.25)'/%3E%3C!-- Bear eyes --%3E%3Ccircle cx='10' cy='10' r='1.8' fill='rgba(50,35,30,0.35)'/%3E%3Ccircle cx='10' cy='9.5' r='0.6' fill='rgba(255,255,255,0.25)'/%3E%3Ccircle cx='20' cy='10' r='1.8' fill='rgba(50,35,30,0.35)'/%3E%3Ccircle cx='20' cy='9.5' r='0.6' fill='rgba(255,255,255,0.25)'/%3E%3C!-- Bear arms --%3E%3Cellipse cx='3' cy='28' rx='4' ry='6' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.5' transform='rotate(-20 3 28)'/%3E%3Cellipse cx='27' cy='28' rx='4' ry='6' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.5' transform='rotate(20 27 28)'/%3E%3C!-- Bear legs --%3E%3Cellipse cx='8' cy='44' rx='4' ry='5' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.5'/%3E%3Cellipse cx='22' cy='44' rx='4' ry='5' fill='url(%23dollBear)' stroke='rgba(160,120,80,0.12)' stroke-width='0.5'/%3E%3C!-- Pink heart patch on bear --%3E%3Cpath d='M12 30 C12 28 14 26 15 28 C16 26 18 28 18 30 C18 33 15 36 15 36 C15 36 12 33 12 30 Z' fill='url(%23dollPink)' stroke='rgba(255,150,180,0.2)' stroke-width='0.5'/%3E%3C!-- Stitching marks showing repair --%3E%3Cpath d='M5 22 Q8 24 5 26' fill='none' stroke='rgba(255,150,180,0.25)' stroke-width='0.6' stroke-dasharray='1.5 1'/%3E%3Cpath d='M25 20 Q28 23 25 26' fill='none' stroke='rgba(255,150,180,0.25)' stroke-width='0.6' stroke-dasharray='1.5 1'/%3E%3C!-- Cute blush --%3E%3Cellipse cx='7' cy='14' rx='2' ry='1' fill='rgba(255,150,150,0.15)'/%3E%3Cellipse cx='23' cy='14' rx='2' ry='1' fill='rgba(255,150,150,0.15)'/%3E%3C!-- Bow on bear --%3E%3Cpath d='M10 20 Q8 18 10 16 Q12 18 10 20 M20 20 Q22 18 20 16 Q18 18 20 20' fill='url(%23dollPink)' stroke='rgba(255,130,160,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='15' cy='18' r='1.5' fill='url(%23dollPink)'/%3E%3C/g%3E%3C!-- Pink thread spool --%3E%3Cg transform='translate(8, 50)'%3E%3Crect x='0' y='0' width='10' height='14' rx='1' fill='url(%23dollPink)' stroke='rgba(255,150,180,0.2)' stroke-width='0.5'/%3E%3Crect x='1' y='-1' width='8' height='2' rx='0.5' fill='url(%23dollCream)'/%3E%3Crect x='1' y='13' width='8' height='2' rx='0.5' fill='url(%23dollCream)'/%3E%3C!-- Thread lines on spool --%3E%3Cline x1='1' y1='3' x2='9' y2='3' stroke='rgba(255,130,160,0.15)' stroke-width='0.4'/%3E%3Cline x1='1' y1='6' x2='9' y2='6' stroke='rgba(255,130,160,0.15)' stroke-width='0.4'/%3E%3Cline x1='1' y1='9' x2='9' y2='9' stroke='rgba(255,130,160,0.15)' stroke-width='0.4'/%3E%3C!-- Thread coming off spool --%3E%3Cpath d='M9 7 Q15 5 20 10 Q28 18 35 15 Q45 10 48 25' fill='none' stroke='rgba(255,150,180,0.25)' stroke-width='0.8' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Sewing needle with thread --%3E%3Cg transform='translate(58, 55) rotate(-35)'%3E%3C!-- Needle --%3E%3Cpath d='M0 0 L22 0' stroke='url(%23dollNeedle)' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='21' cy='0' r='0.8' fill='rgba(200,200,210,0.3)'/%3E%3Cellipse cx='2' cy='0' rx='0.8' ry='1.2' fill='none' stroke='rgba(200,200,210,0.35)' stroke-width='0.5'/%3E%3C!-- Thread through needle eye --%3E%3Cpath d='M2 0 Q-5 5 -8 2 Q-12 -3 -8 -8' fill='none' stroke='rgba(255,150,180,0.3)' stroke-width='0.7' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Delicate scissors --%3E%3Cg transform='translate(72, 72) rotate(25)'%3E%3C!-- Scissor blades --%3E%3Cpath d='M0 0 L12 -3' stroke='url(%23dollScissors)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M0 0 L12 3' stroke='url(%23dollScissors)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Scissor handles --%3E%3Cellipse cx='-4' cy='-2' rx='3' ry='2' fill='none' stroke='url(%23dollGold)' stroke-width='1'/%3E%3Cellipse cx='-4' cy='2' rx='3' ry='2' fill='none' stroke='url(%23dollGold)' stroke-width='1'/%3E%3C!-- Pivot --%3E%3Ccircle cx='0' cy='0' r='1' fill='url(%23dollGold)'/%3E%3C/g%3E%3C!-- Buttons scattered --%3E%3Ccircle cx='18' cy='78' r='3' fill='url(%23dollLavender)' stroke='rgba(180,150,200,0.15)' stroke-width='0.5'/%3E%3Ccircle cx='17' cy='77' r='0.5' fill='rgba(160,130,180,0.2)'/%3E%3Ccircle cx='19' cy='77' r='0.5' fill='rgba(160,130,180,0.2)'/%3E%3Ccircle cx='17' cy='79' r='0.5' fill='rgba(160,130,180,0.2)'/%3E%3Ccircle cx='19' cy='79' r='0.5' fill='rgba(160,130,180,0.2)'/%3E%3Ccircle cx='28' cy='82' r='2.5' fill='url(%23dollPink)' stroke='rgba(255,150,180,0.15)' stroke-width='0.4'/%3E%3Ccircle cx='27.5' cy='81.5' r='0.4' fill='rgba(255,130,160,0.2)'/%3E%3Ccircle cx='28.5' cy='81.5' r='0.4' fill='rgba(255,130,160,0.2)'/%3E%3Ccircle cx='27.5' cy='82.5' r='0.4' fill='rgba(255,130,160,0.2)'/%3E%3Ccircle cx='28.5' cy='82.5' r='0.4' fill='rgba(255,130,160,0.2)'/%3E%3Ccircle cx='82' cy='85' r='2' fill='url(%23dollCream)' stroke='rgba(240,230,210,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='81.5' cy='84.5' r='0.35' fill='rgba(200,180,150,0.2)'/%3E%3Ccircle cx='82.5' cy='84.5' r='0.35' fill='rgba(200,180,150,0.2)'/%3E%3Ccircle cx='81.5' cy='85.5' r='0.35' fill='rgba(200,180,150,0.2)'/%3E%3Ccircle cx='82.5' cy='85.5' r='0.35' fill='rgba(200,180,150,0.2)'/%3E%3C!-- Fabric patches --%3E%3Crect x='85' y='60' width='8' height='8' rx='1' fill='url(%23dollPink)' stroke='rgba(255,150,180,0.15)' stroke-width='0.4' transform='rotate(10 89 64)'/%3E%3Crect x='3' y='75' width='6' height='6' rx='0.8' fill='url(%23dollLavender)' stroke='rgba(180,150,200,0.12)' stroke-width='0.3' transform='rotate(-8 6 78)'/%3E%3C!-- Tiny paintbrush --%3E%3Cg transform='translate(65, 82) rotate(-15)'%3E%3Crect x='0' y='-1' width='12' height='2' rx='0.5' fill='url(%23dollWood)'/%3E%3Crect x='12' y='-1.5' width='4' height='3' rx='0.3' fill='url(%23dollGold)'/%3E%3Cpath d='M16 -1 Q18 0 16 1' fill='rgba(200,160,120,0.25)'/%3E%3C/g%3E%3C!-- Lavender thread spool (smaller) --%3E%3Cg transform='translate(88, 72)'%3E%3Crect x='0' y='0' width='7' height='10' rx='0.8' fill='url(%23dollLavender)' stroke='rgba(180,150,200,0.15)' stroke-width='0.4'/%3E%3Crect x='0.5' y='-0.5' width='6' height='1.5' rx='0.4' fill='url(%23dollCream)'/%3E%3Crect x='0.5' y='9' width='6' height='1.5' rx='0.4' fill='url(%23dollCream)'/%3E%3C/g%3E%3C!-- Magic sparkles around the scene --%3E%3Ccircle cx='25' cy='18' r='1.5' fill='url(%23dollSparkle)'/%3E%3Cpath d='M25 16 L25 20 M23 18 L27 18' stroke='rgba(255,255,255,0.25)' stroke-width='0.5' stroke-linecap='round'/%3E%3Ccircle cx='70' cy='28' r='1.2' fill='url(%23dollSparkle)'/%3E%3Cpath d='M70 26.5 L70 29.5 M68.5 28 L71.5 28' stroke='rgba(255,255,255,0.2)' stroke-width='0.4' stroke-linecap='round'/%3E%3Ccircle cx='58' cy='42' r='1' fill='url(%23dollSparkle)'/%3E%3Cpath d='M58 40.8 L58 43.2 M56.8 42 L59.2 42' stroke='rgba(255,255,255,0.18)' stroke-width='0.35' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='55' r='0.9' fill='url(%23dollSparkle)'/%3E%3Cpath d='M32 54 L32 56 M31 55 L33 55' stroke='rgba(255,255,255,0.15)' stroke-width='0.3' stroke-linecap='round'/%3E%3Ccircle cx='78' cy='48' r='1.1' fill='url(%23dollSparkle)'/%3E%3Cpath d='M78 46.8 L78 49.2 M76.8 48 L79.2 48' stroke='rgba(255,255,255,0.18)' stroke-width='0.35' stroke-linecap='round'/%3E%3Ccircle cx='15' cy='35' r='0.8' fill='url(%23dollSparkle)'/%3E%3Ccircle cx='85' cy='35' r='0.7' fill='url(%23dollSparkle)'/%3E%3Ccircle cx='42' cy='12' r='0.9' fill='url(%23dollSparkle)'/%3E%3Ccircle cx='92' cy='55' r='0.6' fill='url(%23dollSparkle)'/%3E%3Ccircle cx='5' cy='45' r='0.7' fill='url(%23dollSparkle)'/%3E%3C!-- Golden dust particles --%3E%3Ccircle cx='30' cy='28' r='0.5' fill='rgba(255,200,100,0.15)'/%3E%3Ccircle cx='65' cy='35' r='0.4' fill='rgba(255,200,100,0.12)'/%3E%3Ccircle cx='22' cy='48' r='0.45' fill='rgba(255,200,100,0.1)'/%3E%3Ccircle cx='75' cy='55' r='0.5' fill='rgba(255,200,100,0.12)'/%3E%3Ccircle cx='45' cy='65' r='0.4' fill='rgba(255,200,100,0.1)'/%3E%3Ccircle cx='55' cy='20' r='0.35' fill='rgba(255,200,100,0.1)'/%3E%3Ccircle cx='12' cy='25' r='0.4' fill='rgba(255,180,200,0.12)'/%3E%3Ccircle cx='88' cy='42' r='0.35' fill='rgba(200,170,220,0.1)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Doll Repair Workshop ambient glow with pink, lavender, cream, and golden accents */
+.game-page__about[data-decoration="doll-repair-workshop"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(255, 180, 200, 0.06) 0%, rgba(200, 170, 220, 0.04) 25%, rgba(255, 200, 150, 0.03) 45%, rgba(255, 250, 240, 0.02) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -4892,6 +4918,21 @@ h3 {
     height: 300px;
   }
 
+  /* Doll Repair Workshop tablet */
+  .game-page__about[data-decoration="doll-repair-workshop"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="doll-repair-workshop"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -5922,6 +5963,21 @@ h3 {
     height: 240px;
   }
 
+  /* Doll Repair Workshop mobile */
+  .game-page__about[data-decoration="doll-repair-workshop"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="doll-repair-workshop"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -6799,6 +6855,21 @@ h3 {
     width: 190px;
     height: 190px;
   }
+
+  /* Doll Repair Workshop small mobile */
+  .game-page__about[data-decoration="doll-repair-workshop"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="doll-repair-workshop"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
 }
 
 /* ---------- Extra small: ≤380px ---------- */
@@ -6915,7 +6986,8 @@ h3 {
   .game-page__about[data-decoration="helix-drop"]::after,
   .game-page__about[data-decoration="delivery-rush"]::after,
   .game-page__about[data-decoration="checkers-classic"]::after,
-  .game-page__about[data-decoration="2048-puzzle"]::after {
+  .game-page__about[data-decoration="2048-puzzle"]::after,
+  .game-page__about[data-decoration="doll-repair-workshop"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

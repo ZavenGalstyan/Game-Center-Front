@@ -89,6 +89,7 @@ const GAME_TAGLINES = {
   "Backgammon Classic": "Roll the dice, plan your moves, and outsmart your opponent in a timeless game of strategy and skill.",
   "Memory Cards": "Flip beautifully designed cards, discover matching pairs, and challenge your memory to clear the board as quickly as possible.",
   "2048 Puzzle": "Slide and merge matching number tiles, plan your moves carefully, and challenge yourself to reach the legendary 2048 tile.",
+  "Doll Repair Workshop": "Restore broken dolls, discover creative repair techniques, and build your dream workshop one beautiful makeover at a time.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -158,6 +159,7 @@ const GAME_DECORATIONS = {
   "Backgammon Classic": "backgammon-classic",
   "Memory Cards": "memory-cards",
   "2048 Puzzle": "2048-puzzle",
+  "Doll Repair Workshop": "doll-repair-workshop",
 };
 
 // Fallback: generate a short tagline from description if not predefined
