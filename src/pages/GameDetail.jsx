@@ -76,7 +76,7 @@ const GAME_TAGLINES = {
   "Dimension Dash": "Shift between dimensions and dash through high-speed challenges.",
   "Bowling Master 3D": "AIM • ROLL • STRIKE",
   "Darts Championship 3D": "AIM • THROW • BULLSEYE",
-  "Archery Master 3D": "AIM • SHOOT • CONQUER",
+  "Archery Master 3D": "Master your aim, hit challenging targets, and conquer 50 exciting archery levels across five unique worlds.",
   "Haunted Mansion Escape": "EXPLORE • SOLVE • ESCAPE",
   "Space Station Escape": "REPAIR • UNLOCK • SURVIVE",
   "Outpost 47: Frozen Secrets": "EXPLORE • SURVIVE • UNCOVER",
@@ -137,6 +137,7 @@ const GAME_DECORATIONS = {
   "Color Platforms": "color-platforms",
   "Mario Adventure 3D": "mario-adventure",
   "Dimension Dash": "dimension-dash",
+  "Archery Master 3D": "archery-master",
 };
 
 // Fallback: generate a short tagline from description if not predefined
