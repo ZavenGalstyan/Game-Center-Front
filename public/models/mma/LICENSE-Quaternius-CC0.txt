@@ -1,0 +1,19 @@
+Ultimate MMA Championship 3D — 3D assets
+
+fighter.glb, body_dark.jpg
+  "Universal Base Characters" (Standard) by Quaternius — Superhero_Male_FullBody,
+  hairstyles (Buzzed, Simple Parted, Beard, Long), eye/hair/body textures
+  (resized to JPEG; the roughness texture's R channel now holds a shorts mask).
+  https://quaternius.itch.io/universal-base-characters
+
+anims.glb
+  "Universal Animation Library" (Standard) by Quaternius
+  https://opengameart.org/content/universal-animation-library
+  "Universal Animation Library 2" (Standard) by Quaternius
+  https://opengameart.org/content/universal-animation-library-2
+  Selected clips resampled to 30 fps; finger and scale tracks removed.
+
+License: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Models by @Quaternius — https://www.patreon.com/quaternius

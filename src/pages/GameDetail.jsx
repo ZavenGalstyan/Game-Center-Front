@@ -80,6 +80,8 @@ const GAME_TAGLINES = {
   "Haunted Mansion Escape": "EXPLORE • SOLVE • ESCAPE",
   "Space Station Escape": "REPAIR • UNLOCK • SURVIVE",
   "Outpost 47: Frozen Secrets": "EXPLORE • SURVIVE • UNCOVER",
+  "Motel 6: Last Guest": "CHECK • DECIDE • SURVIVE",
+  "Ultimate MMA Championship 3D": "FIGHT • DOMINATE • BECOME CHAMPION",
   "Air Hockey": "Challenge a smart AI opponent, defend your goal, and score seven goals to win an exciting neon air hockey match.",
   "Swimming Champions": "Dive into thrilling races, challenge skilled AI swimmers, and swim your way to victory across multiple championship distances.",
   "Ping Pong Clash": "Challenge a skilled AI opponent, master powerful spins and precise shots, and dominate every fast-paced table tennis match.",

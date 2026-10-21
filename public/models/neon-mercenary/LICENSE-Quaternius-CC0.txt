@@ -1,0 +1,22 @@
+Neon Mercenary — 3D character assets
+
+male.glb, female.glb, m_dark.jpg, f_dark.jpg
+  "Universal Base Characters" (Standard) by Quaternius — Superhero_Male_FullBody,
+  Superhero_Female_FullBody, hairstyles (Buzzed, Simple Parted, Beard, Long, Buns,
+  Buzzed Female), eye / hair / body textures (resized to JPEG).
+  https://quaternius.itch.io/universal-base-characters
+
+anims.glb
+  "Universal Animation Library" (Standard) by Quaternius
+  https://opengameart.org/content/universal-animation-library
+  "Universal Animation Library 2" (Standard) by Quaternius
+  https://opengameart.org/content/universal-animation-library-2
+  Selected clips resampled to 30 fps; finger, scale and root tracks removed.
+
+Clothing, armour, cyberware, weapons, robots and drones are generated in code
+by the game (render/gear.js, render/robots.js) — no other third-party assets.
+
+License: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Models by @Quaternius — https://www.patreon.com/quaternius

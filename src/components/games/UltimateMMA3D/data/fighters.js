@@ -1,0 +1,237 @@
+/**
+ * Twelve fictional fighters (any resemblance to real athletes is coincidental).
+ *
+ * Attributes (40–99):
+ *   power     striking power            speed     hand/foot speed (startup)
+ *   cardio    stamina pool & recovery   footwork  movement speed, dodge quality
+ *   defense   striking defence / chin-tucking (blocks, slips)
+ *   chin      durability (knockdown resistance)
+ *   grappling wrestling / top control   tdd       takedown defence
+ *   subs      submission offence & defence
+ *
+ * `ai` personality (0–1): aggression, patience (waits to counter), kicks
+ * (kick vs punch preference), body (body-shot preference), grapple (takedown /
+ * clinch appetite), subHunt (goes for submissions on the ground), clinch.
+ *
+ * `look` drives render/rig.js. `scale` = height / 183 cm, girth ≈ weight class.
+ */
+export const STYLES = {
+  boxer: { name: "Boxer", blurb: "Fast hands, slick head movement, devastating combinations." },
+  kickboxer: { name: "Kickboxer", blurb: "Long-range kicks and crisp punches with excellent distance control." },
+  wrestler: { name: "Wrestler", blurb: "Relentless takedowns, crushing top control and ground-and-pound." },
+  bjj: { name: "Brazilian Jiu-Jitsu", blurb: "Dangerous off the back — every scramble is a submission threat." },
+  muaythai: { name: "Muay Thai", blurb: "Heavy kicks, knees and elbows; a monster in the clinch." },
+  mma: { name: "Balanced MMA", blurb: "No weaknesses: strikes, wrestles and submits in equal measure." },
+};
+
+const F = (o) => o;
+
+export const FIGHTERS = [
+  F({
+    id: "vale",
+    name: "Marcus Vale",
+    nick: "Iron",
+    nation: "United States",
+    flag: "🇺🇸",
+    height: 183,
+    weight: 77,
+    reach: 188,
+    style: "boxer",
+    record: [18, 3],
+    attrs: { power: 82, speed: 90, cardio: 78, footwork: 86, defense: 85, chin: 76, grappling: 52, tdd: 70, subs: 45 },
+    combos: ["1-2-3", "1-1-2", "2-3-2"],
+    ai: { aggression: 0.6, patience: 0.6, kicks: 0.08, body: 0.35, grapple: 0.05, subHunt: 0.1, clinch: 0.15 },
+    look: { skinTex: "light", skinTint: "#f4d9c4", shorts: "#14213d", accent: "#fca311", gloves: "#111111", gloveTrim: "#fca311", hair: "Hair_SimpleParted", beard: false, hairColor: "#3b2a1a", scale: 1.0, girth: 1.0 },
+  }),
+  F({
+    id: "moraes",
+    name: "Rafael Moraes",
+    nick: "Aranha",
+    nation: "Brazil",
+    flag: "🇧🇷",
+    height: 185,
+    weight: 84,
+    reach: 191,
+    style: "bjj",
+    record: [21, 4],
+    attrs: { power: 66, speed: 72, cardio: 84, footwork: 70, defense: 66, chin: 74, grappling: 82, tdd: 66, subs: 96 },
+    combos: ["1-2", "2-lk"],
+    ai: { aggression: 0.45, patience: 0.4, kicks: 0.25, body: 0.2, grapple: 0.62, subHunt: 0.95, clinch: 0.35 },
+    look: { skinTex: "light", skinTint: "#e7bd98", shorts: "#0b7a3a", accent: "#ffd400", gloves: "#0d0d0d", gloveTrim: "#ffd400", hair: "Hair_Long", beard: true, hairColor: "#20140c", scale: 1.01, girth: 1.02 },
+  }),
+  F({
+    id: "volkov",
+    name: "Dmitri Volkov",
+    nick: "The Bear",
+    nation: "Russia",
+    flag: "🇷🇺",
+    height: 180,
+    weight: 93,
+    reach: 183,
+    style: "wrestler",
+    record: [24, 1],
+    attrs: { power: 80, speed: 68, cardio: 90, footwork: 66, defense: 68, chin: 88, grappling: 96, tdd: 92, subs: 72 },
+    combos: ["1-2", "1-2-up"],
+    ai: { aggression: 0.75, patience: 0.25, kicks: 0.1, body: 0.25, grapple: 0.9, subHunt: 0.35, clinch: 0.6 },
+    look: { skinTex: "light", skinTint: "#f6e0d0", shorts: "#c8102e", accent: "#ffffff", gloves: "#151515", gloveTrim: "#c8102e", hair: "Hair_Buzzed", beard: true, hairColor: "#4a3423", scale: 0.985, girth: 1.08 },
+  }),
+  F({
+    id: "takeda",
+    name: "Kenji Takeda",
+    nick: "Raijin",
+    nation: "Japan",
+    flag: "🇯🇵",
+    height: 178,
+    weight: 70,
+    reach: 180,
+    style: "kickboxer",
+    record: [16, 4],
+    attrs: { power: 76, speed: 92, cardio: 80, footwork: 92, defense: 78, chin: 66, grappling: 56, tdd: 68, subs: 58 },
+    combos: ["2-lk", "body-head", "1-2-bk"],
+    ai: { aggression: 0.55, patience: 0.55, kicks: 0.6, body: 0.4, grapple: 0.06, subHunt: 0.2, clinch: 0.1 },
+    look: { skinTex: "light", skinTint: "#f0d2b0", shorts: "#ffffff", accent: "#bc002d", gloves: "#bc002d", gloveTrim: "#ffffff", hair: "Hair_Buzzed", beard: false, hairColor: "#0b0b0b", scale: 0.975, girth: 0.95 },
+  }),
+  F({
+    id: "kaewsai",
+    name: "Somchai Kaewsai",
+    nick: "Elbow King",
+    nation: "Thailand",
+    flag: "🇹🇭",
+    height: 176,
+    weight: 70,
+    reach: 181,
+    style: "muaythai",
+    record: [30, 6],
+    attrs: { power: 84, speed: 82, cardio: 88, footwork: 74, defense: 76, chin: 82, grappling: 60, tdd: 74, subs: 50 },
+    combos: ["2-lk", "1-2-bk", "body-head"],
+    ai: { aggression: 0.65, patience: 0.45, kicks: 0.65, body: 0.45, grapple: 0.12, subHunt: 0.1, clinch: 0.75 },
+    look: { skinTex: "dark", skinTint: "#f1c9a6", shorts: "#1a3a8f", accent: "#ff3b3b", gloves: "#1a3a8f", gloveTrim: "#ffffff", hair: "Hair_Buzzed", beard: false, hairColor: "#0b0b0b", scale: 0.965, girth: 0.95 },
+  }),
+  F({
+    id: "petrosyan",
+    name: "Arman Petrosyan",
+    nick: "Ararat",
+    nation: "Armenia",
+    flag: "🇦🇲",
+    height: 181,
+    weight: 77,
+    reach: 185,
+    style: "mma",
+    record: [19, 2],
+    attrs: { power: 82, speed: 82, cardio: 84, footwork: 80, defense: 80, chin: 82, grappling: 82, tdd: 84, subs: 80 },
+    combos: ["1-2-3", "jab-body-head", "2-3-lk"],
+    ai: { aggression: 0.6, patience: 0.5, kicks: 0.35, body: 0.35, grapple: 0.4, subHunt: 0.5, clinch: 0.35 },
+    look: { skinTex: "light", skinTint: "#ecc7a6", shorts: "#d90012", accent: "#f2a800", gloves: "#0033a0", gloveTrim: "#f2a800", hair: "Hair_SimpleParted", beard: true, hairColor: "#1b120b", scale: 0.99, girth: 1.0 },
+  }),
+  F({
+    id: "brooks",
+    name: "Tyrone Brooks",
+    nick: "Hammer",
+    nation: "United States",
+    flag: "🇺🇸",
+    height: 188,
+    weight: 93,
+    reach: 198,
+    style: "boxer",
+    record: [15, 5],
+    attrs: { power: 96, speed: 76, cardio: 68, footwork: 72, defense: 72, chin: 84, grappling: 50, tdd: 64, subs: 40 },
+    combos: ["2-3-2", "1-2-up", "1-2"],
+    ai: { aggression: 0.82, patience: 0.2, kicks: 0.05, body: 0.3, grapple: 0.04, subHunt: 0.05, clinch: 0.2 },
+    look: { skinTex: "dark", skinTint: "#d39a74", shorts: "#000000", accent: "#d4af37", gloves: "#d4af37", gloveTrim: "#111111", hair: "Hair_Buzzed", beard: true, hairColor: "#0a0a0a", scale: 1.03, girth: 1.08 },
+  }),
+  F({
+    id: "castillo",
+    name: "Andrés Castillo",
+    nick: "El Toro",
+    nation: "Mexico",
+    flag: "🇲🇽",
+    height: 179,
+    weight: 77,
+    reach: 182,
+    style: "mma",
+    record: [22, 7],
+    attrs: { power: 86, speed: 78, cardio: 86, footwork: 74, defense: 70, chin: 92, grappling: 74, tdd: 76, subs: 64 },
+    combos: ["2-3-2", "1-2-3", "2-lk"],
+    ai: { aggression: 0.85, patience: 0.2, kicks: 0.3, body: 0.5, grapple: 0.3, subHunt: 0.3, clinch: 0.4 },
+    look: { skinTex: "light", skinTint: "#d9a57c", shorts: "#006847", accent: "#ce1126", gloves: "#ce1126", gloveTrim: "#ffffff", hair: "Hair_SimpleParted", beard: true, hairColor: "#140c06", scale: 0.98, girth: 1.03 },
+  }),
+  F({
+    id: "orourke",
+    name: "Liam O'Rourke",
+    nick: "The Celt",
+    nation: "Ireland",
+    flag: "🇮🇪",
+    height: 186,
+    weight: 77,
+    reach: 193,
+    style: "kickboxer",
+    record: [17, 3],
+    attrs: { power: 84, speed: 86, cardio: 74, footwork: 88, defense: 80, chin: 72, grappling: 60, tdd: 76, subs: 56 },
+    combos: ["1-2-bk", "2-lk", "jab-body-head"],
+    ai: { aggression: 0.6, patience: 0.65, kicks: 0.55, body: 0.3, grapple: 0.08, subHunt: 0.15, clinch: 0.15 },
+    look: { skinTex: "light", skinTint: "#fbe6d6", shorts: "#169b62", accent: "#ff883e", gloves: "#111111", gloveTrim: "#169b62", hair: "Hair_Buzzed", beard: true, hairColor: "#8a4b22", scale: 1.015, girth: 0.97 },
+  }),
+  F({
+    id: "halvorsen",
+    name: "Jonas Halvorsen",
+    nick: "Viking",
+    nation: "Norway",
+    flag: "🇳🇴",
+    height: 191,
+    weight: 102,
+    reach: 196,
+    style: "bjj",
+    record: [14, 3],
+    attrs: { power: 84, speed: 64, cardio: 72, footwork: 62, defense: 66, chin: 86, grappling: 86, tdd: 78, subs: 90 },
+    combos: ["1-2", "1-2-up"],
+    ai: { aggression: 0.5, patience: 0.45, kicks: 0.15, body: 0.25, grapple: 0.55, subHunt: 0.9, clinch: 0.55 },
+    look: { skinTex: "light", skinTint: "#fff0e4", shorts: "#00205b", accent: "#ba0c2f", gloves: "#151515", gloveTrim: "#ffffff", hair: "Hair_Long", beard: true, hairColor: "#b5874a", scale: 1.045, girth: 1.1 },
+  }),
+  F({
+    id: "mensah",
+    name: "Kwame Mensah",
+    nick: "Panther",
+    nation: "Ghana",
+    flag: "🇬🇭",
+    height: 184,
+    weight: 84,
+    reach: 194,
+    style: "muaythai",
+    record: [20, 4],
+    attrs: { power: 88, speed: 86, cardio: 80, footwork: 80, defense: 74, chin: 78, grappling: 64, tdd: 78, subs: 52 },
+    combos: ["body-head", "2-3-lk", "1-2-bk"],
+    ai: { aggression: 0.7, patience: 0.4, kicks: 0.55, body: 0.45, grapple: 0.15, subHunt: 0.1, clinch: 0.7 },
+    look: { skinTex: "dark", skinTint: "#a5704e", shorts: "#000000", accent: "#fcd116", gloves: "#006b3f", gloveTrim: "#fcd116", hair: "Hair_Buzzed", beard: false, hairColor: "#050505", scale: 1.005, girth: 1.02 },
+  }),
+  F({
+    id: "beridze",
+    name: "Aleksandre Beridze",
+    nick: "The Lion",
+    nation: "Georgia",
+    flag: "🇬🇪",
+    height: 182,
+    weight: 84,
+    reach: 186,
+    style: "wrestler",
+    record: [18, 2],
+    attrs: { power: 78, speed: 74, cardio: 88, footwork: 72, defense: 72, chin: 84, grappling: 92, tdd: 90, subs: 76 },
+    combos: ["1-2", "2-3-2"],
+    ai: { aggression: 0.7, patience: 0.35, kicks: 0.15, body: 0.3, grapple: 0.82, subHunt: 0.45, clinch: 0.65 },
+    look: { skinTex: "light", skinTint: "#efcbb0", shorts: "#ffffff", accent: "#da291c", gloves: "#da291c", gloveTrim: "#ffffff", hair: "Hair_SimpleParted", beard: true, hairColor: "#120b06", scale: 0.995, girth: 1.04 },
+  }),
+];
+
+export const FIGHTER_BY_ID = Object.fromEntries(FIGHTERS.map((f) => [f.id, f]));
+
+/** Display stats (the five headline numbers on the select screen). */
+export function headline(attrs) {
+  return {
+    Strength: Math.round(attrs.power),
+    Speed: Math.round((attrs.speed * 2 + attrs.footwork) / 3),
+    Stamina: Math.round(attrs.cardio),
+    Grappling: Math.round((attrs.grappling * 2 + attrs.subs) / 3),
+    Defense: Math.round((attrs.defense * 2 + attrs.tdd + attrs.chin) / 4),
+  };
+}
+
+export const overall = (a) => Math.round((a.power + a.speed + a.cardio + a.footwork + a.defense + a.chin + a.grappling + a.tdd + a.subs) / 9);
