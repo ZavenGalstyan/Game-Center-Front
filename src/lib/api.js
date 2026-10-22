@@ -164,6 +164,22 @@ export const api = {
   unlikeGame: (gameId) =>
     request(`/api/games/${gameId}/like`, { method: "DELETE", auth: true, raw: true }),
 
+  /* ------------------------------ Game ratings ----------------------------- */
+
+  // Public. Sends the token when there is one so `myRating` is filled in.
+  // Returns { averageRating, ratingsCount, ratingDistribution, myRating }.
+  getRatingSummary: (gameId) =>
+    request(`/api/games/${gameId}/ratings/summary`, { auth: true }),
+
+  // Authenticated-only; ratings are final (409 if already rated).
+  // Returns { rating: { gameId, rating, createdAt }, summary }.
+  submitRating: (gameId, rating) =>
+    request(`/api/games/${gameId}/ratings`, {
+      method: "POST",
+      auth: true,
+      body: { rating },
+    }),
+
   // Backend shape varies: { items, total } or the standard { data, pagination }.
   getMyLikedGames: ({ limit = 12, offset = 0 } = {}) => {
     const qs = new URLSearchParams({

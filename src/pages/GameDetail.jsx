@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
+import { Link, useOutletContext, useParams } from "react-router-dom";
 import { api } from "../lib/api.js";
 import GamePlayer from "../components/game/GamePlayer.jsx";
 import GameLikeButton from "../components/game/GameLikeButton.jsx";
+import GameRatingPanel from "../components/rating/GameRatingPanel.jsx";
+import RatingBadge from "../components/rating/RatingBadge.jsx";
 import GameRenderer from "../components/games/GameRenderer.jsx";
 import { getGameComponent, gameSupportsMute } from "../components/games/registry.js";
 import { getMainCategory, getSecondaryCategories } from "../lib/gameHelpers.jsx";
@@ -86,6 +88,8 @@ const GAME_TAGLINES = {
   "Swimming Champions": "Dive into thrilling races, challenge skilled AI swimmers, and swim your way to victory across multiple championship distances.",
   "Ping Pong Clash": "Challenge a skilled AI opponent, master powerful spins and precise shots, and dominate every fast-paced table tennis match.",
   "Color Switch": "Jump through rotating obstacles, match vibrant colors, and test your reflexes in an exciting arcade challenge.",
+  "Flappy Wings": "TAP • FLY • SURVIVE",
+  "Dot Connect": "CONNECT • THINK • COMPLETE",
   "Snake Classic": "Guide your growing snake, collect glowing food, and avoid crashing as you chase your highest score.",
   "Checkers Classic": "Plan your moves, capture your opponent's pieces, and become a master of classic checkers strategy.",
   "Backgammon Classic": "Roll the dice, plan your moves, and outsmart your opponent in a timeless game of strategy and skill.",
@@ -180,11 +184,19 @@ export default function GameDetail() {
   const [state, setState] = useState("loading"); // loading | ok | notfound | error
   const [restartNonce, setRestartNonce] = useState(0);
   const [muted, setMuted] = useState(false);
+  const openAuth = useOutletContext()?.openAuth;
+
+  // Latest backend rating stats reported by the ratings panel, kept apart from
+  // `game` so a new rating never hands GameRenderer a new game object.
+  const [ratingStats, setRatingStats] = useState(null);
+  const onRatingStatsChange = useCallback((stats) => setRatingStats(stats), []);
+  const requestLogin = useCallback(() => openAuth?.("login"), [openAuth]);
 
   useEffect(() => {
     let cancelled = false;
     setState("loading");
     setRestartNonce(0);
+    setRatingStats(null);
     api
       .getGame(id)
       .then((data) => {
@@ -251,6 +263,9 @@ export default function GameDetail() {
               {mainCategory.name}
             </Link>
           )}
+          <a href="#ratings" className="game-page__rating-link" aria-label="Jump to player ratings">
+            <RatingBadge game={ratingStats || game} />
+          </a>
         </div>
         {getTagline(game) && (
           <p className="game-page__tagline">{getTagline(game)}</p>
@@ -293,6 +308,14 @@ export default function GameDetail() {
         </div>
         <p className="game-page__about-text">{game.description}</p>
       </section>
+
+      <GameRatingPanel
+        key={game.id || game._id}
+        gameId={game.id || game._id}
+        initialStats={{ averageRating: game.averageRating, ratingsCount: game.ratingsCount }}
+        onStatsChange={onRatingStatsChange}
+        onRequestLogin={requestLogin}
+      />
     </article>
   );
 }

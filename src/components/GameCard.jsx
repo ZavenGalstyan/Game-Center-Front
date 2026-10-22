@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Badge } from "./ui";
 import { getGameDisplayTags, getGameArtwork } from "../lib/gameHelpers.jsx";
+import RatingBadge from "./rating/RatingBadge.jsx";
 
 /**
  * GameCard - Compact horizontal gaming card matching Stumble Guys reference.
@@ -73,6 +74,10 @@ export default function GameCard({ game }) {
         )}
 
         <p className="game-card__desc">{game.description}</p>
+
+        <div className="game-card__rating">
+          <RatingBadge game={game} />
+        </div>
 
         {/* Play button - white icon on dark green */}
         <div className="game-card__play" aria-hidden="true">
