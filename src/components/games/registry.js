@@ -353,6 +353,18 @@ const HillRider = lazy(() => import("./HillRider/HillRider.jsx"));
  *  tick in real time, three mini-games, shop + achievements (Casual); lazy
  *  for consistency, its chunk stays small. */
 const MyLittleBuddy = lazy(() => import("./MyLittleBuddy/MyLittleBuddy.jsx"));
+
+/** Color Clash — a DOM/CSS four-colour shedding card game (you vs. 3 AI);
+ *  lazy so the catalogue doesn't pull in its rules engine and card art. */
+const ColorClash = lazy(() => import("./ColorClash/ColorClash.jsx"));
+/** Spider Royale — Spider Solitaire (1/2/4 suits, Classic + Timed) in plain
+ *  DOM/CSS with original card art; lazy so its rules and art stay off the catalogue. */
+const SpiderRoyale = lazy(() => import("./SpiderRoyale/SpiderRoyale.jsx"));
+/** Trump Masters — Durak (36 cards, Classic Throw-in or Transfer) vs. 1–3 AI
+ *  in plain DOM/CSS with original card art; lazy so its rules engine and art
+ *  stay off the catalogue. */
+const TrumpMasters = lazy(() => import("./TrumpMasters/TrumpMasters.jsx"));
+
 /** Color Switch — bounce a ball through spinning four-colour rings on a
  *  single 2D canvas (Arcade); lazy for consistency, its chunk stays tiny. */
 const ColorSwitch = lazy(() => import("./ColorSwitch/ColorSwitch.jsx"));
@@ -498,6 +510,9 @@ const GAME_COMPONENTS = {
   "Maze Muncher": MazeMuncher,
   "Hill Rider": HillRider,
   "My Little Buddy": MyLittleBuddy,
+  "Color Clash": ColorClash,
+  "Spider Royale": SpiderRoyale,
+  "Trump Masters": TrumpMasters,
   "Color Switch": ColorSwitch,
   "Air Hockey": AirHockey,
   "Dinosaur Island 3D": DinosaurIsland3D,
@@ -519,7 +534,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D", "Zombie Outbreak", "Mario Adventure 3D", "Dimension Dash", "Web Hero: City Defender", "Web Hero", "Urban Skate Rush", "Alpine Rush", "Ping Pong Clash", "Backgammon Classic", "Checkers Classic", "Swimming Champions", "Zoo Simulator 3D", "Prison Escape 3D", "Sky Combat 3D", "Throw Masters", "Tank Warfare 3D", "Wild Kingdom 3D", "School Life Simulator 3D", "Hulk: Open World 3D", "Vice Streets 3D", "Doll Repair Workshop", "Texas Hold'em Poker", "Texas Hold’em Poker", "Armenian Blot Heritage", "2048 Puzzle", "Snake Classic", "Memory Cards", "Color Switch", "Air Hockey", "Dinosaur Island 3D", "Bowling Master 3D", "Darts Championship 3D", "Archery Master 3D", "Haunted Mansion Escape", "Space Station Escape", "Outpost 47: Frozen Secrets", "Motel 6: Last Guest", "Ultimate MMA Championship 3D", "Neon Mercenary", "Flappy Wings", "Dot Connect", "Fruit Slice", "Mahjong Classic", "Maze Muncher", "Hill Rider", "My Little Buddy"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D", "Zombie Outbreak", "Mario Adventure 3D", "Dimension Dash", "Web Hero: City Defender", "Web Hero", "Urban Skate Rush", "Alpine Rush", "Ping Pong Clash", "Backgammon Classic", "Checkers Classic", "Swimming Champions", "Zoo Simulator 3D", "Prison Escape 3D", "Sky Combat 3D", "Throw Masters", "Tank Warfare 3D", "Wild Kingdom 3D", "School Life Simulator 3D", "Hulk: Open World 3D", "Vice Streets 3D", "Doll Repair Workshop", "Texas Hold'em Poker", "Texas Hold’em Poker", "Armenian Blot Heritage", "2048 Puzzle", "Snake Classic", "Memory Cards", "Color Switch", "Air Hockey", "Dinosaur Island 3D", "Bowling Master 3D", "Darts Championship 3D", "Archery Master 3D", "Haunted Mansion Escape", "Space Station Escape", "Outpost 47: Frozen Secrets", "Motel 6: Last Guest", "Ultimate MMA Championship 3D", "Neon Mercenary", "Flappy Wings", "Dot Connect", "Fruit Slice", "Mahjong Classic", "Maze Muncher", "Hill Rider", "My Little Buddy", "Color Clash", "Spider Royale", "Trump Masters"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different
