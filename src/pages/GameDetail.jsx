@@ -90,6 +90,7 @@ const GAME_TAGLINES = {
   "Color Switch": "Jump through rotating obstacles, match vibrant colors, and test your reflexes in an exciting arcade challenge.",
   "Flappy Wings": "TAP • FLY • SURVIVE",
   "Dot Connect": "CONNECT • THINK • COMPLETE",
+  "Fruit Slice": "SLICE • COMBO • SURVIVE",
   "Snake Classic": "Guide your growing snake, collect glowing food, and avoid crashing as you chase your highest score.",
   "Checkers Classic": "Plan your moves, capture your opponent's pieces, and become a master of classic checkers strategy.",
   "Backgammon Classic": "Roll the dice, plan your moves, and outsmart your opponent in a timeless game of strategy and skill.",
