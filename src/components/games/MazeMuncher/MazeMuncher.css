@@ -1,0 +1,174 @@
+/* Maze Muncher — scoped under .mm. The root is a size container so overlays
+   scale with the GamePlayer stage (and fullscreen). */
+.mm {
+  container: mm / size;
+  position: relative;
+  overflow: hidden;
+  color: #eaf2ff;
+  background:
+    radial-gradient(70% 60% at 50% 40%, rgba(60, 40, 140, 0.35), transparent 70%),
+    radial-gradient(50% 50% at 0% 100%, rgba(0, 200, 255, 0.12), transparent 70%),
+    linear-gradient(180deg, #07061a, #030310);
+  font-family: "Nunito", "Segoe UI", system-ui, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.mm-stage {
+  position: absolute;
+  inset: 0;
+  touch-action: none; /* swipes steer instead of scrolling the page */
+  overscroll-behavior: contain;
+  -webkit-tap-highlight-color: transparent;
+}
+.mm-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mm-pause {
+  position: absolute;
+  top: max(8px, 2cqh);
+  right: max(8px, 1.6cqw);
+  display: flex;
+  gap: 18%;
+  align-items: center;
+  justify-content: center;
+  width: max(34px, 7cqh);
+  height: max(34px, 7cqh);
+  border: 1px solid rgba(122, 247, 255, 0.4);
+  border-radius: 50%;
+  background: rgba(10, 10, 40, 0.6);
+  cursor: pointer;
+}
+.mm-pause span { width: 14%; height: 40%; border-radius: 2px; background: #7af7ff; }
+.mm-pause:focus-visible { outline: 2px solid #7af7ff; outline-offset: 2px; }
+
+/* ---------- overlays ---------- */
+.mm-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 3cqh 3cqw;
+  background: rgba(4, 3, 18, 0.72);
+  animation: mm-fade 0.3s;
+  overflow-y: auto;
+}
+.mm-overlay--paused { background: rgba(4, 3, 18, 0.55); }
+.mm-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: min(2.2cqh, 14px);
+  width: min(92cqw, 640px);
+  text-align: center;
+  animation: mm-pop 0.35s cubic-bezier(0.3, 1.4, 0.6, 1);
+}
+.mm-title {
+  margin: 0;
+  font-size: clamp(28px, 11cqh, 84px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: #fff36b;
+  text-shadow: 0 0 0.25em rgba(255, 220, 60, 0.6);
+}
+.mm-title span { color: #7af7ff; text-shadow: 0 0 0.25em rgba(122, 247, 255, 0.7); }
+.mm-tag { margin: 0; font-size: clamp(10px, 2.4cqh, 16px); font-weight: 900; letter-spacing: 0.35em; color: #ff7ad9; }
+.mm-head {
+  margin: 0;
+  font-size: clamp(26px, 9cqh, 64px);
+  font-weight: 900;
+  color: #fff36b;
+  text-shadow: 0 0 0.3em rgba(255, 220, 60, 0.6);
+}
+.mm-head.is-over { color: #ff3b5c; text-shadow: 0 0 0.3em rgba(255, 59, 92, 0.6); }
+.mm-kicker { margin: 0; font-size: clamp(11px, 2.4cqh, 16px); font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; color: #7af7ff; }
+.mm-text { margin: 0; max-width: 46ch; font-size: clamp(12px, 2.6cqh, 17px); line-height: 1.4; color: #c7d2f0; }
+.mm-text .c-orb { color: #7af7ff; }
+.mm-hint { margin: 0; font-size: clamp(10px, 2.1cqh, 14px); color: #8f9bc2; }
+.mm-hint b { color: #ffd95a; }
+
+.mm-crew { display: flex; flex-wrap: wrap; justify-content: center; gap: min(1.6cqw, 12px); }
+.mm-crew span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 6px;
+  border: 1px solid color-mix(in srgb, var(--c) 50%, transparent);
+  border-radius: 99px;
+  font-size: clamp(11px, 2.3cqh, 15px);
+  font-weight: 900;
+  color: var(--c);
+}
+.mm-crew small { font-weight: 700; color: #8f9bc2; }
+.mm-crew i { width: 12px; height: 12px; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px var(--c); }
+
+.mm-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: min(100%, 420px); }
+.mm-stats div {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 4px;
+  border: 1px solid rgba(122, 247, 255, 0.25);
+  border-radius: 12px;
+  background: rgba(122, 247, 255, 0.06);
+}
+.mm-stats span { font-size: clamp(9px, 1.8cqh, 12px); font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #8f9bc2; }
+.mm-stats b { font-size: clamp(16px, 4.4cqh, 28px); font-weight: 900; font-variant-numeric: tabular-nums; }
+
+.mm-btn {
+  min-width: min(60cqw, 220px);
+  padding: clamp(7px, 1.8cqh, 13px) 22px;
+  border: 1px solid rgba(122, 247, 255, 0.35);
+  border-radius: 99px;
+  background: rgba(122, 247, 255, 0.08);
+  color: #eaf2ff;
+  font: inherit;
+  font-size: clamp(13px, 2.8cqh, 18px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.12s, background 0.15s, box-shadow 0.15s;
+}
+.mm-btn:hover { background: rgba(122, 247, 255, 0.16); }
+.mm-btn:active { transform: scale(0.96); }
+.mm-btn:focus-visible { outline: 2px solid #fff36b; outline-offset: 3px; }
+.mm-btn--main {
+  border-color: transparent;
+  background: linear-gradient(180deg, #fff36b, #ffb800);
+  color: #2a1a00;
+  box-shadow: 0 0 22px rgba(255, 200, 40, 0.45);
+}
+.mm-btn--main:hover { background: linear-gradient(180deg, #fff9a8, #ffc42e); box-shadow: 0 0 30px rgba(255, 200, 40, 0.65); }
+
+.mm-levels { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.mm-lvl {
+  width: clamp(28px, 6cqh, 40px);
+  height: clamp(28px, 6cqh, 40px);
+  border: 1px solid rgba(122, 247, 255, 0.35);
+  border-radius: 8px;
+  background: rgba(122, 247, 255, 0.08);
+  color: #eaf2ff;
+  font: inherit;
+  font-size: clamp(11px, 2.3cqh, 15px);
+  font-weight: 900;
+  cursor: pointer;
+}
+.mm-lvl:hover:not(:disabled) { background: rgba(122, 247, 255, 0.2); }
+.mm-lvl:disabled { opacity: 0.3; cursor: default; }
+
+@keyframes mm-fade { from { opacity: 0; } }
+@keyframes mm-pop { from { opacity: 0; transform: scale(0.85); } }
+
+/* very short stages (phones in landscape): drop the extras */
+@container mm (max-height: 300px) {
+  .mm-crew, .mm-text { display: none; }
+  .mm-card { gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-overlay, .mm-card { animation: none; }
+}
