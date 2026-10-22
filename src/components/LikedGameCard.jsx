@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Badge } from "./ui";
 import { getGameArtwork } from "../lib/gameHelpers.jsx";
+import RatingBadge from "./rating/RatingBadge.jsx";
 
 /**
  * Card for one liked game in the Account "Liked Games" section.
@@ -102,6 +103,8 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
         {game.description && (
           <p className="liked-game-card__desc">{game.description}</p>
         )}
+
+        <RatingBadge game={game} className="liked-game-card__rating" />
 
         <span className="liked-game-card__status">
           <IconHeart /> Liked

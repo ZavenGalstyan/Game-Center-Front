@@ -4,6 +4,7 @@ import { useAuth } from "../auth/AuthContext.jsx";
 import { useGameTypes } from "../data/gameTypes.jsx";
 import { api } from "../lib/api.js";
 import { getMainCategory, getSecondaryCategories } from "../lib/gameHelpers.jsx";
+import RatingBadge from "../components/rating/RatingBadge.jsx";
 import {
   mapServerErrors,
   validateGameDescription,
@@ -328,6 +329,7 @@ export default function AdminGames() {
                 <tr>
                   <th>Name</th>
                   <th>Categories</th>
+                  <th>Rating</th>
                   <th>Created</th>
                   <th aria-label="Actions"></th>
                 </tr>
@@ -358,6 +360,9 @@ export default function AdminGames() {
                         <span className="admin-games__type-empty">—</span>
                       )}
                     </td>
+                    <td className="admin-games__rating">
+                      <RatingBadge game={g} />
+                    </td>
                     <td className="admin-games__date">
                       {new Date(g.createdAt).toLocaleDateString(undefined, {
                         year: "numeric",
@@ -378,7 +383,7 @@ export default function AdminGames() {
                 ))}
                 {games.length === 0 && (
                   <tr>
-                    <td colSpan={4} className="admin-games__empty">
+                    <td colSpan={5} className="admin-games__empty">
                       No games yet. Click "Add game" to create one.
                     </td>
                   </tr>

@@ -1,0 +1,197 @@
+/* Flappy Wings — scoped under .fw. The root is a size container so overlays
+   scale with the GamePlayer stage (and fullscreen). */
+.fw {
+  --ink: #173a5c;
+  --gold: #ffd23f;
+  --orange: #ff8a1f;
+  container-type: size;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #8fd6fb;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  font-family: "Nunito", "Segoe UI Rounded", ui-rounded, "Segoe UI", system-ui, sans-serif;
+}
+.fw-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fw-pause {
+  position: absolute;
+  top: max(10px, 2.5cqh);
+  right: max(10px, 2.5cqh);
+  display: grid;
+  place-items: center;
+  width: clamp(36px, 8cqh, 52px);
+  height: clamp(36px, 8cqh, 52px);
+  padding: 0;
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 3px 0 var(--ink);
+  cursor: pointer;
+}
+.fw-pause svg {
+  width: 60%;
+  fill: var(--ink);
+}
+.fw-pause:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--ink);
+}
+
+.fw-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  animation: fw-in 0.25s ease-out both;
+}
+.fw-overlay--dim {
+  background: rgba(10, 30, 55, 0.35);
+}
+/* let the bird fall before the game-over card appears */
+.fw-overlay--late {
+  animation-delay: 0.55s;
+}
+.fw-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 2.4cqh, 18px);
+  max-width: min(440px, 92cqw);
+  padding: clamp(16px, 5cqh, 34px) clamp(20px, 6cqw, 44px);
+  border: 4px solid var(--ink);
+  border-radius: 22px;
+  background: #fff8e1;
+  box-shadow: 0 6px 0 var(--ink), 0 18px 40px rgba(10, 30, 55, 0.3);
+  color: var(--ink);
+  text-align: center;
+  cursor: default;
+}
+.fw-title {
+  margin: 0;
+  font-size: clamp(30px, 11cqh, 68px);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--gold);
+  -webkit-text-stroke: clamp(1.5px, 0.6cqh, 3px) var(--ink);
+  paint-order: stroke fill;
+  text-shadow: 0 4px 0 var(--ink);
+}
+.fw-tag {
+  margin: 0;
+  font-size: clamp(11px, 2.6cqh, 16px);
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  color: #3d7fb0;
+}
+.fw-head {
+  margin: 0;
+  font-size: clamp(26px, 8cqh, 48px);
+  font-weight: 900;
+  color: var(--orange);
+  -webkit-text-stroke: clamp(1px, 0.5cqh, 2.5px) var(--ink);
+  paint-order: stroke fill;
+}
+.fw-btn {
+  min-width: 9em;
+  padding: 0.55em 1.6em;
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  background: linear-gradient(#7ee35a, #4cb83a);
+  box-shadow: 0 5px 0 #2f7f22, 0 5px 0 3px var(--ink);
+  color: #fff;
+  font: inherit;
+  font-size: clamp(16px, 4.4cqh, 24px);
+  font-weight: 900;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.08s;
+}
+.fw-btn:hover {
+  filter: brightness(1.06);
+}
+.fw-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #2f7f22, 0 1px 0 3px var(--ink);
+}
+.fw-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+.fw-hint,
+.fw-best {
+  margin: 0;
+  font-size: clamp(11px, 2.4cqh, 14px);
+  font-weight: 700;
+  color: #5d7a94;
+}
+.fw-best {
+  font-weight: 900;
+  color: var(--ink);
+}
+.fw-scores {
+  display: flex;
+  gap: clamp(14px, 5cqw, 36px);
+}
+.fw-scores div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 4.5em;
+  padding: 0.4em 0.9em;
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  background: #ffe9a8;
+}
+.fw-scores span {
+  font-size: clamp(10px, 2.2cqh, 13px);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #b06b00;
+}
+.fw-scores strong {
+  font-size: clamp(24px, 7.5cqh, 42px);
+  font-weight: 900;
+  line-height: 1.1;
+}
+.fw-badge {
+  margin: 0;
+  padding: 0.25em 0.9em;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #fff;
+  font-size: clamp(12px, 2.6cqh, 15px);
+  font-weight: 900;
+  animation: fw-pulse 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes fw-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+}
+@keyframes fw-pulse {
+  to {
+    transform: scale(1.08);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fw-overlay,
+  .fw-badge {
+    animation: none;
+  }
+}
