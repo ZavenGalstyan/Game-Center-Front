@@ -1,0 +1,58 @@
+<!doctype html>
+<!-- DEV level viewer: /src/components/games/GravitySketch/tools/viewer.html?ids=1,2,3&t=2,6
+     Row per level: the start (with the solution ghost), then snapshots at the
+     given seconds while the reference solution plays. -->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body { margin: 0; background: #222; color: #eee; font: 14px system-ui; }
+    .row { display: flex; gap: 6px; padding: 6px; align-items: flex-start; }
+    .row b { width: 120px; flex: none; }
+    canvas { width: 480px; height: 270px; background: #fff; }
+    .cap { font-size: 12px; }
+  </style>
+</head>
+<body>
+  <script type="module">
+    import * as E from "../engine.js";
+    import { drawScene } from "../render.js";
+    import { LEVELS } from "../levels.js";
+    const q = new URLSearchParams(location.search);
+    const ids = (q.get("ids") || "1").split(",").map(Number);
+    const times = (q.get("t") || "1.5,4").split(",").map(Number);
+    const mk = (row, label) => {
+      const wrap = document.createElement("div");
+      const c = document.createElement("canvas");
+      c.width = 960; c.height = 540;
+      const cap = document.createElement("div");
+      cap.className = "cap"; cap.textContent = label;
+      wrap.append(c, cap); row.append(wrap);
+      const ctx = c.getContext("2d");
+      ctx.setTransform(960 / E.W, 0, 0, 960 / E.W, 0, 0);
+      return ctx;
+    };
+    for (const id of ids) {
+      const L = LEVELS[id - 1];
+      const row = document.createElement("div");
+      row.className = "row";
+      row.innerHTML = `<b>${id}. ${L.name}</b>`;
+      document.body.append(row);
+      const s0 = E.createSim(L);
+      drawScene(mk(row, "start + hint"), s0, { ghost: L.sol.map((x) => x.pts) });
+      const sim = E.createSim(L);
+      let qi = 0;
+      for (const T of times) {
+        while (sim.time < T && sim.state !== "won" && sim.state !== "failed") {
+          while (qi < L.sol.length && (sim.time >= L.sol[qi].t || !sim.started)) (E.drawPoints(sim, L.sol[qi].pts), qi++);
+          if (!sim.started) break;
+          E.step(sim);
+          sim.events.length = 0;
+        }
+        drawScene(mk(row, `t=${sim.time.toFixed(1)} ${sim.state}`), sim, {});
+      }
+    }
+    window.__done = true;
+  </script>
+</body>
+</html>
