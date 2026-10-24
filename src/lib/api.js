@@ -27,7 +27,10 @@ export const tokenStore = {
 
 /**
  * Low-level request helper.
- * Throws { status, message, errors } on any non-2xx response or network failure.
+ * Throws { status, message, errors, code, retryAfter } on any non-2xx response
+ * or network failure. `code` is the backend's machine-readable error code
+ * (e.g. COMMENT_LIMIT_REACHED) and `retryAfter` the Retry-After header in
+ * seconds; both are null when absent.
  * Returns the `data` payload of the success envelope on success.
  */
 async function request(path, { method = "GET", body, auth = false, raw = false } = {}) {
@@ -49,6 +52,8 @@ async function request(path, { method = "GET", body, auth = false, raw = false }
       status: 0,
       message: "Cannot reach the server. Is the backend running?",
       errors: null,
+      code: null,
+      retryAfter: null,
     };
   }
 
@@ -56,10 +61,13 @@ async function request(path, { method = "GET", body, auth = false, raw = false }
 
   if (!res.ok) {
     if (res.status === 401) tokenStore.clear();
+    const retryAfter = Number.parseInt(res.headers.get("Retry-After"), 10);
     throw {
       status: res.status,
       message: json.message || "Request failed",
       errors: json.errors || null,
+      code: json.code || null,
+      retryAfter: Number.isFinite(retryAfter) ? retryAfter : null,
     };
   }
 
@@ -178,6 +186,57 @@ export const api = {
       method: "POST",
       auth: true,
       body: { rating },
+    }),
+
+  /* ----------------------------- Game comments ----------------------------- */
+
+  // Public. Sends the token when there is one so `isOwner` is filled in. A
+  // stale token makes the backend answer 401 even here, so retry once as a
+  // guest (comments stay readable) and flag it so the caller can drop the
+  // expired session. Returns { data: Comment[], pagination, authExpired }.
+  listComments: async (gameId, { limit = 10, offset = 0, sort = "newest" } = {}) => {
+    const qs = new URLSearchParams({
+      limit: String(limit),
+      offset: String(offset),
+      sort,
+    });
+    const path = `/api/games/${gameId}/comments?${qs.toString()}`;
+    const hadToken = Boolean(tokenStore.get());
+    try {
+      const json = await request(path, { auth: true, raw: true });
+      return { ...json, authExpired: false };
+    } catch (err) {
+      if (err?.status !== 401 || !hadToken) throw err;
+      const json = await request(path, { raw: true });
+      return { ...json, authExpired: true };
+    }
+  },
+
+  // Authenticated-only. Returns { count, limit, remaining, canComment }.
+  getMyCommentCount: (gameId) =>
+    request(`/api/games/${gameId}/comments/me/count`, { auth: true }),
+
+  // Returns { comment, allowance }.
+  createComment: (gameId, content) =>
+    request(`/api/games/${gameId}/comments`, {
+      method: "POST",
+      auth: true,
+      body: { content },
+    }),
+
+  // Owner only. Returns { comment }.
+  updateComment: (gameId, commentId, content) =>
+    request(`/api/games/${gameId}/comments/${commentId}`, {
+      method: "PATCH",
+      auth: true,
+      body: { content },
+    }),
+
+  // Owner only. Returns { deletedCommentId, allowance }.
+  deleteComment: (gameId, commentId) =>
+    request(`/api/games/${gameId}/comments/${commentId}`, {
+      method: "DELETE",
+      auth: true,
     }),
 
   // Backend shape varies: { items, total } or the standard { data, pagination }.
