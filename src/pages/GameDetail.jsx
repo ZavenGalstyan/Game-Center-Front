@@ -97,7 +97,6 @@ const GAME_TAGLINES = {
   "Color Clash": "MATCH • PLAY • WIN",
   "Spider Royale": "STACK • STRATEGIZE • SOLVE",
   "Trump Masters": "ATTACK • DEFEND • OUTSMART",
-  "Crazy Cards": "MATCH • SWITCH • WIN",
   "Block Escape": "Slide colorful blocks, clear a path to the exit, and challenge your logic across 100 increasingly difficult puzzles.",
   "Neon Circuit": "Light up the board, discover the right sequence, and solve glowing neon puzzles across 100 challenging levels.",
   "Gravity Sketch": "Draw shapes, use gravity, and solve creative physics puzzles across increasingly challenging levels.",
@@ -188,11 +187,19 @@ const GAME_DECORATIONS = {
   "Gravity Sketch": "gravity-sketch",
   "Neon Circuit": "neon-circuit",
   "Block Escape": "block-escape",
+  "Crazy Cards": "crazy-cards",
+};
+
+// Short descriptions displayed below the tagline (only for games that need it)
+const GAME_SHORT_DESCRIPTIONS = {
+  "Crazy Cards": "Match cards by color or rank, play powerful eights, and outsmart your opponents in fast-paced card battles.",
 };
 
 // Fallback: generate a short tagline from description if not predefined
 function getTagline(game) {
   if (GAME_TAGLINES[game.name]) return GAME_TAGLINES[game.name];
+  // Skip fallback for games with a short description (they don't need a tagline)
+  if (GAME_SHORT_DESCRIPTIONS[game.name]) return null;
   // For other games, use first sentence or short excerpt
   if (!game.description) return null;
   const firstSentence = game.description.split(/[.!?]/)[0];
@@ -291,6 +298,9 @@ export default function GameDetail() {
         </div>
         {getTagline(game) && (
           <p className="game-page__tagline">{getTagline(game)}</p>
+        )}
+        {GAME_SHORT_DESCRIPTIONS[game.name] && (
+          <p className="game-page__short-desc">{GAME_SHORT_DESCRIPTIONS[game.name]}</p>
         )}
       </header>
 

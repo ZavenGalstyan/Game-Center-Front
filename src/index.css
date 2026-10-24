@@ -2210,6 +2210,16 @@ h3 {
   color: var(--text-secondary);
 }
 
+.game-page__short-desc {
+  margin: 0;
+  max-width: 600px;
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-relaxed);
+  color: var(--text-secondary);
+}
+
 /* ---------- Game Player Shell ---------- */
 .game-player {
   width: 100%;
@@ -4084,6 +4094,32 @@ h3 {
   z-index: -1;
 }
 
+/* Crazy Cards decoration - overlapping playing cards with suit symbols and subtle red/gold/blue accents */
+.game-page__about[data-decoration="crazy-cards"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -35px;
+  bottom: -55px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Back card (rotated left) --%3E%3Crect x='28' y='22' width='32' height='48' rx='3' fill='rgba(0,232,143,0.015)' stroke='rgba(0,232,143,0.04)' stroke-width='1.5' transform='rotate(-12 44 46)'/%3E%3Crect x='31' y='25' width='26' height='42' rx='2' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='0.8' transform='rotate(-12 44 46)'/%3E%3C!-- Middle card (rotated right) --%3E%3Crect x='40' y='18' width='32' height='48' rx='3' fill='rgba(0,232,143,0.02)' stroke='rgba(0,232,143,0.05)' stroke-width='1.5' transform='rotate(8 56 42)'/%3E%3Crect x='43' y='21' width='26' height='42' rx='2' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='0.8' transform='rotate(8 56 42)'/%3E%3C!-- Front card (main, slight tilt) --%3E%3Crect x='52' y='25' width='32' height='48' rx='3' fill='rgba(0,232,143,0.025)' stroke='rgba(0,232,143,0.06)' stroke-width='1.8' transform='rotate(-3 68 49)'/%3E%3Crect x='55' y='28' width='26' height='42' rx='2' fill='none' stroke='rgba(0,232,143,0.035)' stroke-width='0.8' transform='rotate(-3 68 49)'/%3E%3C!-- Spade suit on front card --%3E%3Cpath d='M68 42 C68 38 63 36 63 40 C63 44 68 46 68 46 C68 46 73 44 73 40 C73 36 68 38 68 42 Z' fill='rgba(0,232,143,0.05)' transform='rotate(-3 68 49)'/%3E%3Cpath d='M68 46 L66 52 L70 52 Z' fill='rgba(0,232,143,0.04)' transform='rotate(-3 68 49)'/%3E%3C!-- Heart suit (red accent) on middle card --%3E%3Cpath d='M58 35 C55 32 50 34 50 38 C50 44 58 48 58 48 C58 48 66 44 66 38 C66 34 61 32 58 35 Z' fill='rgba(220,38,38,0.04)' stroke='rgba(220,38,38,0.05)' stroke-width='0.5' transform='rotate(8 56 42)'/%3E%3C!-- Diamond suit (gold accent) on back card --%3E%3Cpath d='M44 40 L48 46 L44 52 L40 46 Z' fill='rgba(218,165,32,0.035)' stroke='rgba(218,165,32,0.045)' stroke-width='0.5' transform='rotate(-12 44 46)'/%3E%3C!-- Club suit floating --%3E%3Ccircle cx='82' cy='72' r='4' fill='rgba(0,232,143,0.035)'/%3E%3Ccircle cx='78' cy='68' r='3.5' fill='rgba(0,232,143,0.03)'/%3E%3Ccircle cx='86' cy='68' r='3.5' fill='rgba(0,232,143,0.03)'/%3E%3Cpath d='M82 75 L80 82 L84 82 Z' fill='rgba(0,232,143,0.025)'/%3E%3C!-- Floating heart (red) --%3E%3Cpath d='M30 75 C28 73 25 74 25 76 C25 79 30 82 30 82 C30 82 35 79 35 76 C35 74 32 73 30 75 Z' fill='rgba(220,38,38,0.03)' stroke='rgba(220,38,38,0.04)' stroke-width='0.4'/%3E%3C!-- Floating diamond (gold) --%3E%3Cpath d='M90 45 L93 50 L90 55 L87 50 Z' fill='rgba(218,165,32,0.03)' stroke='rgba(218,165,32,0.04)' stroke-width='0.4'/%3E%3C!-- Small 8 symbol (for Crazy Eights) --%3E%3Ctext x='68' y='60' font-family='Georgia, serif' font-size='8' font-weight='bold' fill='rgba(0,232,143,0.045)' transform='rotate(-3 68 49)'%3E8%3C/text%3E%3C!-- Subtle blue accent sparkle --%3E%3Ccircle cx='25' cy='55' r='2' fill='rgba(59,130,246,0.04)'/%3E%3Ccircle cx='27' cy='52' r='1.2' fill='rgba(59,130,246,0.03)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Crazy Cards ambient glow with subtle red, gold, and blue accents */
+.game-page__about[data-decoration="crazy-cards"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(ellipse 55% 50% at 55% 55%, rgba(0, 232, 143, 0.035) 0%, rgba(220, 38, 38, 0.015) 30%, rgba(218, 165, 32, 0.012) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5261,6 +5297,21 @@ h3 {
     height: 300px;
   }
 
+  /* Crazy Cards tablet */
+  .game-page__about[data-decoration="crazy-cards"]::before {
+    right: -28px;
+    bottom: -45px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .game-page__about[data-decoration="crazy-cards"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 310px;
+    height: 310px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -6426,6 +6477,25 @@ h3 {
     height: 240px;
   }
 
+  /* Crazy Cards mobile */
+  .game-page__about[data-decoration="crazy-cards"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__about[data-decoration="crazy-cards"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .game-page__short-desc {
+    font-size: var(--font-md);
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -7438,6 +7508,25 @@ h3 {
     width: 190px;
     height: 190px;
   }
+
+  /* Crazy Cards small mobile */
+  .game-page__about[data-decoration="crazy-cards"]::before {
+    right: -15px;
+    bottom: -28px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="crazy-cards"]::after {
+    right: -25px;
+    bottom: -38px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__short-desc {
+    font-size: var(--font-md);
+  }
 }
 
 /* ---------- Extra small: ≤380px ---------- */
@@ -7610,6 +7699,22 @@ h3 {
 
   .game-page__about[data-decoration="neon-circuit"]::after {
     display: none; /* Hide glow on very small screens */
+  }
+
+  /* Crazy Cards extra small */
+  .game-page__about[data-decoration="crazy-cards"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .game-page__about[data-decoration="crazy-cards"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  .game-page__short-desc {
+    font-size: var(--font-sm-plus);
   }
 
   .game-page__about-eyebrow {
