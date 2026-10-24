@@ -88,7 +88,7 @@ const GAME_TAGLINES = {
   "Swimming Champions": "Dive into thrilling races, challenge skilled AI swimmers, and swim your way to victory across multiple championship distances.",
   "Ping Pong Clash": "Challenge a skilled AI opponent, master powerful spins and precise shots, and dominate every fast-paced table tennis match.",
   "Color Switch": "Jump through rotating obstacles, match vibrant colors, and test your reflexes in an exciting arcade challenge.",
-  "Flappy Wings": "TAP • FLY • SURVIVE",
+  "Flappy Wings": "Tap to keep your bird flying, dodge tricky pipes, and beat your highest score in an endless sky adventure.",
   "Dot Connect": "CONNECT • THINK • COMPLETE",
   "Fruit Slice": "Slice flying fruit, unleash juicy combos, dodge dangerous bombs, and chase your highest score.",
   "Mahjong Classic": "MATCH • CLEAR • RELAX",
@@ -182,6 +182,7 @@ const GAME_DECORATIONS = {
   "Doll Repair Workshop": "doll-repair-workshop",
   "Maze Muncher": "maze-muncher",
   "Fruit Slice": "fruit-slice",
+  "Flappy Wings": "flappy-wings",
 };
 
 // Fallback: generate a short tagline from description if not predefined
