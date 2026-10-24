@@ -99,8 +99,8 @@ const GAME_TAGLINES = {
   "Trump Masters": "ATTACK • DEFEND • OUTSMART",
   "Crazy Cards": "MATCH • SWITCH • WIN",
   "Block Escape": "SLIDE • THINK • ESCAPE",
-  "Neon Circuit": "TAP • TOGGLE • SOLVE",
-  "Gravity Sketch": "DRAW • DROP • SOLVE",
+  "Neon Circuit": "Light up the board, discover the right sequence, and solve glowing neon puzzles across 100 challenging levels.",
+  "Gravity Sketch": "Draw shapes, use gravity, and solve creative physics puzzles across increasingly challenging levels.",
   "Escape 100: Mystery Doors": "100 Doors. 100 Mysteries. One Way Out.",
   "Escape 100": "100 Doors. 100 Mysteries. One Way Out.",
   "Snake Classic": "Guide your growing snake, collect glowing food, and avoid crashing as you chase your highest score.",
@@ -185,6 +185,8 @@ const GAME_DECORATIONS = {
   "Flappy Wings": "flappy-wings",
   "Mahjong Classic": "mahjong-classic",
   "Dot Connect": "dot-connect",
+  "Gravity Sketch": "gravity-sketch",
+  "Neon Circuit": "neon-circuit",
 };
 
 // Fallback: generate a short tagline from description if not predefined
