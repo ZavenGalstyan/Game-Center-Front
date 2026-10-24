@@ -77,6 +77,7 @@ import mahjongClassicBg from "../images/MahjongClassic.png";
 import dotConnectBg from "../images/DotConnect.png";
 import gravitySketchBg from "../images/GravitySketch.png";
 import neonCircuitBg from "../images/NeonCircuit.png";
+import blockEscapeBg from "../images/BlockEscape.png";
 
 /**
  * Category to icon mapping.
@@ -1084,6 +1085,7 @@ const GAME_CARD_BACKGROUNDS = {
   "dot connect": { image: dotConnectBg, shade: WIDE_ART_SHADE },
   "gravity sketch": { image: gravitySketchBg, shade: WIDE_ART_SHADE },
   "neon circuit": { image: neonCircuitBg, shade: WIDE_ART_SHADE },
+  "block escape": { image: blockEscapeBg, shade: WIDE_ART_SHADE },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();

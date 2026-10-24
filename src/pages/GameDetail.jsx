@@ -98,7 +98,7 @@ const GAME_TAGLINES = {
   "Spider Royale": "STACK • STRATEGIZE • SOLVE",
   "Trump Masters": "ATTACK • DEFEND • OUTSMART",
   "Crazy Cards": "MATCH • SWITCH • WIN",
-  "Block Escape": "SLIDE • THINK • ESCAPE",
+  "Block Escape": "Slide colorful blocks, clear a path to the exit, and challenge your logic across 100 increasingly difficult puzzles.",
   "Neon Circuit": "Light up the board, discover the right sequence, and solve glowing neon puzzles across 100 challenging levels.",
   "Gravity Sketch": "Draw shapes, use gravity, and solve creative physics puzzles across increasingly challenging levels.",
   "Escape 100: Mystery Doors": "100 Doors. 100 Mysteries. One Way Out.",
@@ -187,6 +187,7 @@ const GAME_DECORATIONS = {
   "Dot Connect": "dot-connect",
   "Gravity Sketch": "gravity-sketch",
   "Neon Circuit": "neon-circuit",
+  "Block Escape": "block-escape",
 };
 
 // Fallback: generate a short tagline from description if not predefined

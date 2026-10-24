@@ -4058,6 +4058,32 @@ h3 {
   z-index: -1;
 }
 
+/* Block Escape decoration - sliding-block puzzle board with wooden frame, colorful blocks, and red escape block */
+.game-page__about[data-decoration="block-escape"]::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  right: -30px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='beWoodFrame' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23b8860b' stop-opacity='0.07'/%3E%3Cstop offset='50%25' stop-color='%238b6914' stop-opacity='0.055'/%3E%3Cstop offset='100%25' stop-color='%23654321' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='beRedBlock' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23dc2626' stop-opacity='0.09'/%3E%3Cstop offset='100%25' stop-color='%23b91c1c' stop-opacity='0.06'/%3E%3C/linearGradient%3E%3ClinearGradient id='beBlueBlock' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6' stop-opacity='0.07'/%3E%3Cstop offset='100%25' stop-color='%232563eb' stop-opacity='0.045'/%3E%3C/linearGradient%3E%3ClinearGradient id='beGreenBlock' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e88f' stop-opacity='0.06'/%3E%3Cstop offset='100%25' stop-color='%2300c878' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='beYellowBlock' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fbbf24' stop-opacity='0.07'/%3E%3Cstop offset='100%25' stop-color='%23f59e0b' stop-opacity='0.045'/%3E%3C/linearGradient%3E%3ClinearGradient id='bePurpleBlock' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b5cf6' stop-opacity='0.065'/%3E%3Cstop offset='100%25' stop-color='%237c3aed' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Wooden frame outer border --%3E%3Crect x='18' y='22' width='70' height='70' rx='4' fill='none' stroke='url(%23beWoodFrame)' stroke-width='5'/%3E%3C!-- Wooden frame inner edge --%3E%3Crect x='22' y='26' width='62' height='62' rx='2' fill='none' stroke='rgba(139,105,20,0.04)' stroke-width='1.5'/%3E%3C!-- Wood grain texture lines --%3E%3Cline x1='20' y1='30' x2='20' y2='85' stroke='rgba(139,105,20,0.025)' stroke-width='0.5'/%3E%3Cline x1='86' y1='30' x2='86' y2='85' stroke='rgba(139,105,20,0.025)' stroke-width='0.5'/%3E%3Cline x1='25' y1='24' x2='80' y2='24' stroke='rgba(139,105,20,0.02)' stroke-width='0.4'/%3E%3Cline x1='25' y1='90' x2='80' y2='90' stroke='rgba(139,105,20,0.02)' stroke-width='0.4'/%3E%3C!-- Exit notch on right side --%3E%3Crect x='84' y='50' width='8' height='14' fill='rgba(0,0,0,0.15)' rx='1'/%3E%3Cpath d='M88 50 L88 64' stroke='rgba(184,134,11,0.06)' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Grid background (6x6 puzzle) --%3E%3Crect x='25' y='29' width='56' height='56' fill='rgba(30,20,10,0.08)' rx='1'/%3E%3C!-- Red escape block (2x1 horizontal) pointing to exit --%3E%3Crect x='43' y='51' width='20' height='9' rx='1.5' fill='url(%23beRedBlock)' stroke='rgba(220,38,38,0.08)' stroke-width='1'/%3E%3C!-- Red block highlight --%3E%3Cline x1='45' y1='53' x2='60' y2='53' stroke='rgba(255,100,100,0.04)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Arrow on red block showing direction --%3E%3Cpath d='M56 55.5 L60 55.5 M58 53.5 L60 55.5 L58 57.5' stroke='rgba(255,255,255,0.06)' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Blue vertical block (1x2) --%3E%3Crect x='26' y='30' width='9' height='18' rx='1.5' fill='url(%23beBlueBlock)' stroke='rgba(59,130,246,0.06)' stroke-width='0.8'/%3E%3Cline x1='28' y1='32' x2='28' y2='45' stroke='rgba(100,150,255,0.03)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Yellow vertical block (1x3) --%3E%3Crect x='36' y='30' width='9' height='27' rx='1.5' fill='url(%23beYellowBlock)' stroke='rgba(251,191,36,0.06)' stroke-width='0.8'/%3E%3Cline x1='38' y1='32' x2='38' y2='54' stroke='rgba(255,210,100,0.03)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Green horizontal block (2x1) --%3E%3Crect x='46' y='30' width='18' height='9' rx='1.5' fill='url(%23beGreenBlock)' stroke='rgba(0,232,143,0.05)' stroke-width='0.8'/%3E%3Cline x1='48' y1='32' x2='61' y2='32' stroke='rgba(100,255,180,0.025)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Purple vertical block (1x2) --%3E%3Crect x='65' y='30' width='9' height='18' rx='1.5' fill='url(%23bePurpleBlock)' stroke='rgba(139,92,246,0.055)' stroke-width='0.8'/%3E%3Cline x1='67' y1='32' x2='67' y2='45' stroke='rgba(160,120,255,0.025)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Blue horizontal block (2x1) at bottom --%3E%3Crect x='26' y='74' width='18' height='9' rx='1.5' fill='url(%23beBlueBlock)' stroke='rgba(59,130,246,0.055)' stroke-width='0.8'/%3E%3Cline x1='28' y1='76' x2='41' y2='76' stroke='rgba(100,150,255,0.025)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Yellow square block (1x1) --%3E%3Crect x='26' y='51' width='9' height='9' rx='1.5' fill='url(%23beYellowBlock)' stroke='rgba(251,191,36,0.055)' stroke-width='0.8'/%3E%3C!-- Purple horizontal block (2x1) --%3E%3Crect x='55' y='65' width='18' height='9' rx='1.5' fill='url(%23bePurpleBlock)' stroke='rgba(139,92,246,0.05)' stroke-width='0.8'/%3E%3Cline x1='57' y1='67' x2='70' y2='67' stroke='rgba(160,120,255,0.02)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Green vertical block (1x2) --%3E%3Crect x='26' y='62' width='9' height='11' rx='1.5' fill='url(%23beGreenBlock)' stroke='rgba(0,232,143,0.045)' stroke-width='0.8'/%3E%3C!-- Golden corner accents --%3E%3Ccircle cx='22' cy='26' r='1.5' fill='rgba(218,165,32,0.06)'/%3E%3Ccircle cx='84' cy='26' r='1.5' fill='rgba(218,165,32,0.05)'/%3E%3Ccircle cx='22' cy='88' r='1.5' fill='rgba(218,165,32,0.05)'/%3E%3Ccircle cx='84' cy='88' r='1.5' fill='rgba(218,165,32,0.04)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Block Escape warm ambient glow */
+.game-page__about[data-decoration="block-escape"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(ellipse 60% 50% at 60% 60%, rgba(184, 134, 11, 0.035) 0%, rgba(220, 38, 38, 0.02) 35%, rgba(0, 232, 143, 0.015) 55%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5220,6 +5246,21 @@ h3 {
     height: 300px;
   }
 
+  /* Block Escape tablet */
+  .game-page__about[data-decoration="block-escape"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="block-escape"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -6370,6 +6411,21 @@ h3 {
     height: 240px;
   }
 
+  /* Block Escape mobile */
+  .game-page__about[data-decoration="block-escape"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="block-escape"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -7362,6 +7418,21 @@ h3 {
   }
 
   .game-page__about[data-decoration="neon-circuit"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Block Escape small mobile */
+  .game-page__about[data-decoration="block-escape"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="block-escape"]::after {
     right: -25px;
     bottom: -35px;
     width: 190px;
