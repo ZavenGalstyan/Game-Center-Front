@@ -89,7 +89,7 @@ const GAME_TAGLINES = {
   "Ping Pong Clash": "Challenge a skilled AI opponent, master powerful spins and precise shots, and dominate every fast-paced table tennis match.",
   "Color Switch": "Jump through rotating obstacles, match vibrant colors, and test your reflexes in an exciting arcade challenge.",
   "Flappy Wings": "Tap to keep your bird flying, dodge tricky pipes, and beat your highest score in an endless sky adventure.",
-  "Dot Connect": "CONNECT • THINK • COMPLETE",
+  "Dot Connect": "Connect matching colored dots, fill the board, and solve increasingly challenging puzzles across 50 levels.",
   "Fruit Slice": "Slice flying fruit, unleash juicy combos, dodge dangerous bombs, and chase your highest score.",
   "Mahjong Classic": "Match identical tiles, clear intricate layouts, and unwind with a timeless puzzle challenge.",
   "Maze Muncher": "CHOMP • DODGE • SURVIVE",
@@ -184,6 +184,7 @@ const GAME_DECORATIONS = {
   "Fruit Slice": "fruit-slice",
   "Flappy Wings": "flappy-wings",
   "Mahjong Classic": "mahjong-classic",
+  "Dot Connect": "dot-connect",
 };
 
 // Fallback: generate a short tagline from description if not predefined

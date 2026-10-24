@@ -3980,6 +3980,32 @@ h3 {
   z-index: -1;
 }
 
+/* Dot Connect decoration - colorful connected dots with flowing puzzle paths */
+.game-page__about[data-decoration="dot-connect"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='dotConnectGrad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff4466' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23ff6688' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='dotConnectGrad2' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2344aaff' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%236688ff' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='dotConnectGrad3' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2344ff88' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%2366ffaa' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='dotConnectGrad4' x1='100%25' y1='50%25' x2='0%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffcc44' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23ffdd66' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='dotConnectGrad5' x1='0%25' y1='50%25' x2='100%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff44ff' stop-opacity='0.07'/%3E%3Cstop offset='100%25' stop-color='%23ff88ff' stop-opacity='0.03'/%3E%3C/linearGradient%3E%3ClinearGradient id='dotConnectGrad6' x1='100%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2344ffff' stop-opacity='0.07'/%3E%3Cstop offset='100%25' stop-color='%2388ffff' stop-opacity='0.03'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='5' y='5' width='90' height='90' rx='8' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='1.5'/%3E%3Cline x1='5' y1='25' x2='95' y2='25' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='5' y1='45' x2='95' y2='45' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='5' y1='65' x2='95' y2='65' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='5' y1='85' x2='95' y2='85' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='25' y1='5' x2='25' y2='95' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='45' y1='5' x2='45' y2='95' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='65' y1='5' x2='65' y2='95' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='85' y1='5' x2='85' y2='95' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cpath d='M15 15 L15 35 L35 35' fill='none' stroke='url(%23dotConnectGrad1)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='15' cy='15' r='5' fill='url(%23dotConnectGrad1)'/%3E%3Ccircle cx='35' cy='35' r='5' fill='url(%23dotConnectGrad1)'/%3E%3Cpath d='M55 15 L55 35 L75 35 L75 55' fill='none' stroke='url(%23dotConnectGrad2)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='55' cy='15' r='5' fill='url(%23dotConnectGrad2)'/%3E%3Ccircle cx='75' cy='55' r='5' fill='url(%23dotConnectGrad2)'/%3E%3Cpath d='M35 55 L55 55 L55 75' fill='none' stroke='url(%23dotConnectGrad3)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='35' cy='55' r='5' fill='url(%23dotConnectGrad3)'/%3E%3Ccircle cx='55' cy='75' r='5' fill='url(%23dotConnectGrad3)'/%3E%3Cpath d='M85 25 L85 45 L65 45 L65 65' fill='none' stroke='url(%23dotConnectGrad4)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='85' cy='25' r='5' fill='url(%23dotConnectGrad4)'/%3E%3Ccircle cx='65' cy='65' r='5' fill='url(%23dotConnectGrad4)'/%3E%3Cpath d='M15 55 L15 75 L35 75 L35 85 L55 85' fill='none' stroke='url(%23dotConnectGrad5)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='15' cy='55' r='5' fill='url(%23dotConnectGrad5)'/%3E%3Ccircle cx='55' cy='85' r='5' fill='url(%23dotConnectGrad5)'/%3E%3Cpath d='M75 75 L85 75 L85 85' fill='none' stroke='url(%23dotConnectGrad6)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='75' cy='75' r='5' fill='url(%23dotConnectGrad6)'/%3E%3Ccircle cx='85' cy='85' r='5' fill='url(%23dotConnectGrad6)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Dot Connect ambient glow with neon colors matching the game */
+.game-page__about[data-decoration="dot-connect"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(68, 170, 255, 0.04) 0%, rgba(255, 68, 102, 0.035) 25%, rgba(68, 255, 136, 0.03) 45%, rgba(255, 204, 68, 0.025) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5097,6 +5123,21 @@ h3 {
     height: 300px;
   }
 
+  /* Dot Connect tablet */
+  .game-page__about[data-decoration="dot-connect"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="dot-connect"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -6202,6 +6243,21 @@ h3 {
     height: 240px;
   }
 
+  /* Dot Connect mobile */
+  .game-page__about[data-decoration="dot-connect"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="dot-connect"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -7154,6 +7210,21 @@ h3 {
     width: 190px;
     height: 190px;
   }
+
+  /* Dot Connect small mobile */
+  .game-page__about[data-decoration="dot-connect"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="dot-connect"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
 }
 
 /* ---------- Extra small: ≤380px ---------- */
@@ -7275,7 +7346,8 @@ h3 {
   .game-page__about[data-decoration="maze-muncher"]::after,
   .game-page__about[data-decoration="fruit-slice"]::after,
   .game-page__about[data-decoration="flappy-wings"]::after,
-  .game-page__about[data-decoration="mahjong-classic"]::after {
+  .game-page__about[data-decoration="mahjong-classic"]::after,
+  .game-page__about[data-decoration="dot-connect"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
@@ -7295,6 +7367,13 @@ h3 {
 
   .game-page__about[data-decoration="backgammon-classic"]::after {
     display: none; /* Hide glow on very small screens */
+  }
+
+  .game-page__about[data-decoration="dot-connect"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 120px;
+    height: 120px;
   }
 
   .game-page__about-eyebrow {

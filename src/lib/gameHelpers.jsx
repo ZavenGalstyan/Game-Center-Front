@@ -74,6 +74,7 @@ import mazeMuncherBg from "../images/MazeMuncher.png";
 import fruitSliceBg from "../images/FruitSlice.png";
 import flappyWingsBg from "../images/FlappyWings.png";
 import mahjongClassicBg from "../images/MahjongClassic.png";
+import dotConnectBg from "../images/DotConnect.png";
 
 /**
  * Category to icon mapping.
@@ -1078,6 +1079,7 @@ const GAME_CARD_BACKGROUNDS = {
   "fruit slice": { image: fruitSliceBg, shade: WIDE_ART_SHADE },
   "flappy wings": { image: flappyWingsBg, shade: WIDE_ART_SHADE },
   "mahjong classic": { image: mahjongClassicBg, shade: WIDE_ART_SHADE },
+  "dot connect": { image: dotConnectBg, shade: WIDE_ART_SHADE },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();

@@ -10,7 +10,8 @@
       "Bash(powershell -Command:*)",
       "Bash(timeout 15 npm run dev:*)",
       "Bash(timeout 8 npm run dev:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(npm install:*)"
     ]
   }
 }
