@@ -3954,6 +3954,32 @@ h3 {
   z-index: -1;
 }
 
+/* Mahjong Classic: elegant layered ivory tiles, traditional symbols, wooden board feel */
+.game-page__about[data-decoration="mahjong-classic"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='woodBg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(60,40,25,0.08)'/%3E%3Cstop offset='50%25' stop-color='rgba(50,35,20,0.06)'/%3E%3Cstop offset='100%25' stop-color='rgba(40,28,15,0.05)'/%3E%3C/linearGradient%3E%3ClinearGradient id='tileIvory' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,252,240,0.65)'/%3E%3Cstop offset='40%25' stop-color='rgba(250,245,230,0.55)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,235,220,0.48)'/%3E%3C/linearGradient%3E%3ClinearGradient id='tileSide' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(220,215,200,0.5)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,195,180,0.4)'/%3E%3C/linearGradient%3E%3ClinearGradient id='tileBottom' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(180,175,160,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(160,155,140,0.35)'/%3E%3C/linearGradient%3E%3ClinearGradient id='tileHighlight' x1='0%25' y1='0%25' x2='50%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.5)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/linearGradient%3E%3ClinearGradient id='matchGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,215,100,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,200,80,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,185,60,0.15)'/%3E%3C/linearGradient%3E%3ClinearGradient id='jadeGreen' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(60,150,100,0.6)'/%3E%3Cstop offset='50%25' stop-color='rgba(50,130,85,0.5)'/%3E%3Cstop offset='100%25' stop-color='rgba(40,110,70,0.42)'/%3E%3C/linearGradient%3E%3ClinearGradient id='circleRed' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,60,60,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(180,50,50,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(160,40,40,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='circleBlue' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(60,100,180,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(50,85,160,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(40,70,140,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='goldAccent' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(220,180,80,0.5)'/%3E%3Cstop offset='50%25' stop-color='rgba(200,160,60,0.4)'/%3E%3Cstop offset='100%25' stop-color='rgba(180,140,50,0.32)'/%3E%3C/linearGradient%3E%3CradialGradient id='circleGrad' cx='35%25' cy='35%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/radialGradient%3E%3Cfilter id='tileShadow'%3E%3CfeDropShadow dx='1' dy='1.5' stdDeviation='1' flood-color='rgba(0,0,0,0.2)'/%3E%3C/filter%3E%3Cfilter id='softGlow'%3E%3CfeGaussianBlur stdDeviation='0.8' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Wooden background --%3E%3Crect x='0' y='0' width='100' height='100' fill='url(%23woodBg)'/%3E%3C!-- Wood grain lines --%3E%3Cpath d='M5 15 Q25 12 45 16 Q65 20 85 14 Q95 12 100 15' fill='none' stroke='rgba(80,55,35,0.06)' stroke-width='0.8'/%3E%3Cpath d='M0 35 Q20 32 40 38 Q60 42 80 36 Q95 33 100 37' fill='none' stroke='rgba(80,55,35,0.05)' stroke-width='0.6'/%3E%3Cpath d='M5 55 Q25 58 45 53 Q65 48 85 55 Q95 58 100 54' fill='none' stroke='rgba(80,55,35,0.055)' stroke-width='0.7'/%3E%3Cpath d='M0 75 Q15 72 35 77 Q55 82 75 75 Q90 70 100 76' fill='none' stroke='rgba(80,55,35,0.05)' stroke-width='0.6'/%3E%3Cpath d='M5 92 Q30 88 50 93 Q70 97 95 91' fill='none' stroke='rgba(80,55,35,0.045)' stroke-width='0.5'/%3E%3C!-- Back layer tiles (stacked depth) --%3E%3Cg transform='translate(8, 8)' filter='url(%23tileShadow)' opacity='0.5'%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3C/g%3E%3Cg transform='translate(28, 5)' filter='url(%23tileShadow)' opacity='0.5'%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3C/g%3E%3Cg transform='translate(72, 10)' filter='url(%23tileShadow)' opacity='0.5'%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3C/g%3E%3C!-- Main tile 1: Bamboo tile (matched - glowing) --%3E%3Cg transform='translate(5, 22)' filter='url(%23softGlow)'%3E%3C!-- Match glow --%3E%3Crect x='-3' y='-3' width='22' height='26' rx='3' fill='url(%23matchGlow)'/%3E%3C!-- Tile base with 3D effect --%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3C!-- Highlight --%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Bamboo symbol (3 sticks) --%3E%3Crect x='4' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3Crect x='7' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3Crect x='10' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3C!-- Bamboo nodes --%3E%3Cellipse cx='5.1' cy='7' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='5.1' cy='13' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='8.1' cy='9' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='11.1' cy='7' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='11.1' cy='13' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3C/g%3E%3C!-- Main tile 2: Circle tile (red dots) --%3E%3Cg transform='translate(25, 18)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- 5 circles pattern --%3E%3Ccircle cx='8' cy='5' r='2.2' fill='url(%23circleRed)' stroke='rgba(180,50,50,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='4.5' cy='10' r='2.2' fill='url(%23circleRed)' stroke='rgba(180,50,50,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='11.5' cy='10' r='2.2' fill='url(%23circleRed)' stroke='rgba(180,50,50,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='4.5' cy='15' r='2.2' fill='url(%23circleRed)' stroke='rgba(180,50,50,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='11.5' cy='15' r='2.2' fill='url(%23circleRed)' stroke='rgba(180,50,50,0.2)' stroke-width='0.3'/%3E%3C!-- Circle highlights --%3E%3Ccircle cx='7' cy='4' r='0.8' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='3.5' cy='9' r='0.6' fill='rgba(255,255,255,0.25)'/%3E%3Ccircle cx='10.5' cy='9' r='0.6' fill='rgba(255,255,255,0.25)'/%3E%3C/g%3E%3C!-- Main tile 3: Character tile (Chinese numeral) --%3E%3Cg transform='translate(45, 25)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Chinese character for 'one' (yi) --%3E%3Crect x='4' y='5' width='8' height='1.8' rx='0.4' fill='rgba(30,30,40,0.55)'/%3E%3C!-- Wan character below --%3E%3Cpath d='M5 10 L11 10 M8 10 L8 15 M5 12.5 Q8 14 11 12.5' fill='none' stroke='rgba(180,50,50,0.5)' stroke-width='1' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Main tile 4: Bamboo tile (matched pair - glowing) --%3E%3Cg transform='translate(65, 20)' filter='url(%23softGlow)'%3E%3C!-- Match glow --%3E%3Crect x='-3' y='-3' width='22' height='26' rx='3' fill='url(%23matchGlow)'/%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Bamboo symbol (3 sticks - matching tile 1) --%3E%3Crect x='4' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3Crect x='7' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3Crect x='10' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3Cellipse cx='5.1' cy='7' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='5.1' cy='13' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='8.1' cy='9' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='11.1' cy='7' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='11.1' cy='13' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3C/g%3E%3C!-- Tile 5: Flower tile --%3E%3Cg transform='translate(15, 50)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Plum blossom flower --%3E%3Ccircle cx='8' cy='8' r='2' fill='rgba(220,80,100,0.5)'/%3E%3Ccircle cx='5.5' cy='6.5' r='1.8' fill='rgba(230,90,110,0.45)'/%3E%3Ccircle cx='10.5' cy='6.5' r='1.8' fill='rgba(230,90,110,0.45)'/%3E%3Ccircle cx='6' cy='10' r='1.8' fill='rgba(230,90,110,0.45)'/%3E%3Ccircle cx='10' cy='10' r='1.8' fill='rgba(230,90,110,0.45)'/%3E%3Ccircle cx='8' cy='8' r='1.2' fill='rgba(255,220,100,0.5)'/%3E%3C!-- Stem --%3E%3Cpath d='M8 11 Q7 14 8 17' fill='none' stroke='rgba(60,130,80,0.45)' stroke-width='0.8'/%3E%3Cpath d='M8 14 Q10 13 11 14' fill='none' stroke='rgba(60,130,80,0.4)' stroke-width='0.6'/%3E%3C/g%3E%3C!-- Tile 6: Circle tile (blue) --%3E%3Cg transform='translate(38, 55)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- 3 circles --%3E%3Ccircle cx='8' cy='5' r='2.5' fill='url(%23circleBlue)' stroke='rgba(50,80,150,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='5' cy='12' r='2.5' fill='url(%23circleBlue)' stroke='rgba(50,80,150,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='11' cy='12' r='2.5' fill='url(%23circleBlue)' stroke='rgba(50,80,150,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='7' cy='4' r='0.8' fill='rgba(255,255,255,0.3)'/%3E%3C/g%3E%3C!-- Tile 7: Wind tile --%3E%3Cg transform='translate(60, 50)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- East wind character --%3E%3Cpath d='M4 5 L12 5 M8 5 L8 16 M4 10 L12 10 M5 14 Q8 17 11 14' fill='none' stroke='rgba(60,130,80,0.55)' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C!-- Bottom row tiles (partially visible) --%3E%3Cg transform='translate(8, 78)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Single bamboo --%3E%3Crect x='6.5' y='4' width='3' height='13' rx='1' fill='url(%23jadeGreen)'/%3E%3Cellipse cx='8' cy='8' rx='1.8' ry='0.6' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='8' cy='13' rx='1.8' ry='0.6' fill='rgba(80,160,100,0.5)'/%3E%3C/g%3E%3Cg transform='translate(30, 80)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Dragon (red) --%3E%3Crect x='4' y='4' width='8' height='12' rx='1' fill='none' stroke='rgba(200,50,50,0.5)' stroke-width='1.5'/%3E%3Cpath d='M6 7 L10 7 M6 10 L10 10 M6 13 L10 13' stroke='rgba(200,50,50,0.45)' stroke-width='0.8'/%3E%3C/g%3E%3Cg transform='translate(52, 78)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- 9 circles pattern --%3E%3Ccircle cx='5' cy='5' r='1.5' fill='url(%23circleRed)'/%3E%3Ccircle cx='8' cy='5' r='1.5' fill='url(%23circleBlue)'/%3E%3Ccircle cx='11' cy='5' r='1.5' fill='url(%23circleRed)'/%3E%3Ccircle cx='5' cy='10' r='1.5' fill='url(%23circleBlue)'/%3E%3Ccircle cx='8' cy='10' r='1.5' fill='url(%23circleRed)'/%3E%3Ccircle cx='11' cy='10' r='1.5' fill='url(%23circleBlue)'/%3E%3Ccircle cx='5' cy='15' r='1.5' fill='url(%23circleRed)'/%3E%3Ccircle cx='8' cy='15' r='1.5' fill='url(%23circleBlue)'/%3E%3Ccircle cx='11' cy='15' r='1.5' fill='url(%23circleRed)'/%3E%3C/g%3E%3Cg transform='translate(75, 75)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Season: Winter plum --%3E%3Ccircle cx='8' cy='7' r='2.5' fill='rgba(220,180,220,0.45)'/%3E%3Ccircle cx='5.5' cy='9' r='2' fill='rgba(230,190,230,0.4)'/%3E%3Ccircle cx='10.5' cy='9' r='2' fill='rgba(230,190,230,0.4)'/%3E%3Ccircle cx='8' cy='7' r='1' fill='rgba(255,230,150,0.5)'/%3E%3Cpath d='M8 10 Q7 13 8 16' fill='none' stroke='rgba(100,80,60,0.35)' stroke-width='0.6'/%3E%3C/g%3E%3C!-- Match connection sparkle line --%3E%3Cpath d='M18 35 Q42 30 68 33' fill='none' stroke='rgba(255,215,100,0.25)' stroke-width='1' stroke-dasharray='2 2'/%3E%3C!-- Sparkle particles --%3E%3Ccircle cx='25' cy='32' r='1' fill='rgba(255,230,150,0.45)'/%3E%3Ccircle cx='55' cy='28' r='0.8' fill='rgba(255,230,150,0.4)'/%3E%3Ccircle cx='42' cy='48' r='0.7' fill='rgba(255,230,150,0.35)'/%3E%3Ccircle cx='78' cy='45' r='0.9' fill='rgba(255,230,150,0.4)'/%3E%3Ccircle cx='12' cy='68' r='0.6' fill='rgba(255,230,150,0.3)'/%3E%3Ccircle cx='88' cy='62' r='0.7' fill='rgba(255,230,150,0.32)'/%3E%3C!-- Small floating highlights --%3E%3Ccircle cx='35' cy='12' r='0.5' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='82' cy='35' r='0.6' fill='rgba(255,255,255,0.28)'/%3E%3Ccircle cx='48' cy='72' r='0.5' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Mahjong Classic ambient glow with ivory, jade green, muted red, and gold accents */
+.game-page__about[data-decoration="mahjong-classic"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(255, 250, 230, 0.055) 0%, rgba(60, 150, 100, 0.045) 25%, rgba(200, 60, 60, 0.03) 45%, rgba(220, 180, 80, 0.025) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5056,6 +5082,21 @@ h3 {
     height: 300px;
   }
 
+  /* Mahjong Classic tablet */
+  .game-page__about[data-decoration="mahjong-classic"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="mahjong-classic"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -6146,6 +6187,21 @@ h3 {
     height: 240px;
   }
 
+  /* Mahjong Classic mobile */
+  .game-page__about[data-decoration="mahjong-classic"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="mahjong-classic"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -7083,6 +7139,21 @@ h3 {
     width: 190px;
     height: 190px;
   }
+
+  /* Mahjong Classic small mobile */
+  .game-page__about[data-decoration="mahjong-classic"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="mahjong-classic"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
 }
 
 /* ---------- Extra small: ≤380px ---------- */
@@ -7203,8 +7274,16 @@ h3 {
   .game-page__about[data-decoration="doll-repair-workshop"]::after,
   .game-page__about[data-decoration="maze-muncher"]::after,
   .game-page__about[data-decoration="fruit-slice"]::after,
-  .game-page__about[data-decoration="flappy-wings"]::after {
+  .game-page__about[data-decoration="flappy-wings"]::after,
+  .game-page__about[data-decoration="mahjong-classic"]::after {
     display: none; /* Hide glow on very small screens */
+  }
+
+  .game-page__about[data-decoration="mahjong-classic"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 120px;
+    height: 120px;
   }
 
   .game-page__about[data-decoration="backgammon-classic"]::before {

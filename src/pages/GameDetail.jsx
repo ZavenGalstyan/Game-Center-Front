@@ -91,7 +91,7 @@ const GAME_TAGLINES = {
   "Flappy Wings": "Tap to keep your bird flying, dodge tricky pipes, and beat your highest score in an endless sky adventure.",
   "Dot Connect": "CONNECT • THINK • COMPLETE",
   "Fruit Slice": "Slice flying fruit, unleash juicy combos, dodge dangerous bombs, and chase your highest score.",
-  "Mahjong Classic": "MATCH • CLEAR • RELAX",
+  "Mahjong Classic": "Match identical tiles, clear intricate layouts, and unwind with a timeless puzzle challenge.",
   "Maze Muncher": "CHOMP • DODGE • SURVIVE",
   "Hill Rider": "DRIVE • CLIMB • CONQUER",
   "Color Clash": "MATCH • PLAY • WIN",
@@ -183,6 +183,7 @@ const GAME_DECORATIONS = {
   "Maze Muncher": "maze-muncher",
   "Fruit Slice": "fruit-slice",
   "Flappy Wings": "flappy-wings",
+  "Mahjong Classic": "mahjong-classic",
 };
 
 // Fallback: generate a short tagline from description if not predefined
