@@ -70,6 +70,8 @@ import backgammonClassicBg from "../images/BackgammonClassic.png";
 import memoryCardsBg from "../images/MemoryCards.png";
 import puzzle2048Bg from "../images/2048.png";
 import dollRepairWorkshopBg from "../images/DollRepairWorkshop.png";
+import mazeMuncherBg from "../images/MazeMuncher.png";
+import fruitSliceBg from "../images/FruitSlice.png";
 
 /**
  * Category to icon mapping.
@@ -1070,6 +1072,8 @@ const GAME_CARD_BACKGROUNDS = {
   "memory cards": { image: memoryCardsBg, shade: WIDE_ART_SHADE },
   "2048 puzzle": { image: puzzle2048Bg, shade: WIDE_ART_SHADE },
   "doll repair workshop": { image: dollRepairWorkshopBg, shade: WIDE_ART_SHADE },
+  "maze muncher": { image: mazeMuncherBg, shade: WIDE_ART_SHADE },
+  "fruit slice": { image: fruitSliceBg, shade: WIDE_ART_SHADE },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();

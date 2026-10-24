@@ -3876,6 +3876,58 @@ h3 {
   z-index: -1;
 }
 
+/* Maze Muncher: glossy yellow arcade character, glowing blue maze walls, pellets, colorful ghosts, power orbs */
+.game-page__about[data-decoration="maze-muncher"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='mazeBg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(10,20,40,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(5,15,35,0.05)'/%3E%3C/linearGradient%3E%3ClinearGradient id='mazeWall' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,180,255,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,140,220,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,100,180,0.2)'/%3E%3C/linearGradient%3E%3ClinearGradient id='mazeWallGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,200,255,0.5)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,150,220,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='pacYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,230,50,0.55)'/%3E%3Cstop offset='40%25' stop-color='rgba(255,210,30,0.48)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,180,20,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='pacHighlight' x1='0%25' y1='0%25' x2='50%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,200,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,240,100,0)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ghostRed' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,80,80,0.4)'/%3E%3Cstop offset='50%25' stop-color='rgba(230,50,50,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,40,40,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ghostPink' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,200,0.4)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,140,170,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,120,150,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ghostCyan' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,240,240,0.4)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,200,210,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,170,180,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ghostOrange' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,80,0.4)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,150,50,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,130,40,0.25)'/%3E%3C/linearGradient%3E%3CradialGradient id='pellet' cx='50%25' cy='40%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,230,120,0.5)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,200,80,0.35)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,170,50,0.2)'/%3E%3C/radialGradient%3E%3CradialGradient id='powerOrb' cx='40%25' cy='35%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,200,0.6)'/%3E%3Cstop offset='30%25' stop-color='rgba(255,230,100,0.45)'/%3E%3Cstop offset='70%25' stop-color='rgba(255,200,60,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,170,40,0.15)'/%3E%3C/radialGradient%3E%3CradialGradient id='powerOrbGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,240,150,0.4)'/%3E%3Cstop offset='60%25' stop-color='rgba(255,200,80,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,180,50,0)'/%3E%3C/radialGradient%3E%3CradialGradient id='speedTrail' cx='100%25' cy='50%25' r='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,230,80,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,210,50,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,200,30,0)'/%3E%3C/radialGradient%3E%3Cfilter id='mazeGlow'%3E%3CfeGaussianBlur stdDeviation='0.8' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Dark maze background --%3E%3Crect x='0' y='0' width='100' height='100' fill='url(%23mazeBg)'/%3E%3C!-- Glowing maze walls in perspective composition --%3E%3Cg filter='url(%23mazeGlow)'%3E%3C!-- Horizontal walls --%3E%3Crect x='5' y='8' width='30' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='40' y='8' width='25' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='70' y='12' width='22' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='8' y='20' width='20' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='55' y='20' width='18' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='78' y='25' width='16' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='5' y='72' width='25' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='35' y='80' width='20' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='62' y='75' width='28' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='75' y='88' width='20' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3C!-- Vertical walls --%3E%3Crect x='5' y='8' width='3' height='22' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='32' y='8' width='3' height='18' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='62' y='8' width='3' height='20' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='89' y='12' width='3' height='18' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='5' y='70' width='3' height='18' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='27' y='72' width='3' height='15' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='52' y='75' width='3' height='18' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='87' y='75' width='3' height='18' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3C!-- Corner pieces --%3E%3Cpath d='M8 32 L8 38 L18 38' fill='none' stroke='url(%23mazeWallGlow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M75 32 L75 40 L87 40' fill='none' stroke='url(%23mazeWallGlow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M15 60 L15 67 L5 67' fill='none' stroke='url(%23mazeWallGlow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M82 55 L82 65 L92 65' fill='none' stroke='url(%23mazeWallGlow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C!-- Golden energy pellets along paths --%3E%3Ccircle cx='15' cy='15' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='22' cy='15' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='48' cy='15' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='55' cy='15' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='78' cy='18' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='85' cy='18' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='15' cy='27' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='22' cy='27' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='62' cy='27' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='69' cy='27' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='12' cy='78' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='19' cy='78' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='42' cy='86' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='49' cy='86' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='70' cy='82' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='77' cy='82' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='82' cy='94' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='89' cy='94' r='1.8' fill='url(%23pellet)'/%3E%3C!-- Power orbs with glow effect --%3E%3Ccircle cx='10' cy='45' r='8' fill='url(%23powerOrbGlow)'/%3E%3Ccircle cx='10' cy='45' r='4' fill='url(%23powerOrb)' stroke='rgba(255,230,100,0.25)' stroke-width='0.6'/%3E%3Ccircle cx='8.5' cy='43.5' r='1.2' fill='rgba(255,255,230,0.35)'/%3E%3Ccircle cx='88' cy='50' r='7' fill='url(%23powerOrbGlow)'/%3E%3Ccircle cx='88' cy='50' r='3.5' fill='url(%23powerOrb)' stroke='rgba(255,230,100,0.25)' stroke-width='0.5'/%3E%3Ccircle cx='86.8' cy='48.8' r='1' fill='rgba(255,255,230,0.35)'/%3E%3C!-- Main Pac-Man character with glossy appearance --%3E%3Cg transform='translate(38, 42)'%3E%3C!-- Speed trails behind Pac-Man --%3E%3Cellipse cx='-12' cy='8' rx='10' ry='3' fill='url(%23speedTrail)' opacity='0.6'/%3E%3Cellipse cx='-8' cy='8' rx='6' ry='2' fill='url(%23speedTrail)' opacity='0.4'/%3E%3Cellipse cx='-5' cy='8' rx='3' ry='1.5' fill='rgba(255,230,80,0.25)'/%3E%3C!-- Main body --%3E%3Cpath d='M22 8 A14 14 0 1 0 22 8.001 L8 8 Z' fill='url(%23pacYellow)' stroke='rgba(255,200,30,0.25)' stroke-width='0.8' transform='rotate(25 8 8)'/%3E%3C!-- Glossy highlight --%3E%3Cellipse cx='3' cy='2' rx='5' ry='4' fill='url(%23pacHighlight)'/%3E%3C!-- Eye --%3E%3Ccircle cx='6' cy='-1' r='2.5' fill='rgba(20,20,30,0.5)'/%3E%3Ccircle cx='5.5' cy='-1.5' r='0.8' fill='rgba(255,255,255,0.35)'/%3E%3C/g%3E%3C!-- Red ghost (Blinky) --%3E%3Cg transform='translate(68, 38)'%3E%3Cpath d='M0 8 Q0 0 8 0 Q16 0 16 8 L16 16 L14 14 L12 16 L10 14 L8 16 L6 14 L4 16 L2 14 L0 16 Z' fill='url(%23ghostRed)' stroke='rgba(255,80,80,0.2)' stroke-width='0.5'/%3E%3Ccircle cx='5' cy='6' r='2.5' fill='rgba(255,255,255,0.45)'/%3E%3Ccircle cx='11' cy='6' r='2.5' fill='rgba(255,255,255,0.45)'/%3E%3Ccircle cx='4' cy='6' r='1.2' fill='rgba(30,60,150,0.5)'/%3E%3Ccircle cx='10' cy='6' r='1.2' fill='rgba(30,60,150,0.5)'/%3E%3C/g%3E%3C!-- Pink ghost (Pinky) --%3E%3Cg transform='translate(18, 50)'%3E%3Cpath d='M0 7 Q0 0 7 0 Q14 0 14 7 L14 14 L12 12 L10 14 L8 12 L6 14 L4 12 L2 14 L0 12 Z' fill='url(%23ghostPink)' stroke='rgba(255,150,180,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='4' cy='5' r='2.2' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='9.5' cy='5' r='2.2' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='3.2' cy='5' r='1' fill='rgba(30,60,150,0.45)'/%3E%3Ccircle cx='8.7' cy='5' r='1' fill='rgba(30,60,150,0.45)'/%3E%3C/g%3E%3C!-- Cyan ghost (Inky) --%3E%3Cg transform='translate(72, 58)'%3E%3Cpath d='M0 6 Q0 0 6 0 Q12 0 12 6 L12 12 L10 10 L8 12 L6 10 L4 12 L2 10 L0 12 Z' fill='url(%23ghostCyan)' stroke='rgba(0,220,220,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='3.5' cy='4.5' r='1.8' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='8' cy='4.5' r='1.8' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='2.8' cy='4.5' r='0.9' fill='rgba(30,60,150,0.45)'/%3E%3Ccircle cx='7.3' cy='4.5' r='0.9' fill='rgba(30,60,150,0.45)'/%3E%3C/g%3E%3C!-- Orange ghost (Clyde) --%3E%3Cg transform='translate(42, 68)'%3E%3Cpath d='M0 6 Q0 0 6 0 Q12 0 12 6 L12 12 L10 10 L8 12 L6 10 L4 12 L2 10 L0 12 Z' fill='url(%23ghostOrange)' stroke='rgba(255,150,50,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='3.5' cy='4.5' r='1.8' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='8' cy='4.5' r='1.8' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='2.8' cy='4.5' r='0.9' fill='rgba(30,60,150,0.45)'/%3E%3Ccircle cx='7.3' cy='4.5' r='0.9' fill='rgba(30,60,150,0.45)'/%3E%3C/g%3E%3C!-- Dynamic particles and sparkles --%3E%3Ccircle cx='28' cy='45' r='0.8' fill='rgba(255,230,100,0.35)'/%3E%3Ccircle cx='32' cy='48' r='0.6' fill='rgba(255,230,100,0.28)'/%3E%3Ccircle cx='25' cy='50' r='0.5' fill='rgba(255,230,100,0.2)'/%3E%3Ccircle cx='60' cy='45' r='0.7' fill='rgba(0,200,255,0.25)'/%3E%3Ccircle cx='64' cy='50' r='0.5' fill='rgba(0,200,255,0.2)'/%3E%3Ccircle cx='35' cy='55' r='0.6' fill='rgba(255,150,180,0.2)'/%3E%3Ccircle cx='80' cy='68' r='0.5' fill='rgba(0,230,230,0.2)'/%3E%3Ccircle cx='52' cy='72' r='0.6' fill='rgba(255,180,80,0.2)'/%3E%3C!-- Neon glow lines --%3E%3Cline x1='25' y1='35' x2='35' y2='35' stroke='rgba(0,180,255,0.12)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cline x1='60' y1='68' x2='68' y2='68' stroke='rgba(0,180,255,0.1)' stroke-width='0.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Maze Muncher ambient glow with electric blue, golden yellow, and neon accents */
+.game-page__about[data-decoration="maze-muncher"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(0, 180, 255, 0.055) 0%, rgba(255, 220, 80, 0.04) 25%, rgba(0, 200, 230, 0.03) 45%, rgba(255, 100, 100, 0.02) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Fruit Slice: sliced watermelon, orange slices, strawberries, kiwi, pineapple, juice splashes, bright slice trail, bomb silhouette */
+.game-page__about[data-decoration="fruit-slice"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='fruitBg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(15,25,20,0.06)'/%3E%3Cstop offset='100%25' stop-color='rgba(10,20,15,0.04)'/%3E%3C/linearGradient%3E%3ClinearGradient id='watermelonRind' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(60,180,80,0.5)'/%3E%3Cstop offset='50%25' stop-color='rgba(40,150,60,0.42)'/%3E%3Cstop offset='100%25' stop-color='rgba(30,120,50,0.35)'/%3E%3C/linearGradient%3E%3ClinearGradient id='watermelonFlesh' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,80,100,0.55)'/%3E%3Cstop offset='40%25' stop-color='rgba(240,60,80,0.48)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,50,70,0.4)'/%3E%3C/linearGradient%3E%3ClinearGradient id='orangeGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,50,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,150,30,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,120,20,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='strawberryGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,70,90,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(230,40,60,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,30,50,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='kiwiGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(140,200,80,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(120,180,60,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(100,160,50,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='pineappleGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,220,80,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(245,200,50,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,180,40,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='sliceTrail' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.6)'/%3E%3Cstop offset='30%25' stop-color='rgba(200,240,255,0.4)'/%3E%3Cstop offset='70%25' stop-color='rgba(150,220,255,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(100,200,255,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bombGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(40,40,50,0.35)'/%3E%3Cstop offset='100%25' stop-color='rgba(25,25,35,0.25)'/%3E%3C/linearGradient%3E%3CradialGradient id='juiceSplash' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,100,120,0.45)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,80,100,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,60,80,0.1)'/%3E%3C/radialGradient%3E%3CradialGradient id='orangeJuice' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,80,0.45)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,160,50,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,140,30,0.1)'/%3E%3C/radialGradient%3E%3CradialGradient id='highlight' cx='30%25' cy='30%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.4)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/radialGradient%3E%3Cfilter id='fruitGlow'%3E%3CfeGaussianBlur stdDeviation='0.6' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Background --%3E%3Crect x='0' y='0' width='100' height='100' fill='url(%23fruitBg)'/%3E%3C!-- Curved slicing trail with glow effect --%3E%3Cg filter='url(%23fruitGlow)'%3E%3Cpath d='M5 75 Q25 50 50 35 Q75 20 95 10' fill='none' stroke='url(%23sliceTrail)' stroke-width='3' stroke-linecap='round' opacity='0.7'/%3E%3Cpath d='M8 78 Q28 52 52 38 Q76 24 94 15' fill='none' stroke='rgba(255,255,255,0.25)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M3 72 Q22 48 48 32 Q74 16 96 5' fill='none' stroke='rgba(180,230,255,0.15)' stroke-width='1' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Left watermelon half (sliced) --%3E%3Cg transform='translate(15, 28)'%3E%3Cpath d='M0 18 Q0 0 18 0 L20 0 L20 36 L18 36 Q0 36 0 18 Z' fill='url(%23watermelonFlesh)' stroke='rgba(255,80,100,0.2)' stroke-width='0.5'/%3E%3Cpath d='M0 18 Q0 2 16 0 L18 0 L18 2 Q2 4 2 18 Q2 32 18 34 L18 36 L16 36 Q0 34 0 18 Z' fill='url(%23watermelonRind)' stroke='rgba(60,180,80,0.2)' stroke-width='0.4'/%3E%3Cellipse cx='14' cy='10' rx='2.5' ry='1.5' fill='rgba(30,30,40,0.4)'/%3E%3Cellipse cx='12' cy='18' rx='2' ry='1.2' fill='rgba(30,30,40,0.35)'/%3E%3Cellipse cx='15' cy='26' rx='2.5' ry='1.5' fill='rgba(30,30,40,0.4)'/%3E%3Cellipse cx='10' cy='14' rx='1.5' ry='1' fill='rgba(30,30,40,0.3)'/%3E%3Cellipse cx='11' cy='22' rx='1.8' ry='1' fill='rgba(30,30,40,0.32)'/%3E%3Cellipse cx='8' cy='6' rx='4' ry='3' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Right watermelon half (flying away) --%3E%3Cg transform='translate(42, 24) rotate(12)'%3E%3Cpath d='M0 0 L2 0 Q20 0 20 18 Q20 36 2 36 L0 36 Z' fill='url(%23watermelonFlesh)' stroke='rgba(255,80,100,0.2)' stroke-width='0.5'/%3E%3Cpath d='M18 2 Q20 4 20 18 Q20 32 18 34 L20 34 Q22 32 22 18 Q22 4 20 2 Z' fill='url(%23watermelonRind)' stroke='rgba(60,180,80,0.2)' stroke-width='0.4'/%3E%3Cellipse cx='6' cy='12' rx='2.5' ry='1.5' fill='rgba(30,30,40,0.4)'/%3E%3Cellipse cx='8' cy='20' rx='2' ry='1.2' fill='rgba(30,30,40,0.35)'/%3E%3Cellipse cx='5' cy='28' rx='2.5' ry='1.5' fill='rgba(30,30,40,0.38)'/%3E%3Cellipse cx='12' cy='16' rx='1.5' ry='1' fill='rgba(30,30,40,0.3)'/%3E%3Cellipse cx='10' cy='24' rx='1.8' ry='1' fill='rgba(30,30,40,0.32)'/%3E%3Cellipse cx='4' cy='8' rx='3' ry='2.5' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Orange slice --%3E%3Cg transform='translate(68, 42)'%3E%3Cpath d='M0 10 A10 10 0 0 1 20 10 L10 10 Z' fill='url(%23orangeGrad)' stroke='rgba(255,180,50,0.25)' stroke-width='0.5'/%3E%3Cline x1='10' y1='10' x2='3' y2='3' stroke='rgba(255,220,150,0.3)' stroke-width='0.8'/%3E%3Cline x1='10' y1='10' x2='10' y2='0' stroke='rgba(255,220,150,0.3)' stroke-width='0.8'/%3E%3Cline x1='10' y1='10' x2='17' y2='3' stroke='rgba(255,220,150,0.3)' stroke-width='0.8'/%3E%3Cline x1='10' y1='10' x2='6' y2='1' stroke='rgba(255,220,150,0.25)' stroke-width='0.6'/%3E%3Cline x1='10' y1='10' x2='14' y2='1' stroke='rgba(255,220,150,0.25)' stroke-width='0.6'/%3E%3Cellipse cx='6' cy='5' rx='2.5' ry='2' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Strawberry --%3E%3Cg transform='translate(72, 68)'%3E%3Cpath d='M6 0 Q0 3 0 10 Q0 14 6 16 Q12 14 12 10 Q12 3 6 0 Z' fill='url(%23strawberryGrad)' stroke='rgba(255,60,80,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='3' cy='6' r='0.6' fill='rgba(255,230,150,0.4)'/%3E%3Ccircle cx='5' cy='9' r='0.5' fill='rgba(255,230,150,0.35)'/%3E%3Ccircle cx='8' cy='7' r='0.6' fill='rgba(255,230,150,0.4)'/%3E%3Ccircle cx='7' cy='12' r='0.5' fill='rgba(255,230,150,0.35)'/%3E%3Ccircle cx='4' cy='13' r='0.5' fill='rgba(255,230,150,0.3)'/%3E%3Ccircle cx='9' cy='10' r='0.5' fill='rgba(255,230,150,0.35)'/%3E%3Cpath d='M4 0 L6 2 L8 0 Q7 -2 6 -2 Q5 -2 4 0 Z' fill='rgba(80,160,60,0.45)' stroke='rgba(60,140,50,0.2)' stroke-width='0.3'/%3E%3Cellipse cx='3' cy='4' rx='2' ry='1.5' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Kiwi slice --%3E%3Cg transform='translate(8, 70)'%3E%3Ccircle cx='9' cy='9' r='9' fill='url(%23kiwiGrad)' stroke='rgba(100,140,50,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='9' cy='9' r='3' fill='rgba(255,255,220,0.35)' stroke='rgba(140,180,80,0.15)' stroke-width='0.3'/%3E%3Cline x1='9' y1='9' x2='9' y2='1' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='16' y2='5' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='17' y2='12' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='12' y2='17' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='5' y2='17' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='1' y2='12' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='2' y2='5' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Ccircle cx='6' cy='4' r='0.8' fill='rgba(25,35,20,0.35)'/%3E%3Ccircle cx='13' cy='6' r='0.7' fill='rgba(25,35,20,0.3)'/%3E%3Ccircle cx='15' cy='11' r='0.8' fill='rgba(25,35,20,0.35)'/%3E%3Ccircle cx='12' cy='15' r='0.7' fill='rgba(25,35,20,0.3)'/%3E%3Ccircle cx='6' cy='14' r='0.8' fill='rgba(25,35,20,0.35)'/%3E%3Ccircle cx='3' cy='9' r='0.7' fill='rgba(25,35,20,0.3)'/%3E%3Cellipse cx='5' cy='5' rx='2.5' ry='2' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Pineapple wedge --%3E%3Cg transform='translate(78, 18)'%3E%3Cpath d='M0 12 L8 0 L16 12 Q8 16 0 12 Z' fill='url(%23pineappleGrad)' stroke='rgba(230,180,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='4' y1='4' x2='4' y2='11' stroke='rgba(200,150,30,0.3)' stroke-width='0.6'/%3E%3Cline x1='8' y1='2' x2='8' y2='13' stroke='rgba(200,150,30,0.3)' stroke-width='0.6'/%3E%3Cline x1='12' y1='4' x2='12' y2='11' stroke='rgba(200,150,30,0.3)' stroke-width='0.6'/%3E%3Cline x1='2' y1='7' x2='14' y2='7' stroke='rgba(200,150,30,0.25)' stroke-width='0.5'/%3E%3Cline x1='3' y1='10' x2='13' y2='10' stroke='rgba(200,150,30,0.25)' stroke-width='0.5'/%3E%3Cpath d='M6 0 L8 -4 L10 0' fill='none' stroke='rgba(80,150,50,0.4)' stroke-width='0.8'/%3E%3Cpath d='M4 1 L5 -2' fill='none' stroke='rgba(80,150,50,0.35)' stroke-width='0.6'/%3E%3Cpath d='M12 1 L11 -2' fill='none' stroke='rgba(80,150,50,0.35)' stroke-width='0.6'/%3E%3Cellipse cx='5' cy='5' rx='2' ry='1.5' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Juice splash from watermelon --%3E%3Ccircle cx='38' cy='45' r='8' fill='url(%23juiceSplash)'/%3E%3Ccircle cx='42' cy='38' r='5' fill='url(%23juiceSplash)' opacity='0.7'/%3E%3C!-- Orange juice droplets --%3E%3Ccircle cx='75' cy='58' r='4' fill='url(%23orangeJuice)'/%3E%3Ccircle cx='80' cy='62' r='2.5' fill='url(%23orangeJuice)' opacity='0.7'/%3E%3C!-- Flying juice droplets --%3E%3Ccircle cx='48' cy='35' r='2' fill='rgba(255,100,120,0.4)'/%3E%3Ccircle cx='52' cy='30' r='1.5' fill='rgba(255,100,120,0.35)'/%3E%3Ccircle cx='45' cy='28' r='1.2' fill='rgba(255,100,120,0.3)'/%3E%3Ccircle cx='55' cy='38' r='1' fill='rgba(255,100,120,0.25)'/%3E%3Ccircle cx='60' cy='32' r='1.3' fill='rgba(255,180,80,0.35)'/%3E%3Ccircle cx='65' cy='28' r='1' fill='rgba(255,180,80,0.3)'/%3E%3Ccircle cx='70' cy='35' r='0.8' fill='rgba(255,180,80,0.25)'/%3E%3C!-- Small fruit fragments --%3E%3Crect x='50' y='42' width='3' height='2' rx='0.5' fill='rgba(255,80,100,0.35)' transform='rotate(25 51 43)'/%3E%3Crect x='58' y='48' width='2.5' height='1.5' rx='0.4' fill='rgba(255,180,50,0.32)' transform='rotate(-15 59 49)'/%3E%3Crect x='30' y='52' width='2' height='1.5' rx='0.4' fill='rgba(255,70,90,0.3)' transform='rotate(40 31 53)'/%3E%3C!-- Leaves --%3E%3Cpath d='M25 20 Q28 18 30 20 Q28 22 25 20 Z' fill='rgba(80,160,60,0.4)' stroke='rgba(60,140,50,0.2)' stroke-width='0.3'/%3E%3Cpath d='M62 55 Q64 52 67 54 Q65 56 62 55 Z' fill='rgba(80,160,60,0.35)' stroke='rgba(60,140,50,0.15)' stroke-width='0.2'/%3E%3Cpath d='M88 38 Q90 35 93 36 Q91 39 88 38 Z' fill='rgba(80,160,60,0.35)' stroke='rgba(60,140,50,0.15)' stroke-width='0.2'/%3E%3C!-- Bomb silhouette (subtle danger element) --%3E%3Cg transform='translate(5, 8)'%3E%3Ccircle cx='8' cy='10' r='7' fill='url(%23bombGrad)' stroke='rgba(50,50,60,0.2)' stroke-width='0.5'/%3E%3Crect x='6' y='2' width='4' height='3' rx='1' fill='rgba(60,60,70,0.3)'/%3E%3Cpath d='M8 2 Q10 -1 12 0 Q11 2 12 4' fill='none' stroke='rgba(255,150,50,0.3)' stroke-width='0.8' stroke-linecap='round'/%3E%3Ccircle cx='13' cy='0' r='1.5' fill='rgba(255,180,80,0.25)'/%3E%3Ccircle cx='13.5' cy='-0.5' r='0.8' fill='rgba(255,220,100,0.3)'/%3E%3Cellipse cx='5' cy='7' rx='2' ry='1.5' fill='rgba(80,80,100,0.15)'/%3E%3C/g%3E%3C!-- Motion lines for dynamic effect --%3E%3Cpath d='M62 22 Q58 25 55 22' fill='none' stroke='rgba(255,180,80,0.2)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M38 62 Q35 58 38 55' fill='none' stroke='rgba(255,100,120,0.18)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M82 75 Q78 72 80 68' fill='none' stroke='rgba(255,70,90,0.15)' stroke-width='0.4' stroke-linecap='round'/%3E%3C!-- Sparkle effects --%3E%3Ccircle cx='35' cy='32' r='0.8' fill='rgba(255,255,200,0.4)'/%3E%3Ccircle cx='70' cy='25' r='0.6' fill='rgba(255,255,200,0.35)'/%3E%3Ccircle cx='85' cy='55' r='0.7' fill='rgba(255,255,200,0.35)'/%3E%3Ccircle cx='22' cy='65' r='0.6' fill='rgba(255,255,200,0.3)'/%3E%3Ccircle cx='55' cy='75' r='0.5' fill='rgba(255,255,200,0.28)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Fruit Slice ambient glow with red, orange, green, and yellow accents */
+.game-page__about[data-decoration="fruit-slice"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(255, 100, 120, 0.055) 0%, rgba(255, 180, 80, 0.045) 25%, rgba(140, 200, 80, 0.035) 45%, rgba(255, 220, 80, 0.025) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -4933,6 +4985,36 @@ h3 {
     height: 300px;
   }
 
+  /* Maze Muncher tablet */
+  .game-page__about[data-decoration="maze-muncher"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="maze-muncher"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Fruit Slice tablet */
+  .game-page__about[data-decoration="fruit-slice"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="fruit-slice"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -5978,6 +6060,36 @@ h3 {
     height: 240px;
   }
 
+  /* Maze Muncher mobile */
+  .game-page__about[data-decoration="maze-muncher"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="maze-muncher"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Fruit Slice mobile */
+  .game-page__about[data-decoration="fruit-slice"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="fruit-slice"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -6870,6 +6982,36 @@ h3 {
     width: 190px;
     height: 190px;
   }
+
+  /* Maze Muncher small mobile */
+  .game-page__about[data-decoration="maze-muncher"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="maze-muncher"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Fruit Slice small mobile */
+  .game-page__about[data-decoration="fruit-slice"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="fruit-slice"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
 }
 
 /* ---------- Extra small: ≤380px ---------- */
@@ -6987,7 +7129,9 @@ h3 {
   .game-page__about[data-decoration="delivery-rush"]::after,
   .game-page__about[data-decoration="checkers-classic"]::after,
   .game-page__about[data-decoration="2048-puzzle"]::after,
-  .game-page__about[data-decoration="doll-repair-workshop"]::after {
+  .game-page__about[data-decoration="doll-repair-workshop"]::after,
+  .game-page__about[data-decoration="maze-muncher"]::after,
+  .game-page__about[data-decoration="fruit-slice"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

@@ -90,7 +90,7 @@ const GAME_TAGLINES = {
   "Color Switch": "Jump through rotating obstacles, match vibrant colors, and test your reflexes in an exciting arcade challenge.",
   "Flappy Wings": "TAP • FLY • SURVIVE",
   "Dot Connect": "CONNECT • THINK • COMPLETE",
-  "Fruit Slice": "SLICE • COMBO • SURVIVE",
+  "Fruit Slice": "Slice flying fruit, unleash juicy combos, dodge dangerous bombs, and chase your highest score.",
   "Mahjong Classic": "MATCH • CLEAR • RELAX",
   "Maze Muncher": "CHOMP • DODGE • SURVIVE",
   "Hill Rider": "DRIVE • CLIMB • CONQUER",
@@ -109,6 +109,7 @@ const GAME_TAGLINES = {
   "Memory Cards": "Flip beautifully designed cards, discover matching pairs, and challenge your memory to clear the board as quickly as possible.",
   "2048 Puzzle": "Slide and merge matching number tiles, plan your moves carefully, and challenge yourself to reach the legendary 2048 tile.",
   "Doll Repair Workshop": "Restore broken dolls, discover creative repair techniques, and build your dream workshop one beautiful makeover at a time.",
+  "Maze Muncher": "Race through glowing mazes, collect energy orbs, dodge colorful enemies, and conquer every level in this fast-paced arcade adventure.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -179,6 +180,8 @@ const GAME_DECORATIONS = {
   "Memory Cards": "memory-cards",
   "2048 Puzzle": "2048-puzzle",
   "Doll Repair Workshop": "doll-repair-workshop",
+  "Maze Muncher": "maze-muncher",
+  "Fruit Slice": "fruit-slice",
 };
 
 // Fallback: generate a short tagline from description if not predefined
