@@ -55,6 +55,12 @@ export function AuthProvider({ children }) {
     setStatus("guest");
   }, []);
 
+  // Merges a fresh user object from the backend (e.g. after an avatar change)
+  // into the current session, so every consumer updates without a reload.
+  const updateUser = useCallback((patch) => {
+    setUser((u) => (u && patch ? { ...u, ...patch } : u));
+  }, []);
+
   const value = useMemo(
     () => ({
       status,
@@ -66,8 +72,9 @@ export function AuthProvider({ children }) {
       logout,
       handleAuthExpired,
       setUser,
+      updateUser,
     }),
-    [status, user, login, registerAndLogin, logout, handleAuthExpired],
+    [status, user, login, registerAndLogin, logout, handleAuthExpired, updateUser],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

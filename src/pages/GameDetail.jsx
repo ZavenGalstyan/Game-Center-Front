@@ -6,6 +6,7 @@ import GameLikeButton from "../components/game/GameLikeButton.jsx";
 import GameRatingPanel from "../components/rating/GameRatingPanel.jsx";
 import RatingBadge from "../components/rating/RatingBadge.jsx";
 import GameRenderer from "../components/games/GameRenderer.jsx";
+import GameComments from "../components/comments/GameComments.jsx";
 import { getGameComponent, gameSupportsMute } from "../components/games/registry.js";
 import { getMainCategory, getSecondaryCategories } from "../lib/gameHelpers.jsx";
 
@@ -329,6 +330,8 @@ export default function GameDetail() {
         onStatsChange={onRatingStatsChange}
         onRequestLogin={requestLogin}
       />
+
+      <GameComments key={`comments-${game.id || game._id}`} gameId={game.id || game._id} onRequestAuth={openAuth} />
     </article>
   );
 }

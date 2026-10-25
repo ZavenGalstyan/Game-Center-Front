@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "../../auth/AuthContext.jsx";
 import { api } from "../../lib/api.js";
 import { Button } from "../ui";
+import Avatar from "../avatar/Avatar.jsx";
 import RatingStars, { StarIcon, formatAverage } from "./RatingStars.jsx";
 
 /**
@@ -36,7 +37,7 @@ function errorMessage(err) {
 }
 
 export default function GameRatingPanel({ gameId, initialStats, onStatsChange, onRequestLogin }) {
-  const { status, isAuthenticated, handleAuthExpired } = useAuth();
+  const { status, user, isAuthenticated, handleAuthExpired } = useAuth();
 
   // Seed from the game payload so the numbers show instantly; the summary
   // request then fills in the distribution and the user's own rating.
@@ -172,6 +173,7 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
     yourRating = (
       <div className={`game-rating__mine${justRated ? " is-new" : ""}`} role="status">
         <p className="game-rating__mine-label">
+          <Avatar avatarId={user?.avatarId} size="sm" alt="" />
           {justRated ? "Thanks for rating!" : "You rated this game"}
         </p>
         <div className="game-rating__mine-row">
