@@ -10,14 +10,14 @@ import { validateCommentContent } from "./commentUtils.js";
  * cleared by the parent after a successful post.
  *
  * Props:
- *  - username, allowance ({ count, limit, remaining, canComment } | null)
+ *  - avatarId (current user's), allowance ({ count, limit, remaining, canComment } | null)
  *  - draft / onDraftChange
  *  - onSubmit(): parent posts `draft`
  *  - submitting, error (inline), rateLimitedUntil (ms timestamp | null)
  */
 export default function CommentComposer({
   gameId,
-  username,
+  avatarId,
   allowance,
   draft,
   onDraftChange,
@@ -44,7 +44,7 @@ export default function CommentComposer({
 
   return (
     <div className={"comment-composer" + (atLimit ? " is-locked" : "")}>
-      <CommentAvatar username={username} />
+      <CommentAvatar avatarId={avatarId} />
       <form
         className="comment-composer__form"
         onSubmit={(e) => {

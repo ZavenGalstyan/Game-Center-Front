@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Link, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext.jsx";
+import Avatar from "./avatar/Avatar.jsx";
 
 export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSearch }) {
   const { status, user, isAdmin, logout } = useAuth();
@@ -164,9 +165,7 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
               aria-expanded={menuOpen}
               aria-controls="usermenu-panel"
             >
-              <span className="usermenu__avatar" aria-hidden="true">
-                {user.username.charAt(0).toUpperCase()}
-              </span>
+              <Avatar avatarId={user.avatarId} size={32} alt="" loading="eager" className="usermenu__avatar" />
               <span className="usermenu__name">Hi, {user.username}</span>
               <svg
                 width="16"
@@ -185,6 +184,13 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
 
             {menuOpen && (
               <div id="usermenu-panel" className="usermenu__panel">
+                <div className="usermenu__profile">
+                  <Avatar avatarId={user.avatarId} size="md" alt="" loading="eager" />
+                  <div className="usermenu__profile-text">
+                    <span className="usermenu__profile-name">{user.username}</span>
+                    {user.email && <span className="usermenu__profile-email">{user.email}</span>}
+                  </div>
+                </div>
                 {pathname !== "/account" && (
                   <button
                     type="button"

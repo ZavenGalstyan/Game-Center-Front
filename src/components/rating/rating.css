@@ -394,6 +394,11 @@
 }
 
 /* Saved rating */
+.game-rating__mine-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
 .game-rating__mine-row {
   display: flex;
   flex-wrap: wrap;

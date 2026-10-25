@@ -104,6 +104,15 @@ export const api = {
       body: { currentPassword, newPassword },
     }),
 
+  /* --------------------------------- Avatars -------------------------------- */
+
+  // Public. Returns { avatars, categories, defaultAvatarId, total }.
+  listAvatars: () => request("/api/avatars"),
+
+  // Returns { avatarId, user }.
+  updateMyAvatar: (avatarId) =>
+    request("/api/auth/me/avatar", { method: "PATCH", auth: true, body: { avatarId } }),
+
   listUsers: ({ page = 1, limit = 10, role } = {}) => {
     const qs = new URLSearchParams({
       page: String(page),

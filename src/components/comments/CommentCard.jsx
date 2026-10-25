@@ -26,7 +26,7 @@ function CommentCard({ comment, canManage, isEditing, isNew, now, onEdit, onCanc
 
   return (
     <li className={"comment-card" + (isNew ? " is-new" : "") + (comment.isOwner && canManage ? " is-own" : "")}>
-      <CommentAvatar username={username} deleted={deleted} />
+      <CommentAvatar avatarId={author?.avatarId} deleted={deleted} />
       <div className="comment-card__main">
         <div className="comment-card__meta">
           <span className={"comment-card__author" + (deleted ? " is-deleted" : "")}>{username}</span>

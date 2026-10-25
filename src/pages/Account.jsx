@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useAuth } from "../auth/AuthContext.jsx";
 import { useToast } from "../components/Toast.jsx";
+import Avatar from "../components/avatar/Avatar.jsx";
+import AvatarPickerModal from "../components/avatar/AvatarPickerModal.jsx";
 import { api, tokenStore } from "../lib/api.js";
+import { getAvatarName, resolveAvatarId } from "../lib/avatars.js";
 import { mapServerErrors, validateNewPassword } from "../lib/validation.js";
 import { Alert, Button, FormField, Card, CardTitle, CardBody, Badge } from "../components/ui";
 import LikedGamesSection from "../components/LikedGamesSection.jsx";
@@ -57,6 +60,15 @@ function IconEyeOff() {
   );
 }
 
+function IconPencil() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 20h9" />
+      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+    </svg>
+  );
+}
+
 function PasswordInput({ id, value, onChange, disabled, error, autoComplete }) {
   const [visible, setVisible] = useState(false);
 
@@ -96,6 +108,9 @@ export default function Account() {
   const [errors, setErrors] = useState({});
   const [formError, setFormError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const openPicker = useCallback(() => setPickerOpen(true), []);
+  const closePicker = useCallback(() => setPickerOpen(false), []);
 
   const setField = (name) => (e) => {
     setValues((v) => ({ ...v, [name]: e.target.value }));
@@ -147,8 +162,6 @@ export default function Account() {
     }
   };
 
-  const userInitial = user?.username?.charAt(0)?.toUpperCase() || "?";
-
   return (
     <div className="account-dashboard">
       {/* Ambient background - subtle static lighting via CSS */}
@@ -161,13 +174,24 @@ export default function Account() {
         <div className="profile-overview__content">
           {/* Left: Identity */}
           <div className="profile-overview__identity">
-            <div className="profile-overview__avatar" aria-hidden="true">
-              {userInitial}
-            </div>
+            <button
+              type="button"
+              className="profile-avatar-btn"
+              onClick={openPicker}
+              aria-label={`Change avatar (current: ${getAvatarName(resolveAvatarId(user?.avatarId))})`}
+            >
+              <Avatar avatarId={user?.avatarId} size="xl" alt="" loading="eager" className="profile-overview__avatar" />
+              <span className="profile-avatar-btn__edit" aria-hidden="true">
+                <IconPencil />
+              </span>
+            </button>
             <div className="profile-overview__user">
               <h2 className="profile-overview__name">{user?.username}</h2>
               <p className="profile-overview__email">{user?.email}</p>
               <Badge variant="primary" size="sm">{user?.role}</Badge>
+              <Button variant="secondary" size="sm" className="profile-avatar-change" onClick={openPicker}>
+                Change avatar
+              </Button>
             </div>
           </div>
 
@@ -267,6 +291,8 @@ export default function Account() {
           </Card>
         </section>
       </div>
+
+      {pickerOpen && <AvatarPickerModal onClose={closePicker} />}
     </div>
   );
 }

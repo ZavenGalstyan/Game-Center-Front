@@ -41,6 +41,20 @@ function mergeById(list, incoming) {
   return [...list, ...incoming.filter((c) => c && !seen.has(c.id) && seen.add(c.id))];
 }
 
+/**
+ * The backend joins each author's *current* avatar, so a refetch is always
+ * right. Between fetches, the viewer's own comments follow the session
+ * avatar so a change made elsewhere shows up without reloading the list.
+ * Other comments keep their identity (CommentCard is memoised).
+ */
+function withLiveAvatar(comment, user) {
+  const author = comment.author;
+  if (!user?.avatarId || !author || author.isDeleted) return comment;
+  const own = comment.isOwner || (author.id != null && author.id === user.id);
+  if (!own || author.avatarId === user.avatarId) return comment;
+  return { ...comment, author: { ...author, avatarId: user.avatarId } };
+}
+
 export default function GameComments({ gameId, onRequestAuth }) {
   const { status, user, isAuthenticated, handleAuthExpired } = useAuth();
   const toast = useToast();
@@ -386,7 +400,7 @@ export default function GameComments({ gameId, onRequestAuth }) {
     writeArea = (
       <CommentComposer
         gameId={gameId}
-        username={user?.username}
+        avatarId={user?.avatarId}
         allowance={allowance}
         draft={draft}
         onDraftChange={(v) => {
@@ -478,7 +492,7 @@ export default function GameComments({ gameId, onRequestAuth }) {
           {comments.map((comment) => (
             <CommentCard
               key={comment.id}
-              comment={comment}
+              comment={withLiveAvatar(comment, user)}
               canManage={isAuthenticated && comment.isOwner}
               isEditing={editingId === comment.id}
               isNew={highlightId === comment.id}

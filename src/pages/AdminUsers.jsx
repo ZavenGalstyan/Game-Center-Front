@@ -7,6 +7,7 @@ import {
   Badge,
   Button,
 } from "../components/ui";
+import Avatar from "../components/avatar/Avatar.jsx";
 
 const ROLES = [
   { value: "", label: "All" },
@@ -81,15 +82,6 @@ function RoleDropdown({ value, onChange, options }) {
           ))}
         </ul>
       )}
-    </div>
-  );
-}
-
-function UserAvatar({ username }) {
-  const initial = username?.charAt(0)?.toUpperCase() || "?";
-  return (
-    <div className="user-avatar" aria-hidden="true">
-      {initial}
     </div>
   );
 }
@@ -193,7 +185,7 @@ export default function AdminUsers() {
                     <tr key={u.id}>
                       <td>
                         <div className="admin-users__user-cell">
-                          <UserAvatar username={u.username} />
+                          <Avatar avatarId={u.avatarId} size="sm" alt="" />
                           <span className="admin-users__username">{u.username}</span>
                         </div>
                       </td>
