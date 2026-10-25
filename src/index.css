@@ -2218,6 +2218,16 @@ h3 {
   color: var(--text-secondary);
 }
 
+.game-page__short-desc {
+  margin: 0;
+  max-width: 600px;
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-relaxed);
+  color: var(--text-secondary);
+}
+
 /* ---------- Game Player Shell ---------- */
 .game-player {
   width: 100%;
@@ -3884,6 +3894,240 @@ h3 {
   z-index: -1;
 }
 
+/* Maze Muncher: glossy yellow arcade character, glowing blue maze walls, pellets, colorful ghosts, power orbs */
+.game-page__about[data-decoration="maze-muncher"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='mazeBg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(10,20,40,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(5,15,35,0.05)'/%3E%3C/linearGradient%3E%3ClinearGradient id='mazeWall' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,180,255,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,140,220,0.28)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,100,180,0.2)'/%3E%3C/linearGradient%3E%3ClinearGradient id='mazeWallGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,200,255,0.5)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,150,220,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='pacYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,230,50,0.55)'/%3E%3Cstop offset='40%25' stop-color='rgba(255,210,30,0.48)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,180,20,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='pacHighlight' x1='0%25' y1='0%25' x2='50%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,200,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,240,100,0)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ghostRed' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,80,80,0.4)'/%3E%3Cstop offset='50%25' stop-color='rgba(230,50,50,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,40,40,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ghostPink' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,200,0.4)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,140,170,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,120,150,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ghostCyan' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(0,240,240,0.4)'/%3E%3Cstop offset='50%25' stop-color='rgba(0,200,210,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,170,180,0.25)'/%3E%3C/linearGradient%3E%3ClinearGradient id='ghostOrange' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,80,0.4)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,150,50,0.32)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,130,40,0.25)'/%3E%3C/linearGradient%3E%3CradialGradient id='pellet' cx='50%25' cy='40%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,230,120,0.5)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,200,80,0.35)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,170,50,0.2)'/%3E%3C/radialGradient%3E%3CradialGradient id='powerOrb' cx='40%25' cy='35%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,200,0.6)'/%3E%3Cstop offset='30%25' stop-color='rgba(255,230,100,0.45)'/%3E%3Cstop offset='70%25' stop-color='rgba(255,200,60,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,170,40,0.15)'/%3E%3C/radialGradient%3E%3CradialGradient id='powerOrbGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,240,150,0.4)'/%3E%3Cstop offset='60%25' stop-color='rgba(255,200,80,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,180,50,0)'/%3E%3C/radialGradient%3E%3CradialGradient id='speedTrail' cx='100%25' cy='50%25' r='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,230,80,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,210,50,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,200,30,0)'/%3E%3C/radialGradient%3E%3Cfilter id='mazeGlow'%3E%3CfeGaussianBlur stdDeviation='0.8' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Dark maze background --%3E%3Crect x='0' y='0' width='100' height='100' fill='url(%23mazeBg)'/%3E%3C!-- Glowing maze walls in perspective composition --%3E%3Cg filter='url(%23mazeGlow)'%3E%3C!-- Horizontal walls --%3E%3Crect x='5' y='8' width='30' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='40' y='8' width='25' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='70' y='12' width='22' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='8' y='20' width='20' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='55' y='20' width='18' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='78' y='25' width='16' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='5' y='72' width='25' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='35' y='80' width='20' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='62' y='75' width='28' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='75' y='88' width='20' height='3' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3C!-- Vertical walls --%3E%3Crect x='5' y='8' width='3' height='22' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='32' y='8' width='3' height='18' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='62' y='8' width='3' height='20' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='89' y='12' width='3' height='18' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='5' y='70' width='3' height='18' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='27' y='72' width='3' height='15' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='52' y='75' width='3' height='18' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3Crect x='87' y='75' width='3' height='18' rx='1.5' fill='url(%23mazeWall)' stroke='rgba(0,200,255,0.15)' stroke-width='0.3'/%3E%3C!-- Corner pieces --%3E%3Cpath d='M8 32 L8 38 L18 38' fill='none' stroke='url(%23mazeWallGlow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M75 32 L75 40 L87 40' fill='none' stroke='url(%23mazeWallGlow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M15 60 L15 67 L5 67' fill='none' stroke='url(%23mazeWallGlow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M82 55 L82 65 L92 65' fill='none' stroke='url(%23mazeWallGlow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C!-- Golden energy pellets along paths --%3E%3Ccircle cx='15' cy='15' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='22' cy='15' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='48' cy='15' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='55' cy='15' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='78' cy='18' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='85' cy='18' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='15' cy='27' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='22' cy='27' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='62' cy='27' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='69' cy='27' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='12' cy='78' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='19' cy='78' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='42' cy='86' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='49' cy='86' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='70' cy='82' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='77' cy='82' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='82' cy='94' r='1.8' fill='url(%23pellet)'/%3E%3Ccircle cx='89' cy='94' r='1.8' fill='url(%23pellet)'/%3E%3C!-- Power orbs with glow effect --%3E%3Ccircle cx='10' cy='45' r='8' fill='url(%23powerOrbGlow)'/%3E%3Ccircle cx='10' cy='45' r='4' fill='url(%23powerOrb)' stroke='rgba(255,230,100,0.25)' stroke-width='0.6'/%3E%3Ccircle cx='8.5' cy='43.5' r='1.2' fill='rgba(255,255,230,0.35)'/%3E%3Ccircle cx='88' cy='50' r='7' fill='url(%23powerOrbGlow)'/%3E%3Ccircle cx='88' cy='50' r='3.5' fill='url(%23powerOrb)' stroke='rgba(255,230,100,0.25)' stroke-width='0.5'/%3E%3Ccircle cx='86.8' cy='48.8' r='1' fill='rgba(255,255,230,0.35)'/%3E%3C!-- Main Pac-Man character with glossy appearance --%3E%3Cg transform='translate(38, 42)'%3E%3C!-- Speed trails behind Pac-Man --%3E%3Cellipse cx='-12' cy='8' rx='10' ry='3' fill='url(%23speedTrail)' opacity='0.6'/%3E%3Cellipse cx='-8' cy='8' rx='6' ry='2' fill='url(%23speedTrail)' opacity='0.4'/%3E%3Cellipse cx='-5' cy='8' rx='3' ry='1.5' fill='rgba(255,230,80,0.25)'/%3E%3C!-- Main body --%3E%3Cpath d='M22 8 A14 14 0 1 0 22 8.001 L8 8 Z' fill='url(%23pacYellow)' stroke='rgba(255,200,30,0.25)' stroke-width='0.8' transform='rotate(25 8 8)'/%3E%3C!-- Glossy highlight --%3E%3Cellipse cx='3' cy='2' rx='5' ry='4' fill='url(%23pacHighlight)'/%3E%3C!-- Eye --%3E%3Ccircle cx='6' cy='-1' r='2.5' fill='rgba(20,20,30,0.5)'/%3E%3Ccircle cx='5.5' cy='-1.5' r='0.8' fill='rgba(255,255,255,0.35)'/%3E%3C/g%3E%3C!-- Red ghost (Blinky) --%3E%3Cg transform='translate(68, 38)'%3E%3Cpath d='M0 8 Q0 0 8 0 Q16 0 16 8 L16 16 L14 14 L12 16 L10 14 L8 16 L6 14 L4 16 L2 14 L0 16 Z' fill='url(%23ghostRed)' stroke='rgba(255,80,80,0.2)' stroke-width='0.5'/%3E%3Ccircle cx='5' cy='6' r='2.5' fill='rgba(255,255,255,0.45)'/%3E%3Ccircle cx='11' cy='6' r='2.5' fill='rgba(255,255,255,0.45)'/%3E%3Ccircle cx='4' cy='6' r='1.2' fill='rgba(30,60,150,0.5)'/%3E%3Ccircle cx='10' cy='6' r='1.2' fill='rgba(30,60,150,0.5)'/%3E%3C/g%3E%3C!-- Pink ghost (Pinky) --%3E%3Cg transform='translate(18, 50)'%3E%3Cpath d='M0 7 Q0 0 7 0 Q14 0 14 7 L14 14 L12 12 L10 14 L8 12 L6 14 L4 12 L2 14 L0 12 Z' fill='url(%23ghostPink)' stroke='rgba(255,150,180,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='4' cy='5' r='2.2' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='9.5' cy='5' r='2.2' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='3.2' cy='5' r='1' fill='rgba(30,60,150,0.45)'/%3E%3Ccircle cx='8.7' cy='5' r='1' fill='rgba(30,60,150,0.45)'/%3E%3C/g%3E%3C!-- Cyan ghost (Inky) --%3E%3Cg transform='translate(72, 58)'%3E%3Cpath d='M0 6 Q0 0 6 0 Q12 0 12 6 L12 12 L10 10 L8 12 L6 10 L4 12 L2 10 L0 12 Z' fill='url(%23ghostCyan)' stroke='rgba(0,220,220,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='3.5' cy='4.5' r='1.8' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='8' cy='4.5' r='1.8' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='2.8' cy='4.5' r='0.9' fill='rgba(30,60,150,0.45)'/%3E%3Ccircle cx='7.3' cy='4.5' r='0.9' fill='rgba(30,60,150,0.45)'/%3E%3C/g%3E%3C!-- Orange ghost (Clyde) --%3E%3Cg transform='translate(42, 68)'%3E%3Cpath d='M0 6 Q0 0 6 0 Q12 0 12 6 L12 12 L10 10 L8 12 L6 10 L4 12 L2 10 L0 12 Z' fill='url(%23ghostOrange)' stroke='rgba(255,150,50,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='3.5' cy='4.5' r='1.8' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='8' cy='4.5' r='1.8' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='2.8' cy='4.5' r='0.9' fill='rgba(30,60,150,0.45)'/%3E%3Ccircle cx='7.3' cy='4.5' r='0.9' fill='rgba(30,60,150,0.45)'/%3E%3C/g%3E%3C!-- Dynamic particles and sparkles --%3E%3Ccircle cx='28' cy='45' r='0.8' fill='rgba(255,230,100,0.35)'/%3E%3Ccircle cx='32' cy='48' r='0.6' fill='rgba(255,230,100,0.28)'/%3E%3Ccircle cx='25' cy='50' r='0.5' fill='rgba(255,230,100,0.2)'/%3E%3Ccircle cx='60' cy='45' r='0.7' fill='rgba(0,200,255,0.25)'/%3E%3Ccircle cx='64' cy='50' r='0.5' fill='rgba(0,200,255,0.2)'/%3E%3Ccircle cx='35' cy='55' r='0.6' fill='rgba(255,150,180,0.2)'/%3E%3Ccircle cx='80' cy='68' r='0.5' fill='rgba(0,230,230,0.2)'/%3E%3Ccircle cx='52' cy='72' r='0.6' fill='rgba(255,180,80,0.2)'/%3E%3C!-- Neon glow lines --%3E%3Cline x1='25' y1='35' x2='35' y2='35' stroke='rgba(0,180,255,0.12)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cline x1='60' y1='68' x2='68' y2='68' stroke='rgba(0,180,255,0.1)' stroke-width='0.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Maze Muncher ambient glow with electric blue, golden yellow, and neon accents */
+.game-page__about[data-decoration="maze-muncher"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(0, 180, 255, 0.055) 0%, rgba(255, 220, 80, 0.04) 25%, rgba(0, 200, 230, 0.03) 45%, rgba(255, 100, 100, 0.02) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Fruit Slice: sliced watermelon, orange slices, strawberries, kiwi, pineapple, juice splashes, bright slice trail, bomb silhouette */
+.game-page__about[data-decoration="fruit-slice"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='fruitBg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(15,25,20,0.06)'/%3E%3Cstop offset='100%25' stop-color='rgba(10,20,15,0.04)'/%3E%3C/linearGradient%3E%3ClinearGradient id='watermelonRind' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(60,180,80,0.5)'/%3E%3Cstop offset='50%25' stop-color='rgba(40,150,60,0.42)'/%3E%3Cstop offset='100%25' stop-color='rgba(30,120,50,0.35)'/%3E%3C/linearGradient%3E%3ClinearGradient id='watermelonFlesh' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,80,100,0.55)'/%3E%3Cstop offset='40%25' stop-color='rgba(240,60,80,0.48)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,50,70,0.4)'/%3E%3C/linearGradient%3E%3ClinearGradient id='orangeGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,50,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,150,30,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,120,20,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='strawberryGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,70,90,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(230,40,60,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,30,50,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='kiwiGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(140,200,80,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(120,180,60,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(100,160,50,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='pineappleGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,220,80,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(245,200,50,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,180,40,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='sliceTrail' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.6)'/%3E%3Cstop offset='30%25' stop-color='rgba(200,240,255,0.4)'/%3E%3Cstop offset='70%25' stop-color='rgba(150,220,255,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(100,200,255,0.1)'/%3E%3C/linearGradient%3E%3ClinearGradient id='bombGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(40,40,50,0.35)'/%3E%3Cstop offset='100%25' stop-color='rgba(25,25,35,0.25)'/%3E%3C/linearGradient%3E%3CradialGradient id='juiceSplash' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,100,120,0.45)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,80,100,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,60,80,0.1)'/%3E%3C/radialGradient%3E%3CradialGradient id='orangeJuice' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,180,80,0.45)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,160,50,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,140,30,0.1)'/%3E%3C/radialGradient%3E%3CradialGradient id='highlight' cx='30%25' cy='30%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.4)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/radialGradient%3E%3Cfilter id='fruitGlow'%3E%3CfeGaussianBlur stdDeviation='0.6' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Background --%3E%3Crect x='0' y='0' width='100' height='100' fill='url(%23fruitBg)'/%3E%3C!-- Curved slicing trail with glow effect --%3E%3Cg filter='url(%23fruitGlow)'%3E%3Cpath d='M5 75 Q25 50 50 35 Q75 20 95 10' fill='none' stroke='url(%23sliceTrail)' stroke-width='3' stroke-linecap='round' opacity='0.7'/%3E%3Cpath d='M8 78 Q28 52 52 38 Q76 24 94 15' fill='none' stroke='rgba(255,255,255,0.25)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M3 72 Q22 48 48 32 Q74 16 96 5' fill='none' stroke='rgba(180,230,255,0.15)' stroke-width='1' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Left watermelon half (sliced) --%3E%3Cg transform='translate(15, 28)'%3E%3Cpath d='M0 18 Q0 0 18 0 L20 0 L20 36 L18 36 Q0 36 0 18 Z' fill='url(%23watermelonFlesh)' stroke='rgba(255,80,100,0.2)' stroke-width='0.5'/%3E%3Cpath d='M0 18 Q0 2 16 0 L18 0 L18 2 Q2 4 2 18 Q2 32 18 34 L18 36 L16 36 Q0 34 0 18 Z' fill='url(%23watermelonRind)' stroke='rgba(60,180,80,0.2)' stroke-width='0.4'/%3E%3Cellipse cx='14' cy='10' rx='2.5' ry='1.5' fill='rgba(30,30,40,0.4)'/%3E%3Cellipse cx='12' cy='18' rx='2' ry='1.2' fill='rgba(30,30,40,0.35)'/%3E%3Cellipse cx='15' cy='26' rx='2.5' ry='1.5' fill='rgba(30,30,40,0.4)'/%3E%3Cellipse cx='10' cy='14' rx='1.5' ry='1' fill='rgba(30,30,40,0.3)'/%3E%3Cellipse cx='11' cy='22' rx='1.8' ry='1' fill='rgba(30,30,40,0.32)'/%3E%3Cellipse cx='8' cy='6' rx='4' ry='3' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Right watermelon half (flying away) --%3E%3Cg transform='translate(42, 24) rotate(12)'%3E%3Cpath d='M0 0 L2 0 Q20 0 20 18 Q20 36 2 36 L0 36 Z' fill='url(%23watermelonFlesh)' stroke='rgba(255,80,100,0.2)' stroke-width='0.5'/%3E%3Cpath d='M18 2 Q20 4 20 18 Q20 32 18 34 L20 34 Q22 32 22 18 Q22 4 20 2 Z' fill='url(%23watermelonRind)' stroke='rgba(60,180,80,0.2)' stroke-width='0.4'/%3E%3Cellipse cx='6' cy='12' rx='2.5' ry='1.5' fill='rgba(30,30,40,0.4)'/%3E%3Cellipse cx='8' cy='20' rx='2' ry='1.2' fill='rgba(30,30,40,0.35)'/%3E%3Cellipse cx='5' cy='28' rx='2.5' ry='1.5' fill='rgba(30,30,40,0.38)'/%3E%3Cellipse cx='12' cy='16' rx='1.5' ry='1' fill='rgba(30,30,40,0.3)'/%3E%3Cellipse cx='10' cy='24' rx='1.8' ry='1' fill='rgba(30,30,40,0.32)'/%3E%3Cellipse cx='4' cy='8' rx='3' ry='2.5' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Orange slice --%3E%3Cg transform='translate(68, 42)'%3E%3Cpath d='M0 10 A10 10 0 0 1 20 10 L10 10 Z' fill='url(%23orangeGrad)' stroke='rgba(255,180,50,0.25)' stroke-width='0.5'/%3E%3Cline x1='10' y1='10' x2='3' y2='3' stroke='rgba(255,220,150,0.3)' stroke-width='0.8'/%3E%3Cline x1='10' y1='10' x2='10' y2='0' stroke='rgba(255,220,150,0.3)' stroke-width='0.8'/%3E%3Cline x1='10' y1='10' x2='17' y2='3' stroke='rgba(255,220,150,0.3)' stroke-width='0.8'/%3E%3Cline x1='10' y1='10' x2='6' y2='1' stroke='rgba(255,220,150,0.25)' stroke-width='0.6'/%3E%3Cline x1='10' y1='10' x2='14' y2='1' stroke='rgba(255,220,150,0.25)' stroke-width='0.6'/%3E%3Cellipse cx='6' cy='5' rx='2.5' ry='2' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Strawberry --%3E%3Cg transform='translate(72, 68)'%3E%3Cpath d='M6 0 Q0 3 0 10 Q0 14 6 16 Q12 14 12 10 Q12 3 6 0 Z' fill='url(%23strawberryGrad)' stroke='rgba(255,60,80,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='3' cy='6' r='0.6' fill='rgba(255,230,150,0.4)'/%3E%3Ccircle cx='5' cy='9' r='0.5' fill='rgba(255,230,150,0.35)'/%3E%3Ccircle cx='8' cy='7' r='0.6' fill='rgba(255,230,150,0.4)'/%3E%3Ccircle cx='7' cy='12' r='0.5' fill='rgba(255,230,150,0.35)'/%3E%3Ccircle cx='4' cy='13' r='0.5' fill='rgba(255,230,150,0.3)'/%3E%3Ccircle cx='9' cy='10' r='0.5' fill='rgba(255,230,150,0.35)'/%3E%3Cpath d='M4 0 L6 2 L8 0 Q7 -2 6 -2 Q5 -2 4 0 Z' fill='rgba(80,160,60,0.45)' stroke='rgba(60,140,50,0.2)' stroke-width='0.3'/%3E%3Cellipse cx='3' cy='4' rx='2' ry='1.5' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Kiwi slice --%3E%3Cg transform='translate(8, 70)'%3E%3Ccircle cx='9' cy='9' r='9' fill='url(%23kiwiGrad)' stroke='rgba(100,140,50,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='9' cy='9' r='3' fill='rgba(255,255,220,0.35)' stroke='rgba(140,180,80,0.15)' stroke-width='0.3'/%3E%3Cline x1='9' y1='9' x2='9' y2='1' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='16' y2='5' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='17' y2='12' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='12' y2='17' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='5' y2='17' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='1' y2='12' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='9' y1='9' x2='2' y2='5' stroke='rgba(60,80,40,0.25)' stroke-width='0.5'/%3E%3Ccircle cx='6' cy='4' r='0.8' fill='rgba(25,35,20,0.35)'/%3E%3Ccircle cx='13' cy='6' r='0.7' fill='rgba(25,35,20,0.3)'/%3E%3Ccircle cx='15' cy='11' r='0.8' fill='rgba(25,35,20,0.35)'/%3E%3Ccircle cx='12' cy='15' r='0.7' fill='rgba(25,35,20,0.3)'/%3E%3Ccircle cx='6' cy='14' r='0.8' fill='rgba(25,35,20,0.35)'/%3E%3Ccircle cx='3' cy='9' r='0.7' fill='rgba(25,35,20,0.3)'/%3E%3Cellipse cx='5' cy='5' rx='2.5' ry='2' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Pineapple wedge --%3E%3Cg transform='translate(78, 18)'%3E%3Cpath d='M0 12 L8 0 L16 12 Q8 16 0 12 Z' fill='url(%23pineappleGrad)' stroke='rgba(230,180,40,0.25)' stroke-width='0.5'/%3E%3Cline x1='4' y1='4' x2='4' y2='11' stroke='rgba(200,150,30,0.3)' stroke-width='0.6'/%3E%3Cline x1='8' y1='2' x2='8' y2='13' stroke='rgba(200,150,30,0.3)' stroke-width='0.6'/%3E%3Cline x1='12' y1='4' x2='12' y2='11' stroke='rgba(200,150,30,0.3)' stroke-width='0.6'/%3E%3Cline x1='2' y1='7' x2='14' y2='7' stroke='rgba(200,150,30,0.25)' stroke-width='0.5'/%3E%3Cline x1='3' y1='10' x2='13' y2='10' stroke='rgba(200,150,30,0.25)' stroke-width='0.5'/%3E%3Cpath d='M6 0 L8 -4 L10 0' fill='none' stroke='rgba(80,150,50,0.4)' stroke-width='0.8'/%3E%3Cpath d='M4 1 L5 -2' fill='none' stroke='rgba(80,150,50,0.35)' stroke-width='0.6'/%3E%3Cpath d='M12 1 L11 -2' fill='none' stroke='rgba(80,150,50,0.35)' stroke-width='0.6'/%3E%3Cellipse cx='5' cy='5' rx='2' ry='1.5' fill='url(%23highlight)'/%3E%3C/g%3E%3C!-- Juice splash from watermelon --%3E%3Ccircle cx='38' cy='45' r='8' fill='url(%23juiceSplash)'/%3E%3Ccircle cx='42' cy='38' r='5' fill='url(%23juiceSplash)' opacity='0.7'/%3E%3C!-- Orange juice droplets --%3E%3Ccircle cx='75' cy='58' r='4' fill='url(%23orangeJuice)'/%3E%3Ccircle cx='80' cy='62' r='2.5' fill='url(%23orangeJuice)' opacity='0.7'/%3E%3C!-- Flying juice droplets --%3E%3Ccircle cx='48' cy='35' r='2' fill='rgba(255,100,120,0.4)'/%3E%3Ccircle cx='52' cy='30' r='1.5' fill='rgba(255,100,120,0.35)'/%3E%3Ccircle cx='45' cy='28' r='1.2' fill='rgba(255,100,120,0.3)'/%3E%3Ccircle cx='55' cy='38' r='1' fill='rgba(255,100,120,0.25)'/%3E%3Ccircle cx='60' cy='32' r='1.3' fill='rgba(255,180,80,0.35)'/%3E%3Ccircle cx='65' cy='28' r='1' fill='rgba(255,180,80,0.3)'/%3E%3Ccircle cx='70' cy='35' r='0.8' fill='rgba(255,180,80,0.25)'/%3E%3C!-- Small fruit fragments --%3E%3Crect x='50' y='42' width='3' height='2' rx='0.5' fill='rgba(255,80,100,0.35)' transform='rotate(25 51 43)'/%3E%3Crect x='58' y='48' width='2.5' height='1.5' rx='0.4' fill='rgba(255,180,50,0.32)' transform='rotate(-15 59 49)'/%3E%3Crect x='30' y='52' width='2' height='1.5' rx='0.4' fill='rgba(255,70,90,0.3)' transform='rotate(40 31 53)'/%3E%3C!-- Leaves --%3E%3Cpath d='M25 20 Q28 18 30 20 Q28 22 25 20 Z' fill='rgba(80,160,60,0.4)' stroke='rgba(60,140,50,0.2)' stroke-width='0.3'/%3E%3Cpath d='M62 55 Q64 52 67 54 Q65 56 62 55 Z' fill='rgba(80,160,60,0.35)' stroke='rgba(60,140,50,0.15)' stroke-width='0.2'/%3E%3Cpath d='M88 38 Q90 35 93 36 Q91 39 88 38 Z' fill='rgba(80,160,60,0.35)' stroke='rgba(60,140,50,0.15)' stroke-width='0.2'/%3E%3C!-- Bomb silhouette (subtle danger element) --%3E%3Cg transform='translate(5, 8)'%3E%3Ccircle cx='8' cy='10' r='7' fill='url(%23bombGrad)' stroke='rgba(50,50,60,0.2)' stroke-width='0.5'/%3E%3Crect x='6' y='2' width='4' height='3' rx='1' fill='rgba(60,60,70,0.3)'/%3E%3Cpath d='M8 2 Q10 -1 12 0 Q11 2 12 4' fill='none' stroke='rgba(255,150,50,0.3)' stroke-width='0.8' stroke-linecap='round'/%3E%3Ccircle cx='13' cy='0' r='1.5' fill='rgba(255,180,80,0.25)'/%3E%3Ccircle cx='13.5' cy='-0.5' r='0.8' fill='rgba(255,220,100,0.3)'/%3E%3Cellipse cx='5' cy='7' rx='2' ry='1.5' fill='rgba(80,80,100,0.15)'/%3E%3C/g%3E%3C!-- Motion lines for dynamic effect --%3E%3Cpath d='M62 22 Q58 25 55 22' fill='none' stroke='rgba(255,180,80,0.2)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M38 62 Q35 58 38 55' fill='none' stroke='rgba(255,100,120,0.18)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M82 75 Q78 72 80 68' fill='none' stroke='rgba(255,70,90,0.15)' stroke-width='0.4' stroke-linecap='round'/%3E%3C!-- Sparkle effects --%3E%3Ccircle cx='35' cy='32' r='0.8' fill='rgba(255,255,200,0.4)'/%3E%3Ccircle cx='70' cy='25' r='0.6' fill='rgba(255,255,200,0.35)'/%3E%3Ccircle cx='85' cy='55' r='0.7' fill='rgba(255,255,200,0.35)'/%3E%3Ccircle cx='22' cy='65' r='0.6' fill='rgba(255,255,200,0.3)'/%3E%3Ccircle cx='55' cy='75' r='0.5' fill='rgba(255,255,200,0.28)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Fruit Slice ambient glow with red, orange, green, and yellow accents */
+.game-page__about[data-decoration="fruit-slice"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(255, 100, 120, 0.055) 0%, rgba(255, 180, 80, 0.045) 25%, rgba(140, 200, 80, 0.035) 45%, rgba(255, 220, 80, 0.025) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Flappy Wings: cheerful yellow bird, green pipes, flight path, clouds, sparkles */
+.game-page__about[data-decoration="flappy-wings"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='skyBg' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(135,206,250,0.08)'/%3E%3Cstop offset='100%25' stop-color='rgba(100,180,255,0.05)'/%3E%3C/linearGradient%3E%3ClinearGradient id='birdYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,220,80,0.6)'/%3E%3Cstop offset='40%25' stop-color='rgba(255,200,50,0.52)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,180,40,0.45)'/%3E%3C/linearGradient%3E%3ClinearGradient id='birdHighlight' x1='0%25' y1='0%25' x2='50%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,220,0.5)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,240,150,0)'/%3E%3C/linearGradient%3E%3ClinearGradient id='beakOrange' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,160,60,0.6)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,120,40,0.5)'/%3E%3C/linearGradient%3E%3ClinearGradient id='wingYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,200,60,0.55)'/%3E%3Cstop offset='100%25' stop-color='rgba(230,170,40,0.42)'/%3E%3C/linearGradient%3E%3ClinearGradient id='pipeGreen' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='rgba(80,200,80,0.5)'/%3E%3Cstop offset='30%25' stop-color='rgba(60,180,60,0.45)'/%3E%3Cstop offset='70%25' stop-color='rgba(50,160,50,0.42)'/%3E%3Cstop offset='100%25' stop-color='rgba(40,140,40,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='pipeHighlight' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='rgba(150,255,150,0.35)'/%3E%3Cstop offset='30%25' stop-color='rgba(100,220,100,0.15)'/%3E%3Cstop offset='100%25' stop-color='rgba(80,180,80,0)'/%3E%3C/linearGradient%3E%3ClinearGradient id='pipeCap' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='rgba(100,220,100,0.55)'/%3E%3Cstop offset='30%25' stop-color='rgba(70,190,70,0.48)'/%3E%3Cstop offset='70%25' stop-color='rgba(55,170,55,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(45,150,45,0.4)'/%3E%3C/linearGradient%3E%3CradialGradient id='cloud' cx='50%25' cy='40%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.35)'/%3E%3Cstop offset='60%25' stop-color='rgba(240,248,255,0.22)'/%3E%3Cstop offset='100%25' stop-color='rgba(220,240,255,0.08)'/%3E%3C/radialGradient%3E%3CradialGradient id='flightTrail' cx='100%25' cy='50%25' r='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.35)'/%3E%3Cstop offset='40%25' stop-color='rgba(200,230,255,0.2)'/%3E%3Cstop offset='100%25' stop-color='rgba(150,200,255,0)'/%3E%3C/radialGradient%3E%3Cfilter id='birdGlow'%3E%3CfeGaussianBlur stdDeviation='0.6' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Sky background --%3E%3Crect x='0' y='0' width='100' height='100' fill='url(%23skyBg)'/%3E%3C!-- Soft clouds in background --%3E%3Cellipse cx='12' cy='18' rx='10' ry='6' fill='url(%23cloud)'/%3E%3Cellipse cx='18' cy='16' rx='7' ry='5' fill='url(%23cloud)'/%3E%3Cellipse cx='8' cy='20' rx='6' ry='4' fill='url(%23cloud)'/%3E%3Cellipse cx='75' cy='12' rx='12' ry='7' fill='url(%23cloud)'/%3E%3Cellipse cx='82' cy='10' rx='8' ry='5' fill='url(%23cloud)'/%3E%3Cellipse cx='70' cy='14' rx='6' ry='4' fill='url(%23cloud)'/%3E%3Cellipse cx='88' cy='75' rx='9' ry='5' fill='url(%23cloud)'/%3E%3Cellipse cx='94' cy='73' rx='6' ry='4' fill='url(%23cloud)'/%3E%3Cellipse cx='15' cy='85' rx='11' ry='6' fill='url(%23cloud)'/%3E%3Cellipse cx='22' cy='83' rx='7' ry='4' fill='url(%23cloud)'/%3E%3C!-- Left pipe (bottom part going down) --%3E%3Cg transform='translate(18, 55)'%3E%3Crect x='0' y='5' width='14' height='45' fill='url(%23pipeGreen)' stroke='rgba(40,140,40,0.2)' stroke-width='0.5'/%3E%3Crect x='0' y='5' width='4' height='45' fill='url(%23pipeHighlight)'/%3E%3Crect x='-2' y='0' width='18' height='8' rx='1' fill='url(%23pipeCap)' stroke='rgba(50,160,50,0.25)' stroke-width='0.5'/%3E%3Crect x='-2' y='0' width='5' height='8' rx='1' fill='url(%23pipeHighlight)'/%3E%3C/g%3E%3C!-- Left pipe (top part going up) --%3E%3Cg transform='translate(18, 0)'%3E%3Crect x='0' y='0' width='14' height='35' fill='url(%23pipeGreen)' stroke='rgba(40,140,40,0.2)' stroke-width='0.5'/%3E%3Crect x='0' y='0' width='4' height='35' fill='url(%23pipeHighlight)'/%3E%3Crect x='-2' y='32' width='18' height='8' rx='1' fill='url(%23pipeCap)' stroke='rgba(50,160,50,0.25)' stroke-width='0.5'/%3E%3Crect x='-2' y='32' width='5' height='8' rx='1' fill='url(%23pipeHighlight)'/%3E%3C/g%3E%3C!-- Right pipe (bottom part) --%3E%3Cg transform='translate(70, 62)'%3E%3Crect x='0' y='5' width='14' height='38' fill='url(%23pipeGreen)' stroke='rgba(40,140,40,0.2)' stroke-width='0.5'/%3E%3Crect x='0' y='5' width='4' height='38' fill='url(%23pipeHighlight)'/%3E%3Crect x='-2' y='0' width='18' height='8' rx='1' fill='url(%23pipeCap)' stroke='rgba(50,160,50,0.25)' stroke-width='0.5'/%3E%3Crect x='-2' y='0' width='5' height='8' rx='1' fill='url(%23pipeHighlight)'/%3E%3C/g%3E%3C!-- Right pipe (top part) --%3E%3Cg transform='translate(70, 0)'%3E%3Crect x='0' y='0' width='14' height='42' fill='url(%23pipeGreen)' stroke='rgba(40,140,40,0.2)' stroke-width='0.5'/%3E%3Crect x='0' y='0' width='4' height='42' fill='url(%23pipeHighlight)'/%3E%3Crect x='-2' y='39' width='18' height='8' rx='1' fill='url(%23pipeCap)' stroke='rgba(50,160,50,0.25)' stroke-width='0.5'/%3E%3Crect x='-2' y='39' width='5' height='8' rx='1' fill='url(%23pipeHighlight)'/%3E%3C/g%3E%3C!-- Curved flight path with motion trails --%3E%3Cpath d='M5 70 Q20 55 35 48 Q50 42 60 50' fill='none' stroke='url(%23flightTrail)' stroke-width='3' stroke-linecap='round' opacity='0.5'/%3E%3Cpath d='M8 68 Q22 54 36 47 Q48 42 58 48' fill='none' stroke='rgba(255,255,255,0.2)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M12 66 Q24 53 37 47' fill='none' stroke='rgba(200,230,255,0.15)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Motion trail dots --%3E%3Ccircle cx='15' cy='62' r='1.5' fill='rgba(255,255,255,0.25)'/%3E%3Ccircle cx='22' cy='56' r='1.2' fill='rgba(255,255,255,0.2)'/%3E%3Ccircle cx='28' cy='52' r='1' fill='rgba(255,255,255,0.15)'/%3E%3Ccircle cx='34' cy='49' r='0.8' fill='rgba(255,255,255,0.12)'/%3E%3C!-- Main bird character --%3E%3Cg transform='translate(42, 38)' filter='url(%23birdGlow)'%3E%3C!-- Bird body --%3E%3Cellipse cx='10' cy='12' rx='12' ry='10' fill='url(%23birdYellow)' stroke='rgba(230,170,30,0.25)' stroke-width='0.6'/%3E%3C!-- Body highlight --%3E%3Cellipse cx='5' cy='7' rx='6' ry='5' fill='url(%23birdHighlight)'/%3E%3C!-- Wing (flapping up) --%3E%3Cpath d='M0 12 Q-5 5 -2 0 Q2 3 5 8 Q3 12 0 12 Z' fill='url(%23wingYellow)' stroke='rgba(220,160,30,0.2)' stroke-width='0.4'/%3E%3Cellipse cx='-1' cy='4' rx='2' ry='2' fill='rgba(255,255,220,0.3)'/%3E%3C!-- Tail feathers --%3E%3Cpath d='M20 10 Q25 8 24 12 Q25 16 20 14 Z' fill='url(%23wingYellow)' stroke='rgba(220,160,30,0.15)' stroke-width='0.3'/%3E%3C!-- Eye white --%3E%3Ccircle cx='14' cy='8' r='4.5' fill='rgba(255,255,255,0.6)' stroke='rgba(200,200,200,0.2)' stroke-width='0.3'/%3E%3C!-- Eye pupil --%3E%3Ccircle cx='15.5' cy='8' r='2.5' fill='rgba(30,30,40,0.55)'/%3E%3C!-- Eye shine --%3E%3Ccircle cx='14' cy='6.5' r='1.2' fill='rgba(255,255,255,0.5)'/%3E%3Ccircle cx='16.5' cy='9' r='0.6' fill='rgba(255,255,255,0.3)'/%3E%3C!-- Eyebrow (expressive) --%3E%3Cpath d='M10 3 Q14 1 18 3' fill='none' stroke='rgba(180,140,40,0.35)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Orange beak --%3E%3Cpath d='M18 11 L26 13 L18 15 Z' fill='url(%23beakOrange)' stroke='rgba(230,100,30,0.25)' stroke-width='0.4'/%3E%3Cellipse cx='20' cy='12' rx='2' ry='1' fill='rgba(255,200,150,0.3)'/%3E%3C!-- Cheek blush --%3E%3Cellipse cx='8' cy='14' rx='2.5' ry='1.5' fill='rgba(255,150,100,0.2)'/%3E%3C/g%3E%3C!-- Sparkle effects --%3E%3Ccircle cx='55' cy='30' r='1' fill='rgba(255,255,200,0.45)'/%3E%3Ccircle cx='40' cy='25' r='0.8' fill='rgba(255,255,200,0.4)'/%3E%3Ccircle cx='65' cy='45' r='0.7' fill='rgba(255,255,200,0.35)'/%3E%3Ccircle cx='48' cy='58' r='0.8' fill='rgba(255,255,200,0.38)'/%3E%3Ccircle cx='85' cy='35' r='0.6' fill='rgba(255,255,200,0.32)'/%3E%3Ccircle cx='10' cy='45' r='0.7' fill='rgba(255,255,200,0.3)'/%3E%3C!-- Star sparkles --%3E%3Cpath d='M58 22 L59 24 L61 24 L59.5 25.5 L60 28 L58 26.5 L56 28 L56.5 25.5 L55 24 L57 24 Z' fill='rgba(255,255,180,0.35)'/%3E%3Cpath d='M30 35 L30.6 36.2 L32 36.2 L30.9 37 L31.2 38.5 L30 37.6 L28.8 38.5 L29.1 37 L28 36.2 L29.4 36.2 Z' fill='rgba(255,255,180,0.28)'/%3E%3C!-- Blue sky accent lines --%3E%3Cpath d='M5 30 Q8 28 12 30' fill='none' stroke='rgba(100,180,255,0.15)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M90 55 Q93 53 97 55' fill='none' stroke='rgba(100,180,255,0.12)' stroke-width='0.4' stroke-linecap='round'/%3E%3C!-- Small floating feathers --%3E%3Cpath d='M35 65 Q37 63 38 65 Q37 67 35 65 Z' fill='rgba(255,220,100,0.25)'/%3E%3Cpath d='M62 28 Q63.5 26 64.5 28 Q63.5 29.5 62 28 Z' fill='rgba(255,220,100,0.2)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Flappy Wings ambient glow with yellow, green, and sky blue accents */
+.game-page__about[data-decoration="flappy-wings"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(255, 220, 80, 0.055) 0%, rgba(100, 200, 100, 0.045) 25%, rgba(135, 206, 250, 0.035) 45%, rgba(255, 255, 200, 0.025) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Mahjong Classic: elegant layered ivory tiles, traditional symbols, wooden board feel */
+.game-page__about[data-decoration="mahjong-classic"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='woodBg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(60,40,25,0.08)'/%3E%3Cstop offset='50%25' stop-color='rgba(50,35,20,0.06)'/%3E%3Cstop offset='100%25' stop-color='rgba(40,28,15,0.05)'/%3E%3C/linearGradient%3E%3ClinearGradient id='tileIvory' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,252,240,0.65)'/%3E%3Cstop offset='40%25' stop-color='rgba(250,245,230,0.55)'/%3E%3Cstop offset='100%25' stop-color='rgba(240,235,220,0.48)'/%3E%3C/linearGradient%3E%3ClinearGradient id='tileSide' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(220,215,200,0.5)'/%3E%3Cstop offset='100%25' stop-color='rgba(200,195,180,0.4)'/%3E%3C/linearGradient%3E%3ClinearGradient id='tileBottom' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(180,175,160,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(160,155,140,0.35)'/%3E%3C/linearGradient%3E%3ClinearGradient id='tileHighlight' x1='0%25' y1='0%25' x2='50%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.5)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/linearGradient%3E%3ClinearGradient id='matchGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,215,100,0.35)'/%3E%3Cstop offset='50%25' stop-color='rgba(255,200,80,0.25)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,185,60,0.15)'/%3E%3C/linearGradient%3E%3ClinearGradient id='jadeGreen' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(60,150,100,0.6)'/%3E%3Cstop offset='50%25' stop-color='rgba(50,130,85,0.5)'/%3E%3Cstop offset='100%25' stop-color='rgba(40,110,70,0.42)'/%3E%3C/linearGradient%3E%3ClinearGradient id='circleRed' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(200,60,60,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(180,50,50,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(160,40,40,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='circleBlue' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(60,100,180,0.55)'/%3E%3Cstop offset='50%25' stop-color='rgba(50,85,160,0.45)'/%3E%3Cstop offset='100%25' stop-color='rgba(40,70,140,0.38)'/%3E%3C/linearGradient%3E%3ClinearGradient id='goldAccent' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='rgba(220,180,80,0.5)'/%3E%3Cstop offset='50%25' stop-color='rgba(200,160,60,0.4)'/%3E%3Cstop offset='100%25' stop-color='rgba(180,140,50,0.32)'/%3E%3C/linearGradient%3E%3CradialGradient id='circleGrad' cx='35%25' cy='35%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/radialGradient%3E%3Cfilter id='tileShadow'%3E%3CfeDropShadow dx='1' dy='1.5' stdDeviation='1' flood-color='rgba(0,0,0,0.2)'/%3E%3C/filter%3E%3Cfilter id='softGlow'%3E%3CfeGaussianBlur stdDeviation='0.8' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Wooden background --%3E%3Crect x='0' y='0' width='100' height='100' fill='url(%23woodBg)'/%3E%3C!-- Wood grain lines --%3E%3Cpath d='M5 15 Q25 12 45 16 Q65 20 85 14 Q95 12 100 15' fill='none' stroke='rgba(80,55,35,0.06)' stroke-width='0.8'/%3E%3Cpath d='M0 35 Q20 32 40 38 Q60 42 80 36 Q95 33 100 37' fill='none' stroke='rgba(80,55,35,0.05)' stroke-width='0.6'/%3E%3Cpath d='M5 55 Q25 58 45 53 Q65 48 85 55 Q95 58 100 54' fill='none' stroke='rgba(80,55,35,0.055)' stroke-width='0.7'/%3E%3Cpath d='M0 75 Q15 72 35 77 Q55 82 75 75 Q90 70 100 76' fill='none' stroke='rgba(80,55,35,0.05)' stroke-width='0.6'/%3E%3Cpath d='M5 92 Q30 88 50 93 Q70 97 95 91' fill='none' stroke='rgba(80,55,35,0.045)' stroke-width='0.5'/%3E%3C!-- Back layer tiles (stacked depth) --%3E%3Cg transform='translate(8, 8)' filter='url(%23tileShadow)' opacity='0.5'%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3C/g%3E%3Cg transform='translate(28, 5)' filter='url(%23tileShadow)' opacity='0.5'%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3C/g%3E%3Cg transform='translate(72, 10)' filter='url(%23tileShadow)' opacity='0.5'%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3C/g%3E%3C!-- Main tile 1: Bamboo tile (matched - glowing) --%3E%3Cg transform='translate(5, 22)' filter='url(%23softGlow)'%3E%3C!-- Match glow --%3E%3Crect x='-3' y='-3' width='22' height='26' rx='3' fill='url(%23matchGlow)'/%3E%3C!-- Tile base with 3D effect --%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3C!-- Highlight --%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Bamboo symbol (3 sticks) --%3E%3Crect x='4' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3Crect x='7' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3Crect x='10' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3C!-- Bamboo nodes --%3E%3Cellipse cx='5.1' cy='7' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='5.1' cy='13' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='8.1' cy='9' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='11.1' cy='7' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='11.1' cy='13' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3C/g%3E%3C!-- Main tile 2: Circle tile (red dots) --%3E%3Cg transform='translate(25, 18)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- 5 circles pattern --%3E%3Ccircle cx='8' cy='5' r='2.2' fill='url(%23circleRed)' stroke='rgba(180,50,50,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='4.5' cy='10' r='2.2' fill='url(%23circleRed)' stroke='rgba(180,50,50,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='11.5' cy='10' r='2.2' fill='url(%23circleRed)' stroke='rgba(180,50,50,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='4.5' cy='15' r='2.2' fill='url(%23circleRed)' stroke='rgba(180,50,50,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='11.5' cy='15' r='2.2' fill='url(%23circleRed)' stroke='rgba(180,50,50,0.2)' stroke-width='0.3'/%3E%3C!-- Circle highlights --%3E%3Ccircle cx='7' cy='4' r='0.8' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='3.5' cy='9' r='0.6' fill='rgba(255,255,255,0.25)'/%3E%3Ccircle cx='10.5' cy='9' r='0.6' fill='rgba(255,255,255,0.25)'/%3E%3C/g%3E%3C!-- Main tile 3: Character tile (Chinese numeral) --%3E%3Cg transform='translate(45, 25)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Chinese character for 'one' (yi) --%3E%3Crect x='4' y='5' width='8' height='1.8' rx='0.4' fill='rgba(30,30,40,0.55)'/%3E%3C!-- Wan character below --%3E%3Cpath d='M5 10 L11 10 M8 10 L8 15 M5 12.5 Q8 14 11 12.5' fill='none' stroke='rgba(180,50,50,0.5)' stroke-width='1' stroke-linecap='round'/%3E%3C/g%3E%3C!-- Main tile 4: Bamboo tile (matched pair - glowing) --%3E%3Cg transform='translate(65, 20)' filter='url(%23softGlow)'%3E%3C!-- Match glow --%3E%3Crect x='-3' y='-3' width='22' height='26' rx='3' fill='url(%23matchGlow)'/%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Bamboo symbol (3 sticks - matching tile 1) --%3E%3Crect x='4' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3Crect x='7' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3Crect x='10' y='4' width='2.2' height='12' rx='0.8' fill='url(%23jadeGreen)' stroke='rgba(40,100,60,0.2)' stroke-width='0.3'/%3E%3Cellipse cx='5.1' cy='7' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='5.1' cy='13' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='8.1' cy='9' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='11.1' cy='7' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='11.1' cy='13' rx='1.3' ry='0.5' fill='rgba(80,160,100,0.5)'/%3E%3C/g%3E%3C!-- Tile 5: Flower tile --%3E%3Cg transform='translate(15, 50)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Plum blossom flower --%3E%3Ccircle cx='8' cy='8' r='2' fill='rgba(220,80,100,0.5)'/%3E%3Ccircle cx='5.5' cy='6.5' r='1.8' fill='rgba(230,90,110,0.45)'/%3E%3Ccircle cx='10.5' cy='6.5' r='1.8' fill='rgba(230,90,110,0.45)'/%3E%3Ccircle cx='6' cy='10' r='1.8' fill='rgba(230,90,110,0.45)'/%3E%3Ccircle cx='10' cy='10' r='1.8' fill='rgba(230,90,110,0.45)'/%3E%3Ccircle cx='8' cy='8' r='1.2' fill='rgba(255,220,100,0.5)'/%3E%3C!-- Stem --%3E%3Cpath d='M8 11 Q7 14 8 17' fill='none' stroke='rgba(60,130,80,0.45)' stroke-width='0.8'/%3E%3Cpath d='M8 14 Q10 13 11 14' fill='none' stroke='rgba(60,130,80,0.4)' stroke-width='0.6'/%3E%3C/g%3E%3C!-- Tile 6: Circle tile (blue) --%3E%3Cg transform='translate(38, 55)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- 3 circles --%3E%3Ccircle cx='8' cy='5' r='2.5' fill='url(%23circleBlue)' stroke='rgba(50,80,150,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='5' cy='12' r='2.5' fill='url(%23circleBlue)' stroke='rgba(50,80,150,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='11' cy='12' r='2.5' fill='url(%23circleBlue)' stroke='rgba(50,80,150,0.2)' stroke-width='0.3'/%3E%3Ccircle cx='7' cy='4' r='0.8' fill='rgba(255,255,255,0.3)'/%3E%3C/g%3E%3C!-- Tile 7: Wind tile --%3E%3Cg transform='translate(60, 50)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- East wind character --%3E%3Cpath d='M4 5 L12 5 M8 5 L8 16 M4 10 L12 10 M5 14 Q8 17 11 14' fill='none' stroke='rgba(60,130,80,0.55)' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C!-- Bottom row tiles (partially visible) --%3E%3Cg transform='translate(8, 78)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Single bamboo --%3E%3Crect x='6.5' y='4' width='3' height='13' rx='1' fill='url(%23jadeGreen)'/%3E%3Cellipse cx='8' cy='8' rx='1.8' ry='0.6' fill='rgba(80,160,100,0.5)'/%3E%3Cellipse cx='8' cy='13' rx='1.8' ry='0.6' fill='rgba(80,160,100,0.5)'/%3E%3C/g%3E%3Cg transform='translate(30, 80)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Dragon (red) --%3E%3Crect x='4' y='4' width='8' height='12' rx='1' fill='none' stroke='rgba(200,50,50,0.5)' stroke-width='1.5'/%3E%3Cpath d='M6 7 L10 7 M6 10 L10 10 M6 13 L10 13' stroke='rgba(200,50,50,0.45)' stroke-width='0.8'/%3E%3C/g%3E%3Cg transform='translate(52, 78)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- 9 circles pattern --%3E%3Ccircle cx='5' cy='5' r='1.5' fill='url(%23circleRed)'/%3E%3Ccircle cx='8' cy='5' r='1.5' fill='url(%23circleBlue)'/%3E%3Ccircle cx='11' cy='5' r='1.5' fill='url(%23circleRed)'/%3E%3Ccircle cx='5' cy='10' r='1.5' fill='url(%23circleBlue)'/%3E%3Ccircle cx='8' cy='10' r='1.5' fill='url(%23circleRed)'/%3E%3Ccircle cx='11' cy='10' r='1.5' fill='url(%23circleBlue)'/%3E%3Ccircle cx='5' cy='15' r='1.5' fill='url(%23circleRed)'/%3E%3Ccircle cx='8' cy='15' r='1.5' fill='url(%23circleBlue)'/%3E%3Ccircle cx='11' cy='15' r='1.5' fill='url(%23circleRed)'/%3E%3C/g%3E%3Cg transform='translate(75, 75)' filter='url(%23tileShadow)'%3E%3Crect x='1.5' y='2' width='16' height='20' rx='1.5' fill='url(%23tileBottom)'/%3E%3Crect x='0.8' y='1' width='16' height='20' rx='1.5' fill='url(%23tileSide)'/%3E%3Crect x='0' y='0' width='16' height='20' rx='1.5' fill='url(%23tileIvory)' stroke='rgba(180,175,160,0.3)' stroke-width='0.4'/%3E%3Crect x='1' y='1' width='8' height='10' rx='1' fill='url(%23tileHighlight)'/%3E%3C!-- Season: Winter plum --%3E%3Ccircle cx='8' cy='7' r='2.5' fill='rgba(220,180,220,0.45)'/%3E%3Ccircle cx='5.5' cy='9' r='2' fill='rgba(230,190,230,0.4)'/%3E%3Ccircle cx='10.5' cy='9' r='2' fill='rgba(230,190,230,0.4)'/%3E%3Ccircle cx='8' cy='7' r='1' fill='rgba(255,230,150,0.5)'/%3E%3Cpath d='M8 10 Q7 13 8 16' fill='none' stroke='rgba(100,80,60,0.35)' stroke-width='0.6'/%3E%3C/g%3E%3C!-- Match connection sparkle line --%3E%3Cpath d='M18 35 Q42 30 68 33' fill='none' stroke='rgba(255,215,100,0.25)' stroke-width='1' stroke-dasharray='2 2'/%3E%3C!-- Sparkle particles --%3E%3Ccircle cx='25' cy='32' r='1' fill='rgba(255,230,150,0.45)'/%3E%3Ccircle cx='55' cy='28' r='0.8' fill='rgba(255,230,150,0.4)'/%3E%3Ccircle cx='42' cy='48' r='0.7' fill='rgba(255,230,150,0.35)'/%3E%3Ccircle cx='78' cy='45' r='0.9' fill='rgba(255,230,150,0.4)'/%3E%3Ccircle cx='12' cy='68' r='0.6' fill='rgba(255,230,150,0.3)'/%3E%3Ccircle cx='88' cy='62' r='0.7' fill='rgba(255,230,150,0.32)'/%3E%3C!-- Small floating highlights --%3E%3Ccircle cx='35' cy='12' r='0.5' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='82' cy='35' r='0.6' fill='rgba(255,255,255,0.28)'/%3E%3Ccircle cx='48' cy='72' r='0.5' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Mahjong Classic ambient glow with ivory, jade green, muted red, and gold accents */
+.game-page__about[data-decoration="mahjong-classic"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(255, 250, 230, 0.055) 0%, rgba(60, 150, 100, 0.045) 25%, rgba(200, 60, 60, 0.03) 45%, rgba(220, 180, 80, 0.025) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Dot Connect decoration - colorful connected dots with flowing puzzle paths */
+.game-page__about[data-decoration="dot-connect"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='dotConnectGrad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff4466' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23ff6688' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='dotConnectGrad2' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2344aaff' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%236688ff' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='dotConnectGrad3' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2344ff88' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%2366ffaa' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='dotConnectGrad4' x1='100%25' y1='50%25' x2='0%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffcc44' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23ffdd66' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='dotConnectGrad5' x1='0%25' y1='50%25' x2='100%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff44ff' stop-opacity='0.07'/%3E%3Cstop offset='100%25' stop-color='%23ff88ff' stop-opacity='0.03'/%3E%3C/linearGradient%3E%3ClinearGradient id='dotConnectGrad6' x1='100%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2344ffff' stop-opacity='0.07'/%3E%3Cstop offset='100%25' stop-color='%2388ffff' stop-opacity='0.03'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='5' y='5' width='90' height='90' rx='8' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='1.5'/%3E%3Cline x1='5' y1='25' x2='95' y2='25' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='5' y1='45' x2='95' y2='45' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='5' y1='65' x2='95' y2='65' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='5' y1='85' x2='95' y2='85' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='25' y1='5' x2='25' y2='95' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='45' y1='5' x2='45' y2='95' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='65' y1='5' x2='65' y2='95' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cline x1='85' y1='5' x2='85' y2='95' stroke='rgba(0,232,143,0.015)' stroke-width='0.5'/%3E%3Cpath d='M15 15 L15 35 L35 35' fill='none' stroke='url(%23dotConnectGrad1)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='15' cy='15' r='5' fill='url(%23dotConnectGrad1)'/%3E%3Ccircle cx='35' cy='35' r='5' fill='url(%23dotConnectGrad1)'/%3E%3Cpath d='M55 15 L55 35 L75 35 L75 55' fill='none' stroke='url(%23dotConnectGrad2)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='55' cy='15' r='5' fill='url(%23dotConnectGrad2)'/%3E%3Ccircle cx='75' cy='55' r='5' fill='url(%23dotConnectGrad2)'/%3E%3Cpath d='M35 55 L55 55 L55 75' fill='none' stroke='url(%23dotConnectGrad3)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='35' cy='55' r='5' fill='url(%23dotConnectGrad3)'/%3E%3Ccircle cx='55' cy='75' r='5' fill='url(%23dotConnectGrad3)'/%3E%3Cpath d='M85 25 L85 45 L65 45 L65 65' fill='none' stroke='url(%23dotConnectGrad4)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='85' cy='25' r='5' fill='url(%23dotConnectGrad4)'/%3E%3Ccircle cx='65' cy='65' r='5' fill='url(%23dotConnectGrad4)'/%3E%3Cpath d='M15 55 L15 75 L35 75 L35 85 L55 85' fill='none' stroke='url(%23dotConnectGrad5)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='15' cy='55' r='5' fill='url(%23dotConnectGrad5)'/%3E%3Ccircle cx='55' cy='85' r='5' fill='url(%23dotConnectGrad5)'/%3E%3Cpath d='M75 75 L85 75 L85 85' fill='none' stroke='url(%23dotConnectGrad6)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='75' cy='75' r='5' fill='url(%23dotConnectGrad6)'/%3E%3Ccircle cx='85' cy='85' r='5' fill='url(%23dotConnectGrad6)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Dot Connect ambient glow with neon colors matching the game */
+.game-page__about[data-decoration="dot-connect"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -65px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(68, 170, 255, 0.04) 0%, rgba(255, 68, 102, 0.035) 25%, rgba(68, 255, 136, 0.03) 45%, rgba(255, 204, 68, 0.025) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Gravity Sketch decoration - pencil drawing curved path with rolling ball, gravity arrows and stars */
+.game-page__about[data-decoration="gravity-sketch"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='gsPathGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e88f' stop-opacity='0.06'/%3E%3Cstop offset='100%25' stop-color='%2300e88f' stop-opacity='0.03'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='5' y='5' width='90' height='90' rx='4' fill='none' stroke='rgba(0,232,143,0.02)' stroke-width='0.8' stroke-dasharray='3,2'/%3E%3Cline x1='5' y1='30' x2='95' y2='30' stroke='rgba(0,232,143,0.012)' stroke-width='0.4'/%3E%3Cline x1='5' y1='55' x2='95' y2='55' stroke='rgba(0,232,143,0.012)' stroke-width='0.4'/%3E%3Cline x1='5' y1='80' x2='95' y2='80' stroke='rgba(0,232,143,0.012)' stroke-width='0.4'/%3E%3Cline x1='30' y1='5' x2='30' y2='95' stroke='rgba(0,232,143,0.012)' stroke-width='0.4'/%3E%3Cline x1='55' y1='5' x2='55' y2='95' stroke='rgba(0,232,143,0.012)' stroke-width='0.4'/%3E%3Cline x1='80' y1='5' x2='80' y2='95' stroke='rgba(0,232,143,0.012)' stroke-width='0.4'/%3E%3Cpath d='M12 25 Q30 15, 45 30 T75 35 Q85 38, 88 50' fill='none' stroke='url(%23gsPathGrad)' stroke-width='3' stroke-linecap='round'/%3E%3Crect x='8' y='18' width='6' height='14' rx='1' fill='rgba(0,232,143,0.04)' transform='rotate(-25 11 25)'/%3E%3Cpolygon points='8,28 11,32 14,28' fill='rgba(0,232,143,0.05)' transform='rotate(-25 11 30)'/%3E%3Ccircle cx='75' cy='35' r='6' fill='rgba(0,232,143,0.045)' stroke='rgba(0,232,143,0.03)' stroke-width='1'/%3E%3Cellipse cx='75' cy='34' rx='3' ry='2' fill='rgba(0,232,143,0.02)'/%3E%3Cpath d='M50 48 L50 58 M47 55 L50 58 L53 55' stroke='rgba(0,232,143,0.04)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M65 55 L65 65 M62 62 L65 65 L68 62' stroke='rgba(0,232,143,0.035)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M35 58 L35 68 M32 65 L35 68 L38 65' stroke='rgba(0,232,143,0.03)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpolygon points='25,42 27,46 23,46' fill='rgba(0,232,143,0.05)'/%3E%3Cpolygon points='58,22 60,26 56,26' fill='rgba(0,232,143,0.04)'/%3E%3Cpolygon points='82,18 84,22 80,22' fill='rgba(0,232,143,0.035)'/%3E%3Cpolygon points='42,55 44,59 40,59' fill='rgba(0,232,143,0.03)'/%3E%3Crect x='20' y='75' width='25' height='4' rx='1' fill='rgba(0,232,143,0.035)'/%3E%3Cpolygon points='32,75 32,71 36,73' fill='rgba(0,232,143,0.025)'/%3E%3Crect x='60' y='80' width='20' height='3' rx='0.5' fill='rgba(0,232,143,0.03)'/%3E%3Cpath d='M85 72 L90 72 L90 85 L80 85 L80 80' stroke='rgba(0,232,143,0.04)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Gravity Sketch ambient glow */
+.game-page__about[data-decoration="gravity-sketch"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -70px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(ellipse 50% 45% at 50% 55%, rgba(0, 232, 143, 0.035) 0%, rgba(0, 232, 143, 0.02) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Neon Circuit decoration - glowing circuit board with cyan, blue, violet, magenta paths and illuminated nodes */
+.game-page__about[data-decoration="neon-circuit"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -35px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='ncCyan' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300f0ff' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%2300c8ff' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='ncViolet' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b5cf6' stop-opacity='0.07'/%3E%3Cstop offset='100%25' stop-color='%237c3aed' stop-opacity='0.035'/%3E%3C/linearGradient%3E%3ClinearGradient id='ncMagenta' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f0abfc' stop-opacity='0.06'/%3E%3Cstop offset='100%25' stop-color='%23e879f9' stop-opacity='0.03'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='8' y='8' width='84' height='84' rx='3' fill='none' stroke='rgba(0,200,255,0.025)' stroke-width='0.6'/%3E%3Cline x1='8' y1='28' x2='92' y2='28' stroke='rgba(0,200,255,0.015)' stroke-width='0.3'/%3E%3Cline x1='8' y1='48' x2='92' y2='48' stroke='rgba(0,200,255,0.015)' stroke-width='0.3'/%3E%3Cline x1='8' y1='68' x2='92' y2='68' stroke='rgba(0,200,255,0.015)' stroke-width='0.3'/%3E%3Cline x1='28' y1='8' x2='28' y2='92' stroke='rgba(0,200,255,0.015)' stroke-width='0.3'/%3E%3Cline x1='48' y1='8' x2='48' y2='92' stroke='rgba(0,200,255,0.015)' stroke-width='0.3'/%3E%3Cline x1='68' y1='8' x2='68' y2='92' stroke='rgba(0,200,255,0.015)' stroke-width='0.3'/%3E%3Cpath d='M15 20 L15 35 L28 35 L28 48' stroke='url(%23ncCyan)' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M28 48 L48 48 L48 28 L68 28' stroke='url(%23ncViolet)' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M68 28 L68 48 L85 48' stroke='url(%23ncCyan)' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M28 68 L48 68 L48 85' stroke='url(%23ncMagenta)' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M68 48 L68 68 L85 68' stroke='url(%23ncViolet)' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M15 68 L28 68 L28 55' stroke='url(%23ncMagenta)' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='15' cy='20' r='3' fill='rgba(0,240,255,0.06)' stroke='rgba(0,240,255,0.04)' stroke-width='1'/%3E%3Ccircle cx='28' cy='48' r='4' fill='rgba(139,92,246,0.07)' stroke='rgba(139,92,246,0.045)' stroke-width='1.2'/%3E%3Ccircle cx='68' cy='28' r='3' fill='rgba(0,240,255,0.055)' stroke='rgba(0,240,255,0.035)' stroke-width='1'/%3E%3Ccircle cx='48' cy='28' r='2.5' fill='rgba(139,92,246,0.05)' stroke='rgba(139,92,246,0.03)' stroke-width='0.8'/%3E%3Ccircle cx='85' cy='48' r='3' fill='rgba(0,200,255,0.05)' stroke='rgba(0,200,255,0.03)' stroke-width='1'/%3E%3Ccircle cx='68' cy='48' r='3.5' fill='rgba(232,121,249,0.06)' stroke='rgba(232,121,249,0.04)' stroke-width='1'/%3E%3Ccircle cx='48' cy='68' r='3' fill='rgba(240,171,252,0.055)' stroke='rgba(240,171,252,0.035)' stroke-width='1'/%3E%3Ccircle cx='68' cy='68' r='2.5' fill='rgba(139,92,246,0.05)' stroke='rgba(139,92,246,0.03)' stroke-width='0.8'/%3E%3Ccircle cx='85' cy='68' r='3' fill='rgba(139,92,246,0.055)' stroke='rgba(139,92,246,0.035)' stroke-width='1'/%3E%3Ccircle cx='48' cy='85' r='2.5' fill='rgba(232,121,249,0.05)' stroke='rgba(232,121,249,0.03)' stroke-width='0.8'/%3E%3Ccircle cx='15' cy='68' r='2.5' fill='rgba(240,171,252,0.05)' stroke='rgba(240,171,252,0.03)' stroke-width='0.8'/%3E%3Crect x='22' y='15' width='12' height='8' rx='1.5' fill='rgba(0,240,255,0.04)' stroke='rgba(0,240,255,0.025)' stroke-width='0.6'/%3E%3Crect x='55' y='55' width='10' height='10' rx='1.5' fill='rgba(139,92,246,0.045)' stroke='rgba(139,92,246,0.03)' stroke-width='0.6'/%3E%3Crect x='75' y='75' width='8' height='8' rx='1' fill='rgba(232,121,249,0.04)' stroke='rgba(232,121,249,0.025)' stroke-width='0.5'/%3E%3Crect x='12' y='78' width='10' height='6' rx='1' fill='rgba(0,200,255,0.035)' stroke='rgba(0,200,255,0.02)' stroke-width='0.5'/%3E%3Ccircle cx='28' cy='19' r='1.5' fill='rgba(0,240,255,0.08)'/%3E%3Ccircle cx='60' cy='60' r='1.5' fill='rgba(139,92,246,0.07)'/%3E%3Ccircle cx='79' cy='79' r='1.2' fill='rgba(232,121,249,0.065)'/%3E%3Ccircle cx='17' cy='81' r='1' fill='rgba(0,200,255,0.06)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Neon Circuit ambient glow */
+.game-page__about[data-decoration="neon-circuit"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -70px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(ellipse 50% 45% at 50% 55%, rgba(139, 92, 246, 0.03) 0%, rgba(0, 200, 255, 0.02) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Block Escape decoration - sliding-block puzzle board with wooden frame, colorful blocks, and red escape block */
+.game-page__about[data-decoration="block-escape"]::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  right: -30px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='beWoodFrame' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23b8860b' stop-opacity='0.07'/%3E%3Cstop offset='50%25' stop-color='%238b6914' stop-opacity='0.055'/%3E%3Cstop offset='100%25' stop-color='%23654321' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='beRedBlock' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23dc2626' stop-opacity='0.09'/%3E%3Cstop offset='100%25' stop-color='%23b91c1c' stop-opacity='0.06'/%3E%3C/linearGradient%3E%3ClinearGradient id='beBlueBlock' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6' stop-opacity='0.07'/%3E%3Cstop offset='100%25' stop-color='%232563eb' stop-opacity='0.045'/%3E%3C/linearGradient%3E%3ClinearGradient id='beGreenBlock' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e88f' stop-opacity='0.06'/%3E%3Cstop offset='100%25' stop-color='%2300c878' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='beYellowBlock' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fbbf24' stop-opacity='0.07'/%3E%3Cstop offset='100%25' stop-color='%23f59e0b' stop-opacity='0.045'/%3E%3C/linearGradient%3E%3ClinearGradient id='bePurpleBlock' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b5cf6' stop-opacity='0.065'/%3E%3Cstop offset='100%25' stop-color='%237c3aed' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Wooden frame outer border --%3E%3Crect x='18' y='22' width='70' height='70' rx='4' fill='none' stroke='url(%23beWoodFrame)' stroke-width='5'/%3E%3C!-- Wooden frame inner edge --%3E%3Crect x='22' y='26' width='62' height='62' rx='2' fill='none' stroke='rgba(139,105,20,0.04)' stroke-width='1.5'/%3E%3C!-- Wood grain texture lines --%3E%3Cline x1='20' y1='30' x2='20' y2='85' stroke='rgba(139,105,20,0.025)' stroke-width='0.5'/%3E%3Cline x1='86' y1='30' x2='86' y2='85' stroke='rgba(139,105,20,0.025)' stroke-width='0.5'/%3E%3Cline x1='25' y1='24' x2='80' y2='24' stroke='rgba(139,105,20,0.02)' stroke-width='0.4'/%3E%3Cline x1='25' y1='90' x2='80' y2='90' stroke='rgba(139,105,20,0.02)' stroke-width='0.4'/%3E%3C!-- Exit notch on right side --%3E%3Crect x='84' y='50' width='8' height='14' fill='rgba(0,0,0,0.15)' rx='1'/%3E%3Cpath d='M88 50 L88 64' stroke='rgba(184,134,11,0.06)' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Grid background (6x6 puzzle) --%3E%3Crect x='25' y='29' width='56' height='56' fill='rgba(30,20,10,0.08)' rx='1'/%3E%3C!-- Red escape block (2x1 horizontal) pointing to exit --%3E%3Crect x='43' y='51' width='20' height='9' rx='1.5' fill='url(%23beRedBlock)' stroke='rgba(220,38,38,0.08)' stroke-width='1'/%3E%3C!-- Red block highlight --%3E%3Cline x1='45' y1='53' x2='60' y2='53' stroke='rgba(255,100,100,0.04)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Arrow on red block showing direction --%3E%3Cpath d='M56 55.5 L60 55.5 M58 53.5 L60 55.5 L58 57.5' stroke='rgba(255,255,255,0.06)' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Blue vertical block (1x2) --%3E%3Crect x='26' y='30' width='9' height='18' rx='1.5' fill='url(%23beBlueBlock)' stroke='rgba(59,130,246,0.06)' stroke-width='0.8'/%3E%3Cline x1='28' y1='32' x2='28' y2='45' stroke='rgba(100,150,255,0.03)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Yellow vertical block (1x3) --%3E%3Crect x='36' y='30' width='9' height='27' rx='1.5' fill='url(%23beYellowBlock)' stroke='rgba(251,191,36,0.06)' stroke-width='0.8'/%3E%3Cline x1='38' y1='32' x2='38' y2='54' stroke='rgba(255,210,100,0.03)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Green horizontal block (2x1) --%3E%3Crect x='46' y='30' width='18' height='9' rx='1.5' fill='url(%23beGreenBlock)' stroke='rgba(0,232,143,0.05)' stroke-width='0.8'/%3E%3Cline x1='48' y1='32' x2='61' y2='32' stroke='rgba(100,255,180,0.025)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Purple vertical block (1x2) --%3E%3Crect x='65' y='30' width='9' height='18' rx='1.5' fill='url(%23bePurpleBlock)' stroke='rgba(139,92,246,0.055)' stroke-width='0.8'/%3E%3Cline x1='67' y1='32' x2='67' y2='45' stroke='rgba(160,120,255,0.025)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Blue horizontal block (2x1) at bottom --%3E%3Crect x='26' y='74' width='18' height='9' rx='1.5' fill='url(%23beBlueBlock)' stroke='rgba(59,130,246,0.055)' stroke-width='0.8'/%3E%3Cline x1='28' y1='76' x2='41' y2='76' stroke='rgba(100,150,255,0.025)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Yellow square block (1x1) --%3E%3Crect x='26' y='51' width='9' height='9' rx='1.5' fill='url(%23beYellowBlock)' stroke='rgba(251,191,36,0.055)' stroke-width='0.8'/%3E%3C!-- Purple horizontal block (2x1) --%3E%3Crect x='55' y='65' width='18' height='9' rx='1.5' fill='url(%23bePurpleBlock)' stroke='rgba(139,92,246,0.05)' stroke-width='0.8'/%3E%3Cline x1='57' y1='67' x2='70' y2='67' stroke='rgba(160,120,255,0.02)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Green vertical block (1x2) --%3E%3Crect x='26' y='62' width='9' height='11' rx='1.5' fill='url(%23beGreenBlock)' stroke='rgba(0,232,143,0.045)' stroke-width='0.8'/%3E%3C!-- Golden corner accents --%3E%3Ccircle cx='22' cy='26' r='1.5' fill='rgba(218,165,32,0.06)'/%3E%3Ccircle cx='84' cy='26' r='1.5' fill='rgba(218,165,32,0.05)'/%3E%3Ccircle cx='22' cy='88' r='1.5' fill='rgba(218,165,32,0.05)'/%3E%3Ccircle cx='84' cy='88' r='1.5' fill='rgba(218,165,32,0.04)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Block Escape warm ambient glow */
+.game-page__about[data-decoration="block-escape"]::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(ellipse 60% 50% at 60% 60%, rgba(184, 134, 11, 0.035) 0%, rgba(220, 38, 38, 0.02) 35%, rgba(0, 232, 143, 0.015) 55%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Crazy Cards decoration - overlapping playing cards with suit symbols and subtle red/gold/blue accents */
+.game-page__about[data-decoration="crazy-cards"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -35px;
+  bottom: -55px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Back card (rotated left) --%3E%3Crect x='28' y='22' width='32' height='48' rx='3' fill='rgba(0,232,143,0.015)' stroke='rgba(0,232,143,0.04)' stroke-width='1.5' transform='rotate(-12 44 46)'/%3E%3Crect x='31' y='25' width='26' height='42' rx='2' fill='none' stroke='rgba(0,232,143,0.025)' stroke-width='0.8' transform='rotate(-12 44 46)'/%3E%3C!-- Middle card (rotated right) --%3E%3Crect x='40' y='18' width='32' height='48' rx='3' fill='rgba(0,232,143,0.02)' stroke='rgba(0,232,143,0.05)' stroke-width='1.5' transform='rotate(8 56 42)'/%3E%3Crect x='43' y='21' width='26' height='42' rx='2' fill='none' stroke='rgba(0,232,143,0.03)' stroke-width='0.8' transform='rotate(8 56 42)'/%3E%3C!-- Front card (main, slight tilt) --%3E%3Crect x='52' y='25' width='32' height='48' rx='3' fill='rgba(0,232,143,0.025)' stroke='rgba(0,232,143,0.06)' stroke-width='1.8' transform='rotate(-3 68 49)'/%3E%3Crect x='55' y='28' width='26' height='42' rx='2' fill='none' stroke='rgba(0,232,143,0.035)' stroke-width='0.8' transform='rotate(-3 68 49)'/%3E%3C!-- Spade suit on front card --%3E%3Cpath d='M68 42 C68 38 63 36 63 40 C63 44 68 46 68 46 C68 46 73 44 73 40 C73 36 68 38 68 42 Z' fill='rgba(0,232,143,0.05)' transform='rotate(-3 68 49)'/%3E%3Cpath d='M68 46 L66 52 L70 52 Z' fill='rgba(0,232,143,0.04)' transform='rotate(-3 68 49)'/%3E%3C!-- Heart suit (red accent) on middle card --%3E%3Cpath d='M58 35 C55 32 50 34 50 38 C50 44 58 48 58 48 C58 48 66 44 66 38 C66 34 61 32 58 35 Z' fill='rgba(220,38,38,0.04)' stroke='rgba(220,38,38,0.05)' stroke-width='0.5' transform='rotate(8 56 42)'/%3E%3C!-- Diamond suit (gold accent) on back card --%3E%3Cpath d='M44 40 L48 46 L44 52 L40 46 Z' fill='rgba(218,165,32,0.035)' stroke='rgba(218,165,32,0.045)' stroke-width='0.5' transform='rotate(-12 44 46)'/%3E%3C!-- Club suit floating --%3E%3Ccircle cx='82' cy='72' r='4' fill='rgba(0,232,143,0.035)'/%3E%3Ccircle cx='78' cy='68' r='3.5' fill='rgba(0,232,143,0.03)'/%3E%3Ccircle cx='86' cy='68' r='3.5' fill='rgba(0,232,143,0.03)'/%3E%3Cpath d='M82 75 L80 82 L84 82 Z' fill='rgba(0,232,143,0.025)'/%3E%3C!-- Floating heart (red) --%3E%3Cpath d='M30 75 C28 73 25 74 25 76 C25 79 30 82 30 82 C30 82 35 79 35 76 C35 74 32 73 30 75 Z' fill='rgba(220,38,38,0.03)' stroke='rgba(220,38,38,0.04)' stroke-width='0.4'/%3E%3C!-- Floating diamond (gold) --%3E%3Cpath d='M90 45 L93 50 L90 55 L87 50 Z' fill='rgba(218,165,32,0.03)' stroke='rgba(218,165,32,0.04)' stroke-width='0.4'/%3E%3C!-- Small 8 symbol (for Crazy Eights) --%3E%3Ctext x='68' y='60' font-family='Georgia, serif' font-size='8' font-weight='bold' fill='rgba(0,232,143,0.045)' transform='rotate(-3 68 49)'%3E8%3C/text%3E%3C!-- Subtle blue accent sparkle --%3E%3Ccircle cx='25' cy='55' r='2' fill='rgba(59,130,246,0.04)'/%3E%3Ccircle cx='27' cy='52' r='1.2' fill='rgba(59,130,246,0.03)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Crazy Cards ambient glow with subtle red, gold, and blue accents */
+.game-page__about[data-decoration="crazy-cards"]::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -75px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(ellipse 55% 50% at 55% 55%, rgba(0, 232, 143, 0.035) 0%, rgba(220, 38, 38, 0.015) 30%, rgba(218, 165, 32, 0.012) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -4941,6 +5185,141 @@ h3 {
     height: 300px;
   }
 
+  /* Maze Muncher tablet */
+  .game-page__about[data-decoration="maze-muncher"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="maze-muncher"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Fruit Slice tablet */
+  .game-page__about[data-decoration="fruit-slice"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="fruit-slice"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Flappy Wings tablet */
+  .game-page__about[data-decoration="flappy-wings"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="flappy-wings"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Mahjong Classic tablet */
+  .game-page__about[data-decoration="mahjong-classic"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="mahjong-classic"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Dot Connect tablet */
+  .game-page__about[data-decoration="dot-connect"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="dot-connect"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Gravity Sketch tablet */
+  .game-page__about[data-decoration="gravity-sketch"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="gravity-sketch"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Neon Circuit tablet */
+  .game-page__about[data-decoration="neon-circuit"]::before {
+    right: -28px;
+    bottom: -42px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="neon-circuit"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Block Escape tablet */
+  .game-page__about[data-decoration="block-escape"]::before {
+    right: -25px;
+    bottom: -40px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="block-escape"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Crazy Cards tablet */
+  .game-page__about[data-decoration="crazy-cards"]::before {
+    right: -28px;
+    bottom: -45px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .game-page__about[data-decoration="crazy-cards"]::after {
+    right: -45px;
+    bottom: -60px;
+    width: 310px;
+    height: 310px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -5985,6 +6364,145 @@ h3 {
     height: 240px;
   }
 
+  /* Maze Muncher mobile */
+  .game-page__about[data-decoration="maze-muncher"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="maze-muncher"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Fruit Slice mobile */
+  .game-page__about[data-decoration="fruit-slice"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="fruit-slice"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Flappy Wings mobile */
+  .game-page__about[data-decoration="flappy-wings"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="flappy-wings"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Mahjong Classic mobile */
+  .game-page__about[data-decoration="mahjong-classic"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="mahjong-classic"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Dot Connect mobile */
+  .game-page__about[data-decoration="dot-connect"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="dot-connect"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Gravity Sketch mobile */
+  .game-page__about[data-decoration="gravity-sketch"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="gravity-sketch"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Neon Circuit mobile */
+  .game-page__about[data-decoration="neon-circuit"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="neon-circuit"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Block Escape mobile */
+  .game-page__about[data-decoration="block-escape"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="block-escape"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Crazy Cards mobile */
+  .game-page__about[data-decoration="crazy-cards"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__about[data-decoration="crazy-cards"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .game-page__short-desc {
+    font-size: var(--font-md);
+  }
+
   .game-page__about-header {
     flex-direction: column;
     align-items: flex-start;
@@ -6877,6 +7395,145 @@ h3 {
     width: 190px;
     height: 190px;
   }
+
+  /* Maze Muncher small mobile */
+  .game-page__about[data-decoration="maze-muncher"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="maze-muncher"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Fruit Slice small mobile */
+  .game-page__about[data-decoration="fruit-slice"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="fruit-slice"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Flappy Wings small mobile */
+  .game-page__about[data-decoration="flappy-wings"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="flappy-wings"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Mahjong Classic small mobile */
+  .game-page__about[data-decoration="mahjong-classic"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="mahjong-classic"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Dot Connect small mobile */
+  .game-page__about[data-decoration="dot-connect"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="dot-connect"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Gravity Sketch small mobile */
+  .game-page__about[data-decoration="gravity-sketch"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="gravity-sketch"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Neon Circuit small mobile */
+  .game-page__about[data-decoration="neon-circuit"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="neon-circuit"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Block Escape small mobile */
+  .game-page__about[data-decoration="block-escape"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="block-escape"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Crazy Cards small mobile */
+  .game-page__about[data-decoration="crazy-cards"]::before {
+    right: -15px;
+    bottom: -28px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="crazy-cards"]::after {
+    right: -25px;
+    bottom: -38px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__short-desc {
+    font-size: var(--font-md);
+  }
 }
 
 /* ---------- Extra small: ≤380px ---------- */
@@ -6994,8 +7651,20 @@ h3 {
   .game-page__about[data-decoration="delivery-rush"]::after,
   .game-page__about[data-decoration="checkers-classic"]::after,
   .game-page__about[data-decoration="2048-puzzle"]::after,
-  .game-page__about[data-decoration="doll-repair-workshop"]::after {
+  .game-page__about[data-decoration="doll-repair-workshop"]::after,
+  .game-page__about[data-decoration="maze-muncher"]::after,
+  .game-page__about[data-decoration="fruit-slice"]::after,
+  .game-page__about[data-decoration="flappy-wings"]::after,
+  .game-page__about[data-decoration="mahjong-classic"]::after,
+  .game-page__about[data-decoration="dot-connect"]::after {
     display: none; /* Hide glow on very small screens */
+  }
+
+  .game-page__about[data-decoration="mahjong-classic"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 120px;
+    height: 120px;
   }
 
   .game-page__about[data-decoration="backgammon-classic"]::before {
@@ -7007,6 +7676,52 @@ h3 {
 
   .game-page__about[data-decoration="backgammon-classic"]::after {
     display: none; /* Hide glow on very small screens */
+  }
+
+  .game-page__about[data-decoration="dot-connect"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .game-page__about[data-decoration="gravity-sketch"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .game-page__about[data-decoration="gravity-sketch"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Neon Circuit extra small */
+  .game-page__about[data-decoration="neon-circuit"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .game-page__about[data-decoration="neon-circuit"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Crazy Cards extra small */
+  .game-page__about[data-decoration="crazy-cards"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .game-page__about[data-decoration="crazy-cards"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  .game-page__short-desc {
+    font-size: var(--font-sm-plus);
   }
 
   .game-page__about-eyebrow {

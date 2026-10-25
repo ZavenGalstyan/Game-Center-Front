@@ -89,19 +89,18 @@ const GAME_TAGLINES = {
   "Swimming Champions": "Dive into thrilling races, challenge skilled AI swimmers, and swim your way to victory across multiple championship distances.",
   "Ping Pong Clash": "Challenge a skilled AI opponent, master powerful spins and precise shots, and dominate every fast-paced table tennis match.",
   "Color Switch": "Jump through rotating obstacles, match vibrant colors, and test your reflexes in an exciting arcade challenge.",
-  "Flappy Wings": "TAP • FLY • SURVIVE",
-  "Dot Connect": "CONNECT • THINK • COMPLETE",
-  "Fruit Slice": "SLICE • COMBO • SURVIVE",
-  "Mahjong Classic": "MATCH • CLEAR • RELAX",
+  "Flappy Wings": "Tap to keep your bird flying, dodge tricky pipes, and beat your highest score in an endless sky adventure.",
+  "Dot Connect": "Connect matching colored dots, fill the board, and solve increasingly challenging puzzles across 50 levels.",
+  "Fruit Slice": "Slice flying fruit, unleash juicy combos, dodge dangerous bombs, and chase your highest score.",
+  "Mahjong Classic": "Match identical tiles, clear intricate layouts, and unwind with a timeless puzzle challenge.",
   "Maze Muncher": "CHOMP • DODGE • SURVIVE",
   "Hill Rider": "DRIVE • CLIMB • CONQUER",
   "Color Clash": "MATCH • PLAY • WIN",
   "Spider Royale": "STACK • STRATEGIZE • SOLVE",
   "Trump Masters": "ATTACK • DEFEND • OUTSMART",
-  "Crazy Cards": "MATCH • SWITCH • WIN",
-  "Block Escape": "SLIDE • THINK • ESCAPE",
-  "Neon Circuit": "TAP • TOGGLE • SOLVE",
-  "Gravity Sketch": "DRAW • DROP • SOLVE",
+  "Block Escape": "Slide colorful blocks, clear a path to the exit, and challenge your logic across 100 increasingly difficult puzzles.",
+  "Neon Circuit": "Light up the board, discover the right sequence, and solve glowing neon puzzles across 100 challenging levels.",
+  "Gravity Sketch": "Draw shapes, use gravity, and solve creative physics puzzles across increasingly challenging levels.",
   "Escape 100: Mystery Doors": "100 Doors. 100 Mysteries. One Way Out.",
   "Escape 100": "100 Doors. 100 Mysteries. One Way Out.",
   "Snake Classic": "Guide your growing snake, collect glowing food, and avoid crashing as you chase your highest score.",
@@ -110,6 +109,7 @@ const GAME_TAGLINES = {
   "Memory Cards": "Flip beautifully designed cards, discover matching pairs, and challenge your memory to clear the board as quickly as possible.",
   "2048 Puzzle": "Slide and merge matching number tiles, plan your moves carefully, and challenge yourself to reach the legendary 2048 tile.",
   "Doll Repair Workshop": "Restore broken dolls, discover creative repair techniques, and build your dream workshop one beautiful makeover at a time.",
+  "Maze Muncher": "Race through glowing mazes, collect energy orbs, dodge colorful enemies, and conquer every level in this fast-paced arcade adventure.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -180,11 +180,27 @@ const GAME_DECORATIONS = {
   "Memory Cards": "memory-cards",
   "2048 Puzzle": "2048-puzzle",
   "Doll Repair Workshop": "doll-repair-workshop",
+  "Maze Muncher": "maze-muncher",
+  "Fruit Slice": "fruit-slice",
+  "Flappy Wings": "flappy-wings",
+  "Mahjong Classic": "mahjong-classic",
+  "Dot Connect": "dot-connect",
+  "Gravity Sketch": "gravity-sketch",
+  "Neon Circuit": "neon-circuit",
+  "Block Escape": "block-escape",
+  "Crazy Cards": "crazy-cards",
+};
+
+// Short descriptions displayed below the tagline (only for games that need it)
+const GAME_SHORT_DESCRIPTIONS = {
+  "Crazy Cards": "Match cards by color or rank, play powerful eights, and outsmart your opponents in fast-paced card battles.",
 };
 
 // Fallback: generate a short tagline from description if not predefined
 function getTagline(game) {
   if (GAME_TAGLINES[game.name]) return GAME_TAGLINES[game.name];
+  // Skip fallback for games with a short description (they don't need a tagline)
+  if (GAME_SHORT_DESCRIPTIONS[game.name]) return null;
   // For other games, use first sentence or short excerpt
   if (!game.description) return null;
   const firstSentence = game.description.split(/[.!?]/)[0];
@@ -283,6 +299,9 @@ export default function GameDetail() {
         </div>
         {getTagline(game) && (
           <p className="game-page__tagline">{getTagline(game)}</p>
+        )}
+        {GAME_SHORT_DESCRIPTIONS[game.name] && (
+          <p className="game-page__short-desc">{GAME_SHORT_DESCRIPTIONS[game.name]}</p>
         )}
       </header>
 
