@@ -107,6 +107,8 @@ const GAME_TAGLINES = {
   "Escape Quest": "Find Clues. Solve Puzzles. Escape!",
   "Shadow Runner: Urban Escape": "Run Fast. Jump High. Never Get Caught.",
   "Shadow Runner": "Run Fast. Jump High. Never Get Caught.",
+  "Shadow Warriors: Rise of Legends": "Master the Shadows. Defeat the Legends.",
+  "Shadow Warriors": "Master the Shadows. Defeat the Legends.",
   "Snake Classic": "Guide your growing snake, collect glowing food, and avoid crashing as you chase your highest score.",
   "Checkers Classic": "Plan your moves, capture your opponent's pieces, and become a master of classic checkers strategy.",
   "Backgammon Classic": "Roll the dice, plan your moves, and outsmart your opponent in a timeless game of strategy and skill.",
