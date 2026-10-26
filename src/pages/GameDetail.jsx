@@ -111,6 +111,8 @@ const GAME_TAGLINES = {
   "Shadow Warriors": "Master the Shadows. Defeat the Legends.",
   "Metro Rush: City Runner": "Run Fast. Dodge Trains. Rule the City.",
   "Metro Rush": "Run Fast. Dodge Trains. Rule the City.",
+  "Strike Force: Elite Combat": "Lock In. Aim Sharp. Dominate.",
+  "Strike Force": "Lock In. Aim Sharp. Dominate.",
   "Snake Classic": "Guide your growing snake, collect glowing food, and avoid crashing as you chase your highest score.",
   "Checkers Classic": "Plan your moves, capture your opponent's pieces, and become a master of classic checkers strategy.",
   "Backgammon Classic": "Roll the dice, plan your moves, and outsmart your opponent in a timeless game of strategy and skill.",
