@@ -4273,6 +4273,35 @@ h3 {
   z-index: -1;
 }
 
+/* Shadow Runner: Urban Escape decoration - parkour runner leaping across rooftops
+   Premium urban action illustration with emerald, teal, sunset-orange, and violet highlights */
+.game-page__about[data-decoration="shadow-runner"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: 5px;
+  bottom: -20px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 340 340' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='srSunset' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8843d' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%23d4602a' stop-opacity='0.15'/%3E%3Cstop offset='100%25' stop-color='%23a84820' stop-opacity='0.06'/%3E%3C/linearGradient%3E%3ClinearGradient id='srBuilding1' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2318584a' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%230d3830' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='srBuilding2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23206858' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23124840' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='srBuilding3' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2328786a' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%231a5850' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='srRunner' x1='30%25' y1='0%25' x2='70%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300b894' stop-opacity='0.85'/%3E%3Cstop offset='50%25' stop-color='%23009878' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%23007860' stop-opacity='0.55'/%3E%3C/linearGradient%3E%3ClinearGradient id='srHood' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300c896' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%23008868' stop-opacity='0.7'/%3E%3C/linearGradient%3E%3ClinearGradient id='srRooftop' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2300a882' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%2300d4a0' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Sunset disc behind skyline --%3E%3Ccircle cx='170' cy='145' r='55' fill='url(%23srSunset)'/%3E%3Ccircle cx='170' cy='145' r='40' fill='none' stroke='%23e8843d' stroke-width='0.8' opacity='0.2'/%3E%3Ccircle cx='170' cy='145' r='28' fill='none' stroke='%23e8843d' stroke-width='0.5' opacity='0.15'/%3E%3C!-- Background buildings (far, smaller) --%3E%3Crect x='85' y='130' width='22' height='90' fill='url(%23srBuilding3)'/%3E%3Crect x='88' y='138' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.3'/%3E%3Crect x='95' y='138' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='88' y='150' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.15'/%3E%3Crect x='95' y='150' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.25'/%3E%3Crect x='88' y='162' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.2'/%3E%3Crect x='110' y='115' width='28' height='105' fill='url(%23srBuilding2)'/%3E%3Crect x='114' y='122' width='5' height='6' rx='0.5' fill='%2300d4a0' opacity='0.25'/%3E%3Crect x='122' y='122' width='5' height='6' rx='0.5' fill='%23e8a050' opacity='0.35'/%3E%3Crect x='130' y='122' width='5' height='6' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='114' y='134' width='5' height='6' rx='0.5' fill='%23e8a050' opacity='0.25'/%3E%3Crect x='122' y='134' width='5' height='6' rx='0.5' fill='%2300d4a0' opacity='0.3'/%3E%3Crect x='130' y='134' width='5' height='6' rx='0.5' fill='%23e8a050' opacity='0.2'/%3E%3Crect x='114' y='146' width='5' height='6' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='122' y='146' width='5' height='6' rx='0.5' fill='%23e8a050' opacity='0.3'/%3E%3Crect x='145' y='135' width='18' height='85' fill='url(%23srBuilding3)'/%3E%3Crect x='148' y='142' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.25'/%3E%3Crect x='156' y='142' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='148' y='154' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.25'/%3E%3C!-- Right side background buildings --%3E%3Crect x='230' y='125' width='25' height='95' fill='url(%23srBuilding2)'/%3E%3Crect x='234' y='132' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.25'/%3E%3Crect x='242' y='132' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.3'/%3E%3Crect x='248' y='132' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='234' y='144' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.25'/%3E%3Crect x='242' y='144' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.3'/%3E%3Crect x='258' y='140' width='20' height='80' fill='url(%23srBuilding3)'/%3E%3Crect x='262' y='148' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.25'/%3E%3Crect x='270' y='148' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='262' y='160' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.3'/%3E%3C!-- Left rooftop (departure point) --%3E%3Cpath d='M40 220 L40 195 L130 195 L130 220 Z' fill='url(%23srBuilding1)'/%3E%3Crect x='40' y='192' width='90' height='5' fill='url(%23srRooftop)'/%3E%3Crect x='42' y='188' width='86' height='4' rx='1' fill='%2300d4a0' opacity='0.4'/%3E%3C!-- Rooftop details --%3E%3Crect x='55' y='184' width='12' height='8' rx='1' fill='%23007860' opacity='0.5'/%3E%3Crect x='100' y='180' width='18' height='12' rx='1' fill='%23007860' opacity='0.4'/%3E%3Crect x='103' y='183' width='5' height='3' rx='0.5' fill='%2300d4a0' opacity='0.3'/%3E%3C!-- Right rooftop (landing point) --%3E%3Cpath d='M210 235 L210 205 L310 205 L310 235 Z' fill='url(%23srBuilding1)'/%3E%3Crect x='210' y='202' width='100' height='5' fill='url(%23srRooftop)'/%3E%3Crect x='212' y='198' width='96' height='4' rx='1' fill='%2300d4a0' opacity='0.35'/%3E%3C!-- Rooftop details --%3E%3Crect x='250' y='192' width='15' height='10' rx='1' fill='%23007860' opacity='0.45'/%3E%3Crect x='280' y='188' width='20' height='14' rx='1' fill='%23007860' opacity='0.4'/%3E%3Crect x='284' y='191' width='6' height='4' rx='0.5' fill='%2300d4a0' opacity='0.3'/%3E%3C!-- Gap between rooftops --%3E%3Crect x='130' y='250' width='80' height='60' fill='%23041610' opacity='0.4'/%3E%3C!-- Parkour runner mid-leap --%3E%3Cg transform='translate(148, 155)'%3E%3C!-- Motion trails (behind runner) --%3E%3Cpath d='M-15 35 Q-25 30 -40 32' stroke='%2300d4a0' stroke-width='2' opacity='0.25' fill='none' stroke-linecap='round'/%3E%3Cpath d='M-12 40 Q-22 38 -35 40' stroke='%2300d4a0' stroke-width='1.5' opacity='0.18' fill='none' stroke-linecap='round'/%3E%3Cpath d='M-10 45 Q-18 44 -28 46' stroke='%2300d4a0' stroke-width='1' opacity='0.12' fill='none' stroke-linecap='round'/%3E%3C!-- Runner shadow/depth --%3E%3Cellipse cx='42' cy='68' rx='18' ry='4' fill='%23000' opacity='0.15'/%3E%3C!-- Back leg (trailing, extended behind) --%3E%3Cpath d='M25 45 Q18 52 8 58 Q5 62 3 68' stroke='url(%23srRunner)' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Back foot --%3E%3Cellipse cx='2' cy='70' rx='5' ry='3' fill='%23007860' opacity='0.8' transform='rotate(-15 2 70)'/%3E%3C!-- Torso (dynamic lean forward) --%3E%3Cpath d='M28 42 Q35 32 38 18' stroke='url(%23srRunner)' stroke-width='12' fill='none' stroke-linecap='round'/%3E%3C!-- Front leg (leading, bent forward for landing) --%3E%3Cpath d='M30 45 Q42 48 52 42 Q58 38 62 45' stroke='url(%23srRunner)' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Front foot --%3E%3Cellipse cx='64' cy='47' rx='5' ry='3' fill='%23007860' opacity='0.85' transform='rotate(10 64 47)'/%3E%3C!-- Back arm (trailing behind) --%3E%3Cpath d='M32 25 Q22 30 12 28' stroke='url(%23srRunner)' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C!-- Back hand --%3E%3Ccircle cx='10' cy='27' r='3.5' fill='%2300a882' opacity='0.8'/%3E%3C!-- Front arm (reaching forward) --%3E%3Cpath d='M40 22 Q52 18 62 12' stroke='url(%23srRunner)' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C!-- Front hand --%3E%3Ccircle cx='64' cy='10' r='3.5' fill='%2300a882' opacity='0.85'/%3E%3C!-- Head --%3E%3Ccircle cx='42' cy='8' r='10' fill='url(%23srRunner)'/%3E%3C!-- Hood (flowing back) --%3E%3Cpath d='M34 2 Q30 -2 28 5 Q26 12 30 16 Q36 14 42 14 Q48 14 52 10 Q54 4 50 0 Q46 -2 42 -2 Q38 -2 34 2' fill='url(%23srHood)'/%3E%3C!-- Hood peak --%3E%3Cpath d='M38 -4 Q42 -8 46 -4 Q44 0 42 2 Q40 0 38 -4' fill='%2300d4a0' opacity='0.7'/%3E%3C!-- Hood shadow for depth --%3E%3Cpath d='M32 8 Q36 6 42 6 Q48 6 52 8' stroke='%23006850' stroke-width='1.5' fill='none' opacity='0.5'/%3E%3C!-- Face shadow (hooded mystery) --%3E%3Cellipse cx='42' cy='10' rx='6' ry='5' fill='%23005545' opacity='0.4'/%3E%3C/g%3E%3C!-- Atmospheric particles --%3E%3Ccircle cx='95' cy='175' r='1.5' fill='%2300d4a0' opacity='0.35'/%3E%3Ccircle cx='180' cy='185' r='1' fill='%2300d4a0' opacity='0.25'/%3E%3Ccircle cx='245' cy='178' r='1.2' fill='%2300d4a0' opacity='0.3'/%3E%3Ccircle cx='275' cy='195' r='0.8' fill='%23e8a050' opacity='0.25'/%3E%3Ccircle cx='135' cy='168' r='1' fill='%23e8a050' opacity='0.2'/%3E%3Ccircle cx='200' cy='160' r='0.8' fill='%23a070c0' opacity='0.2'/%3E%3Ccircle cx='160' cy='175' r='1.2' fill='%23a070c0' opacity='0.15'/%3E%3C!-- Motion blur effect behind runner --%3E%3Cpath d='M138 192 Q125 190 108 194' stroke='%2300d4a0' stroke-width='3' opacity='0.15' fill='none' stroke-linecap='round'/%3E%3Cpath d='M142 198 Q130 197 115 200' stroke='%2300d4a0' stroke-width='2' opacity='0.1' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Shadow Runner ambient glow - emerald and teal with warm sunset accents */
+.game-page__about[data-decoration="shadow-runner"]::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  bottom: -40px;
+  width: 380px;
+  height: 380px;
+  background:
+    radial-gradient(ellipse 60% 50% at 55% 50%, rgba(0, 180, 140, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 40%, rgba(232, 132, 61, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5525,6 +5554,21 @@ h3 {
     height: 280px;
   }
 
+  /* Shadow Runner tablet */
+  .game-page__about[data-decoration="shadow-runner"]::before {
+    right: 0;
+    bottom: -15px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .game-page__about[data-decoration="shadow-runner"]::after {
+    right: -10px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -6764,6 +6808,21 @@ h3 {
     height: 230px;
   }
 
+  /* Shadow Runner mobile */
+  .game-page__about[data-decoration="shadow-runner"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__about[data-decoration="shadow-runner"]::after {
+    right: -15px;
+    bottom: -25px;
+    width: 240px;
+    height: 240px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -7854,6 +7913,21 @@ h3 {
     bottom: -20px;
     width: 190px;
     height: 190px;
+  }
+
+  /* Shadow Runner small mobile */
+  .game-page__about[data-decoration="shadow-runner"]::before {
+    right: -3px;
+    bottom: -10px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="shadow-runner"]::after {
+    right: -10px;
+    bottom: -20px;
+    width: 195px;
+    height: 195px;
   }
 
   .game-page__short-desc {

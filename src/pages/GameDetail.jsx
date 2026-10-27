@@ -105,8 +105,8 @@ const GAME_TAGLINES = {
   "Escape 100": "100 Doors. 100 Mysteries. One Way Out.",
   "Escape Quest: Hidden Rooms": "Find Clues. Solve Puzzles. Escape!",
   "Escape Quest": "Find Clues. Solve Puzzles. Escape!",
-  "Shadow Runner: Urban Escape": "Run Fast. Jump High. Never Get Caught.",
-  "Shadow Runner": "Run Fast. Jump High. Never Get Caught.",
+  "Shadow Runner: Urban Escape": "Leap across rooftops, dodge obstacles, and outrun relentless pursuers through 40 challenging parkour levels.",
+  "Shadow Runner": "Leap across rooftops, dodge obstacles, and outrun relentless pursuers through 40 challenging parkour levels.",
   "Shadow Warriors: Rise of Legends": "Master deadly sword techniques, unleash powerful combos, and defeat legendary enemies across 50 challenging battles.",
   "Shadow Warriors": "Master deadly sword techniques, unleash powerful combos, and defeat legendary enemies across 50 challenging battles.",
   "Metro Rush: City Runner": "Dodge speeding trains, collect coins, and race through vibrant city tracks in an endless running adventure.",
@@ -208,6 +208,8 @@ const GAME_DECORATIONS = {
   "Metro Rush": "metro-rush",
   "Shadow Warriors: Rise of Legends": "shadow-warriors",
   "Shadow Warriors": "shadow-warriors",
+  "Shadow Runner: Urban Escape": "shadow-runner",
+  "Shadow Runner": "shadow-runner",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

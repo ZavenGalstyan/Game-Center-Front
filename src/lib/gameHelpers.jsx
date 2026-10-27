@@ -84,6 +84,7 @@ import tankWarfare3dBg from "../images/TankWarfare.png";
 import skyCombat3dBg from "../images/SkyCombat.png";
 import metroRushBg from "../images/MetroRush.png";
 import shadowWarriorsBg from "../images/ShadowWarriors.png";
+import shadowRunnerBg from "../images/ShadowRunner.png";
 
 /**
  * Category to icon mapping.
@@ -1195,6 +1196,30 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(3, 18, 16, 0.74) 57%,
       rgba(3, 18, 16, 0.86) 70%,
       rgba(3, 18, 16, 0.9) 100%)`,
+  },
+  // Shadow Runner: Urban Escape - parkour runner leaping across rooftops,
+  // title on left, jumping runner on right. The image has a sunset cityscape.
+  "shadow runner: urban escape": {
+    image: shadowRunnerBg,
+    position: "right center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 20, 0) 0%,
+      rgba(3, 18, 20, 0) 35%,
+      rgba(3, 18, 20, 0.42) 45%,
+      rgba(3, 18, 20, 0.68) 55%,
+      rgba(3, 18, 20, 0.82) 68%,
+      rgba(3, 18, 20, 0.88) 100%)`,
+  },
+  "shadow runner": {
+    image: shadowRunnerBg,
+    position: "right center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 20, 0) 0%,
+      rgba(3, 18, 20, 0) 35%,
+      rgba(3, 18, 20, 0.42) 45%,
+      rgba(3, 18, 20, 0.68) 55%,
+      rgba(3, 18, 20, 0.82) 68%,
+      rgba(3, 18, 20, 0.88) 100%)`,
   },
 };
 
