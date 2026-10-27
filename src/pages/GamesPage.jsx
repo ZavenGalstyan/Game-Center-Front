@@ -34,12 +34,27 @@ export default function GamesPage() {
     setError(null);
     setGames([]);
     setPagination(null);
-    api
-      .listGames({ limit: PAGE_SIZE, offset: 0, categoryId: typeId })
-      .then(({ data, pagination }) => {
-        if (cancelled) return;
-        setGames(data);
-        setPagination(pagination);
+    // The unfiltered view groups games into category sections and has no
+    // "Load more" button, so it follows the pages until every game is loaded
+    // (the backend caps a page at PAGE_SIZE). Category views keep paging.
+    const loadAll = async () => {
+      let { data, pagination } = await api.listGames({ limit: PAGE_SIZE, offset: 0, categoryId: typeId });
+      const all = [...data];
+      const seen = new Set(all.map((g) => g.id));
+      for (let page = 0; !typeId && pagination?.hasMore && pagination.nextOffset != null && page < 50; page++) {
+        const next = await api.listGames({ limit: PAGE_SIZE, offset: pagination.nextOffset });
+        if (cancelled) return null;
+        for (const g of next.data) if (!seen.has(g.id)) (seen.add(g.id), all.push(g));
+        pagination = next.pagination;
+        if (!next.data.length) break;
+      }
+      return { data: all, pagination };
+    };
+    loadAll()
+      .then((res) => {
+        if (cancelled || !res) return;
+        setGames(res.data);
+        setPagination(res.pagination);
       })
       .catch((e) => !cancelled && setError(e.message || "Could not load games"))
       .finally(() => !cancelled && setLoading(false));
@@ -123,7 +138,7 @@ export default function GamesPage() {
           {pagination && (
             <span className="muted">
               {filteredGames.length}
-              {searchQuery.trim() && filteredGames.length !== pagination.total
+              {(searchQuery.trim() || typeId) && filteredGames.length !== pagination.total
                 ? ` of ${pagination.total}`
                 : ""}{" "}
               game{filteredGames.length === 1 ? "" : "s"}
