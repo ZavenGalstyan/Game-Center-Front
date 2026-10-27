@@ -203,11 +203,13 @@ const GAME_DECORATIONS = {
   "Strike Force: Elite Combat": "strike-force",
   "Strike Force": "strike-force",
   "Tank Warfare 3D": "tank-warfare",
+  "Sky Combat 3D": "sky-combat",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
 const GAME_SHORT_DESCRIPTIONS = {
   "Crazy Cards": "Match cards by color or rank, play powerful eights, and outsmart your opponents in fast-paced card battles.",
+  "Sky Combat 3D": "Pilot powerful fighter jets, engage in thrilling dogfights, and dominate the skies across challenging 3D battlefields.",
 };
 
 // Fallback: generate a short tagline from description if not predefined

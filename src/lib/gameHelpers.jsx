@@ -81,6 +81,7 @@ import blockEscapeBg from "../images/BlockEscape.png";
 import crazyCardsBg from "../images/CrazyCards.png";
 import strikeForceBg from "../images/StrikeForce.png";
 import tankWarfare3dBg from "../images/TankWarfare.png";
+import skyCombat3dBg from "../images/SkyCombat.png";
 
 /**
  * Category to icon mapping.
@@ -1129,6 +1130,20 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(3, 18, 13, 0.74) 57%,
       rgba(3, 18, 13, 0.86) 70%,
       rgba(3, 18, 13, 0.9) 100%)`,
+  },
+  // Sky Combat 3D: fighter jet on the left with "SKY COMBAT 3D" title visible,
+  // sky and clouds on the right under the text, so a firm dark teal fade that
+  // keeps the jet and title prominent while calming the bright sky.
+  "sky combat 3d": {
+    image: skyCombat3dBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 20, 0) 0%,
+      rgba(3, 18, 20, 0) 38%,
+      rgba(3, 18, 20, 0.48) 47%,
+      rgba(3, 18, 20, 0.74) 57%,
+      rgba(3, 18, 20, 0.86) 70%,
+      rgba(3, 18, 20, 0.9) 100%)`,
   },
 };
 
