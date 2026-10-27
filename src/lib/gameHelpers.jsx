@@ -85,6 +85,7 @@ import skyCombat3dBg from "../images/SkyCombat.png";
 import metroRushBg from "../images/MetroRush.png";
 import shadowWarriorsBg from "../images/ShadowWarriors.png";
 import shadowRunnerBg from "../images/ShadowRunner.png";
+import viceStreetsBg from "../images/ViceStreets.png";
 
 /**
  * Category to icon mapping.
@@ -1199,9 +1200,10 @@ const GAME_CARD_BACKGROUNDS = {
   },
   // Shadow Runner: Urban Escape - parkour runner leaping across rooftops,
   // title on left, jumping runner on right. The image has a sunset cityscape.
+  // Position "left center" keeps the SHADOW RUNNER title visible on the card.
   "shadow runner: urban escape": {
     image: shadowRunnerBg,
-    position: "right center",
+    position: "left center",
     shade: `linear-gradient(90deg,
       rgba(3, 18, 20, 0) 0%,
       rgba(3, 18, 20, 0) 35%,
@@ -1212,7 +1214,7 @@ const GAME_CARD_BACKGROUNDS = {
   },
   "shadow runner": {
     image: shadowRunnerBg,
-    position: "right center",
+    position: "left center",
     shade: `linear-gradient(90deg,
       rgba(3, 18, 20, 0) 0%,
       rgba(3, 18, 20, 0) 35%,
@@ -1220,6 +1222,19 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(3, 18, 20, 0.68) 55%,
       rgba(3, 18, 20, 0.82) 68%,
       rgba(3, 18, 20, 0.88) 100%)`,
+  },
+  // Vice Streets 3D - open-world tropical city with sports car and neon vibes.
+  // Title on left, car and palm trees in foreground. Position keeps title visible.
+  "vice streets 3d": {
+    image: viceStreetsBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 5, 18, 0) 0%,
+      rgba(12, 5, 18, 0) 32%,
+      rgba(12, 5, 18, 0.38) 42%,
+      rgba(12, 5, 18, 0.62) 52%,
+      rgba(12, 5, 18, 0.78) 65%,
+      rgba(12, 5, 18, 0.88) 100%)`,
   },
 };
 

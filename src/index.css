@@ -4302,6 +4302,35 @@ h3 {
   z-index: -1;
 }
 
+/* Vice Streets 3D decoration - sleek sports car, palm trees, sunset skyline
+   with neon pink/cyan accents capturing the tropical city vibe */
+.game-page__about[data-decoration="vice-streets"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -10px;
+  bottom: -30px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 340 340' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='vsSunset' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b9d' stop-opacity='0.3'/%3E%3Cstop offset='40%25' stop-color='%23e84a7f' stop-opacity='0.2'/%3E%3Cstop offset='70%25' stop-color='%23c23660' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23801840' stop-opacity='0.05'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsSky' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300d4ff' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23ff6b9d' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsBuilding1' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23205060' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23102830' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsBuilding2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23304858' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%23182838' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsPalm' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e88f' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23008855' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsCar' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e8c8' stop-opacity='0.6'/%3E%3Cstop offset='50%25' stop-color='%2300c8a8' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23009888' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsCarBody' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b9d' stop-opacity='0.55'/%3E%3Cstop offset='50%25' stop-color='%23e84a7f' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%23c83668' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Sunset disc --%3E%3Ccircle cx='170' cy='125' r='50' fill='url(%23vsSunset)'/%3E%3Ccircle cx='170' cy='125' r='38' fill='none' stroke='%23ff6b9d' stroke-width='0.8' opacity='0.25'/%3E%3Ccircle cx='170' cy='125' r='26' fill='none' stroke='%23ff6b9d' stroke-width='0.5' opacity='0.18'/%3E%3C!-- Horizontal sunset lines --%3E%3Cline x1='125' y1='115' x2='215' y2='115' stroke='%23e84a7f' stroke-width='1.5' opacity='0.15'/%3E%3Cline x1='130' y1='125' x2='210' y2='125' stroke='%23e84a7f' stroke-width='1.2' opacity='0.12'/%3E%3Cline x1='135' y1='135' x2='205' y2='135' stroke='%23e84a7f' stroke-width='1' opacity='0.1'/%3E%3C!-- City skyline buildings --%3E%3Crect x='85' y='140' width='20' height='75' fill='url(%23vsBuilding1)'/%3E%3Crect x='88' y='148' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.25'/%3E%3Crect x='95' y='148' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.2'/%3E%3Crect x='88' y='160' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.18'/%3E%3Crect x='95' y='160' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.22'/%3E%3Crect x='110' y='125' width='25' height='90' fill='url(%23vsBuilding2)'/%3E%3Crect x='114' y='132' width='5' height='6' rx='0.5' fill='%2300d4ff' opacity='0.3'/%3E%3Crect x='122' y='132' width='5' height='6' rx='0.5' fill='%23ff6b9d' opacity='0.25'/%3E%3Crect x='114' y='145' width='5' height='6' rx='0.5' fill='%23ff6b9d' opacity='0.22'/%3E%3Crect x='122' y='145' width='5' height='6' rx='0.5' fill='%2300d4ff' opacity='0.28'/%3E%3Crect x='114' y='158' width='5' height='6' rx='0.5' fill='%2300d4ff' opacity='0.2'/%3E%3Crect x='140' y='145' width='18' height='70' fill='url(%23vsBuilding1)'/%3E%3Crect x='143' y='152' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.22'/%3E%3Crect x='150' y='152' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.25'/%3E%3Crect x='180' y='130' width='22' height='85' fill='url(%23vsBuilding2)'/%3E%3Crect x='184' y='138' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.28'/%3E%3Crect x='192' y='138' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.22'/%3E%3Crect x='184' y='150' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.2'/%3E%3Crect x='192' y='150' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.25'/%3E%3Crect x='207' y='150' width='18' height='65' fill='url(%23vsBuilding1)'/%3E%3Crect x='210' y='158' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.22'/%3E%3Crect x='218' y='158' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.2'/%3E%3Crect x='230' y='138' width='22' height='77' fill='url(%23vsBuilding2)'/%3E%3Crect x='234' y='146' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.25'/%3E%3Crect x='242' y='146' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.28'/%3E%3Crect x='234' y='158' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.22'/%3E%3C!-- Left palm tree --%3E%3Cpath d='M72 215 L72 165' stroke='%23006644' stroke-width='4' opacity='0.5' stroke-linecap='round'/%3E%3Cpath d='M72 165 Q60 155 45 158' stroke='url(%23vsPalm)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 165 Q58 148 48 145' stroke='url(%23vsPalm)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 165 Q68 145 72 135' stroke='url(%23vsPalm)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 165 Q82 148 92 145' stroke='url(%23vsPalm)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 165 Q85 155 98 158' stroke='url(%23vsPalm)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 168 Q90 172 105 175' stroke='url(%23vsPalm)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 168 Q55 172 40 175' stroke='url(%23vsPalm)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C!-- Right palm tree --%3E%3Cpath d='M268 215 L268 175' stroke='%23006644' stroke-width='3.5' opacity='0.45' stroke-linecap='round'/%3E%3Cpath d='M268 175 Q255 165 242 168' stroke='url(%23vsPalm)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M268 175 Q258 158 250 155' stroke='url(%23vsPalm)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M268 175 Q265 158 268 148' stroke='url(%23vsPalm)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M268 175 Q278 158 288 155' stroke='url(%23vsPalm)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M268 175 Q282 165 295 168' stroke='url(%23vsPalm)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C!-- Road/ground --%3E%3Crect x='50' y='215' width='240' height='45' fill='%23182028' opacity='0.35'/%3E%3Cline x1='55' y1='238' x2='285' y2='238' stroke='%23ff6b9d' stroke-width='1.5' opacity='0.2' stroke-dasharray='20,15'/%3E%3C!-- Sports car (sleek profile) --%3E%3Cg transform='translate(125, 205)'%3E%3C!-- Car shadow --%3E%3Cellipse cx='55' cy='42' rx='50' ry='6' fill='%23000' opacity='0.2'/%3E%3C!-- Car body base --%3E%3Cpath d='M10 35 L15 28 Q25 20 45 18 L75 18 Q90 20 98 28 L105 35 L108 38 L108 42 L5 42 L5 38 Z' fill='url(%23vsCarBody)'/%3E%3C!-- Windshield --%3E%3Cpath d='M32 28 L40 18 L70 18 L78 28 Z' fill='%2300d4ff' opacity='0.25'/%3E%3C!-- Windshield reflection --%3E%3Cpath d='M38 24 L42 19 L52 19 L48 24 Z' fill='%2300d4ff' opacity='0.15'/%3E%3C!-- Hood line --%3E%3Cpath d='M15 30 Q25 26 32 28' stroke='%23ff8ab8' stroke-width='0.8' fill='none' opacity='0.4'/%3E%3C!-- Rear spoiler hint --%3E%3Cpath d='M5 34 L8 30 L15 30' stroke='%23c83668' stroke-width='1.5' fill='none' opacity='0.5'/%3E%3C!-- Front spoiler/bumper --%3E%3Cpath d='M98 34 L105 36 L108 38' stroke='%23c83668' stroke-width='1.2' fill='none' opacity='0.45'/%3E%3C!-- Wheels --%3E%3Ccircle cx='28' cy='40' r='8' fill='%23101418' opacity='0.7'/%3E%3Ccircle cx='28' cy='40' r='5' fill='%23282c30' opacity='0.6'/%3E%3Ccircle cx='28' cy='40' r='2' fill='%2300d4ff' opacity='0.35'/%3E%3Ccircle cx='85' cy='40' r='8' fill='%23101418' opacity='0.7'/%3E%3Ccircle cx='85' cy='40' r='5' fill='%23282c30' opacity='0.6'/%3E%3Ccircle cx='85' cy='40' r='2' fill='%2300d4ff' opacity='0.35'/%3E%3C!-- Headlights --%3E%3Cellipse cx='103' cy='34' rx='3' ry='2' fill='%2300d4ff' opacity='0.5'/%3E%3Cellipse cx='103' cy='34' rx='2' ry='1.2' fill='%2300d4ff' opacity='0.7'/%3E%3C!-- Taillights --%3E%3Crect x='6' y='33' width='5' height='3' rx='1' fill='%23ff6b9d' opacity='0.6'/%3E%3C!-- Side detail/neon accent --%3E%3Cpath d='M20 38 L95 38' stroke='%2300d4ff' stroke-width='1' opacity='0.35'/%3E%3C!-- Door line --%3E%3Cpath d='M50 28 L50 38' stroke='%23a02858' stroke-width='0.6' opacity='0.3'/%3E%3C/g%3E%3C!-- Neon reflections on road --%3E%3Cellipse cx='180' cy='250' rx='40' ry='8' fill='%23ff6b9d' opacity='0.08'/%3E%3Cellipse cx='180' cy='250' rx='25' ry='5' fill='%23ff6b9d' opacity='0.12'/%3E%3Cellipse cx='180' cy='248' rx='55' ry='4' fill='%2300d4ff' opacity='0.06'/%3E%3C!-- Atmospheric particles --%3E%3Ccircle cx='95' cy='180' r='1.5' fill='%23ff6b9d' opacity='0.3'/%3E%3Ccircle cx='250' cy='175' r='1.2' fill='%2300d4ff' opacity='0.35'/%3E%3Ccircle cx='160' cy='165' r='1' fill='%2300d4ff' opacity='0.25'/%3E%3Ccircle cx='200' cy='188' r='0.8' fill='%23ff6b9d' opacity='0.2'/%3E%3Ccircle cx='130' cy='195' r='1' fill='%2300d4ff' opacity='0.22'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Vice Streets ambient glow - neon pink and cyan tropical sunset */
+.game-page__about[data-decoration="vice-streets"]::after {
+  content: "";
+  position: absolute;
+  right: -15px;
+  bottom: -45px;
+  width: 390px;
+  height: 390px;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 50%, rgba(255, 107, 157, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 55% 45%, rgba(0, 212, 255, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5569,6 +5598,21 @@ h3 {
     height: 290px;
   }
 
+  /* Vice Streets tablet */
+  .game-page__about[data-decoration="vice-streets"]::before {
+    right: -5px;
+    bottom: -20px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .game-page__about[data-decoration="vice-streets"]::after {
+    right: -15px;
+    bottom: -35px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -6823,6 +6867,21 @@ h3 {
     height: 240px;
   }
 
+  /* Vice Streets mobile */
+  .game-page__about[data-decoration="vice-streets"]::before {
+    right: -8px;
+    bottom: -15px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="vice-streets"]::after {
+    right: -18px;
+    bottom: -28px;
+    width: 250px;
+    height: 250px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -7928,6 +7987,21 @@ h3 {
     bottom: -20px;
     width: 195px;
     height: 195px;
+  }
+
+  /* Vice Streets small mobile */
+  .game-page__about[data-decoration="vice-streets"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="vice-streets"]::after {
+    right: -12px;
+    bottom: -22px;
+    width: 205px;
+    height: 205px;
   }
 
   .game-page__short-desc {
