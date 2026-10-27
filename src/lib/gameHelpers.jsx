@@ -80,6 +80,7 @@ import neonCircuitBg from "../images/NeonCircuit.png";
 import blockEscapeBg from "../images/BlockEscape.png";
 import crazyCardsBg from "../images/CrazyCards.png";
 import strikeForceBg from "../images/StrikeForce.png";
+import tankWarfare3dBg from "../images/TankWarfare.png";
 
 /**
  * Category to icon mapping.
@@ -1106,6 +1107,20 @@ const GAME_CARD_BACKGROUNDS = {
   },
   "strike force": {
     image: strikeForceBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 13, 0) 0%,
+      rgba(3, 18, 13, 0) 38%,
+      rgba(3, 18, 13, 0.48) 47%,
+      rgba(3, 18, 13, 0.74) 57%,
+      rgba(3, 18, 13, 0.86) 70%,
+      rgba(3, 18, 13, 0.9) 100%)`,
+  },
+  // Tank Warfare 3D: military tank on the left, battlefield on the right under
+  // the text, so a firm dark emerald fade that starts past the tank and keeps
+  // the tactical environment faintly visible.
+  "tank warfare 3d": {
+    image: tankWarfare3dBg,
     position: "left center",
     shade: `linear-gradient(90deg,
       rgba(3, 18, 13, 0) 0%,
