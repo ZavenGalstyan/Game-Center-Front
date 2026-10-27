@@ -83,6 +83,7 @@ import strikeForceBg from "../images/StrikeForce.png";
 import tankWarfare3dBg from "../images/TankWarfare.png";
 import skyCombat3dBg from "../images/SkyCombat.png";
 import metroRushBg from "../images/MetroRush.png";
+import shadowWarriorsBg from "../images/ShadowWarriors.png";
 
 /**
  * Category to icon mapping.
@@ -1170,6 +1171,30 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(3, 18, 20, 0.74) 57%,
       rgba(3, 18, 20, 0.86) 70%,
       rgba(3, 18, 20, 0.9) 100%)`,
+  },
+  // Shadow Warriors: Rise of Legends - Japanese warrior with katana, cherry blossoms
+  // and rising sun motif on the left, dark background on the right under the text
+  "shadow warriors: rise of legends": {
+    image: shadowWarriorsBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 16, 0) 0%,
+      rgba(3, 18, 16, 0) 38%,
+      rgba(3, 18, 16, 0.48) 47%,
+      rgba(3, 18, 16, 0.74) 57%,
+      rgba(3, 18, 16, 0.86) 70%,
+      rgba(3, 18, 16, 0.9) 100%)`,
+  },
+  "shadow warriors": {
+    image: shadowWarriorsBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 16, 0) 0%,
+      rgba(3, 18, 16, 0) 38%,
+      rgba(3, 18, 16, 0.48) 47%,
+      rgba(3, 18, 16, 0.74) 57%,
+      rgba(3, 18, 16, 0.86) 70%,
+      rgba(3, 18, 16, 0.9) 100%)`,
   },
 };
 
