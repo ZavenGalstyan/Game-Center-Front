@@ -79,8 +79,11 @@ export function createInput() {
     if (Math.abs(e.movementX) > 400 || Math.abs(e.movementY) > 400) return;
     look(e.movementX, e.movementY);
   };
+  // mousedown / mouseup (not pointer events): a pointer only gets pointerdown for
+  // its first button, so left-click while holding right (ADS) never fired
+  const isTouchCompat = (e) => e.sourceCapabilities?.firesTouchEvents;
   const onDown = (e) => {
-    if (!S.enabled || !S.locked || e.pointerType === "touch") return;
+    if (!S.enabled || !S.locked || isTouchCompat(e)) return;
     if (e.button === 0) btn.fire = true;
     if (e.button === 2) {
       if (S.toggleAds) S.adsLatched = !S.adsLatched;
@@ -88,7 +91,7 @@ export function createInput() {
     }
   };
   const onUp = (e) => {
-    if (e.pointerType === "touch") return;
+    if (isTouchCompat(e)) return;
     if (e.button === 0) btn.fire = false;
     if (e.button === 2 && !S.toggleAds) btn.ads = false;
   };
@@ -220,8 +223,8 @@ export function createInput() {
     window.addEventListener("keydown", kd);
     window.addEventListener("keyup", ku);
     document.addEventListener("mousemove", onMove);
-    host.addEventListener("pointerdown", onDown);
-    window.addEventListener("pointerup", onUp);
+    host.addEventListener("mousedown", onDown);
+    window.addEventListener("mouseup", onUp);
     host.addEventListener("wheel", onWheel, { passive: false });
     host.addEventListener("contextmenu", onCtx);
     document.addEventListener("pointerlockchange", onLockChange);
@@ -235,8 +238,8 @@ export function createInput() {
     window.removeEventListener("keydown", kd);
     window.removeEventListener("keyup", ku);
     document.removeEventListener("mousemove", onMove);
-    S.host?.removeEventListener("pointerdown", onDown);
-    window.removeEventListener("pointerup", onUp);
+    S.host?.removeEventListener("mousedown", onDown);
+    window.removeEventListener("mouseup", onUp);
     S.host?.removeEventListener("wheel", onWheel);
     S.host?.removeEventListener("contextmenu", onCtx);
     document.removeEventListener("pointerlockchange", onLockChange);

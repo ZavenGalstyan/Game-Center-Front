@@ -314,6 +314,7 @@ export function createSoldier({ palette = "vanguard", accent = null, weapon = "v
     reload: 0,
     reloadDur: 1,
     deadT: -1,
+    down: false, // the death pose is applied to the rig
     fallDir: 1,
     fallSide: 0,
     swap: 0,
@@ -338,6 +339,7 @@ export function createSoldier({ palette = "vanguard", accent = null, weapon = "v
     const damp = (a, b, k) => a + (b - a) * (1 - Math.exp(-k * dt));
     if (!c.alive) {
       if (st.deadT < 0) st.deadT = 0;
+      st.down = true;
       st.deadT += dt;
       const k = Math.min(1, st.deadT / 0.75);
       const ease = 1 - (1 - k) ** 3;
@@ -358,7 +360,9 @@ export function createSoldier({ palette = "vanguard", accent = null, weapon = "v
       root.visible = st.deadT < 4.2;
       return;
     }
-    if (st.deadT >= 0) {
+    if (st.down || st.deadT >= 0) {
+      // stand back up — keyed on `down`, so it runs even if deadT was cleared elsewhere
+      st.down = false;
       st.deadT = -1;
       B.root.rotation.set(0, 0, 0);
       B.root.position.set(0, 0, 0);

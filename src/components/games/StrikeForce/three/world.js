@@ -779,7 +779,6 @@ export function createWorld(host, opts = {}) {
       const inView = frustum.intersectsSphere(sph);
       const rigAlive = c.alive;
       if (!rigAlive && s.wasAlive) s.deadAt = time;
-      if (rigAlive && !s.wasAlive) s.rig.state.deadT = -1;
       s.wasAlive = rigAlive;
       if (!inView && (rigAlive || time - (s.deadAt || 0) > 5)) {
         s.rig.root.visible = false;
