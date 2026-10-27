@@ -82,6 +82,7 @@ import crazyCardsBg from "../images/CrazyCards.png";
 import strikeForceBg from "../images/StrikeForce.png";
 import tankWarfare3dBg from "../images/TankWarfare.png";
 import skyCombat3dBg from "../images/SkyCombat.png";
+import metroRushBg from "../images/MetroRush.png";
 
 /**
  * Category to icon mapping.
@@ -1136,6 +1137,31 @@ const GAME_CARD_BACKGROUNDS = {
   // keeps the jet and title prominent while calming the bright sky.
   "sky combat 3d": {
     image: skyCombat3dBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 20, 0) 0%,
+      rgba(3, 18, 20, 0) 38%,
+      rgba(3, 18, 20, 0.48) 47%,
+      rgba(3, 18, 20, 0.74) 57%,
+      rgba(3, 18, 20, 0.86) 70%,
+      rgba(3, 18, 20, 0.9) 100%)`,
+  },
+  // Metro Rush: City Runner - urban runner with "METRO RUSH" title visible,
+  // subway trains and city tracks on the right under the text, so a firm dark
+  // teal fade that keeps the runner and title prominent.
+  "metro rush: city runner": {
+    image: metroRushBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 20, 0) 0%,
+      rgba(3, 18, 20, 0) 38%,
+      rgba(3, 18, 20, 0.48) 47%,
+      rgba(3, 18, 20, 0.74) 57%,
+      rgba(3, 18, 20, 0.86) 70%,
+      rgba(3, 18, 20, 0.9) 100%)`,
+  },
+  "metro rush": {
+    image: metroRushBg,
     position: "left center",
     shade: `linear-gradient(90deg,
       rgba(3, 18, 20, 0) 0%,

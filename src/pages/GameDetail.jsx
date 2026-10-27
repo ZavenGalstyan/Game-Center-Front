@@ -109,8 +109,8 @@ const GAME_TAGLINES = {
   "Shadow Runner": "Run Fast. Jump High. Never Get Caught.",
   "Shadow Warriors: Rise of Legends": "Master the Shadows. Defeat the Legends.",
   "Shadow Warriors": "Master the Shadows. Defeat the Legends.",
-  "Metro Rush: City Runner": "Run Fast. Dodge Trains. Rule the City.",
-  "Metro Rush": "Run Fast. Dodge Trains. Rule the City.",
+  "Metro Rush: City Runner": "Dodge speeding trains, collect coins, and race through vibrant city tracks in an endless running adventure.",
+  "Metro Rush": "Dodge speeding trains, collect coins, and race through vibrant city tracks in an endless running adventure.",
   "Strike Force: Elite Combat": "Engage in intense tactical firefights, master powerful weapons, and outsmart AI enemies across challenging 3D battlefields.",
   "Strike Force": "Engage in intense tactical firefights, master powerful weapons, and outsmart AI enemies across challenging 3D battlefields.",
   "Tank Warfare 3D": "Command your tank, defeat enemy forces, and conquer challenging 3D battlefields.",
@@ -204,6 +204,8 @@ const GAME_DECORATIONS = {
   "Strike Force": "strike-force",
   "Tank Warfare 3D": "tank-warfare",
   "Sky Combat 3D": "sky-combat",
+  "Metro Rush: City Runner": "metro-rush",
+  "Metro Rush": "metro-rush",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
