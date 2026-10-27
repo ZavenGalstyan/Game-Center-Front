@@ -79,6 +79,14 @@ import gravitySketchBg from "../images/GravitySketch.png";
 import neonCircuitBg from "../images/NeonCircuit.png";
 import blockEscapeBg from "../images/BlockEscape.png";
 import crazyCardsBg from "../images/CrazyCards.png";
+import strikeForceBg from "../images/StrikeForce.png";
+import tankWarfare3dBg from "../images/TankWarfare.png";
+import skyCombat3dBg from "../images/SkyCombat.png";
+import metroRushBg from "../images/MetroRush.png";
+import shadowWarriorsBg from "../images/ShadowWarriors.png";
+import shadowRunnerBg from "../images/ShadowRunner.png";
+import viceStreetsBg from "../images/ViceStreets.png";
+import hulkBg from "../images/Hulk.png";
 
 /**
  * Category to icon mapping.
@@ -1088,6 +1096,172 @@ const GAME_CARD_BACKGROUNDS = {
   "neon circuit": { image: neonCircuitBg, shade: WIDE_ART_SHADE },
   "block escape": { image: blockEscapeBg, shade: WIDE_ART_SHADE },
   "crazy cards": { image: crazyCardsBg, shade: WIDE_ART_SHADE },
+  // Strike Force: tactical soldier with rifle on the left (~10-45%), harbor with
+  // shipping containers and crane on the right under the text, so a firm dark
+  // emerald fade that starts just past the soldier and keeps the industrial
+  // background faintly visible. The left anchor keeps the soldier on all widths.
+  "strike force: elite combat": {
+    image: strikeForceBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 13, 0) 0%,
+      rgba(3, 18, 13, 0) 38%,
+      rgba(3, 18, 13, 0.48) 47%,
+      rgba(3, 18, 13, 0.74) 57%,
+      rgba(3, 18, 13, 0.86) 70%,
+      rgba(3, 18, 13, 0.9) 100%)`,
+  },
+  "strike force": {
+    image: strikeForceBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 13, 0) 0%,
+      rgba(3, 18, 13, 0) 38%,
+      rgba(3, 18, 13, 0.48) 47%,
+      rgba(3, 18, 13, 0.74) 57%,
+      rgba(3, 18, 13, 0.86) 70%,
+      rgba(3, 18, 13, 0.9) 100%)`,
+  },
+  // Tank Warfare 3D: military tank on the left, battlefield on the right under
+  // the text, so a firm dark emerald fade that starts past the tank and keeps
+  // the tactical environment faintly visible.
+  "tank warfare 3d": {
+    image: tankWarfare3dBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 13, 0) 0%,
+      rgba(3, 18, 13, 0) 38%,
+      rgba(3, 18, 13, 0.48) 47%,
+      rgba(3, 18, 13, 0.74) 57%,
+      rgba(3, 18, 13, 0.86) 70%,
+      rgba(3, 18, 13, 0.9) 100%)`,
+  },
+  // Sky Combat 3D: fighter jet on the left with "SKY COMBAT 3D" title visible,
+  // sky and clouds on the right under the text, so a firm dark teal fade that
+  // keeps the jet and title prominent while calming the bright sky.
+  "sky combat 3d": {
+    image: skyCombat3dBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 20, 0) 0%,
+      rgba(3, 18, 20, 0) 38%,
+      rgba(3, 18, 20, 0.48) 47%,
+      rgba(3, 18, 20, 0.74) 57%,
+      rgba(3, 18, 20, 0.86) 70%,
+      rgba(3, 18, 20, 0.9) 100%)`,
+  },
+  // Metro Rush: City Runner - urban runner with "METRO RUSH" title visible,
+  // subway trains and city tracks on the right under the text, so a firm dark
+  // teal fade that keeps the runner and title prominent.
+  "metro rush: city runner": {
+    image: metroRushBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 20, 0) 0%,
+      rgba(3, 18, 20, 0) 38%,
+      rgba(3, 18, 20, 0.48) 47%,
+      rgba(3, 18, 20, 0.74) 57%,
+      rgba(3, 18, 20, 0.86) 70%,
+      rgba(3, 18, 20, 0.9) 100%)`,
+  },
+  "metro rush": {
+    image: metroRushBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 20, 0) 0%,
+      rgba(3, 18, 20, 0) 38%,
+      rgba(3, 18, 20, 0.48) 47%,
+      rgba(3, 18, 20, 0.74) 57%,
+      rgba(3, 18, 20, 0.86) 70%,
+      rgba(3, 18, 20, 0.9) 100%)`,
+  },
+  // Shadow Warriors: Rise of Legends - Japanese warrior with katana, cherry blossoms
+  // and rising sun motif on the left, dark background on the right under the text
+  "shadow warriors: rise of legends": {
+    image: shadowWarriorsBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 16, 0) 0%,
+      rgba(3, 18, 16, 0) 38%,
+      rgba(3, 18, 16, 0.48) 47%,
+      rgba(3, 18, 16, 0.74) 57%,
+      rgba(3, 18, 16, 0.86) 70%,
+      rgba(3, 18, 16, 0.9) 100%)`,
+  },
+  "shadow warriors": {
+    image: shadowWarriorsBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 16, 0) 0%,
+      rgba(3, 18, 16, 0) 38%,
+      rgba(3, 18, 16, 0.48) 47%,
+      rgba(3, 18, 16, 0.74) 57%,
+      rgba(3, 18, 16, 0.86) 70%,
+      rgba(3, 18, 16, 0.9) 100%)`,
+  },
+  // Shadow Runner: Urban Escape - parkour runner leaping across rooftops,
+  // title on left, jumping runner on right. The image has a sunset cityscape.
+  // Position "left center" keeps the SHADOW RUNNER title visible on the card.
+  "shadow runner: urban escape": {
+    image: shadowRunnerBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 20, 0) 0%,
+      rgba(3, 18, 20, 0) 35%,
+      rgba(3, 18, 20, 0.42) 45%,
+      rgba(3, 18, 20, 0.68) 55%,
+      rgba(3, 18, 20, 0.82) 68%,
+      rgba(3, 18, 20, 0.88) 100%)`,
+  },
+  "shadow runner": {
+    image: shadowRunnerBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 20, 0) 0%,
+      rgba(3, 18, 20, 0) 35%,
+      rgba(3, 18, 20, 0.42) 45%,
+      rgba(3, 18, 20, 0.68) 55%,
+      rgba(3, 18, 20, 0.82) 68%,
+      rgba(3, 18, 20, 0.88) 100%)`,
+  },
+  // Vice Streets 3D - open-world tropical city with sports car and neon vibes.
+  // Title on left, car and palm trees in foreground. Position keeps title visible.
+  "vice streets 3d": {
+    image: viceStreetsBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 5, 18, 0) 0%,
+      rgba(12, 5, 18, 0) 32%,
+      rgba(12, 5, 18, 0.38) 42%,
+      rgba(12, 5, 18, 0.62) 52%,
+      rgba(12, 5, 18, 0.78) 65%,
+      rgba(12, 5, 18, 0.88) 100%)`,
+  },
+  // Hulk: Open World 3D - large title on the left, green character on the right.
+  // Position "5% center" keeps the full title visible without cropping first letters.
+  // Dark gradient ensures text overlay remains readable against the artwork.
+  "hulk: open world 3d": {
+    image: hulkBg,
+    position: "5% center",
+    shade: `linear-gradient(90deg,
+      rgba(5, 18, 10, 0) 0%,
+      rgba(5, 18, 10, 0) 30%,
+      rgba(5, 18, 10, 0.42) 42%,
+      rgba(5, 18, 10, 0.68) 54%,
+      rgba(5, 18, 10, 0.82) 68%,
+      rgba(5, 18, 10, 0.92) 100%)`,
+  },
+  "hulk open world 3d": {
+    image: hulkBg,
+    position: "5% center",
+    shade: `linear-gradient(90deg,
+      rgba(5, 18, 10, 0) 0%,
+      rgba(5, 18, 10, 0) 30%,
+      rgba(5, 18, 10, 0.42) 42%,
+      rgba(5, 18, 10, 0.68) 54%,
+      rgba(5, 18, 10, 0.82) 68%,
+      rgba(5, 18, 10, 0.92) 100%)`,
+  },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();

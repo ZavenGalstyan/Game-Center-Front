@@ -4128,6 +4128,239 @@ h3 {
   z-index: -1;
 }
 
+/* Strike Force: Elite Combat decoration - tactical rifle with sniper crosshair
+   Premium FPS-themed illustration with emerald green and tactical orange accents */
+.game-page__about[data-decoration="strike-force"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: 10px;
+  bottom: -10px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='sf-rifle-body' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300c896' stop-opacity='0.45'/%3E%3Cstop offset='50%25' stop-color='%2300a87a' stop-opacity='0.38'/%3E%3Cstop offset='100%25' stop-color='%23008866' stop-opacity='0.32'/%3E%3C/linearGradient%3E%3ClinearGradient id='sf-rifle-dark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300a87a' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23007858' stop-opacity='0.28'/%3E%3C/linearGradient%3E%3ClinearGradient id='sf-optic-glow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff9844' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%23e87830' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='sf-crosshair-ring' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300d8a0' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%2300b080' stop-opacity='0.2'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- SNIPER CROSSHAIR - positioned behind rifle --%3E%3Cg transform='translate(50, 42)'%3E%3C!-- Outer targeting ring with tick marks --%3E%3Ccircle cx='0' cy='0' r='32' fill='none' stroke='url(%23sf-crosshair-ring)' stroke-width='1.5'/%3E%3Ccircle cx='0' cy='0' r='26' fill='none' stroke='rgba(0,200,150,0.18)' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='18' fill='none' stroke='rgba(0,190,140,0.22)' stroke-width='0.8'/%3E%3Ccircle cx='0' cy='0' r='10' fill='none' stroke='rgba(0,180,130,0.25)' stroke-width='0.7'/%3E%3C!-- Cardinal targeting lines --%3E%3Cpath d='M0 -35 L0 -28 M0 28 L0 35 M-35 0 L-28 0 M28 0 L35 0' stroke='rgba(0,210,155,0.28)' stroke-width='1.2'/%3E%3C!-- Inner fine crosshairs --%3E%3Cpath d='M0 -12 L0 -5 M0 5 L0 12 M-12 0 L-5 0 M5 0 L12 0' stroke='rgba(0,220,160,0.35)' stroke-width='0.8'/%3E%3C!-- Tick marks on outer ring --%3E%3Cpath d='M22.6 -22.6 L20.5 -20.5 M-22.6 -22.6 L-20.5 -20.5 M22.6 22.6 L20.5 20.5 M-22.6 22.6 L-20.5 20.5' stroke='rgba(0,200,150,0.2)' stroke-width='0.8'/%3E%3C!-- Distance markers --%3E%3Cpath d='M0 14 L2 16 L-2 16 Z' fill='rgba(0,200,150,0.2)'/%3E%3Cpath d='M0 20 L1.5 22 L-1.5 22 Z' fill='rgba(0,190,140,0.15)'/%3E%3C!-- HUD elements --%3E%3Ctext x='-28' y='-26' font-size='3' fill='rgba(0,210,155,0.25)' font-family='monospace'%3E100%3C/text%3E%3Ctext x='22' y='-26' font-size='3' fill='rgba(0,210,155,0.25)' font-family='monospace'%3E200%3C/text%3E%3Crect x='-30' y='28' width='12' height='3' rx='0.5' fill='rgba(0,200,150,0.12)'/%3E%3Crect x='18' y='28' width='12' height='3' rx='0.5' fill='rgba(0,200,150,0.12)'/%3E%3C/g%3E%3C!-- TACTICAL ASSAULT RIFLE - diagonal composition --%3E%3Cg transform='translate(50, 50) rotate(-25)'%3E%3C!-- Barrel with muzzle brake --%3E%3Crect x='-48' y='-3' width='22' height='5' rx='1' fill='url(%23sf-rifle-body)' stroke='rgba(0,220,165,0.35)' stroke-width='0.6'/%3E%3C!-- Muzzle brake slots --%3E%3Crect x='-48' y='-2' width='2' height='3' fill='rgba(0,180,130,0.25)'/%3E%3Crect x='-44' y='-2' width='2' height='3' fill='rgba(0,180,130,0.25)'/%3E%3Crect x='-40' y='-2' width='2' height='3' fill='rgba(0,180,130,0.25)'/%3E%3C!-- Handguard / rail system --%3E%3Crect x='-26' y='-4.5' width='20' height='8' rx='1.5' fill='url(%23sf-rifle-body)' stroke='rgba(0,215,160,0.3)' stroke-width='0.7'/%3E%3C!-- Rail grooves --%3E%3Cpath d='M-24 -4 L-24 3 M-20 -4 L-20 3 M-16 -4 L-16 3 M-12 -4 L-12 3 M-8 -4 L-8 3' stroke='rgba(0,160,115,0.2)' stroke-width='0.5'/%3E%3C!-- Upper receiver --%3E%3Crect x='-6' y='-5' width='22' height='9' rx='1.5' fill='url(%23sf-rifle-body)' stroke='rgba(0,210,155,0.32)' stroke-width='0.7'/%3E%3C!-- Ejection port --%3E%3Crect x='2' y='-3' width='6' height='4' rx='0.8' fill='rgba(0,170,125,0.25)' stroke='rgba(0,190,140,0.2)' stroke-width='0.4'/%3E%3C!-- Forward assist --%3E%3Ccircle cx='12' cy='-1' r='1.5' fill='rgba(0,175,128,0.3)'/%3E%3C!-- OPTIC SIGHT with orange accent --%3E%3Crect x='-2' y='-11' width='14' height='6' rx='2' fill='url(%23sf-rifle-dark)' stroke='rgba(0,200,150,0.3)' stroke-width='0.6'/%3E%3C!-- Optic body tube --%3E%3Crect x='0' y='-10' width='10' height='4' rx='1.5' fill='rgba(0,190,140,0.35)' stroke='rgba(0,210,155,0.25)' stroke-width='0.4'/%3E%3C!-- Front lens - orange glow --%3E%3Ccircle cx='1.5' cy='-8' r='1.8' fill='url(%23sf-optic-glow)'/%3E%3Ccircle cx='1.5' cy='-8' r='1' fill='rgba(255,170,90,0.65)'/%3E%3C!-- Rear lens --%3E%3Ccircle cx='8.5' cy='-8' r='1.3' fill='rgba(0,200,150,0.4)'/%3E%3C!-- Adjustment turrets --%3E%3Ccircle cx='5' cy='-11.5' r='1.2' fill='rgba(0,185,135,0.35)' stroke='rgba(0,200,150,0.25)' stroke-width='0.3'/%3E%3C!-- Lower receiver --%3E%3Cpath d='M-4 4 L16 4 L16 6 Q16 8 14 10 L8 10 L6 8 L-2 8 Q-4 8 -4 6 Z' fill='url(%23sf-rifle-dark)' stroke='rgba(0,200,150,0.28)' stroke-width='0.6'/%3E%3C!-- Trigger guard --%3E%3Cpath d='M2 8 Q2 14 6 14 Q10 14 10 8' fill='none' stroke='rgba(0,210,155,0.4)' stroke-width='1.2'/%3E%3C!-- Trigger --%3E%3Cpath d='M6 8 L6 11' stroke='rgba(0,200,150,0.45)' stroke-width='1'/%3E%3C!-- Magazine --%3E%3Crect x='0' y='10' width='8' height='14' rx='1' fill='url(%23sf-rifle-dark)' stroke='rgba(0,200,150,0.3)' stroke-width='0.6'/%3E%3C!-- Magazine ridges --%3E%3Cpath d='M1 12 L7 12 M1 16 L7 16 M1 20 L7 20' stroke='rgba(0,180,130,0.2)' stroke-width='0.4'/%3E%3C!-- Pistol grip --%3E%3Cpath d='M10 8 L14 8 L16 12 L16 22 Q16 24 14 24 L12 24 Q10 24 10 22 L10 10 Z' fill='url(%23sf-rifle-body)' stroke='rgba(0,205,152,0.32)' stroke-width='0.6'/%3E%3C!-- Grip texture --%3E%3Cpath d='M11 12 L15 12 M11 15 L15 15 M11 18 L15 18 M11 21 L14 21' stroke='rgba(0,170,125,0.18)' stroke-width='0.4'/%3E%3C!-- Buffer tube --%3E%3Crect x='16' y='-3' width='12' height='5' rx='1.5' fill='url(%23sf-rifle-dark)' stroke='rgba(0,195,145,0.28)' stroke-width='0.5'/%3E%3C!-- Stock --%3E%3Cpath d='M28 -5 L42 -6 Q45 -6 45 -3 L45 3 Q45 6 42 6 L28 4 Z' fill='url(%23sf-rifle-body)' stroke='rgba(0,210,155,0.35)' stroke-width='0.7'/%3E%3C!-- Stock cheek rest --%3E%3Crect x='32' y='-4' width='10' height='3' rx='1' fill='rgba(0,200,148,0.25)'/%3E%3C!-- Buttpad --%3E%3Crect x='43' y='-5' width='3' height='9' rx='1' fill='rgba(0,185,135,0.35)'/%3E%3C!-- Stock adjustment lever - orange accent --%3E%3Ccircle cx='36' cy='3' r='1.2' fill='rgba(235,135,55,0.5)' stroke='rgba(255,160,80,0.4)' stroke-width='0.3'/%3E%3C!-- Foregrip --%3E%3Crect x='-18' y='4' width='5' height='10' rx='1.5' fill='url(%23sf-rifle-dark)' stroke='rgba(0,195,145,0.28)' stroke-width='0.5'/%3E%3Crect x='-17' y='5' width='3' height='8' rx='1' fill='rgba(0,180,132,0.2)'/%3E%3C!-- Flashlight mount --%3E%3Crect x='-22' y='4' width='4' height='3' rx='0.8' fill='rgba(0,190,140,0.3)'/%3E%3Ccircle cx='-20' cy='5.5' r='1' fill='rgba(230,145,65,0.45)'/%3E%3C!-- Sling mount --%3E%3Ccircle cx='28' cy='5' r='1.5' fill='none' stroke='rgba(0,200,150,0.35)' stroke-width='0.8'/%3E%3C/g%3E%3C!-- Corner tactical accents --%3E%3Cg opacity='0.8'%3E%3C!-- Top left bracket --%3E%3Cpath d='M8 12 L8 8 L12 8' fill='none' stroke='rgba(0,200,150,0.2)' stroke-width='0.8'/%3E%3C!-- Bottom right bracket --%3E%3Cpath d='M92 88 L92 92 L88 92' fill='none' stroke='rgba(0,200,150,0.2)' stroke-width='0.8'/%3E%3C!-- Status indicators --%3E%3Crect x='8' y='86' width='18' height='2' rx='0.5' fill='rgba(0,210,155,0.15)'/%3E%3Crect x='8' y='86' width='12' height='2' rx='0.5' fill='rgba(0,220,160,0.25)'/%3E%3Crect x='8' y='90' width='10' height='1.5' rx='0.5' fill='rgba(0,200,150,0.12)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Strike Force ambient glow - soft emerald with warm accent */
+.game-page__about[data-decoration="strike-force"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  width: 360px;
+  height: 360px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 45%, rgba(0, 210, 145, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 30% at 65% 40%, rgba(230, 140, 60, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Tank Warfare 3D decoration - military tank with tactical HUD elements
+   Premium armored combat illustration with dark emerald, olive green, and muted gold accents */
+.game-page__about[data-decoration="tank-warfare"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: 10px;
+  bottom: -10px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='tw-armor-main' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300c896' stop-opacity='0.42'/%3E%3Cstop offset='50%25' stop-color='%23008866' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23006650' stop-opacity='0.28'/%3E%3C/linearGradient%3E%3ClinearGradient id='tw-armor-dark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300a87a' stop-opacity='0.32'/%3E%3Cstop offset='100%25' stop-color='%23005540' stop-opacity='0.25'/%3E%3C/linearGradient%3E%3ClinearGradient id='tw-olive' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236b8e23' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23556b2f' stop-opacity='0.28'/%3E%3C/linearGradient%3E%3ClinearGradient id='tw-gold-accent' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d4a84b' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23b8942f' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='tw-reticle' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300d8a0' stop-opacity='0.28'/%3E%3Cstop offset='100%25' stop-color='%2300b080' stop-opacity='0.18'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- TARGETING RETICLE - positioned behind tank --%3E%3Cg transform='translate(50, 38)'%3E%3C!-- Outer targeting ring --%3E%3Ccircle cx='0' cy='0' r='30' fill='none' stroke='url(%23tw-reticle)' stroke-width='1.2'/%3E%3Ccircle cx='0' cy='0' r='22' fill='none' stroke='rgba(0,190,140,0.15)' stroke-width='0.8'/%3E%3Ccircle cx='0' cy='0' r='14' fill='none' stroke='rgba(0,180,130,0.18)' stroke-width='0.7'/%3E%3C!-- Cardinal targeting lines --%3E%3Cpath d='M0 -33 L0 -26 M0 26 L0 33 M-33 0 L-26 0 M26 0 L33 0' stroke='rgba(0,200,150,0.22)' stroke-width='1'/%3E%3C!-- Inner crosshairs --%3E%3Cpath d='M0 -8 L0 -3 M0 3 L0 8 M-8 0 L-3 0 M3 0 L8 0' stroke='rgba(0,210,155,0.3)' stroke-width='0.7'/%3E%3C!-- Range finder marks --%3E%3Cpath d='M0 10 L1.5 12 L-1.5 12 Z M0 16 L1 17.5 L-1 17.5 Z' fill='rgba(0,190,140,0.18)'/%3E%3C!-- Distance indicators --%3E%3Ctext x='-26' y='-24' font-size='2.5' fill='rgba(0,200,150,0.2)' font-family='monospace'%3E500m%3C/text%3E%3Ctext x='18' y='-24' font-size='2.5' fill='rgba(0,200,150,0.2)' font-family='monospace'%3E1000m%3C/text%3E%3C/g%3E%3C!-- TERRAIN CONTOUR LINES --%3E%3Cg opacity='0.6'%3E%3Cpath d='M5 85 Q20 80 35 82 Q50 84 65 78 Q80 72 95 75' fill='none' stroke='rgba(107,142,35,0.15)' stroke-width='0.8'/%3E%3Cpath d='M0 90 Q15 86 30 88 Q50 91 70 85 Q85 80 100 82' fill='none' stroke='rgba(107,142,35,0.12)' stroke-width='0.6'/%3E%3Cpath d='M10 95 Q25 92 40 93 Q60 95 80 90 Q92 87 100 88' fill='none' stroke='rgba(107,142,35,0.1)' stroke-width='0.5'/%3E%3C/g%3E%3C!-- MAIN BATTLE TANK --%3E%3Cg transform='translate(50, 58)'%3E%3C!-- TRACKS - left side --%3E%3Cpath d='M-38 12 L-38 18 Q-38 22 -34 22 L28 22 Q32 22 32 18 L32 12 Q32 8 28 8 L-34 8 Q-38 8 -38 12 Z' fill='url(%23tw-armor-dark)' stroke='rgba(0,180,130,0.3)' stroke-width='0.8'/%3E%3C!-- Track segments --%3E%3Cpath d='M-34 8 L-34 22 M-28 8 L-28 22 M-22 8 L-22 22 M-16 8 L-16 22 M-10 8 L-10 22 M-4 8 L-4 22 M2 8 L2 22 M8 8 L8 22 M14 8 L14 22 M20 8 L20 22 M26 8 L26 22' stroke='rgba(0,160,115,0.2)' stroke-width='0.5'/%3E%3C!-- Drive wheels --%3E%3Ccircle cx='-32' cy='15' r='5' fill='rgba(0,170,125,0.25)' stroke='rgba(0,190,140,0.22)' stroke-width='0.5'/%3E%3Ccircle cx='-32' cy='15' r='2.5' fill='rgba(0,150,110,0.2)'/%3E%3Ccircle cx='26' cy='15' r='5' fill='rgba(0,170,125,0.25)' stroke='rgba(0,190,140,0.22)' stroke-width='0.5'/%3E%3Ccircle cx='26' cy='15' r='2.5' fill='rgba(0,150,110,0.2)'/%3E%3C!-- Road wheels --%3E%3Ccircle cx='-18' cy='15' r='4' fill='rgba(0,165,120,0.22)' stroke='rgba(0,185,135,0.18)' stroke-width='0.4'/%3E%3Ccircle cx='-6' cy='15' r='4' fill='rgba(0,165,120,0.22)' stroke='rgba(0,185,135,0.18)' stroke-width='0.4'/%3E%3Ccircle cx='6' cy='15' r='4' fill='rgba(0,165,120,0.22)' stroke='rgba(0,185,135,0.18)' stroke-width='0.4'/%3E%3Ccircle cx='18' cy='15' r='4' fill='rgba(0,165,120,0.22)' stroke='rgba(0,185,135,0.18)' stroke-width='0.4'/%3E%3C!-- HULL - main body --%3E%3Cpath d='M-36 6 L-30 -2 L30 -2 L36 6 L36 10 L-36 10 Z' fill='url(%23tw-armor-main)' stroke='rgba(0,200,150,0.35)' stroke-width='0.8'/%3E%3C!-- Hull armor panels --%3E%3Cpath d='M-28 -2 L-28 6 M-18 -2 L-18 6 M-8 -2 L-8 6 M2 -2 L2 6 M12 -2 L12 6 M22 -2 L22 6' stroke='rgba(0,170,125,0.18)' stroke-width='0.4'/%3E%3C!-- Side skirts --%3E%3Crect x='-35' y='6' width='70' height='3' fill='url(%23tw-olive)' stroke='rgba(107,142,35,0.25)' stroke-width='0.4'/%3E%3C!-- Front glacis plate --%3E%3Cpath d='M-30 -2 L-24 -8 L24 -8 L30 -2 Z' fill='url(%23tw-armor-main)' stroke='rgba(0,195,145,0.32)' stroke-width='0.6'/%3E%3C!-- Driver's hatch --%3E%3Crect x='-20' y='-6' width='8' height='5' rx='1' fill='rgba(0,175,128,0.28)' stroke='rgba(0,200,150,0.22)' stroke-width='0.4'/%3E%3C!-- Vision blocks --%3E%3Crect x='-18' y='-5' width='4' height='1.5' rx='0.5' fill='rgba(0,220,165,0.35)'/%3E%3C!-- TURRET --%3E%3Cellipse cx='0' cy='-10' rx='22' ry='12' fill='url(%23tw-armor-main)' stroke='rgba(0,210,155,0.38)' stroke-width='0.8'/%3E%3C!-- Turret armor details --%3E%3Cpath d='M-18 -14 Q0 -20 18 -14' fill='none' stroke='rgba(0,180,130,0.2)' stroke-width='0.5'/%3E%3Cpath d='M-15 -8 Q0 -12 15 -8' fill='none' stroke='rgba(0,180,130,0.18)' stroke-width='0.4'/%3E%3C!-- Commander's cupola --%3E%3Ccircle cx='8' cy='-14' r='5' fill='url(%23tw-armor-dark)' stroke='rgba(0,195,145,0.3)' stroke-width='0.5'/%3E%3Ccircle cx='8' cy='-14' r='3' fill='rgba(0,185,138,0.25)'/%3E%3C!-- Commander's hatch --%3E%3Cellipse cx='8' cy='-14' rx='2.5' ry='1.5' fill='rgba(0,200,150,0.3)'/%3E%3C!-- Loader's hatch --%3E%3Cellipse cx='-8' cy='-12' rx='4' ry='3' fill='url(%23tw-armor-dark)' stroke='rgba(0,190,140,0.25)' stroke-width='0.4'/%3E%3C!-- ERA blocks (reactive armor) --%3E%3Crect x='-20' y='-8' width='3' height='4' rx='0.5' fill='rgba(107,142,35,0.3)' stroke='rgba(107,142,35,0.2)' stroke-width='0.3'/%3E%3Crect x='-16' y='-9' width='3' height='4' rx='0.5' fill='rgba(107,142,35,0.28)' stroke='rgba(107,142,35,0.18)' stroke-width='0.3'/%3E%3Crect x='14' y='-9' width='3' height='4' rx='0.5' fill='rgba(107,142,35,0.28)' stroke='rgba(107,142,35,0.18)' stroke-width='0.3'/%3E%3Crect x='18' y='-8' width='3' height='4' rx='0.5' fill='rgba(107,142,35,0.3)' stroke='rgba(107,142,35,0.2)' stroke-width='0.3'/%3E%3C!-- MAIN GUN --%3E%3C!-- Gun mantlet --%3E%3Cellipse cx='-22' cy='-10' rx='6' ry='5' fill='url(%23tw-armor-dark)' stroke='rgba(0,200,150,0.32)' stroke-width='0.6'/%3E%3C!-- Barrel --%3E%3Crect x='-48' y='-12' width='28' height='4' rx='1' fill='url(%23tw-armor-main)' stroke='rgba(0,205,152,0.35)' stroke-width='0.6'/%3E%3C!-- Barrel reinforcement rings --%3E%3Crect x='-45' y='-12.5' width='2' height='5' rx='0.5' fill='rgba(0,190,140,0.3)'/%3E%3Crect x='-38' y='-12.5' width='2' height='5' rx='0.5' fill='rgba(0,190,140,0.28)'/%3E%3C!-- Muzzle brake --%3E%3Crect x='-52' y='-13' width='5' height='6' rx='1' fill='url(%23tw-armor-dark)' stroke='rgba(0,195,145,0.28)' stroke-width='0.5'/%3E%3C!-- Muzzle brake slots --%3E%3Crect x='-51' y='-11.5' width='1' height='3' fill='rgba(0,170,125,0.2)'/%3E%3Crect x='-49' y='-11.5' width='1' height='3' fill='rgba(0,170,125,0.2)'/%3E%3C!-- Bore evacuator --%3E%3Cellipse cx='-32' cy='-10' rx='2.5' ry='3.5' fill='rgba(0,185,135,0.32)' stroke='rgba(0,200,150,0.25)' stroke-width='0.4'/%3E%3C!-- Coaxial MG --%3E%3Crect x='-26' y='-7' width='8' height='1.5' rx='0.5' fill='rgba(0,180,132,0.3)'/%3E%3C!-- EXTERNAL EQUIPMENT --%3E%3C!-- Smoke launchers --%3E%3Crect x='20' y='-6' width='3' height='6' rx='0.8' fill='url(%23tw-olive)' stroke='rgba(107,142,35,0.25)' stroke-width='0.3'/%3E%3Ccircle cx='21.5' cy='-5' r='1' fill='rgba(107,142,35,0.35)'/%3E%3Ccircle cx='21.5' cy='-2' r='1' fill='rgba(107,142,35,0.35)'/%3E%3Ccircle cx='21.5' cy='1' r='1' fill='rgba(107,142,35,0.35)'/%3E%3C!-- Antenna --%3E%3Cpath d='M12 -18 L12 -28' stroke='rgba(0,200,150,0.35)' stroke-width='0.6'/%3E%3Ccircle cx='12' cy='-28' r='0.8' fill='rgba(212,168,75,0.45)'/%3E%3C!-- Searchlight - gold accent --%3E%3Ccircle cx='-12' cy='-18' r='2.5' fill='url(%23tw-gold-accent)' stroke='rgba(212,168,75,0.35)' stroke-width='0.4'/%3E%3Ccircle cx='-12' cy='-18' r='1.5' fill='rgba(255,215,100,0.5)'/%3E%3C!-- Tow cables --%3E%3Cpath d='M30 2 Q34 0 34 4 Q34 8 30 6' fill='none' stroke='rgba(0,180,130,0.3)' stroke-width='1'/%3E%3C!-- Track guards --%3E%3Crect x='-36' y='4' width='6' height='2' fill='rgba(0,175,128,0.22)'/%3E%3Crect x='30' y='4' width='6' height='2' fill='rgba(0,175,128,0.22)'/%3E%3C/g%3E%3C!-- HUD TACTICAL ELEMENTS --%3E%3Cg opacity='0.8'%3E%3C!-- Top left bracket --%3E%3Cpath d='M8 10 L8 6 L12 6' fill='none' stroke='rgba(0,200,150,0.18)' stroke-width='0.7'/%3E%3C!-- Bottom right bracket --%3E%3Cpath d='M92 90 L92 94 L88 94' fill='none' stroke='rgba(0,200,150,0.18)' stroke-width='0.7'/%3E%3C!-- Ammo counter --%3E%3Crect x='8' y='88' width='16' height='2' rx='0.5' fill='rgba(0,200,150,0.12)'/%3E%3Crect x='8' y='88' width='11' height='2' rx='0.5' fill='rgba(0,210,155,0.22)'/%3E%3Ctext x='8' y='86' font-size='2.5' fill='rgba(0,200,150,0.2)' font-family='monospace'%3EAMMO%3C/text%3E%3C!-- Status indicator --%3E%3Crect x='8' y='92' width='8' height='1.5' rx='0.5' fill='rgba(212,168,75,0.2)'/%3E%3C!-- Compass --%3E%3Ccircle cx='88' cy='12' r='5' fill='none' stroke='rgba(0,190,140,0.15)' stroke-width='0.6'/%3E%3Cpath d='M88 8 L88 10 M88 14 L88 16 M84 12 L86 12 M90 12 L92 12' stroke='rgba(0,200,150,0.2)' stroke-width='0.5'/%3E%3Ctext x='87' y='13' font-size='2' fill='rgba(0,210,155,0.25)' font-family='monospace'%3EN%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Tank Warfare 3D ambient glow - dark emerald with gold accent */
+.game-page__about[data-decoration="tank-warfare"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  width: 360px;
+  height: 360px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 45%, rgba(0, 200, 140, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 30% at 55% 50%, rgba(212, 168, 75, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Sky Combat 3D decoration - modern fighter jet with targeting HUD
+   Premium aerial combat illustration with emerald, teal, and warm orange accents */
+.game-page__about[data-decoration="sky-combat"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: 10px;
+  bottom: -10px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='sc-fuselage-main' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300d4a8' stop-opacity='0.45'/%3E%3Cstop offset='50%25' stop-color='%23009980' stop-opacity='0.38'/%3E%3Cstop offset='100%25' stop-color='%23007765' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='sc-fuselage-dark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300b890' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23006655' stop-opacity='0.28'/%3E%3C/linearGradient%3E%3ClinearGradient id='sc-wing' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300c8a0' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23008872' stop-opacity='0.32'/%3E%3C/linearGradient%3E%3ClinearGradient id='sc-cockpit' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e8c8' stop-opacity='0.55'/%3E%3Cstop offset='50%25' stop-color='%2300c8b0' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%2300a090' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='sc-engine' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e88040' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23c06030' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='sc-missile' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300d0a0' stop-opacity='0.38'/%3E%3Cstop offset='100%25' stop-color='%23009070' stop-opacity='0.28'/%3E%3C/linearGradient%3E%3ClinearGradient id='sc-hud' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e0b8' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%2300b898' stop-opacity='0.2'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- TARGETING HUD CIRCLE - behind aircraft --%3E%3Cg transform='translate(50, 45)'%3E%3C!-- Outer targeting ring --%3E%3Ccircle cx='0' cy='0' r='38' fill='none' stroke='url(%23sc-hud)' stroke-width='1.5' stroke-dasharray='8 4'/%3E%3Ccircle cx='0' cy='0' r='30' fill='none' stroke='rgba(0,210,170,0.18)' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='22' fill='none' stroke='rgba(0,200,160,0.15)' stroke-width='0.8'/%3E%3Ccircle cx='0' cy='0' r='14' fill='none' stroke='rgba(0,190,150,0.12)' stroke-width='0.6'/%3E%3C!-- Cardinal crosshairs --%3E%3Cpath d='M0 -42 L0 -35 M0 35 L0 42 M-42 0 L-35 0 M35 0 L42 0' stroke='rgba(0,220,180,0.25)' stroke-width='1.2'/%3E%3C!-- Inner crosshairs --%3E%3Cpath d='M0 -10 L0 -5 M0 5 L0 10 M-10 0 L-5 0 M5 0 L10 0' stroke='rgba(0,230,190,0.35)' stroke-width='0.8'/%3E%3C!-- Corner brackets --%3E%3Cpath d='M-26 -26 L-26 -20 M-26 -26 L-20 -26' stroke='rgba(0,210,170,0.22)' stroke-width='0.8'/%3E%3Cpath d='M26 -26 L26 -20 M26 -26 L20 -26' stroke='rgba(0,210,170,0.22)' stroke-width='0.8'/%3E%3Cpath d='M-26 26 L-26 20 M-26 26 L-20 26' stroke='rgba(0,210,170,0.22)' stroke-width='0.8'/%3E%3Cpath d='M26 26 L26 20 M26 26 L20 26' stroke='rgba(0,210,170,0.22)' stroke-width='0.8'/%3E%3C!-- Distance/speed readouts --%3E%3Ctext x='-36' y='-32' font-size='2.8' fill='rgba(0,220,180,0.22)' font-family='monospace'%3EALT 8500%3C/text%3E%3Ctext x='20' y='-32' font-size='2.8' fill='rgba(0,220,180,0.22)' font-family='monospace'%3EMACH 1.2%3C/text%3E%3C!-- Small tracking dots --%3E%3Ccircle cx='-18' cy='-16' r='1.2' fill='rgba(232,128,64,0.35)'/%3E%3Ccircle cx='22' cy='12' r='1' fill='rgba(232,128,64,0.3)'/%3E%3Ccircle cx='-25' cy='18' r='0.8' fill='rgba(232,128,64,0.25)'/%3E%3C/g%3E%3C!-- RADAR SWEEP LINES --%3E%3Cg opacity='0.6'%3E%3Cpath d='M50 45 L85 20' stroke='rgba(0,200,165,0.12)' stroke-width='0.5'/%3E%3Cpath d='M50 45 L90 45' stroke='rgba(0,200,165,0.1)' stroke-width='0.5'/%3E%3Cpath d='M50 45 L80 70' stroke='rgba(0,200,165,0.08)' stroke-width='0.5'/%3E%3C/g%3E%3C!-- MOTION TRAILS --%3E%3Cg opacity='0.5'%3E%3Cpath d='M75 68 Q85 72 95 70' fill='none' stroke='rgba(0,210,170,0.15)' stroke-width='0.8'/%3E%3Cpath d='M72 72 Q82 78 92 75' fill='none' stroke='rgba(0,200,160,0.12)' stroke-width='0.6'/%3E%3Cpath d='M70 76 Q80 82 90 80' fill='none' stroke='rgba(0,190,150,0.1)' stroke-width='0.5'/%3E%3C/g%3E%3C!-- FIGHTER JET - diagonal view --%3E%3Cg transform='translate(50, 48) rotate(-25)'%3E%3C!-- MAIN FUSELAGE --%3E%3Cpath d='M-42 0 L-30 -3 L20 -4 L35 -2 L38 0 L35 2 L20 4 L-30 3 Z' fill='url(%23sc-fuselage-main)' stroke='rgba(0,220,175,0.4)' stroke-width='0.8'/%3E%3C!-- Fuselage panel lines --%3E%3Cpath d='M-25 -2.5 L-25 2.5 M-10 -3.5 L-10 3.5 M5 -4 L5 4 M20 -3.5 L20 3.5' stroke='rgba(0,190,150,0.2)' stroke-width='0.4'/%3E%3C!-- Nose cone --%3E%3Cpath d='M-42 0 L-48 0 L-42 -1 L-42 1 Z' fill='url(%23sc-fuselage-dark)' stroke='rgba(0,210,165,0.35)' stroke-width='0.5'/%3E%3C!-- Nose sensor array --%3E%3Ccircle cx='-45' cy='0' r='1.5' fill='rgba(0,230,185,0.4)'/%3E%3C!-- COCKPIT CANOPY --%3E%3Cpath d='M-28 -2.5 Q-24 -6 -15 -6 Q-5 -6 0 -4 L0 -3.5 L-28 -2.5 Z' fill='url(%23sc-cockpit)' stroke='rgba(0,240,200,0.45)' stroke-width='0.6'/%3E%3C!-- Canopy frame --%3E%3Cpath d='M-22 -5 L-22 -3 M-14 -5.5 L-14 -3.5 M-6 -5 L-6 -3.5' stroke='rgba(0,200,160,0.25)' stroke-width='0.4'/%3E%3C!-- Canopy reflection --%3E%3Cpath d='M-26 -4 Q-20 -5.5 -12 -5.5' fill='none' stroke='rgba(0,250,210,0.3)' stroke-width='0.5'/%3E%3C!-- LEFT WING (main wing) --%3E%3Cpath d='M-8 -4 L-20 -28 L-5 -28 L12 -8 L8 -4 Z' fill='url(%23sc-wing)' stroke='rgba(0,215,170,0.38)' stroke-width='0.7'/%3E%3C!-- Wing leading edge --%3E%3Cpath d='M-8 -4 L-20 -28' stroke='rgba(0,230,185,0.35)' stroke-width='0.8'/%3E%3C!-- Wing panel lines --%3E%3Cpath d='M-10 -12 L2 -10 M-14 -20 L-2 -16' stroke='rgba(0,185,145,0.18)' stroke-width='0.4'/%3E%3C!-- Wing tip --%3E%3Cpath d='M-20 -28 L-22 -30 L-18 -30 L-5 -28' fill='rgba(0,200,160,0.35)'/%3E%3C!-- RIGHT WING (partial view) --%3E%3Cpath d='M-5 4 L-12 18 L0 18 L10 8 L6 4 Z' fill='url(%23sc-wing)' stroke='rgba(0,210,165,0.35)' stroke-width='0.6'/%3E%3C!-- Wing panel --%3E%3Cpath d='M-6 10 L4 9' stroke='rgba(0,180,140,0.15)' stroke-width='0.4'/%3E%3C!-- HORIZONTAL STABILIZERS --%3E%3Cpath d='M26 -3.5 L32 -14 L38 -14 L34 -3 Z' fill='url(%23sc-wing)' stroke='rgba(0,205,162,0.32)' stroke-width='0.5'/%3E%3Cpath d='M26 3.5 L32 12 L38 12 L34 3 Z' fill='url(%23sc-wing)' stroke='rgba(0,200,158,0.3)' stroke-width='0.5'/%3E%3C!-- VERTICAL STABILIZERS (twin tails) --%3E%3Cpath d='M22 -4 L28 -4 L32 -16 L26 -16 L22 -6 Z' fill='url(%23sc-fuselage-dark)' stroke='rgba(0,210,168,0.35)' stroke-width='0.6'/%3E%3Cpath d='M22 4 L28 4 L32 14 L26 14 L22 6 Z' fill='url(%23sc-fuselage-dark)' stroke='rgba(0,205,162,0.32)' stroke-width='0.5'/%3E%3C!-- Tail fin details --%3E%3Cpath d='M24 -6 L29 -12' stroke='rgba(0,190,150,0.2)' stroke-width='0.4'/%3E%3Cpath d='M24 6 L29 11' stroke='rgba(0,185,145,0.18)' stroke-width='0.4'/%3E%3C!-- TWIN ENGINES --%3E%3C!-- Left engine nacelle --%3E%3Cellipse cx='30' cy='-6' rx='8' ry='3' fill='url(%23sc-fuselage-dark)' stroke='rgba(0,200,158,0.3)' stroke-width='0.5'/%3E%3C!-- Engine intake --%3E%3Cellipse cx='24' cy='-6' rx='2.5' ry='2' fill='rgba(0,180,140,0.3)'/%3E%3C!-- Afterburner glow --%3E%3Cellipse cx='38' cy='-6' rx='3' ry='2.5' fill='url(%23sc-engine)' stroke='rgba(232,128,64,0.35)' stroke-width='0.5'/%3E%3Cellipse cx='40' cy='-6' rx='2' ry='1.5' fill='rgba(255,180,100,0.45)'/%3E%3C!-- Right engine nacelle --%3E%3Cellipse cx='30' cy='6' rx='8' ry='3' fill='url(%23sc-fuselage-dark)' stroke='rgba(0,195,155,0.28)' stroke-width='0.5'/%3E%3Cellipse cx='24' cy='6' rx='2.5' ry='2' fill='rgba(0,175,138,0.28)'/%3E%3Cellipse cx='38' cy='6' rx='3' ry='2.5' fill='url(%23sc-engine)' stroke='rgba(232,128,64,0.32)' stroke-width='0.5'/%3E%3Cellipse cx='40' cy='6' rx='2' ry='1.5' fill='rgba(255,180,100,0.4)'/%3E%3C!-- MISSILES --%3E%3C!-- Left wing missile --%3E%3Crect x='-16' y='-26' width='10' height='2' rx='1' fill='url(%23sc-missile)' stroke='rgba(0,210,168,0.3)' stroke-width='0.4'/%3E%3Ccircle cx='-15' cy='-25' r='0.8' fill='rgba(232,128,64,0.45)'/%3E%3C!-- Missile fins --%3E%3Cpath d='M-8 -26 L-6 -27.5 L-6 -24.5 Z' fill='rgba(0,195,155,0.3)'/%3E%3C!-- Second missile --%3E%3Crect x='-12' y='-20' width='8' height='1.8' rx='0.8' fill='url(%23sc-missile)' stroke='rgba(0,205,162,0.28)' stroke-width='0.3'/%3E%3Ccircle cx='-11' cy='-19' r='0.6' fill='rgba(232,128,64,0.4)'/%3E%3C!-- Right wing missiles --%3E%3Crect x='-8' y='14' width='8' height='1.8' rx='0.8' fill='url(%23sc-missile)' stroke='rgba(0,200,158,0.26)' stroke-width='0.3'/%3E%3Ccircle cx='-7' cy='15' r='0.6' fill='rgba(232,128,64,0.38)'/%3E%3C!-- ADDITIONAL DETAILS --%3E%3C!-- Air intake --%3E%3Cpath d='M-5 -4 L-5 -6 L5 -6 L5 -4' fill='none' stroke='rgba(0,190,150,0.25)' stroke-width='0.5'/%3E%3C!-- Belly detail --%3E%3Crect x='8' y='-1.5' width='12' height='3' rx='0.5' fill='rgba(0,185,148,0.2)' stroke='rgba(0,200,160,0.18)' stroke-width='0.3'/%3E%3C!-- Navigation lights --%3E%3Ccircle cx='-19' cy='-27' r='0.8' fill='rgba(255,80,80,0.5)'/%3E%3Ccircle cx='-11' cy='17' r='0.8' fill='rgba(80,255,80,0.5)'/%3E%3Ccircle cx='36' cy='0' r='0.6' fill='rgba(255,255,255,0.5)'/%3E%3C!-- Pilot silhouette --%3E%3Cellipse cx='-18' cy='-4.5' rx='2.5' ry='2' fill='rgba(0,150,120,0.25)'/%3E%3C/g%3E%3C!-- HUD ELEMENTS --%3E%3Cg opacity='0.8'%3E%3C!-- Heading indicator --%3E%3Crect x='35' y='8' width='25' height='4' rx='1' fill='none' stroke='rgba(0,210,170,0.15)' stroke-width='0.5'/%3E%3Cpath d='M40 10 L42 10 M48 10 L50 10 M55 10 L57 10' stroke='rgba(0,220,180,0.2)' stroke-width='0.4'/%3E%3Ctext x='44' y='11' font-size='2.5' fill='rgba(0,220,180,0.22)' font-family='monospace'%3EHDG 045%3C/text%3E%3C!-- Throttle indicator --%3E%3Crect x='8' y='88' width='20' height='2.5' rx='0.8' fill='rgba(0,200,160,0.12)'/%3E%3Crect x='8' y='88' width='16' height='2.5' rx='0.8' fill='rgba(0,220,175,0.25)'/%3E%3Ctext x='8' y='86' font-size='2.5' fill='rgba(0,210,170,0.2)' font-family='monospace'%3ETHROTTLE%3C/text%3E%3C!-- Weapons status --%3E%3Ctext x='8' y='94' font-size='2.2' fill='rgba(232,128,64,0.28)' font-family='monospace'%3EWEAPONS: ARMED%3C/text%3E%3C!-- Top right info --%3E%3Ctext x='75' y='94' font-size='2.2' fill='rgba(0,210,170,0.2)' font-family='monospace'%3EFUEL: 78%25%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Sky Combat 3D ambient glow - emerald and teal with warm orange accent */
+.game-page__about[data-decoration="sky-combat"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  width: 360px;
+  height: 360px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 45%, rgba(0, 210, 170, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 30% at 60% 40%, rgba(232, 128, 64, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Metro Rush: City Runner decoration - modern subway train with perspective tracks
+   Premium endless runner illustration with emerald, teal, cyan, and warm orange accents */
+.game-page__about[data-decoration="metro-rush"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: 10px;
+  bottom: -10px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='mr-train-body' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300d4a8' stop-opacity='0.48'/%3E%3Cstop offset='50%25' stop-color='%23009980' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23007765' stop-opacity='0.32'/%3E%3C/linearGradient%3E%3ClinearGradient id='mr-train-dark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300b890' stop-opacity='0.38'/%3E%3Cstop offset='100%25' stop-color='%23006655' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='mr-window' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e8d0' stop-opacity='0.55'/%3E%3Cstop offset='50%25' stop-color='%2300c8b8' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%2300a0a0' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='mr-track' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300c8a0' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23008872' stop-opacity='0.25'/%3E%3C/linearGradient%3E%3ClinearGradient id='mr-coin' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffc040' stop-opacity='0.65'/%3E%3Cstop offset='50%25' stop-color='%23e8a020' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%23c08010' stop-opacity='0.45'/%3E%3C/linearGradient%3E%3ClinearGradient id='mr-building' x1='0%25' y1='100%25' x2='0%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2300a080' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%2300c8a8' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3ClinearGradient id='mr-headlight' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%2300e8d0' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- CITY SKYLINE SILHOUETTES --%3E%3Cg opacity='0.7'%3E%3C!-- Tall building left --%3E%3Cpath d='M5 85 L5 25 L12 25 L12 85 Z' fill='url(%23mr-building)'/%3E%3Crect x='6' y='28' width='2' height='3' fill='rgba(0,230,200,0.12)'/%3E%3Crect x='9' y='28' width='2' height='3' fill='rgba(0,230,200,0.1)'/%3E%3Crect x='6' y='35' width='2' height='3' fill='rgba(0,230,200,0.08)'/%3E%3Crect x='9' y='40' width='2' height='3' fill='rgba(0,230,200,0.1)'/%3E%3Crect x='6' y='48' width='2' height='3' fill='rgba(0,230,200,0.12)'/%3E%3Crect x='9' y='55' width='2' height='3' fill='rgba(0,230,200,0.08)'/%3E%3C!-- Medium building --%3E%3Cpath d='M14 85 L14 40 L22 40 L22 85 Z' fill='url(%23mr-building)'/%3E%3Crect x='15' y='43' width='2.5' height='4' fill='rgba(0,220,180,0.1)'/%3E%3Crect x='18.5' y='43' width='2.5' height='4' fill='rgba(0,220,180,0.08)'/%3E%3Crect x='15' y='52' width='2.5' height='4' fill='rgba(0,220,180,0.12)'/%3E%3Crect x='18.5' y='60' width='2.5' height='4' fill='rgba(0,220,180,0.1)'/%3E%3C!-- Small building --%3E%3Cpath d='M24 85 L24 55 L30 55 L30 85 Z' fill='url(%23mr-building)'/%3E%3Crect x='25' y='58' width='2' height='3' fill='rgba(0,210,170,0.1)'/%3E%3Crect x='27.5' y='65' width='2' height='3' fill='rgba(0,210,170,0.08)'/%3E%3C!-- Skyscraper right background --%3E%3Cpath d='M85 85 L85 15 L88 12 L91 15 L91 85 Z' fill='url(%23mr-building)'/%3E%3Crect x='86' y='18' width='1.5' height='2.5' fill='rgba(0,230,200,0.1)'/%3E%3Crect x='88.5' y='18' width='1.5' height='2.5' fill='rgba(0,230,200,0.08)'/%3E%3Crect x='86' y='25' width='1.5' height='2.5' fill='rgba(0,230,200,0.12)'/%3E%3Crect x='88.5' y='32' width='1.5' height='2.5' fill='rgba(0,230,200,0.1)'/%3E%3Crect x='86' y='40' width='1.5' height='2.5' fill='rgba(0,230,200,0.08)'/%3E%3C!-- Medium building right --%3E%3Cpath d='M93 85 L93 35 L99 35 L99 85 Z' fill='url(%23mr-building)'/%3E%3Crect x='94' y='38' width='2' height='3' fill='rgba(0,220,180,0.1)'/%3E%3Crect x='94' y='48' width='2' height='3' fill='rgba(0,220,180,0.12)'/%3E%3C/g%3E%3C!-- PERSPECTIVE RAILWAY TRACKS --%3E%3Cg opacity='0.8'%3E%3C!-- Track bed/ballast --%3E%3Cpath d='M35 100 L45 60 L55 60 L65 100 Z' fill='rgba(0,180,140,0.12)'/%3E%3C!-- Left rail --%3E%3Cpath d='M38 100 L46 60' fill='none' stroke='url(%23mr-track)' stroke-width='1.8'/%3E%3C!-- Right rail --%3E%3Cpath d='M62 100 L54 60' fill='none' stroke='url(%23mr-track)' stroke-width='1.8'/%3E%3C!-- Cross ties --%3E%3Cpath d='M40 95 L60 95' stroke='rgba(0,200,160,0.25)' stroke-width='1.5'/%3E%3Cpath d='M41 90 L59 90' stroke='rgba(0,200,160,0.22)' stroke-width='1.4'/%3E%3Cpath d='M42 85 L58 85' stroke='rgba(0,200,160,0.2)' stroke-width='1.3'/%3E%3Cpath d='M43 80 L57 80' stroke='rgba(0,200,160,0.18)' stroke-width='1.2'/%3E%3Cpath d='M44 75 L56 75' stroke='rgba(0,200,160,0.16)' stroke-width='1.1'/%3E%3Cpath d='M44.5 70 L55.5 70' stroke='rgba(0,200,160,0.14)' stroke-width='1'/%3E%3Cpath d='M45 65 L55 65' stroke='rgba(0,200,160,0.12)' stroke-width='0.9'/%3E%3C/g%3E%3C!-- MOTION TRAIL LINES --%3E%3Cg opacity='0.6'%3E%3Cpath d='M30 50 Q20 52 10 50' fill='none' stroke='rgba(0,210,170,0.2)' stroke-width='1'/%3E%3Cpath d='M28 55 Q18 58 8 55' fill='none' stroke='rgba(0,200,160,0.16)' stroke-width='0.8'/%3E%3Cpath d='M32 45 Q22 47 12 44' fill='none' stroke='rgba(0,190,150,0.14)' stroke-width='0.6'/%3E%3Cpath d='M70 48 Q80 50 92 47' fill='none' stroke='rgba(0,210,170,0.18)' stroke-width='0.9'/%3E%3Cpath d='M72 53 Q82 56 94 52' fill='none' stroke='rgba(0,200,160,0.14)' stroke-width='0.7'/%3E%3Cpath d='M68 58 Q78 62 90 58' fill='none' stroke='rgba(0,190,150,0.12)' stroke-width='0.5'/%3E%3C/g%3E%3C!-- SUBWAY TRAIN - approaching view --%3E%3Cg transform='translate(50, 42)'%3E%3C!-- Train body main --%3E%3Cpath d='M-18 -8 L-16 -14 L16 -14 L18 -8 L18 12 L16 16 L-16 16 L-18 12 Z' fill='url(%23mr-train-body)' stroke='rgba(0,220,175,0.45)' stroke-width='0.8'/%3E%3C!-- Roof detail --%3E%3Cpath d='M-14 -14 L-12 -17 L12 -17 L14 -14' fill='url(%23mr-train-dark)' stroke='rgba(0,210,168,0.35)' stroke-width='0.6'/%3E%3C!-- Pantograph/AC unit --%3E%3Crect x='-4' y='-19' width='8' height='2' rx='0.5' fill='rgba(0,200,160,0.3)' stroke='rgba(0,215,172,0.25)' stroke-width='0.4'/%3E%3C!-- Front windshield --%3E%3Cpath d='M-12 -12 L-10 -8 L10 -8 L12 -12 Z' fill='url(%23mr-window)' stroke='rgba(0,240,200,0.5)' stroke-width='0.6'/%3E%3C!-- Windshield reflection --%3E%3Cpath d='M-10 -11 Q-5 -10 0 -11' fill='none' stroke='rgba(0,255,220,0.3)' stroke-width='0.5'/%3E%3C!-- Headlights --%3E%3Cellipse cx='-10' cy='-5' rx='2.5' ry='1.8' fill='url(%23mr-headlight)'/%3E%3Cellipse cx='10' cy='-5' rx='2.5' ry='1.8' fill='url(%23mr-headlight)'/%3E%3C!-- Headlight glow --%3E%3Cellipse cx='-10' cy='-5' rx='1.5' ry='1' fill='rgba(255,255,255,0.5)'/%3E%3Cellipse cx='10' cy='-5' rx='1.5' ry='1' fill='rgba(255,255,255,0.5)'/%3E%3C!-- Side windows row --%3E%3Crect x='-14' y='-1' width='5' height='6' rx='0.8' fill='url(%23mr-window)' stroke='rgba(0,230,190,0.35)' stroke-width='0.4'/%3E%3Crect x='-7' y='-1' width='5' height='6' rx='0.8' fill='url(%23mr-window)' stroke='rgba(0,230,190,0.35)' stroke-width='0.4'/%3E%3Crect x='2' y='-1' width='5' height='6' rx='0.8' fill='url(%23mr-window)' stroke='rgba(0,230,190,0.35)' stroke-width='0.4'/%3E%3Crect x='9' y='-1' width='5' height='6' rx='0.8' fill='url(%23mr-window)' stroke='rgba(0,230,190,0.35)' stroke-width='0.4'/%3E%3C!-- Window silhouettes (passengers) --%3E%3Cellipse cx='-11.5' cy='2' rx='1.2' ry='1.5' fill='rgba(0,150,120,0.2)'/%3E%3Cellipse cx='4.5' cy='2' rx='1.2' ry='1.5' fill='rgba(0,150,120,0.18)'/%3E%3Cellipse cx='11.5' cy='2.5' rx='1' ry='1.2' fill='rgba(0,150,120,0.15)'/%3E%3C!-- Door --%3E%3Crect x='-2' y='6' width='4' height='8' rx='0.5' fill='rgba(0,185,148,0.25)' stroke='rgba(0,210,168,0.3)' stroke-width='0.5'/%3E%3Cpath d='M0 6 L0 14' stroke='rgba(0,220,176,0.25)' stroke-width='0.4'/%3E%3C!-- Body panel lines --%3E%3Cpath d='M-16 7 L16 7' stroke='rgba(0,190,150,0.2)' stroke-width='0.4'/%3E%3Cpath d='M-17 12 L17 12' stroke='rgba(0,190,150,0.18)' stroke-width='0.4'/%3E%3C!-- Destination display --%3E%3Crect x='-8' y='-6' width='16' height='3' rx='0.5' fill='rgba(0,180,145,0.3)' stroke='rgba(0,200,160,0.25)' stroke-width='0.3'/%3E%3Ctext x='0' y='-4' font-size='2' fill='rgba(0,240,200,0.4)' font-family='monospace' text-anchor='middle'%3EMETRO%3C/text%3E%3C!-- Side accent stripe --%3E%3Cpath d='M-18 8 L18 8' stroke='rgba(232,160,64,0.4)' stroke-width='1.2'/%3E%3C!-- Wheels/bogies --%3E%3Crect x='-15' y='14' width='8' height='3' rx='1' fill='rgba(0,170,135,0.25)'/%3E%3Crect x='7' y='14' width='8' height='3' rx='1' fill='rgba(0,170,135,0.25)'/%3E%3Ccircle cx='-12' cy='16' r='1.5' fill='rgba(0,190,150,0.3)' stroke='rgba(0,210,168,0.25)' stroke-width='0.4'/%3E%3Ccircle cx='-8' cy='16' r='1.5' fill='rgba(0,190,150,0.3)' stroke='rgba(0,210,168,0.25)' stroke-width='0.4'/%3E%3Ccircle cx='10' cy='16' r='1.5' fill='rgba(0,190,150,0.3)' stroke='rgba(0,210,168,0.25)' stroke-width='0.4'/%3E%3Ccircle cx='14' cy='16' r='1.5' fill='rgba(0,190,150,0.3)' stroke='rgba(0,210,168,0.25)' stroke-width='0.4'/%3E%3C/g%3E%3C!-- FLOATING COLLECTIBLE COINS --%3E%3Cg opacity='0.9'%3E%3C!-- Large coin top-left --%3E%3Ccircle cx='18' cy='25' r='5' fill='url(%23mr-coin)' stroke='rgba(255,200,80,0.5)' stroke-width='0.8'/%3E%3Ccircle cx='18' cy='25' r='3' fill='none' stroke='rgba(255,220,120,0.4)' stroke-width='0.5'/%3E%3Ctext x='18' y='26.5' font-size='4' fill='rgba(255,240,180,0.6)' font-family='sans-serif' font-weight='bold' text-anchor='middle'%3E$%3C/text%3E%3C!-- Coin sparkle --%3E%3Cpath d='M15 22 L16 23 M21 22 L20 23 M15 28 L16 27 M21 28 L20 27' stroke='rgba(255,230,150,0.5)' stroke-width='0.5'/%3E%3C!-- Medium coin right --%3E%3Ccircle cx='78' cy='30' r='4' fill='url(%23mr-coin)' stroke='rgba(255,200,80,0.45)' stroke-width='0.7'/%3E%3Ccircle cx='78' cy='30' r='2.5' fill='none' stroke='rgba(255,220,120,0.35)' stroke-width='0.4'/%3E%3Ctext x='78' y='31.2' font-size='3.2' fill='rgba(255,240,180,0.55)' font-family='sans-serif' font-weight='bold' text-anchor='middle'%3E$%3C/text%3E%3C!-- Small coin floating --%3E%3Ccircle cx='25' cy='38' r='3' fill='url(%23mr-coin)' stroke='rgba(255,200,80,0.4)' stroke-width='0.5'/%3E%3Ccircle cx='25' cy='38' r='1.8' fill='none' stroke='rgba(255,220,120,0.3)' stroke-width='0.3'/%3E%3Ctext x='25' y='39' font-size='2.5' fill='rgba(255,240,180,0.5)' font-family='sans-serif' font-weight='bold' text-anchor='middle'%3E$%3C/text%3E%3C!-- Tiny coins trail --%3E%3Ccircle cx='72' cy='22' r='2.2' fill='url(%23mr-coin)' stroke='rgba(255,200,80,0.35)' stroke-width='0.4'/%3E%3Ccircle cx='82' cy='18' r='1.8' fill='url(%23mr-coin)' stroke='rgba(255,200,80,0.3)' stroke-width='0.3'/%3E%3C/g%3E%3C!-- SPEED INDICATORS --%3E%3Cg opacity='0.5'%3E%3C!-- Speed lines near train --%3E%3Cpath d='M25 40 L15 42' stroke='rgba(0,220,180,0.25)' stroke-width='0.8'/%3E%3Cpath d='M24 45 L12 48' stroke='rgba(0,210,170,0.2)' stroke-width='0.6'/%3E%3Cpath d='M75 42 L85 44' stroke='rgba(0,220,180,0.22)' stroke-width='0.7'/%3E%3Cpath d='M76 47 L88 50' stroke='rgba(0,210,170,0.18)' stroke-width='0.5'/%3E%3C/g%3E%3C!-- POWER LINE / CATENARY --%3E%3Cg opacity='0.4'%3E%3Cpath d='M5 10 Q50 5 95 10' fill='none' stroke='rgba(0,200,160,0.25)' stroke-width='0.6'/%3E%3Cpath d='M50 5 L50 23' stroke='rgba(0,190,150,0.2)' stroke-width='0.5'/%3E%3C/g%3E%3C!-- SCORE/UI ELEMENTS --%3E%3Cg opacity='0.6'%3E%3C!-- Score display --%3E%3Crect x='5' y='5' width='22' height='7' rx='1.5' fill='rgba(0,180,145,0.15)' stroke='rgba(0,210,170,0.2)' stroke-width='0.5'/%3E%3Ctext x='8' y='10' font-size='2.5' fill='rgba(0,220,180,0.35)' font-family='monospace'%3ESCORE%3C/text%3E%3Ctext x='18' y='10' font-size='2.5' fill='rgba(255,200,80,0.4)' font-family='monospace'%3E2450%3C/text%3E%3C!-- Multiplier --%3E%3Crect x='75' y='5' width='18' height='6' rx='1.2' fill='rgba(232,160,64,0.12)' stroke='rgba(232,160,64,0.2)' stroke-width='0.4'/%3E%3Ctext x='84' y='9.5' font-size='3' fill='rgba(232,160,64,0.4)' font-family='monospace' text-anchor='middle'%3Ex3%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Metro Rush ambient glow - emerald and teal with warm orange coin accents */
+.game-page__about[data-decoration="metro-rush"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  width: 360px;
+  height: 360px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgba(0, 210, 170, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 30% at 55% 35%, rgba(255, 192, 64, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Shadow Warriors: Rise of Legends decoration - crossed katanas with rising sun
+   Premium Japanese warrior illustration with emerald, teal, sunset-orange, and muted pink accents */
+.game-page__about[data-decoration="shadow-warriors"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: 10px;
+  bottom: -10px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='sunGlow' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e85d30' stop-opacity='0.35'/%3E%3Cstop offset='50%25' stop-color='%23d44820' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23b83a18' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3ClinearGradient id='blade1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8f4f0'/%3E%3Cstop offset='25%25' stop-color='%23c8dcd6'/%3E%3Cstop offset='50%25' stop-color='%23a0c4bc'/%3E%3Cstop offset='75%25' stop-color='%2378a8a0'/%3E%3Cstop offset='100%25' stop-color='%23508880'/%3E%3C/linearGradient%3E%3ClinearGradient id='blade2' x1='100%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8f4f0'/%3E%3Cstop offset='25%25' stop-color='%23c8dcd6'/%3E%3Cstop offset='50%25' stop-color='%23a0c4bc'/%3E%3Cstop offset='75%25' stop-color='%2378a8a0'/%3E%3Cstop offset='100%25' stop-color='%23508880'/%3E%3C/linearGradient%3E%3ClinearGradient id='handle' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a4a42'/%3E%3Cstop offset='50%25' stop-color='%230d2e28'/%3E%3Cstop offset='100%25' stop-color='%23081c18'/%3E%3C/linearGradient%3E%3ClinearGradient id='tsuba' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d4a855'/%3E%3Cstop offset='50%25' stop-color='%23b8923d'/%3E%3Cstop offset='100%25' stop-color='%238c6e2a'/%3E%3C/linearGradient%3E%3CradialGradient id='petalGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23f5c4c0' stop-opacity='0.9'/%3E%3Cstop offset='70%25' stop-color='%23e8a0a0' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%23d88888' stop-opacity='0.5'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Rising sun rays --%3E%3Cg opacity='0.25'%3E%3Cpath d='M160 160 L160 40 L175 40 Z' fill='%23e85d30'/%3E%3Cpath d='M160 160 L200 55 L212 62 Z' fill='%23e85d30'/%3E%3Cpath d='M160 160 L235 90 L243 102 Z' fill='%23e85d30'/%3E%3Cpath d='M160 160 L255 140 L258 155 Z' fill='%23e85d30'/%3E%3Cpath d='M160 160 L120 55 L108 62 Z' fill='%23e85d30'/%3E%3Cpath d='M160 160 L85 90 L77 102 Z' fill='%23e85d30'/%3E%3Cpath d='M160 160 L65 140 L62 155 Z' fill='%23e85d30'/%3E%3Cpath d='M160 160 L145 40 L160 40 Z' fill='%23e85d30'/%3E%3C/g%3E%3C!-- Rising sun circle --%3E%3Ccircle cx='160' cy='135' r='45' fill='url(%23sunGlow)'/%3E%3Ccircle cx='160' cy='135' r='32' fill='none' stroke='%23e85d30' stroke-width='1' opacity='0.3'/%3E%3C!-- Left katana (angled from top-right to bottom-left) --%3E%3Cg transform='rotate(-35 160 175)'%3E%3C!-- Blade --%3E%3Cpath d='M160 60 L163 62 L167 220 L160 228 L153 220 L157 62 Z' fill='url(%23blade1)'/%3E%3C!-- Blade edge highlight --%3E%3Cpath d='M160 65 L162 67 L163 215 L160 222 Z' fill='%23ffffff' opacity='0.4'/%3E%3C!-- Blade spine --%3E%3Cpath d='M157 67 L160 65 L160 222 L158 218 Z' fill='%2378a8a0' opacity='0.6'/%3E%3C!-- Kissaki (tip) --%3E%3Cpath d='M160 60 L163 62 L161 58 L160 55 L159 58 L157 62 Z' fill='%23e8f4f0'/%3E%3C!-- Hamon (temper line) --%3E%3Cpath d='M158 80 Q162 90 159 100 Q163 115 158 130 Q162 145 159 160 Q163 175 158 190 Q161 200 159 210' stroke='%23c8dcd6' stroke-width='0.8' fill='none' opacity='0.5'/%3E%3C!-- Habaki (blade collar) --%3E%3Crect x='153' y='218' width='14' height='8' rx='1' fill='%23d4a855'/%3E%3C!-- Tsuba (guard) --%3E%3Cellipse cx='160' cy='232' rx='18' ry='6' fill='url(%23tsuba)'/%3E%3Cellipse cx='160' cy='232' rx='14' ry='4' fill='none' stroke='%238c6e2a' stroke-width='0.5'/%3E%3Ccircle cx='152' cy='232' r='2' fill='%230d2e28'/%3E%3Ccircle cx='168' cy='232' r='2' fill='%230d2e28'/%3E%3C!-- Handle wrap (tsuka-ito) --%3E%3Crect x='154' y='238' width='12' height='55' rx='2' fill='url(%23handle)'/%3E%3Cpath d='M154 242 L166 246 M154 250 L166 254 M154 258 L166 262 M154 266 L166 270 M154 274 L166 278 M154 282 L166 286' stroke='%231a4a42' stroke-width='1.5'/%3E%3Cpath d='M166 244 L154 248 M166 252 L154 256 M166 260 L154 264 M166 268 L154 272 M166 276 L154 280 M166 284 L154 288' stroke='%231a4a42' stroke-width='1.5'/%3E%3C!-- Menuki (ornaments) --%3E%3Cellipse cx='160' cy='260' rx='4' ry='2' fill='%23d4a855'/%3E%3C!-- Kashira (pommel) --%3E%3Cellipse cx='160' cy='296' rx='7' ry='4' fill='%23d4a855'/%3E%3C/g%3E%3C!-- Right katana (angled from top-left to bottom-right) --%3E%3Cg transform='rotate(35 160 175)'%3E%3C!-- Blade --%3E%3Cpath d='M160 60 L163 62 L167 220 L160 228 L153 220 L157 62 Z' fill='url(%23blade2)'/%3E%3C!-- Blade edge highlight --%3E%3Cpath d='M160 65 L158 67 L157 215 L160 222 Z' fill='%23ffffff' opacity='0.4'/%3E%3C!-- Blade spine --%3E%3Cpath d='M163 67 L160 65 L160 222 L162 218 Z' fill='%2378a8a0' opacity='0.6'/%3E%3C!-- Kissaki (tip) --%3E%3Cpath d='M160 60 L163 62 L161 58 L160 55 L159 58 L157 62 Z' fill='%23e8f4f0'/%3E%3C!-- Hamon (temper line) --%3E%3Cpath d='M162 80 Q158 90 161 100 Q157 115 162 130 Q158 145 161 160 Q157 175 162 190 Q159 200 161 210' stroke='%23c8dcd6' stroke-width='0.8' fill='none' opacity='0.5'/%3E%3C!-- Habaki (blade collar) --%3E%3Crect x='153' y='218' width='14' height='8' rx='1' fill='%23d4a855'/%3E%3C!-- Tsuba (guard) --%3E%3Cellipse cx='160' cy='232' rx='18' ry='6' fill='url(%23tsuba)'/%3E%3Cellipse cx='160' cy='232' rx='14' ry='4' fill='none' stroke='%238c6e2a' stroke-width='0.5'/%3E%3Ccircle cx='152' cy='232' r='2' fill='%230d2e28'/%3E%3Ccircle cx='168' cy='232' r='2' fill='%230d2e28'/%3E%3C!-- Handle wrap (tsuka-ito) --%3E%3Crect x='154' y='238' width='12' height='55' rx='2' fill='url(%23handle)'/%3E%3Cpath d='M154 242 L166 246 M154 250 L166 254 M154 258 L166 262 M154 266 L166 270 M154 274 L166 278 M154 282 L166 286' stroke='%231a4a42' stroke-width='1.5'/%3E%3Cpath d='M166 244 L154 248 M166 252 L154 256 M166 260 L154 264 M166 268 L154 272 M166 276 L154 280 M166 284 L154 288' stroke='%231a4a42' stroke-width='1.5'/%3E%3C!-- Menuki (ornaments) --%3E%3Cellipse cx='160' cy='260' rx='4' ry='2' fill='%23d4a855'/%3E%3C!-- Kashira (pommel) --%3E%3Cellipse cx='160' cy='296' rx='7' ry='4' fill='%23d4a855'/%3E%3C/g%3E%3C!-- Cherry blossom petals floating --%3E%3Cg%3E%3C!-- Petal 1 (top right) --%3E%3Cpath d='M235 75 Q240 70 245 75 Q248 82 243 87 Q238 85 235 80 Q233 77 235 75 Z' fill='url(%23petalGlow)' opacity='0.8'/%3E%3Ccircle cx='240' cy='79' r='1.5' fill='%23e8a0a0' opacity='0.6'/%3E%3C!-- Petal 2 (right) --%3E%3Cpath d='M255 130 Q260 125 265 132 Q266 140 260 143 Q254 140 253 135 Q252 132 255 130 Z' fill='url(%23petalGlow)' opacity='0.7' transform='rotate(25 258 136)'/%3E%3Ccircle cx='259' cy='135' r='1.2' fill='%23e8a0a0' opacity='0.5'/%3E%3C!-- Petal 3 (bottom right) --%3E%3Cpath d='M250 195 Q256 192 260 198 Q260 206 254 208 Q248 205 248 200 Q247 196 250 195 Z' fill='url(%23petalGlow)' opacity='0.65' transform='rotate(-15 254 200)'/%3E%3C!-- Petal 4 (floating small) --%3E%3Cpath d='M78 105 Q82 100 86 104 Q88 110 84 113 Q80 111 78 107 Q77 106 78 105 Z' fill='url(%23petalGlow)' opacity='0.55' transform='rotate(40 82 107)'/%3E%3C!-- Petal 5 (left side) --%3E%3Cpath d='M72 165 Q78 162 82 168 Q82 176 76 178 Q70 175 70 170 Q69 167 72 165 Z' fill='url(%23petalGlow)' opacity='0.5' transform='rotate(-30 76 170)'/%3E%3C/g%3E%3C!-- Decorative kanji-inspired accent marks --%3E%3Cg opacity='0.15'%3E%3Cpath d='M90 230 L95 225 L100 230' stroke='%2300d4a0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M220 230 L225 225 L230 230' stroke='%2300d4a0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Shadow Warriors ambient glow - dark emerald and teal with sunset-orange accent */
+.game-page__about[data-decoration="shadow-warriors"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  width: 360px;
+  height: 360px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 45%, rgba(0, 180, 140, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 30% at 55% 35%, rgba(232, 93, 48, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Shadow Runner: Urban Escape decoration - parkour runner leaping across rooftops
+   Premium urban action illustration with emerald, teal, sunset-orange, and violet highlights */
+.game-page__about[data-decoration="shadow-runner"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: 5px;
+  bottom: -20px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 340 340' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='srSunset' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8843d' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%23d4602a' stop-opacity='0.15'/%3E%3Cstop offset='100%25' stop-color='%23a84820' stop-opacity='0.06'/%3E%3C/linearGradient%3E%3ClinearGradient id='srBuilding1' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2318584a' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%230d3830' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='srBuilding2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23206858' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23124840' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='srBuilding3' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2328786a' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%231a5850' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='srRunner' x1='30%25' y1='0%25' x2='70%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300b894' stop-opacity='0.85'/%3E%3Cstop offset='50%25' stop-color='%23009878' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%23007860' stop-opacity='0.55'/%3E%3C/linearGradient%3E%3ClinearGradient id='srHood' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300c896' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%23008868' stop-opacity='0.7'/%3E%3C/linearGradient%3E%3ClinearGradient id='srRooftop' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2300a882' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%2300d4a0' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Sunset disc behind skyline --%3E%3Ccircle cx='170' cy='145' r='55' fill='url(%23srSunset)'/%3E%3Ccircle cx='170' cy='145' r='40' fill='none' stroke='%23e8843d' stroke-width='0.8' opacity='0.2'/%3E%3Ccircle cx='170' cy='145' r='28' fill='none' stroke='%23e8843d' stroke-width='0.5' opacity='0.15'/%3E%3C!-- Background buildings (far, smaller) --%3E%3Crect x='85' y='130' width='22' height='90' fill='url(%23srBuilding3)'/%3E%3Crect x='88' y='138' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.3'/%3E%3Crect x='95' y='138' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='88' y='150' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.15'/%3E%3Crect x='95' y='150' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.25'/%3E%3Crect x='88' y='162' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.2'/%3E%3Crect x='110' y='115' width='28' height='105' fill='url(%23srBuilding2)'/%3E%3Crect x='114' y='122' width='5' height='6' rx='0.5' fill='%2300d4a0' opacity='0.25'/%3E%3Crect x='122' y='122' width='5' height='6' rx='0.5' fill='%23e8a050' opacity='0.35'/%3E%3Crect x='130' y='122' width='5' height='6' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='114' y='134' width='5' height='6' rx='0.5' fill='%23e8a050' opacity='0.25'/%3E%3Crect x='122' y='134' width='5' height='6' rx='0.5' fill='%2300d4a0' opacity='0.3'/%3E%3Crect x='130' y='134' width='5' height='6' rx='0.5' fill='%23e8a050' opacity='0.2'/%3E%3Crect x='114' y='146' width='5' height='6' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='122' y='146' width='5' height='6' rx='0.5' fill='%23e8a050' opacity='0.3'/%3E%3Crect x='145' y='135' width='18' height='85' fill='url(%23srBuilding3)'/%3E%3Crect x='148' y='142' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.25'/%3E%3Crect x='156' y='142' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='148' y='154' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.25'/%3E%3C!-- Right side background buildings --%3E%3Crect x='230' y='125' width='25' height='95' fill='url(%23srBuilding2)'/%3E%3Crect x='234' y='132' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.25'/%3E%3Crect x='242' y='132' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.3'/%3E%3Crect x='248' y='132' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='234' y='144' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.25'/%3E%3Crect x='242' y='144' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.3'/%3E%3Crect x='258' y='140' width='20' height='80' fill='url(%23srBuilding3)'/%3E%3Crect x='262' y='148' width='4' height='5' rx='0.5' fill='%23e8a050' opacity='0.25'/%3E%3Crect x='270' y='148' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.2'/%3E%3Crect x='262' y='160' width='4' height='5' rx='0.5' fill='%2300d4a0' opacity='0.3'/%3E%3C!-- Left rooftop (departure point) --%3E%3Cpath d='M40 220 L40 195 L130 195 L130 220 Z' fill='url(%23srBuilding1)'/%3E%3Crect x='40' y='192' width='90' height='5' fill='url(%23srRooftop)'/%3E%3Crect x='42' y='188' width='86' height='4' rx='1' fill='%2300d4a0' opacity='0.4'/%3E%3C!-- Rooftop details --%3E%3Crect x='55' y='184' width='12' height='8' rx='1' fill='%23007860' opacity='0.5'/%3E%3Crect x='100' y='180' width='18' height='12' rx='1' fill='%23007860' opacity='0.4'/%3E%3Crect x='103' y='183' width='5' height='3' rx='0.5' fill='%2300d4a0' opacity='0.3'/%3E%3C!-- Right rooftop (landing point) --%3E%3Cpath d='M210 235 L210 205 L310 205 L310 235 Z' fill='url(%23srBuilding1)'/%3E%3Crect x='210' y='202' width='100' height='5' fill='url(%23srRooftop)'/%3E%3Crect x='212' y='198' width='96' height='4' rx='1' fill='%2300d4a0' opacity='0.35'/%3E%3C!-- Rooftop details --%3E%3Crect x='250' y='192' width='15' height='10' rx='1' fill='%23007860' opacity='0.45'/%3E%3Crect x='280' y='188' width='20' height='14' rx='1' fill='%23007860' opacity='0.4'/%3E%3Crect x='284' y='191' width='6' height='4' rx='0.5' fill='%2300d4a0' opacity='0.3'/%3E%3C!-- Gap between rooftops --%3E%3Crect x='130' y='250' width='80' height='60' fill='%23041610' opacity='0.4'/%3E%3C!-- Parkour runner mid-leap --%3E%3Cg transform='translate(148, 155)'%3E%3C!-- Motion trails (behind runner) --%3E%3Cpath d='M-15 35 Q-25 30 -40 32' stroke='%2300d4a0' stroke-width='2' opacity='0.25' fill='none' stroke-linecap='round'/%3E%3Cpath d='M-12 40 Q-22 38 -35 40' stroke='%2300d4a0' stroke-width='1.5' opacity='0.18' fill='none' stroke-linecap='round'/%3E%3Cpath d='M-10 45 Q-18 44 -28 46' stroke='%2300d4a0' stroke-width='1' opacity='0.12' fill='none' stroke-linecap='round'/%3E%3C!-- Runner shadow/depth --%3E%3Cellipse cx='42' cy='68' rx='18' ry='4' fill='%23000' opacity='0.15'/%3E%3C!-- Back leg (trailing, extended behind) --%3E%3Cpath d='M25 45 Q18 52 8 58 Q5 62 3 68' stroke='url(%23srRunner)' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Back foot --%3E%3Cellipse cx='2' cy='70' rx='5' ry='3' fill='%23007860' opacity='0.8' transform='rotate(-15 2 70)'/%3E%3C!-- Torso (dynamic lean forward) --%3E%3Cpath d='M28 42 Q35 32 38 18' stroke='url(%23srRunner)' stroke-width='12' fill='none' stroke-linecap='round'/%3E%3C!-- Front leg (leading, bent forward for landing) --%3E%3Cpath d='M30 45 Q42 48 52 42 Q58 38 62 45' stroke='url(%23srRunner)' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Front foot --%3E%3Cellipse cx='64' cy='47' rx='5' ry='3' fill='%23007860' opacity='0.85' transform='rotate(10 64 47)'/%3E%3C!-- Back arm (trailing behind) --%3E%3Cpath d='M32 25 Q22 30 12 28' stroke='url(%23srRunner)' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C!-- Back hand --%3E%3Ccircle cx='10' cy='27' r='3.5' fill='%2300a882' opacity='0.8'/%3E%3C!-- Front arm (reaching forward) --%3E%3Cpath d='M40 22 Q52 18 62 12' stroke='url(%23srRunner)' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C!-- Front hand --%3E%3Ccircle cx='64' cy='10' r='3.5' fill='%2300a882' opacity='0.85'/%3E%3C!-- Head --%3E%3Ccircle cx='42' cy='8' r='10' fill='url(%23srRunner)'/%3E%3C!-- Hood (flowing back) --%3E%3Cpath d='M34 2 Q30 -2 28 5 Q26 12 30 16 Q36 14 42 14 Q48 14 52 10 Q54 4 50 0 Q46 -2 42 -2 Q38 -2 34 2' fill='url(%23srHood)'/%3E%3C!-- Hood peak --%3E%3Cpath d='M38 -4 Q42 -8 46 -4 Q44 0 42 2 Q40 0 38 -4' fill='%2300d4a0' opacity='0.7'/%3E%3C!-- Hood shadow for depth --%3E%3Cpath d='M32 8 Q36 6 42 6 Q48 6 52 8' stroke='%23006850' stroke-width='1.5' fill='none' opacity='0.5'/%3E%3C!-- Face shadow (hooded mystery) --%3E%3Cellipse cx='42' cy='10' rx='6' ry='5' fill='%23005545' opacity='0.4'/%3E%3C/g%3E%3C!-- Atmospheric particles --%3E%3Ccircle cx='95' cy='175' r='1.5' fill='%2300d4a0' opacity='0.35'/%3E%3Ccircle cx='180' cy='185' r='1' fill='%2300d4a0' opacity='0.25'/%3E%3Ccircle cx='245' cy='178' r='1.2' fill='%2300d4a0' opacity='0.3'/%3E%3Ccircle cx='275' cy='195' r='0.8' fill='%23e8a050' opacity='0.25'/%3E%3Ccircle cx='135' cy='168' r='1' fill='%23e8a050' opacity='0.2'/%3E%3Ccircle cx='200' cy='160' r='0.8' fill='%23a070c0' opacity='0.2'/%3E%3Ccircle cx='160' cy='175' r='1.2' fill='%23a070c0' opacity='0.15'/%3E%3C!-- Motion blur effect behind runner --%3E%3Cpath d='M138 192 Q125 190 108 194' stroke='%2300d4a0' stroke-width='3' opacity='0.15' fill='none' stroke-linecap='round'/%3E%3Cpath d='M142 198 Q130 197 115 200' stroke='%2300d4a0' stroke-width='2' opacity='0.1' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Shadow Runner ambient glow - emerald and teal with warm sunset accents */
+.game-page__about[data-decoration="shadow-runner"]::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  bottom: -40px;
+  width: 380px;
+  height: 380px;
+  background:
+    radial-gradient(ellipse 60% 50% at 55% 50%, rgba(0, 180, 140, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 40%, rgba(232, 132, 61, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Vice Streets 3D decoration - sleek sports car, palm trees, sunset skyline
+   with neon pink/cyan accents capturing the tropical city vibe */
+.game-page__about[data-decoration="vice-streets"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -10px;
+  bottom: -30px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 340 340' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='vsSunset' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b9d' stop-opacity='0.3'/%3E%3Cstop offset='40%25' stop-color='%23e84a7f' stop-opacity='0.2'/%3E%3Cstop offset='70%25' stop-color='%23c23660' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23801840' stop-opacity='0.05'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsSky' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300d4ff' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23ff6b9d' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsBuilding1' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23205060' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23102830' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsBuilding2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23304858' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%23182838' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsPalm' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e88f' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23008855' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsCar' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e8c8' stop-opacity='0.6'/%3E%3Cstop offset='50%25' stop-color='%2300c8a8' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23009888' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='vsCarBody' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b9d' stop-opacity='0.55'/%3E%3Cstop offset='50%25' stop-color='%23e84a7f' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%23c83668' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Sunset disc --%3E%3Ccircle cx='170' cy='125' r='50' fill='url(%23vsSunset)'/%3E%3Ccircle cx='170' cy='125' r='38' fill='none' stroke='%23ff6b9d' stroke-width='0.8' opacity='0.25'/%3E%3Ccircle cx='170' cy='125' r='26' fill='none' stroke='%23ff6b9d' stroke-width='0.5' opacity='0.18'/%3E%3C!-- Horizontal sunset lines --%3E%3Cline x1='125' y1='115' x2='215' y2='115' stroke='%23e84a7f' stroke-width='1.5' opacity='0.15'/%3E%3Cline x1='130' y1='125' x2='210' y2='125' stroke='%23e84a7f' stroke-width='1.2' opacity='0.12'/%3E%3Cline x1='135' y1='135' x2='205' y2='135' stroke='%23e84a7f' stroke-width='1' opacity='0.1'/%3E%3C!-- City skyline buildings --%3E%3Crect x='85' y='140' width='20' height='75' fill='url(%23vsBuilding1)'/%3E%3Crect x='88' y='148' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.25'/%3E%3Crect x='95' y='148' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.2'/%3E%3Crect x='88' y='160' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.18'/%3E%3Crect x='95' y='160' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.22'/%3E%3Crect x='110' y='125' width='25' height='90' fill='url(%23vsBuilding2)'/%3E%3Crect x='114' y='132' width='5' height='6' rx='0.5' fill='%2300d4ff' opacity='0.3'/%3E%3Crect x='122' y='132' width='5' height='6' rx='0.5' fill='%23ff6b9d' opacity='0.25'/%3E%3Crect x='114' y='145' width='5' height='6' rx='0.5' fill='%23ff6b9d' opacity='0.22'/%3E%3Crect x='122' y='145' width='5' height='6' rx='0.5' fill='%2300d4ff' opacity='0.28'/%3E%3Crect x='114' y='158' width='5' height='6' rx='0.5' fill='%2300d4ff' opacity='0.2'/%3E%3Crect x='140' y='145' width='18' height='70' fill='url(%23vsBuilding1)'/%3E%3Crect x='143' y='152' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.22'/%3E%3Crect x='150' y='152' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.25'/%3E%3Crect x='180' y='130' width='22' height='85' fill='url(%23vsBuilding2)'/%3E%3Crect x='184' y='138' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.28'/%3E%3Crect x='192' y='138' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.22'/%3E%3Crect x='184' y='150' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.2'/%3E%3Crect x='192' y='150' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.25'/%3E%3Crect x='207' y='150' width='18' height='65' fill='url(%23vsBuilding1)'/%3E%3Crect x='210' y='158' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.22'/%3E%3Crect x='218' y='158' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.2'/%3E%3Crect x='230' y='138' width='22' height='77' fill='url(%23vsBuilding2)'/%3E%3Crect x='234' y='146' width='4' height='5' rx='0.5' fill='%23ff6b9d' opacity='0.25'/%3E%3Crect x='242' y='146' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.28'/%3E%3Crect x='234' y='158' width='4' height='5' rx='0.5' fill='%2300d4ff' opacity='0.22'/%3E%3C!-- Left palm tree --%3E%3Cpath d='M72 215 L72 165' stroke='%23006644' stroke-width='4' opacity='0.5' stroke-linecap='round'/%3E%3Cpath d='M72 165 Q60 155 45 158' stroke='url(%23vsPalm)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 165 Q58 148 48 145' stroke='url(%23vsPalm)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 165 Q68 145 72 135' stroke='url(%23vsPalm)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 165 Q82 148 92 145' stroke='url(%23vsPalm)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 165 Q85 155 98 158' stroke='url(%23vsPalm)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 168 Q90 172 105 175' stroke='url(%23vsPalm)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M72 168 Q55 172 40 175' stroke='url(%23vsPalm)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C!-- Right palm tree --%3E%3Cpath d='M268 215 L268 175' stroke='%23006644' stroke-width='3.5' opacity='0.45' stroke-linecap='round'/%3E%3Cpath d='M268 175 Q255 165 242 168' stroke='url(%23vsPalm)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M268 175 Q258 158 250 155' stroke='url(%23vsPalm)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M268 175 Q265 158 268 148' stroke='url(%23vsPalm)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M268 175 Q278 158 288 155' stroke='url(%23vsPalm)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M268 175 Q282 165 295 168' stroke='url(%23vsPalm)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C!-- Road/ground --%3E%3Crect x='50' y='215' width='240' height='45' fill='%23182028' opacity='0.35'/%3E%3Cline x1='55' y1='238' x2='285' y2='238' stroke='%23ff6b9d' stroke-width='1.5' opacity='0.2' stroke-dasharray='20,15'/%3E%3C!-- Sports car (sleek profile) --%3E%3Cg transform='translate(125, 205)'%3E%3C!-- Car shadow --%3E%3Cellipse cx='55' cy='42' rx='50' ry='6' fill='%23000' opacity='0.2'/%3E%3C!-- Car body base --%3E%3Cpath d='M10 35 L15 28 Q25 20 45 18 L75 18 Q90 20 98 28 L105 35 L108 38 L108 42 L5 42 L5 38 Z' fill='url(%23vsCarBody)'/%3E%3C!-- Windshield --%3E%3Cpath d='M32 28 L40 18 L70 18 L78 28 Z' fill='%2300d4ff' opacity='0.25'/%3E%3C!-- Windshield reflection --%3E%3Cpath d='M38 24 L42 19 L52 19 L48 24 Z' fill='%2300d4ff' opacity='0.15'/%3E%3C!-- Hood line --%3E%3Cpath d='M15 30 Q25 26 32 28' stroke='%23ff8ab8' stroke-width='0.8' fill='none' opacity='0.4'/%3E%3C!-- Rear spoiler hint --%3E%3Cpath d='M5 34 L8 30 L15 30' stroke='%23c83668' stroke-width='1.5' fill='none' opacity='0.5'/%3E%3C!-- Front spoiler/bumper --%3E%3Cpath d='M98 34 L105 36 L108 38' stroke='%23c83668' stroke-width='1.2' fill='none' opacity='0.45'/%3E%3C!-- Wheels --%3E%3Ccircle cx='28' cy='40' r='8' fill='%23101418' opacity='0.7'/%3E%3Ccircle cx='28' cy='40' r='5' fill='%23282c30' opacity='0.6'/%3E%3Ccircle cx='28' cy='40' r='2' fill='%2300d4ff' opacity='0.35'/%3E%3Ccircle cx='85' cy='40' r='8' fill='%23101418' opacity='0.7'/%3E%3Ccircle cx='85' cy='40' r='5' fill='%23282c30' opacity='0.6'/%3E%3Ccircle cx='85' cy='40' r='2' fill='%2300d4ff' opacity='0.35'/%3E%3C!-- Headlights --%3E%3Cellipse cx='103' cy='34' rx='3' ry='2' fill='%2300d4ff' opacity='0.5'/%3E%3Cellipse cx='103' cy='34' rx='2' ry='1.2' fill='%2300d4ff' opacity='0.7'/%3E%3C!-- Taillights --%3E%3Crect x='6' y='33' width='5' height='3' rx='1' fill='%23ff6b9d' opacity='0.6'/%3E%3C!-- Side detail/neon accent --%3E%3Cpath d='M20 38 L95 38' stroke='%2300d4ff' stroke-width='1' opacity='0.35'/%3E%3C!-- Door line --%3E%3Cpath d='M50 28 L50 38' stroke='%23a02858' stroke-width='0.6' opacity='0.3'/%3E%3C/g%3E%3C!-- Neon reflections on road --%3E%3Cellipse cx='180' cy='250' rx='40' ry='8' fill='%23ff6b9d' opacity='0.08'/%3E%3Cellipse cx='180' cy='250' rx='25' ry='5' fill='%23ff6b9d' opacity='0.12'/%3E%3Cellipse cx='180' cy='248' rx='55' ry='4' fill='%2300d4ff' opacity='0.06'/%3E%3C!-- Atmospheric particles --%3E%3Ccircle cx='95' cy='180' r='1.5' fill='%23ff6b9d' opacity='0.3'/%3E%3Ccircle cx='250' cy='175' r='1.2' fill='%2300d4ff' opacity='0.35'/%3E%3Ccircle cx='160' cy='165' r='1' fill='%2300d4ff' opacity='0.25'/%3E%3Ccircle cx='200' cy='188' r='0.8' fill='%23ff6b9d' opacity='0.2'/%3E%3Ccircle cx='130' cy='195' r='1' fill='%2300d4ff' opacity='0.22'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Vice Streets ambient glow - neon pink and cyan tropical sunset */
+.game-page__about[data-decoration="vice-streets"]::after {
+  content: "";
+  position: absolute;
+  right: -15px;
+  bottom: -45px;
+  width: 390px;
+  height: 390px;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 50%, rgba(255, 107, 157, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 55% 45%, rgba(0, 212, 255, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Hulk: Open World 3D decoration - dramatic fist smashing through cracked concrete
+   with realistic proportions, angular debris, and emerald energy trails */
+.game-page__about[data-decoration="hulk"]::before {
+  content: "";
+  width: 360px;
+  height: 360px;
+  right: -15px;
+  bottom: -35px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 360' fill='none'%3E%3Cdefs%3E%3C!-- Premium fist gradients with depth --%3E%3ClinearGradient id='hkFistMain' x1='20%25' y1='0%25' x2='80%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2356d462' stop-opacity='0.72'/%3E%3Cstop offset='25%25' stop-color='%2342b84a' stop-opacity='0.65'/%3E%3Cstop offset='55%25' stop-color='%23309838' stop-opacity='0.55'/%3E%3Cstop offset='85%25' stop-color='%23227828' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%231a5c20' stop-opacity='0.38'/%3E%3C/linearGradient%3E%3ClinearGradient id='hkFistShadow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231e5424' stop-opacity='0.7'/%3E%3Cstop offset='50%25' stop-color='%23163c1a' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%230e2810' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='hkFistHighlight' x1='30%25' y1='0%25' x2='70%25' y2='80%25'%3E%3Cstop offset='0%25' stop-color='%2378f082' stop-opacity='0.5'/%3E%3Cstop offset='40%25' stop-color='%2360d86a' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%2348c050' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3ClinearGradient id='hkKnuckle' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2362dc6c' stop-opacity='0.6'/%3E%3Cstop offset='50%25' stop-color='%23389840' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23246828' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3C!-- Concrete and debris gradients --%3E%3ClinearGradient id='hkConcrete' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23545c64' stop-opacity='0.55'/%3E%3Cstop offset='40%25' stop-color='%23444c54' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%232c343c' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='hkDebrisLight' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236a727a' stop-opacity='0.6'/%3E%3Cstop offset='50%25' stop-color='%23525a62' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%233a424a' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='hkDebrisDark' x1='100%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23484e54' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%23282e34' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3C!-- Energy gradients --%3E%3ClinearGradient id='hkEnergy' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2370ff80' stop-opacity='0.45'/%3E%3Cstop offset='50%25' stop-color='%2350e860' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%2338c848' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3CradialGradient id='hkGlow' cx='50%25' cy='45%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%2358ff68' stop-opacity='0.18'/%3E%3Cstop offset='40%25' stop-color='%2340d850' stop-opacity='0.1'/%3E%3Cstop offset='70%25' stop-color='%2330b040' stop-opacity='0.04'/%3E%3Cstop offset='100%25' stop-color='%23208830' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='hkImpactGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2360ff70' stop-opacity='0.3'/%3E%3Cstop offset='50%25' stop-color='%2348d858' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%2330b040' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Crack pattern filter --%3E%3Cfilter id='hkRough' x='-5%25' y='-5%25' width='110%25' height='110%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='3' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='2' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3C!-- Ambient energy glow --%3E%3Cellipse cx='180' cy='175' rx='100' ry='110' fill='url(%23hkGlow)'/%3E%3C!-- Impact point glow --%3E%3Cellipse cx='180' cy='245' rx='55' ry='35' fill='url(%23hkImpactGlow)'/%3E%3C!-- Fractured concrete crater --%3E%3Cpath d='M75 305 L82 275 L95 282 L108 255 L122 268 L138 242 L156 260 L180 225 L204 260 L222 242 L238 268 L252 255 L265 282 L278 275 L285 305 Z' fill='url(%23hkConcrete)'/%3E%3Cpath d='M90 305 L95 285 L105 290 L115 268 L128 278 L142 258 L158 272 L180 245 L202 272 L218 258 L232 278 L245 268 L255 290 L265 285 L270 305 Z' fill='url(%23hkConcrete)' opacity='0.75'/%3E%3Cpath d='M105 305 L108 292 L118 296 L126 280 L138 288 L152 272 L166 284 L180 260 L194 284 L208 272 L222 288 L234 280 L242 296 L252 292 L255 305 Z' fill='%23404850' opacity='0.45'/%3E%3C!-- Deep crack lines radiating from impact --%3E%3Cpath d='M180 245 L182 270 L186 285 L190 305' stroke='%231a2028' stroke-width='3' opacity='0.5' fill='none'/%3E%3Cpath d='M180 245 L175 268 L170 282 L164 305' stroke='%231a2028' stroke-width='2.8' opacity='0.45' fill='none'/%3E%3Cpath d='M180 245 L195 265 L208 280 L220 305' stroke='%231a2028' stroke-width='2.5' opacity='0.4' fill='none'/%3E%3Cpath d='M180 245 L162 262 L148 278 L135 305' stroke='%231a2028' stroke-width='2.5' opacity='0.4' fill='none'/%3E%3Cpath d='M180 245 L210 260 L235 275 L258 295' stroke='%231a2028' stroke-width='2' opacity='0.35' fill='none'/%3E%3Cpath d='M180 245 L148 258 L120 272 L95 290' stroke='%231a2028' stroke-width='2' opacity='0.35' fill='none'/%3E%3Cpath d='M180 245 L225 255 L260 268 L285 285' stroke='%231a2028' stroke-width='1.5' opacity='0.28' fill='none'/%3E%3Cpath d='M180 245 L132 252 L95 265 L68 282' stroke='%231a2028' stroke-width='1.5' opacity='0.28' fill='none'/%3E%3C!-- Secondary crack details --%3E%3Cpath d='M195 265 L205 260 L212 268' stroke='%23282e34' stroke-width='1.2' opacity='0.3' fill='none'/%3E%3Cpath d='M162 262 L155 258 L148 265' stroke='%23282e34' stroke-width='1.2' opacity='0.3' fill='none'/%3E%3Cpath d='M210 260 L218 255' stroke='%23282e34' stroke-width='1' opacity='0.25' fill='none'/%3E%3Cpath d='M148 258 L140 254' stroke='%23282e34' stroke-width='1' opacity='0.25' fill='none'/%3E%3C!-- Large angular debris chunks --%3E%3Cpath d='M68 195 L82 182 L98 188 L102 202 L92 215 L75 210 Z' fill='url(%23hkDebrisLight)' transform='rotate(-12 85 198)'/%3E%3Cpath d='M72 200 L78 195 L86 198 L84 206 Z' fill='url(%23hkDebrisDark)' transform='rotate(-12 80 200)'/%3E%3Cpath d='M265 188 L282 178 L298 186 L295 205 L280 212 L268 202 Z' fill='url(%23hkDebrisLight)' transform='rotate(15 280 195)'/%3E%3Cpath d='M275 195 L282 190 L290 196 L285 204 Z' fill='url(%23hkDebrisDark)' transform='rotate(15 282 197)'/%3E%3Cpath d='M55 235 L72 222 L85 232 L80 250 L62 252 Z' fill='url(%23hkDebrisLight)' transform='rotate(-20 70 237)'/%3E%3Cpath d='M280 228 L298 218 L308 232 L300 248 L282 245 Z' fill='url(%23hkDebrisLight)' transform='rotate(18 292 233)'/%3E%3C!-- Medium angular fragments --%3E%3Cpath d='M78 165 L92 155 L102 165 L95 180 L82 178 Z' fill='url(%23hkDebrisLight)' transform='rotate(-25 88 168)'/%3E%3Cpath d='M268 158 L282 150 L292 162 L285 175 L270 172 Z' fill='url(%23hkDebrisLight)' transform='rotate(22 278 163)'/%3E%3Cpath d='M55 212 L68 205 L75 215 L68 225 L55 220 Z' fill='url(%23hkDebrisDark)' transform='rotate(-15 65 215)'/%3E%3Cpath d='M295 205 L308 198 L315 210 L305 222 L292 215 Z' fill='url(%23hkDebrisDark)' transform='rotate(12 302 210)'/%3E%3C!-- Small sharp debris --%3E%3Cpath d='M88 145 L98 138 L105 148 L96 156 Z' fill='url(%23hkDebrisDark)' transform='rotate(-30 96 147)'/%3E%3Cpath d='M260 140 L272 135 L278 146 L268 154 Z' fill='url(%23hkDebrisDark)' transform='rotate(28 268 145)'/%3E%3Cpath d='M62 185 L72 180 L76 190 L66 194 Z' fill='%23505860' opacity='0.45' transform='rotate(-18 69 187)'/%3E%3Cpath d='M295 178 L305 172 L310 184 L298 190 Z' fill='%23505860' opacity='0.45' transform='rotate(16 302 181)'/%3E%3C!-- Tiny debris particles --%3E%3Cpath d='M95 128 L100 125 L103 130 L98 134 Z' fill='%23484e54' opacity='0.4'/%3E%3Cpath d='M268 122 L274 120 L276 126 L270 130 Z' fill='%23484e54' opacity='0.4'/%3E%3Cpath d='M52 198 L56 195 L59 200 L54 203 Z' fill='%23484e54' opacity='0.35'/%3E%3Cpath d='M310 192 L315 189 L318 195 L312 199 Z' fill='%23484e54' opacity='0.35'/%3E%3Cpath d='M72 155 L76 152 L78 157 Z' fill='%23484e54' opacity='0.3'/%3E%3Cpath d='M290 148 L295 145 L297 152 Z' fill='%23484e54' opacity='0.3'/%3E%3Cpath d='M48 225 L52 222 L54 228 Z' fill='%23484e54' opacity='0.28'/%3E%3Cpath d='M318 218 L322 215 L324 222 Z' fill='%23484e54' opacity='0.28'/%3E%3C!-- Impact energy speed lines --%3E%3Cpath d='M125 118 L142 148' stroke='%2350e860' stroke-width='2' opacity='0.3' stroke-linecap='round'/%3E%3Cpath d='M108 138 L128 165' stroke='%2350e860' stroke-width='1.8' opacity='0.25' stroke-linecap='round'/%3E%3Cpath d='M95 155 L118 178' stroke='%2350e860' stroke-width='1.5' opacity='0.2' stroke-linecap='round'/%3E%3Cpath d='M235 118 L218 148' stroke='%2350e860' stroke-width='2' opacity='0.3' stroke-linecap='round'/%3E%3Cpath d='M252 138 L232 165' stroke='%2350e860' stroke-width='1.8' opacity='0.25' stroke-linecap='round'/%3E%3Cpath d='M265 155 L242 178' stroke='%2350e860' stroke-width='1.5' opacity='0.2' stroke-linecap='round'/%3E%3C!-- Powerful clenched fist with realistic anatomy --%3E%3Cg transform='translate(180, 168)'%3E%3C!-- Forearm base with muscular definition --%3E%3Cpath d='M-28 85 Q-35 60 -30 35 L-22 25 L22 25 L30 35 Q35 60 28 85 Z' fill='url(%23hkFistMain)'/%3E%3Cpath d='M-25 80 Q-30 58 -26 38 L-20 30 L-5 30 Q-12 55 -8 80 Z' fill='url(%23hkFistShadow)' opacity='0.6'/%3E%3Cpath d='M8 30 L20 30 L26 38 Q30 58 25 80 L12 80 Q15 55 8 30 Z' fill='url(%23hkFistHighlight)' opacity='0.4'/%3E%3C!-- Wrist definition --%3E%3Cpath d='M-24 55 Q0 50 24 55' stroke='%23185820' stroke-width='1.8' opacity='0.45' fill='none'/%3E%3Cpath d='M-22 68 Q0 64 22 68' stroke='%23185820' stroke-width='1.5' opacity='0.38' fill='none'/%3E%3Cpath d='M-20 78 Q0 75 20 78' stroke='%23185820' stroke-width='1.2' opacity='0.3' fill='none'/%3E%3C!-- Tendon details on wrist --%3E%3Cpath d='M-12 35 L-14 55' stroke='%23185820' stroke-width='1' opacity='0.3' fill='none'/%3E%3Cpath d='M0 32 L0 52' stroke='%23185820' stroke-width='1' opacity='0.28' fill='none'/%3E%3Cpath d='M12 35 L14 55' stroke='%23185820' stroke-width='1' opacity='0.3' fill='none'/%3E%3C!-- Main fist body with anatomical form --%3E%3Cpath d='M-42 25 Q-48 5 -42 -20 Q-38 -40 -28 -52 L-18 -62 Q-8 -70 0 -70 Q8 -70 18 -62 L28 -52 Q38 -40 42 -20 Q48 5 42 25 Z' fill='url(%23hkFistMain)'/%3E%3C!-- Fist shadow side --%3E%3Cpath d='M-42 25 Q-48 5 -42 -20 Q-38 -40 -28 -52 L-18 -62 Q-12 -68 -5 -70 L-5 25 Z' fill='url(%23hkFistShadow)' opacity='0.55'/%3E%3C!-- Fist highlight side --%3E%3Cpath d='M5 -70 Q12 -68 18 -62 L28 -52 Q38 -40 42 -20 Q48 5 42 25 L5 25 Z' fill='url(%23hkFistHighlight)' opacity='0.35'/%3E%3C!-- Index finger knuckle --%3E%3Cpath d='M-32 -42 Q-38 -50 -32 -60 Q-28 -68 -20 -68 Q-14 -68 -12 -60 Q-8 -52 -14 -42 Q-22 -35 -32 -42 Z' fill='url(%23hkKnuckle)'/%3E%3Cellipse cx='-22' cy='-58' rx='7' ry='5' fill='%2370f080' opacity='0.25'/%3E%3C!-- Middle finger knuckle (highest) --%3E%3Cpath d='M-10 -48 Q-14 -58 -8 -70 Q-4 -78 4 -78 Q12 -78 16 -70 Q22 -58 18 -48 Q10 -40 0 -40 Q-8 -40 -10 -48 Z' fill='url(%23hkKnuckle)'/%3E%3Cellipse cx='4' cy='-68' rx='8' ry='6' fill='%2370f080' opacity='0.3'/%3E%3C!-- Ring finger knuckle --%3E%3Cpath d='M22 -42 Q18 -52 22 -62 Q26 -70 34 -68 Q40 -66 42 -58 Q44 -50 38 -42 Q30 -36 22 -42 Z' fill='url(%23hkKnuckle)'/%3E%3Cellipse cx='32' cy='-58' rx='7' ry='5' fill='%2370f080' opacity='0.25'/%3E%3C!-- Finger segments folded --%3E%3Cpath d='M-35 -32 Q-40 -28 -38 -18 Q-36 -10 -28 -8 Q-20 -6 -18 -14 Q-16 -22 -22 -30 Z' fill='url(%23hkFistShadow)' opacity='0.65'/%3E%3Cpath d='M-12 -38 Q-18 -32 -16 -20 Q-14 -10 -4 -6 Q6 -4 10 -12 Q14 -22 8 -32 Q2 -38 -12 -38 Z' fill='url(%23hkFistShadow)' opacity='0.65'/%3E%3Cpath d='M20 -32 Q15 -28 17 -18 Q19 -10 28 -8 Q36 -6 40 -14 Q42 -22 38 -30 Z' fill='url(%23hkFistShadow)' opacity='0.65'/%3E%3C!-- Finger fold lines --%3E%3Cpath d='M-32 -22 Q-28 -18 -22 -20' stroke='%23143818' stroke-width='1.5' opacity='0.5' fill='none'/%3E%3Cpath d='M-10 -25 Q-2 -20 6 -22' stroke='%23143818' stroke-width='1.5' opacity='0.5' fill='none'/%3E%3Cpath d='M22 -22 Q28 -18 34 -20' stroke='%23143818' stroke-width='1.5' opacity='0.5' fill='none'/%3E%3Cpath d='M-30 -12 Q-26 -8 -20 -10' stroke='%23143818' stroke-width='1.2' opacity='0.4' fill='none'/%3E%3Cpath d='M-8 -14 Q0 -10 8 -12' stroke='%23143818' stroke-width='1.2' opacity='0.4' fill='none'/%3E%3Cpath d='M24 -12 Q30 -8 36 -10' stroke='%23143818' stroke-width='1.2' opacity='0.4' fill='none'/%3E%3C!-- Thumb with realistic form --%3E%3Cpath d='M-42 12 Q-55 2 -55 -15 Q-55 -28 -45 -35 Q-38 -40 -30 -38 Q-24 -36 -26 -25 Q-28 -12 -32 0 Q-36 10 -42 12 Z' fill='url(%23hkFistMain)'/%3E%3Cpath d='M-52 -8 Q-54 -18 -48 -28 Q-44 -34 -38 -35' stroke='%23185820' stroke-width='1.5' opacity='0.45' fill='none'/%3E%3Cpath d='M-42 5 Q-48 -2 -50 -12' stroke='%23185820' stroke-width='1.2' opacity='0.38' fill='none'/%3E%3Cellipse cx='-48' cy='-22' rx='5' ry='4' fill='%2370f080' opacity='0.2'/%3E%3C!-- Prominent veins --%3E%3Cpath d='M-18 22 Q-22 10 -25 -5 Q-28 -18 -25 -30' stroke='%23185820' stroke-width='1.2' opacity='0.35' fill='none'/%3E%3Cpath d='M18 22 Q22 10 25 -5 Q28 -18 25 -30' stroke='%23185820' stroke-width='1.2' opacity='0.35' fill='none'/%3E%3Cpath d='M0 24 Q0 12 2 -2 Q4 -15 2 -28' stroke='%23185820' stroke-width='1' opacity='0.3' fill='none'/%3E%3Cpath d='M-8 18 Q-10 8 -12 -4' stroke='%23185820' stroke-width='0.8' opacity='0.25' fill='none'/%3E%3Cpath d='M8 18 Q10 8 12 -4' stroke='%23185820' stroke-width='0.8' opacity='0.25' fill='none'/%3E%3C/g%3E%3C!-- Energy wisps and trails --%3E%3Cpath d='M115 160 Q128 142 142 155 Q152 165 145 178' stroke='url(%23hkEnergy)' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M245 160 Q232 142 218 155 Q208 165 215 178' stroke='url(%23hkEnergy)' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M128 195 Q115 178 132 168 Q145 160 150 175' stroke='url(%23hkEnergy)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M232 195 Q245 178 228 168 Q215 160 210 175' stroke='url(%23hkEnergy)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M140 218 Q125 205 138 192' stroke='url(%23hkEnergy)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M220 218 Q235 205 222 192' stroke='url(%23hkEnergy)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C!-- Energy particles --%3E%3Ccircle cx='108' cy='150' r='4' fill='%2360ff70' opacity='0.35'/%3E%3Ccircle cx='252' cy='150' r='4' fill='%2360ff70' opacity='0.35'/%3E%3Ccircle cx='122' cy='135' r='3' fill='%2360ff70' opacity='0.28'/%3E%3Ccircle cx='238' cy='135' r='3' fill='%2360ff70' opacity='0.28'/%3E%3Ccircle cx='100' cy='175' r='3.5' fill='%2360ff70' opacity='0.25'/%3E%3Ccircle cx='260' cy='175' r='3.5' fill='%2360ff70' opacity='0.25'/%3E%3Ccircle cx='135' cy='125' r='2.5' fill='%2360ff70' opacity='0.22'/%3E%3Ccircle cx='225' cy='125' r='2.5' fill='%2360ff70' opacity='0.22'/%3E%3Ccircle cx='145' cy='205' r='3' fill='%2350e860' opacity='0.2'/%3E%3Ccircle cx='215' cy='205' r='3' fill='%2350e860' opacity='0.2'/%3E%3Ccircle cx='158' cy='228' r='2.5' fill='%2350e860' opacity='0.18'/%3E%3Ccircle cx='202' cy='228' r='2.5' fill='%2350e860' opacity='0.18'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Hulk ambient glow - layered emerald energy with depth */
+.game-page__about[data-decoration="hulk"]::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: -50px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 48% 48%, rgba(88, 220, 110, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 52% 52%, rgba(60, 180, 80, 0.05) 0%, transparent 45%),
+    radial-gradient(ellipse 30% 25% at 50% 55%, rgba(45, 150, 60, 0.04) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5320,6 +5553,111 @@ h3 {
     height: 310px;
   }
 
+  /* Strike Force tablet */
+  .game-page__about[data-decoration="strike-force"]::before {
+    right: 0;
+    bottom: -15px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="strike-force"]::after {
+    right: -10px;
+    bottom: -30px;
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Tank Warfare 3D tablet */
+  .game-page__about[data-decoration="tank-warfare"]::before {
+    right: 0;
+    bottom: -15px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="tank-warfare"]::after {
+    right: -10px;
+    bottom: -30px;
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Sky Combat 3D tablet */
+  .game-page__about[data-decoration="sky-combat"]::before {
+    right: 0;
+    bottom: -15px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="sky-combat"]::after {
+    right: -10px;
+    bottom: -30px;
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Shadow Warriors tablet */
+  .game-page__about[data-decoration="shadow-warriors"]::before {
+    right: 0;
+    bottom: -15px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="shadow-warriors"]::after {
+    right: -10px;
+    bottom: -30px;
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Shadow Runner tablet */
+  .game-page__about[data-decoration="shadow-runner"]::before {
+    right: 0;
+    bottom: -15px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .game-page__about[data-decoration="shadow-runner"]::after {
+    right: -10px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  /* Vice Streets tablet */
+  .game-page__about[data-decoration="vice-streets"]::before {
+    right: -5px;
+    bottom: -20px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .game-page__about[data-decoration="vice-streets"]::after {
+    right: -15px;
+    bottom: -35px;
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Hulk tablet */
+  .game-page__about[data-decoration="hulk"]::before {
+    right: -5px;
+    bottom: -20px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .game-page__about[data-decoration="hulk"]::after {
+    right: -15px;
+    bottom: -35px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -6499,6 +6837,111 @@ h3 {
     height: 250px;
   }
 
+  /* Strike Force mobile */
+  .game-page__about[data-decoration="strike-force"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="strike-force"]::after {
+    right: -15px;
+    bottom: -25px;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Tank Warfare 3D mobile */
+  .game-page__about[data-decoration="tank-warfare"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="tank-warfare"]::after {
+    right: -15px;
+    bottom: -25px;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Sky Combat 3D mobile */
+  .game-page__about[data-decoration="sky-combat"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="sky-combat"]::after {
+    right: -15px;
+    bottom: -25px;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Shadow Warriors mobile */
+  .game-page__about[data-decoration="shadow-warriors"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .game-page__about[data-decoration="shadow-warriors"]::after {
+    right: -15px;
+    bottom: -25px;
+    width: 230px;
+    height: 230px;
+  }
+
+  /* Shadow Runner mobile */
+  .game-page__about[data-decoration="shadow-runner"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__about[data-decoration="shadow-runner"]::after {
+    right: -15px;
+    bottom: -25px;
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Vice Streets mobile */
+  .game-page__about[data-decoration="vice-streets"]::before {
+    right: -8px;
+    bottom: -15px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="vice-streets"]::after {
+    right: -18px;
+    bottom: -28px;
+    width: 250px;
+    height: 250px;
+  }
+
+  /* Hulk mobile */
+  .game-page__about[data-decoration="hulk"]::before {
+    right: -8px;
+    bottom: -15px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="hulk"]::after {
+    right: -18px;
+    bottom: -28px;
+    width: 250px;
+    height: 250px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -7531,6 +7974,111 @@ h3 {
     height: 200px;
   }
 
+  /* Strike Force small mobile */
+  .game-page__about[data-decoration="strike-force"]::before {
+    right: -3px;
+    bottom: -10px;
+    width: 155px;
+    height: 155px;
+  }
+
+  .game-page__about[data-decoration="strike-force"]::after {
+    right: -10px;
+    bottom: -20px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Tank Warfare 3D small mobile */
+  .game-page__about[data-decoration="tank-warfare"]::before {
+    right: -3px;
+    bottom: -10px;
+    width: 155px;
+    height: 155px;
+  }
+
+  .game-page__about[data-decoration="tank-warfare"]::after {
+    right: -10px;
+    bottom: -20px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Sky Combat 3D small mobile */
+  .game-page__about[data-decoration="sky-combat"]::before {
+    right: -3px;
+    bottom: -10px;
+    width: 155px;
+    height: 155px;
+  }
+
+  .game-page__about[data-decoration="sky-combat"]::after {
+    right: -10px;
+    bottom: -20px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Shadow Warriors small mobile */
+  .game-page__about[data-decoration="shadow-warriors"]::before {
+    right: -3px;
+    bottom: -10px;
+    width: 155px;
+    height: 155px;
+  }
+
+  .game-page__about[data-decoration="shadow-warriors"]::after {
+    right: -10px;
+    bottom: -20px;
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Shadow Runner small mobile */
+  .game-page__about[data-decoration="shadow-runner"]::before {
+    right: -3px;
+    bottom: -10px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="shadow-runner"]::after {
+    right: -10px;
+    bottom: -20px;
+    width: 195px;
+    height: 195px;
+  }
+
+  /* Vice Streets small mobile */
+  .game-page__about[data-decoration="vice-streets"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="vice-streets"]::after {
+    right: -12px;
+    bottom: -22px;
+    width: 205px;
+    height: 205px;
+  }
+
+  /* Hulk small mobile */
+  .game-page__about[data-decoration="hulk"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="hulk"]::after {
+    right: -12px;
+    bottom: -22px;
+    width: 205px;
+    height: 205px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -7656,7 +8204,9 @@ h3 {
   .game-page__about[data-decoration="fruit-slice"]::after,
   .game-page__about[data-decoration="flappy-wings"]::after,
   .game-page__about[data-decoration="mahjong-classic"]::after,
-  .game-page__about[data-decoration="dot-connect"]::after {
+  .game-page__about[data-decoration="dot-connect"]::after,
+  .game-page__about[data-decoration="tank-warfare"]::after,
+  .game-page__about[data-decoration="sky-combat"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
@@ -7717,6 +8267,54 @@ h3 {
   }
 
   .game-page__about[data-decoration="crazy-cards"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Strike Force extra small */
+  .game-page__about[data-decoration="strike-force"]::before {
+    right: 0;
+    bottom: -8px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .game-page__about[data-decoration="strike-force"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Tank Warfare 3D extra small */
+  .game-page__about[data-decoration="tank-warfare"]::before {
+    right: 0;
+    bottom: -8px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .game-page__about[data-decoration="tank-warfare"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Sky Combat 3D extra small */
+  .game-page__about[data-decoration="sky-combat"]::before {
+    right: 0;
+    bottom: -8px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .game-page__about[data-decoration="sky-combat"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Shadow Warriors extra small */
+  .game-page__about[data-decoration="shadow-warriors"]::before {
+    right: 0;
+    bottom: -8px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .game-page__about[data-decoration="shadow-warriors"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

@@ -11,7 +11,9 @@
       "Bash(timeout 15 npm run dev:*)",
       "Bash(timeout 8 npm run dev:*)",
       "Bash(dir:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(git -C \"C:\\\\Users\\\\User\\\\Desktop\\\\GameCenter\\\\Game-Center-Front\" status --porcelain)",
+      "Bash(del \"C:\\\\Users\\\\User\\\\Desktop\\\\GameCenter\\\\Game-Center-Front\\\\nul\")"
     ]
   }
 }

@@ -105,14 +105,15 @@ const GAME_TAGLINES = {
   "Escape 100": "100 Doors. 100 Mysteries. One Way Out.",
   "Escape Quest: Hidden Rooms": "Find Clues. Solve Puzzles. Escape!",
   "Escape Quest": "Find Clues. Solve Puzzles. Escape!",
-  "Shadow Runner: Urban Escape": "Run Fast. Jump High. Never Get Caught.",
-  "Shadow Runner": "Run Fast. Jump High. Never Get Caught.",
-  "Shadow Warriors: Rise of Legends": "Master the Shadows. Defeat the Legends.",
-  "Shadow Warriors": "Master the Shadows. Defeat the Legends.",
-  "Metro Rush: City Runner": "Run Fast. Dodge Trains. Rule the City.",
-  "Metro Rush": "Run Fast. Dodge Trains. Rule the City.",
-  "Strike Force: Elite Combat": "Lock In. Aim Sharp. Dominate.",
-  "Strike Force": "Lock In. Aim Sharp. Dominate.",
+  "Shadow Runner: Urban Escape": "Leap across rooftops, dodge obstacles, and outrun relentless pursuers through 40 challenging parkour levels.",
+  "Shadow Runner": "Leap across rooftops, dodge obstacles, and outrun relentless pursuers through 40 challenging parkour levels.",
+  "Shadow Warriors: Rise of Legends": "Master deadly sword techniques, unleash powerful combos, and defeat legendary enemies across 50 challenging battles.",
+  "Shadow Warriors": "Master deadly sword techniques, unleash powerful combos, and defeat legendary enemies across 50 challenging battles.",
+  "Metro Rush: City Runner": "Dodge speeding trains, collect coins, and race through vibrant city tracks in an endless running adventure.",
+  "Metro Rush": "Dodge speeding trains, collect coins, and race through vibrant city tracks in an endless running adventure.",
+  "Strike Force: Elite Combat": "Engage in intense tactical firefights, master powerful weapons, and outsmart AI enemies across challenging 3D battlefields.",
+  "Strike Force": "Engage in intense tactical firefights, master powerful weapons, and outsmart AI enemies across challenging 3D battlefields.",
+  "Tank Warfare 3D": "Command your tank, defeat enemy forces, and conquer challenging 3D battlefields.",
   "Snake Classic": "Guide your growing snake, collect glowing food, and avoid crashing as you chase your highest score.",
   "Checkers Classic": "Plan your moves, capture your opponent's pieces, and become a master of classic checkers strategy.",
   "Backgammon Classic": "Roll the dice, plan your moves, and outsmart your opponent in a timeless game of strategy and skill.",
@@ -120,6 +121,8 @@ const GAME_TAGLINES = {
   "2048 Puzzle": "Slide and merge matching number tiles, plan your moves carefully, and challenge yourself to reach the legendary 2048 tile.",
   "Doll Repair Workshop": "Restore broken dolls, discover creative repair techniques, and build your dream workshop one beautiful makeover at a time.",
   "Maze Muncher": "Race through glowing mazes, collect energy orbs, dodge colorful enemies, and conquer every level in this fast-paced arcade adventure.",
+  "Vice Streets 3D": "Explore the city, take on missions, and make the streets your own.",
+  "Hulk: Open World 3D": "Smash through the city, face powerful enemies, and unleash your strength.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -199,11 +202,24 @@ const GAME_DECORATIONS = {
   "Neon Circuit": "neon-circuit",
   "Block Escape": "block-escape",
   "Crazy Cards": "crazy-cards",
+  "Strike Force: Elite Combat": "strike-force",
+  "Strike Force": "strike-force",
+  "Tank Warfare 3D": "tank-warfare",
+  "Sky Combat 3D": "sky-combat",
+  "Metro Rush: City Runner": "metro-rush",
+  "Metro Rush": "metro-rush",
+  "Shadow Warriors: Rise of Legends": "shadow-warriors",
+  "Shadow Warriors": "shadow-warriors",
+  "Shadow Runner: Urban Escape": "shadow-runner",
+  "Shadow Runner": "shadow-runner",
+  "Vice Streets 3D": "vice-streets",
+  "Hulk: Open World 3D": "hulk",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
 const GAME_SHORT_DESCRIPTIONS = {
   "Crazy Cards": "Match cards by color or rank, play powerful eights, and outsmart your opponents in fast-paced card battles.",
+  "Sky Combat 3D": "Pilot powerful fighter jets, engage in thrilling dogfights, and dominate the skies across challenging 3D battlefields.",
 };
 
 // Fallback: generate a short tagline from description if not predefined
