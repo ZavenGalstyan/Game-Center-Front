@@ -79,6 +79,7 @@ import gravitySketchBg from "../images/GravitySketch.png";
 import neonCircuitBg from "../images/NeonCircuit.png";
 import blockEscapeBg from "../images/BlockEscape.png";
 import crazyCardsBg from "../images/CrazyCards.png";
+import strikeForceBg from "../images/StrikeForce.png";
 
 /**
  * Category to icon mapping.
@@ -1088,6 +1089,32 @@ const GAME_CARD_BACKGROUNDS = {
   "neon circuit": { image: neonCircuitBg, shade: WIDE_ART_SHADE },
   "block escape": { image: blockEscapeBg, shade: WIDE_ART_SHADE },
   "crazy cards": { image: crazyCardsBg, shade: WIDE_ART_SHADE },
+  // Strike Force: tactical soldier with rifle on the left (~10-45%), harbor with
+  // shipping containers and crane on the right under the text, so a firm dark
+  // emerald fade that starts just past the soldier and keeps the industrial
+  // background faintly visible. The left anchor keeps the soldier on all widths.
+  "strike force: elite combat": {
+    image: strikeForceBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 13, 0) 0%,
+      rgba(3, 18, 13, 0) 38%,
+      rgba(3, 18, 13, 0.48) 47%,
+      rgba(3, 18, 13, 0.74) 57%,
+      rgba(3, 18, 13, 0.86) 70%,
+      rgba(3, 18, 13, 0.9) 100%)`,
+  },
+  "strike force": {
+    image: strikeForceBg,
+    position: "left center",
+    shade: `linear-gradient(90deg,
+      rgba(3, 18, 13, 0) 0%,
+      rgba(3, 18, 13, 0) 38%,
+      rgba(3, 18, 13, 0.48) 47%,
+      rgba(3, 18, 13, 0.74) 57%,
+      rgba(3, 18, 13, 0.86) 70%,
+      rgba(3, 18, 13, 0.9) 100%)`,
+  },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();
