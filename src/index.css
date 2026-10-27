@@ -4331,6 +4331,35 @@ h3 {
   z-index: -1;
 }
 
+/* Hulk: Open World 3D decoration - powerful green fist smashing through cracked concrete
+   with stone fragments, impact lines, and subtle emerald energy glow */
+.game-page__about[data-decoration="hulk"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -10px;
+  bottom: -30px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 340 340' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='hulkFist' x1='30%25' y1='0%25' x2='70%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2348c855' stop-opacity='0.65'/%3E%3Cstop offset='35%25' stop-color='%2338a845' stop-opacity='0.55'/%3E%3Cstop offset='70%25' stop-color='%232a8835' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%231d6825' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='hulkFistDark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23286830' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%231a4820' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='hulkConcrete' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23505860' stop-opacity='0.5'/%3E%3Cstop offset='50%25' stop-color='%23404850' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23303840' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='hulkEnergy' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2360ff70' stop-opacity='0.35'/%3E%3Cstop offset='50%25' stop-color='%2340e850' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%2320c830' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3CradialGradient id='hulkGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2350ff60' stop-opacity='0.2'/%3E%3Cstop offset='60%25' stop-color='%2330c840' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%2320a030' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='hulkFragment' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23606870' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%23404850' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Subtle energy glow behind fist --%3E%3Cellipse cx='170' cy='180' rx='85' ry='95' fill='url(%23hulkGlow)'/%3E%3C!-- Cracked concrete base --%3E%3Cpath d='M90 280 L95 260 L105 265 L115 245 L125 255 L140 235 L155 250 L170 220 L185 250 L200 235 L215 255 L225 245 L235 265 L245 260 L250 280 Z' fill='url(%23hulkConcrete)'/%3E%3Cpath d='M100 280 L102 270 L108 272 L112 258 L118 262 L128 248 L138 258 L150 238 L162 258 L172 248 L182 262 L188 258 L192 272 L198 270 L200 280 Z' fill='url(%23hulkConcrete)' opacity='0.7'/%3E%3C!-- Impact crack lines radiating from center --%3E%3Cpath d='M170 220 L175 260 L180 280' stroke='%23303840' stroke-width='2' opacity='0.4' fill='none'/%3E%3Cpath d='M170 220 L155 258 L148 280' stroke='%23303840' stroke-width='1.8' opacity='0.35' fill='none'/%3E%3Cpath d='M170 220 L195 255 L210 280' stroke='%23303840' stroke-width='1.5' opacity='0.3' fill='none'/%3E%3Cpath d='M170 220 L140 250 L125 280' stroke='%23303840' stroke-width='1.5' opacity='0.3' fill='none'/%3E%3Cpath d='M170 220 L210 245 L240 270' stroke='%23303840' stroke-width='1.2' opacity='0.25' fill='none'/%3E%3Cpath d='M170 220 L130 240 L100 265' stroke='%23303840' stroke-width='1.2' opacity='0.25' fill='none'/%3E%3C!-- Flying concrete fragments - large pieces --%3E%3Cpath d='M85 195 L95 185 L105 190 L100 205 L88 202 Z' fill='url(%23hulkFragment)' transform='rotate(-15 95 195)'/%3E%3Cpath d='M245 190 L258 182 L265 195 L255 208 L242 200 Z' fill='url(%23hulkFragment)' transform='rotate(20 255 195)'/%3E%3Cpath d='M75 230 L88 222 L92 235 L82 242 Z' fill='url(%23hulkFragment)' transform='rotate(-25 82 232)'/%3E%3Cpath d='M258 225 L272 218 L275 232 L262 238 Z' fill='url(%23hulkFragment)' transform='rotate(18 265 228)'/%3E%3C!-- Medium fragments --%3E%3Cpath d='M95 165 L102 158 L110 165 L105 175 Z' fill='url(%23hulkFragment)' transform='rotate(-30 102 166)'/%3E%3Cpath d='M235 160 L245 155 L250 165 L242 172 Z' fill='url(%23hulkFragment)' transform='rotate(25 242 163)'/%3E%3Cpath d='M70 210 L78 205 L82 215 L72 218 Z' fill='url(%23hulkFragment)' transform='rotate(-20 76 211)'/%3E%3Cpath d='M268 205 L276 200 L280 212 L270 216 Z' fill='url(%23hulkFragment)' transform='rotate(15 274 208)'/%3E%3C!-- Small debris particles --%3E%3Ccircle cx='88' cy='175' r='3' fill='%23505860' opacity='0.4'/%3E%3Ccircle cx='255' cy='170' r='3.5' fill='%23505860' opacity='0.35'/%3E%3Ccircle cx='72' cy='195' r='2.5' fill='%23505860' opacity='0.35'/%3E%3Ccircle cx='275' cy='185' r='2.8' fill='%23505860' opacity='0.3'/%3E%3Ccircle cx='100' cy='150' r='2' fill='%23505860' opacity='0.3'/%3E%3Ccircle cx='248' cy='145' r='2.2' fill='%23505860' opacity='0.28'/%3E%3Ccircle cx='65' cy='220' r='2' fill='%23505860' opacity='0.25'/%3E%3Ccircle cx='282' cy='215' r='2.2' fill='%23505860' opacity='0.25'/%3E%3C!-- Impact speed lines --%3E%3Cpath d='M130 130 L145 155' stroke='%2350e860' stroke-width='1.5' opacity='0.25' stroke-linecap='round'/%3E%3Cpath d='M115 145 L135 168' stroke='%2350e860' stroke-width='1.2' opacity='0.2' stroke-linecap='round'/%3E%3Cpath d='M210 130 L195 155' stroke='%2350e860' stroke-width='1.5' opacity='0.25' stroke-linecap='round'/%3E%3Cpath d='M225 145 L205 168' stroke='%2350e860' stroke-width='1.2' opacity='0.2' stroke-linecap='round'/%3E%3C!-- Powerful fist --%3E%3Cg transform='translate(170, 175)'%3E%3C!-- Wrist/forearm base --%3E%3Cpath d='M-20 60 Q-25 40 -22 20 L22 20 Q25 40 20 60 Z' fill='url(%23hulkFist)'/%3E%3C!-- Wrist detail lines --%3E%3Cpath d='M-18 45 Q0 42 18 45' stroke='%23286830' stroke-width='1.2' opacity='0.4' fill='none'/%3E%3Cpath d='M-16 55 Q0 52 16 55' stroke='%23286830' stroke-width='1' opacity='0.35' fill='none'/%3E%3C!-- Palm and knuckle base --%3E%3Cpath d='M-35 20 Q-40 0 -35 -25 L-25 -45 Q-15 -55 0 -55 Q15 -55 25 -45 L35 -25 Q40 0 35 20 Z' fill='url(%23hulkFist)'/%3E%3C!-- Knuckle bumps --%3E%3Cellipse cx='-22' cy='-38' rx='10' ry='12' fill='url(%23hulkFistDark)'/%3E%3Cellipse cx='0' cy='-42' rx='10' ry='14' fill='url(%23hulkFistDark)'/%3E%3Cellipse cx='22' cy='-38' rx='10' ry='12' fill='url(%23hulkFistDark)'/%3E%3C!-- Knuckle highlights --%3E%3Cellipse cx='-22' cy='-42' rx='6' ry='5' fill='%2358d865' opacity='0.3'/%3E%3Cellipse cx='0' cy='-46' rx='6' ry='5' fill='%2358d865' opacity='0.35'/%3E%3Cellipse cx='22' cy='-42' rx='6' ry='5' fill='%2358d865' opacity='0.3'/%3E%3C!-- Finger curl lines --%3E%3Cpath d='M-28 -25 Q-30 -15 -28 -5' stroke='%23286830' stroke-width='1.5' opacity='0.4' fill='none'/%3E%3Cpath d='M-10 -30 Q-12 -18 -10 -8' stroke='%23286830' stroke-width='1.5' opacity='0.4' fill='none'/%3E%3Cpath d='M10 -30 Q12 -18 10 -8' stroke='%23286830' stroke-width='1.5' opacity='0.4' fill='none'/%3E%3Cpath d='M28 -25 Q30 -15 28 -5' stroke='%23286830' stroke-width='1.5' opacity='0.4' fill='none'/%3E%3C!-- Thumb --%3E%3Cpath d='M-35 5 Q-48 -5 -45 -22 Q-42 -32 -32 -32 Q-25 -32 -28 -18 Q-30 -5 -35 5 Z' fill='url(%23hulkFist)'/%3E%3Cpath d='M-38 -8 Q-40 -18 -35 -25' stroke='%23286830' stroke-width='1.2' opacity='0.35' fill='none'/%3E%3C!-- Vein details on fist --%3E%3Cpath d='M-15 15 Q-18 5 -20 -8' stroke='%23286830' stroke-width='0.8' opacity='0.3' fill='none'/%3E%3Cpath d='M15 15 Q18 5 20 -8' stroke='%23286830' stroke-width='0.8' opacity='0.3' fill='none'/%3E%3Cpath d='M0 18 Q0 8 0 -5' stroke='%23286830' stroke-width='0.8' opacity='0.25' fill='none'/%3E%3C/g%3E%3C!-- Energy wisps around fist --%3E%3Cpath d='M125 165 Q135 150 145 160' stroke='url(%23hulkEnergy)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M215 165 Q205 150 195 160' stroke='url(%23hulkEnergy)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M140 200 Q130 185 145 178' stroke='url(%23hulkEnergy)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M200 200 Q210 185 195 178' stroke='url(%23hulkEnergy)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C!-- Small energy particles --%3E%3Ccircle cx='120' cy='155' r='3' fill='%2360ff70' opacity='0.25'/%3E%3Ccircle cx='220' cy='155' r='3' fill='%2360ff70' opacity='0.25'/%3E%3Ccircle cx='135' cy='140' r='2' fill='%2360ff70' opacity='0.2'/%3E%3Ccircle cx='205' cy='140' r='2' fill='%2360ff70' opacity='0.2'/%3E%3Ccircle cx='145' cy='195' r='2.5' fill='%2360ff70' opacity='0.18'/%3E%3Ccircle cx='195' cy='195' r='2.5' fill='%2360ff70' opacity='0.18'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Hulk ambient glow - emerald energy with dark green accents */
+.game-page__about[data-decoration="hulk"]::after {
+  content: "";
+  position: absolute;
+  right: -15px;
+  bottom: -45px;
+  width: 390px;
+  height: 390px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgba(80, 200, 100, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 55% 45%, rgba(40, 160, 60, 0.04) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5613,6 +5642,21 @@ h3 {
     height: 300px;
   }
 
+  /* Hulk tablet */
+  .game-page__about[data-decoration="hulk"]::before {
+    right: -5px;
+    bottom: -20px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .game-page__about[data-decoration="hulk"]::after {
+    right: -15px;
+    bottom: -35px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -6882,6 +6926,21 @@ h3 {
     height: 250px;
   }
 
+  /* Hulk mobile */
+  .game-page__about[data-decoration="hulk"]::before {
+    right: -8px;
+    bottom: -15px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="hulk"]::after {
+    right: -18px;
+    bottom: -28px;
+    width: 250px;
+    height: 250px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -7998,6 +8057,21 @@ h3 {
   }
 
   .game-page__about[data-decoration="vice-streets"]::after {
+    right: -12px;
+    bottom: -22px;
+    width: 205px;
+    height: 205px;
+  }
+
+  /* Hulk small mobile */
+  .game-page__about[data-decoration="hulk"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="hulk"]::after {
     right: -12px;
     bottom: -22px;
     width: 205px;

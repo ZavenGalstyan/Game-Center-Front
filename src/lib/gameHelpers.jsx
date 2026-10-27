@@ -86,6 +86,7 @@ import metroRushBg from "../images/MetroRush.png";
 import shadowWarriorsBg from "../images/ShadowWarriors.png";
 import shadowRunnerBg from "../images/ShadowRunner.png";
 import viceStreetsBg from "../images/ViceStreets.png";
+import hulkBg from "../images/Hulk.png";
 
 /**
  * Category to icon mapping.
@@ -1235,6 +1236,31 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(12, 5, 18, 0.62) 52%,
       rgba(12, 5, 18, 0.78) 65%,
       rgba(12, 5, 18, 0.88) 100%)`,
+  },
+  // Hulk: Open World 3D - large title on the left, green character on the right.
+  // Position "5% center" keeps the full title visible without cropping first letters.
+  // Dark gradient ensures text overlay remains readable against the artwork.
+  "hulk: open world 3d": {
+    image: hulkBg,
+    position: "5% center",
+    shade: `linear-gradient(90deg,
+      rgba(5, 18, 10, 0) 0%,
+      rgba(5, 18, 10, 0) 30%,
+      rgba(5, 18, 10, 0.42) 42%,
+      rgba(5, 18, 10, 0.68) 54%,
+      rgba(5, 18, 10, 0.82) 68%,
+      rgba(5, 18, 10, 0.92) 100%)`,
+  },
+  "hulk open world 3d": {
+    image: hulkBg,
+    position: "5% center",
+    shade: `linear-gradient(90deg,
+      rgba(5, 18, 10, 0) 0%,
+      rgba(5, 18, 10, 0) 30%,
+      rgba(5, 18, 10, 0.42) 42%,
+      rgba(5, 18, 10, 0.68) 54%,
+      rgba(5, 18, 10, 0.82) 68%,
+      rgba(5, 18, 10, 0.92) 100%)`,
   },
 };
 

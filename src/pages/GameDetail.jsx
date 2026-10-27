@@ -122,6 +122,7 @@ const GAME_TAGLINES = {
   "Doll Repair Workshop": "Restore broken dolls, discover creative repair techniques, and build your dream workshop one beautiful makeover at a time.",
   "Maze Muncher": "Race through glowing mazes, collect energy orbs, dodge colorful enemies, and conquer every level in this fast-paced arcade adventure.",
   "Vice Streets 3D": "Explore the city, take on missions, and make the streets your own.",
+  "Hulk: Open World 3D": "Smash through the city, face powerful enemies, and unleash your strength.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -212,6 +213,7 @@ const GAME_DECORATIONS = {
   "Shadow Runner: Urban Escape": "shadow-runner",
   "Shadow Runner": "shadow-runner",
   "Vice Streets 3D": "vice-streets",
+  "Hulk: Open World 3D": "hulk",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
