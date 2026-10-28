@@ -1,0 +1,142 @@
+/**
+ * Spells. `kind`:
+ *   bolt    a projectile cast from the wand toward the aim point
+ *   target  an instant beam onto a validated target (object or enemy) in range
+ *   self    affects the caster (Protego, Lumos)
+ *
+ * `tag` is what a target must carry for a `target` spell to be valid (objects
+ * list the spells that affect them in `tags`; enemies accept levioso/accio
+ * unless `heavy`). Ranks 1–3 are bought with skill points (see profile.js).
+ */
+export const SPELLS = {
+  expelliarmus: {
+    name: "Expelliarmus",
+    kind: "bolt",
+    color: "#ff3b3b",
+    cost: 4,
+    cd: 0.55,
+    dmg: 13,
+    speed: 36,
+    range: 40,
+    desc: "Disarming charm. Knocks the wand from a duellist's hand, breaks shields.",
+    rankDesc: ["+20% damage", "Disarm lasts 50% longer", "+20% damage, faster bolt"],
+    icon: "disarm",
+  },
+  stupefy: {
+    name: "Stupefy",
+    kind: "bolt",
+    color: "#4da3ff",
+    cost: 8,
+    cd: 1.1,
+    dmg: 18,
+    speed: 30,
+    range: 38,
+    stun: 2.2,
+    desc: "Stunning spell. Freezes most foes in place for a moment.",
+    rankDesc: ["Stun +0.6s", "+25% damage", "Stun splashes to a nearby foe"],
+    icon: "stun",
+  },
+  incendio: {
+    name: "Incendio",
+    kind: "bolt",
+    color: "#ff8a2b",
+    cost: 10,
+    cd: 1.4,
+    dmg: 16,
+    speed: 26,
+    range: 30,
+    splash: 2.6,
+    burn: 3,
+    desc: "Fire charm. Splash damage and burning; lights braziers, burns webs. Cursed books and spiders hate it.",
+    rankDesc: ["+25% damage", "Burn lasts twice as long", "Wider splash"],
+    icon: "fire",
+  },
+  levioso: {
+    name: "Levioso",
+    kind: "target",
+    color: "#c69cff",
+    cost: 10,
+    cd: 3,
+    range: 24,
+    lift: 2.6,
+    desc: "Levitation charm. Lifts objects — and lighter foes, leaving them helpless (hits on a floating foe deal double).",
+    rankDesc: ["Lift +1s", "Cooldown -1s", "Lifted foes take triple damage"],
+    icon: "lift",
+  },
+  accio: {
+    name: "Accio",
+    kind: "target",
+    color: "#62f2c8",
+    cost: 8,
+    cd: 3,
+    range: 26,
+    desc: "Summoning charm. Pulls objects to you; yanks lighter foes off their feet.",
+    rankDesc: ["Range +6m", "Cooldown -1s", "Pulled foes are stunned"],
+    icon: "pull",
+  },
+  alohomora: {
+    name: "Alohomora",
+    kind: "target",
+    color: "#ffe79a",
+    cost: 6,
+    cd: 1,
+    range: 12,
+    desc: "Unlocking charm. Opens ordinary locks — not ancient ones.",
+    rankDesc: ["Range +4m", "No mana cost", "—"],
+    icon: "key",
+  },
+  reparo: {
+    name: "Reparo",
+    kind: "target",
+    color: "#ffb347",
+    cost: 10,
+    cd: 1,
+    range: 26,
+    desc: "Mending charm. Rebuilds broken things that are meant to be whole.",
+    rankDesc: ["Also heals you a little", "No mana cost", "—"],
+    icon: "mend",
+  },
+  lumos: {
+    name: "Lumos",
+    kind: "self",
+    color: "#fff3c4",
+    cost: 0,
+    drain: 1.2,
+    cd: 0.4,
+    desc: "Wand-light. Toggle on and off. Reveals hidden marks; Dementors drain you less while it burns.",
+    rankDesc: ["Brighter, wider reveal", "Halved drain", "—"],
+    icon: "light",
+  },
+  protego: {
+    name: "Protego",
+    kind: "self",
+    color: "#7fd0ff",
+    cost: 6,
+    cd: 1.6,
+    dur: 1.0,
+    perfect: 0.3,
+    desc: "Shield charm (F). Blocks spells and blows from any side. Raise it just as a spell lands to reflect it.",
+    rankDesc: ["Lasts 0.4s longer", "Wider reflect window", "Reflected spells deal double"],
+    icon: "shield",
+  },
+  patronum: {
+    name: "Expecto Patronum",
+    kind: "bolt",
+    color: "#d9efff",
+    cost: 30,
+    cd: 8,
+    dmg: 12,
+    speed: 17,
+    range: 34,
+    pierce: true,
+    big: true,
+    desc: "The Patronus charm. A silver guardian that tears through Dementors and drives back the dark.",
+    rankDesc: ["Cooldown -2s", "Larger guardian", "Heals you as it passes"],
+    icon: "patronus",
+  },
+};
+/** Display order of the hotbar (learned spells only; Protego lives on F). */
+export const HOTBAR = ["expelliarmus", "stupefy", "incendio", "levioso", "accio", "alohomora", "reparo", "lumos", "patronum"];
+/** Rank 1 is the base spell; each listed upgrade adds a rank ("—" = none). */
+export const maxRank = (id) => 1 + SPELLS[id].rankDesc.filter((d) => d !== "—").length;
+export const STARTING_SPELLS = ["expelliarmus", "stupefy", "protego"];
