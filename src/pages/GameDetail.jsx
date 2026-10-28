@@ -105,6 +105,8 @@ const GAME_TAGLINES = {
   "Escape 100": "100 Doors. 100 Mysteries. One Way Out.",
   "Escape Quest: Hidden Rooms": "Find Clues. Solve Puzzles. Escape!",
   "Escape Quest": "Find Clues. Solve Puzzles. Escape!",
+  "60 Seconds: Last Shelter": "60 Seconds to Prepare. A Lifetime to Survive.",
+  "Last Shelter": "60 Seconds to Prepare. A Lifetime to Survive.",
   "Shadow Runner: Urban Escape": "Leap across rooftops, dodge obstacles, and outrun relentless pursuers through 40 challenging parkour levels.",
   "Shadow Runner": "Leap across rooftops, dodge obstacles, and outrun relentless pursuers through 40 challenging parkour levels.",
   "Shadow Warriors: Rise of Legends": "Master deadly sword techniques, unleash powerful combos, and defeat legendary enemies across 50 challenging battles.",
