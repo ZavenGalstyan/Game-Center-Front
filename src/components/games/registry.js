@@ -477,6 +477,11 @@ const LastHope = lazy(() => import("./LastHope/LastHope.jsx"));
  *  followed by day-by-day shelter survival in illustrated SVG; lazy so the
  *  catalogue never pays for its WebGL chunk or its 97 events. */
 const LastShelter = lazy(() => import("./LastShelter/LastShelter.jsx"));
+/** Crown of Ashes: Kingdoms at War — a plain Three.js third-person open-world
+ * fantasy RPG (four heroes, real-time combat, 14 quests with branching
+ * choices and three endings, a dragon boss); lazy so its world, characters
+ * and audio only load when someone opens it. */
+const CrownOfAshes = lazy(() => import("./CrownOfAshes/CrownOfAshes.jsx"));
 
 /**
  * Maps a backend game's `name` to the React component that plays it.
@@ -609,6 +614,8 @@ const GAME_COMPONENTS = {
   "Last Hope": LastHope,
   "60 Seconds: Last Shelter": LastShelter,
   "Last Shelter": LastShelter,
+  "Crown of Ashes: Kingdoms at War": CrownOfAshes,
+  "Crown of Ashes": CrownOfAshes,
 };
 
 /**
@@ -618,7 +625,7 @@ const GAME_COMPONENTS = {
  * on screen can act on it. Listing a game here is what lights the button up,
  * so adding Delivery Rush changes nothing for the games that came before it.
  */
-const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D", "Zombie Outbreak", "Mario Adventure 3D", "Dimension Dash", "Web Hero: City Defender", "Web Hero", "Urban Skate Rush", "Alpine Rush", "Ping Pong Clash", "Backgammon Classic", "Checkers Classic", "Swimming Champions", "Zoo Simulator 3D", "Prison Escape 3D", "Sky Combat 3D", "Throw Masters", "Tank Warfare 3D", "Wild Kingdom 3D", "School Life Simulator 3D", "Hulk: Open World 3D", "Vice Streets 3D", "Doll Repair Workshop", "Texas Hold'em Poker", "Texas Hold’em Poker", "Armenian Blot Heritage", "2048 Puzzle", "Snake Classic", "Memory Cards", "Color Switch", "Air Hockey", "Dinosaur Island 3D", "Bowling Master 3D", "Darts Championship 3D", "Archery Master 3D", "Haunted Mansion Escape", "Space Station Escape", "Outpost 47: Frozen Secrets", "Motel 6: Last Guest", "Ultimate MMA Championship 3D", "Neon Mercenary", "Flappy Wings", "Dot Connect", "Fruit Slice", "Mahjong Classic", "Maze Muncher", "Hill Rider", "My Little Buddy", "Color Clash", "Spider Royale", "Trump Masters", "Crazy Cards", "Block Escape", "Neon Circuit", "Gravity Sketch", "Escape 100: Mystery Doors", "Escape 100", "Escape Quest: Hidden Rooms", "Escape Quest", "Shadow Runner: Urban Escape", "Shadow Runner", "Shadow Warriors: Rise of Legends", "Shadow Warriors", "Metro Rush: City Runner", "Metro Rush", "Strike Force: Elite Combat", "Strike Force", "Iron Arena: Tank Battles", "Iron Arena", "Oceanbound: Survival Journey", "Oceanbound", "Last Hope: Zombie Survival", "Last Hope", "60 Seconds: Last Shelter", "Last Shelter"]);
+const MUTE_AWARE = new Set(["Delivery Rush", "Parking Master", "Cake Designer", "Crowd Rush", "Liquid Sort", "Blade Rush", "Bomb Squad", "Cozy Cleanup", "Supermarket Rush", "Farm Life", "Ball Adventure 3D", "Element Merge", "Number Fusion", "Rooftop Sniper", "Laser Maze", "Car Wash Studio", "Bottle Flip", "Parking Jam", "Dentist Studio", "Boxing Club", "Street Basketball", "Arena Gladiator", "Stack Tower", "Jump Ball", "Helix Drop", "Penalty Kick", "Lumberjack Life", "Tower Defense Mini", "Castle Rush", "Train Commander", "Island Conquest", "Rooftop Dash", "Lost Toy", "Color Platforms", "Water Tanks", "Dungeon Knight", "Highway Racer", "Night Corridor", "Pirate Cove", "Mountain Journey", "Kart Legends", "Downhill Riders", "Stunt Racer 3D", "Police Escape 3D", "Zombie Outbreak", "Mario Adventure 3D", "Dimension Dash", "Web Hero: City Defender", "Web Hero", "Urban Skate Rush", "Alpine Rush", "Ping Pong Clash", "Backgammon Classic", "Checkers Classic", "Swimming Champions", "Zoo Simulator 3D", "Prison Escape 3D", "Sky Combat 3D", "Throw Masters", "Tank Warfare 3D", "Wild Kingdom 3D", "School Life Simulator 3D", "Hulk: Open World 3D", "Vice Streets 3D", "Doll Repair Workshop", "Texas Hold'em Poker", "Texas Hold’em Poker", "Armenian Blot Heritage", "2048 Puzzle", "Snake Classic", "Memory Cards", "Color Switch", "Air Hockey", "Dinosaur Island 3D", "Bowling Master 3D", "Darts Championship 3D", "Archery Master 3D", "Haunted Mansion Escape", "Space Station Escape", "Outpost 47: Frozen Secrets", "Motel 6: Last Guest", "Ultimate MMA Championship 3D", "Neon Mercenary", "Flappy Wings", "Dot Connect", "Fruit Slice", "Mahjong Classic", "Maze Muncher", "Hill Rider", "My Little Buddy", "Color Clash", "Spider Royale", "Trump Masters", "Crazy Cards", "Block Escape", "Neon Circuit", "Gravity Sketch", "Escape 100: Mystery Doors", "Escape 100", "Escape Quest: Hidden Rooms", "Escape Quest", "Shadow Runner: Urban Escape", "Shadow Runner", "Shadow Warriors: Rise of Legends", "Shadow Warriors", "Metro Rush: City Runner", "Metro Rush", "Strike Force: Elite Combat", "Strike Force", "Iron Arena: Tank Battles", "Iron Arena", "Oceanbound: Survival Journey", "Oceanbound", "Last Hope: Zombie Survival", "Last Hope", "60 Seconds: Last Shelter", "Last Shelter", "Crown of Ashes: Kingdoms at War", "Crown of Ashes"]);
 
 /**
  * Names typed into the admin panel can carry stray spaces or different
