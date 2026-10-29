@@ -1,0 +1,245 @@
+/**
+ * Last Shelter — family life and moral dilemmas.
+ */
+import { out, tool, isHere, needTool, needRes, needHere, presentIds } from "./util.js";
+
+const FAMILY_EVENTS = [
+  {
+    id: "argument",
+    cat: "family",
+    needPresent: 2,
+    once: false,
+    cooldown: 14,
+    title: "The Argument",
+    text: "{A} and {B} are arguing about the rations — quietly at first, then not quietly at all. Everyone is looking at you.",
+    choices: [
+      { label: "Side with {A}", run: () => out("{A} looks vindicated. {B} sulks for the rest of the day.", { who: { morale: 6 }, who2: { morale: -10 } }) },
+      { label: "Side with {B}", run: () => out("{B} nods, satisfied. {A} turns to the wall.", { who2: { morale: 6 }, who: { morale: -10 } }) },
+      { label: "Call a family meeting", run: (S, c, r) => (r < 0.6 ? out("Everyone gets a say. It ends in a rule, and a hug.", { all: { morale: 4 } }) : out("The meeting becomes a bigger argument.", { all: { morale: -4 } })) },
+    ],
+  },
+  {
+    id: "remy_out",
+    cat: "family",
+    minDay: 6,
+    when: (S) => isHere(S, "remy") && S.fam.remy.morale < 55 && !S.exp,
+    title: "Remy Wants Out",
+    text: "Remy has his boots on. “I'm going up. Just to the corner. I can't breathe down here.”",
+    choices: [
+      { label: "Let him go, quickly", run: (S, c, r) => (r < 0.6 ? out("He's back in two hours, grinning, arms full.", { food: 2, water: 1, m: { remy: { morale: 14, fatigue: 10 } } }) : out("He's back in two hours, limping and empty-handed.", { m: { remy: { injured: 1, morale: 4 } } })) },
+      { label: "Forbid it", run: () => out("He kicks the ladder and doesn't speak to anyone.", { m: { remy: { morale: -12 } } }) },
+      { label: "Talk him down", req: (S) => isHere(S, "hollis") || isHere(S, "june") || "No parent here", run: () => out("A long talk at the bottom of the ladder. He takes the boots off.", { m: { remy: { morale: 8 } } }) },
+    ],
+  },
+  {
+    id: "birthday",
+    cat: "family",
+    minDay: 8,
+    when: (S) => isHere(S, "pip"),
+    title: "Pip's Birthday",
+    text: "Pip turns nine today. She hasn't mentioned it. She's pretending she forgot.",
+    choices: [
+      { label: "Make a cracker cake", req: needRes("food", 1), run: () => out("Crackers, jam, a stub of candle. Pip blows it out and wishes for something she won't tell.", { food: -1, all: { morale: 14 } }) },
+      { label: "Sing for her", run: () => out("Off-key and loud. Pip pretends to be embarrassed.", { all: { morale: 6 } }) },
+      { label: "Let her have the books", req: needTool("books"), run: () => out("Pip reads the whole stack in a corner fort of blankets.", { m: { pip: { morale: 20 } } }) },
+    ],
+  },
+  {
+    id: "memorial",
+    cat: "family",
+    when: (S) => Object.values(S.fam).some((m) => !m.alive) || S.lostInHouse.length > 0,
+    weight: 2,
+    title: "Remembering",
+    text: "Someone is missing at the table. {A} keeps setting out one cup too many.",
+    choices: [
+      { label: "Hold a small memorial", run: () => out("Stories, a song, a candle. It hurts, and it helps.", { all: { morale: 12, fatigue: 4 } }) },
+      { label: "Keep their things close", run: () => out("A scarf on the hook, a book on the cot. They're still here, a little.", { all: { morale: 5 } }) },
+      { label: "Don't talk about it", run: () => out("Silence settles in like dust.", { all: { morale: -6 } }) },
+    ],
+  },
+  {
+    id: "game_night",
+    cat: "family",
+    minDay: 4,
+    once: false,
+    cooldown: 12,
+    title: "Game Night",
+    text: "{A} finds a deck of cards with only three missing. “Game night,” {A} announces.",
+    choices: [
+      { label: "Play for the last biscuit", req: needRes("food", 1), run: () => out("Pip wins, suspiciously. Laughter for the first time in days.", { food: -1, all: { morale: 11 } }) },
+      { label: "Charades instead", run: () => out("Hollis doing a jellyfish is something nobody will forget.", { all: { morale: 6 } }) },
+      { label: "Everyone's too tired", run: () => out("Early night. Proper sleep.", { all: { fatigue: -10 } }) },
+    ],
+  },
+  {
+    id: "runaway",
+    cat: "family",
+    minDay: 6,
+    weight: 3,
+    when: (S) => presentIds(S).some((id) => S.fam[id].morale <= 12) && presentIds(S).length >= 2,
+    pick: "sad",
+    title: "{A} Wants to Leave",
+    text: "{A} is packing a bag. “I can't do this. I'd rather take my chances up there.” Nobody doubts it.",
+    choices: [
+      { label: "Beg {a.o} to stay", run: (S, c, r) => (r < 0.55 ? out("{A} sits down on the bag and cries. {A} stays.", { who: { morale: 18 } }) : out("{A} hugs everyone once and climbs the ladder. The hatch closes.", { leave: "who", cause: "left to take their chances" })) },
+      { label: "Give {a.o} your share of food", req: needRes("food", 1), run: () => out("{A} eats slowly, then unpacks the bag.", { food: -1, who: { morale: 26, hunger: -40 } }) },
+      { label: "Let {a.o} go", run: () => out("You help {a.o} pack. It's the last thing you can do.", { leave: "who", cause: "left to take their chances" }) },
+    ],
+  },
+  {
+    id: "late_talk",
+    cat: "family",
+    minDay: 5,
+    when: (S) => isHere(S, "hollis") && isHere(S, "june"),
+    title: "Late Night Talk",
+    text: "After the kids are asleep, Hollis and June sit by the dim bulb. “What's the plan,” June whispers. “Really?”",
+    choices: [
+      { label: "Make a real plan", run: () => out("Lists, priorities, a rota. For the first time it feels like you're steering.", { m: { hollis: { morale: 9 }, june: { morale: 9 } }, flag: { plan: true } }) },
+      { label: "Talk about before", run: () => out("The old house, the camping trip, the burnt pancakes. They laugh until they cry.", { m: { hollis: { morale: 6, fatigue: -6 }, june: { morale: 6, fatigue: -6 } } }) },
+      { label: "Blame and regret", run: () => out("It comes out — the things they didn't grab, the minutes they wasted. Nobody wins.", { m: { hollis: { morale: -8 }, june: { morale: -8 } } }) },
+    ],
+  },
+  {
+    id: "lessons",
+    cat: "family",
+    minDay: 7,
+    when: (S) => (isHere(S, "remy") || isHere(S, "pip")) && (isHere(S, "hollis") || isHere(S, "june")),
+    title: "Shelter School",
+    text: "The kids are climbing the walls. {A} suggests lessons.",
+    choices: [
+      { label: "Reading and maths", run: () => out("Long division by lamplight. Pip actually likes it.", { m: { pip: { morale: 6 }, remy: { morale: 3 } } }) },
+      { label: "Teach them to patch walls", run: () => out("Trowels and cement. The corner crack is gone and the kids are proud.", { shelter: 5, m: { remy: { fatigue: 8 }, pip: { fatigue: 6 } } }) },
+      { label: "Teach first aid", run: () => out("Bandages, splints, the recovery position. Everyone feels a bit safer.", { flag: { firstAid: true }, all: { morale: 3 } }) },
+    ],
+  },
+  {
+    id: "pip_drawings",
+    cat: "family",
+    minDay: 4,
+    when: (S) => isHere(S, "pip"),
+    title: "Pip's Drawings",
+    text: "Pip has covered the wall by her cot in crayon: the house, the street, the park, the corner store, every detail in the wrong colours.",
+    choices: [
+      { label: "Ask her to draw the whole neighbourhood", run: () => out("By evening there's a map on the wall with every alley and fence hole Pip ever squeezed through. Shortcuts!", { flag: { pipMap: true }, m: { pip: { morale: 8 } } }) },
+      { label: "Hang her pictures with pride", run: () => out("A little gallery. Pip gives guided tours.", { all: { morale: 7 } }) },
+      { label: "Tell her to save the crayons", run: () => out("She stops. The wall stays half-finished.", { m: { pip: { morale: -8 } } }) },
+    ],
+  },
+];
+
+const DILEMMAS = [
+  {
+    id: "last_bottle",
+    cat: "dilemma",
+    when: (S) => S.res.water === 1 && presentIds(S).length >= 2,
+    weight: 2,
+    title: "The Last Bottle",
+    text: "One bottle of water left. {A} and {B} are both parched.",
+    choices: [
+      { label: "Give it to {A}", run: () => out("{A} drinks. {B} looks away.", { water: -1, who: { thirst: -60 }, who2: { morale: -6 } }) },
+      { label: "Give it to {B}", run: () => out("{B} drinks. {A} says it's fine. It isn't.", { water: -1, who2: { thirst: -60 }, who: { morale: -6 } }) },
+      { label: "Split it", run: () => out("Half each. Not enough for either.", { water: -1, who: { thirst: -30 }, who2: { thirst: -30 } }) },
+      { label: "Save it", run: () => out("The bottle stays sealed on the shelf, glowing like a jewel.", { all: { morale: -2 } }) },
+    ],
+  },
+  {
+    id: "lone_child",
+    cat: "dilemma",
+    minDay: 7,
+    title: "A Child Alone",
+    text: "A girl of about six stands at the open hatch, barefoot, holding a plastic horse. She doesn't say anything. She just looks hungry.",
+    choices: [
+      { label: "Feed her and walk her to the tent camp", req: needRes("food", 1), run: () => out("{A} carries her two streets over. A woman screams her name and runs to her.", { food: -1, who: { fatigue: 10 }, all: { morale: 12 } }) },
+      { label: "Give her a can and close the hatch", req: needRes("food", 1), run: () => out("She takes it carefully, with both hands.", { food: -1, all: { morale: 1 } }) },
+      { label: "Close the hatch", run: () => out("Pip asks about her for days.", { all: { morale: -12 } }) },
+    ],
+  },
+  {
+    id: "medicine_beg",
+    cat: "dilemma",
+    minDay: 6,
+    when: (S) => S.res.meds >= 1,
+    title: "Medicine for a Stranger",
+    text: "A man is on his knees by the hatch. “My wife. A fever. Please — just one dose. I'll pay you back, I swear it.”",
+    choices: [
+      { label: "Give him one dose", run: (S, c, r) => out(r < 0.55 ? "He returns three days later with three bottles of clean water and a long, wordless hug." : "He runs off clutching the pills. You never see him again. You hope she lived.", r < 0.55 ? { meds: -1, water: 3, all: { morale: 8 } } : { meds: -1, all: { morale: 5 } }) },
+      { label: "Refuse", run: () => out("He stops begging. He just walks away.", { all: { morale: -7 } }) },
+    ],
+  },
+  {
+    id: "rifle",
+    cat: "dilemma",
+    minDay: 9,
+    title: "The Rifle",
+    text: "A trader holds up an old hunting rifle and a handful of shells. “Three cans. It'll keep you safe.” Pip is staring at it.",
+    choices: [
+      { label: "Buy it (3 Food)", req: needRes("food", 3), run: () => out("It goes on two hooks above the hatch. Everyone sleeps a little easier, and a little worse.", { food: -3, flag: { rifle: true } }) },
+      { label: "Offer batteries instead", req: needRes("batteries", 3), run: () => out("He takes the batteries. The rifle is yours.", { batteries: -3, flag: { rifle: true } }) },
+      { label: "No guns in this shelter", run: () => out("June squeezes your hand. The trader shrugs and goes.", { all: { morale: 3 } }) },
+    ],
+  },
+  {
+    id: "empty_house",
+    cat: "dilemma",
+    minDay: 5,
+    title: "The House Next Door",
+    text: "{A} noticed the Delacroix house has been dark since the sirens. The door is hanging open. Their pantry was always full.",
+    choices: [
+      { label: "Take everything", run: (S, c, r) => (r < 0.85 ? out("Bags of it. Nobody talks about whose it was.", { food: 2, water: 2, all: { morale: -5 }, who: { fatigue: 12 } }) : out("The Delacroix were home. {A} comes back empty-handed and shaking.", { who: { morale: -15, fatigue: 12 } })) },
+      { label: "Only what we need", run: () => out("A can and a bottle. A note left on the table, just in case.", { food: 1, water: 1, who: { fatigue: 8 } }) },
+      { label: "Leave it be", run: () => out("Not yours. Not yet.", { all: { morale: 2 } }) },
+    ],
+  },
+  {
+    id: "straws",
+    cat: "dilemma",
+    minDay: 8,
+    when: (S) => S.res.food + S.res.water <= 3 && !S.exp,
+    weight: 2,
+    title: "Drawing Straws",
+    text: "Supplies are critical. Someone has to go up right now and search the street — no plan, no gear. {A} raises a hand.",
+    choices: [
+      { label: "Let {A} go", run: (S, c, r) => (r < 0.55 ? out("{A} comes back with arms full, breathless.", { food: 2, water: 2, who: { fatigue: 14 } }) : r < 0.9 ? out("{A} comes back cut and bruised, carrying one can.", { food: 1, who: { injured: 1, fatigue: 14 } }) : out("{A} comes back badly hurt, with nothing.", { who: { injured: 2, hp: -20 } })) },
+      { label: "Draw straws", req: (S, c) => !!c.who2 || "Only one of you", run: (S, c, r) => (r < 0.5 ? out("{B} draws short. {B} comes back with a little.", { food: 1, water: 1, who2: { fatigue: 14 } }) : out("{B} draws short. {B} comes back hurt.", { who2: { injured: 1, fatigue: 14 } })) },
+      { label: "No one goes", run: () => out("You tighten belts instead.", { all: { morale: -5 } }) },
+    ],
+  },
+  {
+    id: "tell_pip",
+    cat: "dilemma",
+    when: (S) => isHere(S, "pip") && (Object.values(S.fam).some((m) => !m.alive) || S.lostInHouse.length > 0),
+    title: "What Do We Tell Pip?",
+    text: "Pip keeps asking where they are. When they're coming down. Whether they'll bring her bear.",
+    choices: [
+      { label: "Tell her the truth", run: () => out("She cries until she sleeps. In the morning she asks good questions.", { m: { pip: { morale: -8 } }, flag: { pipTruth: true } }) },
+      { label: "A kind lie", run: () => out("“They're at Aunt Rosa's, safe.” Pip smiles. For now.", { m: { pip: { morale: 6 } }, queue: [{ id: "pip_knows", in: 6 }] }) },
+      { label: "Change the subject", run: () => out("She stops asking. That's worse.", { m: { pip: { morale: -4 } } }) },
+    ],
+  },
+  {
+    id: "pip_knows",
+    cat: "dilemma",
+    chainOnly: true,
+    when: (S) => isHere(S, "pip"),
+    title: "Pip Knows",
+    text: "Pip sits on the ladder. “There's no Aunt Rosa's, is there.” It isn't a question.",
+    choices: [
+      { label: "Tell her everything now", run: () => out("She's angry, then she isn't. She draws them on the wall.", { m: { pip: { morale: -10 } } }) },
+      { label: "Hold her", run: () => out("No words. Just holding on.", { m: { pip: { morale: -4 } }, all: { morale: 2 } }) },
+    ],
+  },
+  {
+    id: "broadcast",
+    cat: "dilemma",
+    minDay: 10,
+    when: (S) => tool(S, "radio") && S.radio > 0,
+    title: "Broadcast Our Location?",
+    text: "The radio can transmit, weakly. {A} wants to tell anyone listening that there's a family here.",
+    choices: [
+      { label: "Broadcast", run: (S, c, r) => (r < 0.5 ? out("“...four survivors, Linden Road...” Hours later, someone answers: Ridgeline Relief logged it.", { flag: { broadcast: true }, all: { morale: 8 } }) : out("Someone answers. “Linden Road. Got it.” They don't say who they are.", { flag: { broadcast: true }, queue: [{ id: "raiders_hatch", in: 2 }] })) },
+      { label: "Stay silent", run: () => out("The safest choice. The loneliest.", { all: { morale: -2 } }) },
+    ],
+  },
+];
+
+export default [...FAMILY_EVENTS, ...DILEMMAS];
