@@ -1,0 +1,894 @@
+/* ==========================================================================
+   Jungle Dash: Island Adventure — scoped entirely under `.jd` (prefix jd-).
+   Sizes derive from the stage (container-type: size) so HUD and menus fit
+   any GamePlayer size, fullscreen and phones without page scrolling.
+   ========================================================================== */
+.jd {
+  --leaf: #2f9e44;
+  --leaf2: #6fd04a;
+  --sun: #ffc21a;
+  --sun2: #ffe68a;
+  --mango: #f58a1f;
+  --wood: #6b4220;
+  --wood2: #8a5a30;
+  --ink: #1d2a14;
+  --paper: #fff8e6;
+  --paper2: #f3e3bb;
+  --bad: #e2483a;
+  --font: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(#3fa9f5, #bfe9ff);
+  color: var(--ink);
+  font-family: var(--font);
+  container-type: size;
+  container-name: jd;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+.jd > * {
+  --u: clamp(9px, 2.15cqh, 16px);
+  font-size: var(--u);
+}
+.jd *,
+.jd *::before,
+.jd *::after {
+  box-sizing: border-box;
+}
+.jd h1,
+.jd h2,
+.jd h3,
+.jd p,
+.jd ul {
+  margin: 0;
+  padding: 0;
+}
+.jd ul {
+  list-style: none;
+}
+:where(.jd) button {
+  font: inherit;
+  color: inherit;
+}
+
+/* ---------------------------------------------------------------- stage */
+.jd-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.jd-stage canvas,
+.jd-canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ---------------------------------------------------------------- buttons */
+.jd-btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.62em 1.3em;
+  border-radius: 0.9em;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: linear-gradient(#5cc94a, #2f9e44);
+  box-shadow: 0 0.28em 0 #1d6a2a, 0 0.5em 0.9em rgba(0, 0, 0, 0.25);
+  text-shadow: 0 0.08em 0 rgba(0, 0, 0, 0.3);
+  transition: transform 0.08s, filter 0.12s, box-shadow 0.08s;
+  min-height: 2.6em;
+}
+.jd-btn:hover {
+  filter: brightness(1.08);
+}
+.jd-btn:active {
+  transform: translateY(0.2em);
+  box-shadow: 0 0.08em 0 #1d6a2a, 0 0.3em 0.6em rgba(0, 0, 0, 0.25);
+}
+.jd-btn:focus-visible {
+  outline: 0.18em solid var(--sun);
+  outline-offset: 0.15em;
+}
+.jd-btn.big {
+  font-size: 1.22em;
+  background: linear-gradient(#ffb347, #f07a12);
+  box-shadow: 0 0.28em 0 #a84a08, 0 0.5em 0.9em rgba(0, 0, 0, 0.25);
+}
+.jd-btn.big:active {
+  box-shadow: 0 0.08em 0 #a84a08;
+}
+.jd-btn.ghost {
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--ink);
+  text-shadow: none;
+  box-shadow: 0 0.22em 0 rgba(0, 0, 0, 0.18);
+}
+.jd-btn.small {
+  font-size: 0.85em;
+  min-height: 2.3em;
+  padding: 0.45em 1em;
+}
+
+/* ---------------------------------------------------------------- screens + panels */
+.jd-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3cqh 3cqw;
+  animation: jd-fade 0.25s ease-out both;
+  overflow: hidden;
+}
+.jd-dim {
+  background: rgba(10, 30, 15, 0.45);
+}
+.jd-dim.red {
+  background: rgba(60, 10, 10, 0.5);
+}
+@keyframes jd-fade {
+  from {
+    opacity: 0;
+  }
+}
+.jd-panel {
+  position: relative;
+  background: var(--paper);
+  border: 0.3em solid var(--wood2);
+  border-radius: 1.3em;
+  box-shadow: 0 0.5em 0 var(--wood), 0 1.2em 2.5em rgba(0, 0, 0, 0.35);
+  padding: 1.4em 1.7em;
+  max-width: min(46em, 94cqw);
+  max-height: 94cqh;
+  overflow: auto;
+  animation: jd-pop 0.3s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+.jd-panel.narrow {
+  width: min(24em, 92cqw);
+}
+.jd-panel.wide {
+  width: min(52em, 96cqw);
+}
+@keyframes jd-pop {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+}
+.jd-panel h2 {
+  font-size: 1.75em;
+  text-align: center;
+  color: var(--wood);
+  margin-bottom: 0.6em;
+  letter-spacing: 0.02em;
+}
+.jd-panel h3 {
+  font-size: 1.05em;
+  color: var(--leaf);
+  margin: 0.6em 0 0.3em;
+}
+.jd-panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 0.6em;
+}
+.jd-panel-head h2 {
+  margin: 0;
+  text-align: left;
+}
+.jd-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  margin-top: 0.9em;
+}
+.jd-row {
+  display: flex;
+  gap: 0.6em;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.9em;
+}
+.jd-row .jd-btn {
+  flex: 1 1 0;
+}
+.jd-center {
+  text-align: center;
+}
+.jd-muted {
+  color: #6a6a58;
+}
+
+/* ---------------------------------------------------------------- main menu */
+.jd-menu {
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(90deg, rgba(10, 40, 20, 0.55), rgba(10, 40, 20, 0) 55%);
+  align-items: flex-start;
+  padding: 6cqh 6cqw;
+}
+.jd-title h1 {
+  font-size: clamp(30px, 11cqh, 88px);
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  filter: drop-shadow(0 0.06em 0 #7a3a08) drop-shadow(0 0.12em 0.15em rgba(0, 0, 0, 0.35));
+}
+.jd-title .a {
+  color: var(--sun);
+  -webkit-text-stroke: 0.025em #7a3a08;
+}
+.jd-title .b {
+  color: var(--mango);
+  -webkit-text-stroke: 0.025em #7a3a08;
+}
+.jd-sub {
+  font-size: clamp(14px, 4cqh, 32px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: 0 0.1em 0 var(--leaf), 0 0.2em 0.4em rgba(0, 0, 0, 0.4);
+  margin-top: 0.1em;
+}
+.jd-tag {
+  color: var(--sun2);
+  font-weight: 700;
+  font-style: italic;
+  margin-top: 0.5em;
+  text-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.6);
+}
+.jd-menu-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  width: min(17em, 80cqw);
+}
+.jd-menu-foot {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.6);
+}
+.jd-badge {
+  background: var(--sun);
+  color: var(--wood);
+  padding: 0.2em 0.7em;
+  border-radius: 1em;
+  text-shadow: none;
+}
+
+/* ---------------------------------------------------------------- level select */
+.jd-levels {
+  background: rgba(10, 40, 20, 0.45);
+}
+.jd-level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8em;
+}
+@container jd (max-aspect-ratio: 1/1) {
+  .jd-level-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.jd-lcard {
+  --lc: #5cc94a;
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  padding: 0.8em 0.9em;
+  border-radius: 1em;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--lc) 35%, #fff) 0%, #fff 70%);
+  box-shadow: inset 0 0 0 0.2em var(--lc), 0 0.25em 0 color-mix(in srgb, var(--lc) 60%, #000);
+  transition: transform 0.1s;
+  min-height: 8.5em;
+}
+.jd-lcard:hover:not(:disabled) {
+  transform: translateY(-0.15em);
+}
+.jd-lcard:focus-visible {
+  outline: 0.18em solid var(--sun);
+}
+.jd-lcard.locked {
+  cursor: not-allowed;
+  filter: grayscale(0.9) opacity(0.65);
+}
+.jd-lnum {
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: #fff;
+  background: var(--lc);
+  text-shadow: 0 0.08em 0 rgba(0, 0, 0, 0.3);
+}
+.jd-lname {
+  font-weight: 900;
+  font-size: 1.1em;
+  color: var(--ink);
+}
+.jd-lblurb {
+  font-size: 0.82em;
+  color: #4a4a3a;
+  flex: 1;
+}
+.jd-lfoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82em;
+  font-weight: 700;
+  color: var(--wood);
+}
+
+/* ---------------------------------------------------------------- stars + icons */
+.jd-stars {
+  display: inline-flex;
+  gap: 0.12em;
+}
+.jd-stars svg {
+  width: 1.15em;
+  height: 1.15em;
+}
+.jd-stars svg.on {
+  fill: var(--sun);
+  stroke: #b86e00;
+  stroke-width: 1.5;
+}
+.jd-stars svg.off {
+  fill: rgba(0, 0, 0, 0.15);
+  stroke: rgba(0, 0, 0, 0.2);
+  stroke-width: 1.5;
+}
+.jd-stars.big {
+  display: flex;
+  justify-content: center;
+  gap: 0.4em;
+  margin-bottom: 0.6em;
+}
+.jd-stars.big svg {
+  width: 3em;
+  height: 3em;
+}
+.jd-stars.big svg.on {
+  animation: jd-star 0.45s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+}
+@keyframes jd-star {
+  from {
+    transform: scale(0) rotate(-90deg);
+  }
+}
+.jd-ico {
+  vertical-align: -0.25em;
+}
+
+/* ---------------------------------------------------------------- HUD */
+.jd-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  padding: 1.6cqh 1.8cqw;
+}
+.jd-hud-left {
+  position: absolute;
+  left: 1.8cqw;
+  top: 1.6cqh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.jd-hearts {
+  display: flex;
+  gap: 0.25em;
+}
+.jd-heart {
+  width: 2.1em;
+  height: 2.1em;
+  filter: drop-shadow(0 0.12em 0 rgba(0, 0, 0, 0.35));
+  transition: transform 0.2s;
+}
+.jd-heart.on {
+  fill: #ff3a5a;
+  stroke: #fff;
+  stroke-width: 2;
+  animation: jd-beat 1.6s ease-in-out infinite;
+}
+.jd-heart.off {
+  fill: rgba(0, 0, 0, 0.35);
+  stroke: rgba(255, 255, 255, 0.6);
+  stroke-width: 1.5;
+  transform: scale(0.85);
+}
+@keyframes jd-beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.12);
+  }
+}
+.jd-chips {
+  display: flex;
+  gap: 0.4em;
+}
+.jd-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  background: rgba(20, 30, 10, 0.55);
+  color: #fff;
+  padding: 0.25em 0.7em 0.25em 0.45em;
+  border-radius: 1em;
+  font-size: 1.1em;
+  text-shadow: 0 0.08em 0 rgba(0, 0, 0, 0.5);
+}
+.jd-chip b {
+  font-weight: 900;
+}
+.jd-chip small {
+  opacity: 0.75;
+  font-weight: 700;
+}
+.jd-chip.fruit.pulse {
+  animation: jd-pulse 0.25s ease-out;
+}
+@keyframes jd-pulse {
+  50% {
+    transform: scale(1.15);
+  }
+}
+.jd-hud-right {
+  position: absolute;
+  right: 1.8cqw;
+  top: 1.6cqh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2em;
+}
+.jd-score {
+  font-size: 2em;
+  font-weight: 900;
+  color: var(--sun);
+  -webkit-text-stroke: 0.04em #7a3a08;
+  text-shadow: 0 0.08em 0 #7a3a08;
+  line-height: 1;
+}
+.jd-level {
+  display: flex;
+  gap: 0.6em;
+  background: rgba(20, 30, 10, 0.5);
+  color: #fff;
+  border-radius: 1em;
+  padding: 0.2em 0.7em;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+.jd-time {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+.jd-pausebtn {
+  pointer-events: auto;
+  margin-top: 0.3em;
+  width: 2.4em;
+  height: 2.4em;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--wood);
+  font-weight: 900;
+  box-shadow: 0 0.18em 0 rgba(0, 0, 0, 0.25);
+}
+.jd-bossbar {
+  position: absolute;
+  top: 1.6cqh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(28em, 52cqw);
+  text-align: center;
+  color: #fff;
+}
+.jd-bossname {
+  font-weight: 900;
+  text-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.7);
+  margin-bottom: 0.25em;
+  font-size: 0.95em;
+}
+.jd-bossname em {
+  font-style: normal;
+  color: #ff6a4a;
+  margin-left: 0.4em;
+}
+.jd-bossmeter {
+  position: relative;
+  height: 1.05em;
+  border-radius: 1em;
+  background: rgba(0, 0, 0, 0.55);
+  border: 0.15em solid #fff;
+  overflow: hidden;
+}
+.jd-bossmeter i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(#8ae05a, #2f9e44);
+  transition: width 0.2s;
+}
+.jd-bossmeter i.lag {
+  background: #ffe14a;
+  transition: none;
+}
+.jd-bossmeter b {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0.12em;
+  background: rgba(0, 0, 0, 0.45);
+}
+.jd-bossbar.vul .jd-bossmeter {
+  border-color: var(--sun);
+  box-shadow: 0 0 0.8em var(--sun);
+}
+.jd-bosstip {
+  margin-top: 0.45em;
+  display: inline-block;
+  background: rgba(150, 20, 10, 0.75);
+  padding: 0.2em 0.8em;
+  border-radius: 1em;
+  font-weight: 800;
+  font-size: 0.95em;
+  animation: jd-fade 0.2s;
+}
+.jd-bossbar.vul .jd-bosstip {
+  background: rgba(180, 120, 0, 0.85);
+}
+
+.jd-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 4cqh;
+  transform: translateX(-50%);
+  z-index: 11;
+  pointer-events: none;
+  background: rgba(255, 248, 230, 0.92);
+  color: var(--wood);
+  font-weight: 800;
+  padding: 0.5em 1.1em;
+  border-radius: 1em;
+  box-shadow: 0 0.25em 0 rgba(0, 0, 0, 0.2);
+  max-width: 80cqw;
+  text-align: center;
+  animation: jd-fade 0.3s;
+}
+.jd-is-touch .jd-hint {
+  bottom: auto;
+  top: 22cqh;
+}
+.jd-toast {
+  position: absolute;
+  left: 50%;
+  top: 17cqh;
+  transform: translateX(-50%);
+  z-index: 12;
+  pointer-events: none;
+  padding: 0.45em 1.2em;
+  border-radius: 1em;
+  font-weight: 900;
+  color: #fff;
+  background: rgba(20, 40, 15, 0.75);
+  text-shadow: 0 0.08em 0 rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  animation: jd-toast 0.35s cubic-bezier(0.2, 1.5, 0.4, 1) both;
+}
+.jd-toast.title {
+  font-size: 1.6em;
+  top: 30cqh;
+  background: none;
+  color: var(--sun);
+  -webkit-text-stroke: 0.03em #7a3a08;
+  text-shadow: 0 0.08em 0 #7a3a08, 0 0.2em 0.5em rgba(0, 0, 0, 0.4);
+}
+.jd-toast.good {
+  background: rgba(30, 130, 50, 0.85);
+}
+.jd-toast.gold {
+  background: rgba(200, 130, 0, 0.9);
+}
+.jd-toast.bad {
+  background: rgba(170, 30, 20, 0.88);
+}
+@keyframes jd-toast {
+  from {
+    transform: translateX(-50%) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------- complete / over / victory */
+.jd-stats {
+  display: grid;
+  gap: 0.3em;
+  margin-bottom: 0.7em;
+}
+.jd-stats > div,
+.jd-breakdown > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.jd-stats .ic {
+  width: 1.4em;
+  text-align: center;
+}
+.jd-stats b,
+.jd-breakdown b {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+.jd-breakdown {
+  background: var(--paper2);
+  border-radius: 0.8em;
+  padding: 0.6em 0.9em;
+  display: grid;
+  gap: 0.2em;
+}
+.jd-breakdown .total {
+  border-top: 0.12em dashed rgba(107, 66, 32, 0.4);
+  padding-top: 0.3em;
+  margin-top: 0.15em;
+  font-size: 1.2em;
+  font-weight: 900;
+  color: var(--wood);
+}
+.jd-newbest {
+  text-align: center;
+  margin-top: 0.6em;
+  font-weight: 900;
+  color: #c86a00;
+  animation: jd-beat 1s infinite;
+}
+.jd-over {
+  color: var(--bad) !important;
+}
+.jd-victory {
+  background: radial-gradient(circle at 50% 40%, rgba(255, 225, 120, 0.35), rgba(10, 40, 20, 0.35));
+}
+.jd-victory h2 {
+  color: #c86a00;
+  font-size: 2.1em;
+}
+.jd-confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.jd-confetti i {
+  position: absolute;
+  top: -1em;
+  left: calc(var(--i) * 5.5%);
+  width: 0.5em;
+  height: 0.8em;
+  background: hsl(calc(var(--i) * 47deg) 85% 60%);
+  animation: jd-conf 2.6s linear infinite;
+  animation-delay: calc(var(--i) * -0.17s);
+}
+@keyframes jd-conf {
+  to {
+    transform: translateY(40em) rotate(720deg);
+  }
+}
+
+/* ---------------------------------------------------------------- help */
+.jd-help {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 1.2em;
+}
+@container jd (max-aspect-ratio: 1/1) {
+  .jd-help {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+.jd-help li {
+  margin: 0.32em 0;
+  line-height: 1.35;
+}
+.jd kbd {
+  display: inline-block;
+  font: inherit;
+  font-size: 0.85em;
+  font-weight: 800;
+  background: #fff;
+  border: 0.1em solid #c8b890;
+  border-bottom-width: 0.22em;
+  border-radius: 0.4em;
+  padding: 0.05em 0.45em;
+}
+
+/* ---------------------------------------------------------------- touch */
+.jd-touch {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  pointer-events: none;
+}
+.jd-tstick {
+  position: absolute;
+  left: 0;
+  top: 18cqh;
+  bottom: 0;
+  width: 55cqw;
+  pointer-events: auto;
+  touch-action: none;
+}
+.jd-tbase {
+  position: absolute;
+  left: 18cqw;
+  top: 62cqh;
+  width: 7.5em;
+  height: 7.5em;
+  margin: -3.75em 0 0 -3.75em;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 0.2em solid rgba(255, 255, 255, 0.45);
+  opacity: 0.6;
+}
+.jd-tbase.on {
+  opacity: 1;
+}
+.jd-tknob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3.4em;
+  height: 3.4em;
+  margin: -1.7em 0 0 -1.7em;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.3);
+}
+.jd-thint {
+  position: absolute;
+  left: 18cqw;
+  bottom: 3cqh;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 900;
+  font-size: 0.8em;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.5);
+}
+.jd-tbtns {
+  position: absolute;
+  right: 3cqw;
+  bottom: 5cqh;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: end;
+  gap: 1em;
+  pointer-events: auto;
+}
+.jd-tbtn {
+  appearance: none;
+  border: 0.22em solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0.1em 0 rgba(0, 0, 0, 0.35);
+  touch-action: none;
+  box-shadow: 0 0.3em 0 rgba(0, 0, 0, 0.3);
+}
+.jd-tbtn:active {
+  transform: translateY(0.15em) scale(0.96);
+}
+.jd-tbtn.jump {
+  width: 6.4em;
+  height: 6.4em;
+  background: rgba(47, 158, 68, 0.85);
+  font-size: 1.05em;
+}
+.jd-tbtn.spin {
+  width: 5em;
+  height: 5em;
+  margin-bottom: 3.5em;
+  background: rgba(240, 122, 18, 0.88);
+}
+.jd-tpause {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  top: 1.6cqh;
+  pointer-events: auto;
+  width: 2.6em;
+  height: 2.6em;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--wood);
+  font-weight: 900;
+  box-shadow: 0 0.18em 0 rgba(0, 0, 0, 0.25);
+}
+.jd-is-touch .jd-bossbar {
+  top: 7cqh;
+}
+
+.jd-devnote {
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.5em;
+  z-index: 30;
+  font-size: 11px;
+  background: #000a;
+  color: #fff;
+  padding: 2px 6px;
+}
+
+/* ---------------------------------------------------------------- small / portrait stages */
+@container jd (max-width: 560px) {
+  .jd > * {
+    --u: clamp(9px, 2.9cqw, 14px);
+  }
+  .jd-menu {
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(10, 40, 20, 0.5), rgba(10, 40, 20, 0.15) 50%, rgba(10, 40, 20, 0.5));
+  }
+  .jd-title h1 {
+    font-size: clamp(30px, 14cqw, 70px);
+  }
+  .jd-score {
+    font-size: 1.6em;
+  }
+  .jd-bossbar {
+    width: 92cqw;
+    top: 15cqh;
+  }
+  .jd-toast.title {
+    font-size: 1.3em;
+  }
+}
+@container jd (max-height: 420px) {
+  .jd-panel {
+    padding: 0.9em 1.2em;
+  }
+  .jd-panel h2 {
+    font-size: 1.4em;
+    margin-bottom: 0.3em;
+  }
+  .jd-lcard {
+    min-height: 6.5em;
+  }
+  .jd-lblurb {
+    display: none;
+  }
+}
