@@ -4660,6 +4660,38 @@ h3 {
   z-index: -1;
 }
 
+/* 60 Seconds: Last Shelter decoration - post-apocalyptic survival scene with bunker hatch,
+   countdown clock, survival gear, family silhouette, and distant mushroom cloud
+   Premium illustration with warm amber, muted orange, olive green, and yellow accents */
+.game-page__about[data-decoration="last-shelter"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='ls-metal' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a08060' stop-opacity='0.35'/%3E%3Cstop offset='50%25' stop-color='%23806040' stop-opacity='0.28'/%3E%3Cstop offset='100%25' stop-color='%23604020' stop-opacity='0.22'/%3E%3C/linearGradient%3E%3ClinearGradient id='ls-amber' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffb040' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23c08020' stop-opacity='0.32'/%3E%3C/linearGradient%3E%3ClinearGradient id='ls-olive' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23808040' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23606020' stop-opacity='0.28'/%3E%3C/linearGradient%3E%3ClinearGradient id='ls-orange' x1='0%25' y1='100%25' x2='0%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23ff6020' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23ff8040' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3ClinearGradient id='ls-explosion' x1='50%25' y1='100%25' x2='50%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23ff4000' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%23ff8020' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%23ffc060' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- DISTANT MUSHROOM CLOUD --%3E%3Cg opacity='0.65'%3E%3Cellipse cx='25' cy='8' rx='14' ry='8' fill='url(%23ls-explosion)'/%3E%3Cellipse cx='25' cy='12' rx='10' ry='5' fill='rgba(255,120,40,0.15)'/%3E%3Cpath d='M25 15 L25 28 M22 18 L28 18' stroke='rgba(255,100,30,0.2)' stroke-width='3' fill='none'/%3E%3Cellipse cx='25' cy='6' rx='8' ry='4' fill='rgba(255,180,80,0.12)'/%3E%3C/g%3E%3C!-- RUINED CITY SILHOUETTES --%3E%3Cg opacity='0.5'%3E%3Cpath d='M5 95 L5 35 L8 32 L11 35 L11 95' fill='rgba(60,50,30,0.25)'/%3E%3Cpath d='M8 38 L8 42 M6 45 L10 45' stroke='rgba(255,140,50,0.12)' stroke-width='0.5'/%3E%3Cpath d='M13 95 L13 42 L18 42 L18 95' fill='rgba(55,45,28,0.22)'/%3E%3Cpath d='M14 46 L17 46 M14 52 L17 52 M14 60 L17 60' stroke='rgba(255,130,40,0.1)' stroke-width='0.4'/%3E%3Cpath d='M38 95 L38 25 L42 22 L46 25 L46 95' fill='rgba(50,40,25,0.2)'/%3E%3Cpath d='M40 28 L44 28 M40 35 L44 35 M40 45 L44 45' stroke='rgba(255,120,30,0.08)' stroke-width='0.5'/%3E%3C/g%3E%3C!-- LARGE VINTAGE COUNTDOWN CLOCK --%3E%3Cg transform='translate(72, 28)'%3E%3Ccircle cx='0' cy='0' r='22' fill='none' stroke='rgba(180,140,80,0.5)' stroke-width='2.5'/%3E%3Ccircle cx='0' cy='0' r='19' fill='none' stroke='rgba(160,120,60,0.35)' stroke-width='1.5'/%3E%3Ccircle cx='0' cy='0' r='16' fill='rgba(40,30,15,0.4)'/%3E%3C!-- Clock face marks --%3E%3Cg stroke='rgba(200,160,80,0.45)' stroke-width='1'%3E%3Cpath d='M0 -14 L0 -12'/%3E%3Cpath d='M0 14 L0 12'/%3E%3Cpath d='M-14 0 L-12 0'/%3E%3Cpath d='M14 0 L12 0'/%3E%3Cpath d='M-10 -10 L-8.5 -8.5'/%3E%3Cpath d='M10 -10 L8.5 -8.5'/%3E%3Cpath d='M-10 10 L-8.5 8.5'/%3E%3Cpath d='M10 10 L8.5 8.5'/%3E%3C/g%3E%3C!-- 00:60 Digital display --%3E%3Crect x='-12' y='-6' width='24' height='12' rx='1.5' fill='rgba(30,20,10,0.6)' stroke='rgba(180,140,70,0.4)' stroke-width='0.8'/%3E%3Ctext x='-10' y='3' font-family='monospace' font-size='9' font-weight='bold' fill='rgba(255,180,60,0.7)'%3E00:60%3C/text%3E%3C!-- Clock hands (frozen) --%3E%3Cpath d='M0 0 L0 -8' stroke='rgba(200,150,70,0.55)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M0 0 L6 3' stroke='rgba(200,150,70,0.45)' stroke-width='1' stroke-linecap='round'/%3E%3Ccircle cx='0' cy='0' r='2' fill='rgba(255,180,80,0.5)'/%3E%3C!-- Alarm bells on top --%3E%3Ccircle cx='-8' cy='-20' r='4' fill='none' stroke='rgba(180,140,70,0.4)' stroke-width='1'/%3E%3Ccircle cx='8' cy='-20' r='4' fill='none' stroke='rgba(180,140,70,0.4)' stroke-width='1'/%3E%3Crect x='-1' y='-24' width='2' height='5' fill='rgba(160,120,60,0.35)'/%3E%3C/g%3E%3C!-- BUNKER HATCH (partially open) --%3E%3Cg transform='translate(68, 75)'%3E%3C!-- Hatch rim --%3E%3Cellipse cx='0' cy='0' rx='20' ry='8' fill='none' stroke='rgba(140,110,70,0.55)' stroke-width='3'/%3E%3Cellipse cx='0' cy='0' rx='17' ry='6' fill='rgba(35,28,18,0.5)'/%3E%3C!-- Bolts around rim --%3E%3Ccircle cx='-16' cy='0' r='1.5' fill='rgba(180,140,80,0.4)'/%3E%3Ccircle cx='16' cy='0' r='1.5' fill='rgba(180,140,80,0.4)'/%3E%3Ccircle cx='-10' cy='-5' r='1.5' fill='rgba(180,140,80,0.35)'/%3E%3Ccircle cx='10' cy='-5' r='1.5' fill='rgba(180,140,80,0.35)'/%3E%3Ccircle cx='-10' cy='5' r='1.5' fill='rgba(180,140,80,0.35)'/%3E%3Ccircle cx='10' cy='5' r='1.5' fill='rgba(180,140,80,0.35)'/%3E%3C!-- Open hatch door (tilted) --%3E%3Cellipse cx='-5' cy='-12' rx='14' ry='5' fill='url(%23ls-metal)' stroke='rgba(160,125,75,0.5)' stroke-width='1.5' transform='rotate(-25 -5 -12)'/%3E%3C!-- Hatch handle --%3E%3Ccircle cx='-5' cy='-12' r='3' fill='none' stroke='rgba(200,160,90,0.5)' stroke-width='1.2'/%3E%3C!-- Ladder going down --%3E%3Cpath d='M-4 2 L-4 20' stroke='rgba(180,140,80,0.45)' stroke-width='1.5'/%3E%3Cpath d='M4 2 L4 20' stroke='rgba(180,140,80,0.45)' stroke-width='1.5'/%3E%3Cpath d='M-4 5 L4 5 M-4 9 L4 9 M-4 13 L4 13 M-4 17 L4 17' stroke='rgba(170,130,70,0.4)' stroke-width='1'/%3E%3C!-- Underground glow --%3E%3Cellipse cx='0' cy='3' rx='10' ry='3' fill='rgba(255,180,80,0.15)'/%3E%3C/g%3E%3C!-- SURVIVAL BACKPACK --%3E%3Cg transform='translate(28, 68)'%3E%3Cpath d='M-8 -12 Q-10 -10 -10 0 L-10 14 Q-10 16 -8 16 L8 16 Q10 16 10 14 L10 0 Q10 -10 8 -12 Z' fill='url(%23ls-olive)' stroke='rgba(100,90,50,0.45)' stroke-width='1'/%3E%3C!-- Straps --%3E%3Cpath d='M-6 -12 L-6 -16 Q-4 -18 0 -18 Q4 -18 6 -16 L6 -12' stroke='rgba(90,80,45,0.4)' stroke-width='2' fill='none'/%3E%3C!-- Pockets --%3E%3Crect x='-7' y='0' width='6' height='8' rx='1' fill='none' stroke='rgba(110,100,55,0.35)' stroke-width='0.8'/%3E%3Crect x='1' y='0' width='6' height='8' rx='1' fill='none' stroke='rgba(110,100,55,0.35)' stroke-width='0.8'/%3E%3C!-- Buckles --%3E%3Crect x='-3' y='10' width='6' height='3' rx='0.5' fill='rgba(180,140,70,0.4)'/%3E%3C/g%3E%3C!-- CANNED FOOD --%3E%3Cg transform='translate(15, 82)'%3E%3Crect x='-4' y='-6' width='8' height='12' rx='1' fill='url(%23ls-metal)' stroke='rgba(160,130,80,0.4)' stroke-width='0.8'/%3E%3Cellipse cx='0' cy='-5' rx='4' ry='1.5' fill='rgba(180,150,90,0.35)' stroke='rgba(190,160,100,0.4)' stroke-width='0.5'/%3E%3Cpath d='M-3 -1 L3 -1 M-3 2 L3 2' stroke='rgba(150,120,70,0.25)' stroke-width='0.5'/%3E%3C/g%3E%3C!-- WATER BOTTLE --%3E%3Cg transform='translate(42, 85)'%3E%3Crect x='-3' y='-10' width='6' height='14' rx='2' fill='rgba(80,120,160,0.35)' stroke='rgba(100,140,180,0.4)' stroke-width='0.8'/%3E%3Crect x='-2' y='-13' width='4' height='4' rx='0.5' fill='rgba(70,110,150,0.3)' stroke='rgba(90,130,170,0.35)' stroke-width='0.6'/%3E%3C!-- Water level --%3E%3Crect x='-2.5' y='-2' width='5' height='6' rx='1' fill='rgba(100,150,200,0.25)'/%3E%3C/g%3E%3C!-- FLASHLIGHT --%3E%3Cg transform='translate(52, 90)'%3E%3Crect x='-8' y='-2' width='12' height='4' rx='1' fill='url(%23ls-metal)' stroke='rgba(150,120,70,0.4)' stroke-width='0.6'/%3E%3Crect x='4' y='-3' width='4' height='6' rx='1' fill='rgba(255,220,140,0.4)' stroke='rgba(255,200,100,0.5)' stroke-width='0.5'/%3E%3C!-- Light beam --%3E%3Cpath d='M8 0 L16 -4 L16 4 Z' fill='rgba(255,240,180,0.2)'/%3E%3C/g%3E%3C!-- GAS MASK --%3E%3Cg transform='translate(88, 60)'%3E%3Cellipse cx='0' cy='0' rx='8' ry='10' fill='url(%23ls-olive)' stroke='rgba(90,85,50,0.45)' stroke-width='1'/%3E%3C!-- Eye pieces --%3E%3Ccircle cx='-3' cy='-3' r='3' fill='rgba(40,35,25,0.5)' stroke='rgba(120,110,70,0.4)' stroke-width='0.8'/%3E%3Ccircle cx='3' cy='-3' r='3' fill='rgba(40,35,25,0.5)' stroke='rgba(120,110,70,0.4)' stroke-width='0.8'/%3E%3C!-- Glass reflection --%3E%3Cpath d='M-4 -4 Q-3 -5 -2 -4' fill='none' stroke='rgba(200,200,180,0.3)' stroke-width='0.5'/%3E%3Cpath d='M2 -4 Q3 -5 4 -4' fill='none' stroke='rgba(200,200,180,0.3)' stroke-width='0.5'/%3E%3C!-- Filter canister --%3E%3Cellipse cx='0' cy='8' rx='4' ry='3' fill='rgba(80,75,45,0.4)' stroke='rgba(100,95,55,0.4)' stroke-width='0.8'/%3E%3Cpath d='M-2 6 L-2 10 M0 6 L0 10 M2 6 L2 10' stroke='rgba(70,65,40,0.3)' stroke-width='0.5'/%3E%3C!-- Straps --%3E%3Cpath d='M-8 -2 L-12 -5 M8 -2 L12 -5' stroke='rgba(85,80,48,0.35)' stroke-width='1.5'/%3E%3C/g%3E%3C!-- RADIOACTIVE HAZARD SYMBOL --%3E%3Cg transform='translate(18, 52)' opacity='0.7'%3E%3Ccircle cx='0' cy='0' r='10' fill='none' stroke='rgba(255,200,0,0.4)' stroke-width='1.5'/%3E%3Ccircle cx='0' cy='0' r='3' fill='rgba(255,200,0,0.3)'/%3E%3C!-- Trefoil blades --%3E%3Cpath d='M0 -3 L-5 -8 Q0 -12 5 -8 Z' fill='rgba(255,200,0,0.35)'/%3E%3Cpath d='M2.6 1.5 L8 4 Q6 10 0 8 Z' fill='rgba(255,200,0,0.35)'/%3E%3Cpath d='M-2.6 1.5 L-8 4 Q-6 10 0 8 Z' fill='rgba(255,200,0,0.35)'/%3E%3C/g%3E%3C!-- FAMILY SILHOUETTE SEEKING SHELTER --%3E%3Cg transform='translate(52, 65)' opacity='0.55'%3E%3C!-- Adult figure (crouching) --%3E%3Ccircle cx='-8' cy='-8' r='3' fill='rgba(50,40,25,0.45)'/%3E%3Cpath d='M-8 -5 L-8 2 M-8 -2 L-12 2 M-8 -2 L-4 2 M-8 2 L-11 8 M-8 2 L-5 8' stroke='rgba(50,40,25,0.45)' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Child figure --%3E%3Ccircle cx='0' cy='-5' r='2.5' fill='rgba(50,40,25,0.4)'/%3E%3Cpath d='M0 -2.5 L0 3 M0 0 L-3 3 M0 0 L3 3 M0 3 L-2 7 M0 3 L2 7' stroke='rgba(50,40,25,0.4)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Second adult --%3E%3Ccircle cx='8' cy='-7' r='2.8' fill='rgba(55,45,28,0.42)'/%3E%3Cpath d='M8 -4 L8 2 M8 -1 L5 3 M8 -1 L11 3 M8 2 L6 7 M8 2 L10 7' stroke='rgba(55,45,28,0.42)' stroke-width='1.3' stroke-linecap='round'/%3E%3C/g%3E%3C!-- ADDITIONAL DEBRIS/ATMOSPHERE --%3E%3Cg opacity='0.4'%3E%3Ccircle cx='8' cy='75' r='1' fill='rgba(140,110,70,0.3)'/%3E%3Ccircle cx='35' cy='92' r='1.5' fill='rgba(130,100,60,0.25)'/%3E%3Ccircle cx='92' cy='45' r='0.8' fill='rgba(150,120,80,0.3)'/%3E%3Cpath d='M3 88 L6 85 L4 88 L7 86' stroke='rgba(180,140,80,0.2)' stroke-width='0.4'/%3E%3Cpath d='M95 75 L98 72 L96 75' stroke='rgba(170,130,70,0.18)' stroke-width='0.4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* 60 Seconds: Last Shelter ambient glow - warm amber, orange, and olive with apocalyptic atmosphere */
+.game-page__about[data-decoration="last-shelter"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 45%, rgba(255, 180, 80, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 55% 50%, rgba(200, 150, 60, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 30% at 40% 55%, rgba(255, 120, 40, 0.04) 0%, transparent 45%),
+    radial-gradient(ellipse 30% 25% at 60% 40%, rgba(100, 100, 50, 0.035) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6077,6 +6109,21 @@ h3 {
     height: 340px;
   }
 
+  /* 60 Seconds: Last Shelter tablet */
+  .game-page__about[data-decoration="last-shelter"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="last-shelter"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7481,6 +7528,21 @@ h3 {
     height: 260px;
   }
 
+  /* 60 Seconds: Last Shelter mobile */
+  .game-page__about[data-decoration="last-shelter"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="last-shelter"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8738,6 +8800,21 @@ h3 {
     height: 210px;
   }
 
+  /* 60 Seconds: Last Shelter small mobile */
+  .game-page__about[data-decoration="last-shelter"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="last-shelter"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8929,6 +9006,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="neon-mercenary"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* 60 Seconds: Last Shelter extra small */
+  .game-page__about[data-decoration="last-shelter"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="last-shelter"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

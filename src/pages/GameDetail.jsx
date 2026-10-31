@@ -253,6 +253,8 @@ const GAME_DECORATIONS = {
   "Crown of Ashes: Kingdoms at War": "crown-of-ashes",
   "Crown of Ashes": "crown-of-ashes",
   "Neon Mercenary": "neon-mercenary",
+  "60 Seconds: Last Shelter": "last-shelter",
+  "Last Shelter": "last-shelter",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

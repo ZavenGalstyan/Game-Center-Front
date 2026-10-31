@@ -97,6 +97,7 @@ import kungFuPandaBg from "../images/KungFuPanda.png";
 import harryPotterBg from "../images/HarryPotter.png";
 import crownOfAshesBg from "../images/CrownofAshes.png";
 import neonMercenaryBg from "../images/NeonMercenary.png";
+import lastShelterBg from "../images/60seconds.png";
 
 /**
  * Category to icon mapping.
@@ -1482,6 +1483,29 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(4, 12, 22, 0.5) 45%,
       rgba(4, 12, 22, 0.76) 58%,
       rgba(4, 12, 22, 0.88) 100%)`,
+  },
+  // 60 Seconds: Last Shelter - family entering bunker with "60 SECONDS" title,
+  // dramatic explosion background. 35% keeps title and family silhouette visible;
+  // warm amber-brown fade matches the apocalyptic atmosphere.
+  "60 seconds: last shelter": {
+    image: lastShelterBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 10, 4, 0) 0%,
+      rgba(18, 10, 4, 0) 32%,
+      rgba(18, 10, 4, 0.5) 45%,
+      rgba(18, 10, 4, 0.76) 58%,
+      rgba(18, 10, 4, 0.88) 100%)`,
+  },
+  "last shelter": {
+    image: lastShelterBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 10, 4, 0) 0%,
+      rgba(18, 10, 4, 0) 32%,
+      rgba(18, 10, 4, 0.5) 45%,
+      rgba(18, 10, 4, 0.76) 58%,
+      rgba(18, 10, 4, 0.88) 100%)`,
   },
 };
 
