@@ -125,6 +125,8 @@ const GAME_TAGLINES = {
   "Maze Muncher": "Race through glowing mazes, collect energy orbs, dodge colorful enemies, and conquer every level in this fast-paced arcade adventure.",
   "Vice Streets 3D": "Explore the city, take on missions, and make the streets your own.",
   "Hulk: Open World 3D": "Smash through the city, face powerful enemies, and unleash your strength.",
+  "My Little Buddy": "Feed, play, and care for your adorable sprout-mochi companion in a cozy virtual world.",
+  "Teddy Quest: Magical Kingdom": "Guide Toffee the teddy bear through magical floating islands, collect golden coins, and conquer five enchanted worlds.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -216,6 +218,9 @@ const GAME_DECORATIONS = {
   "Shadow Runner": "shadow-runner",
   "Vice Streets 3D": "vice-streets",
   "Hulk: Open World 3D": "hulk",
+  "My Little Buddy": "my-little-buddy",
+  "Teddy Quest: Magical Kingdom": "teddy-quest",
+  "Teddy Quest": "teddy-quest",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

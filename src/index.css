@@ -4361,6 +4361,64 @@ h3 {
   z-index: -1;
 }
 
+/* My Little Buddy decoration: cute mint-green virtual pet with sprout */
+.game-page__about[data-decoration="my-little-buddy"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -25px;
+  bottom: -45px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='mlbBody' x1='30%25' y1='0%25' x2='70%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2398e8c1' stop-opacity='0.7'/%3E%3Cstop offset='35%25' stop-color='%2378d4a8' stop-opacity='0.6'/%3E%3Cstop offset='70%25' stop-color='%2358c090' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%2340a878' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='mlbHighlight' x1='20%25' y1='0%25' x2='80%25' y2='60%25'%3E%3Cstop offset='0%25' stop-color='%23b8f8d8' stop-opacity='0.5'/%3E%3Cstop offset='50%25' stop-color='%2398e8c1' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%2378d4a8' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='mlbSprout' x1='50%25' y1='100%25' x2='50%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2350b880' stop-opacity='0.7'/%3E%3Cstop offset='50%25' stop-color='%2360c890' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%2378d8a0' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3ClinearGradient id='mlbLeaf' x1='0%25' y1='50%25' x2='100%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='%2368d498' stop-opacity='0.65'/%3E%3Cstop offset='50%25' stop-color='%2380e0a8' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%2390e8b8' stop-opacity='0.45'/%3E%3C/linearGradient%3E%3CradialGradient id='mlbCheek' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffa8b8' stop-opacity='0.45'/%3E%3Cstop offset='60%25' stop-color='%23ff90a0' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%23ff7888' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='mlbGlow' cx='50%25' cy='45%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%2398e8c1' stop-opacity='0.15'/%3E%3Cstop offset='50%25' stop-color='%2378d4a8' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%2358c090' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Ambient glow --%3E%3Cellipse cx='170' cy='175' rx='95' ry='100' fill='url(%23mlbGlow)'/%3E%3C!-- Main rounded body --%3E%3Cellipse cx='170' cy='185' rx='72' ry='68' fill='url(%23mlbBody)'/%3E%3Cellipse cx='155' cy='165' rx='45' ry='40' fill='url(%23mlbHighlight)' opacity='0.5'/%3E%3C!-- Sprout stem --%3E%3Cpath d='M170 118 Q168 100 170 85' stroke='url(%23mlbSprout)' stroke-width='6' stroke-linecap='round' fill='none'/%3E%3C!-- Left leaf --%3E%3Cpath d='M170 90 Q148 78 138 58 Q155 68 170 85' fill='url(%23mlbLeaf)'/%3E%3Cpath d='M158 75 Q150 70 148 62' stroke='%2390e8b8' stroke-width='1' stroke-opacity='0.4' fill='none'/%3E%3C!-- Right leaf --%3E%3Cpath d='M170 90 Q192 78 202 58 Q185 68 170 85' fill='url(%23mlbLeaf)'/%3E%3Cpath d='M182 75 Q190 70 192 62' stroke='%2390e8b8' stroke-width='1' stroke-opacity='0.4' fill='none'/%3E%3C!-- Eyes --%3E%3Cellipse cx='148' cy='175' rx='14' ry='16' fill='%23303840' fill-opacity='0.65'/%3E%3Cellipse cx='192' cy='175' rx='14' ry='16' fill='%23303840' fill-opacity='0.65'/%3E%3C!-- Eye highlights --%3E%3Ccircle cx='144' cy='170' r='5' fill='white' fill-opacity='0.6'/%3E%3Ccircle cx='188' cy='170' r='5' fill='white' fill-opacity='0.6'/%3E%3Ccircle cx='151' cy='178' r='2.5' fill='white' fill-opacity='0.4'/%3E%3Ccircle cx='195' cy='178' r='2.5' fill='white' fill-opacity='0.4'/%3E%3C!-- Rosy cheeks --%3E%3Cellipse cx='125' cy='195' rx='14' ry='10' fill='url(%23mlbCheek)'/%3E%3Cellipse cx='215' cy='195' rx='14' ry='10' fill='url(%23mlbCheek)'/%3E%3C!-- Smile --%3E%3Cpath d='M155 205 Q170 218 185 205' stroke='%23406850' stroke-width='3' stroke-linecap='round' fill='none' stroke-opacity='0.5'/%3E%3C!-- Floating hearts --%3E%3Cpath d='M95 130 Q95 122 102 122 Q108 122 108 130 Q108 138 95 148 Q82 138 82 130 Q82 122 88 122 Q95 122 95 130 Z' fill='%23ff90a8' fill-opacity='0.4'/%3E%3Cpath d='M250 110 Q250 104 255 104 Q260 104 260 110 Q260 116 250 122 Q240 116 240 110 Q240 104 245 104 Q250 104 250 110 Z' fill='%23ff90a8' fill-opacity='0.35'/%3E%3Cpath d='M72 175 Q72 170 76 170 Q80 170 80 175 Q80 180 72 184 Q64 180 64 175 Q64 170 68 170 Q72 170 72 175 Z' fill='%23ffa0b0' fill-opacity='0.3'/%3E%3C!-- Sparkle stars --%3E%3Cpath d='M265 165 L267 160 L269 165 L274 167 L269 169 L267 174 L265 169 L260 167 Z' fill='%23ffe080' fill-opacity='0.5'/%3E%3Cpath d='M105 95 L106.5 91 L108 95 L112 96.5 L108 98 L106.5 102 L105 98 L101 96.5 Z' fill='%23ffe080' fill-opacity='0.45'/%3E%3Cpath d='M230 210 L231 207 L232 210 L235 211 L232 212 L231 215 L230 212 L227 211 Z' fill='%23ffe080' fill-opacity='0.4'/%3E%3C!-- Small floating dots/sparkles --%3E%3Ccircle cx='85' cy='150' r='3' fill='%2398e8c1' fill-opacity='0.35'/%3E%3Ccircle cx='258' cy='145' r='2.5' fill='%2398e8c1' fill-opacity='0.3'/%3E%3Ccircle cx='115' cy='240' r='2' fill='%2398e8c1' fill-opacity='0.28'/%3E%3Ccircle cx='235' cy='235' r='2.5' fill='%2398e8c1' fill-opacity='0.25'/%3E%3Ccircle cx='78' cy='200' r='2' fill='%23ffa8b8' fill-opacity='0.3'/%3E%3Ccircle cx='262' cy='190' r='1.8' fill='%23ffa8b8' fill-opacity='0.28'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* My Little Buddy ambient glow - soft mint and pastel warmth */
+.game-page__about[data-decoration="my-little-buddy"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -60px;
+  width: 380px;
+  height: 380px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgba(120, 212, 168, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 55% 55%, rgba(152, 232, 193, 0.04) 0%, transparent 45%),
+    radial-gradient(ellipse 30% 28% at 48% 52%, rgba(255, 168, 184, 0.025) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Teddy Quest decoration: cute teddy bear with backpack reaching for golden coin */
+.game-page__about[data-decoration="teddy-quest"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='tqFur' x1='30%25' y1='0%25' x2='70%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23c9956a' stop-opacity='0.75'/%3E%3Cstop offset='35%25' stop-color='%23b8845a' stop-opacity='0.65'/%3E%3Cstop offset='70%25' stop-color='%23a07348' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%23886238' stop-opacity='0.45'/%3E%3C/linearGradient%3E%3ClinearGradient id='tqFurLight' x1='20%25' y1='0%25' x2='80%25' y2='70%25'%3E%3Cstop offset='0%25' stop-color='%23daa878' stop-opacity='0.5'/%3E%3Cstop offset='50%25' stop-color='%23c9956a' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23b8845a' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3ClinearGradient id='tqFurDark' x1='80%25' y1='100%25' x2='20%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23705030' stop-opacity='0.5'/%3E%3Cstop offset='50%25' stop-color='%23886238' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23a07348' stop-opacity='0.2'/%3E%3C/linearGradient%3E%3ClinearGradient id='tqMuzzle' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8c89a' stop-opacity='0.7'/%3E%3Cstop offset='50%25' stop-color='%23d8b888' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23c8a878' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3ClinearGradient id='tqBackpack' x1='30%25' y1='0%25' x2='70%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2368c890' stop-opacity='0.7'/%3E%3Cstop offset='40%25' stop-color='%2350b878' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%2340a068' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3ClinearGradient id='tqCoin' x1='20%25' y1='0%25' x2='80%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffd860' stop-opacity='0.85'/%3E%3Cstop offset='30%25' stop-color='%23f0c850' stop-opacity='0.75'/%3E%3Cstop offset='70%25' stop-color='%23e0b840' stop-opacity='0.65'/%3E%3Cstop offset='100%25' stop-color='%23d0a830' stop-opacity='0.55'/%3E%3C/linearGradient%3E%3CradialGradient id='tqCoinGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffe880' stop-opacity='0.5'/%3E%3Cstop offset='50%25' stop-color='%23ffd860' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%23f0c850' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='tqGlow' cx='50%25' cy='45%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%2368c890' stop-opacity='0.12'/%3E%3Cstop offset='50%25' stop-color='%2350b878' stop-opacity='0.06'/%3E%3Cstop offset='100%25' stop-color='%2340a068' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Ambient glow --%3E%3Cellipse cx='165' cy='180' rx='100' ry='105' fill='url(%23tqGlow)'/%3E%3C!-- Coin glow effect --%3E%3Ccircle cx='245' cy='95' r='35' fill='url(%23tqCoinGlow)'/%3E%3C!-- Bear body --%3E%3Cellipse cx='155' cy='210' rx='52' ry='48' fill='url(%23tqFur)'/%3E%3Cellipse cx='140' cy='195' rx='32' ry='28' fill='url(%23tqFurLight)' opacity='0.5'/%3E%3C!-- Backpack --%3E%3Cpath d='M180 175 Q200 165 205 190 Q208 220 195 240 Q180 252 165 245 Q155 235 160 210 Q165 185 180 175 Z' fill='url(%23tqBackpack)'/%3E%3Cpath d='M175 180 Q188 172 193 188 Q195 205 188 218' stroke='%2388d8a8' stroke-width='1.5' stroke-opacity='0.5' fill='none'/%3E%3Crect x='172' y='195' width='18' height='4' rx='2' fill='%2350a070' fill-opacity='0.6'/%3E%3Crect x='175' y='210' width='12' height='3' rx='1.5' fill='%2350a070' fill-opacity='0.5'/%3E%3C!-- Head --%3E%3Cellipse cx='150' cy='145' rx='48' ry='45' fill='url(%23tqFur)'/%3E%3Cellipse cx='135' cy='130' rx='28' ry='25' fill='url(%23tqFurLight)' opacity='0.45'/%3E%3C!-- Left ear --%3E%3Ccircle cx='108' cy='108' r='18' fill='url(%23tqFur)'/%3E%3Ccircle cx='108' cy='108' r='10' fill='url(%23tqMuzzle)' opacity='0.7'/%3E%3C!-- Right ear --%3E%3Ccircle cx='192' cy='108' r='18' fill='url(%23tqFur)'/%3E%3Ccircle cx='192' cy='108' r='10' fill='url(%23tqMuzzle)' opacity='0.7'/%3E%3C!-- Muzzle --%3E%3Cellipse cx='150' cy='158' rx='22' ry='18' fill='url(%23tqMuzzle)'/%3E%3C!-- Eyes --%3E%3Cellipse cx='132' cy='140' rx='10' ry='12' fill='%23303840' fill-opacity='0.7'/%3E%3Cellipse cx='168' cy='140' rx='10' ry='12' fill='%23303840' fill-opacity='0.7'/%3E%3C!-- Eye highlights --%3E%3Ccircle cx='129' cy='136' r='4' fill='white' fill-opacity='0.65'/%3E%3Ccircle cx='165' cy='136' r='4' fill='white' fill-opacity='0.65'/%3E%3Ccircle cx='134' cy='143' r='2' fill='white' fill-opacity='0.4'/%3E%3Ccircle cx='170' cy='143' r='2' fill='white' fill-opacity='0.4'/%3E%3C!-- Nose --%3E%3Cellipse cx='150' cy='155' rx='6' ry='4' fill='%23504038' fill-opacity='0.7'/%3E%3Cellipse cx='149' cy='154' rx='2' ry='1.2' fill='white' fill-opacity='0.35'/%3E%3C!-- Smile --%3E%3Cpath d='M142 163 Q150 170 158 163' stroke='%23504038' stroke-width='2' stroke-linecap='round' fill='none' stroke-opacity='0.55'/%3E%3C!-- Left arm reaching up --%3E%3Cpath d='M115 195 Q95 175 85 145 Q80 130 90 120 Q100 115 110 125 Q118 138 115 155' fill='url(%23tqFur)'/%3E%3Cpath d='M105 135 Q100 128 105 122' stroke='%23daa878' stroke-width='1.2' stroke-opacity='0.4' fill='none'/%3E%3C!-- Left paw --%3E%3Ccircle cx='92' cy='118' r='12' fill='url(%23tqFur)'/%3E%3Ccircle cx='92' cy='118' r='7' fill='url(%23tqMuzzle)' opacity='0.65'/%3E%3C!-- Right arm --%3E%3Cpath d='M195 200 Q210 190 220 175 Q228 162 225 150' fill='url(%23tqFur)'/%3E%3C!-- Right paw reaching for coin --%3E%3Ccircle cx='225' cy='145' r='14' fill='url(%23tqFur)'/%3E%3Ccircle cx='225' cy='145' r='8' fill='url(%23tqMuzzle)' opacity='0.65'/%3E%3C!-- Legs --%3E%3Cellipse cx='130' cy='255' rx='18' ry='14' fill='url(%23tqFur)'/%3E%3Cellipse cx='130' cy='255' rx='10' ry='8' fill='url(%23tqMuzzle)' opacity='0.6'/%3E%3Cellipse cx='175' cy='252' rx='16' ry='12' fill='url(%23tqFur)'/%3E%3Cellipse cx='175' cy='252' rx='9' ry='7' fill='url(%23tqMuzzle)' opacity='0.6'/%3E%3C!-- Golden coin --%3E%3Ccircle cx='245' cy='95' r='22' fill='url(%23tqCoin)'/%3E%3Ccircle cx='245' cy='95' r='17' fill='none' stroke='%23d8a830' stroke-width='2' stroke-opacity='0.5'/%3E%3Ctext x='245' y='102' text-anchor='middle' font-size='18' font-weight='bold' fill='%23c09020' fill-opacity='0.65' font-family='sans-serif'%3E$%3C/text%3E%3Cellipse cx='238' cy='85' rx='6' ry='4' fill='white' fill-opacity='0.35'/%3E%3C!-- Small floating coins --%3E%3Ccircle cx='268' cy='140' r='10' fill='url(%23tqCoin)' opacity='0.6'/%3E%3Ccircle cx='268' cy='140' r='7' fill='none' stroke='%23d8a830' stroke-width='1' stroke-opacity='0.4'/%3E%3Ccircle cx='82' cy='85' r='8' fill='url(%23tqCoin)' opacity='0.5'/%3E%3C!-- Magical sparkles --%3E%3Cpath d='M260 65 L262 58 L264 65 L271 67 L264 69 L262 76 L260 69 L253 67 Z' fill='%23ffe880' fill-opacity='0.6'/%3E%3Cpath d='M220 55 L221.5 50 L223 55 L228 56.5 L223 58 L221.5 63 L220 58 L215 56.5 Z' fill='%23ffe880' fill-opacity='0.5'/%3E%3Cpath d='M275 110 L276 106 L277 110 L281 111 L277 112 L276 116 L275 112 L271 111 Z' fill='%23ffe880' fill-opacity='0.45'/%3E%3C!-- Green adventure leaves --%3E%3Cpath d='M75 130 Q68 120 78 112 Q88 118 82 128 Q78 134 75 130 Z' fill='%2368c890' fill-opacity='0.45'/%3E%3Cpath d='M77 122 Q75 118 78 116' stroke='%2390e8b0' stroke-width='0.8' stroke-opacity='0.4' fill='none'/%3E%3Cpath d='M255 175 Q262 168 270 172 Q265 182 256 180 Q252 178 255 175 Z' fill='%2368c890' fill-opacity='0.4'/%3E%3Cpath d='M100 65 Q95 58 102 55 Q110 60 105 68 Q102 72 100 65 Z' fill='%2380d8a0' fill-opacity='0.35'/%3E%3C!-- Floating sparkle dots --%3E%3Ccircle cx='70' cy='105' r='2.5' fill='%23ffe880' fill-opacity='0.45'/%3E%3Ccircle cx='285' cy='85' r='2' fill='%23ffe880' fill-opacity='0.4'/%3E%3Ccircle cx='240' cy='45' r='2.2' fill='%2398e8c1' fill-opacity='0.4'/%3E%3Ccircle cx='95' cy='145' r='1.8' fill='%2398e8c1' fill-opacity='0.35'/%3E%3Ccircle cx='200' cy='65' r='2' fill='%23ffe880' fill-opacity='0.35'/%3E%3Ccircle cx='110' cy='90' r='1.5' fill='%2398e8c1' fill-opacity='0.3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Teddy Quest ambient glow - warm golden and emerald adventure tones */
+.game-page__about[data-decoration="teddy-quest"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 380px;
+  height: 380px;
+  background:
+    radial-gradient(ellipse 50% 45% at 55% 45%, rgba(255, 216, 96, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 48% 52%, rgba(104, 200, 144, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 30% at 52% 48%, rgba(200, 148, 96, 0.04) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5658,6 +5716,36 @@ h3 {
     height: 300px;
   }
 
+  /* My Little Buddy tablet */
+  .game-page__about[data-decoration="my-little-buddy"]::before {
+    right: -10px;
+    bottom: -25px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .game-page__about[data-decoration="my-little-buddy"]::after {
+    right: -25px;
+    bottom: -40px;
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Teddy Quest tablet */
+  .game-page__about[data-decoration="teddy-quest"]::before {
+    right: -8px;
+    bottom: -22px;
+    width: 245px;
+    height: 245px;
+  }
+
+  .game-page__about[data-decoration="teddy-quest"]::after {
+    right: -22px;
+    bottom: -38px;
+    width: 285px;
+    height: 285px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -6942,6 +7030,36 @@ h3 {
     height: 250px;
   }
 
+  /* My Little Buddy mobile */
+  .game-page__about[data-decoration="my-little-buddy"]::before {
+    right: -8px;
+    bottom: -15px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .game-page__about[data-decoration="my-little-buddy"]::after {
+    right: -20px;
+    bottom: -30px;
+    width: 220px;
+    height: 220px;
+  }
+
+  /* Teddy Quest mobile */
+  .game-page__about[data-decoration="teddy-quest"]::before {
+    right: -6px;
+    bottom: -14px;
+    width: 185px;
+    height: 185px;
+  }
+
+  .game-page__about[data-decoration="teddy-quest"]::after {
+    right: -18px;
+    bottom: -28px;
+    width: 225px;
+    height: 225px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8077,6 +8195,36 @@ h3 {
     bottom: -22px;
     width: 205px;
     height: 205px;
+  }
+
+  /* My Little Buddy small mobile */
+  .game-page__about[data-decoration="my-little-buddy"]::before {
+    right: -5px;
+    bottom: -12px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-page__about[data-decoration="my-little-buddy"]::after {
+    right: -15px;
+    bottom: -22px;
+    width: 185px;
+    height: 185px;
+  }
+
+  /* Teddy Quest small mobile */
+  .game-page__about[data-decoration="teddy-quest"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 155px;
+    height: 155px;
+  }
+
+  .game-page__about[data-decoration="teddy-quest"]::after {
+    right: -14px;
+    bottom: -20px;
+    width: 190px;
+    height: 190px;
   }
 
   .game-page__short-desc {

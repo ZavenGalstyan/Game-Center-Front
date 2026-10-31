@@ -87,6 +87,8 @@ import shadowWarriorsBg from "../images/ShadowWarriors.png";
 import shadowRunnerBg from "../images/ShadowRunner.png";
 import viceStreetsBg from "../images/ViceStreets.png";
 import hulkBg from "../images/Hulk.png";
+import myLittleBuddyBg from "../images/MyLittleBuddy.png";
+import teddyQuestBg from "../images/TeddyQuest.png";
 
 /**
  * Category to icon mapping.
@@ -1261,6 +1263,40 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(5, 18, 10, 0.68) 54%,
       rgba(5, 18, 10, 0.82) 68%,
       rgba(5, 18, 10, 0.92) 100%)`,
+  },
+  // My Little Buddy - bright cozy kitchen scene with mint pet on the right.
+  // The pet and title on the left, so a warm mint-tinted fade on the right.
+  "my little buddy": {
+    image: myLittleBuddyBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 24, 18, 0) 0%,
+      rgba(8, 24, 18, 0) 38%,
+      rgba(8, 24, 18, 0.45) 48%,
+      rgba(8, 24, 18, 0.72) 58%,
+      rgba(8, 24, 18, 0.85) 100%)`,
+  },
+  // Teddy Quest: Magical Kingdom - colorful floating islands with teddy bear.
+  // Title on left, bear jumping in center, so position to keep title visible.
+  "teddy quest: magical kingdom": {
+    image: teddyQuestBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 20, 14, 0) 0%,
+      rgba(6, 20, 14, 0) 32%,
+      rgba(6, 20, 14, 0.42) 44%,
+      rgba(6, 20, 14, 0.68) 56%,
+      rgba(6, 20, 14, 0.82) 100%)`,
+  },
+  "teddy quest": {
+    image: teddyQuestBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 20, 14, 0) 0%,
+      rgba(6, 20, 14, 0) 32%,
+      rgba(6, 20, 14, 0.42) 44%,
+      rgba(6, 20, 14, 0.68) 56%,
+      rgba(6, 20, 14, 0.82) 100%)`,
   },
 };
 
