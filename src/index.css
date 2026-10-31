@@ -4508,6 +4508,36 @@ h3 {
   z-index: -1;
 }
 
+/* Ninja Turtles: Shadow Strike - ninja turtle silhouette, crescent moon, rooftop skyline, motion streaks */
+.game-page__about[data-decoration="ninja-turtles"]::before {
+  content: "";
+  width: 360px;
+  height: 360px;
+  right: -20px;
+  bottom: -35px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Glowing crescent moon --%3E%3Cpath d='M78 12 Q88 12 92 22 Q92 34 82 38 Q88 32 88 22 Q88 14 78 12' fill='rgba(255,255,240,0.14)' stroke='rgba(255,250,205,0.22)' stroke-width='0.8'/%3E%3Ccircle cx='82' cy='20' r='8' fill='rgba(255,255,240,0.06)'/%3E%3C!-- Moon glow halo --%3E%3Ccircle cx='84' cy='22' r='14' fill='none' stroke='rgba(255,255,240,0.04)' stroke-width='3'/%3E%3Ccircle cx='84' cy='22' r='18' fill='none' stroke='rgba(255,255,240,0.025)' stroke-width='2'/%3E%3C!-- City skyline silhouette --%3E%3Cpath d='M0 88 L0 72 L8 72 L8 68 L12 68 L12 72 L18 72 L18 65 L20 62 L22 65 L22 72 L28 72 L28 58 L30 58 L30 55 L32 55 L32 58 L34 58 L34 72 L42 72 L42 68 L46 68 L46 72 L52 72 L52 60 L54 56 L56 60 L56 72 L62 72 L62 66 L66 66 L66 72 L74 72 L74 78 L78 78 L78 72 L84 72 L84 76 L90 76 L90 72 L96 72 L96 68 L100 68 L100 88 Z' fill='rgba(10,20,30,0.18)' stroke='rgba(0,232,143,0.08)' stroke-width='0.5'/%3E%3C!-- Building windows scattered --%3E%3Crect x='29' y='60' width='2' height='2' fill='rgba(255,220,100,0.12)'/%3E%3Crect x='31' y='64' width='2' height='2' fill='rgba(255,220,100,0.1)'/%3E%3Crect x='53' y='62' width='1.5' height='1.5' fill='rgba(255,220,100,0.1)'/%3E%3Crect x='63' y='68' width='1.5' height='1.5' fill='rgba(255,220,100,0.08)'/%3E%3Crect x='10' y='70' width='1' height='1' fill='rgba(255,220,100,0.08)'/%3E%3Crect x='44' y='70' width='1' height='1' fill='rgba(255,220,100,0.06)'/%3E%3C!-- Rooftop platform --%3E%3Crect x='38' y='75' width='32' height='4' rx='0.5' fill='rgba(40,60,50,0.14)' stroke='rgba(0,232,143,0.1)' stroke-width='0.6'/%3E%3Cline x1='42' y1='75' x2='42' y2='79' stroke='rgba(0,232,143,0.06)' stroke-width='0.4'/%3E%3Cline x1='50' y1='75' x2='50' y2='79' stroke='rgba(0,232,143,0.06)' stroke-width='0.4'/%3E%3Cline x1='58' y1='75' x2='58' y2='79' stroke='rgba(0,232,143,0.06)' stroke-width='0.4'/%3E%3Cline x1='66' y1='75' x2='66' y2='79' stroke='rgba(0,232,143,0.06)' stroke-width='0.4'/%3E%3C!-- Ninja turtle silhouette - dynamic action pose with katana --%3E%3C!-- Shell --%3E%3Cellipse cx='54' cy='52' rx='12' ry='14' fill='rgba(0,100,80,0.16)' stroke='rgba(0,180,120,0.22)' stroke-width='1'/%3E%3C!-- Shell pattern segments --%3E%3Cpath d='M46 45 Q54 42 62 45' fill='none' stroke='rgba(0,160,100,0.12)' stroke-width='0.6'/%3E%3Cpath d='M44 52 Q54 48 64 52' fill='none' stroke='rgba(0,160,100,0.1)' stroke-width='0.5'/%3E%3Cpath d='M45 58 Q54 55 63 58' fill='none' stroke='rgba(0,160,100,0.1)' stroke-width='0.5'/%3E%3C!-- Body/plastron --%3E%3Cellipse cx='54' cy='52' rx='7' ry='10' fill='rgba(139,119,80,0.1)' stroke='rgba(180,150,100,0.12)' stroke-width='0.6'/%3E%3C!-- Head --%3E%3Ccircle cx='54' cy='34' r='7' fill='rgba(0,120,90,0.16)' stroke='rgba(0,180,120,0.2)' stroke-width='0.8'/%3E%3C!-- Mask band --%3E%3Cpath d='M46 32 Q54 30 62 32 Q62 36 54 38 Q46 36 46 32' fill='rgba(120,60,140,0.18)' stroke='rgba(138,43,226,0.22)' stroke-width='0.6'/%3E%3C!-- Mask tails flowing --%3E%3Cpath d='M62 33 Q68 30 74 32 Q72 34 68 35' fill='rgba(120,60,140,0.14)' stroke='rgba(138,43,226,0.18)' stroke-width='0.5'/%3E%3Cpath d='M62 35 Q66 34 72 38 Q68 38 65 37' fill='rgba(120,60,140,0.12)' stroke='rgba(138,43,226,0.15)' stroke-width='0.4'/%3E%3C!-- Eyes behind mask --%3E%3Cellipse cx='50' cy='33' rx='2.5' ry='1.8' fill='rgba(255,255,255,0.2)'/%3E%3Cellipse cx='58' cy='33' rx='2.5' ry='1.8' fill='rgba(255,255,255,0.2)'/%3E%3Ccircle cx='50' cy='33' r='1' fill='rgba(30,30,30,0.25)'/%3E%3Ccircle cx='58' cy='33' r='1' fill='rgba(30,30,30,0.25)'/%3E%3C!-- Determined expression highlight --%3E%3Ccircle cx='50.5' cy='32.5' r='0.4' fill='rgba(255,255,255,0.2)'/%3E%3Ccircle cx='58.5' cy='32.5' r='0.4' fill='rgba(255,255,255,0.2)'/%3E%3C!-- Right arm raised holding katana --%3E%3Cpath d='M64 45 Q70 38 72 30' fill='none' stroke='rgba(0,120,90,0.18)' stroke-width='4' stroke-linecap='round'/%3E%3C!-- Katana blade --%3E%3Cpath d='M72 30 L78 10 L80 10 L74 31' fill='rgba(200,210,220,0.18)' stroke='rgba(220,230,240,0.25)' stroke-width='0.5'/%3E%3C!-- Katana edge gleam --%3E%3Cpath d='M73 28 L78 12' fill='none' stroke='rgba(255,255,255,0.15)' stroke-width='0.5'/%3E%3C!-- Katana handle --%3E%3Crect x='70' y='30' width='3' height='6' rx='0.5' fill='rgba(60,40,30,0.18)' stroke='rgba(80,60,40,0.2)' stroke-width='0.4'/%3E%3C!-- Handle wrapping --%3E%3Cline x1='70' y1='31' x2='73' y2='31' stroke='rgba(139,90,43,0.15)' stroke-width='0.5'/%3E%3Cline x1='70' y1='33' x2='73' y2='33' stroke='rgba(139,90,43,0.15)' stroke-width='0.5'/%3E%3Cline x1='70' y1='35' x2='73' y2='35' stroke='rgba(139,90,43,0.15)' stroke-width='0.5'/%3E%3C!-- Tsuba (guard) --%3E%3Cellipse cx='71.5' cy='30' rx='2' ry='0.8' fill='rgba(180,150,80,0.16)' stroke='rgba(200,170,100,0.2)' stroke-width='0.4'/%3E%3C!-- Left arm --%3E%3Cpath d='M44 48 Q38 52 35 58' fill='none' stroke='rgba(0,120,90,0.16)' stroke-width='3.5' stroke-linecap='round'/%3E%3C!-- Left hand fist --%3E%3Ccircle cx='35' cy='59' r='2.5' fill='rgba(0,120,90,0.14)' stroke='rgba(0,160,110,0.18)' stroke-width='0.5'/%3E%3C!-- Legs in action stance --%3E%3Cpath d='M48 64 Q44 70 42 76' fill='none' stroke='rgba(0,120,90,0.16)' stroke-width='3.5' stroke-linecap='round'/%3E%3Cpath d='M58 64 Q62 68 66 74' fill='none' stroke='rgba(0,120,90,0.16)' stroke-width='3.5' stroke-linecap='round'/%3E%3C!-- Feet/shoes --%3E%3Cellipse cx='41' cy='77' rx='3' ry='1.5' fill='rgba(60,40,30,0.14)' stroke='rgba(80,60,40,0.16)' stroke-width='0.4'/%3E%3Cellipse cx='67' cy='75' rx='3' ry='1.5' fill='rgba(60,40,30,0.14)' stroke='rgba(80,60,40,0.16)' stroke-width='0.4'/%3E%3C!-- Belt with buckle --%3E%3Cpath d='M44 58 Q54 60 64 58' fill='none' stroke='rgba(60,40,30,0.16)' stroke-width='1.5'/%3E%3Crect x='52' y='57' width='4' height='3' rx='0.5' fill='rgba(180,150,80,0.14)' stroke='rgba(200,170,100,0.18)' stroke-width='0.4'/%3E%3C!-- Motion speed lines --%3E%3Cpath d='M28 40 L18 42' fill='none' stroke='rgba(0,232,143,0.1)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M30 48 L16 52' fill='none' stroke='rgba(0,232,143,0.08)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M32 56 L20 60' fill='none' stroke='rgba(0,232,143,0.06)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Wind/action effect trails --%3E%3Cpath d='M26 35 Q22 36 18 34' fill='none' stroke='rgba(100,200,180,0.08)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M24 44 Q20 46 14 44' fill='none' stroke='rgba(100,200,180,0.06)' stroke-width='0.6' stroke-linecap='round'/%3E%3C!-- Katana swing arc effect --%3E%3Cpath d='M76 8 Q82 5 88 6' fill='none' stroke='rgba(220,230,240,0.1)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M78 12 Q86 8 92 10' fill='none' stroke='rgba(220,230,240,0.08)' stroke-width='0.6' stroke-linecap='round'/%3E%3C!-- Impact sparkles near blade --%3E%3Cpath d='M80 8 L82 6 L80 4 L78 6 Z' fill='rgba(255,255,255,0.12)'/%3E%3Cpath d='M85 5 L86 3 L85 1 L84 3 Z' fill='rgba(255,255,255,0.08)'/%3E%3Ccircle cx='88' cy='8' r='1' fill='rgba(255,255,255,0.08)'/%3E%3C!-- Teal energy wisps --%3E%3Cpath d='M38 30 Q34 28 32 32' fill='none' stroke='rgba(0,232,180,0.1)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M40 25 Q36 22 34 26' fill='none' stroke='rgba(0,232,180,0.08)' stroke-width='0.6' stroke-linecap='round'/%3E%3C!-- Ground impact dust --%3E%3Ccircle cx='38' cy='78' r='3' fill='rgba(180,180,160,0.06)'/%3E%3Ccircle cx='70' cy='76' r='2.5' fill='rgba(180,180,160,0.05)'/%3E%3Cpath d='M35 80 Q38 78 41 80' fill='none' stroke='rgba(180,180,160,0.06)' stroke-width='0.6'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Ninja Turtles ambient glow - emerald, teal, purple ninja energy */
+.game-page__about[data-decoration="ninja-turtles"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -50px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 45%, rgba(0, 232, 143, 0.055) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 55% 50%, rgba(0, 180, 180, 0.045) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 45% 55%, rgba(138, 43, 226, 0.035) 0%, transparent 45%),
+    radial-gradient(ellipse 35% 30% at 60% 35%, rgba(255, 255, 240, 0.03) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5880,6 +5910,21 @@ h3 {
     height: 320px;
   }
 
+  /* Ninja Turtles tablet */
+  .game-page__about[data-decoration="ninja-turtles"]::before {
+    right: -18px;
+    bottom: -30px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .game-page__about[data-decoration="ninja-turtles"]::after {
+    right: -32px;
+    bottom: -45px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7239,6 +7284,21 @@ h3 {
     height: 250px;
   }
 
+  /* Ninja Turtles mobile */
+  .game-page__about[data-decoration="ninja-turtles"]::before {
+    right: -14px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="ninja-turtles"]::after {
+    right: -26px;
+    bottom: -40px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8451,6 +8511,21 @@ h3 {
     height: 200px;
   }
 
+  /* Ninja Turtles small mobile */
+  .game-page__about[data-decoration="ninja-turtles"]::before {
+    right: -10px;
+    bottom: -18px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="ninja-turtles"]::after {
+    right: -18px;
+    bottom: -28px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8580,7 +8655,8 @@ h3 {
   .game-page__about[data-decoration="tank-warfare"]::after,
   .game-page__about[data-decoration="sky-combat"]::after,
   .game-page__about[data-decoration="feather-fury"]::after,
-  .game-page__about[data-decoration="jungle-dash"]::after {
+  .game-page__about[data-decoration="jungle-dash"]::after,
+  .game-page__about[data-decoration="ninja-turtles"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
@@ -8610,6 +8686,14 @@ h3 {
     bottom: -12px;
     width: 130px;
     height: 130px;
+  }
+
+  /* Ninja Turtles extra small */
+  .game-page__about[data-decoration="ninja-turtles"]::before {
+    right: -6px;
+    bottom: -12px;
+    width: 140px;
+    height: 140px;
   }
 
   .game-page__about[data-decoration="mahjong-classic"]::before {

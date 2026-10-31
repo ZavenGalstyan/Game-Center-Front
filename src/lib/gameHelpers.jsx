@@ -92,6 +92,7 @@ import teddyQuestBg from "../images/TeddyQuest.png";
 import featherFuryBg from "../images/FeatherFury.png";
 import flameAquaBg from "../images/FlameAqua.png";
 import jungleDashBg from "../images/JungleDash.png";
+import ninjaTurtlesBg from "../images/NinjaTurtles.png";
 
 /**
  * Category to icon mapping.
@@ -1377,6 +1378,28 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(4, 22, 14, 0.5) 48%,
       rgba(4, 22, 14, 0.76) 60%,
       rgba(4, 22, 14, 0.88) 100%)`,
+  },
+  // Ninja Turtles: logo and title ~0-45%, four turtles ~40-85%, moonlit city
+  // behind. 30% keeps the title visible; teal-navy fade for text legibility.
+  "ninja turtles: shadow strike": {
+    image: ninjaTurtlesBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 16, 22, 0) 0%,
+      rgba(4, 16, 22, 0) 34%,
+      rgba(4, 16, 22, 0.5) 46%,
+      rgba(4, 16, 22, 0.76) 58%,
+      rgba(4, 16, 22, 0.88) 100%)`,
+  },
+  "ninja turtles": {
+    image: ninjaTurtlesBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 16, 22, 0) 0%,
+      rgba(4, 16, 22, 0) 34%,
+      rgba(4, 16, 22, 0.5) 46%,
+      rgba(4, 16, 22, 0.76) 58%,
+      rgba(4, 16, 22, 0.88) 100%)`,
   },
 };
 
