@@ -127,6 +127,8 @@ const GAME_TAGLINES = {
   "Hulk: Open World 3D": "Smash through the city, face powerful enemies, and unleash your strength.",
   "My Little Buddy": "Feed, play, and care for your adorable sprout-mochi companion in a cozy virtual world.",
   "Teddy Quest: Magical Kingdom": "Guide Toffee the teddy bear through magical floating islands, collect golden coins, and conquer five enchanted worlds.",
+  "Feather Fury: Island Siege": "Launch feathered fighters from your slingshot, demolish wooden fortresses, and conquer tropical islands.",
+  "Feather Fury": "Launch feathered fighters from your slingshot, demolish wooden fortresses, and conquer tropical islands.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -221,6 +223,8 @@ const GAME_DECORATIONS = {
   "My Little Buddy": "my-little-buddy",
   "Teddy Quest: Magical Kingdom": "teddy-quest",
   "Teddy Quest": "teddy-quest",
+  "Feather Fury: Island Siege": "feather-fury",
+  "Feather Fury": "feather-fury",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

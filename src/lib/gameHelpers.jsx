@@ -89,6 +89,7 @@ import viceStreetsBg from "../images/ViceStreets.png";
 import hulkBg from "../images/Hulk.png";
 import myLittleBuddyBg from "../images/MyLittleBuddy.png";
 import teddyQuestBg from "../images/TeddyQuest.png";
+import featherFuryBg from "../images/FeatherFury.png";
 
 /**
  * Category to icon mapping.
@@ -1297,6 +1298,28 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(6, 20, 14, 0.42) 44%,
       rgba(6, 20, 14, 0.68) 56%,
       rgba(6, 20, 14, 0.82) 100%)`,
+  },
+  // Feather Fury: Island Siege - slingshot bird physics game with tropical setting.
+  // Bird on left, fortress targets on right - keep left content visible.
+  "feather fury: island siege": {
+    image: featherFuryBg,
+    position: "center center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 20, 14, 0) 0%,
+      rgba(6, 20, 14, 0) 28%,
+      rgba(6, 20, 14, 0.45) 42%,
+      rgba(6, 20, 14, 0.72) 58%,
+      rgba(6, 20, 14, 0.85) 100%)`,
+  },
+  "feather fury": {
+    image: featherFuryBg,
+    position: "center center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 20, 14, 0) 0%,
+      rgba(6, 20, 14, 0) 28%,
+      rgba(6, 20, 14, 0.45) 42%,
+      rgba(6, 20, 14, 0.72) 58%,
+      rgba(6, 20, 14, 0.85) 100%)`,
   },
 };
 

@@ -4419,6 +4419,35 @@ h3 {
   z-index: -1;
 }
 
+/* Feather Fury: Island Siege - slingshot bird, tropical island, wooden fortress */
+.game-page__about[data-decoration="feather-fury"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -30px;
+  bottom: -45px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='ffSky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2387CEEB' stop-opacity='0.15'/%3E%3Cstop offset='100%25' stop-color='%2398D8C8' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='ffWood' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%238B5A2B'/%3E%3Cstop offset='50%25' stop-color='%23A0693A'/%3E%3Cstop offset='100%25' stop-color='%237A4D25'/%3E%3C/linearGradient%3E%3ClinearGradient id='ffBird' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD93D'/%3E%3Cstop offset='100%25' stop-color='%23F5A623'/%3E%3C/linearGradient%3E%3ClinearGradient id='ffIsland' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2345B649'/%3E%3Cstop offset='100%25' stop-color='%232D8B3A'/%3E%3C/linearGradient%3E%3ClinearGradient id='ffPalm' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%235D4037'/%3E%3Cstop offset='100%25' stop-color='%233E2723'/%3E%3C/linearGradient%3E%3ClinearGradient id='ffLeaf' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2366BB6A'/%3E%3Cstop offset='100%25' stop-color='%232E7D32'/%3E%3C/linearGradient%3E%3ClinearGradient id='ffFort' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A1887F'/%3E%3Cstop offset='100%25' stop-color='%236D4C41'/%3E%3C/linearGradient%3E%3CradialGradient id='ffGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23FFE082' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23FFB300' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='ffBlur' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='0.5'/%3E%3C/filter%3E%3C/defs%3E%3Crect fill='url(%23ffSky)' x='0' y='0' width='100' height='100' rx='8'/%3E%3Cellipse cx='18' cy='88' rx='16' ry='6' fill='url(%23ffIsland)'/%3E%3Cellipse cx='18' cy='88' rx='14' ry='4' fill='%2356C45A' opacity='0.6'/%3E%3Crect x='16' y='58' width='3' height='30' fill='url(%23ffPalm)' rx='1'/%3E%3Cpath d='M17.5 58 Q25 52 32 56 Q25 58 17.5 58' fill='url(%23ffLeaf)'/%3E%3Cpath d='M17.5 58 Q10 50 3 55 Q10 57 17.5 58' fill='url(%23ffLeaf)'/%3E%3Cpath d='M17.5 58 Q18 48 19 43 Q20 50 17.5 58' fill='url(%23ffLeaf)'/%3E%3Cpath d='M17.5 60 Q26 58 30 62 Q24 63 17.5 60' fill='%234CAF50' opacity='0.8'/%3E%3Cpath d='M17.5 60 Q8 57 5 61 Q10 62 17.5 60' fill='%234CAF50' opacity='0.8'/%3E%3Crect x='5' y='72' width='4' height='20' rx='1' fill='url(%23ffWood)'/%3E%3Crect x='25' y='72' width='4' height='20' rx='1' fill='url(%23ffWood)'/%3E%3Cpath d='M7 72 Q17 65 27 72' stroke='%23A0693A' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M7 73 Q17 66 27 73' stroke='%238B5A2B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='17' cy='69' rx='3' ry='2.5' fill='%23D4A574'/%3E%3Crect x='72' y='50' width='6' height='35' fill='url(%23ffFort)' rx='1'/%3E%3Crect x='80' y='58' width='5' height='27' fill='url(%23ffFort)' rx='1'/%3E%3Crect x='86' y='65' width='5' height='20' fill='url(%23ffFort)' rx='1'/%3E%3Crect x='68' y='55' width='5' height='30' fill='url(%23ffFort)' rx='1'/%3E%3Crect x='70' y='47' width='10' height='5' fill='%238D6E63' rx='1'/%3E%3Crect x='78' y='55' width='9' height='4' fill='%238D6E63' rx='1'/%3E%3Crect x='84' y='62' width='9' height='4' fill='%238D6E63' rx='1'/%3E%3Crect x='66' y='52' width='9' height='4' fill='%238D6E63' rx='1'/%3E%3Ccircle cx='75' cy='60' r='2' fill='%235D4037'/%3E%3Ccircle cx='82' cy='68' r='1.5' fill='%235D4037'/%3E%3Ccircle cx='71' cy='65' r='1.5' fill='%235D4037'/%3E%3Ccircle cx='40' cy='45' r='8' fill='url(%23ffGlow)' filter='url(%23ffBlur)'/%3E%3Ccircle cx='40' cy='45' r='6' fill='url(%23ffBird)'/%3E%3Ccircle cx='40' cy='45' r='5.5' fill='%23FFCA28' opacity='0.5'/%3E%3Cellipse cx='42' cy='44' rx='2' ry='2.5' fill='white'/%3E%3Ccircle cx='42.5' cy='44' r='1.2' fill='%23212121'/%3E%3Ccircle cx='43' cy='43.5' r='0.4' fill='white'/%3E%3Cpath d='M45 45 L49 45 L45 47 Z' fill='%23FF7043'/%3E%3Cpath d='M38 44 Q36 42 34 44' stroke='%23E65100' stroke-width='0.8' fill='none' stroke-linecap='round'/%3E%3Cpath d='M35 46 Q33 49 30 48' stroke='%23FFB300' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M35 44 Q32 43 30 45' stroke='%23FFB300' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M44 50 Q42 52 40 51' stroke='%23FF8F00' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M17 68 Q28 50 40 45' stroke='%23FF6F00' stroke-width='0.6' stroke-dasharray='2,2' fill='none' opacity='0.6'/%3E%3Cpath d='M40 45 Q55 38 72 50' stroke='%23FF6F00' stroke-width='0.6' stroke-dasharray='2,2' fill='none' opacity='0.5'/%3E%3Ccircle cx='25' cy='55' r='1' fill='%23FFD54F' opacity='0.7'/%3E%3Ccircle cx='32' cy='48' r='0.8' fill='%23FFD54F' opacity='0.6'/%3E%3Ccircle cx='50' cy='40' r='1' fill='%23FFD54F' opacity='0.7'/%3E%3Ccircle cx='58' cy='42' r='0.7' fill='%23FFD54F' opacity='0.5'/%3E%3Ccircle cx='64' cy='46' r='0.8' fill='%23FFD54F' opacity='0.6'/%3E%3Cpath d='M78 48 L80 44 L79 48 Z' fill='%23FFB74D' opacity='0.6'/%3E%3Cpath d='M84 52 L83 48 L86 51 Z' fill='%23FFA726' opacity='0.5'/%3E%3Ccircle cx='76' cy='55' r='1.2' fill='%23FF8A65' opacity='0.4'/%3E%3Ccircle cx='82' cy='52' r='1' fill='%23FF8A65' opacity='0.4'/%3E%3Ccircle cx='88' cy='58' r='0.8' fill='%23FFAB91' opacity='0.3'/%3E%3Ccircle cx='12' cy='25' r='4' fill='white' opacity='0.2'/%3E%3Ccircle cx='16' cy='26' r='3' fill='white' opacity='0.15'/%3E%3Ccircle cx='85' cy='20' r='5' fill='white' opacity='0.18'/%3E%3Ccircle cx='90' cy='22' r='3' fill='white' opacity='0.12'/%3E%3Ccircle cx='50' cy='15' r='3' fill='white' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Feather Fury ambient glow - warm tropical gold, coral, and emerald tones */
+.game-page__about[data-decoration="feather-fury"]::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  bottom: -60px;
+  width: 400px;
+  height: 400px;
+  background:
+    radial-gradient(ellipse 50% 45% at 55% 45%, rgba(255, 193, 7, 0.055) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 48% 52%, rgba(76, 175, 80, 0.045) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 60% 40%, rgba(255, 112, 67, 0.04) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5746,6 +5775,21 @@ h3 {
     height: 285px;
   }
 
+  /* Feather Fury tablet */
+  .game-page__about[data-decoration="feather-fury"]::before {
+    right: -25px;
+    bottom: -38px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .game-page__about[data-decoration="feather-fury"]::after {
+    right: -38px;
+    bottom: -52px;
+    width: 320px;
+    height: 320px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7060,6 +7104,21 @@ h3 {
     height: 225px;
   }
 
+  /* Feather Fury mobile */
+  .game-page__about[data-decoration="feather-fury"]::before {
+    right: -18px;
+    bottom: -32px;
+    width: 195px;
+    height: 195px;
+  }
+
+  .game-page__about[data-decoration="feather-fury"]::after {
+    right: -32px;
+    bottom: -45px;
+    width: 250px;
+    height: 250px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8227,6 +8286,21 @@ h3 {
     height: 190px;
   }
 
+  /* Feather Fury small mobile */
+  .game-page__about[data-decoration="feather-fury"]::before {
+    right: -12px;
+    bottom: -22px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="feather-fury"]::after {
+    right: -22px;
+    bottom: -32px;
+    width: 200px;
+    height: 200px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8354,8 +8428,17 @@ h3 {
   .game-page__about[data-decoration="mahjong-classic"]::after,
   .game-page__about[data-decoration="dot-connect"]::after,
   .game-page__about[data-decoration="tank-warfare"]::after,
-  .game-page__about[data-decoration="sky-combat"]::after {
+  .game-page__about[data-decoration="sky-combat"]::after,
+  .game-page__about[data-decoration="feather-fury"]::after {
     display: none; /* Hide glow on very small screens */
+  }
+
+  /* Feather Fury extra small */
+  .game-page__about[data-decoration="feather-fury"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 130px;
+    height: 130px;
   }
 
   .game-page__about[data-decoration="mahjong-classic"]::before {
