@@ -136,6 +136,10 @@ const GAME_TAGLINES = {
   "Jungle Dash": "Run, jump, and spin through six jungle levels to defeat Mossjaw.",
   "Ninja Turtles: Shadow Strike": "Command the legendary turtle brothers through moonlit rooftops and underground lairs.",
   "Ninja Turtles": "Command the legendary turtle brothers through moonlit rooftops and underground lairs.",
+  "Kung Fu Panda: Dragon Warrior": "Master kung fu, defeat Tai Lung, and fulfill your destiny as the Dragon Warrior.",
+  "Kung Fu Panda": "Master kung fu, defeat Tai Lung, and fulfill your destiny as the Dragon Warrior.",
+  "Harry Potter: Hogwarts Adventures": "Cast powerful spells, explore the castle, and defend Hogwarts from dark forces.",
+  "Hogwarts Adventures": "Cast powerful spells, explore the castle, and defend Hogwarts from dark forces.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -239,6 +243,10 @@ const GAME_DECORATIONS = {
   "Jungle Dash": "jungle-dash",
   "Ninja Turtles: Shadow Strike": "ninja-turtles",
   "Ninja Turtles": "ninja-turtles",
+  "Kung Fu Panda: Dragon Warrior": "kung-fu-panda",
+  "Kung Fu Panda": "kung-fu-panda",
+  "Harry Potter: Hogwarts Adventures": "hogwarts-adventures",
+  "Hogwarts Adventures": "hogwarts-adventures",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

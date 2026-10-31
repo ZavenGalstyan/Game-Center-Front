@@ -93,6 +93,8 @@ import featherFuryBg from "../images/FeatherFury.png";
 import flameAquaBg from "../images/FlameAqua.png";
 import jungleDashBg from "../images/JungleDash.png";
 import ninjaTurtlesBg from "../images/NinjaTurtles.png";
+import kungFuPandaBg from "../images/KungFuPanda.png";
+import harryPotterBg from "../images/HarryPotter.png";
 
 /**
  * Category to icon mapping.
@@ -1400,6 +1402,50 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(4, 16, 22, 0.5) 46%,
       rgba(4, 16, 22, 0.76) 58%,
       rgba(4, 16, 22, 0.88) 100%)`,
+  },
+  // Kung Fu Panda: panda warrior and golden dragon ~0-50%, warm amber/gold
+  // highlights. 35% keeps main elements visible; dark-amber fade for text.
+  "kung fu panda: dragon warrior": {
+    image: kungFuPandaBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 8, 4, 0) 0%,
+      rgba(12, 8, 4, 0) 32%,
+      rgba(12, 8, 4, 0.5) 45%,
+      rgba(12, 8, 4, 0.76) 58%,
+      rgba(12, 8, 4, 0.88) 100%)`,
+  },
+  "kung fu panda": {
+    image: kungFuPandaBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 8, 4, 0) 0%,
+      rgba(12, 8, 4, 0) 32%,
+      rgba(12, 8, 4, 0.5) 45%,
+      rgba(12, 8, 4, 0.76) 58%,
+      rgba(12, 8, 4, 0.88) 100%)`,
+  },
+  // Harry Potter: wizard, illuminated castle, glowing spell ~0-50%, magical
+  // atmosphere. 30% keeps main elements visible; deep midnight-blue fade.
+  "harry potter: hogwarts adventures": {
+    image: harryPotterBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 6, 18, 0) 0%,
+      rgba(8, 6, 18, 0) 30%,
+      rgba(8, 6, 18, 0.5) 44%,
+      rgba(8, 6, 18, 0.76) 58%,
+      rgba(8, 6, 18, 0.88) 100%)`,
+  },
+  "hogwarts adventures": {
+    image: harryPotterBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 6, 18, 0) 0%,
+      rgba(8, 6, 18, 0) 30%,
+      rgba(8, 6, 18, 0.5) 44%,
+      rgba(8, 6, 18, 0.76) 58%,
+      rgba(8, 6, 18, 0.88) 100%)`,
   },
 };
 
