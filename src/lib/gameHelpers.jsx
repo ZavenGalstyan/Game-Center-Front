@@ -96,6 +96,7 @@ import ninjaTurtlesBg from "../images/NinjaTurtles.png";
 import kungFuPandaBg from "../images/KungFuPanda.png";
 import harryPotterBg from "../images/HarryPotter.png";
 import crownOfAshesBg from "../images/CrownofAshes.png";
+import neonMercenaryBg from "../images/NeonMercenary.png";
 
 /**
  * Category to icon mapping.
@@ -1469,6 +1470,18 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(6, 14, 10, 0.5) 45%,
       rgba(6, 14, 10, 0.76) 58%,
       rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  // Neon Mercenary: masked mercenary ~0-45%, neon skyline ~40-70%, title visible.
+  // 30% keeps mercenary and title visible; deep cyberpunk navy-teal fade for text.
+  "neon mercenary": {
+    image: neonMercenaryBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 12, 22, 0) 0%,
+      rgba(4, 12, 22, 0) 32%,
+      rgba(4, 12, 22, 0.5) 45%,
+      rgba(4, 12, 22, 0.76) 58%,
+      rgba(4, 12, 22, 0.88) 100%)`,
   },
 };
 

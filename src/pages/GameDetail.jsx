@@ -142,6 +142,7 @@ const GAME_TAGLINES = {
   "Hogwarts Adventures": "Cast powerful spells, explore the castle, and defend Hogwarts from dark forces.",
   "Crown of Ashes: Kingdoms at War": "Command four legendary heroes through an epic war, forge alliances, and decide the fate of a kingdom engulfed in flames.",
   "Crown of Ashes": "Command four legendary heroes through an epic war, forge alliances, and decide the fate of a kingdom engulfed in flames.",
+  "Neon Mercenary": "Take contracts, upgrade cybernetic implants, and carve your legend through three neon-lit districts.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -251,6 +252,7 @@ const GAME_DECORATIONS = {
   "Hogwarts Adventures": "hogwarts-adventures",
   "Crown of Ashes: Kingdoms at War": "crown-of-ashes",
   "Crown of Ashes": "crown-of-ashes",
+  "Neon Mercenary": "neon-mercenary",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
