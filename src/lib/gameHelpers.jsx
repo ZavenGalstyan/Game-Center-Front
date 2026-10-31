@@ -90,6 +90,7 @@ import hulkBg from "../images/Hulk.png";
 import myLittleBuddyBg from "../images/MyLittleBuddy.png";
 import teddyQuestBg from "../images/TeddyQuest.png";
 import featherFuryBg from "../images/FeatherFury.png";
+import flameAquaBg from "../images/FlameAqua.png";
 
 /**
  * Category to icon mapping.
@@ -1320,6 +1321,38 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(6, 20, 14, 0.45) 42%,
       rgba(6, 20, 14, 0.72) 58%,
       rgba(6, 20, 14, 0.85) 100%)`,
+  },
+  // Flame & Aqua: Twin Temple - two elemental heroes in ancient temple setting.
+  // Fire hero (orange) and water hero (blue) with temple platforms and gems.
+  "flame & aqua: twin temple": {
+    image: flameAquaBg,
+    position: "center center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 16, 20, 0) 0%,
+      rgba(6, 16, 20, 0) 30%,
+      rgba(6, 16, 20, 0.48) 44%,
+      rgba(6, 16, 20, 0.74) 58%,
+      rgba(6, 16, 20, 0.88) 100%)`,
+  },
+  "flame & aqua": {
+    image: flameAquaBg,
+    position: "center center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 16, 20, 0) 0%,
+      rgba(6, 16, 20, 0) 30%,
+      rgba(6, 16, 20, 0.48) 44%,
+      rgba(6, 16, 20, 0.74) 58%,
+      rgba(6, 16, 20, 0.88) 100%)`,
+  },
+  "flame and aqua: twin temple": {
+    image: flameAquaBg,
+    position: "center center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 16, 20, 0) 0%,
+      rgba(6, 16, 20, 0) 30%,
+      rgba(6, 16, 20, 0.48) 44%,
+      rgba(6, 16, 20, 0.74) 58%,
+      rgba(6, 16, 20, 0.88) 100%)`,
   },
 };
 

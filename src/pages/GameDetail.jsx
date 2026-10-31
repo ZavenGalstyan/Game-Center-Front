@@ -129,6 +129,9 @@ const GAME_TAGLINES = {
   "Teddy Quest: Magical Kingdom": "Guide Toffee the teddy bear through magical floating islands, collect golden coins, and conquer five enchanted worlds.",
   "Feather Fury: Island Siege": "Launch feathered fighters from your slingshot, demolish wooden fortresses, and conquer tropical islands.",
   "Feather Fury": "Launch feathered fighters from your slingshot, demolish wooden fortresses, and conquer tropical islands.",
+  "Flame & Aqua: Twin Temple": "Two elemental heroes. One ancient temple. Escape together.",
+  "Flame & Aqua": "Two elemental heroes. One ancient temple. Escape together.",
+  "Flame and Aqua: Twin Temple": "Two elemental heroes. One ancient temple. Escape together.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -225,6 +228,9 @@ const GAME_DECORATIONS = {
   "Teddy Quest": "teddy-quest",
   "Feather Fury: Island Siege": "feather-fury",
   "Feather Fury": "feather-fury",
+  "Flame & Aqua: Twin Temple": "flame-aqua",
+  "Flame & Aqua": "flame-aqua",
+  "Flame and Aqua: Twin Temple": "flame-aqua",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
