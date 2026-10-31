@@ -4478,6 +4478,36 @@ h3 {
   z-index: -1;
 }
 
+/* Jungle Dash: Island Adventure - fox adventurer with goggles, tropical island, golden fruits */
+.game-page__about[data-decoration="jungle-dash"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -25px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Palm leaf top-right --%3E%3Cpath d='M88 8 Q75 18 70 28 Q68 22 72 12 Q78 5 88 8' fill='rgba(46,139,87,0.12)' stroke='rgba(34,139,34,0.18)' stroke-width='0.8'/%3E%3Cpath d='M92 15 Q82 22 78 32 Q77 26 80 18 Q85 12 92 15' fill='rgba(60,179,113,0.1)' stroke='rgba(46,139,87,0.15)' stroke-width='0.6'/%3E%3Cpath d='M85 5 Q78 12 75 20 Q73 15 76 8 Q80 3 85 5' fill='rgba(34,139,34,0.08)' stroke='rgba(46,139,87,0.12)' stroke-width='0.5'/%3E%3C!-- Palm leaf bottom-left accent --%3E%3Cpath d='M15 85 Q22 78 30 76 Q25 80 20 88 Q16 92 15 85' fill='rgba(46,139,87,0.08)' stroke='rgba(34,139,34,0.12)' stroke-width='0.5'/%3E%3C!-- Island platform --%3E%3Cellipse cx='58' cy='82' rx='28' ry='8' fill='rgba(139,90,43,0.12)' stroke='rgba(160,82,45,0.18)' stroke-width='1'/%3E%3Cellipse cx='58' cy='80' rx='24' ry='5' fill='rgba(34,139,34,0.15)' stroke='rgba(46,139,87,0.2)' stroke-width='0.8'/%3E%3C!-- Mini waterfall on right --%3E%3Cpath d='M82 55 Q84 62 82 70 Q80 78 78 85' fill='none' stroke='rgba(64,224,208,0.12)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M79 58 Q81 65 79 72' fill='none' stroke='rgba(72,209,204,0.1)' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='80' cy='87' r='3' fill='rgba(64,224,208,0.08)'/%3E%3C!-- Wooden crate --%3E%3Crect x='72' y='68' width='12' height='11' rx='1' fill='rgba(139,90,43,0.14)' stroke='rgba(160,82,45,0.2)' stroke-width='0.8'/%3E%3Cline x1='74' y1='68' x2='74' y2='79' stroke='rgba(101,67,33,0.12)' stroke-width='0.6'/%3E%3Cline x1='78' y1='68' x2='78' y2='79' stroke='rgba(101,67,33,0.12)' stroke-width='0.6'/%3E%3Cline x1='82' y1='68' x2='82' y2='79' stroke='rgba(101,67,33,0.12)' stroke-width='0.6'/%3E%3Cline x1='72' y1='73' x2='84' y2='73' stroke='rgba(101,67,33,0.1)' stroke-width='0.5'/%3E%3C!-- Tiny red crab --%3E%3Cellipse cx='38' cy='84' rx='4' ry='2.5' fill='rgba(220,20,60,0.16)' stroke='rgba(178,34,34,0.2)' stroke-width='0.6'/%3E%3Cpath d='M33 83 Q31 81 32 79' fill='none' stroke='rgba(220,20,60,0.18)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M43 83 Q45 81 44 79' fill='none' stroke='rgba(220,20,60,0.18)' stroke-width='0.8' stroke-linecap='round'/%3E%3Ccircle cx='36' cy='82.5' r='0.8' fill='rgba(255,255,255,0.25)'/%3E%3Ccircle cx='40' cy='82.5' r='0.8' fill='rgba(255,255,255,0.25)'/%3E%3C!-- Fox adventurer body --%3E%3Cellipse cx='52' cy='62' rx='10' ry='12' fill='rgba(255,140,0,0.14)' stroke='rgba(255,165,0,0.2)' stroke-width='1'/%3E%3C!-- Fox head --%3E%3Ccircle cx='52' cy='44' r='9' fill='rgba(255,140,0,0.16)' stroke='rgba(255,165,0,0.22)' stroke-width='1'/%3E%3C!-- Fox ears --%3E%3Cpath d='M44 38 L42 28 L48 35' fill='rgba(255,140,0,0.18)' stroke='rgba(255,165,0,0.22)' stroke-width='0.6'/%3E%3Cpath d='M60 38 L62 28 L56 35' fill='rgba(255,140,0,0.18)' stroke='rgba(255,165,0,0.22)' stroke-width='0.6'/%3E%3C!-- Fox ear inner --%3E%3Cpath d='M45 36 L44 30 L47 34' fill='rgba(255,182,193,0.12)'/%3E%3Cpath d='M59 36 L60 30 L57 34' fill='rgba(255,182,193,0.12)'/%3E%3C!-- Fox muzzle --%3E%3Cellipse cx='52' cy='48' rx='4' ry='3' fill='rgba(255,248,220,0.18)'/%3E%3Ccircle cx='52' cy='46' r='1.5' fill='rgba(40,40,40,0.2)'/%3E%3C!-- Fox eyes --%3E%3Ccircle cx='48' cy='42' r='2' fill='rgba(40,40,40,0.22)'/%3E%3Ccircle cx='56' cy='42' r='2' fill='rgba(40,40,40,0.22)'/%3E%3Ccircle cx='48.5' cy='41.5' r='0.7' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='56.5' cy='41.5' r='0.7' fill='rgba(255,255,255,0.3)'/%3E%3C!-- Goggles --%3E%3Cellipse cx='48' cy='42' rx='4' ry='3' fill='none' stroke='rgba(64,224,208,0.25)' stroke-width='1.2'/%3E%3Cellipse cx='56' cy='42' rx='4' ry='3' fill='none' stroke='rgba(64,224,208,0.25)' stroke-width='1.2'/%3E%3Cpath d='M52 42 L52 42' fill='none' stroke='rgba(64,224,208,0.2)' stroke-width='1.5'/%3E%3Cpath d='M44 41 Q42 40 40 42' fill='none' stroke='rgba(64,224,208,0.18)' stroke-width='0.8'/%3E%3Cpath d='M60 41 Q62 40 64 42' fill='none' stroke='rgba(64,224,208,0.18)' stroke-width='0.8'/%3E%3C!-- Backpack --%3E%3Crect x='58' y='52' width='8' height='10' rx='2' fill='rgba(139,69,19,0.16)' stroke='rgba(160,82,45,0.22)' stroke-width='0.8'/%3E%3Crect x='60' y='54' width='4' height='3' rx='0.5' fill='rgba(210,105,30,0.14)'/%3E%3C!-- Fox legs --%3E%3Cellipse cx='46' cy='74' rx='3' ry='5' fill='rgba(255,140,0,0.14)' stroke='rgba(255,165,0,0.18)' stroke-width='0.6'/%3E%3Cellipse cx='56' cy='74' rx='3' ry='5' fill='rgba(255,140,0,0.14)' stroke='rgba(255,165,0,0.18)' stroke-width='0.6'/%3E%3C!-- Fox tail --%3E%3Cpath d='M42 65 Q32 60 28 52 Q35 58 40 62' fill='rgba(255,140,0,0.16)' stroke='rgba(255,165,0,0.2)' stroke-width='0.8'/%3E%3Cpath d='M30 52 Q28 50 30 48' fill='rgba(255,248,220,0.15)' stroke='rgba(255,250,240,0.18)' stroke-width='0.6'/%3E%3C!-- Golden fruits arc --%3E%3Ccircle cx='25' cy='25' r='4' fill='rgba(255,215,0,0.18)' stroke='rgba(255,193,7,0.25)' stroke-width='0.8'/%3E%3Ccircle cx='35' cy='18' r='3.5' fill='rgba(255,215,0,0.16)' stroke='rgba(255,193,7,0.22)' stroke-width='0.7'/%3E%3Ccircle cx='46' cy='15' r='3' fill='rgba(255,215,0,0.14)' stroke='rgba(255,193,7,0.2)' stroke-width='0.6'/%3E%3Ccircle cx='58' cy='16' r='3.5' fill='rgba(255,215,0,0.16)' stroke='rgba(255,193,7,0.22)' stroke-width='0.7'/%3E%3Ccircle cx='68' cy='22' r='4' fill='rgba(255,215,0,0.18)' stroke='rgba(255,193,7,0.25)' stroke-width='0.8'/%3E%3C!-- Fruit shine highlights --%3E%3Ccircle cx='24' cy='24' r='1' fill='rgba(255,255,255,0.2)'/%3E%3Ccircle cx='34' cy='17' r='0.8' fill='rgba(255,255,255,0.18)'/%3E%3Ccircle cx='67' cy='21' r='1' fill='rgba(255,255,255,0.2)'/%3E%3C!-- Motion trails behind fox --%3E%3Cpath d='M38 55 Q30 55 24 58' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M36 60 Q28 62 22 64' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M37 65 Q30 68 25 70' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1' stroke-linecap='round'/%3E%3C!-- Sparkle particles --%3E%3Cpath d='M20 35 L22 38 L20 41 L18 38 Z' fill='rgba(255,255,255,0.15)'/%3E%3Cpath d='M75 35 L76.5 37 L75 39 L73.5 37 Z' fill='rgba(255,255,255,0.12)'/%3E%3Cpath d='M30 50 L31 52 L30 54 L29 52 Z' fill='rgba(255,215,0,0.15)'/%3E%3Ccircle cx='18' cy='48' r='1' fill='rgba(255,255,255,0.1)'/%3E%3Ccircle cx='85' cy='42' r='1.2' fill='rgba(255,255,255,0.08)'/%3E%3Ccircle cx='12' cy='60' r='0.8' fill='rgba(255,215,0,0.1)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Jungle Dash ambient glow - warm tropical gold, orange, and emerald tones */
+.game-page__about[data-decoration="jungle-dash"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 400px;
+  height: 400px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 45%, rgba(255, 193, 7, 0.055) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 55% 50%, rgba(46, 139, 87, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 45% 55%, rgba(255, 140, 0, 0.04) 0%, transparent 45%),
+    radial-gradient(ellipse 35% 30% at 60% 48%, rgba(64, 224, 208, 0.035) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -5835,6 +5865,21 @@ h3 {
     height: 320px;
   }
 
+  /* Jungle Dash tablet */
+  .game-page__about[data-decoration="jungle-dash"]::before {
+    right: -20px;
+    bottom: -32px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .game-page__about[data-decoration="jungle-dash"]::after {
+    right: -35px;
+    bottom: -48px;
+    width: 320px;
+    height: 320px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7179,6 +7224,21 @@ h3 {
     height: 250px;
   }
 
+  /* Jungle Dash mobile */
+  .game-page__about[data-decoration="jungle-dash"]::before {
+    right: -15px;
+    bottom: -28px;
+    width: 195px;
+    height: 195px;
+  }
+
+  .game-page__about[data-decoration="jungle-dash"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 250px;
+    height: 250px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8376,6 +8436,21 @@ h3 {
     height: 200px;
   }
 
+  /* Jungle Dash small mobile */
+  .game-page__about[data-decoration="jungle-dash"]::before {
+    right: -10px;
+    bottom: -18px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="jungle-dash"]::after {
+    right: -20px;
+    bottom: -28px;
+    width: 200px;
+    height: 200px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8504,7 +8579,8 @@ h3 {
   .game-page__about[data-decoration="dot-connect"]::after,
   .game-page__about[data-decoration="tank-warfare"]::after,
   .game-page__about[data-decoration="sky-combat"]::after,
-  .game-page__about[data-decoration="feather-fury"]::after {
+  .game-page__about[data-decoration="feather-fury"]::after,
+  .game-page__about[data-decoration="jungle-dash"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
@@ -8526,6 +8602,14 @@ h3 {
 
   .game-page__about[data-decoration="flame-aqua"]::after {
     display: none; /* Hide glow on very small screens */
+  }
+
+  /* Jungle Dash extra small */
+  .game-page__about[data-decoration="jungle-dash"]::before {
+    right: -6px;
+    bottom: -12px;
+    width: 130px;
+    height: 130px;
   }
 
   .game-page__about[data-decoration="mahjong-classic"]::before {

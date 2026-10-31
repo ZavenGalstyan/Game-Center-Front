@@ -91,6 +91,7 @@ import myLittleBuddyBg from "../images/MyLittleBuddy.png";
 import teddyQuestBg from "../images/TeddyQuest.png";
 import featherFuryBg from "../images/FeatherFury.png";
 import flameAquaBg from "../images/FlameAqua.png";
+import jungleDashBg from "../images/JungleDash.png";
 
 /**
  * Category to icon mapping.
@@ -1353,6 +1354,29 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(6, 16, 20, 0.48) 44%,
       rgba(6, 16, 20, 0.74) 58%,
       rgba(6, 16, 20, 0.88) 100%)`,
+  },
+  // Fox adventurer and title sit at ~5-45%; golden fruits and platforms extend
+  // to ~65%. 35% keeps the fox and title visible on narrow cards, and a tropical
+  // dark-green fade ensures text legibility over the bright jungle background.
+  "jungle dash: island adventure": {
+    image: jungleDashBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 22, 14, 0) 0%,
+      rgba(4, 22, 14, 0) 36%,
+      rgba(4, 22, 14, 0.5) 48%,
+      rgba(4, 22, 14, 0.76) 60%,
+      rgba(4, 22, 14, 0.88) 100%)`,
+  },
+  "jungle dash": {
+    image: jungleDashBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 22, 14, 0) 0%,
+      rgba(4, 22, 14, 0) 36%,
+      rgba(4, 22, 14, 0.5) 48%,
+      rgba(4, 22, 14, 0.76) 60%,
+      rgba(4, 22, 14, 0.88) 100%)`,
   },
 };
 

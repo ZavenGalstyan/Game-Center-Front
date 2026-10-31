@@ -132,6 +132,8 @@ const GAME_TAGLINES = {
   "Flame & Aqua: Twin Temple": "Two elemental heroes. One ancient temple. Escape together.",
   "Flame & Aqua": "Two elemental heroes. One ancient temple. Escape together.",
   "Flame and Aqua: Twin Temple": "Two elemental heroes. One ancient temple. Escape together.",
+  "Jungle Dash: Island Adventure": "Run, jump, and spin through six jungle levels to defeat Mossjaw.",
+  "Jungle Dash": "Run, jump, and spin through six jungle levels to defeat Mossjaw.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -231,6 +233,8 @@ const GAME_DECORATIONS = {
   "Flame & Aqua: Twin Temple": "flame-aqua",
   "Flame & Aqua": "flame-aqua",
   "Flame and Aqua: Twin Temple": "flame-aqua",
+  "Jungle Dash: Island Adventure": "jungle-dash",
+  "Jungle Dash": "jungle-dash",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
