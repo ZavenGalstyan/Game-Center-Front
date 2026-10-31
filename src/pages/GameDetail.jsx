@@ -140,6 +140,8 @@ const GAME_TAGLINES = {
   "Kung Fu Panda": "Master kung fu, defeat Tai Lung, and fulfill your destiny as the Dragon Warrior.",
   "Harry Potter: Hogwarts Adventures": "Cast powerful spells, explore the castle, and defend Hogwarts from dark forces.",
   "Hogwarts Adventures": "Cast powerful spells, explore the castle, and defend Hogwarts from dark forces.",
+  "Crown of Ashes: Kingdoms at War": "Command four legendary heroes through an epic war, forge alliances, and decide the fate of a kingdom engulfed in flames.",
+  "Crown of Ashes": "Command four legendary heroes through an epic war, forge alliances, and decide the fate of a kingdom engulfed in flames.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -247,6 +249,8 @@ const GAME_DECORATIONS = {
   "Kung Fu Panda": "kung-fu-panda",
   "Harry Potter: Hogwarts Adventures": "hogwarts-adventures",
   "Hogwarts Adventures": "hogwarts-adventures",
+  "Crown of Ashes: Kingdoms at War": "crown-of-ashes",
+  "Crown of Ashes": "crown-of-ashes",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

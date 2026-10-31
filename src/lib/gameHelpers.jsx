@@ -95,6 +95,7 @@ import jungleDashBg from "../images/JungleDash.png";
 import ninjaTurtlesBg from "../images/NinjaTurtles.png";
 import kungFuPandaBg from "../images/KungFuPanda.png";
 import harryPotterBg from "../images/HarryPotter.png";
+import crownOfAshesBg from "../images/CrownofAshes.png";
 
 /**
  * Category to icon mapping.
@@ -1446,6 +1447,28 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(8, 6, 18, 0.5) 44%,
       rgba(8, 6, 18, 0.76) 58%,
       rgba(8, 6, 18, 0.88) 100%)`,
+  },
+  // Crown of Ashes: armored king ~0-45%, burning castle and snowy mountains
+  // behind. 35% keeps the king visible; deep emerald-charcoal fade for text.
+  "crown of ashes: kingdoms at war": {
+    image: crownOfAshesBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 32%,
+      rgba(6, 14, 10, 0.5) 45%,
+      rgba(6, 14, 10, 0.76) 58%,
+      rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  "crown of ashes": {
+    image: crownOfAshesBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 32%,
+      rgba(6, 14, 10, 0.5) 45%,
+      rgba(6, 14, 10, 0.76) 58%,
+      rgba(6, 14, 10, 0.88) 100%)`,
   },
 };
 
