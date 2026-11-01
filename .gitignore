@@ -9,3 +9,6 @@ dist-ssr
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Windows NUL device file (created when >nul redirection runs in Git Bash)
+nul

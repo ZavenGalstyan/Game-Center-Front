@@ -87,6 +87,17 @@ import shadowWarriorsBg from "../images/ShadowWarriors.png";
 import shadowRunnerBg from "../images/ShadowRunner.png";
 import viceStreetsBg from "../images/ViceStreets.png";
 import hulkBg from "../images/Hulk.png";
+import myLittleBuddyBg from "../images/MyLittleBuddy.png";
+import teddyQuestBg from "../images/TeddyQuest.png";
+import featherFuryBg from "../images/FeatherFury.png";
+import flameAquaBg from "../images/FlameAqua.png";
+import jungleDashBg from "../images/JungleDash.png";
+import ninjaTurtlesBg from "../images/NinjaTurtles.png";
+import kungFuPandaBg from "../images/KungFuPanda.png";
+import harryPotterBg from "../images/HarryPotter.png";
+import crownOfAshesBg from "../images/CrownofAshes.png";
+import neonMercenaryBg from "../images/NeonMercenary.png";
+import lastShelterBg from "../images/60seconds.png";
 
 /**
  * Category to icon mapping.
@@ -1261,6 +1272,240 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(5, 18, 10, 0.68) 54%,
       rgba(5, 18, 10, 0.82) 68%,
       rgba(5, 18, 10, 0.92) 100%)`,
+  },
+  // My Little Buddy - bright cozy kitchen scene with mint pet on the right.
+  // The pet and title on the left, so a warm mint-tinted fade on the right.
+  "my little buddy": {
+    image: myLittleBuddyBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 24, 18, 0) 0%,
+      rgba(8, 24, 18, 0) 38%,
+      rgba(8, 24, 18, 0.45) 48%,
+      rgba(8, 24, 18, 0.72) 58%,
+      rgba(8, 24, 18, 0.85) 100%)`,
+  },
+  // Teddy Quest: Magical Kingdom - colorful floating islands with teddy bear.
+  // Title on left, bear jumping in center, so position to keep title visible.
+  "teddy quest: magical kingdom": {
+    image: teddyQuestBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 20, 14, 0) 0%,
+      rgba(6, 20, 14, 0) 32%,
+      rgba(6, 20, 14, 0.42) 44%,
+      rgba(6, 20, 14, 0.68) 56%,
+      rgba(6, 20, 14, 0.82) 100%)`,
+  },
+  "teddy quest": {
+    image: teddyQuestBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 20, 14, 0) 0%,
+      rgba(6, 20, 14, 0) 32%,
+      rgba(6, 20, 14, 0.42) 44%,
+      rgba(6, 20, 14, 0.68) 56%,
+      rgba(6, 20, 14, 0.82) 100%)`,
+  },
+  // Feather Fury: Island Siege - slingshot bird physics game with tropical setting.
+  // Bird on left, fortress targets on right - keep left content visible.
+  "feather fury: island siege": {
+    image: featherFuryBg,
+    position: "center center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 20, 14, 0) 0%,
+      rgba(6, 20, 14, 0) 28%,
+      rgba(6, 20, 14, 0.45) 42%,
+      rgba(6, 20, 14, 0.72) 58%,
+      rgba(6, 20, 14, 0.85) 100%)`,
+  },
+  "feather fury": {
+    image: featherFuryBg,
+    position: "center center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 20, 14, 0) 0%,
+      rgba(6, 20, 14, 0) 28%,
+      rgba(6, 20, 14, 0.45) 42%,
+      rgba(6, 20, 14, 0.72) 58%,
+      rgba(6, 20, 14, 0.85) 100%)`,
+  },
+  // Flame & Aqua: Twin Temple - two elemental heroes in ancient temple setting.
+  // Fire hero (orange) and water hero (blue) with temple platforms and gems.
+  "flame & aqua: twin temple": {
+    image: flameAquaBg,
+    position: "center center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 16, 20, 0) 0%,
+      rgba(6, 16, 20, 0) 30%,
+      rgba(6, 16, 20, 0.48) 44%,
+      rgba(6, 16, 20, 0.74) 58%,
+      rgba(6, 16, 20, 0.88) 100%)`,
+  },
+  "flame & aqua": {
+    image: flameAquaBg,
+    position: "center center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 16, 20, 0) 0%,
+      rgba(6, 16, 20, 0) 30%,
+      rgba(6, 16, 20, 0.48) 44%,
+      rgba(6, 16, 20, 0.74) 58%,
+      rgba(6, 16, 20, 0.88) 100%)`,
+  },
+  "flame and aqua: twin temple": {
+    image: flameAquaBg,
+    position: "center center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 16, 20, 0) 0%,
+      rgba(6, 16, 20, 0) 30%,
+      rgba(6, 16, 20, 0.48) 44%,
+      rgba(6, 16, 20, 0.74) 58%,
+      rgba(6, 16, 20, 0.88) 100%)`,
+  },
+  // Fox adventurer and title sit at ~5-45%; golden fruits and platforms extend
+  // to ~65%. 35% keeps the fox and title visible on narrow cards, and a tropical
+  // dark-green fade ensures text legibility over the bright jungle background.
+  "jungle dash: island adventure": {
+    image: jungleDashBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 22, 14, 0) 0%,
+      rgba(4, 22, 14, 0) 36%,
+      rgba(4, 22, 14, 0.5) 48%,
+      rgba(4, 22, 14, 0.76) 60%,
+      rgba(4, 22, 14, 0.88) 100%)`,
+  },
+  "jungle dash": {
+    image: jungleDashBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 22, 14, 0) 0%,
+      rgba(4, 22, 14, 0) 36%,
+      rgba(4, 22, 14, 0.5) 48%,
+      rgba(4, 22, 14, 0.76) 60%,
+      rgba(4, 22, 14, 0.88) 100%)`,
+  },
+  // Ninja Turtles: logo and title ~0-45%, four turtles ~40-85%, moonlit city
+  // behind. 30% keeps the title visible; teal-navy fade for text legibility.
+  "ninja turtles: shadow strike": {
+    image: ninjaTurtlesBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 16, 22, 0) 0%,
+      rgba(4, 16, 22, 0) 34%,
+      rgba(4, 16, 22, 0.5) 46%,
+      rgba(4, 16, 22, 0.76) 58%,
+      rgba(4, 16, 22, 0.88) 100%)`,
+  },
+  "ninja turtles": {
+    image: ninjaTurtlesBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 16, 22, 0) 0%,
+      rgba(4, 16, 22, 0) 34%,
+      rgba(4, 16, 22, 0.5) 46%,
+      rgba(4, 16, 22, 0.76) 58%,
+      rgba(4, 16, 22, 0.88) 100%)`,
+  },
+  // Kung Fu Panda: panda warrior and golden dragon ~0-50%, warm amber/gold
+  // highlights. 35% keeps main elements visible; dark-amber fade for text.
+  "kung fu panda: dragon warrior": {
+    image: kungFuPandaBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 8, 4, 0) 0%,
+      rgba(12, 8, 4, 0) 32%,
+      rgba(12, 8, 4, 0.5) 45%,
+      rgba(12, 8, 4, 0.76) 58%,
+      rgba(12, 8, 4, 0.88) 100%)`,
+  },
+  "kung fu panda": {
+    image: kungFuPandaBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 8, 4, 0) 0%,
+      rgba(12, 8, 4, 0) 32%,
+      rgba(12, 8, 4, 0.5) 45%,
+      rgba(12, 8, 4, 0.76) 58%,
+      rgba(12, 8, 4, 0.88) 100%)`,
+  },
+  // Harry Potter: wizard, illuminated castle, glowing spell ~0-50%, magical
+  // atmosphere. 30% keeps main elements visible; deep midnight-blue fade.
+  "harry potter: hogwarts adventures": {
+    image: harryPotterBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 6, 18, 0) 0%,
+      rgba(8, 6, 18, 0) 30%,
+      rgba(8, 6, 18, 0.5) 44%,
+      rgba(8, 6, 18, 0.76) 58%,
+      rgba(8, 6, 18, 0.88) 100%)`,
+  },
+  "hogwarts adventures": {
+    image: harryPotterBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 6, 18, 0) 0%,
+      rgba(8, 6, 18, 0) 30%,
+      rgba(8, 6, 18, 0.5) 44%,
+      rgba(8, 6, 18, 0.76) 58%,
+      rgba(8, 6, 18, 0.88) 100%)`,
+  },
+  // Crown of Ashes: armored king ~0-45%, burning castle and snowy mountains
+  // behind. 35% keeps the king visible; deep emerald-charcoal fade for text.
+  "crown of ashes: kingdoms at war": {
+    image: crownOfAshesBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 32%,
+      rgba(6, 14, 10, 0.5) 45%,
+      rgba(6, 14, 10, 0.76) 58%,
+      rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  "crown of ashes": {
+    image: crownOfAshesBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 32%,
+      rgba(6, 14, 10, 0.5) 45%,
+      rgba(6, 14, 10, 0.76) 58%,
+      rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  // Neon Mercenary: masked mercenary ~0-45%, neon skyline ~40-70%, title visible.
+  // 30% keeps mercenary and title visible; deep cyberpunk navy-teal fade for text.
+  "neon mercenary": {
+    image: neonMercenaryBg,
+    position: "30% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 12, 22, 0) 0%,
+      rgba(4, 12, 22, 0) 32%,
+      rgba(4, 12, 22, 0.5) 45%,
+      rgba(4, 12, 22, 0.76) 58%,
+      rgba(4, 12, 22, 0.88) 100%)`,
+  },
+  // 60 Seconds: Last Shelter - family entering bunker with "60 SECONDS" title,
+  // dramatic explosion background. 35% keeps title and family silhouette visible;
+  // warm amber-brown fade matches the apocalyptic atmosphere.
+  "60 seconds: last shelter": {
+    image: lastShelterBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 10, 4, 0) 0%,
+      rgba(18, 10, 4, 0) 32%,
+      rgba(18, 10, 4, 0.5) 45%,
+      rgba(18, 10, 4, 0.76) 58%,
+      rgba(18, 10, 4, 0.88) 100%)`,
+  },
+  "last shelter": {
+    image: lastShelterBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 10, 4, 0) 0%,
+      rgba(18, 10, 4, 0) 32%,
+      rgba(18, 10, 4, 0.5) 45%,
+      rgba(18, 10, 4, 0.76) 58%,
+      rgba(18, 10, 4, 0.88) 100%)`,
   },
 };
 

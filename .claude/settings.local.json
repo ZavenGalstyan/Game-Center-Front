@@ -13,7 +13,8 @@
       "Bash(dir:*)",
       "Bash(npm install:*)",
       "Bash(git -C \"C:\\\\Users\\\\User\\\\Desktop\\\\GameCenter\\\\Game-Center-Front\" status --porcelain)",
-      "Bash(del \"C:\\\\Users\\\\User\\\\Desktop\\\\GameCenter\\\\Game-Center-Front\\\\nul\")"
+      "Bash(del \"C:\\\\Users\\\\User\\\\Desktop\\\\GameCenter\\\\Game-Center-Front\\\\nul\")",
+      "Bash(del \"\\\\?\\\\%CD%\\\\nul\")"
     ]
   }
 }
