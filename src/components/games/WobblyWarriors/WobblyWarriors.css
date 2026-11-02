@@ -1,0 +1,253 @@
+/* Wobbly Warriors — scoped under .wbw. The root is a size container so the
+   menus scale with the GamePlayer stage (and fullscreen). */
+.wbw {
+  --ink: #2b2140;
+  --gold: #ffd23f;
+  --orange: #ff6b3d;
+  --blue: #3d9bff;
+  container-type: size;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #1a1030;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Nunito", "Segoe UI Rounded", ui-rounded, "Segoe UI", system-ui, sans-serif;
+}
+.wbw-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.wbw-pause {
+  position: absolute;
+  bottom: max(10px, 2.5cqh);
+  right: max(10px, 2.5cqh);
+  display: grid;
+  place-items: center;
+  width: clamp(34px, 7cqh, 48px);
+  height: clamp(34px, 7cqh, 48px);
+  padding: 0;
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 3px 0 var(--ink);
+  cursor: pointer;
+}
+.wbw-pause svg {
+  width: 60%;
+  fill: var(--ink);
+}
+
+.wbw-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: rgba(26, 16, 48, 0.35);
+  animation: wbw-in 0.22s ease-out both;
+}
+.wbw-overlay--dim {
+  background: rgba(26, 16, 48, 0.55);
+}
+/* let the KO'd blob finish falling before the winner card */
+.wbw-overlay--late {
+  animation-delay: 0.4s;
+}
+@keyframes wbw-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+.wbw-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 2cqh, 14px);
+  max-width: min(560px, 94cqw);
+  max-height: 96cqh;
+  overflow: auto;
+  padding: clamp(12px, 4cqh, 28px) clamp(16px, 5cqw, 40px);
+  border: 4px solid var(--ink);
+  border-radius: 22px;
+  background: #fff6ea;
+  box-shadow: 0 6px 0 var(--ink), 0 18px 40px rgba(10, 5, 30, 0.4);
+  color: var(--ink);
+  text-align: center;
+}
+.wbw-title {
+  margin: 0;
+  font-size: clamp(28px, 10cqh, 64px);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--orange);
+  -webkit-text-stroke: clamp(1.5px, 0.6cqh, 3px) var(--ink);
+  paint-order: stroke fill;
+  text-shadow: 0 4px 0 var(--ink);
+  animation: wbw-wobble 1.6s ease-in-out infinite;
+}
+@keyframes wbw-wobble {
+  0%,
+  100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg) scale(1.03);
+  }
+}
+.wbw-sub {
+  margin: 0;
+  font-size: clamp(16px, 5cqh, 30px);
+  font-weight: 900;
+  color: var(--blue);
+  -webkit-text-stroke: 1.5px var(--ink);
+  paint-order: stroke fill;
+}
+.wbw-tag {
+  margin: 0;
+  font-size: clamp(11px, 2.6cqh, 16px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #8a5cc2;
+}
+.wbw-head {
+  margin: 0;
+  font-size: clamp(24px, 7.5cqh, 44px);
+  font-weight: 900;
+  color: var(--gold);
+  -webkit-text-stroke: clamp(1px, 0.5cqh, 2.5px) var(--ink);
+  paint-order: stroke fill;
+}
+.wbw-score {
+  margin: 0;
+  font-size: clamp(20px, 6cqh, 34px);
+  font-weight: 900;
+}
+.wbw-btn {
+  min-width: 10em;
+  padding: 0.5em 1.6em;
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  background: linear-gradient(#ff8a5c, #ff5a2a);
+  box-shadow: 0 5px 0 #b33a12, 0 5px 0 3px var(--ink);
+  color: #fff;
+  font: inherit;
+  font-size: clamp(15px, 4.2cqh, 22px);
+  font-weight: 900;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.08s;
+}
+.wbw-btn--ghost {
+  background: #fff;
+  box-shadow: 0 4px 0 var(--ink);
+  color: var(--ink);
+  text-shadow: none;
+  font-size: clamp(13px, 3.4cqh, 18px);
+}
+.wbw-btn:hover,
+.wbw-choice:hover {
+  filter: brightness(1.06);
+}
+.wbw-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--ink);
+}
+.wbw-btn:focus-visible,
+.wbw-choice:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+.wbw-hint {
+  margin: 0;
+  font-size: clamp(11px, 2.4cqh, 14px);
+  font-weight: 700;
+  color: #6f5d8a;
+}
+.wbw-controls {
+  display: grid;
+  gap: 6px;
+  font-size: clamp(11px, 2.6cqh, 15px);
+  font-weight: 700;
+}
+.wbw-controls div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px 10px;
+}
+.wbw-controls strong {
+  -webkit-text-stroke: 0.6px var(--ink);
+}
+.wbw kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  margin: 0 1px;
+  padding: 0.05em 0.35em;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 2px 0 var(--ink);
+  font: inherit;
+  font-weight: 900;
+}
+
+.wbw-choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.wbw-choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: clamp(130px, 30cqw, 200px);
+  min-height: clamp(70px, 18cqh, 110px);
+  padding: 10px;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  background: #ffe9b8;
+  box-shadow: 0 4px 0 var(--ink);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.wbw-choice strong {
+  font-size: clamp(14px, 4cqh, 20px);
+  font-weight: 900;
+}
+.wbw-choice span {
+  font-size: clamp(11px, 2.4cqh, 13px);
+  font-weight: 700;
+  opacity: 0.8;
+}
+.wbw-arena {
+  width: clamp(110px, 24cqw, 160px);
+  justify-content: flex-end;
+  color: #fff;
+  text-shadow: 0 2px 0 var(--ink), 0 0 4px var(--ink);
+}
+.wbw-arena.is-on {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 0 var(--ink);
+}
+.wbw-arena--backyard {
+  background: linear-gradient(#6cc7ff 0 55%, #fff4e0 55% 70%, #5bbd4a 70%);
+}
+.wbw-arena--candy {
+  background: linear-gradient(#3a1258, #a43c8a 70%, #ff5fa8 70%);
+}
+.wbw-arena--dock {
+  background: radial-gradient(circle at 25% 25%, #fff6c8 0 10%, transparent 11%), linear-gradient(#0b1440, #2b4a8a 62%, #1d3a78 62% 72%, #8a5a32 72%);
+}

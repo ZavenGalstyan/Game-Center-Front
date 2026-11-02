@@ -143,6 +143,12 @@ const GAME_TAGLINES = {
   "Crown of Ashes: Kingdoms at War": "Command four legendary heroes through an epic war, forge alliances, and decide the fate of a kingdom engulfed in flames.",
   "Crown of Ashes": "Command four legendary heroes through an epic war, forge alliances, and decide the fate of a kingdom engulfed in flames.",
   "Neon Mercenary": "Take contracts, upgrade cybernetic implants, and carve your legend through three neon-lit districts.",
+  "Wobbly Warriors: Arena Clash": "Wobble, Punch, and Knock Them Down!",
+  "Wobbly Warriors": "Wobble, Punch, and Knock Them Down!",
+  "Karate Legends: Ultimate Dojo": "Train Hard. Fight Smart. Become a Champion.",
+  "Karate Legends": "Train Hard. Fight Smart. Become a Champion.",
+  "Iron Fist: Arena Champions": "Enter the Arena. Master Your Power.",
+  "Iron Fist": "Enter the Arena. Master Your Power.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
