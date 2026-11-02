@@ -156,6 +156,8 @@ const GAME_TAGLINES = {
   "Cursed House": "Stay Quiet. Hide Fast. Escape Alive.",
   "Corridor 9: Endless Passage": "Notice Everything. Trust Nothing. Find Exit 9.",
   "Corridor 9": "Notice Everything. Trust Nothing. Find Exit 9.",
+  "Midnight Shift: Haunted Factory": "Watch the Cameras. Save Your Power. Survive the Night.",
+  "Midnight Shift": "Watch the Cameras. Save Your Power. Survive the Night.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
