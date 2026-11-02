@@ -154,6 +154,8 @@ const GAME_TAGLINES = {
   "The Cursed House: Escape": "Stay Quiet. Hide Fast. Escape Alive.",
   "The Cursed House": "Stay Quiet. Hide Fast. Escape Alive.",
   "Cursed House": "Stay Quiet. Hide Fast. Escape Alive.",
+  "Corridor 9: Endless Passage": "Notice Everything. Trust Nothing. Find Exit 9.",
+  "Corridor 9": "Notice Everything. Trust Nothing. Find Exit 9.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
