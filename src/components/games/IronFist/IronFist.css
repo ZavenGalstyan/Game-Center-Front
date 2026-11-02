@@ -1,0 +1,1240 @@
+/* ==========================================================================
+   Iron Fist: Arena Champions — scoped entirely under `.ifa`.
+   Sizes derive from the stage (container-type: size; --u on children so cqh
+   resolves against .ifa) so menus and HUD fit any GamePlayer size and
+   fullscreen without page scrolling. No backdrop-filter over the WebGL canvas.
+   ========================================================================== */
+.ifa {
+  --panel: rgba(10, 11, 16, 0.82);
+  --panel-2: rgba(18, 19, 27, 0.94);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-2: rgba(255, 255, 255, 0.22);
+  --text: #f3f2ef;
+  --dim: #a9aab4;
+  --gold: #f2c45a;
+  --gold-2: #b8862a;
+  --p1: #3d8bff;
+  --p2: #ff3d5e;
+  --red: #e0232e;
+  --head: "Bahnschrift", "Oswald", "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--text);
+  background: #040406;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  container-type: size;
+  container-name: ifa;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+.ifa > * {
+  --u: clamp(9px, 1.55cqh, 16px);
+  font-size: var(--u);
+}
+.ifa *,
+.ifa *::before,
+.ifa *::after {
+  box-sizing: border-box;
+}
+.ifa h1,
+.ifa h2,
+.ifa h3,
+.ifa p,
+.ifa ul {
+  margin: 0;
+  padding: 0;
+}
+.ifa ul {
+  list-style: none;
+}
+.ifa .dim {
+  color: var(--dim);
+}
+.ifa-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.ifa-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.ifa-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--u) * 1.4);
+  gap: calc(var(--u) * 0.9);
+  pointer-events: none;
+}
+.ifa-screen > * {
+  pointer-events: auto;
+}
+
+/* ---------------------------------------------------------------- buttons */
+.ifa-btn {
+  appearance: none;
+  border: 1px solid var(--line-2);
+  background: linear-gradient(180deg, rgba(40, 42, 54, 0.92), rgba(16, 17, 24, 0.92));
+  color: var(--text);
+  font: 700 calc(var(--u) * 1) var(--head);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: calc(var(--u) * 0.62) calc(var(--u) * 1.3);
+  border-radius: calc(var(--u) * 0.35);
+  cursor: pointer;
+  transition: transform 0.12s, border-color 0.12s, background 0.12s, box-shadow 0.12s;
+  clip-path: polygon(calc(var(--u) * 0.6) 0, 100% 0, calc(100% - calc(var(--u) * 0.6)) 100%, 0 100%);
+}
+.ifa-btn:hover,
+.ifa-btn:focus-visible {
+  border-color: var(--gold);
+  outline: none;
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, rgba(70, 58, 30, 0.95), rgba(26, 20, 10, 0.95));
+}
+.ifa-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+.ifa-btn--go {
+  background: linear-gradient(180deg, #e8352e, #8e1414);
+  border-color: #ff7a5a;
+  box-shadow: 0 0 calc(var(--u) * 1.4) rgba(255, 60, 40, 0.35);
+}
+.ifa-btn--go:hover,
+.ifa-btn--go:focus-visible {
+  background: linear-gradient(180deg, #ff4a3a, #a8180f);
+}
+.ifa-btn--big {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15em;
+  min-width: calc(var(--u) * 19);
+  padding: calc(var(--u) * 0.8) calc(var(--u) * 1.6);
+}
+.ifa-btn--big b {
+  font-size: calc(var(--u) * 1.55);
+  letter-spacing: 0.1em;
+}
+.ifa-btn--big small {
+  font: 500 calc(var(--u) * 0.78) system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--dim);
+}
+.ifa-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--u) * 0.5);
+  padding: calc(var(--u) * 1) calc(var(--u) * 1.2);
+  box-shadow: 0 calc(var(--u) * 0.8) calc(var(--u) * 2.4) rgba(0, 0, 0, 0.45);
+}
+.ifa-title {
+  font: 900 calc(var(--u) * 2.1) var(--head);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 0.12em 0.5em rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+.ifa-badge {
+  display: inline-block;
+  font: 800 calc(var(--u) * 0.7) var(--head);
+  letter-spacing: 0.14em;
+  padding: 0.18em 0.55em;
+  border-radius: 0.3em;
+  background: linear-gradient(180deg, #ffcf4a, #c27d12);
+  color: #2a1700;
+  vertical-align: middle;
+}
+.ifa kbd {
+  display: inline-block;
+  font: 700 0.9em var(--head);
+  letter-spacing: 0.05em;
+  border: 1px solid var(--line-2);
+  border-bottom-width: 3px;
+  border-radius: 0.35em;
+  padding: 0.12em 0.55em;
+  background: rgba(255, 255, 255, 0.06);
+}
+.ifa-p1 {
+  color: var(--p1);
+}
+.ifa-p2 {
+  color: var(--p2);
+}
+
+/* ---------------------------------------------------------------- loading / logo */
+.ifa-loading {
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #1a1220 0%, #050407 70%);
+  pointer-events: auto;
+}
+.ifa-logo {
+  text-align: center;
+  line-height: 0.95;
+}
+.ifa-logo__top {
+  font: 900 calc(var(--u) * 5.4) var(--head);
+  letter-spacing: 0.08em;
+  background: linear-gradient(180deg, #fff6d8 0%, #f2c45a 45%, #9a5a12 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0.08em 0.25em rgba(0, 0, 0, 0.9));
+  font-style: italic;
+}
+.ifa-logo__sub {
+  font: 800 calc(var(--u) * 1.6) var(--head);
+  letter-spacing: 0.55em;
+  margin-top: 0.15em;
+  padding-left: 0.55em;
+  color: #fff;
+  text-shadow: 0 0 0.6em rgba(255, 80, 40, 0.65);
+}
+.ifa-logo__tag {
+  margin-top: 0.8em;
+  font: 600 calc(var(--u) * 0.95) system-ui, sans-serif;
+  letter-spacing: 0.12em;
+  color: #ffd9a0;
+  text-shadow: 0 1px 4px #000;
+}
+.ifa-loadbar {
+  width: min(60cqw, calc(var(--u) * 26));
+  height: calc(var(--u) * 0.45);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: calc(var(--u) * 2);
+}
+.ifa-loadbar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #f2c45a, #ff5a2a);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.ifa-error {
+  color: #ff8a7a;
+  margin-top: calc(var(--u) * 2);
+  max-width: 34em;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------- menu */
+.ifa-menu {
+  justify-content: center;
+  padding-left: calc(var(--u) * 4);
+  background: linear-gradient(90deg, rgba(4, 4, 8, 0.85) 0%, rgba(4, 4, 8, 0.45) 40%, rgba(4, 4, 8, 0) 65%);
+}
+.ifa-menu .ifa-logo {
+  text-align: left;
+  margin-bottom: calc(var(--u) * 1.6);
+}
+.ifa-menu .ifa-logo__sub {
+  padding-left: 0;
+}
+.ifa-menu__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(var(--u) * 0.7);
+}
+.ifa-quality {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: 0.4em;
+  font: 600 calc(var(--u) * 0.8) system-ui, sans-serif;
+  color: var(--dim);
+}
+.ifa-quality button {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--dim);
+  font: 700 0.95em var(--head);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3em 0.8em;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+.ifa-quality button.on {
+  color: #1a1200;
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.ifa-menu__crown {
+  margin-top: calc(var(--u) * 1.2);
+  color: var(--gold);
+  font: 700 calc(var(--u) * 0.95) var(--head);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ifa-menu__hint,
+.ifa-tour__hint {
+  position: absolute;
+  bottom: calc(var(--u) * 1);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--dim);
+  font-size: calc(var(--u) * 0.8);
+  white-space: nowrap;
+  text-shadow: 0 1px 3px #000;
+}
+
+/* ---------------------------------------------------------------- portraits & cards */
+.ifa-portrait {
+  position: relative;
+  aspect-ratio: 6 / 7;
+  border-radius: calc(var(--u) * 0.35);
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 35%, color-mix(in srgb, var(--fc) 45%, #20202a) 0%, #0b0b10 80%);
+  display: grid;
+  place-items: center;
+}
+.ifa-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ifa-portrait img.ifa-alt {
+  filter: hue-rotate(180deg) saturate(1.2) brightness(0.85);
+}
+.ifa-portrait span {
+  font: 900 calc(var(--u) * 2.4) var(--head);
+  color: var(--fc);
+}
+.ifa-portrait--xl {
+  width: min(28cqw, calc(var(--u) * 17));
+  border: 2px solid var(--fc);
+  box-shadow: 0 0 calc(var(--u) * 2) color-mix(in srgb, var(--fc) 60%, transparent);
+}
+.ifa-roster {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--u) * 0.6);
+  flex-wrap: wrap;
+}
+.ifa-card {
+  position: relative;
+  appearance: none;
+  width: min(13cqw, calc(var(--u) * 7.2));
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: calc(var(--u) * 0.45);
+  cursor: pointer;
+  color: var(--text);
+  transition: transform 0.12s, border-color 0.12s, box-shadow 0.12s;
+}
+.ifa-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--fc);
+}
+.ifa-card.is-p1 {
+  border-color: var(--p1);
+  box-shadow: 0 0 0 2px var(--p1), 0 0 calc(var(--u) * 1.2) rgba(61, 139, 255, 0.7);
+  transform: translateY(-4px);
+}
+.ifa-card.is-p2 {
+  border-color: var(--p2);
+  box-shadow: 0 0 0 2px var(--p2), 0 0 calc(var(--u) * 1.2) rgba(255, 61, 94, 0.7);
+  transform: translateY(-4px);
+}
+.ifa-card.is-p1.is-p2 {
+  box-shadow: -3px 0 0 2px var(--p1), 3px 0 0 2px var(--p2);
+}
+.ifa-card__name {
+  display: block;
+  padding: 0.3em 0 0.35em;
+  font: 800 calc(var(--u) * 0.85) var(--head);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ifa-card__p1,
+.ifa-card__p2 {
+  position: absolute;
+  top: 0.3em;
+  font: 900 calc(var(--u) * 0.72) var(--head);
+  font-style: normal;
+  padding: 0.1em 0.45em;
+  border-radius: 0.3em;
+  color: #fff;
+}
+.ifa-card__p1 {
+  left: 0.3em;
+  background: var(--p1);
+}
+.ifa-card__p2 {
+  right: 0.3em;
+  background: var(--p2);
+}
+
+/* ---------------------------------------------------------------- fighter info */
+.ifa-select {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 22%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.75) 100%);
+}
+.ifa-select__infos {
+  display: flex;
+  justify-content: space-between;
+  gap: calc(var(--u) * 2);
+}
+.ifa-info {
+  width: min(30cqw, calc(var(--u) * 19));
+  background: linear-gradient(180deg, rgba(10, 11, 16, 0.85), rgba(10, 11, 16, 0.6));
+  border-left: 3px solid var(--fc);
+  border-radius: calc(var(--u) * 0.45);
+  padding: calc(var(--u) * 0.9) calc(var(--u) * 1.1);
+}
+.ifa-info--1 {
+  border-left: 0;
+  border-right: 3px solid var(--fc);
+  text-align: right;
+}
+.ifa-info__tag {
+  font: 800 calc(var(--u) * 0.72) var(--head);
+  letter-spacing: 0.18em;
+  color: var(--fa);
+}
+.ifa-info h2 {
+  font: 900 calc(var(--u) * 2.2) var(--head);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fc);
+  line-height: 1;
+  text-shadow: 0 0 0.5em color-mix(in srgb, var(--fc) 40%, transparent);
+}
+.ifa-info h3 {
+  font: 600 calc(var(--u) * 0.95) var(--head);
+  letter-spacing: 0.08em;
+  margin: 0.1em 0 0.5em;
+}
+.ifa-info__style {
+  color: var(--dim);
+  font-size: 0.85em;
+  margin-bottom: 0.3em;
+}
+.ifa-info__blurb {
+  font-size: 0.85em;
+  line-height: 1.35;
+  margin-bottom: 0.7em;
+}
+.ifa-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  font: 700 calc(var(--u) * 0.75) var(--head);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0.25em 0;
+}
+.ifa-info--1 .ifa-stat {
+  flex-direction: row-reverse;
+}
+.ifa-stat i {
+  display: flex;
+  gap: 3px;
+}
+.ifa-stat b {
+  width: calc(var(--u) * 1.3);
+  height: calc(var(--u) * 0.45);
+  background: rgba(255, 255, 255, 0.12);
+  transform: skewX(-20deg);
+}
+.ifa-stat b.on {
+  background: linear-gradient(90deg, var(--fc), var(--fa));
+}
+.ifa-info__special {
+  margin-top: 0.7em;
+  font: 700 calc(var(--u) * 0.85) var(--head);
+  letter-spacing: 0.06em;
+}
+.ifa-info__special span {
+  color: var(--dim);
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.14em;
+  margin-right: 0.4em;
+}
+.ifa-select__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+.ifa-select__keys {
+  color: var(--dim);
+  font-size: calc(var(--u) * 0.75);
+  text-align: center;
+  white-space: pre-wrap;
+  text-shadow: 0 1px 3px #000;
+}
+
+/* ---------------------------------------------------------------- tournament */
+.ifa-tour {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.15) 30%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.75) 100%);
+}
+.ifa-tour__tabs {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--u) * 0.5);
+}
+.ifa-tab {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-bottom: 3px solid transparent;
+  background: rgba(10, 11, 16, 0.8);
+  color: var(--text);
+  padding: 0.5em 1.1em;
+  border-radius: 0.4em 0.4em 0 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: calc(var(--u) * 12);
+}
+.ifa-tab b {
+  font: 800 calc(var(--u) * 0.95) var(--head);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ifa-tab small {
+  font-size: calc(var(--u) * 0.68);
+  color: var(--dim);
+}
+.ifa-tab.on {
+  border-bottom-color: var(--tc);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--tc) 35%, #0b0b10), rgba(10, 11, 16, 0.9));
+}
+.ifa-tab.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.ifa-ladder {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--u) * 0.45);
+  flex-wrap: wrap;
+}
+.ifa-node {
+  appearance: none;
+  position: relative;
+  width: min(8.4cqw, calc(var(--u) * 5));
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 0.4em;
+  cursor: pointer;
+  color: var(--text);
+  transition: transform 0.12s;
+}
+.ifa-node.on {
+  border-color: var(--tc);
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 0 calc(var(--u) * 1) color-mix(in srgb, var(--tc) 70%, transparent);
+}
+.ifa-node.boss {
+  border-color: var(--gold-2);
+}
+.ifa-node.boss.on {
+  border-color: var(--gold);
+}
+.ifa-node.locked .ifa-portrait {
+  filter: grayscale(1) brightness(0.35);
+}
+.ifa-node__n {
+  position: absolute;
+  top: 0.2em;
+  left: 0.25em;
+  font: 900 calc(var(--u) * 0.7) var(--head);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0 0.35em;
+  border-radius: 0.25em;
+}
+.ifa-node.boss .ifa-node__n {
+  background: var(--gold);
+  color: #2a1700;
+}
+.ifa-node__stars {
+  display: block;
+  font-size: calc(var(--u) * 0.7);
+  color: var(--gold);
+  padding: 0.15em 0 0.25em;
+  letter-spacing: 0.08em;
+}
+.ifa-tour__detail {
+  margin-top: auto;
+  align-self: center;
+  width: min(92cqw, calc(var(--u) * 46));
+  border-top: 3px solid var(--fc);
+}
+.ifa-tour__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ifa-tour__label {
+  font: 700 calc(var(--u) * 0.75) var(--head);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.ifa-tour__detail h2 {
+  font: 900 calc(var(--u) * 1.8) var(--head);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--fc);
+}
+.ifa-tour__detail h2 small {
+  font-size: 0.5em;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+.ifa-tour__detail p {
+  color: var(--dim);
+  font-size: 0.9em;
+}
+.ifa-tour__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em 1.4em;
+  margin: 0.6em 0 0.8em;
+  font-size: 0.85em;
+}
+.ifa-tour__actions,
+.ifa-result__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em;
+  justify-content: flex-end;
+}
+.ifa-tour__hint {
+  bottom: calc(var(--u) * 0.3);
+}
+
+/* ---------------------------------------------------------------- arenas */
+.ifa-arenas {
+  justify-content: flex-end;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.8) 100%);
+}
+.ifa-arenas .ifa-title {
+  margin-bottom: auto;
+}
+.ifa-arenas__row {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--u) * 0.7);
+  flex-wrap: wrap;
+}
+.ifa-arena {
+  appearance: none;
+  width: min(22cqw, calc(var(--u) * 13));
+  text-align: left;
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  border-top: 4px solid var(--ac);
+  border-radius: 0.45em;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ac) 22%, #0b0b10), rgba(8, 8, 12, 0.9));
+  color: var(--text);
+  padding: 0.8em 0.9em;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  transition: transform 0.12s;
+}
+.ifa-arena b {
+  font: 800 calc(var(--u) * 1.05) var(--head);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ifa-arena small {
+  color: var(--dim);
+  font-size: 0.8em;
+}
+.ifa-arena.on {
+  border-color: var(--ac);
+  transform: translateY(-4px);
+  box-shadow: 0 0 calc(var(--u) * 1.2) color-mix(in srgb, var(--ac) 60%, transparent);
+}
+
+/* ---------------------------------------------------------------- versus */
+.ifa-versus {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--u) * 3);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
+}
+.ifa-versus__side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4em;
+  animation: ifa-slideL 0.5s cubic-bezier(0.2, 0.9, 0.2, 1.05) both;
+}
+.ifa-versus__side--1 {
+  animation-name: ifa-slideR;
+}
+.ifa-versus__side h2 {
+  font: 900 calc(var(--u) * 2.4) var(--head);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fc);
+  text-shadow: 0 0 0.6em color-mix(in srgb, var(--fc) 50%, transparent), 0 3px 6px #000;
+}
+.ifa-versus__side p {
+  font: 700 calc(var(--u) * 0.9) var(--head);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.ifa-versus__vs {
+  font: 900 italic calc(var(--u) * 5) var(--head);
+  background: linear-gradient(180deg, #fff, #f2c45a 50%, #a8460f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 0.2em rgba(255, 120, 40, 0.8));
+  animation: ifa-pop 0.6s 0.25s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+}
+.ifa-versus__foot {
+  position: absolute;
+  bottom: calc(var(--u) * 1.6);
+  left: 0;
+  right: 0;
+  text-align: center;
+  font: 700 calc(var(--u) * 0.95) var(--head);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 4px #000;
+}
+@keyframes ifa-slideL {
+  from {
+    transform: translateX(-60%);
+    opacity: 0;
+  }
+}
+@keyframes ifa-slideR {
+  from {
+    transform: translateX(60%);
+    opacity: 0;
+  }
+}
+@keyframes ifa-pop {
+  from {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------- HUD */
+.ifa-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.ifa-hud__top {
+  position: absolute;
+  top: calc(var(--u) * 0.8);
+  left: calc(var(--u) * 1);
+  right: calc(var(--u) * 1);
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--u) * 0.8);
+}
+.ifa-bar {
+  flex: 1;
+  display: flex;
+  gap: calc(var(--u) * 0.55);
+  align-items: flex-start;
+  min-width: 0;
+}
+.ifa-bar--1 {
+  flex-direction: row-reverse;
+}
+.ifa-bar__face {
+  width: calc(var(--u) * 3.6);
+  flex: none;
+  border: 2px solid var(--fc);
+}
+.ifa-bar__main {
+  flex: 1;
+  min-width: 0;
+}
+.ifa-bar__name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  font: 900 calc(var(--u) * 1.15) var(--head);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 3px #000;
+  margin-bottom: 0.2em;
+}
+.ifa-bar__name small {
+  font-size: 0.65em;
+  color: var(--fc);
+  letter-spacing: 0.16em;
+}
+.ifa-bar--1 .ifa-bar__name {
+  flex-direction: row-reverse;
+}
+.ifa-hp {
+  position: relative;
+  height: calc(var(--u) * 1.35);
+  background: linear-gradient(180deg, rgba(20, 20, 26, 0.92), rgba(6, 6, 9, 0.92));
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  overflow: hidden;
+  transform: skewX(-18deg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+.ifa-bar--1 .ifa-hp {
+  transform: skewX(18deg) scaleX(-1);
+}
+.ifa-hp i {
+  position: absolute;
+  inset: 2px;
+  transform-origin: left;
+}
+.ifa-hp__lag {
+  background: linear-gradient(180deg, #ffe8e0, #ff6a4a);
+}
+.ifa-hp__fill {
+  background: linear-gradient(180deg, #fff7b0 0%, #ffd23c 35%, #f08a12 100%);
+  box-shadow: inset 0 -3px 6px rgba(120, 50, 0, 0.45);
+}
+.ifa-hp__fill.low {
+  background: linear-gradient(180deg, #ffb0a0 0%, #ff3a2a 40%, #a80e0e 100%);
+  animation: ifa-pulse 0.5s infinite alternate;
+}
+@keyframes ifa-pulse {
+  to {
+    filter: brightness(1.4);
+  }
+}
+.ifa-bar__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.35em;
+  gap: 0.6em;
+}
+.ifa-bar--1 .ifa-bar__row {
+  flex-direction: row-reverse;
+}
+.ifa-sp {
+  position: relative;
+  width: 55%;
+  height: calc(var(--u) * 0.95);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ifa-sp i {
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--fc) 50%, #000), var(--fc));
+  opacity: 0.65;
+}
+.ifa-bar--1 .ifa-sp i {
+  transform-origin: right;
+}
+.ifa-sp span {
+  position: relative;
+  display: block;
+  padding: 0 0.5em;
+  font: 800 calc(var(--u) * 0.6) var(--head);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: calc(var(--u) * 0.95);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 0.7);
+}
+.ifa-bar--1 .ifa-sp span {
+  text-align: right;
+}
+.ifa-sp.ready {
+  border-color: var(--fc);
+  box-shadow: 0 0 calc(var(--u) * 0.6) var(--fc);
+}
+.ifa-sp.ready i {
+  opacity: 1;
+  animation: ifa-pulse 0.6s infinite alternate;
+}
+.ifa-sp.ready span {
+  color: #fff;
+}
+.ifa-pips {
+  display: flex;
+  gap: 0.35em;
+}
+.ifa-pips b {
+  width: calc(var(--u) * 0.9);
+  height: calc(var(--u) * 0.9);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+}
+.ifa-pips b.on {
+  background: radial-gradient(circle at 35% 35%, #fff6c0, #f2c45a 45%, #a06010);
+  border-color: #ffe7a0;
+  box-shadow: 0 0 0.5em #f2c45a;
+}
+.ifa-timer {
+  flex: none;
+  width: calc(var(--u) * 4.2);
+  text-align: center;
+  font: 900 calc(var(--u) * 2.6) var(--head);
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 0 0.35em rgba(255, 200, 80, 0.6), 0 2px 4px #000;
+  background: linear-gradient(180deg, rgba(20, 20, 26, 0.85), rgba(4, 4, 6, 0.85));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 0.4em 0.4em;
+  margin-top: calc(var(--u) * -0.8);
+  padding-top: 0.15em;
+}
+.ifa-timer.low {
+  color: #ff5a4a;
+  animation: ifa-pulse 0.5s infinite alternate;
+}
+.ifa-announce {
+  position: absolute;
+  top: 38%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font: 900 italic calc(var(--u) * 5.2) var(--head);
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: linear-gradient(180deg, #ffffff 10%, #ffd23c 55%, #e0560f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0.04em 0.02em #3a1400) drop-shadow(0 0 0.25em rgba(255, 90, 30, 0.6));
+  animation: ifa-ann 0.45s cubic-bezier(0.2, 1.5, 0.4, 1) both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ifa-announce--round {
+  font-size: calc(var(--u) * 3.6);
+}
+.ifa-announce--ko {
+  font-size: calc(var(--u) * 7);
+  background: linear-gradient(180deg, #ffffff 0%, #ff6a5a 50%, #8a0a0a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.ifa-announce small {
+  font: 700 calc(var(--u) * 1) var(--head);
+  letter-spacing: 0.2em;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}
+@keyframes ifa-ann {
+  from {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+.ifa-banner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 58%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+  padding: 0.7em 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0.8) 75%, rgba(0, 0, 0, 0));
+  animation: ifa-slideL 0.4s ease-out both;
+}
+.ifa-banner b {
+  font: 900 calc(var(--u) * 1.8) var(--head);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ifa-banner small {
+  font: 700 calc(var(--u) * 1) var(--head);
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.ifa-combo {
+  position: absolute;
+  top: 24%;
+  font: 900 italic calc(var(--u) * 1.4) var(--head);
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-shadow: 0 0 0.4em rgba(255, 120, 40, 0.9), 0 2px 3px #000;
+  animation: ifa-ann 0.3s ease-out both;
+}
+.ifa-combo b {
+  font-size: 2em;
+  color: var(--gold);
+}
+.ifa-combo--0 {
+  left: calc(var(--u) * 2);
+}
+.ifa-combo--1 {
+  right: calc(var(--u) * 2);
+}
+.ifa-keys {
+  position: absolute;
+  bottom: calc(var(--u) * 0.8);
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 94%;
+  text-align: center;
+  white-space: pre-wrap;
+  font-size: calc(var(--u) * 0.78);
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 0.4em;
+  padding: 0.4em 1em;
+  animation: ifa-fadeout 1s 6s forwards;
+}
+@keyframes ifa-fadeout {
+  to {
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------- pause / result / champion */
+.ifa-pause,
+.ifa-result {
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  pointer-events: auto;
+  z-index: 4;
+}
+.ifa-result {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.75) 55%);
+  align-items: flex-end;
+}
+.ifa-pause__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  align-items: stretch;
+  min-width: calc(var(--u) * 16);
+  text-align: center;
+}
+.ifa-pause__card h1 {
+  font: 900 calc(var(--u) * 2.2) var(--head);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+}
+.ifa-pause .ifa-controls {
+  position: relative;
+  inset: auto;
+  padding: 0;
+}
+.ifa-result__card {
+  width: min(56cqw, calc(var(--u) * 30));
+  margin-right: calc(var(--u) * 2);
+  text-align: center;
+  border-top: 3px solid var(--gold);
+}
+.ifa-result__card.lose {
+  border-top-color: var(--red);
+}
+.ifa-result__card h1 {
+  font: 900 italic calc(var(--u) * 3.2) var(--head);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #fff 10%, #f2c45a 60%, #a8460f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: ifa-ann 0.5s cubic-bezier(0.2, 1.5, 0.4, 1) both;
+}
+.ifa-result__card.lose h1 {
+  background: linear-gradient(180deg, #fff 10%, #ff6a5a 55%, #6a0a0a);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.ifa-result__sub {
+  color: var(--dim);
+  margin-bottom: 0.4em;
+}
+.ifa-result__stars {
+  font-size: calc(var(--u) * 2.6);
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.15);
+}
+.ifa-result__stars span.on {
+  color: var(--gold);
+  text-shadow: 0 0 0.4em rgba(242, 196, 90, 0.8);
+}
+.ifa-result__boss {
+  font: 800 calc(var(--u) * 1) var(--head);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0.3em 0;
+}
+.ifa-result__stats {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.7em 0 1em;
+  font-size: 0.9em;
+}
+.ifa-result__stats th {
+  font: 700 0.8em var(--head);
+  letter-spacing: 0.14em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+.ifa-result__stats td {
+  padding: 0.25em 0.4em;
+  border-top: 1px solid var(--line);
+}
+.ifa-result__stats td:first-child {
+  text-align: left;
+  color: var(--dim);
+}
+.ifa-result__actions {
+  justify-content: center;
+}
+.ifa-champion {
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.8));
+  padding-bottom: calc(var(--u) * 2);
+}
+.ifa-champion__crown {
+  font-size: calc(var(--u) * 3.5);
+  filter: drop-shadow(0 0 0.4em rgba(255, 200, 80, 0.8));
+}
+.ifa-champion h1 {
+  font: 900 italic calc(var(--u) * 4) var(--head);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #fff 10%, #f2c45a 60%, #a8460f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.ifa-champion h2 {
+  font: 900 calc(var(--u) * 2) var(--head);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.ifa-champion p {
+  max-width: 36em;
+  color: var(--dim);
+  margin: 0.5em 0 1em;
+}
+
+/* ---------------------------------------------------------------- controls */
+.ifa-controls {
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  pointer-events: auto;
+}
+.ifa-controls__grid {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: calc(var(--u) * 0.9);
+  max-width: 100%;
+  align-items: start;
+}
+.ifa-controls h2 {
+  font: 800 calc(var(--u) * 1.1) var(--head);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+.ifa-controls table {
+  border-collapse: collapse;
+}
+.ifa-controls td {
+  padding: 0.22em 0.6em 0.22em 0;
+  font-size: 0.9em;
+}
+.ifa-controls__notes {
+  max-width: calc(var(--u) * 30);
+}
+.ifa-controls__notes li {
+  font-size: 0.82em;
+  line-height: 1.35;
+  margin-bottom: 0.45em;
+}
+.ifa-toast {
+  position: absolute;
+  z-index: 6;
+  top: calc(var(--u) * 5);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 10, 14, 0.92);
+  border: 1px solid var(--gold);
+  border-radius: 0.4em;
+  padding: 0.5em 1em;
+  font-size: calc(var(--u) * 0.85);
+}
+
+/* ---------------------------------------------------------------- narrow stages */
+@container ifa (max-aspect-ratio: 5/4) {
+  .ifa-menu {
+    padding-left: calc(var(--u) * 1.4);
+    background: linear-gradient(180deg, rgba(4, 4, 8, 0.85), rgba(4, 4, 8, 0.3));
+  }
+  .ifa-logo__top {
+    font-size: calc(var(--u) * 3.6);
+  }
+  .ifa-select__infos .ifa-info__blurb,
+  .ifa-select__infos .ifa-info__style {
+    display: none;
+  }
+  .ifa-controls__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ifa-controls__notes {
+    grid-column: 1 / -1;
+  }
+  .ifa-versus {
+    gap: calc(var(--u) * 1);
+  }
+  .ifa-result {
+    align-items: center;
+  }
+  .ifa-result__card {
+    margin-right: 0;
+    width: 92cqw;
+  }
+  .ifa-bar__face {
+    display: none;
+  }
+}
