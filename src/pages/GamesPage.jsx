@@ -8,7 +8,7 @@ import {
   getSecondaryCategories,
 } from "../lib/gameHelpers.jsx";
 import GameCard from "../components/GameCard.jsx";
-import GameDiscoveryHero from "../components/GameDiscoveryHero.jsx";
+import CustomGameHero from "../components/custom-game/CustomGameHero.jsx";
 import { Button, LoadingState, EmptyState, CategoryEmptyState, Alert, Section } from "../components/ui";
 
 const PAGE_SIZE = 100; // Load all games for better section organization
@@ -128,7 +128,7 @@ export default function GamesPage() {
   return (
     <div className="games-page">
       {/* Hero Section */}
-      {showHero && <GameDiscoveryHero />}
+      {showHero && <CustomGameHero />}
 
       {/* Games Content */}
       <div className="games-page__sections">
