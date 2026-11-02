@@ -151,6 +151,9 @@ const GAME_TAGLINES = {
   "Iron Fist": "Enter the Arena. Master Your Power.",
   "Whispering Woods: The Eight Notes": "Eight Notes. One Forest. No Escape.",
   "Whispering Woods": "Eight Notes. One Forest. No Escape.",
+  "The Cursed House: Escape": "Stay Quiet. Hide Fast. Escape Alive.",
+  "The Cursed House": "Stay Quiet. Hide Fast. Escape Alive.",
+  "Cursed House": "Stay Quiet. Hide Fast. Escape Alive.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
