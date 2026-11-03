@@ -126,15 +126,15 @@ export function CommissionBadge() {
   );
 }
 
-/** "Almost There!" — a request packed and waiting on the launch pad. */
-export function LaunchPadEmblem() {
-  const id = "cg-launch";
+/** "Request received!" — the request has left the launch pad. */
+export function LaunchedEmblem() {
+  const id = "cg-sent";
   return (
     <svg className="cg-emblem cg-emblem--launch" viewBox="0 0 160 140" aria-hidden="true" focusable="false">
       <defs>
         <radialGradient id={`${id}-floor`}>
-          <stop offset="0" stopColor="#F5B942" stopOpacity="0.3" />
-          <stop offset="1" stopColor="#F5B942" stopOpacity="0" />
+          <stop offset="0" stopColor="#00E88F" stopOpacity="0.3" />
+          <stop offset="1" stopColor="#00E88F" stopOpacity="0" />
         </radialGradient>
         <linearGradient id={`${id}-plane`} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#E8FFF5" />
@@ -146,26 +146,27 @@ export function LaunchPadEmblem() {
         </linearGradient>
       </defs>
       <ellipse cx="80" cy="120" rx="62" ry="13" fill={`url(#${id}-floor)`} />
-      {/* future flight path — dashed, not taken yet */}
-      <path className="cg-emblem__path" d="M104 80C120 66 124 46 140 30" fill="none" stroke="#3BD8FF" strokeOpacity="0.55" strokeWidth="1.6" strokeDasharray="2 6" strokeLinecap="round" />
-      <Sparkle x={142} y={28} s={0.9} className="cg-emblem__twinkle" />
+      {/* flight path — taken */}
+      <path className="cg-emblem__path" d="M70 104C84 88 98 70 112 54" fill="none" stroke="#20F0A0" strokeOpacity="0.7" strokeWidth="1.8" strokeDasharray="2 6" strokeLinecap="round" />
+      <Sparkle x={134} y={24} s={0.9} className="cg-emblem__twinkle" />
+      <Sparkle x={58} y={70} s={0.6} className="cg-emblem__twinkle cg-emblem__twinkle--late" />
       {/* pad */}
       <path d="M36 108 80 130v8L36 116z" fill="#062A21" />
       <path d="M124 108 80 130v8l44-22z" fill="#041A15" />
       <path d="M36 108 80 86l44 22-44 22z" fill={`url(#${id}-top)`} stroke="#20F0A0" strokeOpacity="0.45" />
-      <path d="M54 108 80 95l26 13-26 13z" fill="none" stroke="#F5B942" strokeOpacity="0.55" strokeDasharray="3 4" />
-      {/* paper plane, resting */}
-      <g transform="translate(80 98) scale(1.35) translate(-80 -98)">
-      <g className="cg-emblem__float">
-        <path d="M52 100 110 76 86 108l-8-10z" fill={`url(#${id}-plane)`} />
-        <path d="M52 100l26-2 32-22z" fill="#C9FBE6" />
-        <path d="M78 98l-2 14 10-4z" fill="#5FD6AE" />
+      <path d="M54 108 80 95l26 13-26 13z" fill="none" stroke="#00E88F" strokeOpacity="0.55" strokeDasharray="3 4" />
+      {/* paper plane, in flight */}
+      <g transform="translate(112 46) scale(1.15) translate(-80 -92)">
+        <g className="cg-emblem__float">
+          <path d="M52 100 110 76 86 108l-8-10z" fill={`url(#${id}-plane)`} />
+          <path d="M52 100l26-2 32-22z" fill="#C9FBE6" />
+          <path d="M78 98l-2 14 10-4z" fill="#5FD6AE" />
+        </g>
       </g>
-      </g>
-      {/* clock badge: pending */}
-      <g transform="translate(36 40)">
-        <circle r="17" fill="#1A1406" stroke="#F5B942" strokeWidth="2" />
-        <path d="M0-9V0l6 4" fill="none" stroke="#FFCA66" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      {/* check badge: received */}
+      <g transform="translate(40 44)">
+        <circle r="17" fill="#04241B" stroke="#00E88F" strokeWidth="2" />
+        <path d="M-7 0l5 5 9-10" fill="none" stroke="#65FFC0" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
       </g>
     </svg>
   );

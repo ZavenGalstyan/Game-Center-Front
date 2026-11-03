@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Link, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext.jsx";
 import Avatar from "./avatar/Avatar.jsx";
+import { isGameRequestsAdmin } from "../auth/gameRequestsAdmin.js";
 
 export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSearch }) {
   const { status, user, isAdmin, logout } = useAuth();
@@ -237,6 +238,18 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
                     }}
                   >
                     Admin · Games
+                  </button>
+                )}
+                {isGameRequestsAdmin(user) && pathname !== "/admin/game-requests" && (
+                  <button
+                    type="button"
+                    className="usermenu__item"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate("/admin/game-requests");
+                    }}
+                  >
+                    Admin · Game requests
                   </button>
                 )}
                 <button

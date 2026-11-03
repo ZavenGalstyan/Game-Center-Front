@@ -42,9 +42,13 @@ export default function Modal({
 
       // Focus trap: Tab key cycles within modal
       if (e.key === "Tab" && modalRef.current) {
-        const focusableElements = modalRef.current.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
+        // Disabled / tabindex=-1 controls can't take focus, so they must not
+        // be the trap's edges or Tab escapes the dialog.
+        const focusableElements = [
+          ...modalRef.current.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          ),
+        ].filter((el) => !el.disabled && el.tabIndex !== -1);
         const firstElement = focusableElements[0];
         const lastElement = focusableElements[focusableElements.length - 1];
 

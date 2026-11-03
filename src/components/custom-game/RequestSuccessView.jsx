@@ -1,29 +1,29 @@
-import { LaunchPadEmblem } from "./Emblems.jsx";
+import { LaunchedEmblem } from "./Emblems.jsx";
 
-/** Honest post-validation state: the request was NOT sent anywhere. */
-export default function ComingSoonView({ onDone }) {
+/** Shown only after the backend confirmed the request with HTTP 201. */
+export default function RequestSuccessView({ firstName, email, onDone }) {
   return (
-    <div className="cg-notice">
+    <div className="cg-notice cg-notice--success">
       <div className="cg-gate__art">
-        <LaunchPadEmblem />
+        <LaunchedEmblem />
       </div>
 
-      <p className="cg-chip cg-chip--warn">
+      <p className="cg-chip cg-chip--ok">
         <span className="cg-chip__dot" aria-hidden="true" />
-        Not sent yet
+        Pending review
       </p>
 
       <h2 id="cg-dialog-title" className="cg-dialog__title cg-dialog__title--center">
-        Almost There!
+        Request received!
       </h2>
       <p id="cg-dialog-desc" className="cg-dialog__lead cg-dialog__lead--center" role="status">
-        Your game request is ready, but online submissions are coming soon. Please check back
-        shortly.
+        Thanks, {firstName}. We&apos;ll contact you at{" "}
+        <strong className="cg-notice__email">{email}</strong> after reviewing your game idea.
       </p>
 
       <div className="cg-gate__actions cg-gate__actions--single">
         <button type="button" className="cg-btn cg-btn--primary" onClick={onDone} data-autofocus>
-          <span>Got It</span>
+          <span>Done</span>
         </button>
       </div>
     </div>

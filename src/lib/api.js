@@ -32,8 +32,10 @@ export const tokenStore = {
  * (e.g. COMMENT_LIMIT_REACHED) and `retryAfter` the Retry-After header in
  * seconds; both are null when absent.
  * Returns the `data` payload of the success envelope on success.
+ * `expect` (optional) is the exact success status the caller requires; any
+ * other 2xx is treated as a failure so the UI never confirms an unverified write.
  */
-async function request(path, { method = "GET", body, auth = false, raw = false } = {}) {
+async function request(path, { method = "GET", body, auth = false, raw = false, expect } = {}) {
   const headers = { "Content-Type": "application/json" };
   if (auth) {
     const token = tokenStore.get();
@@ -68,6 +70,16 @@ async function request(path, { method = "GET", body, auth = false, raw = false }
       errors: json.errors || null,
       code: json.code || null,
       retryAfter: Number.isFinite(retryAfter) ? retryAfter : null,
+    };
+  }
+
+  if (expect && res.status !== expect) {
+    throw {
+      status: res.status,
+      message: "Unexpected response from the server. Please try again.",
+      errors: null,
+      code: "UNEXPECTED_STATUS",
+      retryAfter: null,
     };
   }
 
@@ -246,6 +258,37 @@ export const api = {
     request(`/api/games/${gameId}/comments/${commentId}`, {
       method: "DELETE",
       auth: true,
+    }),
+
+  /* ------------------------- Custom game requests -------------------------- */
+
+  // Authenticated. Returns the created request (HTTP 201).
+  createGameRequest: ({ firstName, lastName, email, description }) =>
+    request("/api/game-requests", {
+      method: "POST",
+      auth: true,
+      body: { firstName, lastName, email, description },
+      expect: 201,
+    }),
+
+  // Admin only (enforced server-side). Returns { requests, pagination }.
+  listGameRequests: ({ page = 1, limit = 10, search, status } = {}) => {
+    const qs = new URLSearchParams({
+      page: String(page),
+      limit: String(limit),
+      ...(search ? { search } : {}),
+      ...(status ? { status } : {}),
+    });
+    return request(`/api/game-requests?${qs.toString()}`, { auth: true });
+  },
+
+  // Admin only (enforced server-side). Returns the updated request.
+  updateGameRequestStatus: (id, status) =>
+    request(`/api/game-requests/${encodeURIComponent(id)}/status`, {
+      method: "PATCH",
+      auth: true,
+      body: { status },
+      expect: 200,
     }),
 
   // Backend shape varies: { items, total } or the standard { data, pagination }.

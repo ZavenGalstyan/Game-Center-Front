@@ -4,7 +4,7 @@ import HeroArtwork from "./HeroArtwork.jsx";
 import RequestDialog from "./RequestDialog.jsx";
 import AuthGateView from "./AuthGateView.jsx";
 import GameRequestForm from "./GameRequestForm.jsx";
-import ComingSoonView from "./ComingSoonView.jsx";
+import RequestSuccessView from "./RequestSuccessView.jsx";
 import useGameRequestFlow from "./useGameRequestFlow.js";
 import "./customGame.css";
 
@@ -145,9 +145,21 @@ export default function CustomGameHero() {
             />
           )}
           {flow.view === "form" && (
-            <GameRequestForm user={flow.user} onSubmit={flow.submit} onCancel={dismiss} />
+            <GameRequestForm
+              user={flow.user}
+              initialValues={flow.draftValues}
+              onDraftChange={flow.saveDraft}
+              onSubmit={flow.submit}
+              onCancel={dismiss}
+            />
           )}
-          {flow.view === "notice" && <ComingSoonView onDone={dismiss} />}
+          {flow.view === "success" && flow.submitted && (
+            <RequestSuccessView
+              firstName={flow.submitted.firstName}
+              email={flow.submitted.email}
+              onDone={dismiss}
+            />
+          )}
         </RequestDialog>
       )}
     </>
