@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header.jsx";
 import Sidebar from "./Sidebar.jsx";
@@ -9,8 +9,23 @@ export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const openAuth = useCallback((mode) => setAuthMode(mode), []);
-  const closeAuth = useCallback(() => setAuthMode(null), []);
+  // Optional callback run once the visitor actually logs in / registers from
+  // the modal opened by this call (e.g. resume "request a custom game").
+  const onAuthenticatedRef = useRef(null);
+
+  const openAuth = useCallback((mode, options) => {
+    onAuthenticatedRef.current = options?.onAuthenticated ?? null;
+    setAuthMode(mode);
+  }, []);
+  const closeAuth = useCallback(() => {
+    onAuthenticatedRef.current = null;
+    setAuthMode(null);
+  }, []);
+  const handleAuthenticated = useCallback(() => {
+    const cb = onAuthenticatedRef.current;
+    onAuthenticatedRef.current = null;
+    cb?.();
+  }, []);
   const closeSidebar = useCallback(() => setSidebarOpen(false), []);
 
   const handleSearch = useCallback((query) => {
@@ -32,7 +47,13 @@ export default function Layout() {
         </main>
       </div>
 
-      {authMode && <AuthModal initialMode={authMode} onClose={closeAuth} />}
+      {authMode && (
+        <AuthModal
+          initialMode={authMode}
+          onClose={closeAuth}
+          onAuthenticated={handleAuthenticated}
+        />
+      )}
     </div>
   );
 }

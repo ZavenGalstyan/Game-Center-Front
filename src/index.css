@@ -9642,53 +9642,6 @@ h3 {
 }
 
 /* ==========================================================================
-   GAME DISCOVERY HERO
-   ========================================================================== */
-
-.game-discovery-hero {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--hero-section-gap);
-}
-
-.game-discovery-hero__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.game-discovery-hero__gradient {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 50% at 75% 25%, rgba(0, 232, 143, 0.12), transparent 45%),
-    radial-gradient(ellipse 50% 60% at 15% 75%, rgba(0, 200, 120, 0.08), transparent 35%),
-    linear-gradient(145deg, rgba(6, 35, 27, 0.95) 0%, rgba(3, 19, 19, 0.98) 100%);
-}
-
-.game-discovery-hero__content {
-  position: relative;
-  z-index: 1;
-  max-width: 560px;
-}
-
-.game-discovery-hero .hero__title {
-  display: flex;
-  flex-direction: column;
-}
-
-.game-discovery-hero .hero__title-line {
-  display: block;
-}
-
-.game-discovery-hero .hero__title-accent {
-  display: block;
-  color: var(--primary);
-}
-
-/* ==========================================================================
    GAME CARD - Premium Gaming Card (Reference Style)
    ========================================================================== */
 
@@ -10167,50 +10120,6 @@ h3 {
   .game-card__play svg {
     width: 16px;
     height: 16px;
-  }
-}
-
-/* ==========================================================================
-   RESPONSIVE - HERO
-   ========================================================================== */
-
-/* Tablet: 768px–1199px */
-@media (min-width: 768px) and (max-width: 1199px) {
-  .game-discovery-hero__content {
-    max-width: 480px;
-  }
-}
-
-/* Mobile: <768px */
-@media (max-width: 767px) {
-  .game-discovery-hero {
-    min-height: 200px;
-    padding: var(--space-5);
-    margin-bottom: var(--space-6);
-  }
-
-  .game-discovery-hero__content {
-    max-width: 100%;
-  }
-
-  .game-discovery-hero .hero__title {
-    font-size: 28px;
-  }
-
-  .game-discovery-hero .hero__lead {
-    font-size: var(--font-md);
-  }
-}
-
-/* Extra small: ≤380px */
-@media (max-width: 380px) {
-  .game-discovery-hero {
-    min-height: 180px;
-    padding: var(--space-4);
-  }
-
-  .game-discovery-hero .hero__title {
-    font-size: 24px;
   }
 }
 
