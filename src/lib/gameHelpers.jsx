@@ -104,6 +104,7 @@ import cursedHouseBg from "../images/TheCursedHouse.png";
 import whisperingWoodsBg from "../images/WhisperingWoods.png";
 import motel6Bg from "../images/Motel6.png";
 import ironFistBg from "../images/IronFist.png";
+import karateLegendsBg from "../images/KarateLegends.png";
 
 /**
  * Category to icon mapping.
@@ -1664,6 +1665,29 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(6, 8, 18, 0.5) 44%,
       rgba(6, 8, 18, 0.76) 56%,
       rgba(6, 8, 18, 0.88) 100%)`,
+  },
+  // Karate Legends: Ultimate Dojo — 2D cartoon karate fighter with tournament
+  // mode. White/red karate gi vs dark purple gi fighters. Position centers both
+  // fighters and title visible. Traditional dojo aesthetic with cherry blossoms.
+  "karate legends: ultimate dojo": {
+    image: karateLegendsBg,
+    position: "50% 25%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 15, 0) 0%,
+      rgba(10, 8, 15, 0) 30%,
+      rgba(10, 8, 15, 0.5) 42%,
+      rgba(10, 8, 15, 0.76) 54%,
+      rgba(10, 8, 15, 0.88) 100%)`,
+  },
+  "karate legends": {
+    image: karateLegendsBg,
+    position: "50% 25%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 15, 0) 0%,
+      rgba(10, 8, 15, 0) 30%,
+      rgba(10, 8, 15, 0.5) 42%,
+      rgba(10, 8, 15, 0.76) 54%,
+      rgba(10, 8, 15, 0.88) 100%)`,
   },
 };
 

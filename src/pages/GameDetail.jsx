@@ -285,6 +285,8 @@ const GAME_DECORATIONS = {
   "Motel 6": "motel-6",
   "Iron Fist: Arena Champions": "iron-fist",
   "Iron Fist": "iron-fist",
+  "Karate Legends: Ultimate Dojo": "karate-legends",
+  "Karate Legends": "karate-legends",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

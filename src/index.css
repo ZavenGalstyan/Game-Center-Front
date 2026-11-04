@@ -4895,6 +4895,39 @@ h3 {
   z-index: -1;
 }
 
+/* Karate Legends: Ultimate Dojo — Japanese dojo composition featuring two karate
+   fighters in dynamic poses. White gi with red headband vs dark purple gi.
+   Traditional wooden dojo background, rising sun motif, cherry blossoms,
+   golden impact sparks, and elegant motion trails. */
+.game-page__about[data-decoration="karate-legends"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3C!-- Rising sun gradient --%3E%3CradialGradient id='kl-sun' cx='50%25' cy='85%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23cc2020' stop-opacity='0.18'/%3E%3Cstop offset='30%25' stop-color='%23aa1818' stop-opacity='0.1'/%3E%3Cstop offset='60%25' stop-color='%23661010' stop-opacity='0.05'/%3E%3Cstop offset='100%25' stop-color='%23330808' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Golden spark gradient --%3E%3CradialGradient id='kl-gold-spark' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='0.95'/%3E%3Cstop offset='35%25' stop-color='%23ffaa00' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23885500' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Cherry blossom gradient --%3E%3CradialGradient id='kl-blossom' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffccdd' stop-opacity='0.85'/%3E%3Cstop offset='50%25' stop-color='%23ff9999' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23cc6666' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- White gi gradient --%3E%3ClinearGradient id='kl-white-gi' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.35'/%3E%3Cstop offset='50%25' stop-color='%23f0f0f0' stop-opacity='0.28'/%3E%3Cstop offset='100%25' stop-color='%23dddddd' stop-opacity='0.22'/%3E%3C/linearGradient%3E%3C!-- Purple/dark gi gradient --%3E%3ClinearGradient id='kl-purple-gi' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%235a2a6a' stop-opacity='0.4'/%3E%3Cstop offset='50%25' stop-color='%23401850' stop-opacity='0.32'/%3E%3Cstop offset='100%25' stop-color='%232a1038' stop-opacity='0.26'/%3E%3C/linearGradient%3E%3C!-- Dojo wood gradient --%3E%3ClinearGradient id='kl-wood' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b5a2b' stop-opacity='0.15'/%3E%3Cstop offset='50%25' stop-color='%23704214' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23553010' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3C!-- Glow filter --%3E%3Cfilter id='kl-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='2.5' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Rising sun rays background --%3E%3Ccircle cx='240' cy='380' r='200' fill='url(%23kl-sun)'/%3E%3Cpath d='M240 380 L200 100 L220 100 Z' fill='%23cc2020' opacity='0.06'/%3E%3Cpath d='M240 380 L260 100 L280 100 Z' fill='%23cc2020' opacity='0.06'/%3E%3Cpath d='M240 380 L320 120 L340 130 Z' fill='%23cc2020' opacity='0.05'/%3E%3Cpath d='M240 380 L140 120 L160 130 Z' fill='%23cc2020' opacity='0.05'/%3E%3Cpath d='M240 380 L370 180 L380 200 Z' fill='%23cc2020' opacity='0.04'/%3E%3Cpath d='M240 380 L100 180 L110 200 Z' fill='%23cc2020' opacity='0.04'/%3E%3C!-- Dojo wooden floor --%3E%3Crect x='80' y='340' width='280' height='60' fill='url(%23kl-wood)' rx='2'/%3E%3Cline x1='100' y1='340' x2='100' y2='400' stroke='%23704214' stroke-width='1' opacity='0.08'/%3E%3Cline x1='160' y1='340' x2='160' y2='400' stroke='%23704214' stroke-width='1' opacity='0.08'/%3E%3Cline x1='220' y1='340' x2='220' y2='400' stroke='%23704214' stroke-width='1' opacity='0.08'/%3E%3Cline x1='280' y1='340' x2='280' y2='400' stroke='%23704214' stroke-width='1' opacity='0.08'/%3E%3Cline x1='340' y1='340' x2='340' y2='400' stroke='%23704214' stroke-width='1' opacity='0.08'/%3E%3C!-- Dojo wooden pillars --%3E%3Crect x='95' y='120' width='18' height='220' fill='url(%23kl-wood)' rx='2'/%3E%3Crect x='350' y='120' width='18' height='220' fill='url(%23kl-wood)' rx='2'/%3E%3C!-- Dojo beam --%3E%3Crect x='90' y='115' width='285' height='12' fill='url(%23kl-wood)' rx='2'/%3E%3C!-- Left Fighter: White Gi, Red Headband (high kick pose) --%3E%3C!-- Back leg planted --%3E%3Cpath d='M150 305 Q145 325 140 350 Q138 365 145 370' stroke='%23e8e8e8' stroke-width='11' fill='none' opacity='0.28' stroke-linecap='round'/%3E%3C!-- Front leg kicking high --%3E%3Cpath d='M170 295 Q200 270 235 245 Q250 235 260 230' stroke='%23e8e8e8' stroke-width='11' fill='none' opacity='0.28' stroke-linecap='round'/%3E%3C!-- Torso white gi --%3E%3Cpath d='M140 220 Q135 260 145 300 Q160 308 180 300 Q190 260 185 220 Z' fill='url(%23kl-white-gi)'/%3E%3C!-- Gi lapel V-shape --%3E%3Cpath d='M150 220 L163 275 L175 220' fill='none' stroke='%23ffffff' stroke-width='2.5' opacity='0.2'/%3E%3C!-- Black belt --%3E%3Crect x='140' y='285' width='45' height='10' rx='2' fill='%231a1a1a' opacity='0.35'/%3E%3Crect x='158' y='283' width='12' height='14' rx='2' fill='%231a1a1a' opacity='0.3'/%3E%3C!-- Arms - one guarding, one extended --%3E%3Cpath d='M142 230 Q120 235 100 225 Q88 218 80 210' stroke='%23e8e8e8' stroke-width='9' fill='none' opacity='0.25' stroke-linecap='round'/%3E%3Cpath d='M183 230 Q195 218 210 208 Q225 198 235 192' stroke='%23e8e8e8' stroke-width='9' fill='none' opacity='0.25' stroke-linecap='round'/%3E%3C!-- Fists --%3E%3Ccircle cx='78' cy='208' r='9' fill='%23eeddcc' opacity='0.28'/%3E%3Ccircle cx='238' cy='190' r='9' fill='%23eeddcc' opacity='0.28'/%3E%3C!-- Head --%3E%3Ccircle cx='163' cy='195' r='24' fill='%23eeddcc' opacity='0.25'/%3E%3C!-- Red headband --%3E%3Crect x='139' y='183' width='48' height='10' rx='3' fill='%23cc2020' opacity='0.55'/%3E%3Cpath d='M187 188 Q202 192 212 202' stroke='%23cc2020' stroke-width='5' fill='none' opacity='0.4' stroke-linecap='round'/%3E%3Cpath d='M187 188 Q200 196 208 208' stroke='%23cc2020' stroke-width='4' fill='none' opacity='0.3' stroke-linecap='round'/%3E%3C!-- Right Fighter: Dark Purple Gi (blocking stance) --%3E%3C!-- Legs in wide stance --%3E%3Cpath d='M305 300 Q310 320 318 345 Q322 360 318 372' stroke='%23401850' stroke-width='12' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3Cpath d='M280 300 Q265 320 255 345 Q248 360 252 372' stroke='%23401850' stroke-width='12' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3C!-- Torso purple gi --%3E%3Cpath d='M268 215 Q263 255 273 298 Q290 306 312 298 Q322 255 317 215 Z' fill='url(%23kl-purple-gi)'/%3E%3C!-- Purple accent trim --%3E%3Cpath d='M278 218 L292 275 L306 218' fill='none' stroke='%239060a8' stroke-width='2.5' opacity='0.35'/%3E%3C!-- Dark belt --%3E%3Crect x='268' y='283' width='48' height='10' rx='2' fill='%231a1a1a' opacity='0.35'/%3E%3Crect x='287' y='281' width='12' height='14' rx='2' fill='%231a1a1a' opacity='0.3'/%3E%3C!-- Arms - both raised blocking --%3E%3Cpath d='M270 225 Q248 215 235 195 Q228 182 225 170' stroke='%23401850' stroke-width='10' fill='none' opacity='0.28' stroke-linecap='round'/%3E%3Cpath d='M315 225 Q338 218 350 200 Q358 185 362 172' stroke='%23401850' stroke-width='10' fill='none' opacity='0.28' stroke-linecap='round'/%3E%3C!-- Purple energy/accent on arms --%3E%3Cpath d='M268 227 Q246 217 234 197' stroke='%239060a8' stroke-width='2' fill='none' opacity='0.3'/%3E%3Cpath d='M317 227 Q340 217 352 198' stroke='%239060a8' stroke-width='2' fill='none' opacity='0.3'/%3E%3C!-- Fists --%3E%3Ccircle cx='223' cy='168' r='10' fill='%23ddccbb' opacity='0.28'/%3E%3Ccircle cx='365' cy='170' r='10' fill='%23ddccbb' opacity='0.28'/%3E%3C!-- Head --%3E%3Ccircle cx='292' cy='190' r='25' fill='%23ddccbb' opacity='0.24'/%3E%3C!-- Dark headband/hair --%3E%3Cpath d='M267 180 Q292 168 317 180' stroke='%232a1038' stroke-width='8' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3C!-- Golden impact sparks at kick contact --%3E%3Ccircle cx='258' cy='225' r='6' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3Ccircle cx='248' cy='210' r='4.5' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3Ccircle cx='268' cy='238' r='3.5' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3Ccircle cx='240' cy='232' r='3' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3Ccircle cx='255' cy='198' r='2.5' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3Ccircle cx='272' cy='218' r='2' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3C!-- Motion trails behind kick --%3E%3Cpath d='M175 290 Q195 275 220 255' stroke='%23ffffff' stroke-width='2' fill='none' opacity='0.12'/%3E%3Cpath d='M180 295 Q200 280 225 262' stroke='%23ffffff' stroke-width='1.5' fill='none' opacity='0.08'/%3E%3Cpath d='M185 300 Q205 285 230 268' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.05'/%3E%3C!-- Cherry blossom petals floating --%3E%3Cellipse cx='120' cy='145' rx='5' ry='3' fill='url(%23kl-blossom)' transform='rotate(-20 120 145)'/%3E%3Cellipse cx='340' cy='160' rx='4' ry='2.5' fill='url(%23kl-blossom)' transform='rotate(35 340 160)'/%3E%3Cellipse cx='180' cy='110' rx='4.5' ry='2.5' fill='url(%23kl-blossom)' transform='rotate(-45 180 110)'/%3E%3Cellipse cx='300' cy='125' rx='3.5' ry='2' fill='url(%23kl-blossom)' transform='rotate(60 300 125)'/%3E%3Cellipse cx='135' cy='180' rx='3' ry='1.8' fill='url(%23kl-blossom)' transform='rotate(-30 135 180)'/%3E%3Cellipse cx='355' cy='210' rx='3.5' ry='2' fill='url(%23kl-blossom)' transform='rotate(25 355 210)'/%3E%3Cellipse cx='200' cy='140' rx='3' ry='1.8' fill='url(%23kl-blossom)' transform='rotate(50 200 140)'/%3E%3Cellipse cx='250' cy='105' rx='4' ry='2.2' fill='url(%23kl-blossom)' transform='rotate(-55 250 105)'/%3E%3C!-- Additional cherry blossoms for atmosphere --%3E%3Cellipse cx='370' cy='270' rx='3' ry='1.8' fill='url(%23kl-blossom)' transform='rotate(40 370 270)'/%3E%3Cellipse cx='115' cy='250' rx='2.5' ry='1.5' fill='url(%23kl-blossom)' transform='rotate(-25 115 250)'/%3E%3C!-- Motion lines around white gi fighter --%3E%3Cpath d='M95 220 Q75 225 55 220' stroke='%23ffffff' stroke-width='1.5' fill='none' opacity='0.1'/%3E%3Cpath d='M100 240 Q80 245 60 240' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.07'/%3E%3C!-- Purple energy wisps around purple fighter --%3E%3Cpath d='M375 200 Q385 195 395 200' stroke='%239060a8' stroke-width='1.5' fill='none' opacity='0.15'/%3E%3Cpath d='M370 220 Q380 215 390 218' stroke='%239060a8' stroke-width='1' fill='none' opacity='0.1'/%3E%3C!-- Atmospheric dust particles --%3E%3Ccircle cx='145' cy='130' r='1.2' fill='%23ffeedd' opacity='0.15'/%3E%3Ccircle cx='320' cy='140' r='1' fill='%239060a8' opacity='0.18'/%3E%3Ccircle cx='190' cy='160' r='0.8' fill='%23ffd700' opacity='0.12'/%3E%3Ccircle cx='270' cy='145' r='1.1' fill='%23cc2020' opacity='0.1'/%3E%3Ccircle cx='360' cy='185' r='0.9' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Karate Legends ambient glow - red, gold, and purple accents */
+.game-page__about[data-decoration="karate-legends"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 70%, rgba(180, 30, 30, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 35% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 65% 45%, rgba(100, 50, 120, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 45% 60%, rgba(255, 180, 180, 0.035) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6417,6 +6450,21 @@ h3 {
     height: 340px;
   }
 
+  /* Karate Legends tablet */
+  .game-page__about[data-decoration="karate-legends"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="karate-legends"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7926,6 +7974,21 @@ h3 {
     height: 260px;
   }
 
+  /* Karate Legends mobile */
+  .game-page__about[data-decoration="karate-legends"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="karate-legends"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9288,6 +9351,21 @@ h3 {
     height: 210px;
   }
 
+  /* Karate Legends small mobile */
+  .game-page__about[data-decoration="karate-legends"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="karate-legends"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9563,6 +9641,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="iron-fist"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Karate Legends extra small */
+  .game-page__about[data-decoration="karate-legends"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="karate-legends"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
