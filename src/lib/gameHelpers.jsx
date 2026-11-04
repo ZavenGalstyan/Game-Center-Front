@@ -99,6 +99,7 @@ import crownOfAshesBg from "../images/CrownofAshes.png";
 import neonMercenaryBg from "../images/NeonMercenary.png";
 import lastShelterBg from "../images/60seconds.png";
 import midnightShiftBg from "../images/MidnightShift.png";
+import corridor9Bg from "../images/Corridor9.png";
 
 /**
  * Category to icon mapping.
@@ -1531,6 +1532,30 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(12, 6, 8, 0.5) 44%,
       rgba(12, 6, 8, 0.76) 56%,
       rgba(12, 6, 8, 0.88) 100%)`,
+  },
+  // Corridor 9: Endless Passage — mysterious underground corridor with EXIT 9
+  // sign, endless passage, shadowy figure. The title and key elements sit
+  // center-left; 45% keeps them visible while trimming the right edge on narrow
+  // cards. Dark emerald-charcoal fade matches the psychological horror mood.
+  "corridor 9: endless passage": {
+    image: corridor9Bg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 28%,
+      rgba(6, 14, 10, 0.5) 42%,
+      rgba(6, 14, 10, 0.76) 54%,
+      rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  "corridor 9": {
+    image: corridor9Bg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 28%,
+      rgba(6, 14, 10, 0.5) 42%,
+      rgba(6, 14, 10, 0.76) 54%,
+      rgba(6, 14, 10, 0.88) 100%)`,
   },
 };
 

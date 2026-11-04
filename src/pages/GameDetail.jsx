@@ -272,6 +272,8 @@ const GAME_DECORATIONS = {
   "Last Shelter": "last-shelter",
   "Midnight Shift: Haunted Factory": "midnight-shift",
   "Midnight Shift": "midnight-shift",
+  "Corridor 9: Endless Passage": "corridor-9",
+  "Corridor 9": "corridor-9",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

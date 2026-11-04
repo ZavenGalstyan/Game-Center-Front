@@ -4726,6 +4726,39 @@ h3 {
   z-index: -1;
 }
 
+/* Corridor 9: Endless Passage — psychological horror underground corridor with EXIT 9 door,
+   shadowy humanoid silhouette, flickering fluorescent lights, exposed industrial pipes,
+   vintage wall clock, directional warning sign, fog, and distorted shadows.
+   Deep emerald, muted teal, charcoal, dirty white, and warning yellow accents */
+.game-page__about[data-decoration="corridor-9"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='c9-corridor-floor' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23003322' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23001a11' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='c9-metal-door' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23445544' stop-opacity='0.15'/%3E%3Cstop offset='50%25' stop-color='%23334433' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23223322' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c9-warning-yellow' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffcc00' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%23cc9900' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3CradialGradient id='c9-exit-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffdd44' stop-opacity='0.35'/%3E%3Cstop offset='40%25' stop-color='%23ffaa22' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23884400' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c9-light-flicker' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23aaffcc' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%2366ddaa' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23004422' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='c9-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='4' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='c9-fog' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.015' numOctaves='3' result='noise'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.2 0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0.06 0'/%3E%3C/filter%3E%3C/defs%3E%3C!-- Atmospheric fog background --%3E%3Crect x='120' y='60' width='280' height='340' fill='%23112218' opacity='0.06'/%3E%3Crect x='140' y='80' width='260' height='320' filter='url(%23c9-fog)'/%3E%3C!-- Outer corridor walls with strong perspective --%3E%3Cpath d='M100 380 L180 60 L220 60 L300 380 Z' fill='none' stroke='%2300aa66' stroke-width='3' opacity='0.12'/%3E%3C!-- Inner corridor walls --%3E%3Cpath d='M130 380 L185 85 L215 85 L270 380 Z' fill='url(%23c9-corridor-floor)' stroke='%2300cc77' stroke-width='2' opacity='0.9'/%3E%3C!-- Second layer of walls --%3E%3Cpath d='M155 380 L188 105 L212 105 L245 380 Z' fill='%23002211' stroke='%2300aa66' stroke-width='1.5' opacity='0.08'/%3E%3C!-- Floor perspective lines --%3E%3Cline x1='140' y1='340' x2='260' y2='340' stroke='%2300cc77' stroke-width='1.5' opacity='0.08'/%3E%3Cline x1='150' y1='290' x2='250' y2='290' stroke='%2300bb66' stroke-width='1.2' opacity='0.07'/%3E%3Cline x1='160' y1='240' x2='240' y2='240' stroke='%2300aa55' stroke-width='1' opacity='0.06'/%3E%3Cline x1='170' y1='190' x2='230' y2='190' stroke='%2300aa55' stroke-width='0.8' opacity='0.05'/%3E%3Cline x1='178' y1='150' x2='222' y2='150' stroke='%230099444' stroke-width='0.6' opacity='0.04'/%3E%3C!-- Repeating side doors left --%3E%3Crect x='135' y='280' width='25' height='50' rx='1' fill='%23223322' stroke='%2300aa66' stroke-width='1.5' opacity='0.1'/%3E%3Ccircle cx='155' cy='305' r='3' fill='%2300cc77' opacity='0.12'/%3E%3Crect x='148' y='210' width='20' height='40' rx='1' fill='%23223322' stroke='%2300aa66' stroke-width='1' opacity='0.08'/%3E%3Ccircle cx='164' cy='230' r='2' fill='%2300cc77' opacity='0.1'/%3E%3C!-- Repeating side doors right --%3E%3Crect x='240' y='280' width='25' height='50' rx='1' fill='%23223322' stroke='%2300aa66' stroke-width='1.5' opacity='0.1'/%3E%3Ccircle cx='245' cy='305' r='3' fill='%2300cc77' opacity='0.12'/%3E%3Crect x='232' y='210' width='20' height='40' rx='1' fill='%23223322' stroke='%2300aa66' stroke-width='1' opacity='0.08'/%3E%3Ccircle cx='236' cy='230' r='2' fill='%2300cc77' opacity='0.1'/%3E%3C!-- EXIT 9 Door at end - partially open with warm glow --%3E%3Crect x='188' y='95' width='24' height='50' rx='1' fill='url(%23c9-metal-door)' stroke='%2300cc77' stroke-width='2' opacity='0.9'/%3E%3C!-- Door opening crack with yellow glow --%3E%3Cpath d='M210 97 L212 97 L214 143 L212 143 Z' fill='url(%23c9-exit-glow)' filter='url(%23c9-glow)' opacity='0.9'/%3E%3C!-- Light spilling from door --%3E%3Cpath d='M212 105 L235 160 L240 200 L212 143 Z' fill='%23ffcc44' opacity='0.04'/%3E%3C!-- EXIT 9 sign above door --%3E%3Crect x='185' y='75' width='30' height='16' rx='2' fill='url(%23c9-warning-yellow)' stroke='%23ccaa00' stroke-width='1' opacity='0.9'/%3E%3Ctext x='200' y='87' font-size='9' fill='%23332200' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold' opacity='0.35'%3EEXIT 9%3C/text%3E%3C!-- Door handle --%3E%3Ccircle cx='206' cy='122' r='3' fill='%2300cc77' opacity='0.15'/%3E%3C!-- Door frame glow --%3E%3Crect x='186' y='93' width='28' height='54' rx='2' fill='none' stroke='%23ffdd66' stroke-width='1' opacity='0.1'/%3E%3C!-- Shadowy humanoid silhouette in corridor --%3E%3Cpath d='M195 170 Q198 155 200 145 Q205 135 210 145 Q212 155 215 170 Q212 200 210 250 Q205 290 200 310 Q195 290 190 250 Q185 200 195 170 Z' fill='%23050a08' opacity='0.18'/%3E%3C!-- Figure head --%3E%3Cellipse cx='203' cy='142' rx='10' ry='12' fill='%23080c0a' opacity='0.2'/%3E%3C!-- Figure shoulders hint --%3E%3Cpath d='M188 165 Q200 158 212 165' stroke='%23060a08' stroke-width='3' fill='none' opacity='0.15'/%3E%3C!-- Flickering fluorescent ceiling lights --%3E%3Crect x='190' y='55' width='20' height='8' rx='2' fill='url(%23c9-light-flicker)' filter='url(%23c9-glow)' opacity='0.85'/%3E%3Crect x='192' y='57' width='16' height='4' fill='%23aaffcc' opacity='0.15'/%3E%3C!-- Second light further back --%3E%3Crect x='193' y='70' width='14' height='5' rx='1' fill='%2388ddaa' opacity='0.1'/%3E%3C!-- Light cones from ceiling --%3E%3Cpath d='M192 63 L175 120 L225 120 L208 63 Z' fill='%2366ddaa' opacity='0.025'/%3E%3Cpath d='M195 75 L182 115 L218 115 L205 75 Z' fill='%2366ddaa' opacity='0.02'/%3E%3C!-- Exposed industrial pipes on ceiling --%3E%3Cline x1='160' y1='50' x2='240' y2='50' stroke='%23446655' stroke-width='5' opacity='0.1'/%3E%3Cline x1='155' y1='42' x2='245' y2='42' stroke='%23335544' stroke-width='3' opacity='0.08'/%3E%3C!-- Pipe joints --%3E%3Ccircle cx='175' cy='50' r='4' fill='%23557766' opacity='0.1'/%3E%3Ccircle cx='225' cy='50' r='4' fill='%23557766' opacity='0.1'/%3E%3C!-- Vertical pipes on walls --%3E%3Cline x1='125' y1='100' x2='115' y2='350' stroke='%23446655' stroke-width='4' opacity='0.09'/%3E%3Cline x1='275' y1='100' x2='285' y2='350' stroke='%23446655' stroke-width='4' opacity='0.09'/%3E%3Cline x1='120' y1='120' x2='112' y2='320' stroke='%23335544' stroke-width='2.5' opacity='0.07'/%3E%3Cline x1='280' y1='120' x2='288' y2='320' stroke='%23335544' stroke-width='2.5' opacity='0.07'/%3E%3C!-- Pipe connectors --%3E%3Ccircle cx='122' cy='180' r='5' fill='%23557766' opacity='0.08'/%3E%3Ccircle cx='278' cy='180' r='5' fill='%23557766' opacity='0.08'/%3E%3Ccircle cx='118' cy='280' r='4' fill='%23446655' opacity='0.07'/%3E%3Ccircle cx='282' cy='280' r='4' fill='%23446655' opacity='0.07'/%3E%3C!-- Vintage wall clock --%3E%3Ccircle cx='135' cy='150' r='18' fill='%23223322' stroke='%2300aa66' stroke-width='2' opacity='0.12'/%3E%3Ccircle cx='135' cy='150' r='15' fill='%23112211' stroke='%2300cc77' stroke-width='1' opacity='0.1'/%3E%3C!-- Clock hands --%3E%3Cline x1='135' y1='150' x2='135' y2='138' stroke='%2300ddaa' stroke-width='2' opacity='0.15'/%3E%3Cline x1='135' y1='150' x2='145' y2='153' stroke='%2300ddaa' stroke-width='1.5' opacity='0.12'/%3E%3Ccircle cx='135' cy='150' r='2' fill='%2300cc77' opacity='0.15'/%3E%3C!-- Clock tick marks --%3E%3Cline x1='135' y1='135' x2='135' y2='138' stroke='%2300aa66' stroke-width='1' opacity='0.1'/%3E%3Cline x1='135' y1='162' x2='135' y2='165' stroke='%2300aa66' stroke-width='1' opacity='0.1'/%3E%3Cline x1='122' y1='150' x2='120' y2='150' stroke='%2300aa66' stroke-width='1' opacity='0.1'/%3E%3Cline x1='148' y1='150' x2='150' y2='150' stroke='%2300aa66' stroke-width='1' opacity='0.1'/%3E%3C!-- Warning sign on wall --%3E%3Cpath d='M265 140 L280 165 L250 165 Z' fill='url(%23c9-warning-yellow)' stroke='%23ccaa00' stroke-width='1.5' opacity='0.8'/%3E%3Ctext x='265' y='160' font-size='8' fill='%23332200' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold' opacity='0.3'%3E!%3C/text%3E%3C!-- Small directional sign --%3E%3Crect x='258' y='195' width='30' height='12' rx='1' fill='%23334433' stroke='%2300aa66' stroke-width='1' opacity='0.1'/%3E%3Cpath d='M282 198 L288 201 L282 204' fill='none' stroke='%2300cc77' stroke-width='1.5' opacity='0.12'/%3E%3C!-- Distorted shadow on floor --%3E%3Cellipse cx='200' cy='350' rx='45' ry='15' fill='%23000000' opacity='0.08'/%3E%3Cellipse cx='200' cy='355' rx='55' ry='12' fill='%23000000' opacity='0.05'/%3E%3C!-- Wall stains and wear --%3E%3Cpath d='M145 200 Q148 220 145 240' stroke='%23224422' stroke-width='3' opacity='0.06'/%3E%3Cpath d='M255 210 Q252 235 255 255' stroke='%23224422' stroke-width='2.5' opacity='0.05'/%3E%3C!-- Fog wisps --%3E%3Cellipse cx='200' cy='370' rx='90' ry='20' fill='%23446655' opacity='0.04'/%3E%3Cellipse cx='180' cy='380' rx='70' ry='15' fill='%23335544' opacity='0.03'/%3E%3Cellipse cx='230' cy='385' rx='60' ry='12' fill='%23446655' opacity='0.025'/%3E%3C!-- Additional atmospheric elements --%3E%3Ccircle cx='160' cy='300' r='25' fill='%23224433' opacity='0.03'/%3E%3Ccircle cx='240' cy='280' r='30' fill='%23224433' opacity='0.025'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Corridor 9 ambient glow - deep emerald, muted teal, warning yellow, and charcoal accents */
+.game-page__about[data-decoration="corridor-9"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 40%, rgba(0, 180, 100, 0.055) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 55% 50%, rgba(255, 200, 50, 0.04) 0%, transparent 45%),
+    radial-gradient(ellipse 45% 40% at 45% 55%, rgba(0, 140, 90, 0.035) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 25% at 60% 35%, rgba(100, 180, 140, 0.03) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6173,6 +6206,21 @@ h3 {
     height: 340px;
   }
 
+  /* Corridor 9 tablet */
+  .game-page__about[data-decoration="corridor-9"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="corridor-9"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7607,6 +7655,21 @@ h3 {
     height: 260px;
   }
 
+  /* Corridor 9 mobile */
+  .game-page__about[data-decoration="corridor-9"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="corridor-9"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8894,6 +8957,21 @@ h3 {
     height: 210px;
   }
 
+  /* Corridor 9 small mobile */
+  .game-page__about[data-decoration="corridor-9"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="corridor-9"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9109,6 +9187,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="midnight-shift"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Corridor 9 extra small */
+  .game-page__about[data-decoration="corridor-9"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="corridor-9"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
