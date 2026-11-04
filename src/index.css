@@ -4928,6 +4928,40 @@ h3 {
   z-index: -1;
 }
 
+/* Wobbly Warriors: Arena Clash — two adorable rounded cartoon fighters facing each other.
+   Yellow fighter (Bonko) with red headband and boxing gloves vs blue fighter (Pudge)
+   with playful Viking helmet. Both in dynamic punching poses with comic-style impact
+   burst between fists. Small dust clouds, motion lines, stars, and arena details.
+   Cheerful yellow, orange, red, and blue accents on dark-green card. */
+.game-page__about[data-decoration="wobbly-warriors"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3C!-- Yellow fighter body gradient --%3E%3CradialGradient id='ww-yellow-body' cx='40%25' cy='30%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23ffdd44' stop-opacity='0.9'/%3E%3Cstop offset='50%25' stop-color='%23ff9933' stop-opacity='0.75'/%3E%3Cstop offset='100%25' stop-color='%23cc6600' stop-opacity='0.5'/%3E%3C/radialGradient%3E%3C!-- Blue fighter body gradient --%3E%3CradialGradient id='ww-blue-body' cx='60%25' cy='30%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%2366ccff' stop-opacity='0.9'/%3E%3Cstop offset='50%25' stop-color='%233399ff' stop-opacity='0.75'/%3E%3Cstop offset='100%25' stop-color='%231a66cc' stop-opacity='0.5'/%3E%3C/radialGradient%3E%3C!-- Impact burst gradient --%3E%3CradialGradient id='ww-impact' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.95'/%3E%3Cstop offset='30%25' stop-color='%23ffee66' stop-opacity='0.8'/%3E%3Cstop offset='60%25' stop-color='%23ffaa00' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23ff6600' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Star sparkle gradient --%3E%3CradialGradient id='ww-star' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='1'/%3E%3Cstop offset='40%25' stop-color='%23ffee88' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%23ffcc00' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Arena floor glow --%3E%3CradialGradient id='ww-arena-glow' cx='50%25' cy='50%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%2366dd88' stop-opacity='0.2'/%3E%3Cstop offset='50%25' stop-color='%2333aa55' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23116633' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Belly highlight --%3E%3CradialGradient id='ww-yellow-belly' cx='50%25' cy='40%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffeecc' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23ffcc88' stop-opacity='0.3'/%3E%3C/radialGradient%3E%3CradialGradient id='ww-blue-belly' cx='50%25' cy='40%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ddeeff' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%2399ccff' stop-opacity='0.3'/%3E%3C/radialGradient%3E%3C!-- Glow filter --%3E%3Cfilter id='ww-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Arena floor --%3E%3Cellipse cx='220' cy='360' rx='170' ry='45' fill='url(%23ww-arena-glow)'/%3E%3Cellipse cx='220' cy='360' rx='130' ry='32' fill='%2344aa66' opacity='0.08'/%3E%3Cellipse cx='220' cy='360' rx='90' ry='22' fill='%2366cc88' opacity='0.06'/%3E%3C!-- Dust clouds at feet --%3E%3Cellipse cx='130' cy='345' rx='25' ry='12' fill='%23ddddcc' opacity='0.15'/%3E%3Cellipse cx='115' cy='350' rx='18' ry='9' fill='%23ccccbb' opacity='0.1'/%3E%3Cellipse cx='310' cy='345' rx='25' ry='12' fill='%23ddddcc' opacity='0.15'/%3E%3Cellipse cx='325' cy='350' rx='18' ry='9' fill='%23ccccbb' opacity='0.1'/%3E%3C!-- LEFT FIGHTER: Yellow (Bonko) --%3E%3C!-- Body - rounded wobbly shape --%3E%3Cellipse cx='135' cy='265' rx='55' ry='70' fill='url(%23ww-yellow-body)'/%3E%3C!-- Belly highlight --%3E%3Cellipse cx='140' cy='280' rx='30' ry='35' fill='url(%23ww-yellow-belly)'/%3E%3C!-- Left leg --%3E%3Cellipse cx='115' cy='330' rx='18' ry='25' fill='%23ff9933' opacity='0.6'/%3E%3C!-- Right leg --%3E%3Cellipse cx='155' cy='330' rx='18' ry='25' fill='%23ff9933' opacity='0.6'/%3E%3C!-- Left arm (back) --%3E%3Cellipse cx='95' cy='250' rx='15' ry='22' fill='%23ffaa33' opacity='0.5' transform='rotate(-20 95 250)'/%3E%3C!-- Right arm (punching forward) --%3E%3Cpath d='M170 245 Q195 235 215 230 Q225 228 235 228' stroke='%23ffaa33' stroke-width='22' fill='none' opacity='0.7' stroke-linecap='round'/%3E%3C!-- Boxing glove (right, punching) --%3E%3Ccircle cx='242' cy='228' r='22' fill='%23dd3333' opacity='0.75'/%3E%3Ccircle cx='248' cy='225' r='8' fill='%23ff6666' opacity='0.4'/%3E%3C!-- Boxing glove (left, back) --%3E%3Ccircle cx='82' cy='242' r='18' fill='%23dd3333' opacity='0.65'/%3E%3C!-- Head --%3E%3Ccircle cx='140' cy='195' r='38' fill='%23ffcc33' opacity='0.85'/%3E%3C!-- Face highlight --%3E%3Ccircle cx='132' cy='188' r='20' fill='%23ffee88' opacity='0.3'/%3E%3C!-- Eyes --%3E%3Ccircle cx='128' cy='192' r='8' fill='%23222222' opacity='0.7'/%3E%3Ccircle cx='152' cy='192' r='8' fill='%23222222' opacity='0.7'/%3E%3Ccircle cx='130' cy='190' r='3' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='154' cy='190' r='3' fill='%23ffffff' opacity='0.8'/%3E%3C!-- Determined mouth --%3E%3Cpath d='M130 210 Q140 218 150 210' stroke='%23222222' stroke-width='3' fill='none' opacity='0.6' stroke-linecap='round'/%3E%3C!-- Red headband --%3E%3Crect x='102' y='178' width='76' height='12' rx='4' fill='%23dd2222' opacity='0.8'/%3E%3Cpath d='M178 184 Q192 188 200 198' stroke='%23dd2222' stroke-width='6' fill='none' opacity='0.65' stroke-linecap='round'/%3E%3Cpath d='M178 184 Q190 192 196 205' stroke='%23dd2222' stroke-width='5' fill='none' opacity='0.5' stroke-linecap='round'/%3E%3C!-- RIGHT FIGHTER: Blue (Pudge) --%3E%3C!-- Body - rounded wobbly shape --%3E%3Cellipse cx='305' cy='265' rx='55' ry='70' fill='url(%23ww-blue-body)'/%3E%3C!-- Belly highlight --%3E%3Cellipse cx='300' cy='280' rx='30' ry='35' fill='url(%23ww-blue-belly)'/%3E%3C!-- Left leg --%3E%3Cellipse cx='285' cy='330' rx='18' ry='25' fill='%233399ff' opacity='0.6'/%3E%3C!-- Right leg --%3E%3Cellipse cx='325' cy='330' rx='18' ry='25' fill='%233399ff' opacity='0.6'/%3E%3C!-- Right arm (back) --%3E%3Cellipse cx='345' cy='250' rx='15' ry='22' fill='%234499ff' opacity='0.5' transform='rotate(20 345 250)'/%3E%3C!-- Left arm (punching forward) --%3E%3Cpath d='M270 245 Q245 235 225 230 Q215 228 205 228' stroke='%234499ff' stroke-width='22' fill='none' opacity='0.7' stroke-linecap='round'/%3E%3C!-- Boxing glove (left, punching) --%3E%3Ccircle cx='198' cy='228' r='22' fill='%23dd3333' opacity='0.75'/%3E%3Ccircle cx='192' cy='225' r='8' fill='%23ff6666' opacity='0.4'/%3E%3C!-- Boxing glove (right, back) --%3E%3Ccircle cx='358' cy='242' r='18' fill='%23dd3333' opacity='0.65'/%3E%3C!-- Head --%3E%3Ccircle cx='300' cy='195' r='38' fill='%2355aaff' opacity='0.85'/%3E%3C!-- Face highlight --%3E%3Ccircle cx='308' cy='188' r='20' fill='%2388ccff' opacity='0.3'/%3E%3C!-- Viking helmet --%3E%3Cpath d='M262 180 Q280 150 300 145 Q320 150 338 180 L338 195 Q300 188 262 195 Z' fill='%23888888' opacity='0.7'/%3E%3Ccircle cx='300' cy='155' r='8' fill='%23aaaaaa' opacity='0.5'/%3E%3C!-- Helmet horns --%3E%3Cpath d='M265 180 Q250 160 245 140' stroke='%23ccccaa' stroke-width='8' fill='none' opacity='0.6' stroke-linecap='round'/%3E%3Cpath d='M335 180 Q350 160 355 140' stroke='%23ccccaa' stroke-width='8' fill='none' opacity='0.6' stroke-linecap='round'/%3E%3C!-- Eyes --%3E%3Ccircle cx='288' cy='198' r='8' fill='%23222222' opacity='0.7'/%3E%3Ccircle cx='312' cy='198' r='8' fill='%23222222' opacity='0.7'/%3E%3Ccircle cx='290' cy='196' r='3' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='314' cy='196' r='3' fill='%23ffffff' opacity='0.8'/%3E%3C!-- Determined mouth --%3E%3Cpath d='M290 216 Q300 224 310 216' stroke='%23222222' stroke-width='3' fill='none' opacity='0.6' stroke-linecap='round'/%3E%3C!-- IMPACT BURST between fists --%3E%3Ccircle cx='220' cy='228' r='28' fill='url(%23ww-impact)' filter='url(%23ww-glow)'/%3E%3C!-- Impact spikes --%3E%3Cpath d='M220 200 L223 212 L217 212 Z' fill='%23ffffff' opacity='0.7'/%3E%3Cpath d='M220 256 L223 244 L217 244 Z' fill='%23ffffff' opacity='0.7'/%3E%3Cpath d='M192 228 L204 231 L204 225 Z' fill='%23ffffff' opacity='0.7'/%3E%3Cpath d='M248 228 L236 231 L236 225 Z' fill='%23ffffff' opacity='0.7'/%3E%3Cpath d='M200 208 L210 216 L206 220 Z' fill='%23ffee66' opacity='0.6'/%3E%3Cpath d='M240 208 L230 216 L234 220 Z' fill='%23ffee66' opacity='0.6'/%3E%3Cpath d='M200 248 L210 240 L206 236 Z' fill='%23ffee66' opacity='0.6'/%3E%3Cpath d='M240 248 L230 240 L234 236 Z' fill='%23ffee66' opacity='0.6'/%3E%3C!-- Stars around impact --%3E%3Cpath d='M175 200 l3 8 l8 -3 l-8 3 l3 8 l-3 -8 l-8 3 l8 -3 Z' fill='url(%23ww-star)' filter='url(%23ww-glow)'/%3E%3Cpath d='M265 195 l2 6 l6 -2 l-6 2 l2 6 l-2 -6 l-6 2 l6 -2 Z' fill='url(%23ww-star)' filter='url(%23ww-glow)'/%3E%3Cpath d='M220 175 l2 5 l5 -2 l-5 2 l2 5 l-2 -5 l-5 2 l5 -2 Z' fill='url(%23ww-star)' filter='url(%23ww-glow)'/%3E%3Cpath d='M185 250 l1.5 4 l4 -1.5 l-4 1.5 l1.5 4 l-1.5 -4 l-4 1.5 l4 -1.5 Z' fill='url(%23ww-star)' filter='url(%23ww-glow)'/%3E%3Cpath d='M255 260 l1.5 4 l4 -1.5 l-4 1.5 l1.5 4 l-1.5 -4 l-4 1.5 l4 -1.5 Z' fill='url(%23ww-star)' filter='url(%23ww-glow)'/%3E%3C!-- Motion lines behind yellow fighter --%3E%3Cpath d='M75 230 Q55 235 35 230' stroke='%23ffcc33' stroke-width='2' fill='none' opacity='0.2'/%3E%3Cpath d='M80 255 Q60 260 40 255' stroke='%23ffcc33' stroke-width='1.5' fill='none' opacity='0.15'/%3E%3Cpath d='M85 280 Q65 285 45 280' stroke='%23ffcc33' stroke-width='1' fill='none' opacity='0.1'/%3E%3C!-- Motion lines behind blue fighter --%3E%3Cpath d='M365 230 Q385 225 400 230' stroke='%2355aaff' stroke-width='2' fill='none' opacity='0.2'/%3E%3Cpath d='M360 255 Q380 250 400 255' stroke='%2355aaff' stroke-width='1.5' fill='none' opacity='0.15'/%3E%3Cpath d='M355 280 Q375 275 395 280' stroke='%2355aaff' stroke-width='1' fill='none' opacity='0.1'/%3E%3C!-- Extra floating particles --%3E%3Ccircle cx='100' cy='170' r='2' fill='%23ffee66' opacity='0.25'/%3E%3Ccircle cx='340' cy='165' r='1.8' fill='%2388ccff' opacity='0.25'/%3E%3Ccircle cx='160' cy='140' r='1.5' fill='%23ff6644' opacity='0.2'/%3E%3Ccircle cx='280' cy='135' r='1.5' fill='%2366ddff' opacity='0.2'/%3E%3Ccircle cx='220' cy='150' r='2' fill='%23ffdd44' opacity='0.22'/%3E%3Ccircle cx='180' cy='310' r='1.2' fill='%23ffffff' opacity='0.15'/%3E%3Ccircle cx='260' cy='305' r='1.2' fill='%23ffffff' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Wobbly Warriors ambient glow - yellow, orange, blue accents */
+.game-page__about[data-decoration="wobbly-warriors"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 35% 55%, rgba(255, 200, 50, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 65% 55%, rgba(80, 160, 255, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 45%, rgba(255, 100, 50, 0.045) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 50% 65%, rgba(100, 220, 150, 0.035) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6465,6 +6499,21 @@ h3 {
     height: 340px;
   }
 
+  /* Wobbly Warriors tablet */
+  .game-page__about[data-decoration="wobbly-warriors"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="wobbly-warriors"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7989,6 +8038,21 @@ h3 {
     height: 260px;
   }
 
+  /* Wobbly Warriors mobile */
+  .game-page__about[data-decoration="wobbly-warriors"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="wobbly-warriors"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9366,6 +9430,21 @@ h3 {
     height: 210px;
   }
 
+  /* Wobbly Warriors small mobile */
+  .game-page__about[data-decoration="wobbly-warriors"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="wobbly-warriors"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9653,6 +9732,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="karate-legends"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Wobbly Warriors extra small */
+  .game-page__about[data-decoration="wobbly-warriors"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="wobbly-warriors"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

@@ -105,6 +105,7 @@ import whisperingWoodsBg from "../images/WhisperingWoods.png";
 import motel6Bg from "../images/Motel6.png";
 import ironFistBg from "../images/IronFist.png";
 import karateLegendsBg from "../images/KarateLegends.png";
+import wobblyWarriorsBg from "../images/WobblyWarriors.png";
 
 /**
  * Category to icon mapping.
@@ -1687,6 +1688,29 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(10, 8, 15, 0) 30%,
       rgba(10, 8, 15, 0.5) 42%,
       rgba(10, 8, 15, 0.76) 54%,
+      rgba(10, 8, 15, 0.88) 100%)`,
+  },
+  // Wobbly Warriors: Arena Clash — cute cartoon blob fighters in arena.
+  // Yellow fighter with red headband vs blue fighter with viking helmet.
+  // Position centers both fighters and title visible.
+  "wobbly warriors: arena clash": {
+    image: wobblyWarriorsBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 15, 0) 0%,
+      rgba(10, 8, 15, 0) 28%,
+      rgba(10, 8, 15, 0.5) 40%,
+      rgba(10, 8, 15, 0.76) 52%,
+      rgba(10, 8, 15, 0.88) 100%)`,
+  },
+  "wobbly warriors": {
+    image: wobblyWarriorsBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 15, 0) 0%,
+      rgba(10, 8, 15, 0) 28%,
+      rgba(10, 8, 15, 0.5) 40%,
+      rgba(10, 8, 15, 0.76) 52%,
       rgba(10, 8, 15, 0.88) 100%)`,
   },
 };

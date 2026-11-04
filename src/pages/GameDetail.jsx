@@ -287,6 +287,8 @@ const GAME_DECORATIONS = {
   "Iron Fist": "iron-fist",
   "Karate Legends: Ultimate Dojo": "karate-legends",
   "Karate Legends": "karate-legends",
+  "Wobbly Warriors: Arena Clash": "wobbly-warriors",
+  "Wobbly Warriors": "wobbly-warriors",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
