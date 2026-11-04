@@ -151,6 +151,8 @@ const GAME_TAGLINES = {
   "Wobbly Warriors": "Wobble, Punch, and Knock Them Down!",
   "Iron Fist: Arena Champions": "Enter the Arena. Master Your Power.",
   "Iron Fist": "Enter the Arena. Master Your Power.",
+  "Shadow Arena: Ultimate Fighters": "Six Fighters. Four Arenas. One Champion.",
+  "Shadow Arena": "Six Fighters. Four Arenas. One Champion.",
   "Whispering Woods: The Eight Notes": "Eight Notes. One Forest. No Escape.",
   "Whispering Woods": "Eight Notes. One Forest. No Escape.",
   "The Cursed House: Escape": "Stay Quiet. Hide Fast. Escape Alive.",
@@ -289,6 +291,8 @@ const GAME_DECORATIONS = {
   "Karate Legends": "karate-legends",
   "Wobbly Warriors: Arena Clash": "wobbly-warriors",
   "Wobbly Warriors": "wobbly-warriors",
+  "Shadow Arena: Ultimate Fighters": "shadow-arena",
+  "Shadow Arena": "shadow-arena",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

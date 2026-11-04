@@ -106,6 +106,7 @@ import motel6Bg from "../images/Motel6.png";
 import ironFistBg from "../images/IronFist.png";
 import karateLegendsBg from "../images/KarateLegends.png";
 import wobblyWarriorsBg from "../images/WobblyWarriors.png";
+import shadowArenaBg from "../images/ShadowArena.png";
 
 /**
  * Category to icon mapping.
@@ -1713,6 +1714,29 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(10, 8, 15, 0.76) 52%,
       rgba(10, 8, 15, 0.88) 100%)`,
   },
+  // Shadow Arena: Ultimate Fighters — Canvas 2D one-on-one martial arts fighter
+  // with 6 unique fighters, 4 arenas, 30-battle arcade ladder, and local VS mode.
+  // Orange, gold, and desert palette with dynamic fighting poses.
+  "shadow arena: ultimate fighters": {
+    image: shadowArenaBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 12, 0) 0%,
+      rgba(10, 8, 12, 0) 28%,
+      rgba(10, 8, 12, 0.5) 40%,
+      rgba(10, 8, 12, 0.76) 52%,
+      rgba(10, 8, 12, 0.88) 100%)`,
+  },
+  "shadow arena": {
+    image: shadowArenaBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 12, 0) 0%,
+      rgba(10, 8, 12, 0) 28%,
+      rgba(10, 8, 12, 0.5) 40%,
+      rgba(10, 8, 12, 0.76) 52%,
+      rgba(10, 8, 12, 0.88) 100%)`,
+  },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();
@@ -1836,6 +1860,14 @@ const GAME_ARTWORK = {
   "Classic Chess": {
     gradient: "linear-gradient(135deg, #2a2a2a 0%, #4d4d4d 50%, #2a2a2a 100%)",
     description: "Chess board with pieces",
+  },
+  "Shadow Arena: Ultimate Fighters": {
+    gradient: "linear-gradient(135deg, #3d2a1a 0%, #6a4020 50%, #4d2a10 100%)",
+    description: "Two martial artists face off in a desert arena",
+  },
+  "Shadow Arena": {
+    gradient: "linear-gradient(135deg, #3d2a1a 0%, #6a4020 50%, #4d2a10 100%)",
+    description: "Two martial artists face off in a desert arena",
   },
 };
 

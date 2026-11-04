@@ -4962,6 +4962,41 @@ h3 {
   z-index: -1;
 }
 
+/* Shadow Arena: Ultimate Fighters — desert arena composition featuring two martial
+   arts fighters in dynamic combat poses. Left fighter in white karate gi with black
+   belt and red headband. Right fighter in dark outfit with orange/gold accents.
+   Glowing orange impact effect between raised fists. Desert arena platform with
+   ancient stone pillars. Orange energy trails, golden sparks, and dust particles.
+   Orange, gold, red, and subtle purple color palette. */
+.game-page__about[data-decoration="shadow-arena"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3C!-- Desert sky gradient --%3E%3ClinearGradient id='sa-sky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6a3d' stop-opacity='0.12'/%3E%3Cstop offset='40%25' stop-color='%23cc4420' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23442010' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3C!-- Arena floor glow --%3E%3CradialGradient id='sa-arena-glow' cx='50%25' cy='70%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%23ffd23f' stop-opacity='0.2'/%3E%3Cstop offset='40%25' stop-color='%23cc8800' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23664400' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Impact burst gradient --%3E%3CradialGradient id='sa-impact' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.95'/%3E%3Cstop offset='25%25' stop-color='%23ffd23f' stop-opacity='0.8'/%3E%3Cstop offset='50%25' stop-color='%23ff6a3d' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23cc3300' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Golden spark gradient --%3E%3CradialGradient id='sa-gold-spark' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='0.95'/%3E%3Cstop offset='35%25' stop-color='%23ffaa00' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23885500' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- White gi gradient --%3E%3ClinearGradient id='sa-white-gi' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.4'/%3E%3Cstop offset='50%25' stop-color='%23f0f0f0' stop-opacity='0.32'/%3E%3Cstop offset='100%25' stop-color='%23dddddd' stop-opacity='0.25'/%3E%3C/linearGradient%3E%3C!-- Dark fighter outfit gradient --%3E%3ClinearGradient id='sa-dark-outfit' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232a1a10' stop-opacity='0.45'/%3E%3Cstop offset='50%25' stop-color='%231a1008' stop-opacity='0.38'/%3E%3Cstop offset='100%25' stop-color='%23100805' stop-opacity='0.32'/%3E%3C/linearGradient%3E%3C!-- Orange accent gradient --%3E%3ClinearGradient id='sa-orange-accent' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffd23f' stop-opacity='0.5'/%3E%3Cstop offset='50%25' stop-color='%23ff6a3d' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23cc4420' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3C!-- Stone pillar gradient --%3E%3ClinearGradient id='sa-stone' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23887766' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%23665544' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23443322' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3C!-- Sand floor gradient --%3E%3ClinearGradient id='sa-sand' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ddaa66' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23996633' stop-opacity='0.12'/%3E%3C/linearGradient%3E%3C!-- Glow filter --%3E%3Cfilter id='sa-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='2.5' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Desert sky background --%3E%3Crect x='0' y='0' width='400' height='400' fill='url(%23sa-sky)'/%3E%3C!-- Left stone pillar with archway details --%3E%3Crect x='60' y='140' width='35' height='200' fill='url(%23sa-stone)' rx='3'/%3E%3Crect x='55' y='130' width='45' height='20' fill='url(%23sa-stone)' rx='2'/%3E%3Crect x='52' y='120' width='51' height='15' fill='url(%23sa-stone)' rx='2'/%3E%3Cpath d='M63 150 L63 180 M75 150 L75 190 M87 150 L87 175' stroke='%23554433' stroke-width='1.5' opacity='0.12'/%3E%3C!-- Right stone pillar with archway details --%3E%3Crect x='340' y='150' width='32' height='190' fill='url(%23sa-stone)' rx='3'/%3E%3Crect x='335' y='140' width='42' height='18' fill='url(%23sa-stone)' rx='2'/%3E%3Crect x='332' y='130' width='48' height='14' fill='url(%23sa-stone)' rx='2'/%3E%3Cpath d='M345 160 L345 190 M356 160 L356 200 M367 160 L367 185' stroke='%23554433' stroke-width='1.5' opacity='0.12'/%3E%3C!-- Ancient archway connecting pillars (background) --%3E%3Cpath d='M103 125 Q220 60 332 130' stroke='url(%23sa-stone)' stroke-width='12' fill='none' opacity='0.15'/%3E%3Cpath d='M103 125 Q220 70 332 130' stroke='%23776655' stroke-width='2' fill='none' opacity='0.1'/%3E%3C!-- Arena floor glow --%3E%3Cellipse cx='220' cy='355' rx='165' ry='50' fill='url(%23sa-arena-glow)'/%3E%3C!-- Sand floor platform --%3E%3Cellipse cx='220' cy='350' rx='150' ry='40' fill='url(%23sa-sand)'/%3E%3Cellipse cx='220' cy='350' rx='110' ry='28' fill='%23ccaa77' opacity='0.08'/%3E%3C!-- Sand floor texture lines --%3E%3Cpath d='M100 345 Q180 340 220 345 Q280 350 340 342' stroke='%23aa8855' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M120 355 Q200 350 300 358' stroke='%23aa8855' stroke-width='0.8' fill='none' opacity='0.06'/%3E%3C!-- Dust particles at feet --%3E%3Cellipse cx='140' cy='335' rx='22' ry='10' fill='%23ddccaa' opacity='0.12'/%3E%3Cellipse cx='125' cy='340' rx='15' ry='7' fill='%23ccbbaa' opacity='0.08'/%3E%3Cellipse cx='300' cy='335' rx='22' ry='10' fill='%23ddccaa' opacity='0.12'/%3E%3Cellipse cx='315' cy='340' rx='15' ry='7' fill='%23ccbbaa' opacity='0.08'/%3E%3C!-- LEFT FIGHTER: White Karate Gi --%3E%3C!-- Back leg planted --%3E%3Cpath d='M140 295 Q135 318 128 345 Q125 360 132 368' stroke='%23e8e8e8' stroke-width='12' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3C!-- Front leg forward --%3E%3Cpath d='M165 295 Q180 315 195 330 Q205 340 210 348' stroke='%23e8e8e8' stroke-width='12' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3C!-- Torso white gi --%3E%3Cpath d='M130 212 Q125 255 138 295 Q152 305 175 295 Q188 255 183 212 Z' fill='url(%23sa-white-gi)'/%3E%3C!-- Gi lapel V-shape --%3E%3Cpath d='M142 215 L157 275 L172 215' fill='none' stroke='%23ffffff' stroke-width='2.5' opacity='0.25'/%3E%3C!-- Black belt --%3E%3Crect x='133' y='278' width='47' height='11' rx='3' fill='%231a1a1a' opacity='0.4'/%3E%3Crect x='152' y='276' width='13' height='15' rx='2' fill='%231a1a1a' opacity='0.35'/%3E%3C!-- Left arm (guard position) --%3E%3Cpath d='M132 225 Q112 232 95 222 Q82 214 74 205' stroke='%23e8e8e8' stroke-width='10' fill='none' opacity='0.3' stroke-linecap='round'/%3E%3C!-- Right arm (punching forward with raised fist) --%3E%3Cpath d='M178 222 Q198 208 218 195 Q232 185 245 178' stroke='%23e8e8e8' stroke-width='10' fill='none' opacity='0.3' stroke-linecap='round'/%3E%3C!-- Fists --%3E%3Ccircle cx='72' cy='203' r='10' fill='%23eeddcc' opacity='0.32'/%3E%3Ccircle cx='250' cy='175' r='11' fill='%23eeddcc' opacity='0.35'/%3E%3C!-- Head --%3E%3Ccircle cx='157' cy='188' r='26' fill='%23eeddcc' opacity='0.3'/%3E%3C!-- Red headband --%3E%3Crect x='131' y='175' width='52' height='11' rx='3' fill='%23cc2020' opacity='0.6'/%3E%3Cpath d='M183 180 Q198 185 210 196' stroke='%23cc2020' stroke-width='6' fill='none' opacity='0.45' stroke-linecap='round'/%3E%3Cpath d='M183 180 Q196 190 205 203' stroke='%23cc2020' stroke-width='5' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3C!-- RIGHT FIGHTER: Dark Outfit with Orange/Gold Accents --%3E%3C!-- Back leg --%3E%3Cpath d='M305 295 Q312 318 320 345 Q324 360 318 368' stroke='%231a1008' stroke-width='13' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3C!-- Front leg --%3E%3Cpath d='M278 295 Q262 318 248 335 Q238 348 235 355' stroke='%231a1008' stroke-width='13' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3C!-- Torso dark outfit --%3E%3Cpath d='M265 210 Q260 255 272 295 Q288 305 312 295 Q324 255 318 210 Z' fill='url(%23sa-dark-outfit)'/%3E%3C!-- Orange/gold trim accents --%3E%3Cpath d='M278 212 Q290 215 302 212' stroke='%23ffd23f' stroke-width='3' fill='none' opacity='0.35'/%3E%3Cpath d='M272 250 L290 255 L308 250' stroke='%23ff6a3d' stroke-width='2' fill='none' opacity='0.3'/%3E%3Cpath d='M275 280 Q290 285 305 280' stroke='%23ffd23f' stroke-width='2' fill='none' opacity='0.28'/%3E%3C!-- Orange sash/belt --%3E%3Crect x='268' y='278' width='48' height='11' rx='3' fill='url(%23sa-orange-accent)'/%3E%3C!-- Right arm (guard position) --%3E%3Cpath d='M318 222 Q340 228 358 218 Q372 210 382 200' stroke='%231a1008' stroke-width='11' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3C!-- Orange accent on right arm --%3E%3Cpath d='M320 220 Q342 226 360 216' stroke='%23ff6a3d' stroke-width='2' fill='none' opacity='0.3'/%3E%3C!-- Left arm (punching forward with raised fist) --%3E%3Cpath d='M268 218 Q248 202 228 188 Q215 180 202 175' stroke='%231a1008' stroke-width='11' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3C!-- Orange accent on left arm --%3E%3Cpath d='M266 216 Q246 200 226 186' stroke='%23ffd23f' stroke-width='2' fill='none' opacity='0.28'/%3E%3C!-- Fists --%3E%3Ccircle cx='385' cy='198' r='10' fill='%23ddccbb' opacity='0.3'/%3E%3Ccircle cx='197' cy='172' r='11' fill='%23ddccbb' opacity='0.35'/%3E%3C!-- Orange glow on fists --%3E%3Ccircle cx='197' cy='172' r='6' fill='%23ff6a3d' opacity='0.15' filter='url(%23sa-glow)'/%3E%3C!-- Head --%3E%3Ccircle cx='290' cy='185' r='27' fill='%23ddccbb' opacity='0.28'/%3E%3C!-- Dark headwrap/hair with gold accent --%3E%3Cpath d='M263 175 Q290 160 317 175' stroke='%231a1008' stroke-width='10' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3Cpath d='M265 172 Q290 162 315 172' stroke='%23ffd23f' stroke-width='2' fill='none' opacity='0.3'/%3E%3C!-- IMPACT BURST between fists --%3E%3Ccircle cx='223' cy='174' r='32' fill='url(%23sa-impact)' filter='url(%23sa-glow)'/%3E%3C!-- Impact spikes/rays --%3E%3Cpath d='M223 142 L226 158 L220 158 Z' fill='%23ffffff' opacity='0.6'/%3E%3Cpath d='M223 206 L226 190 L220 190 Z' fill='%23ffffff' opacity='0.6'/%3E%3Cpath d='M191 174 L207 177 L207 171 Z' fill='%23ffffff' opacity='0.6'/%3E%3Cpath d='M255 174 L239 177 L239 171 Z' fill='%23ffffff' opacity='0.6'/%3E%3Cpath d='M198 149 L210 161 L206 165 Z' fill='%23ffd23f' opacity='0.5'/%3E%3Cpath d='M248 149 L236 161 L240 165 Z' fill='%23ffd23f' opacity='0.5'/%3E%3Cpath d='M198 199 L210 187 L206 183 Z' fill='%23ffd23f' opacity='0.5'/%3E%3Cpath d='M248 199 L236 187 L240 183 Z' fill='%23ffd23f' opacity='0.5'/%3E%3C!-- Golden sparks around impact --%3E%3Ccircle cx='223' cy='138' r='4' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='260' cy='155' r='3.5' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='186' cy='158' r='3' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='240' cy='205' r='2.5' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='205' cy='200' r='2.5' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='270' cy='170' r='2' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='176' cy='175' r='2' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3C!-- Orange energy trails behind left fighter --%3E%3Cpath d='M68 220 Q48 225 28 218' stroke='%23ff6a3d' stroke-width='2' fill='none' opacity='0.18'/%3E%3Cpath d='M75 245 Q55 250 35 242' stroke='%23ffd23f' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M82 270 Q62 275 42 268' stroke='%23ff6a3d' stroke-width='1' fill='none' opacity='0.08'/%3E%3C!-- Orange energy trails behind right fighter --%3E%3Cpath d='M378 215 Q395 210 400 215' stroke='%23ff6a3d' stroke-width='2' fill='none' opacity='0.18'/%3E%3Cpath d='M372 240 Q390 235 400 238' stroke='%23ffd23f' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M365 265 Q385 260 400 262' stroke='%23ff6a3d' stroke-width='1' fill='none' opacity='0.08'/%3E%3C!-- Motion lines from punching arms --%3E%3Cpath d='M180 220 Q200 205 220 195' stroke='%23ffffff' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M185 228 Q205 215 223 207' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M265 215 Q245 200 225 192' stroke='%23ffd23f' stroke-width='1.5' fill='none' opacity='0.15'/%3E%3Cpath d='M260 223 Q240 210 222 203' stroke='%23ff6a3d' stroke-width='1' fill='none' opacity='0.1'/%3E%3C!-- Atmospheric dust and energy particles --%3E%3Ccircle cx='120' cy='120' r='1.8' fill='%23ffd23f' opacity='0.2'/%3E%3Ccircle cx='320' cy='115' r='1.5' fill='%23ff6a3d' opacity='0.22'/%3E%3Ccircle cx='180' cy='100' r='1.2' fill='%23ffffff' opacity='0.15'/%3E%3Ccircle cx='260' cy='95' r='1.4' fill='%23ffd23f' opacity='0.18'/%3E%3Ccircle cx='350' cy='180' r='1' fill='%23cc4420' opacity='0.15'/%3E%3Ccircle cx='90' cy='165' r='1.2' fill='%23ff6a3d' opacity='0.12'/%3E%3Ccircle cx='220' cy='110' r='1.5' fill='%23ffd700' opacity='0.2'/%3E%3Ccircle cx='155' cy='290' r='1' fill='%23ddccaa' opacity='0.15'/%3E%3Ccircle cx='290' cy='285' r='1' fill='%23ddccaa' opacity='0.15'/%3E%3C!-- Purple highlight accents --%3E%3Ccircle cx='195' cy='145' r='1.5' fill='%238855aa' opacity='0.12'/%3E%3Ccircle cx='252' cy='142' r='1.2' fill='%238855aa' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Shadow Arena ambient glow - orange, gold, and desert fire accents */
+.game-page__about[data-decoration="shadow-arena"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 65%, rgba(255, 106, 61, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 35% 50%, rgba(255, 210, 63, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 65% 45%, rgba(204, 68, 32, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 45% 60%, rgba(136, 85, 170, 0.03) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6514,6 +6549,21 @@ h3 {
     height: 340px;
   }
 
+  /* Shadow Arena tablet */
+  .game-page__about[data-decoration="shadow-arena"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="shadow-arena"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -8053,6 +8103,21 @@ h3 {
     height: 260px;
   }
 
+  /* Shadow Arena mobile */
+  .game-page__about[data-decoration="shadow-arena"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="shadow-arena"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9445,6 +9510,21 @@ h3 {
     height: 210px;
   }
 
+  /* Shadow Arena small mobile */
+  .game-page__about[data-decoration="shadow-arena"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="shadow-arena"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9744,6 +9824,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="wobbly-warriors"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Shadow Arena extra small */
+  .game-page__about[data-decoration="shadow-arena"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="shadow-arena"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
