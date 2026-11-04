@@ -6,8 +6,9 @@ import Account from "./pages/Account.jsx";
 import AdminUsers from "./pages/AdminUsers.jsx";
 import AdminGameTypes from "./pages/AdminGameTypes.jsx";
 import AdminGames from "./pages/AdminGames.jsx";
+import AdminGameRequests from "./pages/AdminGameRequests.jsx";
 import NotFound from "./pages/NotFound.jsx";
-import { RequireAuth, RequireAdmin } from "./routes/guards.jsx";
+import { RequireAuth, RequireAdmin, RequireGameRequestsAdmin } from "./routes/guards.jsx";
 
 export default function App() {
   return (
@@ -45,6 +46,14 @@ export default function App() {
             <RequireAdmin>
               <AdminGames />
             </RequireAdmin>
+          }
+        />
+        <Route
+          path="admin/game-requests"
+          element={
+            <RequireGameRequestsAdmin>
+              <AdminGameRequests />
+            </RequireGameRequestsAdmin>
           }
         />
         <Route path="*" element={<NotFound />} />

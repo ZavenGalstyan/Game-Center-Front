@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "../../hooks/useForm.js";
 import { Alert, FormField, Input, Textarea } from "../ui";
 import { CommissionBadge } from "./Emblems.jsx";
 import {
   DESCRIPTION_MAX,
   DESCRIPTION_MIN,
+  EMAIL_MAX,
   NAME_MAX,
   initialRequestValues,
   requestValidators,
@@ -28,8 +29,8 @@ const ICONS = {
   ),
 };
 
-export default function GameRequestForm({ user, onSubmit, onCancel }) {
-  const initial = useRef(initialRequestValues(user)).current;
+export default function GameRequestForm({ user, initialValues, onDraftChange, onSubmit, onCancel }) {
+  const initial = useRef(initialValues || initialRequestValues(user)).current;
   const { values, errors, formError, setField, setErrors, setFieldError, setFormError } =
     useForm(initial);
   const [submitting, setSubmitting] = useState(false);
@@ -37,6 +38,13 @@ export default function GameRequestForm({ user, onSubmit, onCancel }) {
   const fieldRefs = useRef({});
 
   const firstEmpty = FIELD_ORDER.find((f) => !initial[f]) || "description";
+
+  // Keep the unsent values with the flow so they survive close / failure.
+  const onDraftChangeRef = useRef(onDraftChange);
+  onDraftChangeRef.current = onDraftChange;
+  useEffect(() => {
+    onDraftChangeRef.current?.(values);
+  }, [values]);
 
   const describe = (name, extra) =>
     [errors[name] ? `cgr-${name}-error` : null, extra].filter(Boolean).join(" ") || undefined;
@@ -62,6 +70,12 @@ export default function GameRequestForm({ user, onSubmit, onCancel }) {
     try {
       await onSubmit(values);
     } catch (err) {
+      const fieldErrors = err?.fieldErrors || {};
+      if (Object.keys(fieldErrors).length) {
+        setErrors(fieldErrors);
+        const first = FIELD_ORDER.find((f) => fieldErrors[f]);
+        fieldRefs.current[first]?.focus();
+      }
       setFormError(err?.message || "Something went wrong. Please try again.");
     } finally {
       lock.current = false;
@@ -142,6 +156,7 @@ export default function GameRequestForm({ user, onSubmit, onCancel }) {
                 value={values.email}
                 onChange={setField("email")}
                 onBlur={onBlur("email")}
+                maxLength={EMAIL_MAX}
                 error={Boolean(errors.email)}
                 aria-describedby={describe("email")}
                 aria-required="true"
@@ -201,7 +216,7 @@ export default function GameRequestForm({ user, onSubmit, onCancel }) {
       </div>
 
       <footer className="cg-form__foot">
-        <button type="button" className="cg-btn cg-btn--ghost" onClick={onCancel}>
+        <button type="button" className="cg-btn cg-btn--ghost" onClick={onCancel} disabled={submitting}>
           <span>Cancel</span>
         </button>
         <button type="submit" className="cg-btn cg-btn--primary" disabled={submitting} aria-busy={submitting}>
@@ -213,7 +228,7 @@ export default function GameRequestForm({ user, onSubmit, onCancel }) {
               <path d="M22 2 15 22l-4-9-9-4 20-7Z" />
             </svg>
           )}
-          <span>{submitting ? "Checking…" : "Send Game Request"}</span>
+          <span>{submitting ? "Sending…" : "Send Game Request"}</span>
         </button>
       </footer>
     </form>
