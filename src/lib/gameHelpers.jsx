@@ -98,6 +98,15 @@ import harryPotterBg from "../images/HarryPotter.png";
 import crownOfAshesBg from "../images/CrownofAshes.png";
 import neonMercenaryBg from "../images/NeonMercenary.png";
 import lastShelterBg from "../images/60seconds.png";
+import midnightShiftBg from "../images/MidnightShift.png";
+import corridor9Bg from "../images/Corridor9.png";
+import cursedHouseBg from "../images/TheCursedHouse.png";
+import whisperingWoodsBg from "../images/WhisperingWoods.png";
+import motel6Bg from "../images/Motel6.png";
+import ironFistBg from "../images/IronFist.png";
+import karateLegendsBg from "../images/KarateLegends.png";
+import wobblyWarriorsBg from "../images/WobblyWarriors.png";
+import shadowArenaBg from "../images/ShadowArena.png";
 
 /**
  * Category to icon mapping.
@@ -1507,6 +1516,227 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(18, 10, 4, 0.76) 58%,
       rgba(18, 10, 4, 0.88) 100%)`,
   },
+  // Midnight Shift: Haunted Factory — terrifying animatronic bear with glowing
+  // red eyes, creepy doll, abandoned toy factory. The title and key horror
+  // elements sit left-center; 40% keeps them visible while trimming the right
+  // edge on narrow cards. Dark crimson-charcoal fade matches the horror mood.
+  "midnight shift: haunted factory": {
+    image: midnightShiftBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 6, 8, 0) 0%,
+      rgba(12, 6, 8, 0) 30%,
+      rgba(12, 6, 8, 0.5) 44%,
+      rgba(12, 6, 8, 0.76) 56%,
+      rgba(12, 6, 8, 0.88) 100%)`,
+  },
+  "midnight shift": {
+    image: midnightShiftBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 6, 8, 0) 0%,
+      rgba(12, 6, 8, 0) 30%,
+      rgba(12, 6, 8, 0.5) 44%,
+      rgba(12, 6, 8, 0.76) 56%,
+      rgba(12, 6, 8, 0.88) 100%)`,
+  },
+  // Corridor 9: Endless Passage — mysterious underground corridor with EXIT 9
+  // sign, endless passage, shadowy figure. The title and key elements sit
+  // center-left; 45% keeps them visible while trimming the right edge on narrow
+  // cards. Dark emerald-charcoal fade matches the psychological horror mood.
+  "corridor 9: endless passage": {
+    image: corridor9Bg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 28%,
+      rgba(6, 14, 10, 0.5) 42%,
+      rgba(6, 14, 10, 0.76) 54%,
+      rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  "corridor 9": {
+    image: corridor9Bg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 28%,
+      rgba(6, 14, 10, 0.5) 42%,
+      rgba(6, 14, 10, 0.76) 54%,
+      rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  // The Cursed House: Escape — first-person horror escape in a haunted house.
+  // Eerie red glow, old lantern, antique key, and shadowy widow figure. 40%
+  // keeps the title and key elements visible while trimming the right edge on
+  // narrow cards. Dark crimson-charcoal fade matches the haunted house mood.
+  "the cursed house: escape": {
+    image: cursedHouseBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 6, 8, 0) 0%,
+      rgba(10, 6, 8, 0) 28%,
+      rgba(10, 6, 8, 0.5) 42%,
+      rgba(10, 6, 8, 0.76) 54%,
+      rgba(10, 6, 8, 0.88) 100%)`,
+  },
+  "the cursed house": {
+    image: cursedHouseBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 6, 8, 0) 0%,
+      rgba(10, 6, 8, 0) 28%,
+      rgba(10, 6, 8, 0.5) 42%,
+      rgba(10, 6, 8, 0.76) 54%,
+      rgba(10, 6, 8, 0.88) 100%)`,
+  },
+  "cursed house": {
+    image: cursedHouseBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 6, 8, 0) 0%,
+      rgba(10, 6, 8, 0) 28%,
+      rgba(10, 6, 8, 0.5) 42%,
+      rgba(10, 6, 8, 0.76) 54%,
+      rgba(10, 6, 8, 0.88) 100%)`,
+  },
+  // Whispering Woods: The Eight Notes — collect notes in a haunted forest while
+  // avoiding a mysterious creature. Moonlit forest, shadow figure, lantern, cabin.
+  // 45% keeps the title and key elements visible. Deep emerald-charcoal fade.
+  "whispering woods: the eight notes": {
+    image: whisperingWoodsBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 26%,
+      rgba(6, 14, 10, 0.5) 40%,
+      rgba(6, 14, 10, 0.76) 52%,
+      rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  "whispering woods": {
+    image: whisperingWoodsBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 26%,
+      rgba(6, 14, 10, 0.5) 40%,
+      rgba(6, 14, 10, 0.76) 52%,
+      rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  // Motel 6: Last Guest — roadside motel psychological horror with glowing red
+  // neon sign, mysterious figure in office window, rain-soaked exterior. 45%
+  // keeps the title and motel visible while trimming right edge on narrow cards.
+  // Dark crimson-charcoal fade matches the ominous motel atmosphere.
+  "motel 6: last guest": {
+    image: motel6Bg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 6, 10, 0) 0%,
+      rgba(10, 6, 10, 0) 26%,
+      rgba(10, 6, 10, 0.5) 40%,
+      rgba(10, 6, 10, 0.76) 52%,
+      rgba(10, 6, 10, 0.88) 100%)`,
+  },
+  "motel 6": {
+    image: motel6Bg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 6, 10, 0) 0%,
+      rgba(10, 6, 10, 0) 26%,
+      rgba(10, 6, 10, 0.5) 40%,
+      rgba(10, 6, 10, 0.76) 52%,
+      rgba(10, 6, 10, 0.88) 100%)`,
+  },
+  // Iron Fist: Arena Champions — 3D arena fighting game with martial artists
+  // and futuristic fighters. Gold, cyan, red, and dark-blue palette. 50% keeps
+  // both fighters visible while trimming edges on narrow cards.
+  "iron fist: arena champions": {
+    image: ironFistBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 8, 18, 0) 0%,
+      rgba(6, 8, 18, 0) 32%,
+      rgba(6, 8, 18, 0.5) 44%,
+      rgba(6, 8, 18, 0.76) 56%,
+      rgba(6, 8, 18, 0.88) 100%)`,
+  },
+  "iron fist": {
+    image: ironFistBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 8, 18, 0) 0%,
+      rgba(6, 8, 18, 0) 32%,
+      rgba(6, 8, 18, 0.5) 44%,
+      rgba(6, 8, 18, 0.76) 56%,
+      rgba(6, 8, 18, 0.88) 100%)`,
+  },
+  // Karate Legends: Ultimate Dojo — 2D cartoon karate fighter with tournament
+  // mode. White/red karate gi vs dark purple gi fighters. Position centers both
+  // fighters and title visible. Traditional dojo aesthetic with cherry blossoms.
+  "karate legends: ultimate dojo": {
+    image: karateLegendsBg,
+    position: "50% 25%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 15, 0) 0%,
+      rgba(10, 8, 15, 0) 30%,
+      rgba(10, 8, 15, 0.5) 42%,
+      rgba(10, 8, 15, 0.76) 54%,
+      rgba(10, 8, 15, 0.88) 100%)`,
+  },
+  "karate legends": {
+    image: karateLegendsBg,
+    position: "50% 25%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 15, 0) 0%,
+      rgba(10, 8, 15, 0) 30%,
+      rgba(10, 8, 15, 0.5) 42%,
+      rgba(10, 8, 15, 0.76) 54%,
+      rgba(10, 8, 15, 0.88) 100%)`,
+  },
+  // Wobbly Warriors: Arena Clash — cute cartoon blob fighters in arena.
+  // Yellow fighter with red headband vs blue fighter with viking helmet.
+  // Position centers both fighters and title visible.
+  "wobbly warriors: arena clash": {
+    image: wobblyWarriorsBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 15, 0) 0%,
+      rgba(10, 8, 15, 0) 28%,
+      rgba(10, 8, 15, 0.5) 40%,
+      rgba(10, 8, 15, 0.76) 52%,
+      rgba(10, 8, 15, 0.88) 100%)`,
+  },
+  "wobbly warriors": {
+    image: wobblyWarriorsBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 15, 0) 0%,
+      rgba(10, 8, 15, 0) 28%,
+      rgba(10, 8, 15, 0.5) 40%,
+      rgba(10, 8, 15, 0.76) 52%,
+      rgba(10, 8, 15, 0.88) 100%)`,
+  },
+  // Shadow Arena: Ultimate Fighters — Canvas 2D one-on-one martial arts fighter
+  // with 6 unique fighters, 4 arenas, 30-battle arcade ladder, and local VS mode.
+  // Orange, gold, and desert palette with dynamic fighting poses.
+  "shadow arena: ultimate fighters": {
+    image: shadowArenaBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 12, 0) 0%,
+      rgba(10, 8, 12, 0) 28%,
+      rgba(10, 8, 12, 0.5) 40%,
+      rgba(10, 8, 12, 0.76) 52%,
+      rgba(10, 8, 12, 0.88) 100%)`,
+  },
+  "shadow arena": {
+    image: shadowArenaBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(10, 8, 12, 0) 0%,
+      rgba(10, 8, 12, 0) 28%,
+      rgba(10, 8, 12, 0.5) 40%,
+      rgba(10, 8, 12, 0.76) 52%,
+      rgba(10, 8, 12, 0.88) 100%)`,
+  },
 };
 
 const normalizeGameName = (name) => String(name ?? "").trim().replace(/\s+/g, " ").toLowerCase();
@@ -1630,6 +1860,14 @@ const GAME_ARTWORK = {
   "Classic Chess": {
     gradient: "linear-gradient(135deg, #2a2a2a 0%, #4d4d4d 50%, #2a2a2a 100%)",
     description: "Chess board with pieces",
+  },
+  "Shadow Arena: Ultimate Fighters": {
+    gradient: "linear-gradient(135deg, #3d2a1a 0%, #6a4020 50%, #4d2a10 100%)",
+    description: "Two martial artists face off in a desert arena",
+  },
+  "Shadow Arena": {
+    gradient: "linear-gradient(135deg, #3d2a1a 0%, #6a4020 50%, #4d2a10 100%)",
+    description: "Two martial artists face off in a desert arena",
   },
 };
 

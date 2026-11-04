@@ -14,7 +14,12 @@
       "Bash(npm install:*)",
       "Bash(git -C \"C:\\\\Users\\\\User\\\\Desktop\\\\GameCenter\\\\Game-Center-Front\" status --porcelain)",
       "Bash(del \"C:\\\\Users\\\\User\\\\Desktop\\\\GameCenter\\\\Game-Center-Front\\\\nul\")",
-      "Bash(del \"\\\\?\\\\%CD%\\\\nul\")"
+      "Bash(del \"\\\\?\\\\%CD%\\\\nul\")",
+      "Bash(git fetch:*)",
+      "Bash(git push:*)",
+      "Bash(timeout:*)",
+      "Bash(git fsck:*)",
+      "Bash(grep:*)"
     ]
   }
 }

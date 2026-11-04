@@ -4692,6 +4692,311 @@ h3 {
   z-index: -1;
 }
 
+/* Midnight Shift: Haunted Factory decoration - terrifying mechanical bear head with glowing red eyes,
+   sharp metallic teeth, rusted metal plates, exposed gears, hooded shadow figure with glowing eye,
+   creepy porcelain doll silhouette, security camera monitors, hanging chains, broken factory pipes,
+   flickering red warning lights, static interference, and atmospheric fog
+   Premium haunted factory horror illustration with dark crimson, rusty orange, muted purple, cold blue, and emerald accents */
+.game-page__about[data-decoration="midnight-shift"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3CradialGradient id='ms-eye-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff2020' stop-opacity='0.9'/%3E%3Cstop offset='40%25' stop-color='%23cc0000' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23660000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='ms-shadow-eye' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2300ff88' stop-opacity='0.8'/%3E%3Cstop offset='50%25' stop-color='%2300cc66' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23006633' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ms-rust' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234a2a1a' stop-opacity='0.15'/%3E%3Cstop offset='50%25' stop-color='%236b3d2a' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23553322' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='ms-metal' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23444455' stop-opacity='0.12'/%3E%3Cstop offset='50%25' stop-color='%23333344' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23222233' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3Cfilter id='ms-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='ms-static' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' result='noise'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.08'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3C/defs%3E%3C!-- Atmospheric fog background --%3E%3Crect x='150' y='100' width='250' height='300' fill='url(%23ms-rust)' opacity='0.3'/%3E%3Cellipse cx='280' cy='250' rx='120' ry='150' fill='%23331a1a' opacity='0.06'/%3E%3C!-- Factory pipes --%3E%3Crect x='340' y='80' width='12' height='180' rx='6' fill='%23333340' opacity='0.1'/%3E%3Crect x='360' y='120' width='8' height='140' rx='4' fill='%23333340' opacity='0.08'/%3E%3Crect x='320' y='60' width='10' height='100' rx='5' fill='%23333340' opacity='0.09'/%3E%3C!-- Pipe joints --%3E%3Ccircle cx='346' cy='140' r='8' fill='%23444450' opacity='0.1'/%3E%3Ccircle cx='364' cy='180' r='6' fill='%23444450' opacity='0.08'/%3E%3C!-- Hanging chains --%3E%3Cpath d='M290 40 Q288 60 292 80 Q288 100 292 120 Q288 140 290 160' stroke='%23555560' stroke-width='3' fill='none' opacity='0.1'/%3E%3Cpath d='M310 30 Q308 55 312 80 Q308 105 312 130 Q308 155 310 180' stroke='%23555560' stroke-width='2.5' fill='none' opacity='0.08'/%3E%3Cpath d='M270 50 Q268 70 272 90 Q268 110 272 130' stroke='%23555560' stroke-width='2' fill='none' opacity='0.09'/%3E%3C!-- Chain links detail --%3E%3Cellipse cx='290' cy='80' rx='4' ry='6' fill='none' stroke='%23666670' stroke-width='1.5' opacity='0.1'/%3E%3Cellipse cx='290' cy='120' rx='4' ry='6' fill='none' stroke='%23666670' stroke-width='1.5' opacity='0.1'/%3E%3Cellipse cx='310' cy='90' rx='3' ry='5' fill='none' stroke='%23666670' stroke-width='1.5' opacity='0.08'/%3E%3C!-- Security camera monitors --%3E%3Crect x='320' y='280' width='50' height='38' rx='3' fill='%231a1a22' opacity='0.15'/%3E%3Crect x='323' y='283' width='44' height='32' rx='2' fill='%230a0a12' opacity='0.12'/%3E%3Crect x='325' y='285' width='19' height='13' fill='%23111118' opacity='0.1'/%3E%3Crect x='346' y='285' width='19' height='13' fill='%23111118' opacity='0.1'/%3E%3Crect x='325' y='300' width='19' height='13' fill='%23111118' opacity='0.1'/%3E%3Crect x='346' y='300' width='19' height='13' fill='%23111118' opacity='0.1'/%3E%3C!-- Static interference on monitors --%3E%3Crect x='325' y='285' width='19' height='13' filter='url(%23ms-static)'/%3E%3Crect x='346' y='300' width='19' height='13' filter='url(%23ms-static)'/%3E%3C!-- Camera labels --%3E%3Ctext x='327' y='296' font-size='4' fill='%23ff3333' opacity='0.15' font-family='monospace'%3ECAM1%3C/text%3E%3Ctext x='348' y='311' font-size='4' fill='%23ff3333' opacity='0.15' font-family='monospace'%3ECAM3%3C/text%3E%3C!-- Mechanical bear head base --%3E%3Cellipse cx='220' cy='200' rx='85' ry='95' fill='url(%23ms-metal)' opacity='0.9'/%3E%3C!-- Rusted metal plates on bear --%3E%3Cpath d='M150 160 Q180 140 220 145 Q260 140 280 160 L285 200 Q260 210 220 215 Q180 210 155 200 Z' fill='url(%23ms-rust)' opacity='0.8'/%3E%3Cpath d='M160 200 Q190 195 220 200 Q250 195 275 200 L280 250 Q250 260 220 265 Q190 260 165 250 Z' fill='url(%23ms-rust)' opacity='0.7'/%3E%3C!-- Bear ears --%3E%3Cellipse cx='155' cy='125' rx='28' ry='32' fill='%23333340' opacity='0.12'/%3E%3Cellipse cx='285' cy='125' rx='28' ry='32' fill='%23333340' opacity='0.12'/%3E%3Cellipse cx='155' cy='125' rx='18' ry='20' fill='%23221818' opacity='0.1'/%3E%3Cellipse cx='285' cy='125' rx='18' ry='20' fill='%23221818' opacity='0.1'/%3E%3C!-- Exposed gears --%3E%3Ccircle cx='145' cy='180' r='18' fill='none' stroke='%23555560' stroke-width='2' opacity='0.1'/%3E%3Ccircle cx='145' cy='180' r='12' fill='none' stroke='%23666670' stroke-width='1.5' opacity='0.08'/%3E%3Ccircle cx='145' cy='180' r='5' fill='%23444450' opacity='0.1'/%3E%3C!-- Gear teeth --%3E%3Cpath d='M127 180 L125 180 M163 180 L165 180 M145 162 L145 160 M145 198 L145 200 M132 167 L130 165 M158 193 L160 195 M132 193 L130 195 M158 167 L160 165' stroke='%23555560' stroke-width='2' opacity='0.1'/%3E%3C!-- Second gear --%3E%3Ccircle cx='300' cy='195' r='15' fill='none' stroke='%23555560' stroke-width='2' opacity='0.09'/%3E%3Ccircle cx='300' cy='195' r='8' fill='none' stroke='%23666670' stroke-width='1.5' opacity='0.07'/%3E%3Ccircle cx='300' cy='195' r='3' fill='%23444450' opacity='0.09'/%3E%3C!-- Mechanical joints --%3E%3Ccircle cx='165' cy='240' r='8' fill='%23333340' opacity='0.1'/%3E%3Ccircle cx='165' cy='240' r='4' fill='%23222230' opacity='0.12'/%3E%3Ccircle cx='275' cy='240' r='8' fill='%23333340' opacity='0.1'/%3E%3Ccircle cx='275' cy='240' r='4' fill='%23222230' opacity='0.12'/%3E%3C!-- Glowing red eyes --%3E%3Ccircle cx='185' cy='185' r='22' fill='url(%23ms-eye-glow)' filter='url(%23ms-glow)' opacity='0.9'/%3E%3Ccircle cx='255' cy='185' r='22' fill='url(%23ms-eye-glow)' filter='url(%23ms-glow)' opacity='0.9'/%3E%3Ccircle cx='185' cy='185' r='12' fill='%23ff0000' opacity='0.2'/%3E%3Ccircle cx='255' cy='185' r='12' fill='%23ff0000' opacity='0.2'/%3E%3Ccircle cx='185' cy='185' r='5' fill='%23ffffff' opacity='0.15'/%3E%3Ccircle cx='255' cy='185' r='5' fill='%23ffffff' opacity='0.15'/%3E%3C!-- Sharp metallic teeth --%3E%3Cpath d='M175 255 L180 275 L185 255 L192 280 L200 255 L208 278 L215 255 L222 280 L230 255 L238 278 L245 255 L252 280 L260 255 L265 275 L270 255' stroke='%23666670' stroke-width='2' fill='none' opacity='0.12'/%3E%3Cpath d='M178 258 L182 272 M188 258 L194 276 M203 258 L210 274 M218 258 L224 276 M233 258 L240 274 M248 258 L254 276 M263 258 L267 272' stroke='%23777780' stroke-width='1' opacity='0.1'/%3E%3C!-- Bear snout --%3E%3Cellipse cx='220' cy='230' rx='35' ry='25' fill='%23333340' opacity='0.1'/%3E%3Cellipse cx='220' cy='225' rx='12' ry='8' fill='%23111118' opacity='0.12'/%3E%3C!-- Mysterious shadow figure --%3E%3Cpath d='M80 150 Q85 120 90 100 Q100 80 110 100 Q115 120 120 150 Q115 200 110 280 Q100 350 90 380 Q80 350 70 280 Q65 200 80 150 Z' fill='%230a0a10' opacity='0.12'/%3E%3C!-- Hood shape --%3E%3Cpath d='M70 140 Q90 90 110 140 Q105 160 90 170 Q75 160 70 140 Z' fill='%230a0a12' opacity='0.14'/%3E%3C!-- Shadow figure glowing eye --%3E%3Ccircle cx='95' cy='145' r='8' fill='url(%23ms-shadow-eye)' filter='url(%23ms-glow)' opacity='0.85'/%3E%3Ccircle cx='95' cy='145' r='3' fill='%2300ff88' opacity='0.25'/%3E%3C!-- Creepy porcelain doll silhouette --%3E%3Cellipse cx='350' cy='360' rx='22' ry='28' fill='%23221a1a' opacity='0.1'/%3E%3Ccircle cx='350' cy='345' r='16' fill='%23281818' opacity='0.12'/%3E%3C!-- Doll eyes --%3E%3Ccircle cx='343' cy='342' r='4' fill='%230a0a10' opacity='0.15'/%3E%3Ccircle cx='357' cy='342' r='4' fill='%230a0a10' opacity='0.15'/%3E%3Ccircle cx='343' cy='341' r='1.5' fill='%23ffffff' opacity='0.08'/%3E%3Ccircle cx='357' cy='341' r='1.5' fill='%23ffffff' opacity='0.08'/%3E%3C!-- Doll hair --%3E%3Cpath d='M334 340 Q330 320 340 315 Q350 310 360 315 Q370 320 366 340' stroke='%231a1212' stroke-width='3' fill='none' opacity='0.1'/%3E%3C!-- Flickering red warning lights --%3E%3Ccircle cx='380' cy='60' r='8' fill='%23ff2020' opacity='0.12'/%3E%3Ccircle cx='380' cy='60' r='12' fill='%23ff0000' opacity='0.05'/%3E%3Ccircle cx='380' cy='60' r='18' fill='%23ff0000' opacity='0.025'/%3E%3Ccircle cx='130' cy='80' r='6' fill='%23ff3030' opacity='0.1'/%3E%3Ccircle cx='130' cy='80' r='10' fill='%23ff0000' opacity='0.04'/%3E%3C!-- Additional warning light --%3E%3Ccircle cx='350' cy='100' r='5' fill='%23ff2020' opacity='0.08'/%3E%3Ccircle cx='350' cy='100' r='9' fill='%23ff0000' opacity='0.03'/%3E%3C!-- Rust drips --%3E%3Cpath d='M180 270 Q178 285 180 295' stroke='%234a2a1a' stroke-width='2' opacity='0.08'/%3E%3Cpath d='M260 268 Q262 280 260 290' stroke='%234a2a1a' stroke-width='1.5' opacity='0.07'/%3E%3Cpath d='M240 275 Q238 288 240 298' stroke='%234a2a1a' stroke-width='1' opacity='0.06'/%3E%3C!-- Scratch marks on metal --%3E%3Cpath d='M200 160 L210 175 M205 158 L215 172' stroke='%23555560' stroke-width='0.8' opacity='0.1'/%3E%3Cpath d='M235 165 L245 178 M240 162 L250 175' stroke='%23555560' stroke-width='0.8' opacity='0.08'/%3E%3C!-- Fog wisps --%3E%3Cellipse cx='300' cy='380' rx='80' ry='20' fill='%23334455' opacity='0.04'/%3E%3Cellipse cx='180' cy='370' rx='60' ry='15' fill='%23334455' opacity='0.03'/%3E%3Cellipse cx='250' cy='390' rx='100' ry='18' fill='%23334455' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Midnight Shift ambient glow - dark crimson, rusty orange, cold blue, and emerald accents */
+.game-page__about[data-decoration="midnight-shift"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 45%, rgba(180, 30, 30, 0.065) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 55% 50%, rgba(0, 180, 120, 0.045) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 30% at 40% 55%, rgba(160, 80, 40, 0.04) 0%, transparent 45%),
+    radial-gradient(ellipse 30% 25% at 60% 40%, rgba(60, 80, 120, 0.035) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Corridor 9: Endless Passage — psychological horror underground corridor with EXIT 9 door,
+   shadowy humanoid silhouette, flickering fluorescent lights, exposed industrial pipes,
+   vintage wall clock, directional warning sign, fog, and distorted shadows.
+   Deep emerald, muted teal, charcoal, dirty white, and warning yellow accents */
+.game-page__about[data-decoration="corridor-9"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='c9-corridor-floor' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23003322' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23001a11' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='c9-metal-door' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23445544' stop-opacity='0.15'/%3E%3Cstop offset='50%25' stop-color='%23334433' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23223322' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c9-warning-yellow' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffcc00' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%23cc9900' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3CradialGradient id='c9-exit-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffdd44' stop-opacity='0.35'/%3E%3Cstop offset='40%25' stop-color='%23ffaa22' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23884400' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c9-light-flicker' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23aaffcc' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%2366ddaa' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23004422' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='c9-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='4' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='c9-fog' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.015' numOctaves='3' result='noise'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.2 0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0.06 0'/%3E%3C/filter%3E%3C/defs%3E%3C!-- Atmospheric fog background --%3E%3Crect x='120' y='60' width='280' height='340' fill='%23112218' opacity='0.06'/%3E%3Crect x='140' y='80' width='260' height='320' filter='url(%23c9-fog)'/%3E%3C!-- Outer corridor walls with strong perspective --%3E%3Cpath d='M100 380 L180 60 L220 60 L300 380 Z' fill='none' stroke='%2300aa66' stroke-width='3' opacity='0.12'/%3E%3C!-- Inner corridor walls --%3E%3Cpath d='M130 380 L185 85 L215 85 L270 380 Z' fill='url(%23c9-corridor-floor)' stroke='%2300cc77' stroke-width='2' opacity='0.9'/%3E%3C!-- Second layer of walls --%3E%3Cpath d='M155 380 L188 105 L212 105 L245 380 Z' fill='%23002211' stroke='%2300aa66' stroke-width='1.5' opacity='0.08'/%3E%3C!-- Floor perspective lines --%3E%3Cline x1='140' y1='340' x2='260' y2='340' stroke='%2300cc77' stroke-width='1.5' opacity='0.08'/%3E%3Cline x1='150' y1='290' x2='250' y2='290' stroke='%2300bb66' stroke-width='1.2' opacity='0.07'/%3E%3Cline x1='160' y1='240' x2='240' y2='240' stroke='%2300aa55' stroke-width='1' opacity='0.06'/%3E%3Cline x1='170' y1='190' x2='230' y2='190' stroke='%2300aa55' stroke-width='0.8' opacity='0.05'/%3E%3Cline x1='178' y1='150' x2='222' y2='150' stroke='%230099444' stroke-width='0.6' opacity='0.04'/%3E%3C!-- Repeating side doors left --%3E%3Crect x='135' y='280' width='25' height='50' rx='1' fill='%23223322' stroke='%2300aa66' stroke-width='1.5' opacity='0.1'/%3E%3Ccircle cx='155' cy='305' r='3' fill='%2300cc77' opacity='0.12'/%3E%3Crect x='148' y='210' width='20' height='40' rx='1' fill='%23223322' stroke='%2300aa66' stroke-width='1' opacity='0.08'/%3E%3Ccircle cx='164' cy='230' r='2' fill='%2300cc77' opacity='0.1'/%3E%3C!-- Repeating side doors right --%3E%3Crect x='240' y='280' width='25' height='50' rx='1' fill='%23223322' stroke='%2300aa66' stroke-width='1.5' opacity='0.1'/%3E%3Ccircle cx='245' cy='305' r='3' fill='%2300cc77' opacity='0.12'/%3E%3Crect x='232' y='210' width='20' height='40' rx='1' fill='%23223322' stroke='%2300aa66' stroke-width='1' opacity='0.08'/%3E%3Ccircle cx='236' cy='230' r='2' fill='%2300cc77' opacity='0.1'/%3E%3C!-- EXIT 9 Door at end - partially open with warm glow --%3E%3Crect x='188' y='95' width='24' height='50' rx='1' fill='url(%23c9-metal-door)' stroke='%2300cc77' stroke-width='2' opacity='0.9'/%3E%3C!-- Door opening crack with yellow glow --%3E%3Cpath d='M210 97 L212 97 L214 143 L212 143 Z' fill='url(%23c9-exit-glow)' filter='url(%23c9-glow)' opacity='0.9'/%3E%3C!-- Light spilling from door --%3E%3Cpath d='M212 105 L235 160 L240 200 L212 143 Z' fill='%23ffcc44' opacity='0.04'/%3E%3C!-- EXIT 9 sign above door --%3E%3Crect x='185' y='75' width='30' height='16' rx='2' fill='url(%23c9-warning-yellow)' stroke='%23ccaa00' stroke-width='1' opacity='0.9'/%3E%3Ctext x='200' y='87' font-size='9' fill='%23332200' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold' opacity='0.35'%3EEXIT 9%3C/text%3E%3C!-- Door handle --%3E%3Ccircle cx='206' cy='122' r='3' fill='%2300cc77' opacity='0.15'/%3E%3C!-- Door frame glow --%3E%3Crect x='186' y='93' width='28' height='54' rx='2' fill='none' stroke='%23ffdd66' stroke-width='1' opacity='0.1'/%3E%3C!-- Shadowy humanoid silhouette in corridor --%3E%3Cpath d='M195 170 Q198 155 200 145 Q205 135 210 145 Q212 155 215 170 Q212 200 210 250 Q205 290 200 310 Q195 290 190 250 Q185 200 195 170 Z' fill='%23050a08' opacity='0.18'/%3E%3C!-- Figure head --%3E%3Cellipse cx='203' cy='142' rx='10' ry='12' fill='%23080c0a' opacity='0.2'/%3E%3C!-- Figure shoulders hint --%3E%3Cpath d='M188 165 Q200 158 212 165' stroke='%23060a08' stroke-width='3' fill='none' opacity='0.15'/%3E%3C!-- Flickering fluorescent ceiling lights --%3E%3Crect x='190' y='55' width='20' height='8' rx='2' fill='url(%23c9-light-flicker)' filter='url(%23c9-glow)' opacity='0.85'/%3E%3Crect x='192' y='57' width='16' height='4' fill='%23aaffcc' opacity='0.15'/%3E%3C!-- Second light further back --%3E%3Crect x='193' y='70' width='14' height='5' rx='1' fill='%2388ddaa' opacity='0.1'/%3E%3C!-- Light cones from ceiling --%3E%3Cpath d='M192 63 L175 120 L225 120 L208 63 Z' fill='%2366ddaa' opacity='0.025'/%3E%3Cpath d='M195 75 L182 115 L218 115 L205 75 Z' fill='%2366ddaa' opacity='0.02'/%3E%3C!-- Exposed industrial pipes on ceiling --%3E%3Cline x1='160' y1='50' x2='240' y2='50' stroke='%23446655' stroke-width='5' opacity='0.1'/%3E%3Cline x1='155' y1='42' x2='245' y2='42' stroke='%23335544' stroke-width='3' opacity='0.08'/%3E%3C!-- Pipe joints --%3E%3Ccircle cx='175' cy='50' r='4' fill='%23557766' opacity='0.1'/%3E%3Ccircle cx='225' cy='50' r='4' fill='%23557766' opacity='0.1'/%3E%3C!-- Vertical pipes on walls --%3E%3Cline x1='125' y1='100' x2='115' y2='350' stroke='%23446655' stroke-width='4' opacity='0.09'/%3E%3Cline x1='275' y1='100' x2='285' y2='350' stroke='%23446655' stroke-width='4' opacity='0.09'/%3E%3Cline x1='120' y1='120' x2='112' y2='320' stroke='%23335544' stroke-width='2.5' opacity='0.07'/%3E%3Cline x1='280' y1='120' x2='288' y2='320' stroke='%23335544' stroke-width='2.5' opacity='0.07'/%3E%3C!-- Pipe connectors --%3E%3Ccircle cx='122' cy='180' r='5' fill='%23557766' opacity='0.08'/%3E%3Ccircle cx='278' cy='180' r='5' fill='%23557766' opacity='0.08'/%3E%3Ccircle cx='118' cy='280' r='4' fill='%23446655' opacity='0.07'/%3E%3Ccircle cx='282' cy='280' r='4' fill='%23446655' opacity='0.07'/%3E%3C!-- Vintage wall clock --%3E%3Ccircle cx='135' cy='150' r='18' fill='%23223322' stroke='%2300aa66' stroke-width='2' opacity='0.12'/%3E%3Ccircle cx='135' cy='150' r='15' fill='%23112211' stroke='%2300cc77' stroke-width='1' opacity='0.1'/%3E%3C!-- Clock hands --%3E%3Cline x1='135' y1='150' x2='135' y2='138' stroke='%2300ddaa' stroke-width='2' opacity='0.15'/%3E%3Cline x1='135' y1='150' x2='145' y2='153' stroke='%2300ddaa' stroke-width='1.5' opacity='0.12'/%3E%3Ccircle cx='135' cy='150' r='2' fill='%2300cc77' opacity='0.15'/%3E%3C!-- Clock tick marks --%3E%3Cline x1='135' y1='135' x2='135' y2='138' stroke='%2300aa66' stroke-width='1' opacity='0.1'/%3E%3Cline x1='135' y1='162' x2='135' y2='165' stroke='%2300aa66' stroke-width='1' opacity='0.1'/%3E%3Cline x1='122' y1='150' x2='120' y2='150' stroke='%2300aa66' stroke-width='1' opacity='0.1'/%3E%3Cline x1='148' y1='150' x2='150' y2='150' stroke='%2300aa66' stroke-width='1' opacity='0.1'/%3E%3C!-- Warning sign on wall --%3E%3Cpath d='M265 140 L280 165 L250 165 Z' fill='url(%23c9-warning-yellow)' stroke='%23ccaa00' stroke-width='1.5' opacity='0.8'/%3E%3Ctext x='265' y='160' font-size='8' fill='%23332200' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold' opacity='0.3'%3E!%3C/text%3E%3C!-- Small directional sign --%3E%3Crect x='258' y='195' width='30' height='12' rx='1' fill='%23334433' stroke='%2300aa66' stroke-width='1' opacity='0.1'/%3E%3Cpath d='M282 198 L288 201 L282 204' fill='none' stroke='%2300cc77' stroke-width='1.5' opacity='0.12'/%3E%3C!-- Distorted shadow on floor --%3E%3Cellipse cx='200' cy='350' rx='45' ry='15' fill='%23000000' opacity='0.08'/%3E%3Cellipse cx='200' cy='355' rx='55' ry='12' fill='%23000000' opacity='0.05'/%3E%3C!-- Wall stains and wear --%3E%3Cpath d='M145 200 Q148 220 145 240' stroke='%23224422' stroke-width='3' opacity='0.06'/%3E%3Cpath d='M255 210 Q252 235 255 255' stroke='%23224422' stroke-width='2.5' opacity='0.05'/%3E%3C!-- Fog wisps --%3E%3Cellipse cx='200' cy='370' rx='90' ry='20' fill='%23446655' opacity='0.04'/%3E%3Cellipse cx='180' cy='380' rx='70' ry='15' fill='%23335544' opacity='0.03'/%3E%3Cellipse cx='230' cy='385' rx='60' ry='12' fill='%23446655' opacity='0.025'/%3E%3C!-- Additional atmospheric elements --%3E%3Ccircle cx='160' cy='300' r='25' fill='%23224433' opacity='0.03'/%3E%3Ccircle cx='240' cy='280' r='30' fill='%23224433' opacity='0.025'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Corridor 9 ambient glow - deep emerald, muted teal, warning yellow, and charcoal accents */
+.game-page__about[data-decoration="corridor-9"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 40%, rgba(0, 180, 100, 0.055) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 55% 50%, rgba(255, 200, 50, 0.04) 0%, transparent 45%),
+    radial-gradient(ellipse 45% 40% at 45% 55%, rgba(0, 140, 90, 0.035) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 25% at 60% 35%, rgba(100, 180, 140, 0.03) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* The Cursed House: Escape — first-person horror escape in a haunted Victorian house.
+   Mysterious old mansion with crooked roofs, partially opened wooden door glowing with
+   eerie red light, large antique skeleton key, shadowy elderly woman behind doorway,
+   vintage lantern with warm amber glow, cobwebs, cracked frames, floating dust,
+   twisted tree branches, and ghostly shadows.
+   Deep emerald, charcoal, dark crimson, muted brown, and warm amber accents */
+.game-page__about[data-decoration="cursed-house"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3CradialGradient id='ch-door-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff3020' stop-opacity='0.85'/%3E%3Cstop offset='35%25' stop-color='%23cc2010' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23660808' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='ch-lantern-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffaa44' stop-opacity='0.75'/%3E%3Cstop offset='40%25' stop-color='%23dd7722' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23884400' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ch-wood' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233d2a1a' stop-opacity='0.18'/%3E%3Cstop offset='50%25' stop-color='%232a1a0f' stop-opacity='0.15'/%3E%3Cstop offset='100%25' stop-color='%231a0f08' stop-opacity='0.12'/%3E%3C/linearGradient%3E%3ClinearGradient id='ch-key-metal' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23aa8855' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%238b6914' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23665522' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3ClinearGradient id='ch-roof' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a1a22' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%230f0f14' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3Cfilter id='ch-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='4' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='ch-dust' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.08' numOctaves='4' result='noise'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.6 0 0 0 0 0.5 0 0 0 0 0.4 0 0 0 0.04 0'/%3E%3C/filter%3E%3C/defs%3E%3C!-- Atmospheric fog background --%3E%3Crect x='100' y='40' width='300' height='360' fill='%23112218' opacity='0.05'/%3E%3Crect x='120' y='60' width='280' height='340' filter='url(%23ch-dust)'/%3E%3C!-- Twisted tree branches left side --%3E%3Cpath d='M80 60 Q95 100 85 140 Q75 180 90 220' stroke='%231a1510' stroke-width='4' fill='none' opacity='0.12'/%3E%3Cpath d='M85 80 Q100 70 115 85' stroke='%231a1510' stroke-width='2.5' fill='none' opacity='0.1'/%3E%3Cpath d='M88 120 Q105 110 118 125' stroke='%231a1510' stroke-width='2' fill='none' opacity='0.09'/%3E%3Cpath d='M82 160 Q95 155 105 170' stroke='%231a1510' stroke-width='2' fill='none' opacity='0.08'/%3E%3C!-- Twisted tree branches right side --%3E%3Cpath d='M340 50 Q325 90 335 130 Q345 170 330 210' stroke='%231a1510' stroke-width='3.5' fill='none' opacity='0.11'/%3E%3Cpath d='M335 70 Q320 65 305 80' stroke='%231a1510' stroke-width='2' fill='none' opacity='0.09'/%3E%3Cpath d='M338 110 Q322 105 308 118' stroke='%231a1510' stroke-width='1.8' fill='none' opacity='0.08'/%3E%3C!-- Haunted mansion - main structure --%3E%3Crect x='150' y='140' width='120' height='180' fill='url(%23ch-wood)' stroke='%23002211' stroke-width='2' opacity='0.9'/%3E%3C!-- Mansion facade details --%3E%3Crect x='155' y='145' width='110' height='170' fill='%23221a14' stroke='%23331a11' stroke-width='1' opacity='0.08'/%3E%3C!-- Crooked roof main --%3E%3Cpath d='M140 140 L210 70 L280 140 Z' fill='url(%23ch-roof)' stroke='%23222830' stroke-width='2' opacity='0.9'/%3E%3C!-- Roof shingles detail --%3E%3Cpath d='M155 125 L210 85 L265 125' stroke='%23333840' stroke-width='1' fill='none' opacity='0.1'/%3E%3Cpath d='M165 115 L210 80 L255 115' stroke='%23333840' stroke-width='0.8' fill='none' opacity='0.08'/%3E%3C!-- Second crooked roof tower --%3E%3Crect x='245' y='110' width='50' height='100' fill='url(%23ch-wood)' stroke='%23002211' stroke-width='1.5' opacity='0.85'/%3E%3Cpath d='M240 110 L270 65 L300 110 Z' fill='url(%23ch-roof)' stroke='%23222830' stroke-width='1.5' opacity='0.85'/%3E%3C!-- Tower window --%3E%3Crect x='258' y='125' width='24' height='30' rx='12' fill='%230a0808' stroke='%23332820' stroke-width='1.5' opacity='0.15'/%3E%3Cpath d='M270 125 L270 155' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3Cpath d='M258 140 L282 140' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3C!-- Dark windows with eerie reflections --%3E%3Crect x='165' y='155' width='30' height='35' rx='2' fill='%230a0808' stroke='%23332820' stroke-width='1.5' opacity='0.15'/%3E%3Cpath d='M180 155 L180 190' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3Cpath d='M165 172 L195 172' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3Ccircle cx='175' cy='165' r='3' fill='%23ff3020' opacity='0.06'/%3E%3Crect x='225' y='155' width='30' height='35' rx='2' fill='%230a0808' stroke='%23332820' stroke-width='1.5' opacity='0.15'/%3E%3Cpath d='M240 155 L240 190' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3Cpath d='M225 172 L255 172' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3Ccircle cx='235' cy='165' r='3' fill='%23ff3020' opacity='0.05'/%3E%3C!-- Main door frame --%3E%3Crect x='188' y='235' width='44' height='80' rx='2' fill='url(%23ch-wood)' stroke='%23442a18' stroke-width='2' opacity='0.9'/%3E%3C!-- Door panels --%3E%3Crect x='192' y='242' width='36' height='28' rx='1' fill='%23221510' stroke='%23332010' stroke-width='1' opacity='0.12'/%3E%3Crect x='192' y='278' width='36' height='32' rx='1' fill='%23221510' stroke='%23332010' stroke-width='1' opacity='0.12'/%3E%3C!-- Door opening crack with red glow --%3E%3Cpath d='M228 238 L232 238 L234 312 L230 312 Z' fill='url(%23ch-door-glow)' filter='url(%23ch-glow)' opacity='0.9'/%3E%3C!-- Light spilling from door crack --%3E%3Cpath d='M232 250 L260 290 L270 340 L234 310 Z' fill='%23ff2010' opacity='0.035'/%3E%3Cpath d='M232 260 L250 295 L255 330 L234 305 Z' fill='%23ff3020' opacity='0.025'/%3E%3C!-- Door handle --%3E%3Ccircle cx='222' cy='280' r='4' fill='%23aa8844' opacity='0.18'/%3E%3Ccircle cx='222' cy='280' r='2' fill='%23ddaa55' opacity='0.12'/%3E%3C!-- Shadowy elderly woman silhouette behind door --%3E%3Cpath d='M235 255 Q240 245 245 240 Q252 235 258 245 Q262 255 260 270 Q258 290 255 320 Q250 350 245 370 Q240 350 235 320 Q232 290 235 270 Q233 260 235 255 Z' fill='%23050505' opacity='0.22'/%3E%3C!-- Woman head shape --%3E%3Cellipse cx='248' cy='242' rx='12' ry='14' fill='%23080808' opacity='0.25'/%3E%3C!-- Woman hair/shawl --%3E%3Cpath d='M236 248 Q248 228 260 248' stroke='%23060606' stroke-width='3' fill='none' opacity='0.2'/%3E%3C!-- Hunched shoulders --%3E%3Cpath d='M232 265 Q248 255 264 265' stroke='%23050505' stroke-width='4' fill='none' opacity='0.18'/%3E%3C!-- Large antique skeleton key --%3E%3Cellipse cx='130' cy='280' rx='22' ry='24' fill='none' stroke='url(%23ch-key-metal)' stroke-width='5' opacity='0.9'/%3E%3Cellipse cx='130' cy='280' rx='14' ry='15' fill='%230a0806' opacity='0.1'/%3E%3C!-- Key ornate bow details --%3E%3Ccircle cx='130' cy='268' r='4' fill='%23aa8844' opacity='0.12'/%3E%3Ccircle cx='120' cy='280' r='3' fill='%23aa8844' opacity='0.1'/%3E%3Ccircle cx='140' cy='280' r='3' fill='%23aa8844' opacity='0.1'/%3E%3Ccircle cx='130' cy='292' r='4' fill='%23aa8844' opacity='0.12'/%3E%3C!-- Key shaft --%3E%3Crect x='126' y='302' width='8' height='70' rx='2' fill='url(%23ch-key-metal)' opacity='0.9'/%3E%3C!-- Key bit (teeth) --%3E%3Cpath d='M126 365 L126 372 L118 372 L118 368 L122 368 L122 365 Z' fill='%23aa8844' opacity='0.2'/%3E%3Cpath d='M134 365 L134 375 L142 375 L142 370 L138 370 L138 365 Z' fill='%23aa8844' opacity='0.2'/%3E%3Cpath d='M126 355 L120 355 L120 360 L126 360 Z' fill='%23aa8844' opacity='0.15'/%3E%3C!-- Key shaft details --%3E%3Cline x1='128' y1='310' x2='132' y2='310' stroke='%23ddaa55' stroke-width='1' opacity='0.12'/%3E%3Cline x1='128' y1='330' x2='132' y2='330' stroke='%23ddaa55' stroke-width='1' opacity='0.1'/%3E%3Cline x1='128' y1='350' x2='132' y2='350' stroke='%23ddaa55' stroke-width='1' opacity='0.1'/%3E%3C!-- Vintage lantern --%3E%3Crect x='305' y='250' width='30' height='45' rx='3' fill='%23332a20' stroke='%23443828' stroke-width='2' opacity='0.18'/%3E%3C!-- Lantern glass panels --%3E%3Crect x='309' y='256' width='22' height='35' rx='2' fill='%23ffaa44' opacity='0.08'/%3E%3C!-- Lantern top --%3E%3Cpath d='M308 250 L320 238 L332 250 Z' fill='%23443828' opacity='0.15'/%3E%3Crect x='316' y='232' width='8' height='8' rx='2' fill='%23332a20' opacity='0.12'/%3E%3C!-- Lantern handle --%3E%3Cpath d='M312 232 Q320 222 328 232' stroke='%23554433' stroke-width='2.5' fill='none' opacity='0.15'/%3E%3C!-- Lantern glow --%3E%3Ccircle cx='320' cy='272' r='35' fill='url(%23ch-lantern-glow)' filter='url(%23ch-glow)' opacity='0.8'/%3E%3C!-- Lantern flame --%3E%3Cellipse cx='320' cy='268' rx='6' ry='10' fill='%23ffcc66' opacity='0.15'/%3E%3Cellipse cx='320' cy='270' rx='3' ry='6' fill='%23ffaa44' opacity='0.2'/%3E%3C!-- Lantern base --%3E%3Crect x='307' y='295' width='26' height='6' rx='2' fill='%23443828' opacity='0.15'/%3E%3C!-- Cobwebs upper left --%3E%3Cpath d='M140 140 Q155 145 150 160' stroke='%23888888' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M140 140 Q148 150 142 165' stroke='%23888888' stroke-width='0.5' fill='none' opacity='0.07'/%3E%3Cpath d='M140 140 Q160 148 165 140' stroke='%23888888' stroke-width='0.5' fill='none' opacity='0.06'/%3E%3Cpath d='M150 145 Q145 155 155 160' stroke='%23888888' stroke-width='0.4' fill='none' opacity='0.05'/%3E%3C!-- Cobwebs upper right --%3E%3Cpath d='M280 140 Q265 148 270 165' stroke='%23888888' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M280 140 Q272 152 278 168' stroke='%23888888' stroke-width='0.5' fill='none' opacity='0.07'/%3E%3Cpath d='M275 148 Q282 158 272 165' stroke='%23888888' stroke-width='0.4' fill='none' opacity='0.05'/%3E%3C!-- Cobwebs on door frame --%3E%3Cpath d='M188 235 Q195 238 192 248' stroke='%23888888' stroke-width='0.5' fill='none' opacity='0.07'/%3E%3Cpath d='M232 235 Q225 240 228 250' stroke='%23888888' stroke-width='0.5' fill='none' opacity='0.06'/%3E%3C!-- Cracked wooden frame details --%3E%3Cpath d='M155 200 L158 210 L154 222' stroke='%23221510' stroke-width='0.8' fill='none' opacity='0.1'/%3E%3Cpath d='M262 185 L265 198 L260 208' stroke='%23221510' stroke-width='0.7' fill='none' opacity='0.09'/%3E%3Cpath d='M175 310 L178 318 L174 325' stroke='%23221510' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3C!-- Floating dust particles --%3E%3Ccircle cx='180' cy='180' r='1.5' fill='%23aa9977' opacity='0.08'/%3E%3Ccircle cx='240' cy='200' r='1' fill='%23aa9977' opacity='0.06'/%3E%3Ccircle cx='200' cy='250' r='1.2' fill='%23aa9977' opacity='0.07'/%3E%3Ccircle cx='160' cy='280' r='0.8' fill='%23aa9977' opacity='0.05'/%3E%3Ccircle cx='290' cy='220' r='1.3' fill='%23aa9977' opacity='0.06'/%3E%3Ccircle cx='175' cy='350' r='1' fill='%23aa9977' opacity='0.05'/%3E%3Ccircle cx='260' cy='300' r='1.1' fill='%23aa9977' opacity='0.06'/%3E%3Ccircle cx='310' cy='180' r='0.9' fill='%23aa9977' opacity='0.05'/%3E%3C!-- Ghostly shadow on ground --%3E%3Cellipse cx='210' cy='340' rx='55' ry='18' fill='%23000000' opacity='0.08'/%3E%3Cellipse cx='210' cy='345' rx='70' ry='14' fill='%23000000' opacity='0.05'/%3E%3C!-- Additional ghostly wisps --%3E%3Cpath d='M280 320 Q290 310 285 295' stroke='%23aaaaaa' stroke-width='2' fill='none' opacity='0.03'/%3E%3Cpath d='M285 330 Q298 318 292 300' stroke='%23aaaaaa' stroke-width='1.5' fill='none' opacity='0.025'/%3E%3C!-- Fog at bottom --%3E%3Cellipse cx='200' cy='380' rx='100' ry='22' fill='%23445544' opacity='0.045'/%3E%3Cellipse cx='170' cy='375' rx='70' ry='16' fill='%23334433' opacity='0.035'/%3E%3Cellipse cx='250' cy='385' rx='80' ry='14' fill='%23445544' opacity='0.03'/%3E%3C!-- Ground detail --%3E%3Cpath d='M140 320 L280 320' stroke='%23223322' stroke-width='2' opacity='0.08'/%3E%3Cpath d='M150 325 L270 325' stroke='%23112211' stroke-width='1' opacity='0.05'/%3E%3C!-- Porch steps hint --%3E%3Crect x='178' y='315' width='64' height='8' fill='%23221a14' stroke='%23331a11' stroke-width='1' opacity='0.1'/%3E%3Crect x='172' y='323' width='76' height='6' fill='%23221a14' stroke='%23331a11' stroke-width='0.8' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* The Cursed House ambient glow - dark crimson, warm amber, deep emerald, and charcoal accents */
+.game-page__about[data-decoration="cursed-house"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 45%, rgba(180, 40, 30, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 70% 60%, rgba(220, 150, 60, 0.05) 0%, transparent 45%),
+    radial-gradient(ellipse 45% 40% at 35% 50%, rgba(0, 140, 90, 0.035) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 55% 40%, rgba(100, 60, 40, 0.04) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Whispering Woods: The Eight Notes — haunted forest horror with twisted pine trees,
+   mysterious shadowy creature with glowing eyes, handwritten note on tree, vintage lantern,
+   winding woodland path into fog, floating particles, distant abandoned cabin.
+   Deep emerald, muted teal, midnight blue, charcoal, warm amber, and restrained crimson accents */
+.game-page__about[data-decoration="whispering-woods"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3CradialGradient id='ww-lantern-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffaa44' stop-opacity='0.7'/%3E%3Cstop offset='35%25' stop-color='%23dd7722' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23884400' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='ww-eye-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff4444' stop-opacity='0.85'/%3E%3Cstop offset='40%25' stop-color='%23cc2222' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23880000' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ww-tree-dark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a2820' stop-opacity='0.2'/%3E%3Cstop offset='50%25' stop-color='%230f1a14' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%23081210' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3ClinearGradient id='ww-tree-mid' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23223830' stop-opacity='0.16'/%3E%3Cstop offset='100%25' stop-color='%23152820' stop-opacity='0.12'/%3E%3C/linearGradient%3E%3ClinearGradient id='ww-note-paper' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8e0d0' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%23c8c0b0' stop-opacity='0.12'/%3E%3C/linearGradient%3E%3Cfilter id='ww-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='4' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='ww-fog' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='3' result='noise'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.15 0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 0.05 0'/%3E%3C/filter%3E%3C/defs%3E%3C!-- Atmospheric fog background --%3E%3Crect x='80' y='40' width='320' height='360' fill='%23101a18' opacity='0.05'/%3E%3Crect x='100' y='60' width='300' height='340' filter='url(%23ww-fog)'/%3E%3C!-- Winding woodland path disappearing into fog --%3E%3Cpath d='M200 390 Q180 340 195 290 Q210 240 190 190 Q175 150 185 110 Q195 80 200 60' stroke='%23334433' stroke-width='35' fill='none' opacity='0.06'/%3E%3Cpath d='M200 390 Q182 345 197 295 Q212 245 192 195 Q177 155 187 115' stroke='%23223322' stroke-width='20' fill='none' opacity='0.05'/%3E%3C!-- Path edges --%3E%3Cpath d='M175 385 Q155 340 170 295 Q185 250 168 205' stroke='%23445544' stroke-width='2' fill='none' opacity='0.08'/%3E%3Cpath d='M225 385 Q240 345 225 300 Q210 255 222 210' stroke='%23445544' stroke-width='2' fill='none' opacity='0.08'/%3E%3C!-- Distant abandoned cabin --%3E%3Crect x='175' y='85' width='50' height='35' fill='%23221a14' stroke='%23332a20' stroke-width='1.5' opacity='0.12'/%3E%3Cpath d='M170 85 L200 60 L230 85 Z' fill='%231a1410' stroke='%232a2018' stroke-width='1' opacity='0.1'/%3E%3C!-- Cabin window glow --%3E%3Crect x='188' y='95' width='10' height='12' fill='%23ffaa44' opacity='0.06'/%3E%3Crect x='203' y='95' width='10' height='12' fill='%23ffaa44' opacity='0.05'/%3E%3C!-- Cabin door --%3E%3Crect x='193' y='105' width='14' height='15' fill='%230a0806' opacity='0.1'/%3E%3C!-- Back layer trees (furthest) --%3E%3Cpath d='M280 380 L280 200 L260 220 L280 180 L255 210 L280 160 L250 200 L280 130 L245 185 L280 100 L240 175 L280 70 L235 165 L280 50 L280 380 Z' fill='url(%23ww-tree-dark)' opacity='0.7'/%3E%3Crect x='275' y='200' width='10' height='180' fill='%231a2820' opacity='0.12'/%3E%3Cpath d='M320 380 L320 230 L305 245 L320 215 L300 235 L320 195 L295 225 L320 165 L290 210 L320 140 L285 200 L320 110 L280 190 L320 85 L320 380 Z' fill='url(%23ww-tree-dark)' opacity='0.6'/%3E%3Crect x='315' y='230' width='10' height='150' fill='%231a2820' opacity='0.1'/%3E%3C!-- Middle layer trees --%3E%3Cpath d='M120 380 L120 180 L95 205 L120 155 L90 190 L120 130 L85 175 L120 100 L80 165 L120 75 L120 380 Z' fill='url(%23ww-tree-mid)' opacity='0.85'/%3E%3Crect x='115' y='180' width='10' height='200' fill='%23223830' opacity='0.14'/%3E%3Cpath d='M350 380 L350 210 L330 230 L350 185 L325 215 L350 160 L320 195 L350 130 L315 180 L350 105 L350 380 Z' fill='url(%23ww-tree-mid)' opacity='0.75'/%3E%3Crect x='345' y='210' width='10' height='170' fill='%23223830' opacity='0.12'/%3E%3C!-- Front layer trees (closest, most detailed) --%3E%3Cpath d='M90 380 L90 150 L60 180 L90 120 L55 165 L90 95 L50 150 L90 70 L45 140 L90 50 L90 380 Z' fill='url(%23ww-tree-dark)' opacity='0.95'/%3E%3Crect x='84' y='150' width='12' height='230' fill='%231a2820' opacity='0.18'/%3E%3C!-- Tree bark texture --%3E%3Cpath d='M86 200 L92 210 M87 250 L93 260 M85 300 L91 310' stroke='%23334438' stroke-width='1' opacity='0.12'/%3E%3Cpath d='M370 380 L370 190 L350 215 L370 165 L345 200 L370 140 L340 185 L370 115 L335 170 L370 90 L370 380 Z' fill='url(%23ww-tree-dark)' opacity='0.9'/%3E%3Crect x='364' y='190' width='12' height='190' fill='%231a2820' opacity='0.16'/%3E%3C!-- Broken branches on ground --%3E%3Cpath d='M130 365 L155 360 L165 368' stroke='%23332a20' stroke-width='2.5' fill='none' opacity='0.1'/%3E%3Cpath d='M145 362 L150 355' stroke='%23332a20' stroke-width='1.5' fill='none' opacity='0.08'/%3E%3Cpath d='M250 372 L280 365 L295 375' stroke='%23332a20' stroke-width='2' fill='none' opacity='0.09'/%3E%3Cpath d='M270 368 L275 360' stroke='%23332a20' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3C!-- Mysterious shadowy creature between trees --%3E%3Cpath d='M240 160 Q250 140 260 125 Q275 105 285 125 Q295 145 290 175 Q288 210 285 260 Q282 310 278 360 Q275 380 270 395 Q265 380 260 360 Q255 310 252 260 Q248 210 245 175 Q242 150 240 160 Z' fill='%23050808' opacity='0.2'/%3E%3C!-- Creature head (elongated, inhuman) --%3E%3Cellipse cx='262' cy='118' rx='18' ry='25' fill='%23060a0a' opacity='0.25'/%3E%3C!-- Creature glowing eyes --%3E%3Ccircle cx='255' cy='115' r='5' fill='url(%23ww-eye-glow)' filter='url(%23ww-glow)' opacity='0.8'/%3E%3Ccircle cx='269' cy='115' r='5' fill='url(%23ww-eye-glow)' filter='url(%23ww-glow)' opacity='0.8'/%3E%3Ccircle cx='255' cy='115' r='2' fill='%23ff3333' opacity='0.2'/%3E%3Ccircle cx='269' cy='115' r='2' fill='%23ff3333' opacity='0.2'/%3E%3C!-- Creature limbs hint --%3E%3Cpath d='M248 180 Q235 200 225 225' stroke='%23060808' stroke-width='4' fill='none' opacity='0.15'/%3E%3Cpath d='M282 180 Q295 195 310 215' stroke='%23060808' stroke-width='4' fill='none' opacity='0.15'/%3E%3C!-- Handwritten note on tree trunk --%3E%3Crect x='100' y='230' width='32' height='40' rx='1' fill='url(%23ww-note-paper)' stroke='%23aa9988' stroke-width='1' opacity='0.9' transform='rotate(-5 116 250)'/%3E%3C!-- Note pin/nail --%3E%3Ccircle cx='116' cy='235' r='3' fill='%23665544' opacity='0.2'/%3E%3C!-- Cryptic symbols on note --%3E%3Cpath d='M106 245 L112 248 L108 255 L114 252' stroke='%23332211' stroke-width='1' fill='none' opacity='0.15'/%3E%3Cpath d='M118 246 Q122 250 118 256 Q124 252 120 248' stroke='%23332211' stroke-width='0.8' fill='none' opacity='0.12'/%3E%3Cpath d='M107 260 L125 260' stroke='%23332211' stroke-width='0.8' opacity='0.1'/%3E%3Cpath d='M108 264 L122 264' stroke='%23332211' stroke-width='0.6' opacity='0.08'/%3E%3C!-- Number 8 hint on note --%3E%3Ctext x='126' y='268' font-size='8' fill='%23442211' font-family='serif' opacity='0.15'%3E8%3C/text%3E%3C!-- Vintage lantern --%3E%3Crect x='140' y='310' width='24' height='36' rx='3' fill='%23332a20' stroke='%23443828' stroke-width='1.5' opacity='0.2'/%3E%3C!-- Lantern glass --%3E%3Crect x='144' y='315' width='16' height='26' rx='2' fill='%23ffaa44' opacity='0.1'/%3E%3C!-- Lantern top --%3E%3Cpath d='M142 310 L152 300 L162 310 Z' fill='%23443828' opacity='0.18'/%3E%3Crect x='148' y='294' width='8' height='8' rx='2' fill='%23332a20' opacity='0.15'/%3E%3C!-- Lantern handle --%3E%3Cpath d='M145 294 Q152 284 159 294' stroke='%23554433' stroke-width='2' fill='none' opacity='0.18'/%3E%3C!-- Lantern base --%3E%3Crect x='142' y='346' width='20' height='5' rx='2' fill='%23443828' opacity='0.18'/%3E%3C!-- Lantern warm glow on forest floor --%3E%3Ccircle cx='152' cy='330' r='45' fill='url(%23ww-lantern-glow)' filter='url(%23ww-glow)' opacity='0.7'/%3E%3C!-- Lantern flame --%3E%3Cellipse cx='152' cy='325' rx='5' ry='8' fill='%23ffcc66' opacity='0.18'/%3E%3Cellipse cx='152' cy='327' rx='2.5' ry='5' fill='%23ffaa44' opacity='0.25'/%3E%3C!-- Floating particles/dust --%3E%3Ccircle cx='180' cy='150' r='1.2' fill='%23aabbaa' opacity='0.08'/%3E%3Ccircle cx='220' cy='200' r='0.9' fill='%23aabbaa' opacity='0.06'/%3E%3Ccircle cx='160' cy='250' r='1.1' fill='%23aabbaa' opacity='0.07'/%3E%3Ccircle cx='300' cy='180' r='1' fill='%23aabbaa' opacity='0.06'/%3E%3Ccircle cx='190' cy='300' r='0.8' fill='%23ccbb99' opacity='0.08'/%3E%3Ccircle cx='240' cy='280' r='1.3' fill='%23aabbaa' opacity='0.05'/%3E%3Ccircle cx='320' cy='250' r='0.9' fill='%23aabbaa' opacity='0.06'/%3E%3Ccircle cx='135' cy='180' r='1' fill='%23aabbaa' opacity='0.07'/%3E%3Ccircle cx='270' cy='220' r='0.8' fill='%23aabbaa' opacity='0.05'/%3E%3Ccircle cx='200' cy='350' r='1.1' fill='%23ccbb99' opacity='0.06'/%3E%3C!-- Drifting mist layers --%3E%3Cellipse cx='200' cy='380' rx='120' ry='25' fill='%23445555' opacity='0.05'/%3E%3Cellipse cx='150' cy='370' rx='80' ry='18' fill='%23334444' opacity='0.04'/%3E%3Cellipse cx='280' cy='375' rx='90' ry='20' fill='%23445555' opacity='0.04'/%3E%3Cellipse cx='220' cy='340' rx='60' ry='12' fill='%23334444' opacity='0.03'/%3E%3C!-- Mid-level mist --%3E%3Cellipse cx='300' cy='280' rx='50' ry='15' fill='%23445555' opacity='0.025'/%3E%3Cellipse cx='130' cy='300' rx='45' ry='12' fill='%23334444' opacity='0.02'/%3E%3C!-- Additional tree branch details --%3E%3Cpath d='M85 180 L70 175 L60 180' stroke='%23223830' stroke-width='2' fill='none' opacity='0.1'/%3E%3Cpath d='M85 220 L65 215 L55 222' stroke='%23223830' stroke-width='1.5' fill='none' opacity='0.08'/%3E%3Cpath d='M368 215 L380 210 L390 218' stroke='%23223830' stroke-width='1.8' fill='none' opacity='0.09'/%3E%3Cpath d='M368 255 L385 250' stroke='%23223830' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3C!-- Forest floor shadows --%3E%3Cellipse cx='152' cy='365' rx='35' ry='10' fill='%23000000' opacity='0.06'/%3E%3Cellipse cx='270' cy='375' rx='25' ry='8' fill='%23000000' opacity='0.05'/%3E%3C!-- Moonlight filtering through trees --%3E%3Cpath d='M180 40 L190 120 L200 80 L210 130 L220 60' stroke='%2388aacc' stroke-width='15' fill='none' opacity='0.015'/%3E%3Cpath d='M280 50 L295 140 L310 90' stroke='%2388aacc' stroke-width='12' fill='none' opacity='0.012'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Whispering Woods ambient glow - deep emerald, muted teal, midnight blue, warm amber accents */
+.game-page__about[data-decoration="whispering-woods"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 45% 50%, rgba(0, 140, 100, 0.055) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 35% 65%, rgba(220, 150, 60, 0.05) 0%, transparent 45%),
+    radial-gradient(ellipse 45% 40% at 55% 45%, rgba(40, 80, 100, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 60% 55%, rgba(140, 50, 50, 0.025) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Motel 6: Last Guest — abandoned roadside motel with glowing red MOTEL 6 neon sign,
+   mysterious silhouette in reception window, partially open door with red light spill,
+   vintage room key with numbered tag, CCTV camera, reception bell, heavy rain,
+   puddles reflecting neon, drifting fog, cracked walls, and worn wooden textures.
+   Deep emerald, charcoal, midnight blue, dark crimson, and warm amber accents */
+.game-page__about[data-decoration="motel-6"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3CradialGradient id='m6-neon-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff2020' stop-opacity='0.95'/%3E%3Cstop offset='35%25' stop-color='%23cc0000' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23660000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='m6-door-light' cx='50%25' cy='0%25' r='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff3030' stop-opacity='0.4'/%3E%3Cstop offset='60%25' stop-color='%23aa1010' stop-opacity='0.15'/%3E%3Cstop offset='100%25' stop-color='%23550000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='m6-amber-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffaa40' stop-opacity='0.7'/%3E%3Cstop offset='50%25' stop-color='%23cc7720' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%23664400' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='m6-wall' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232a2a30' stop-opacity='0.15'/%3E%3Cstop offset='50%25' stop-color='%23222228' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%231a1a20' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='m6-roof' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23333340' stop-opacity='0.14'/%3E%3Cstop offset='100%25' stop-color='%23222230' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='m6-puddle' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23001a33' stop-opacity='0.08'/%3E%3Cstop offset='50%25' stop-color='%23ff2020' stop-opacity='0.06'/%3E%3Cstop offset='100%25' stop-color='%23001a33' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3Cfilter id='m6-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='m6-rain' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5 2' numOctaves='2' result='noise'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.06'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3C/defs%3E%3C!-- Night sky fog --%3E%3Crect x='100' y='50' width='300' height='350' fill='%231a1a24' opacity='0.05'/%3E%3Cellipse cx='250' cy='200' rx='150' ry='180' fill='%23101018' opacity='0.06'/%3E%3C!-- Rain overlay --%3E%3Crect x='100' y='50' width='280' height='320' filter='url(%23m6-rain)' opacity='0.4'/%3E%3C!-- Individual rain streaks --%3E%3Cline x1='150' y1='60' x2='148' y2='90' stroke='%236688aa' stroke-width='0.8' opacity='0.12'/%3E%3Cline x1='200' y1='80' x2='198' y2='115' stroke='%236688aa' stroke-width='0.7' opacity='0.1'/%3E%3Cline x1='280' y1='55' x2='278' y2='88' stroke='%236688aa' stroke-width='0.8' opacity='0.11'/%3E%3Cline x1='320' y1='70' x2='318' y2='100' stroke='%236688aa' stroke-width='0.6' opacity='0.09'/%3E%3Cline x1='170' y1='100' x2='168' y2='135' stroke='%236688aa' stroke-width='0.7' opacity='0.1'/%3E%3Cline x1='240' y1='90' x2='238' y2='120' stroke='%236688aa' stroke-width='0.8' opacity='0.11'/%3E%3Cline x1='360' y1='85' x2='358' y2='115' stroke='%236688aa' stroke-width='0.6' opacity='0.08'/%3E%3C!-- Motel building main structure --%3E%3Crect x='140' y='160' width='200' height='140' fill='url(%23m6-wall)' rx='2'/%3E%3C!-- Roof --%3E%3Cpath d='M130 160 L240 100 L350 160 Z' fill='url(%23m6-roof)'/%3E%3Crect x='135' y='155' width='210' height='8' fill='%23333340' opacity='0.12'/%3E%3C!-- Roof shingles texture --%3E%3Cpath d='M145 155 L240 105 L335 155' stroke='%23444450' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M155 155 L240 112 L325 155' stroke='%23444450' stroke-width='0.8' fill='none' opacity='0.06'/%3E%3C!-- Wall cracks --%3E%3Cpath d='M180 180 Q185 200 182 220 Q188 235 185 255' stroke='%23151520' stroke-width='1' fill='none' opacity='0.1'/%3E%3Cpath d='M290 175 Q295 190 292 205' stroke='%23151520' stroke-width='0.8' fill='none' opacity='0.08'/%3E%3Cpath d='M220 260 Q225 275 222 290' stroke='%23151520' stroke-width='0.7' fill='none' opacity='0.07'/%3E%3C!-- MOTEL 6 neon sign post --%3E%3Crect x='355' y='100' width='6' height='180' fill='%23333340' opacity='0.12'/%3E%3C!-- Sign board --%3E%3Crect x='330' y='80' width='60' height='50' rx='3' fill='%231a1a22' opacity='0.15'/%3E%3Crect x='333' y='83' width='54' height='44' rx='2' fill='%23101014' opacity='0.12'/%3E%3C!-- MOTEL text glow --%3E%3Cellipse cx='360' cy='95' rx='28' ry='12' fill='url(%23m6-neon-glow)' filter='url(%23m6-glow)' opacity='0.85'/%3E%3C!-- MOTEL text --%3E%3Ctext x='360' y='99' font-size='12' fill='%23ff3030' opacity='0.35' font-family='Arial Black, sans-serif' text-anchor='middle' font-weight='bold'%3EMOTEL%3C/text%3E%3C!-- 6 glow --%3E%3Ccircle cx='360' cy='115' r='12' fill='url(%23m6-neon-glow)' filter='url(%23m6-glow)' opacity='0.9'/%3E%3C!-- 6 number --%3E%3Ctext x='360' y='121' font-size='18' fill='%23ff2020' opacity='0.4' font-family='Arial Black, sans-serif' text-anchor='middle' font-weight='bold'%3E6%3C/text%3E%3C!-- Reception window --%3E%3Crect x='250' y='180' width='60' height='50' rx='2' fill='%23101018' opacity='0.15'/%3E%3Crect x='253' y='183' width='54' height='44' fill='%230a0a12' opacity='0.12'/%3E%3C!-- Window frame --%3E%3Crect x='253' y='183' width='54' height='44' fill='none' stroke='%23444450' stroke-width='1.5' opacity='0.1'/%3E%3Cline x1='280' y1='183' x2='280' y2='227' stroke='%23444450' stroke-width='1' opacity='0.08'/%3E%3C!-- Mysterious silhouette in window --%3E%3Cpath d='M268 195 Q273 185 278 195 Q280 200 278 210 Q275 225 268 225 Q261 225 258 210 Q256 200 258 195 Q263 185 268 195 Z' fill='%23050508' opacity='0.18'/%3E%3C!-- Silhouette head --%3E%3Ccircle cx='268' cy='192' r='8' fill='%23060610' opacity='0.2'/%3E%3C!-- Eerie eye glint --%3E%3Ccircle cx='265' cy='191' r='1.5' fill='%23ff6060' opacity='0.15'/%3E%3Ccircle cx='271' cy='191' r='1.5' fill='%23ff6060' opacity='0.15'/%3E%3C!-- Motel room door (partially open with red light) --%3E%3Crect x='170' y='200' width='45' height='80' rx='1' fill='%23282220' opacity='0.14'/%3E%3C!-- Door frame --%3E%3Crect x='168' y='198' width='49' height='84' fill='none' stroke='%23333330' stroke-width='2' opacity='0.1'/%3E%3C!-- Door panels --%3E%3Crect x='175' y='210' width='15' height='25' rx='1' fill='none' stroke='%23222218' stroke-width='1' opacity='0.1'/%3E%3Crect x='195' y='210' width='15' height='25' rx='1' fill='none' stroke='%23222218' stroke-width='1' opacity='0.1'/%3E%3Crect x='175' y='245' width='15' height='25' rx='1' fill='none' stroke='%23222218' stroke-width='1' opacity='0.1'/%3E%3Crect x='195' y='245' width='15' height='25' rx='1' fill='none' stroke='%23222218' stroke-width='1' opacity='0.1'/%3E%3C!-- Door gap with red light spill --%3E%3Crect x='213' y='202' width='6' height='76' fill='%23ff2020' opacity='0.12'/%3E%3Crect x='215' y='204' width='3' height='72' fill='%23ff4040' opacity='0.15'/%3E%3C!-- Red light spill on floor --%3E%3Cellipse cx='220' cy='295' rx='35' ry='12' fill='url(%23m6-door-light)' opacity='0.6'/%3E%3C!-- Door handle --%3E%3Ccircle cx='205' cy='245' r='3' fill='%23887755' opacity='0.12'/%3E%3C!-- Room number plate --%3E%3Crect x='182' y='205' width='18' height='12' rx='1' fill='%23aa8844' opacity='0.1'/%3E%3Ctext x='191' y='214' font-size='8' fill='%23332200' opacity='0.12' font-family='serif' text-anchor='middle' font-weight='bold'%3E6%3C/text%3E%3C!-- CCTV Camera --%3E%3Crect x='320' y='170' width='25' height='15' rx='2' fill='%23222230' opacity='0.12'/%3E%3Crect x='315' y='175' width='8' height='8' rx='1' fill='%23333340' opacity='0.1'/%3E%3Ccircle cx='338' cy='177' r='5' fill='%23111118' opacity='0.14'/%3E%3Ccircle cx='338' cy='177' r='2' fill='%230a0a10' opacity='0.12'/%3E%3C!-- Camera recording light --%3E%3Ccircle cx='342' cy='172' r='2' fill='%23ff2020' opacity='0.2'/%3E%3Ccircle cx='342' cy='172' r='3.5' fill='%23ff0000' opacity='0.08'/%3E%3C!-- Camera mount --%3E%3Crect x='330' y='162' width='4' height='10' fill='%23333340' opacity='0.1'/%3E%3C!-- Reception desk silhouette --%3E%3Crect x='248' y='240' width='65' height='45' fill='%23181820' opacity='0.1'/%3E%3C!-- Reception bell --%3E%3Cellipse cx='275' cy='238' rx='8' ry='3' fill='%23997744' opacity='0.12'/%3E%3Cpath d='M269 238 Q269 228 275 225 Q281 228 281 238' fill='%23aa8855' opacity='0.1'/%3E%3Ccircle cx='275' cy='226' r='2' fill='%23ccaa66' opacity='0.1'/%3E%3C!-- Vintage room key --%3E%3Cellipse cx='130' cy='260' rx='12' ry='8' fill='%23665533' opacity='0.1' transform='rotate(-25 130 260)'/%3E%3Crect x='118' y='255' width='30' height='6' rx='3' fill='%23887755' opacity='0.12' transform='rotate(-25 130 260)'/%3E%3C!-- Key teeth --%3E%3Cpath d='M108 268 L105 270 L108 272 L105 274 L108 276' stroke='%23776644' stroke-width='1.5' fill='none' opacity='0.1' transform='rotate(-25 108 272)'/%3E%3C!-- Key ring --%3E%3Ccircle cx='148' cy='248' r='8' fill='none' stroke='%23887755' stroke-width='2' opacity='0.1'/%3E%3C!-- Key tag --%3E%3Crect x='155' y='235' width='20' height='28' rx='2' fill='%23cc4444' opacity='0.1'/%3E%3Ctext x='165' y='254' font-size='12' fill='%23ffffff' opacity='0.12' font-family='Arial' text-anchor='middle' font-weight='bold'%3E6%3C/text%3E%3C!-- Tag string --%3E%3Cpath d='M148 248 Q152 242 158 245' stroke='%23554433' stroke-width='1' fill='none' opacity='0.1'/%3E%3C!-- Wet asphalt ground --%3E%3Crect x='130' y='295' width='220' height='25' fill='%23181820' opacity='0.08'/%3E%3C!-- Puddles with neon reflections --%3E%3Cellipse cx='200' cy='310' rx='50' ry='8' fill='url(%23m6-puddle)'/%3E%3Cellipse cx='300' cy='315' rx='35' ry='6' fill='url(%23m6-puddle)'/%3E%3C!-- Neon reflection in puddles --%3E%3Cellipse cx='320' cy='312' rx='15' ry='4' fill='%23ff2020' opacity='0.06'/%3E%3Cellipse cx='195' cy='308' rx='12' ry='3' fill='%23ff3030' opacity='0.05'/%3E%3C!-- Fog wisps --%3E%3Cellipse cx='280' cy='350' rx='100' ry='25' fill='%23334455' opacity='0.04'/%3E%3Cellipse cx='180' cy='340' rx='70' ry='18' fill='%23334455' opacity='0.035'/%3E%3Cellipse cx='350' cy='360' rx='50' ry='15' fill='%23334455' opacity='0.03'/%3E%3C!-- Additional atmospheric rain --%3E%3Cline x1='190' y1='130' x2='188' y2='165' stroke='%236688aa' stroke-width='0.7' opacity='0.09'/%3E%3Cline x1='260' y1='120' x2='258' y2='150' stroke='%236688aa' stroke-width='0.6' opacity='0.08'/%3E%3Cline x1='300' y1='140' x2='298' y2='175' stroke='%236688aa' stroke-width='0.7' opacity='0.1'/%3E%3Cline x1='215' y1='150' x2='213' y2='180' stroke='%236688aa' stroke-width='0.5' opacity='0.07'/%3E%3C!-- Window reflection highlights --%3E%3Cline x1='255' y1='185' x2='265' y2='190' stroke='%23ffffff' stroke-width='0.8' opacity='0.04'/%3E%3Cline x1='290' y1='188' x2='302' y2='193' stroke='%23ffffff' stroke-width='0.6' opacity='0.03'/%3E%3C!-- Worn porch overhang --%3E%3Crect x='160' y='192' width='90' height='5' fill='%23333338' opacity='0.1'/%3E%3C!-- Overhang shadow --%3E%3Crect x='162' y='197' width='86' height='3' fill='%23101015' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Motel 6 ambient glow - dark crimson, warm amber, deep emerald, midnight blue accents */
+.game-page__about[data-decoration="motel-6"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 55% 40%, rgba(180, 30, 30, 0.065) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 65% 55%, rgba(220, 130, 50, 0.045) 0%, transparent 45%),
+    radial-gradient(ellipse 45% 40% at 40% 50%, rgba(0, 120, 90, 0.035) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 50% 60%, rgba(40, 60, 100, 0.03) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Iron Fist: Arena Champions — dramatic fighting arena composition featuring
+   a martial artist in white gi with red headband vs futuristic armored fighter
+   with cyan energy lines and golden shoulder armor. Glowing circular arena floor,
+   golden sparks, blue energy effects, arena spotlights, and motion lines.
+   Gold, cyan, red, and dark-blue color palette */
+.game-page__about[data-decoration="iron-fist"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3CradialGradient id='if-arena-glow' cx='50%25' cy='70%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%2300e8ff' stop-opacity='0.25'/%3E%3Cstop offset='40%25' stop-color='%230088aa' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23003344' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='if-gold-spark' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='0.9'/%3E%3Cstop offset='40%25' stop-color='%23cc9900' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23664400' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='if-cyan-energy' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2300ffff' stop-opacity='0.8'/%3E%3Cstop offset='50%25' stop-color='%230099cc' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%23003355' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='if-spotlight-l' cx='0%25' cy='0%25' r='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffeedd' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23ffeedd' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='if-spotlight-r' cx='100%25' cy='0%25' r='100%25'%3E%3Cstop offset='0%25' stop-color='%23ddeeff' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23ddeeff' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='if-gi' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.22'/%3E%3Cstop offset='50%25' stop-color='%23e8e8e8' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%23cccccc' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3ClinearGradient id='if-armor' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a2a4a' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%23142238' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%230d1628' stop-opacity='0.18'/%3E%3C/linearGradient%3E%3ClinearGradient id='if-gold-shoulder' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='0.35'/%3E%3Cstop offset='50%25' stop-color='%23cc9900' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%23996600' stop-opacity='0.18'/%3E%3C/linearGradient%3E%3Cfilter id='if-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='2' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Arena spotlights --%3E%3Cellipse cx='120' cy='80' rx='180' ry='280' fill='url(%23if-spotlight-l)'/%3E%3Cellipse cx='380' cy='80' rx='180' ry='280' fill='url(%23if-spotlight-r)'/%3E%3C!-- Circular arena floor glow --%3E%3Cellipse cx='240' cy='340' rx='160' ry='50' fill='url(%23if-arena-glow)'/%3E%3Cellipse cx='240' cy='340' rx='120' ry='35' fill='%2300ccdd' opacity='0.08'/%3E%3Cellipse cx='240' cy='340' rx='80' ry='22' fill='%2300eeff' opacity='0.06'/%3E%3C!-- Arena floor ring lines --%3E%3Cellipse cx='240' cy='340' rx='140' ry='42' fill='none' stroke='%2300ccff' stroke-width='1.5' opacity='0.12'/%3E%3Cellipse cx='240' cy='340' rx='100' ry='30' fill='none' stroke='%2300ddff' stroke-width='1' opacity='0.1'/%3E%3C!-- Left Fighter: Martial Artist in White Gi --%3E%3C!-- Legs in fighting stance --%3E%3Cpath d='M155 290 Q150 310 145 340 Q142 355 148 360' stroke='%23cccccc' stroke-width='10' fill='none' opacity='0.15' stroke-linecap='round'/%3E%3Cpath d='M175 290 Q185 315 200 335 Q210 345 215 350' stroke='%23cccccc' stroke-width='10' fill='none' opacity='0.15' stroke-linecap='round'/%3E%3C!-- Torso gi --%3E%3Cpath d='M145 210 Q140 250 148 290 Q165 295 182 290 Q190 250 185 210 Z' fill='url(%23if-gi)'/%3E%3C!-- Gi lapels --%3E%3Cpath d='M155 210 L165 260 L175 210' fill='none' stroke='%23e8e8e8' stroke-width='2' opacity='0.12'/%3E%3C!-- Black belt --%3E%3Crect x='143' y='272' width='44' height='8' rx='2' fill='%23111111' opacity='0.2'/%3E%3Crect x='160' y='270' width='10' height='12' rx='1' fill='%23111111' opacity='0.18'/%3E%3C!-- Arms in fighting pose --%3E%3Cpath d='M145 220 Q120 225 105 210 Q95 200 90 190' stroke='%23cccccc' stroke-width='8' fill='none' opacity='0.15' stroke-linecap='round'/%3E%3Cpath d='M185 220 Q200 210 210 195 Q220 180 225 170' stroke='%23cccccc' stroke-width='8' fill='none' opacity='0.15' stroke-linecap='round'/%3E%3C!-- Fists --%3E%3Ccircle cx='88' cy='188' r='8' fill='%23ddccbb' opacity='0.18'/%3E%3Ccircle cx='228' cy='168' r='8' fill='%23ddccbb' opacity='0.18'/%3E%3C!-- Head --%3E%3Ccircle cx='165' cy='190' r='22' fill='%23ddccbb' opacity='0.16'/%3E%3C!-- Red headband --%3E%3Crect x='143' y='180' width='44' height='8' rx='2' fill='%23cc2020' opacity='0.28'/%3E%3Cpath d='M187 184 Q200 186 210 195' stroke='%23cc2020' stroke-width='4' fill='none' opacity='0.22' stroke-linecap='round'/%3E%3Cpath d='M187 184 Q198 190 205 200' stroke='%23cc2020' stroke-width='3' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3C!-- Right Fighter: Futuristic Armored Fighter --%3E%3C!-- Legs in combat stance --%3E%3Cpath d='M305 290 Q310 315 320 340 Q325 355 320 365' stroke='%23142238' stroke-width='12' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3Cpath d='M280 290 Q265 310 250 330 Q240 345 235 355' stroke='%23142238' stroke-width='12' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3C!-- Cyan energy lines on legs --%3E%3Cpath d='M308 292 Q312 315 320 340' stroke='%2300ddff' stroke-width='1.5' fill='none' opacity='0.25' filter='url(%23if-glow)'/%3E%3Cpath d='M278 292 Q264 312 252 332' stroke='%2300ddff' stroke-width='1.5' fill='none' opacity='0.25' filter='url(%23if-glow)'/%3E%3C!-- Torso armor --%3E%3Cpath d='M270 205 Q265 245 275 290 Q290 295 310 290 Q320 245 315 205 Z' fill='url(%23if-armor)'/%3E%3C!-- Cyan chest energy lines --%3E%3Cpath d='M280 220 L292 260 L280 280' stroke='%2300ddff' stroke-width='2' fill='none' opacity='0.3' filter='url(%23if-glow)'/%3E%3Cpath d='M305 220 L293 260 L305 280' stroke='%2300ddff' stroke-width='2' fill='none' opacity='0.3' filter='url(%23if-glow)'/%3E%3Ccircle cx='292' cy='245' r='8' fill='%2300eeff' opacity='0.15' filter='url(%23if-glow)'/%3E%3C!-- Golden shoulder armor left --%3E%3Cpath d='M265 210 Q250 205 245 215 Q242 225 250 235 Q260 238 270 230 Z' fill='url(%23if-gold-shoulder)'/%3E%3Cpath d='M252 212 L255 228' stroke='%23ffdd44' stroke-width='1.5' opacity='0.25'/%3E%3C!-- Golden shoulder armor right --%3E%3Cpath d='M320 210 Q335 205 340 215 Q343 225 335 235 Q325 238 315 230 Z' fill='url(%23if-gold-shoulder)'/%3E%3Cpath d='M333 212 L330 228' stroke='%23ffdd44' stroke-width='1.5' opacity='0.25'/%3E%3C!-- Arms in fighting pose --%3E%3Cpath d='M268 220 Q250 235 235 250 Q225 260 215 265' stroke='%23142238' stroke-width='9' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3Cpath d='M320 218 Q340 205 355 195 Q365 185 375 180' stroke='%23142238' stroke-width='9' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3C!-- Cyan energy on arms --%3E%3Cpath d='M266 222 Q248 237 232 252' stroke='%2300ddff' stroke-width='1.5' fill='none' opacity='0.28' filter='url(%23if-glow)'/%3E%3Cpath d='M322 216 Q342 203 358 192' stroke='%2300ddff' stroke-width='1.5' fill='none' opacity='0.28' filter='url(%23if-glow)'/%3E%3C!-- Armored fists with cyan glow --%3E%3Ccircle cx='212' cy='268' r='10' fill='%23142238' opacity='0.2'/%3E%3Ccircle cx='212' cy='268' r='6' fill='%2300ddff' opacity='0.15' filter='url(%23if-glow)'/%3E%3Ccircle cx='378' cy='178' r='10' fill='%23142238' opacity='0.2'/%3E%3Ccircle cx='378' cy='178' r='6' fill='%2300ddff' opacity='0.15' filter='url(%23if-glow)'/%3E%3C!-- Helmet --%3E%3Cpath d='M275 165 Q292 145 310 165 Q315 185 310 200 Q292 210 275 200 Q270 185 275 165 Z' fill='url(%23if-armor)'/%3E%3C!-- Helmet visor with cyan glow --%3E%3Cpath d='M280 178 Q292 172 305 178' stroke='%2300eeff' stroke-width='3' fill='none' opacity='0.35' filter='url(%23if-glow)'/%3E%3Cpath d='M282 185 Q292 182 303 185' stroke='%2300ccdd' stroke-width='2' fill='none' opacity='0.25'/%3E%3C!-- Golden sparks between fighters --%3E%3Ccircle cx='230' cy='220' r='4' fill='url(%23if-gold-spark)' filter='url(%23if-glow)'/%3E%3Ccircle cx='245' cy='195' r='3' fill='url(%23if-gold-spark)' filter='url(%23if-glow)'/%3E%3Ccircle cx='220' cy='240' r='2.5' fill='url(%23if-gold-spark)' filter='url(%23if-glow)'/%3E%3Ccircle cx='255' cy='215' r='2' fill='url(%23if-gold-spark)' filter='url(%23if-glow)'/%3E%3Ccircle cx='235' cy='180' r='2' fill='url(%23if-gold-spark)' filter='url(%23if-glow)'/%3E%3C!-- Cyan energy particles --%3E%3Ccircle cx='260' cy='250' r='3' fill='url(%23if-cyan-energy)' filter='url(%23if-glow)'/%3E%3Ccircle cx='340' cy='200' r='2.5' fill='url(%23if-cyan-energy)' filter='url(%23if-glow)'/%3E%3Ccircle cx='355' cy='220' r='2' fill='url(%23if-cyan-energy)' filter='url(%23if-glow)'/%3E%3Ccircle cx='325' cy='165' r='1.5' fill='url(%23if-cyan-energy)' filter='url(%23if-glow)'/%3E%3C!-- Motion lines behind martial artist --%3E%3Cpath d='M100 200 Q80 205 60 200' stroke='%23ffffff' stroke-width='1.5' fill='none' opacity='0.08'/%3E%3Cpath d='M105 220 Q85 225 65 220' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.06'/%3E%3Cpath d='M110 240 Q90 245 70 240' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.05'/%3E%3C!-- Motion lines behind armored fighter --%3E%3Cpath d='M365 200 Q385 195 400 200' stroke='%2300ccff' stroke-width='1.5' fill='none' opacity='0.1'/%3E%3Cpath d='M360 220 Q380 215 400 218' stroke='%2300ccff' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M355 240 Q375 235 395 238' stroke='%2300ccff' stroke-width='1' fill='none' opacity='0.06'/%3E%3C!-- Atmospheric particles --%3E%3Ccircle cx='150' cy='130' r='1.5' fill='%23ffeedd' opacity='0.12'/%3E%3Ccircle cx='320' cy='120' r='1.2' fill='%2300ddff' opacity='0.15'/%3E%3Ccircle cx='180' cy='100' r='1' fill='%23ffdd88' opacity='0.1'/%3E%3Ccircle cx='280' cy='95' r='1.3' fill='%2300eeff' opacity='0.12'/%3E%3Ccircle cx='350' cy='140' r='1' fill='%23ffd700' opacity='0.1'/%3E%3Ccircle cx='130' cy='160' r='0.8' fill='%23ffffff' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Iron Fist ambient glow - gold, cyan, and arena spotlight accents */
+.game-page__about[data-decoration="iron-fist"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 65%, rgba(0, 200, 220, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 35% 45%, rgba(255, 215, 0, 0.045) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 65% 40%, rgba(0, 180, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 40% 55%, rgba(200, 40, 40, 0.025) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Karate Legends: Ultimate Dojo — Japanese dojo composition featuring two karate
+   fighters in dynamic poses. White gi with red headband vs dark purple gi.
+   Traditional wooden dojo background, rising sun motif, cherry blossoms,
+   golden impact sparks, and elegant motion trails. */
+.game-page__about[data-decoration="karate-legends"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3C!-- Rising sun gradient --%3E%3CradialGradient id='kl-sun' cx='50%25' cy='85%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23cc2020' stop-opacity='0.18'/%3E%3Cstop offset='30%25' stop-color='%23aa1818' stop-opacity='0.1'/%3E%3Cstop offset='60%25' stop-color='%23661010' stop-opacity='0.05'/%3E%3Cstop offset='100%25' stop-color='%23330808' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Golden spark gradient --%3E%3CradialGradient id='kl-gold-spark' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='0.95'/%3E%3Cstop offset='35%25' stop-color='%23ffaa00' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23885500' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Cherry blossom gradient --%3E%3CradialGradient id='kl-blossom' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffccdd' stop-opacity='0.85'/%3E%3Cstop offset='50%25' stop-color='%23ff9999' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23cc6666' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- White gi gradient --%3E%3ClinearGradient id='kl-white-gi' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.35'/%3E%3Cstop offset='50%25' stop-color='%23f0f0f0' stop-opacity='0.28'/%3E%3Cstop offset='100%25' stop-color='%23dddddd' stop-opacity='0.22'/%3E%3C/linearGradient%3E%3C!-- Purple/dark gi gradient --%3E%3ClinearGradient id='kl-purple-gi' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%235a2a6a' stop-opacity='0.4'/%3E%3Cstop offset='50%25' stop-color='%23401850' stop-opacity='0.32'/%3E%3Cstop offset='100%25' stop-color='%232a1038' stop-opacity='0.26'/%3E%3C/linearGradient%3E%3C!-- Dojo wood gradient --%3E%3ClinearGradient id='kl-wood' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b5a2b' stop-opacity='0.15'/%3E%3Cstop offset='50%25' stop-color='%23704214' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23553010' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3C!-- Glow filter --%3E%3Cfilter id='kl-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='2.5' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Rising sun rays background --%3E%3Ccircle cx='240' cy='380' r='200' fill='url(%23kl-sun)'/%3E%3Cpath d='M240 380 L200 100 L220 100 Z' fill='%23cc2020' opacity='0.06'/%3E%3Cpath d='M240 380 L260 100 L280 100 Z' fill='%23cc2020' opacity='0.06'/%3E%3Cpath d='M240 380 L320 120 L340 130 Z' fill='%23cc2020' opacity='0.05'/%3E%3Cpath d='M240 380 L140 120 L160 130 Z' fill='%23cc2020' opacity='0.05'/%3E%3Cpath d='M240 380 L370 180 L380 200 Z' fill='%23cc2020' opacity='0.04'/%3E%3Cpath d='M240 380 L100 180 L110 200 Z' fill='%23cc2020' opacity='0.04'/%3E%3C!-- Dojo wooden floor --%3E%3Crect x='80' y='340' width='280' height='60' fill='url(%23kl-wood)' rx='2'/%3E%3Cline x1='100' y1='340' x2='100' y2='400' stroke='%23704214' stroke-width='1' opacity='0.08'/%3E%3Cline x1='160' y1='340' x2='160' y2='400' stroke='%23704214' stroke-width='1' opacity='0.08'/%3E%3Cline x1='220' y1='340' x2='220' y2='400' stroke='%23704214' stroke-width='1' opacity='0.08'/%3E%3Cline x1='280' y1='340' x2='280' y2='400' stroke='%23704214' stroke-width='1' opacity='0.08'/%3E%3Cline x1='340' y1='340' x2='340' y2='400' stroke='%23704214' stroke-width='1' opacity='0.08'/%3E%3C!-- Dojo wooden pillars --%3E%3Crect x='95' y='120' width='18' height='220' fill='url(%23kl-wood)' rx='2'/%3E%3Crect x='350' y='120' width='18' height='220' fill='url(%23kl-wood)' rx='2'/%3E%3C!-- Dojo beam --%3E%3Crect x='90' y='115' width='285' height='12' fill='url(%23kl-wood)' rx='2'/%3E%3C!-- Left Fighter: White Gi, Red Headband (high kick pose) --%3E%3C!-- Back leg planted --%3E%3Cpath d='M150 305 Q145 325 140 350 Q138 365 145 370' stroke='%23e8e8e8' stroke-width='11' fill='none' opacity='0.28' stroke-linecap='round'/%3E%3C!-- Front leg kicking high --%3E%3Cpath d='M170 295 Q200 270 235 245 Q250 235 260 230' stroke='%23e8e8e8' stroke-width='11' fill='none' opacity='0.28' stroke-linecap='round'/%3E%3C!-- Torso white gi --%3E%3Cpath d='M140 220 Q135 260 145 300 Q160 308 180 300 Q190 260 185 220 Z' fill='url(%23kl-white-gi)'/%3E%3C!-- Gi lapel V-shape --%3E%3Cpath d='M150 220 L163 275 L175 220' fill='none' stroke='%23ffffff' stroke-width='2.5' opacity='0.2'/%3E%3C!-- Black belt --%3E%3Crect x='140' y='285' width='45' height='10' rx='2' fill='%231a1a1a' opacity='0.35'/%3E%3Crect x='158' y='283' width='12' height='14' rx='2' fill='%231a1a1a' opacity='0.3'/%3E%3C!-- Arms - one guarding, one extended --%3E%3Cpath d='M142 230 Q120 235 100 225 Q88 218 80 210' stroke='%23e8e8e8' stroke-width='9' fill='none' opacity='0.25' stroke-linecap='round'/%3E%3Cpath d='M183 230 Q195 218 210 208 Q225 198 235 192' stroke='%23e8e8e8' stroke-width='9' fill='none' opacity='0.25' stroke-linecap='round'/%3E%3C!-- Fists --%3E%3Ccircle cx='78' cy='208' r='9' fill='%23eeddcc' opacity='0.28'/%3E%3Ccircle cx='238' cy='190' r='9' fill='%23eeddcc' opacity='0.28'/%3E%3C!-- Head --%3E%3Ccircle cx='163' cy='195' r='24' fill='%23eeddcc' opacity='0.25'/%3E%3C!-- Red headband --%3E%3Crect x='139' y='183' width='48' height='10' rx='3' fill='%23cc2020' opacity='0.55'/%3E%3Cpath d='M187 188 Q202 192 212 202' stroke='%23cc2020' stroke-width='5' fill='none' opacity='0.4' stroke-linecap='round'/%3E%3Cpath d='M187 188 Q200 196 208 208' stroke='%23cc2020' stroke-width='4' fill='none' opacity='0.3' stroke-linecap='round'/%3E%3C!-- Right Fighter: Dark Purple Gi (blocking stance) --%3E%3C!-- Legs in wide stance --%3E%3Cpath d='M305 300 Q310 320 318 345 Q322 360 318 372' stroke='%23401850' stroke-width='12' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3Cpath d='M280 300 Q265 320 255 345 Q248 360 252 372' stroke='%23401850' stroke-width='12' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3C!-- Torso purple gi --%3E%3Cpath d='M268 215 Q263 255 273 298 Q290 306 312 298 Q322 255 317 215 Z' fill='url(%23kl-purple-gi)'/%3E%3C!-- Purple accent trim --%3E%3Cpath d='M278 218 L292 275 L306 218' fill='none' stroke='%239060a8' stroke-width='2.5' opacity='0.35'/%3E%3C!-- Dark belt --%3E%3Crect x='268' y='283' width='48' height='10' rx='2' fill='%231a1a1a' opacity='0.35'/%3E%3Crect x='287' y='281' width='12' height='14' rx='2' fill='%231a1a1a' opacity='0.3'/%3E%3C!-- Arms - both raised blocking --%3E%3Cpath d='M270 225 Q248 215 235 195 Q228 182 225 170' stroke='%23401850' stroke-width='10' fill='none' opacity='0.28' stroke-linecap='round'/%3E%3Cpath d='M315 225 Q338 218 350 200 Q358 185 362 172' stroke='%23401850' stroke-width='10' fill='none' opacity='0.28' stroke-linecap='round'/%3E%3C!-- Purple energy/accent on arms --%3E%3Cpath d='M268 227 Q246 217 234 197' stroke='%239060a8' stroke-width='2' fill='none' opacity='0.3'/%3E%3Cpath d='M317 227 Q340 217 352 198' stroke='%239060a8' stroke-width='2' fill='none' opacity='0.3'/%3E%3C!-- Fists --%3E%3Ccircle cx='223' cy='168' r='10' fill='%23ddccbb' opacity='0.28'/%3E%3Ccircle cx='365' cy='170' r='10' fill='%23ddccbb' opacity='0.28'/%3E%3C!-- Head --%3E%3Ccircle cx='292' cy='190' r='25' fill='%23ddccbb' opacity='0.24'/%3E%3C!-- Dark headband/hair --%3E%3Cpath d='M267 180 Q292 168 317 180' stroke='%232a1038' stroke-width='8' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3C!-- Golden impact sparks at kick contact --%3E%3Ccircle cx='258' cy='225' r='6' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3Ccircle cx='248' cy='210' r='4.5' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3Ccircle cx='268' cy='238' r='3.5' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3Ccircle cx='240' cy='232' r='3' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3Ccircle cx='255' cy='198' r='2.5' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3Ccircle cx='272' cy='218' r='2' fill='url(%23kl-gold-spark)' filter='url(%23kl-glow)'/%3E%3C!-- Motion trails behind kick --%3E%3Cpath d='M175 290 Q195 275 220 255' stroke='%23ffffff' stroke-width='2' fill='none' opacity='0.12'/%3E%3Cpath d='M180 295 Q200 280 225 262' stroke='%23ffffff' stroke-width='1.5' fill='none' opacity='0.08'/%3E%3Cpath d='M185 300 Q205 285 230 268' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.05'/%3E%3C!-- Cherry blossom petals floating --%3E%3Cellipse cx='120' cy='145' rx='5' ry='3' fill='url(%23kl-blossom)' transform='rotate(-20 120 145)'/%3E%3Cellipse cx='340' cy='160' rx='4' ry='2.5' fill='url(%23kl-blossom)' transform='rotate(35 340 160)'/%3E%3Cellipse cx='180' cy='110' rx='4.5' ry='2.5' fill='url(%23kl-blossom)' transform='rotate(-45 180 110)'/%3E%3Cellipse cx='300' cy='125' rx='3.5' ry='2' fill='url(%23kl-blossom)' transform='rotate(60 300 125)'/%3E%3Cellipse cx='135' cy='180' rx='3' ry='1.8' fill='url(%23kl-blossom)' transform='rotate(-30 135 180)'/%3E%3Cellipse cx='355' cy='210' rx='3.5' ry='2' fill='url(%23kl-blossom)' transform='rotate(25 355 210)'/%3E%3Cellipse cx='200' cy='140' rx='3' ry='1.8' fill='url(%23kl-blossom)' transform='rotate(50 200 140)'/%3E%3Cellipse cx='250' cy='105' rx='4' ry='2.2' fill='url(%23kl-blossom)' transform='rotate(-55 250 105)'/%3E%3C!-- Additional cherry blossoms for atmosphere --%3E%3Cellipse cx='370' cy='270' rx='3' ry='1.8' fill='url(%23kl-blossom)' transform='rotate(40 370 270)'/%3E%3Cellipse cx='115' cy='250' rx='2.5' ry='1.5' fill='url(%23kl-blossom)' transform='rotate(-25 115 250)'/%3E%3C!-- Motion lines around white gi fighter --%3E%3Cpath d='M95 220 Q75 225 55 220' stroke='%23ffffff' stroke-width='1.5' fill='none' opacity='0.1'/%3E%3Cpath d='M100 240 Q80 245 60 240' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.07'/%3E%3C!-- Purple energy wisps around purple fighter --%3E%3Cpath d='M375 200 Q385 195 395 200' stroke='%239060a8' stroke-width='1.5' fill='none' opacity='0.15'/%3E%3Cpath d='M370 220 Q380 215 390 218' stroke='%239060a8' stroke-width='1' fill='none' opacity='0.1'/%3E%3C!-- Atmospheric dust particles --%3E%3Ccircle cx='145' cy='130' r='1.2' fill='%23ffeedd' opacity='0.15'/%3E%3Ccircle cx='320' cy='140' r='1' fill='%239060a8' opacity='0.18'/%3E%3Ccircle cx='190' cy='160' r='0.8' fill='%23ffd700' opacity='0.12'/%3E%3Ccircle cx='270' cy='145' r='1.1' fill='%23cc2020' opacity='0.1'/%3E%3Ccircle cx='360' cy='185' r='0.9' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Karate Legends ambient glow - red, gold, and purple accents */
+.game-page__about[data-decoration="karate-legends"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 70%, rgba(180, 30, 30, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 35% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 65% 45%, rgba(100, 50, 120, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 45% 60%, rgba(255, 180, 180, 0.035) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Wobbly Warriors: Arena Clash — two adorable rounded cartoon fighters facing each other.
+   Yellow fighter (Bonko) with red headband and boxing gloves vs blue fighter (Pudge)
+   with playful Viking helmet. Both in dynamic punching poses with comic-style impact
+   burst between fists. Small dust clouds, motion lines, stars, and arena details.
+   Cheerful yellow, orange, red, and blue accents on dark-green card. */
+.game-page__about[data-decoration="wobbly-warriors"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3C!-- Yellow fighter body gradient --%3E%3CradialGradient id='ww-yellow-body' cx='40%25' cy='30%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23ffdd44' stop-opacity='0.9'/%3E%3Cstop offset='50%25' stop-color='%23ff9933' stop-opacity='0.75'/%3E%3Cstop offset='100%25' stop-color='%23cc6600' stop-opacity='0.5'/%3E%3C/radialGradient%3E%3C!-- Blue fighter body gradient --%3E%3CradialGradient id='ww-blue-body' cx='60%25' cy='30%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%2366ccff' stop-opacity='0.9'/%3E%3Cstop offset='50%25' stop-color='%233399ff' stop-opacity='0.75'/%3E%3Cstop offset='100%25' stop-color='%231a66cc' stop-opacity='0.5'/%3E%3C/radialGradient%3E%3C!-- Impact burst gradient --%3E%3CradialGradient id='ww-impact' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.95'/%3E%3Cstop offset='30%25' stop-color='%23ffee66' stop-opacity='0.8'/%3E%3Cstop offset='60%25' stop-color='%23ffaa00' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23ff6600' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Star sparkle gradient --%3E%3CradialGradient id='ww-star' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='1'/%3E%3Cstop offset='40%25' stop-color='%23ffee88' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%23ffcc00' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Arena floor glow --%3E%3CradialGradient id='ww-arena-glow' cx='50%25' cy='50%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%2366dd88' stop-opacity='0.2'/%3E%3Cstop offset='50%25' stop-color='%2333aa55' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23116633' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Belly highlight --%3E%3CradialGradient id='ww-yellow-belly' cx='50%25' cy='40%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffeecc' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23ffcc88' stop-opacity='0.3'/%3E%3C/radialGradient%3E%3CradialGradient id='ww-blue-belly' cx='50%25' cy='40%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ddeeff' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%2399ccff' stop-opacity='0.3'/%3E%3C/radialGradient%3E%3C!-- Glow filter --%3E%3Cfilter id='ww-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Arena floor --%3E%3Cellipse cx='220' cy='360' rx='170' ry='45' fill='url(%23ww-arena-glow)'/%3E%3Cellipse cx='220' cy='360' rx='130' ry='32' fill='%2344aa66' opacity='0.08'/%3E%3Cellipse cx='220' cy='360' rx='90' ry='22' fill='%2366cc88' opacity='0.06'/%3E%3C!-- Dust clouds at feet --%3E%3Cellipse cx='130' cy='345' rx='25' ry='12' fill='%23ddddcc' opacity='0.15'/%3E%3Cellipse cx='115' cy='350' rx='18' ry='9' fill='%23ccccbb' opacity='0.1'/%3E%3Cellipse cx='310' cy='345' rx='25' ry='12' fill='%23ddddcc' opacity='0.15'/%3E%3Cellipse cx='325' cy='350' rx='18' ry='9' fill='%23ccccbb' opacity='0.1'/%3E%3C!-- LEFT FIGHTER: Yellow (Bonko) --%3E%3C!-- Body - rounded wobbly shape --%3E%3Cellipse cx='135' cy='265' rx='55' ry='70' fill='url(%23ww-yellow-body)'/%3E%3C!-- Belly highlight --%3E%3Cellipse cx='140' cy='280' rx='30' ry='35' fill='url(%23ww-yellow-belly)'/%3E%3C!-- Left leg --%3E%3Cellipse cx='115' cy='330' rx='18' ry='25' fill='%23ff9933' opacity='0.6'/%3E%3C!-- Right leg --%3E%3Cellipse cx='155' cy='330' rx='18' ry='25' fill='%23ff9933' opacity='0.6'/%3E%3C!-- Left arm (back) --%3E%3Cellipse cx='95' cy='250' rx='15' ry='22' fill='%23ffaa33' opacity='0.5' transform='rotate(-20 95 250)'/%3E%3C!-- Right arm (punching forward) --%3E%3Cpath d='M170 245 Q195 235 215 230 Q225 228 235 228' stroke='%23ffaa33' stroke-width='22' fill='none' opacity='0.7' stroke-linecap='round'/%3E%3C!-- Boxing glove (right, punching) --%3E%3Ccircle cx='242' cy='228' r='22' fill='%23dd3333' opacity='0.75'/%3E%3Ccircle cx='248' cy='225' r='8' fill='%23ff6666' opacity='0.4'/%3E%3C!-- Boxing glove (left, back) --%3E%3Ccircle cx='82' cy='242' r='18' fill='%23dd3333' opacity='0.65'/%3E%3C!-- Head --%3E%3Ccircle cx='140' cy='195' r='38' fill='%23ffcc33' opacity='0.85'/%3E%3C!-- Face highlight --%3E%3Ccircle cx='132' cy='188' r='20' fill='%23ffee88' opacity='0.3'/%3E%3C!-- Eyes --%3E%3Ccircle cx='128' cy='192' r='8' fill='%23222222' opacity='0.7'/%3E%3Ccircle cx='152' cy='192' r='8' fill='%23222222' opacity='0.7'/%3E%3Ccircle cx='130' cy='190' r='3' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='154' cy='190' r='3' fill='%23ffffff' opacity='0.8'/%3E%3C!-- Determined mouth --%3E%3Cpath d='M130 210 Q140 218 150 210' stroke='%23222222' stroke-width='3' fill='none' opacity='0.6' stroke-linecap='round'/%3E%3C!-- Red headband --%3E%3Crect x='102' y='178' width='76' height='12' rx='4' fill='%23dd2222' opacity='0.8'/%3E%3Cpath d='M178 184 Q192 188 200 198' stroke='%23dd2222' stroke-width='6' fill='none' opacity='0.65' stroke-linecap='round'/%3E%3Cpath d='M178 184 Q190 192 196 205' stroke='%23dd2222' stroke-width='5' fill='none' opacity='0.5' stroke-linecap='round'/%3E%3C!-- RIGHT FIGHTER: Blue (Pudge) --%3E%3C!-- Body - rounded wobbly shape --%3E%3Cellipse cx='305' cy='265' rx='55' ry='70' fill='url(%23ww-blue-body)'/%3E%3C!-- Belly highlight --%3E%3Cellipse cx='300' cy='280' rx='30' ry='35' fill='url(%23ww-blue-belly)'/%3E%3C!-- Left leg --%3E%3Cellipse cx='285' cy='330' rx='18' ry='25' fill='%233399ff' opacity='0.6'/%3E%3C!-- Right leg --%3E%3Cellipse cx='325' cy='330' rx='18' ry='25' fill='%233399ff' opacity='0.6'/%3E%3C!-- Right arm (back) --%3E%3Cellipse cx='345' cy='250' rx='15' ry='22' fill='%234499ff' opacity='0.5' transform='rotate(20 345 250)'/%3E%3C!-- Left arm (punching forward) --%3E%3Cpath d='M270 245 Q245 235 225 230 Q215 228 205 228' stroke='%234499ff' stroke-width='22' fill='none' opacity='0.7' stroke-linecap='round'/%3E%3C!-- Boxing glove (left, punching) --%3E%3Ccircle cx='198' cy='228' r='22' fill='%23dd3333' opacity='0.75'/%3E%3Ccircle cx='192' cy='225' r='8' fill='%23ff6666' opacity='0.4'/%3E%3C!-- Boxing glove (right, back) --%3E%3Ccircle cx='358' cy='242' r='18' fill='%23dd3333' opacity='0.65'/%3E%3C!-- Head --%3E%3Ccircle cx='300' cy='195' r='38' fill='%2355aaff' opacity='0.85'/%3E%3C!-- Face highlight --%3E%3Ccircle cx='308' cy='188' r='20' fill='%2388ccff' opacity='0.3'/%3E%3C!-- Viking helmet --%3E%3Cpath d='M262 180 Q280 150 300 145 Q320 150 338 180 L338 195 Q300 188 262 195 Z' fill='%23888888' opacity='0.7'/%3E%3Ccircle cx='300' cy='155' r='8' fill='%23aaaaaa' opacity='0.5'/%3E%3C!-- Helmet horns --%3E%3Cpath d='M265 180 Q250 160 245 140' stroke='%23ccccaa' stroke-width='8' fill='none' opacity='0.6' stroke-linecap='round'/%3E%3Cpath d='M335 180 Q350 160 355 140' stroke='%23ccccaa' stroke-width='8' fill='none' opacity='0.6' stroke-linecap='round'/%3E%3C!-- Eyes --%3E%3Ccircle cx='288' cy='198' r='8' fill='%23222222' opacity='0.7'/%3E%3Ccircle cx='312' cy='198' r='8' fill='%23222222' opacity='0.7'/%3E%3Ccircle cx='290' cy='196' r='3' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='314' cy='196' r='3' fill='%23ffffff' opacity='0.8'/%3E%3C!-- Determined mouth --%3E%3Cpath d='M290 216 Q300 224 310 216' stroke='%23222222' stroke-width='3' fill='none' opacity='0.6' stroke-linecap='round'/%3E%3C!-- IMPACT BURST between fists --%3E%3Ccircle cx='220' cy='228' r='28' fill='url(%23ww-impact)' filter='url(%23ww-glow)'/%3E%3C!-- Impact spikes --%3E%3Cpath d='M220 200 L223 212 L217 212 Z' fill='%23ffffff' opacity='0.7'/%3E%3Cpath d='M220 256 L223 244 L217 244 Z' fill='%23ffffff' opacity='0.7'/%3E%3Cpath d='M192 228 L204 231 L204 225 Z' fill='%23ffffff' opacity='0.7'/%3E%3Cpath d='M248 228 L236 231 L236 225 Z' fill='%23ffffff' opacity='0.7'/%3E%3Cpath d='M200 208 L210 216 L206 220 Z' fill='%23ffee66' opacity='0.6'/%3E%3Cpath d='M240 208 L230 216 L234 220 Z' fill='%23ffee66' opacity='0.6'/%3E%3Cpath d='M200 248 L210 240 L206 236 Z' fill='%23ffee66' opacity='0.6'/%3E%3Cpath d='M240 248 L230 240 L234 236 Z' fill='%23ffee66' opacity='0.6'/%3E%3C!-- Stars around impact --%3E%3Cpath d='M175 200 l3 8 l8 -3 l-8 3 l3 8 l-3 -8 l-8 3 l8 -3 Z' fill='url(%23ww-star)' filter='url(%23ww-glow)'/%3E%3Cpath d='M265 195 l2 6 l6 -2 l-6 2 l2 6 l-2 -6 l-6 2 l6 -2 Z' fill='url(%23ww-star)' filter='url(%23ww-glow)'/%3E%3Cpath d='M220 175 l2 5 l5 -2 l-5 2 l2 5 l-2 -5 l-5 2 l5 -2 Z' fill='url(%23ww-star)' filter='url(%23ww-glow)'/%3E%3Cpath d='M185 250 l1.5 4 l4 -1.5 l-4 1.5 l1.5 4 l-1.5 -4 l-4 1.5 l4 -1.5 Z' fill='url(%23ww-star)' filter='url(%23ww-glow)'/%3E%3Cpath d='M255 260 l1.5 4 l4 -1.5 l-4 1.5 l1.5 4 l-1.5 -4 l-4 1.5 l4 -1.5 Z' fill='url(%23ww-star)' filter='url(%23ww-glow)'/%3E%3C!-- Motion lines behind yellow fighter --%3E%3Cpath d='M75 230 Q55 235 35 230' stroke='%23ffcc33' stroke-width='2' fill='none' opacity='0.2'/%3E%3Cpath d='M80 255 Q60 260 40 255' stroke='%23ffcc33' stroke-width='1.5' fill='none' opacity='0.15'/%3E%3Cpath d='M85 280 Q65 285 45 280' stroke='%23ffcc33' stroke-width='1' fill='none' opacity='0.1'/%3E%3C!-- Motion lines behind blue fighter --%3E%3Cpath d='M365 230 Q385 225 400 230' stroke='%2355aaff' stroke-width='2' fill='none' opacity='0.2'/%3E%3Cpath d='M360 255 Q380 250 400 255' stroke='%2355aaff' stroke-width='1.5' fill='none' opacity='0.15'/%3E%3Cpath d='M355 280 Q375 275 395 280' stroke='%2355aaff' stroke-width='1' fill='none' opacity='0.1'/%3E%3C!-- Extra floating particles --%3E%3Ccircle cx='100' cy='170' r='2' fill='%23ffee66' opacity='0.25'/%3E%3Ccircle cx='340' cy='165' r='1.8' fill='%2388ccff' opacity='0.25'/%3E%3Ccircle cx='160' cy='140' r='1.5' fill='%23ff6644' opacity='0.2'/%3E%3Ccircle cx='280' cy='135' r='1.5' fill='%2366ddff' opacity='0.2'/%3E%3Ccircle cx='220' cy='150' r='2' fill='%23ffdd44' opacity='0.22'/%3E%3Ccircle cx='180' cy='310' r='1.2' fill='%23ffffff' opacity='0.15'/%3E%3Ccircle cx='260' cy='305' r='1.2' fill='%23ffffff' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Wobbly Warriors ambient glow - yellow, orange, blue accents */
+.game-page__about[data-decoration="wobbly-warriors"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 35% 55%, rgba(255, 200, 50, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 65% 55%, rgba(80, 160, 255, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 45%, rgba(255, 100, 50, 0.045) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 50% 65%, rgba(100, 220, 150, 0.035) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Shadow Arena: Ultimate Fighters — desert arena composition featuring two martial
+   arts fighters in dynamic combat poses. Left fighter in white karate gi with black
+   belt and red headband. Right fighter in dark outfit with orange/gold accents.
+   Glowing orange impact effect between raised fists. Desert arena platform with
+   ancient stone pillars. Orange energy trails, golden sparks, and dust particles.
+   Orange, gold, red, and subtle purple color palette. */
+.game-page__about[data-decoration="shadow-arena"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3C!-- Desert sky gradient --%3E%3ClinearGradient id='sa-sky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6a3d' stop-opacity='0.12'/%3E%3Cstop offset='40%25' stop-color='%23cc4420' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23442010' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3C!-- Arena floor glow --%3E%3CradialGradient id='sa-arena-glow' cx='50%25' cy='70%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%23ffd23f' stop-opacity='0.2'/%3E%3Cstop offset='40%25' stop-color='%23cc8800' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23664400' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Impact burst gradient --%3E%3CradialGradient id='sa-impact' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.95'/%3E%3Cstop offset='25%25' stop-color='%23ffd23f' stop-opacity='0.8'/%3E%3Cstop offset='50%25' stop-color='%23ff6a3d' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23cc3300' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Golden spark gradient --%3E%3CradialGradient id='sa-gold-spark' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='0.95'/%3E%3Cstop offset='35%25' stop-color='%23ffaa00' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23885500' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- White gi gradient --%3E%3ClinearGradient id='sa-white-gi' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.4'/%3E%3Cstop offset='50%25' stop-color='%23f0f0f0' stop-opacity='0.32'/%3E%3Cstop offset='100%25' stop-color='%23dddddd' stop-opacity='0.25'/%3E%3C/linearGradient%3E%3C!-- Dark fighter outfit gradient --%3E%3ClinearGradient id='sa-dark-outfit' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232a1a10' stop-opacity='0.45'/%3E%3Cstop offset='50%25' stop-color='%231a1008' stop-opacity='0.38'/%3E%3Cstop offset='100%25' stop-color='%23100805' stop-opacity='0.32'/%3E%3C/linearGradient%3E%3C!-- Orange accent gradient --%3E%3ClinearGradient id='sa-orange-accent' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffd23f' stop-opacity='0.5'/%3E%3Cstop offset='50%25' stop-color='%23ff6a3d' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23cc4420' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3C!-- Stone pillar gradient --%3E%3ClinearGradient id='sa-stone' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23887766' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%23665544' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23443322' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3C!-- Sand floor gradient --%3E%3ClinearGradient id='sa-sand' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ddaa66' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23996633' stop-opacity='0.12'/%3E%3C/linearGradient%3E%3C!-- Glow filter --%3E%3Cfilter id='sa-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='2.5' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Desert sky background --%3E%3Crect x='0' y='0' width='400' height='400' fill='url(%23sa-sky)'/%3E%3C!-- Left stone pillar with archway details --%3E%3Crect x='60' y='140' width='35' height='200' fill='url(%23sa-stone)' rx='3'/%3E%3Crect x='55' y='130' width='45' height='20' fill='url(%23sa-stone)' rx='2'/%3E%3Crect x='52' y='120' width='51' height='15' fill='url(%23sa-stone)' rx='2'/%3E%3Cpath d='M63 150 L63 180 M75 150 L75 190 M87 150 L87 175' stroke='%23554433' stroke-width='1.5' opacity='0.12'/%3E%3C!-- Right stone pillar with archway details --%3E%3Crect x='340' y='150' width='32' height='190' fill='url(%23sa-stone)' rx='3'/%3E%3Crect x='335' y='140' width='42' height='18' fill='url(%23sa-stone)' rx='2'/%3E%3Crect x='332' y='130' width='48' height='14' fill='url(%23sa-stone)' rx='2'/%3E%3Cpath d='M345 160 L345 190 M356 160 L356 200 M367 160 L367 185' stroke='%23554433' stroke-width='1.5' opacity='0.12'/%3E%3C!-- Ancient archway connecting pillars (background) --%3E%3Cpath d='M103 125 Q220 60 332 130' stroke='url(%23sa-stone)' stroke-width='12' fill='none' opacity='0.15'/%3E%3Cpath d='M103 125 Q220 70 332 130' stroke='%23776655' stroke-width='2' fill='none' opacity='0.1'/%3E%3C!-- Arena floor glow --%3E%3Cellipse cx='220' cy='355' rx='165' ry='50' fill='url(%23sa-arena-glow)'/%3E%3C!-- Sand floor platform --%3E%3Cellipse cx='220' cy='350' rx='150' ry='40' fill='url(%23sa-sand)'/%3E%3Cellipse cx='220' cy='350' rx='110' ry='28' fill='%23ccaa77' opacity='0.08'/%3E%3C!-- Sand floor texture lines --%3E%3Cpath d='M100 345 Q180 340 220 345 Q280 350 340 342' stroke='%23aa8855' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M120 355 Q200 350 300 358' stroke='%23aa8855' stroke-width='0.8' fill='none' opacity='0.06'/%3E%3C!-- Dust particles at feet --%3E%3Cellipse cx='140' cy='335' rx='22' ry='10' fill='%23ddccaa' opacity='0.12'/%3E%3Cellipse cx='125' cy='340' rx='15' ry='7' fill='%23ccbbaa' opacity='0.08'/%3E%3Cellipse cx='300' cy='335' rx='22' ry='10' fill='%23ddccaa' opacity='0.12'/%3E%3Cellipse cx='315' cy='340' rx='15' ry='7' fill='%23ccbbaa' opacity='0.08'/%3E%3C!-- LEFT FIGHTER: White Karate Gi --%3E%3C!-- Back leg planted --%3E%3Cpath d='M140 295 Q135 318 128 345 Q125 360 132 368' stroke='%23e8e8e8' stroke-width='12' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3C!-- Front leg forward --%3E%3Cpath d='M165 295 Q180 315 195 330 Q205 340 210 348' stroke='%23e8e8e8' stroke-width='12' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3C!-- Torso white gi --%3E%3Cpath d='M130 212 Q125 255 138 295 Q152 305 175 295 Q188 255 183 212 Z' fill='url(%23sa-white-gi)'/%3E%3C!-- Gi lapel V-shape --%3E%3Cpath d='M142 215 L157 275 L172 215' fill='none' stroke='%23ffffff' stroke-width='2.5' opacity='0.25'/%3E%3C!-- Black belt --%3E%3Crect x='133' y='278' width='47' height='11' rx='3' fill='%231a1a1a' opacity='0.4'/%3E%3Crect x='152' y='276' width='13' height='15' rx='2' fill='%231a1a1a' opacity='0.35'/%3E%3C!-- Left arm (guard position) --%3E%3Cpath d='M132 225 Q112 232 95 222 Q82 214 74 205' stroke='%23e8e8e8' stroke-width='10' fill='none' opacity='0.3' stroke-linecap='round'/%3E%3C!-- Right arm (punching forward with raised fist) --%3E%3Cpath d='M178 222 Q198 208 218 195 Q232 185 245 178' stroke='%23e8e8e8' stroke-width='10' fill='none' opacity='0.3' stroke-linecap='round'/%3E%3C!-- Fists --%3E%3Ccircle cx='72' cy='203' r='10' fill='%23eeddcc' opacity='0.32'/%3E%3Ccircle cx='250' cy='175' r='11' fill='%23eeddcc' opacity='0.35'/%3E%3C!-- Head --%3E%3Ccircle cx='157' cy='188' r='26' fill='%23eeddcc' opacity='0.3'/%3E%3C!-- Red headband --%3E%3Crect x='131' y='175' width='52' height='11' rx='3' fill='%23cc2020' opacity='0.6'/%3E%3Cpath d='M183 180 Q198 185 210 196' stroke='%23cc2020' stroke-width='6' fill='none' opacity='0.45' stroke-linecap='round'/%3E%3Cpath d='M183 180 Q196 190 205 203' stroke='%23cc2020' stroke-width='5' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3C!-- RIGHT FIGHTER: Dark Outfit with Orange/Gold Accents --%3E%3C!-- Back leg --%3E%3Cpath d='M305 295 Q312 318 320 345 Q324 360 318 368' stroke='%231a1008' stroke-width='13' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3C!-- Front leg --%3E%3Cpath d='M278 295 Q262 318 248 335 Q238 348 235 355' stroke='%231a1008' stroke-width='13' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3C!-- Torso dark outfit --%3E%3Cpath d='M265 210 Q260 255 272 295 Q288 305 312 295 Q324 255 318 210 Z' fill='url(%23sa-dark-outfit)'/%3E%3C!-- Orange/gold trim accents --%3E%3Cpath d='M278 212 Q290 215 302 212' stroke='%23ffd23f' stroke-width='3' fill='none' opacity='0.35'/%3E%3Cpath d='M272 250 L290 255 L308 250' stroke='%23ff6a3d' stroke-width='2' fill='none' opacity='0.3'/%3E%3Cpath d='M275 280 Q290 285 305 280' stroke='%23ffd23f' stroke-width='2' fill='none' opacity='0.28'/%3E%3C!-- Orange sash/belt --%3E%3Crect x='268' y='278' width='48' height='11' rx='3' fill='url(%23sa-orange-accent)'/%3E%3C!-- Right arm (guard position) --%3E%3Cpath d='M318 222 Q340 228 358 218 Q372 210 382 200' stroke='%231a1008' stroke-width='11' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3C!-- Orange accent on right arm --%3E%3Cpath d='M320 220 Q342 226 360 216' stroke='%23ff6a3d' stroke-width='2' fill='none' opacity='0.3'/%3E%3C!-- Left arm (punching forward with raised fist) --%3E%3Cpath d='M268 218 Q248 202 228 188 Q215 180 202 175' stroke='%231a1008' stroke-width='11' fill='none' opacity='0.32' stroke-linecap='round'/%3E%3C!-- Orange accent on left arm --%3E%3Cpath d='M266 216 Q246 200 226 186' stroke='%23ffd23f' stroke-width='2' fill='none' opacity='0.28'/%3E%3C!-- Fists --%3E%3Ccircle cx='385' cy='198' r='10' fill='%23ddccbb' opacity='0.3'/%3E%3Ccircle cx='197' cy='172' r='11' fill='%23ddccbb' opacity='0.35'/%3E%3C!-- Orange glow on fists --%3E%3Ccircle cx='197' cy='172' r='6' fill='%23ff6a3d' opacity='0.15' filter='url(%23sa-glow)'/%3E%3C!-- Head --%3E%3Ccircle cx='290' cy='185' r='27' fill='%23ddccbb' opacity='0.28'/%3E%3C!-- Dark headwrap/hair with gold accent --%3E%3Cpath d='M263 175 Q290 160 317 175' stroke='%231a1008' stroke-width='10' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3Cpath d='M265 172 Q290 162 315 172' stroke='%23ffd23f' stroke-width='2' fill='none' opacity='0.3'/%3E%3C!-- IMPACT BURST between fists --%3E%3Ccircle cx='223' cy='174' r='32' fill='url(%23sa-impact)' filter='url(%23sa-glow)'/%3E%3C!-- Impact spikes/rays --%3E%3Cpath d='M223 142 L226 158 L220 158 Z' fill='%23ffffff' opacity='0.6'/%3E%3Cpath d='M223 206 L226 190 L220 190 Z' fill='%23ffffff' opacity='0.6'/%3E%3Cpath d='M191 174 L207 177 L207 171 Z' fill='%23ffffff' opacity='0.6'/%3E%3Cpath d='M255 174 L239 177 L239 171 Z' fill='%23ffffff' opacity='0.6'/%3E%3Cpath d='M198 149 L210 161 L206 165 Z' fill='%23ffd23f' opacity='0.5'/%3E%3Cpath d='M248 149 L236 161 L240 165 Z' fill='%23ffd23f' opacity='0.5'/%3E%3Cpath d='M198 199 L210 187 L206 183 Z' fill='%23ffd23f' opacity='0.5'/%3E%3Cpath d='M248 199 L236 187 L240 183 Z' fill='%23ffd23f' opacity='0.5'/%3E%3C!-- Golden sparks around impact --%3E%3Ccircle cx='223' cy='138' r='4' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='260' cy='155' r='3.5' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='186' cy='158' r='3' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='240' cy='205' r='2.5' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='205' cy='200' r='2.5' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='270' cy='170' r='2' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3Ccircle cx='176' cy='175' r='2' fill='url(%23sa-gold-spark)' filter='url(%23sa-glow)'/%3E%3C!-- Orange energy trails behind left fighter --%3E%3Cpath d='M68 220 Q48 225 28 218' stroke='%23ff6a3d' stroke-width='2' fill='none' opacity='0.18'/%3E%3Cpath d='M75 245 Q55 250 35 242' stroke='%23ffd23f' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M82 270 Q62 275 42 268' stroke='%23ff6a3d' stroke-width='1' fill='none' opacity='0.08'/%3E%3C!-- Orange energy trails behind right fighter --%3E%3Cpath d='M378 215 Q395 210 400 215' stroke='%23ff6a3d' stroke-width='2' fill='none' opacity='0.18'/%3E%3Cpath d='M372 240 Q390 235 400 238' stroke='%23ffd23f' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M365 265 Q385 260 400 262' stroke='%23ff6a3d' stroke-width='1' fill='none' opacity='0.08'/%3E%3C!-- Motion lines from punching arms --%3E%3Cpath d='M180 220 Q200 205 220 195' stroke='%23ffffff' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M185 228 Q205 215 223 207' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M265 215 Q245 200 225 192' stroke='%23ffd23f' stroke-width='1.5' fill='none' opacity='0.15'/%3E%3Cpath d='M260 223 Q240 210 222 203' stroke='%23ff6a3d' stroke-width='1' fill='none' opacity='0.1'/%3E%3C!-- Atmospheric dust and energy particles --%3E%3Ccircle cx='120' cy='120' r='1.8' fill='%23ffd23f' opacity='0.2'/%3E%3Ccircle cx='320' cy='115' r='1.5' fill='%23ff6a3d' opacity='0.22'/%3E%3Ccircle cx='180' cy='100' r='1.2' fill='%23ffffff' opacity='0.15'/%3E%3Ccircle cx='260' cy='95' r='1.4' fill='%23ffd23f' opacity='0.18'/%3E%3Ccircle cx='350' cy='180' r='1' fill='%23cc4420' opacity='0.15'/%3E%3Ccircle cx='90' cy='165' r='1.2' fill='%23ff6a3d' opacity='0.12'/%3E%3Ccircle cx='220' cy='110' r='1.5' fill='%23ffd700' opacity='0.2'/%3E%3Ccircle cx='155' cy='290' r='1' fill='%23ddccaa' opacity='0.15'/%3E%3Ccircle cx='290' cy='285' r='1' fill='%23ddccaa' opacity='0.15'/%3E%3C!-- Purple highlight accents --%3E%3Ccircle cx='195' cy='145' r='1.5' fill='%238855aa' opacity='0.12'/%3E%3Ccircle cx='252' cy='142' r='1.2' fill='%238855aa' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Shadow Arena ambient glow - orange, gold, and desert fire accents */
+.game-page__about[data-decoration="shadow-arena"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 65%, rgba(255, 106, 61, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 35% 50%, rgba(255, 210, 63, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 65% 45%, rgba(204, 68, 32, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 45% 60%, rgba(136, 85, 170, 0.03) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6124,6 +6429,141 @@ h3 {
     height: 340px;
   }
 
+  /* Midnight Shift tablet */
+  .game-page__about[data-decoration="midnight-shift"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="midnight-shift"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Corridor 9 tablet */
+  .game-page__about[data-decoration="corridor-9"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="corridor-9"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* The Cursed House tablet */
+  .game-page__about[data-decoration="cursed-house"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="cursed-house"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Whispering Woods tablet */
+  .game-page__about[data-decoration="whispering-woods"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="whispering-woods"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Motel 6 tablet */
+  .game-page__about[data-decoration="motel-6"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="motel-6"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Iron Fist tablet */
+  .game-page__about[data-decoration="iron-fist"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="iron-fist"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Karate Legends tablet */
+  .game-page__about[data-decoration="karate-legends"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="karate-legends"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Wobbly Warriors tablet */
+  .game-page__about[data-decoration="wobbly-warriors"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="wobbly-warriors"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Shadow Arena tablet */
+  .game-page__about[data-decoration="shadow-arena"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="shadow-arena"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7543,6 +7983,141 @@ h3 {
     height: 260px;
   }
 
+  /* Midnight Shift mobile */
+  .game-page__about[data-decoration="midnight-shift"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="midnight-shift"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Corridor 9 mobile */
+  .game-page__about[data-decoration="corridor-9"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="corridor-9"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* The Cursed House mobile */
+  .game-page__about[data-decoration="cursed-house"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="cursed-house"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Whispering Woods mobile */
+  .game-page__about[data-decoration="whispering-woods"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="whispering-woods"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Motel 6 mobile */
+  .game-page__about[data-decoration="motel-6"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="motel-6"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Iron Fist mobile */
+  .game-page__about[data-decoration="iron-fist"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="iron-fist"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Karate Legends mobile */
+  .game-page__about[data-decoration="karate-legends"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="karate-legends"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Wobbly Warriors mobile */
+  .game-page__about[data-decoration="wobbly-warriors"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="wobbly-warriors"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Shadow Arena mobile */
+  .game-page__about[data-decoration="shadow-arena"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="shadow-arena"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8815,6 +9390,141 @@ h3 {
     height: 210px;
   }
 
+  /* Midnight Shift small mobile */
+  .game-page__about[data-decoration="midnight-shift"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="midnight-shift"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Corridor 9 small mobile */
+  .game-page__about[data-decoration="corridor-9"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="corridor-9"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* The Cursed House small mobile */
+  .game-page__about[data-decoration="cursed-house"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="cursed-house"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Whispering Woods small mobile */
+  .game-page__about[data-decoration="whispering-woods"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="whispering-woods"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Motel 6 small mobile */
+  .game-page__about[data-decoration="motel-6"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="motel-6"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Iron Fist small mobile */
+  .game-page__about[data-decoration="iron-fist"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="iron-fist"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Karate Legends small mobile */
+  .game-page__about[data-decoration="karate-legends"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="karate-legends"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Wobbly Warriors small mobile */
+  .game-page__about[data-decoration="wobbly-warriors"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="wobbly-warriors"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Shadow Arena small mobile */
+  .game-page__about[data-decoration="shadow-arena"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="shadow-arena"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9018,6 +9728,114 @@ h3 {
   }
 
   .game-page__about[data-decoration="last-shelter"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Midnight Shift extra small */
+  .game-page__about[data-decoration="midnight-shift"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="midnight-shift"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Corridor 9 extra small */
+  .game-page__about[data-decoration="corridor-9"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="corridor-9"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* The Cursed House extra small */
+  .game-page__about[data-decoration="cursed-house"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="cursed-house"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Whispering Woods extra small */
+  .game-page__about[data-decoration="whispering-woods"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="whispering-woods"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Motel 6 extra small */
+  .game-page__about[data-decoration="motel-6"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="motel-6"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Iron Fist extra small */
+  .game-page__about[data-decoration="iron-fist"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="iron-fist"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Karate Legends extra small */
+  .game-page__about[data-decoration="karate-legends"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="karate-legends"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Wobbly Warriors extra small */
+  .game-page__about[data-decoration="wobbly-warriors"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="wobbly-warriors"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Shadow Arena extra small */
+  .game-page__about[data-decoration="shadow-arena"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="shadow-arena"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
