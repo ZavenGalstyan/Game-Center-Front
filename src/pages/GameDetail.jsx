@@ -147,6 +147,8 @@ const GAME_TAGLINES = {
   "Wobbly Warriors": "Wobble, Punch, and Knock Them Down!",
   "Karate Legends: Ultimate Dojo": "Train Hard. Fight Smart. Become a Champion.",
   "Karate Legends": "Train Hard. Fight Smart. Become a Champion.",
+  "Wobbly Warriors: Arena Clash": "Wobble, Punch, and Knock Them Down!",
+  "Wobbly Warriors": "Wobble, Punch, and Knock Them Down!",
   "Iron Fist: Arena Champions": "Enter the Arena. Master Your Power.",
   "Iron Fist": "Enter the Arena. Master Your Power.",
   "Whispering Woods: The Eight Notes": "Eight Notes. One Forest. No Escape.",
@@ -281,6 +283,8 @@ const GAME_DECORATIONS = {
   "Whispering Woods": "whispering-woods",
   "Motel 6: Last Guest": "motel-6",
   "Motel 6": "motel-6",
+  "Iron Fist: Arena Champions": "iron-fist",
+  "Iron Fist": "iron-fist",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

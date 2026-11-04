@@ -103,6 +103,7 @@ import corridor9Bg from "../images/Corridor9.png";
 import cursedHouseBg from "../images/TheCursedHouse.png";
 import whisperingWoodsBg from "../images/WhisperingWoods.png";
 import motel6Bg from "../images/Motel6.png";
+import ironFistBg from "../images/IronFist.png";
 
 /**
  * Category to icon mapping.
@@ -1640,6 +1641,29 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(10, 6, 10, 0.5) 40%,
       rgba(10, 6, 10, 0.76) 52%,
       rgba(10, 6, 10, 0.88) 100%)`,
+  },
+  // Iron Fist: Arena Champions — 3D arena fighting game with martial artists
+  // and futuristic fighters. Gold, cyan, red, and dark-blue palette. 50% keeps
+  // both fighters visible while trimming edges on narrow cards.
+  "iron fist: arena champions": {
+    image: ironFistBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 8, 18, 0) 0%,
+      rgba(6, 8, 18, 0) 32%,
+      rgba(6, 8, 18, 0.5) 44%,
+      rgba(6, 8, 18, 0.76) 56%,
+      rgba(6, 8, 18, 0.88) 100%)`,
+  },
+  "iron fist": {
+    image: ironFistBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 8, 18, 0) 0%,
+      rgba(6, 8, 18, 0) 32%,
+      rgba(6, 8, 18, 0.5) 44%,
+      rgba(6, 8, 18, 0.76) 56%,
+      rgba(6, 8, 18, 0.88) 100%)`,
   },
 };
 

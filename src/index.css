@@ -4861,6 +4861,40 @@ h3 {
   z-index: -1;
 }
 
+/* Iron Fist: Arena Champions — dramatic fighting arena composition featuring
+   a martial artist in white gi with red headband vs futuristic armored fighter
+   with cyan energy lines and golden shoulder armor. Glowing circular arena floor,
+   golden sparks, blue energy effects, arena spotlights, and motion lines.
+   Gold, cyan, red, and dark-blue color palette */
+.game-page__about[data-decoration="iron-fist"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3CradialGradient id='if-arena-glow' cx='50%25' cy='70%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%2300e8ff' stop-opacity='0.25'/%3E%3Cstop offset='40%25' stop-color='%230088aa' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23003344' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='if-gold-spark' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='0.9'/%3E%3Cstop offset='40%25' stop-color='%23cc9900' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23664400' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='if-cyan-energy' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2300ffff' stop-opacity='0.8'/%3E%3Cstop offset='50%25' stop-color='%230099cc' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%23003355' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='if-spotlight-l' cx='0%25' cy='0%25' r='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffeedd' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23ffeedd' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='if-spotlight-r' cx='100%25' cy='0%25' r='100%25'%3E%3Cstop offset='0%25' stop-color='%23ddeeff' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23ddeeff' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='if-gi' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.22'/%3E%3Cstop offset='50%25' stop-color='%23e8e8e8' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%23cccccc' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3ClinearGradient id='if-armor' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a2a4a' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%23142238' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%230d1628' stop-opacity='0.18'/%3E%3C/linearGradient%3E%3ClinearGradient id='if-gold-shoulder' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='0.35'/%3E%3Cstop offset='50%25' stop-color='%23cc9900' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%23996600' stop-opacity='0.18'/%3E%3C/linearGradient%3E%3Cfilter id='if-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='2' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3C!-- Arena spotlights --%3E%3Cellipse cx='120' cy='80' rx='180' ry='280' fill='url(%23if-spotlight-l)'/%3E%3Cellipse cx='380' cy='80' rx='180' ry='280' fill='url(%23if-spotlight-r)'/%3E%3C!-- Circular arena floor glow --%3E%3Cellipse cx='240' cy='340' rx='160' ry='50' fill='url(%23if-arena-glow)'/%3E%3Cellipse cx='240' cy='340' rx='120' ry='35' fill='%2300ccdd' opacity='0.08'/%3E%3Cellipse cx='240' cy='340' rx='80' ry='22' fill='%2300eeff' opacity='0.06'/%3E%3C!-- Arena floor ring lines --%3E%3Cellipse cx='240' cy='340' rx='140' ry='42' fill='none' stroke='%2300ccff' stroke-width='1.5' opacity='0.12'/%3E%3Cellipse cx='240' cy='340' rx='100' ry='30' fill='none' stroke='%2300ddff' stroke-width='1' opacity='0.1'/%3E%3C!-- Left Fighter: Martial Artist in White Gi --%3E%3C!-- Legs in fighting stance --%3E%3Cpath d='M155 290 Q150 310 145 340 Q142 355 148 360' stroke='%23cccccc' stroke-width='10' fill='none' opacity='0.15' stroke-linecap='round'/%3E%3Cpath d='M175 290 Q185 315 200 335 Q210 345 215 350' stroke='%23cccccc' stroke-width='10' fill='none' opacity='0.15' stroke-linecap='round'/%3E%3C!-- Torso gi --%3E%3Cpath d='M145 210 Q140 250 148 290 Q165 295 182 290 Q190 250 185 210 Z' fill='url(%23if-gi)'/%3E%3C!-- Gi lapels --%3E%3Cpath d='M155 210 L165 260 L175 210' fill='none' stroke='%23e8e8e8' stroke-width='2' opacity='0.12'/%3E%3C!-- Black belt --%3E%3Crect x='143' y='272' width='44' height='8' rx='2' fill='%23111111' opacity='0.2'/%3E%3Crect x='160' y='270' width='10' height='12' rx='1' fill='%23111111' opacity='0.18'/%3E%3C!-- Arms in fighting pose --%3E%3Cpath d='M145 220 Q120 225 105 210 Q95 200 90 190' stroke='%23cccccc' stroke-width='8' fill='none' opacity='0.15' stroke-linecap='round'/%3E%3Cpath d='M185 220 Q200 210 210 195 Q220 180 225 170' stroke='%23cccccc' stroke-width='8' fill='none' opacity='0.15' stroke-linecap='round'/%3E%3C!-- Fists --%3E%3Ccircle cx='88' cy='188' r='8' fill='%23ddccbb' opacity='0.18'/%3E%3Ccircle cx='228' cy='168' r='8' fill='%23ddccbb' opacity='0.18'/%3E%3C!-- Head --%3E%3Ccircle cx='165' cy='190' r='22' fill='%23ddccbb' opacity='0.16'/%3E%3C!-- Red headband --%3E%3Crect x='143' y='180' width='44' height='8' rx='2' fill='%23cc2020' opacity='0.28'/%3E%3Cpath d='M187 184 Q200 186 210 195' stroke='%23cc2020' stroke-width='4' fill='none' opacity='0.22' stroke-linecap='round'/%3E%3Cpath d='M187 184 Q198 190 205 200' stroke='%23cc2020' stroke-width='3' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3C!-- Right Fighter: Futuristic Armored Fighter --%3E%3C!-- Legs in combat stance --%3E%3Cpath d='M305 290 Q310 315 320 340 Q325 355 320 365' stroke='%23142238' stroke-width='12' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3Cpath d='M280 290 Q265 310 250 330 Q240 345 235 355' stroke='%23142238' stroke-width='12' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3C!-- Cyan energy lines on legs --%3E%3Cpath d='M308 292 Q312 315 320 340' stroke='%2300ddff' stroke-width='1.5' fill='none' opacity='0.25' filter='url(%23if-glow)'/%3E%3Cpath d='M278 292 Q264 312 252 332' stroke='%2300ddff' stroke-width='1.5' fill='none' opacity='0.25' filter='url(%23if-glow)'/%3E%3C!-- Torso armor --%3E%3Cpath d='M270 205 Q265 245 275 290 Q290 295 310 290 Q320 245 315 205 Z' fill='url(%23if-armor)'/%3E%3C!-- Cyan chest energy lines --%3E%3Cpath d='M280 220 L292 260 L280 280' stroke='%2300ddff' stroke-width='2' fill='none' opacity='0.3' filter='url(%23if-glow)'/%3E%3Cpath d='M305 220 L293 260 L305 280' stroke='%2300ddff' stroke-width='2' fill='none' opacity='0.3' filter='url(%23if-glow)'/%3E%3Ccircle cx='292' cy='245' r='8' fill='%2300eeff' opacity='0.15' filter='url(%23if-glow)'/%3E%3C!-- Golden shoulder armor left --%3E%3Cpath d='M265 210 Q250 205 245 215 Q242 225 250 235 Q260 238 270 230 Z' fill='url(%23if-gold-shoulder)'/%3E%3Cpath d='M252 212 L255 228' stroke='%23ffdd44' stroke-width='1.5' opacity='0.25'/%3E%3C!-- Golden shoulder armor right --%3E%3Cpath d='M320 210 Q335 205 340 215 Q343 225 335 235 Q325 238 315 230 Z' fill='url(%23if-gold-shoulder)'/%3E%3Cpath d='M333 212 L330 228' stroke='%23ffdd44' stroke-width='1.5' opacity='0.25'/%3E%3C!-- Arms in fighting pose --%3E%3Cpath d='M268 220 Q250 235 235 250 Q225 260 215 265' stroke='%23142238' stroke-width='9' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3Cpath d='M320 218 Q340 205 355 195 Q365 185 375 180' stroke='%23142238' stroke-width='9' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3C!-- Cyan energy on arms --%3E%3Cpath d='M266 222 Q248 237 232 252' stroke='%2300ddff' stroke-width='1.5' fill='none' opacity='0.28' filter='url(%23if-glow)'/%3E%3Cpath d='M322 216 Q342 203 358 192' stroke='%2300ddff' stroke-width='1.5' fill='none' opacity='0.28' filter='url(%23if-glow)'/%3E%3C!-- Armored fists with cyan glow --%3E%3Ccircle cx='212' cy='268' r='10' fill='%23142238' opacity='0.2'/%3E%3Ccircle cx='212' cy='268' r='6' fill='%2300ddff' opacity='0.15' filter='url(%23if-glow)'/%3E%3Ccircle cx='378' cy='178' r='10' fill='%23142238' opacity='0.2'/%3E%3Ccircle cx='378' cy='178' r='6' fill='%2300ddff' opacity='0.15' filter='url(%23if-glow)'/%3E%3C!-- Helmet --%3E%3Cpath d='M275 165 Q292 145 310 165 Q315 185 310 200 Q292 210 275 200 Q270 185 275 165 Z' fill='url(%23if-armor)'/%3E%3C!-- Helmet visor with cyan glow --%3E%3Cpath d='M280 178 Q292 172 305 178' stroke='%2300eeff' stroke-width='3' fill='none' opacity='0.35' filter='url(%23if-glow)'/%3E%3Cpath d='M282 185 Q292 182 303 185' stroke='%2300ccdd' stroke-width='2' fill='none' opacity='0.25'/%3E%3C!-- Golden sparks between fighters --%3E%3Ccircle cx='230' cy='220' r='4' fill='url(%23if-gold-spark)' filter='url(%23if-glow)'/%3E%3Ccircle cx='245' cy='195' r='3' fill='url(%23if-gold-spark)' filter='url(%23if-glow)'/%3E%3Ccircle cx='220' cy='240' r='2.5' fill='url(%23if-gold-spark)' filter='url(%23if-glow)'/%3E%3Ccircle cx='255' cy='215' r='2' fill='url(%23if-gold-spark)' filter='url(%23if-glow)'/%3E%3Ccircle cx='235' cy='180' r='2' fill='url(%23if-gold-spark)' filter='url(%23if-glow)'/%3E%3C!-- Cyan energy particles --%3E%3Ccircle cx='260' cy='250' r='3' fill='url(%23if-cyan-energy)' filter='url(%23if-glow)'/%3E%3Ccircle cx='340' cy='200' r='2.5' fill='url(%23if-cyan-energy)' filter='url(%23if-glow)'/%3E%3Ccircle cx='355' cy='220' r='2' fill='url(%23if-cyan-energy)' filter='url(%23if-glow)'/%3E%3Ccircle cx='325' cy='165' r='1.5' fill='url(%23if-cyan-energy)' filter='url(%23if-glow)'/%3E%3C!-- Motion lines behind martial artist --%3E%3Cpath d='M100 200 Q80 205 60 200' stroke='%23ffffff' stroke-width='1.5' fill='none' opacity='0.08'/%3E%3Cpath d='M105 220 Q85 225 65 220' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.06'/%3E%3Cpath d='M110 240 Q90 245 70 240' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.05'/%3E%3C!-- Motion lines behind armored fighter --%3E%3Cpath d='M365 200 Q385 195 400 200' stroke='%2300ccff' stroke-width='1.5' fill='none' opacity='0.1'/%3E%3Cpath d='M360 220 Q380 215 400 218' stroke='%2300ccff' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M355 240 Q375 235 395 238' stroke='%2300ccff' stroke-width='1' fill='none' opacity='0.06'/%3E%3C!-- Atmospheric particles --%3E%3Ccircle cx='150' cy='130' r='1.5' fill='%23ffeedd' opacity='0.12'/%3E%3Ccircle cx='320' cy='120' r='1.2' fill='%2300ddff' opacity='0.15'/%3E%3Ccircle cx='180' cy='100' r='1' fill='%23ffdd88' opacity='0.1'/%3E%3Ccircle cx='280' cy='95' r='1.3' fill='%2300eeff' opacity='0.12'/%3E%3Ccircle cx='350' cy='140' r='1' fill='%23ffd700' opacity='0.1'/%3E%3Ccircle cx='130' cy='160' r='0.8' fill='%23ffffff' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Iron Fist ambient glow - gold, cyan, and arena spotlight accents */
+.game-page__about[data-decoration="iron-fist"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 65%, rgba(0, 200, 220, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 35% 45%, rgba(255, 215, 0, 0.045) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 65% 40%, rgba(0, 180, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 40% 55%, rgba(200, 40, 40, 0.025) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6368,6 +6402,21 @@ h3 {
     height: 340px;
   }
 
+  /* Iron Fist tablet */
+  .game-page__about[data-decoration="iron-fist"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="iron-fist"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7862,6 +7911,21 @@ h3 {
     height: 260px;
   }
 
+  /* Iron Fist mobile */
+  .game-page__about[data-decoration="iron-fist"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="iron-fist"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9209,6 +9273,21 @@ h3 {
     height: 210px;
   }
 
+  /* Iron Fist small mobile */
+  .game-page__about[data-decoration="iron-fist"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="iron-fist"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9472,6 +9551,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="motel-6"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Iron Fist extra small */
+  .game-page__about[data-decoration="iron-fist"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="iron-fist"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
