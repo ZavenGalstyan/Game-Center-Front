@@ -98,6 +98,7 @@ import harryPotterBg from "../images/HarryPotter.png";
 import crownOfAshesBg from "../images/CrownofAshes.png";
 import neonMercenaryBg from "../images/NeonMercenary.png";
 import lastShelterBg from "../images/60seconds.png";
+import midnightShiftBg from "../images/MidnightShift.png";
 
 /**
  * Category to icon mapping.
@@ -1506,6 +1507,30 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(18, 10, 4, 0.5) 45%,
       rgba(18, 10, 4, 0.76) 58%,
       rgba(18, 10, 4, 0.88) 100%)`,
+  },
+  // Midnight Shift: Haunted Factory — terrifying animatronic bear with glowing
+  // red eyes, creepy doll, abandoned toy factory. The title and key horror
+  // elements sit left-center; 40% keeps them visible while trimming the right
+  // edge on narrow cards. Dark crimson-charcoal fade matches the horror mood.
+  "midnight shift: haunted factory": {
+    image: midnightShiftBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 6, 8, 0) 0%,
+      rgba(12, 6, 8, 0) 30%,
+      rgba(12, 6, 8, 0.5) 44%,
+      rgba(12, 6, 8, 0.76) 56%,
+      rgba(12, 6, 8, 0.88) 100%)`,
+  },
+  "midnight shift": {
+    image: midnightShiftBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 6, 8, 0) 0%,
+      rgba(12, 6, 8, 0) 30%,
+      rgba(12, 6, 8, 0.5) 44%,
+      rgba(12, 6, 8, 0.76) 56%,
+      rgba(12, 6, 8, 0.88) 100%)`,
   },
 };
 
