@@ -101,6 +101,7 @@ import lastShelterBg from "../images/60seconds.png";
 import midnightShiftBg from "../images/MidnightShift.png";
 import corridor9Bg from "../images/Corridor9.png";
 import cursedHouseBg from "../images/TheCursedHouse.png";
+import whisperingWoodsBg from "../images/WhisperingWoods.png";
 
 /**
  * Category to icon mapping.
@@ -1591,6 +1592,29 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(10, 6, 8, 0.5) 42%,
       rgba(10, 6, 8, 0.76) 54%,
       rgba(10, 6, 8, 0.88) 100%)`,
+  },
+  // Whispering Woods: The Eight Notes — collect notes in a haunted forest while
+  // avoiding a mysterious creature. Moonlit forest, shadow figure, lantern, cabin.
+  // 45% keeps the title and key elements visible. Deep emerald-charcoal fade.
+  "whispering woods: the eight notes": {
+    image: whisperingWoodsBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 26%,
+      rgba(6, 14, 10, 0.5) 40%,
+      rgba(6, 14, 10, 0.76) 52%,
+      rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  "whispering woods": {
+    image: whisperingWoodsBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 14, 10, 0) 0%,
+      rgba(6, 14, 10, 0) 26%,
+      rgba(6, 14, 10, 0.5) 40%,
+      rgba(6, 14, 10, 0.76) 52%,
+      rgba(6, 14, 10, 0.88) 100%)`,
   },
 };
 

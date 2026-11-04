@@ -4794,6 +4794,39 @@ h3 {
   z-index: -1;
 }
 
+/* Whispering Woods: The Eight Notes — haunted forest horror with twisted pine trees,
+   mysterious shadowy creature with glowing eyes, handwritten note on tree, vintage lantern,
+   winding woodland path into fog, floating particles, distant abandoned cabin.
+   Deep emerald, muted teal, midnight blue, charcoal, warm amber, and restrained crimson accents */
+.game-page__about[data-decoration="whispering-woods"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3CradialGradient id='ww-lantern-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffaa44' stop-opacity='0.7'/%3E%3Cstop offset='35%25' stop-color='%23dd7722' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23884400' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='ww-eye-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff4444' stop-opacity='0.85'/%3E%3Cstop offset='40%25' stop-color='%23cc2222' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23880000' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ww-tree-dark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a2820' stop-opacity='0.2'/%3E%3Cstop offset='50%25' stop-color='%230f1a14' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%23081210' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3ClinearGradient id='ww-tree-mid' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23223830' stop-opacity='0.16'/%3E%3Cstop offset='100%25' stop-color='%23152820' stop-opacity='0.12'/%3E%3C/linearGradient%3E%3ClinearGradient id='ww-note-paper' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8e0d0' stop-opacity='0.18'/%3E%3Cstop offset='100%25' stop-color='%23c8c0b0' stop-opacity='0.12'/%3E%3C/linearGradient%3E%3Cfilter id='ww-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='4' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='ww-fog' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='3' result='noise'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.15 0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 0.05 0'/%3E%3C/filter%3E%3C/defs%3E%3C!-- Atmospheric fog background --%3E%3Crect x='80' y='40' width='320' height='360' fill='%23101a18' opacity='0.05'/%3E%3Crect x='100' y='60' width='300' height='340' filter='url(%23ww-fog)'/%3E%3C!-- Winding woodland path disappearing into fog --%3E%3Cpath d='M200 390 Q180 340 195 290 Q210 240 190 190 Q175 150 185 110 Q195 80 200 60' stroke='%23334433' stroke-width='35' fill='none' opacity='0.06'/%3E%3Cpath d='M200 390 Q182 345 197 295 Q212 245 192 195 Q177 155 187 115' stroke='%23223322' stroke-width='20' fill='none' opacity='0.05'/%3E%3C!-- Path edges --%3E%3Cpath d='M175 385 Q155 340 170 295 Q185 250 168 205' stroke='%23445544' stroke-width='2' fill='none' opacity='0.08'/%3E%3Cpath d='M225 385 Q240 345 225 300 Q210 255 222 210' stroke='%23445544' stroke-width='2' fill='none' opacity='0.08'/%3E%3C!-- Distant abandoned cabin --%3E%3Crect x='175' y='85' width='50' height='35' fill='%23221a14' stroke='%23332a20' stroke-width='1.5' opacity='0.12'/%3E%3Cpath d='M170 85 L200 60 L230 85 Z' fill='%231a1410' stroke='%232a2018' stroke-width='1' opacity='0.1'/%3E%3C!-- Cabin window glow --%3E%3Crect x='188' y='95' width='10' height='12' fill='%23ffaa44' opacity='0.06'/%3E%3Crect x='203' y='95' width='10' height='12' fill='%23ffaa44' opacity='0.05'/%3E%3C!-- Cabin door --%3E%3Crect x='193' y='105' width='14' height='15' fill='%230a0806' opacity='0.1'/%3E%3C!-- Back layer trees (furthest) --%3E%3Cpath d='M280 380 L280 200 L260 220 L280 180 L255 210 L280 160 L250 200 L280 130 L245 185 L280 100 L240 175 L280 70 L235 165 L280 50 L280 380 Z' fill='url(%23ww-tree-dark)' opacity='0.7'/%3E%3Crect x='275' y='200' width='10' height='180' fill='%231a2820' opacity='0.12'/%3E%3Cpath d='M320 380 L320 230 L305 245 L320 215 L300 235 L320 195 L295 225 L320 165 L290 210 L320 140 L285 200 L320 110 L280 190 L320 85 L320 380 Z' fill='url(%23ww-tree-dark)' opacity='0.6'/%3E%3Crect x='315' y='230' width='10' height='150' fill='%231a2820' opacity='0.1'/%3E%3C!-- Middle layer trees --%3E%3Cpath d='M120 380 L120 180 L95 205 L120 155 L90 190 L120 130 L85 175 L120 100 L80 165 L120 75 L120 380 Z' fill='url(%23ww-tree-mid)' opacity='0.85'/%3E%3Crect x='115' y='180' width='10' height='200' fill='%23223830' opacity='0.14'/%3E%3Cpath d='M350 380 L350 210 L330 230 L350 185 L325 215 L350 160 L320 195 L350 130 L315 180 L350 105 L350 380 Z' fill='url(%23ww-tree-mid)' opacity='0.75'/%3E%3Crect x='345' y='210' width='10' height='170' fill='%23223830' opacity='0.12'/%3E%3C!-- Front layer trees (closest, most detailed) --%3E%3Cpath d='M90 380 L90 150 L60 180 L90 120 L55 165 L90 95 L50 150 L90 70 L45 140 L90 50 L90 380 Z' fill='url(%23ww-tree-dark)' opacity='0.95'/%3E%3Crect x='84' y='150' width='12' height='230' fill='%231a2820' opacity='0.18'/%3E%3C!-- Tree bark texture --%3E%3Cpath d='M86 200 L92 210 M87 250 L93 260 M85 300 L91 310' stroke='%23334438' stroke-width='1' opacity='0.12'/%3E%3Cpath d='M370 380 L370 190 L350 215 L370 165 L345 200 L370 140 L340 185 L370 115 L335 170 L370 90 L370 380 Z' fill='url(%23ww-tree-dark)' opacity='0.9'/%3E%3Crect x='364' y='190' width='12' height='190' fill='%231a2820' opacity='0.16'/%3E%3C!-- Broken branches on ground --%3E%3Cpath d='M130 365 L155 360 L165 368' stroke='%23332a20' stroke-width='2.5' fill='none' opacity='0.1'/%3E%3Cpath d='M145 362 L150 355' stroke='%23332a20' stroke-width='1.5' fill='none' opacity='0.08'/%3E%3Cpath d='M250 372 L280 365 L295 375' stroke='%23332a20' stroke-width='2' fill='none' opacity='0.09'/%3E%3Cpath d='M270 368 L275 360' stroke='%23332a20' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3C!-- Mysterious shadowy creature between trees --%3E%3Cpath d='M240 160 Q250 140 260 125 Q275 105 285 125 Q295 145 290 175 Q288 210 285 260 Q282 310 278 360 Q275 380 270 395 Q265 380 260 360 Q255 310 252 260 Q248 210 245 175 Q242 150 240 160 Z' fill='%23050808' opacity='0.2'/%3E%3C!-- Creature head (elongated, inhuman) --%3E%3Cellipse cx='262' cy='118' rx='18' ry='25' fill='%23060a0a' opacity='0.25'/%3E%3C!-- Creature glowing eyes --%3E%3Ccircle cx='255' cy='115' r='5' fill='url(%23ww-eye-glow)' filter='url(%23ww-glow)' opacity='0.8'/%3E%3Ccircle cx='269' cy='115' r='5' fill='url(%23ww-eye-glow)' filter='url(%23ww-glow)' opacity='0.8'/%3E%3Ccircle cx='255' cy='115' r='2' fill='%23ff3333' opacity='0.2'/%3E%3Ccircle cx='269' cy='115' r='2' fill='%23ff3333' opacity='0.2'/%3E%3C!-- Creature limbs hint --%3E%3Cpath d='M248 180 Q235 200 225 225' stroke='%23060808' stroke-width='4' fill='none' opacity='0.15'/%3E%3Cpath d='M282 180 Q295 195 310 215' stroke='%23060808' stroke-width='4' fill='none' opacity='0.15'/%3E%3C!-- Handwritten note on tree trunk --%3E%3Crect x='100' y='230' width='32' height='40' rx='1' fill='url(%23ww-note-paper)' stroke='%23aa9988' stroke-width='1' opacity='0.9' transform='rotate(-5 116 250)'/%3E%3C!-- Note pin/nail --%3E%3Ccircle cx='116' cy='235' r='3' fill='%23665544' opacity='0.2'/%3E%3C!-- Cryptic symbols on note --%3E%3Cpath d='M106 245 L112 248 L108 255 L114 252' stroke='%23332211' stroke-width='1' fill='none' opacity='0.15'/%3E%3Cpath d='M118 246 Q122 250 118 256 Q124 252 120 248' stroke='%23332211' stroke-width='0.8' fill='none' opacity='0.12'/%3E%3Cpath d='M107 260 L125 260' stroke='%23332211' stroke-width='0.8' opacity='0.1'/%3E%3Cpath d='M108 264 L122 264' stroke='%23332211' stroke-width='0.6' opacity='0.08'/%3E%3C!-- Number 8 hint on note --%3E%3Ctext x='126' y='268' font-size='8' fill='%23442211' font-family='serif' opacity='0.15'%3E8%3C/text%3E%3C!-- Vintage lantern --%3E%3Crect x='140' y='310' width='24' height='36' rx='3' fill='%23332a20' stroke='%23443828' stroke-width='1.5' opacity='0.2'/%3E%3C!-- Lantern glass --%3E%3Crect x='144' y='315' width='16' height='26' rx='2' fill='%23ffaa44' opacity='0.1'/%3E%3C!-- Lantern top --%3E%3Cpath d='M142 310 L152 300 L162 310 Z' fill='%23443828' opacity='0.18'/%3E%3Crect x='148' y='294' width='8' height='8' rx='2' fill='%23332a20' opacity='0.15'/%3E%3C!-- Lantern handle --%3E%3Cpath d='M145 294 Q152 284 159 294' stroke='%23554433' stroke-width='2' fill='none' opacity='0.18'/%3E%3C!-- Lantern base --%3E%3Crect x='142' y='346' width='20' height='5' rx='2' fill='%23443828' opacity='0.18'/%3E%3C!-- Lantern warm glow on forest floor --%3E%3Ccircle cx='152' cy='330' r='45' fill='url(%23ww-lantern-glow)' filter='url(%23ww-glow)' opacity='0.7'/%3E%3C!-- Lantern flame --%3E%3Cellipse cx='152' cy='325' rx='5' ry='8' fill='%23ffcc66' opacity='0.18'/%3E%3Cellipse cx='152' cy='327' rx='2.5' ry='5' fill='%23ffaa44' opacity='0.25'/%3E%3C!-- Floating particles/dust --%3E%3Ccircle cx='180' cy='150' r='1.2' fill='%23aabbaa' opacity='0.08'/%3E%3Ccircle cx='220' cy='200' r='0.9' fill='%23aabbaa' opacity='0.06'/%3E%3Ccircle cx='160' cy='250' r='1.1' fill='%23aabbaa' opacity='0.07'/%3E%3Ccircle cx='300' cy='180' r='1' fill='%23aabbaa' opacity='0.06'/%3E%3Ccircle cx='190' cy='300' r='0.8' fill='%23ccbb99' opacity='0.08'/%3E%3Ccircle cx='240' cy='280' r='1.3' fill='%23aabbaa' opacity='0.05'/%3E%3Ccircle cx='320' cy='250' r='0.9' fill='%23aabbaa' opacity='0.06'/%3E%3Ccircle cx='135' cy='180' r='1' fill='%23aabbaa' opacity='0.07'/%3E%3Ccircle cx='270' cy='220' r='0.8' fill='%23aabbaa' opacity='0.05'/%3E%3Ccircle cx='200' cy='350' r='1.1' fill='%23ccbb99' opacity='0.06'/%3E%3C!-- Drifting mist layers --%3E%3Cellipse cx='200' cy='380' rx='120' ry='25' fill='%23445555' opacity='0.05'/%3E%3Cellipse cx='150' cy='370' rx='80' ry='18' fill='%23334444' opacity='0.04'/%3E%3Cellipse cx='280' cy='375' rx='90' ry='20' fill='%23445555' opacity='0.04'/%3E%3Cellipse cx='220' cy='340' rx='60' ry='12' fill='%23334444' opacity='0.03'/%3E%3C!-- Mid-level mist --%3E%3Cellipse cx='300' cy='280' rx='50' ry='15' fill='%23445555' opacity='0.025'/%3E%3Cellipse cx='130' cy='300' rx='45' ry='12' fill='%23334444' opacity='0.02'/%3E%3C!-- Additional tree branch details --%3E%3Cpath d='M85 180 L70 175 L60 180' stroke='%23223830' stroke-width='2' fill='none' opacity='0.1'/%3E%3Cpath d='M85 220 L65 215 L55 222' stroke='%23223830' stroke-width='1.5' fill='none' opacity='0.08'/%3E%3Cpath d='M368 215 L380 210 L390 218' stroke='%23223830' stroke-width='1.8' fill='none' opacity='0.09'/%3E%3Cpath d='M368 255 L385 250' stroke='%23223830' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3C!-- Forest floor shadows --%3E%3Cellipse cx='152' cy='365' rx='35' ry='10' fill='%23000000' opacity='0.06'/%3E%3Cellipse cx='270' cy='375' rx='25' ry='8' fill='%23000000' opacity='0.05'/%3E%3C!-- Moonlight filtering through trees --%3E%3Cpath d='M180 40 L190 120 L200 80 L210 130 L220 60' stroke='%2388aacc' stroke-width='15' fill='none' opacity='0.015'/%3E%3Cpath d='M280 50 L295 140 L310 90' stroke='%2388aacc' stroke-width='12' fill='none' opacity='0.012'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Whispering Woods ambient glow - deep emerald, muted teal, midnight blue, warm amber accents */
+.game-page__about[data-decoration="whispering-woods"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 45% 50%, rgba(0, 140, 100, 0.055) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 35% 65%, rgba(220, 150, 60, 0.05) 0%, transparent 45%),
+    radial-gradient(ellipse 45% 40% at 55% 45%, rgba(40, 80, 100, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 60% 55%, rgba(140, 50, 50, 0.025) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6271,6 +6304,21 @@ h3 {
     height: 340px;
   }
 
+  /* Whispering Woods tablet */
+  .game-page__about[data-decoration="whispering-woods"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="whispering-woods"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7735,6 +7783,21 @@ h3 {
     height: 260px;
   }
 
+  /* Whispering Woods mobile */
+  .game-page__about[data-decoration="whispering-woods"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="whispering-woods"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9052,6 +9115,21 @@ h3 {
     height: 210px;
   }
 
+  /* Whispering Woods small mobile */
+  .game-page__about[data-decoration="whispering-woods"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="whispering-woods"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9291,6 +9369,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="cursed-house"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Whispering Woods extra small */
+  .game-page__about[data-decoration="whispering-woods"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="whispering-woods"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

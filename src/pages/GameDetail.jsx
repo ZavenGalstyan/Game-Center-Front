@@ -277,6 +277,8 @@ const GAME_DECORATIONS = {
   "The Cursed House: Escape": "cursed-house",
   "The Cursed House": "cursed-house",
   "Cursed House": "cursed-house",
+  "Whispering Woods: The Eight Notes": "whispering-woods",
+  "Whispering Woods": "whispering-woods",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
