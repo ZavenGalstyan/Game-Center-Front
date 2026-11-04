@@ -4827,6 +4827,40 @@ h3 {
   z-index: -1;
 }
 
+/* Motel 6: Last Guest — abandoned roadside motel with glowing red MOTEL 6 neon sign,
+   mysterious silhouette in reception window, partially open door with red light spill,
+   vintage room key with numbered tag, CCTV camera, reception bell, heavy rain,
+   puddles reflecting neon, drifting fog, cracked walls, and worn wooden textures.
+   Deep emerald, charcoal, midnight blue, dark crimson, and warm amber accents */
+.game-page__about[data-decoration="motel-6"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3CradialGradient id='m6-neon-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff2020' stop-opacity='0.95'/%3E%3Cstop offset='35%25' stop-color='%23cc0000' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23660000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='m6-door-light' cx='50%25' cy='0%25' r='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff3030' stop-opacity='0.4'/%3E%3Cstop offset='60%25' stop-color='%23aa1010' stop-opacity='0.15'/%3E%3Cstop offset='100%25' stop-color='%23550000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='m6-amber-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffaa40' stop-opacity='0.7'/%3E%3Cstop offset='50%25' stop-color='%23cc7720' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%23664400' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='m6-wall' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232a2a30' stop-opacity='0.15'/%3E%3Cstop offset='50%25' stop-color='%23222228' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%231a1a20' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='m6-roof' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23333340' stop-opacity='0.14'/%3E%3Cstop offset='100%25' stop-color='%23222230' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='m6-puddle' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23001a33' stop-opacity='0.08'/%3E%3Cstop offset='50%25' stop-color='%23ff2020' stop-opacity='0.06'/%3E%3Cstop offset='100%25' stop-color='%23001a33' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3Cfilter id='m6-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='m6-rain' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5 2' numOctaves='2' result='noise'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.06'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3C/defs%3E%3C!-- Night sky fog --%3E%3Crect x='100' y='50' width='300' height='350' fill='%231a1a24' opacity='0.05'/%3E%3Cellipse cx='250' cy='200' rx='150' ry='180' fill='%23101018' opacity='0.06'/%3E%3C!-- Rain overlay --%3E%3Crect x='100' y='50' width='280' height='320' filter='url(%23m6-rain)' opacity='0.4'/%3E%3C!-- Individual rain streaks --%3E%3Cline x1='150' y1='60' x2='148' y2='90' stroke='%236688aa' stroke-width='0.8' opacity='0.12'/%3E%3Cline x1='200' y1='80' x2='198' y2='115' stroke='%236688aa' stroke-width='0.7' opacity='0.1'/%3E%3Cline x1='280' y1='55' x2='278' y2='88' stroke='%236688aa' stroke-width='0.8' opacity='0.11'/%3E%3Cline x1='320' y1='70' x2='318' y2='100' stroke='%236688aa' stroke-width='0.6' opacity='0.09'/%3E%3Cline x1='170' y1='100' x2='168' y2='135' stroke='%236688aa' stroke-width='0.7' opacity='0.1'/%3E%3Cline x1='240' y1='90' x2='238' y2='120' stroke='%236688aa' stroke-width='0.8' opacity='0.11'/%3E%3Cline x1='360' y1='85' x2='358' y2='115' stroke='%236688aa' stroke-width='0.6' opacity='0.08'/%3E%3C!-- Motel building main structure --%3E%3Crect x='140' y='160' width='200' height='140' fill='url(%23m6-wall)' rx='2'/%3E%3C!-- Roof --%3E%3Cpath d='M130 160 L240 100 L350 160 Z' fill='url(%23m6-roof)'/%3E%3Crect x='135' y='155' width='210' height='8' fill='%23333340' opacity='0.12'/%3E%3C!-- Roof shingles texture --%3E%3Cpath d='M145 155 L240 105 L335 155' stroke='%23444450' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M155 155 L240 112 L325 155' stroke='%23444450' stroke-width='0.8' fill='none' opacity='0.06'/%3E%3C!-- Wall cracks --%3E%3Cpath d='M180 180 Q185 200 182 220 Q188 235 185 255' stroke='%23151520' stroke-width='1' fill='none' opacity='0.1'/%3E%3Cpath d='M290 175 Q295 190 292 205' stroke='%23151520' stroke-width='0.8' fill='none' opacity='0.08'/%3E%3Cpath d='M220 260 Q225 275 222 290' stroke='%23151520' stroke-width='0.7' fill='none' opacity='0.07'/%3E%3C!-- MOTEL 6 neon sign post --%3E%3Crect x='355' y='100' width='6' height='180' fill='%23333340' opacity='0.12'/%3E%3C!-- Sign board --%3E%3Crect x='330' y='80' width='60' height='50' rx='3' fill='%231a1a22' opacity='0.15'/%3E%3Crect x='333' y='83' width='54' height='44' rx='2' fill='%23101014' opacity='0.12'/%3E%3C!-- MOTEL text glow --%3E%3Cellipse cx='360' cy='95' rx='28' ry='12' fill='url(%23m6-neon-glow)' filter='url(%23m6-glow)' opacity='0.85'/%3E%3C!-- MOTEL text --%3E%3Ctext x='360' y='99' font-size='12' fill='%23ff3030' opacity='0.35' font-family='Arial Black, sans-serif' text-anchor='middle' font-weight='bold'%3EMOTEL%3C/text%3E%3C!-- 6 glow --%3E%3Ccircle cx='360' cy='115' r='12' fill='url(%23m6-neon-glow)' filter='url(%23m6-glow)' opacity='0.9'/%3E%3C!-- 6 number --%3E%3Ctext x='360' y='121' font-size='18' fill='%23ff2020' opacity='0.4' font-family='Arial Black, sans-serif' text-anchor='middle' font-weight='bold'%3E6%3C/text%3E%3C!-- Reception window --%3E%3Crect x='250' y='180' width='60' height='50' rx='2' fill='%23101018' opacity='0.15'/%3E%3Crect x='253' y='183' width='54' height='44' fill='%230a0a12' opacity='0.12'/%3E%3C!-- Window frame --%3E%3Crect x='253' y='183' width='54' height='44' fill='none' stroke='%23444450' stroke-width='1.5' opacity='0.1'/%3E%3Cline x1='280' y1='183' x2='280' y2='227' stroke='%23444450' stroke-width='1' opacity='0.08'/%3E%3C!-- Mysterious silhouette in window --%3E%3Cpath d='M268 195 Q273 185 278 195 Q280 200 278 210 Q275 225 268 225 Q261 225 258 210 Q256 200 258 195 Q263 185 268 195 Z' fill='%23050508' opacity='0.18'/%3E%3C!-- Silhouette head --%3E%3Ccircle cx='268' cy='192' r='8' fill='%23060610' opacity='0.2'/%3E%3C!-- Eerie eye glint --%3E%3Ccircle cx='265' cy='191' r='1.5' fill='%23ff6060' opacity='0.15'/%3E%3Ccircle cx='271' cy='191' r='1.5' fill='%23ff6060' opacity='0.15'/%3E%3C!-- Motel room door (partially open with red light) --%3E%3Crect x='170' y='200' width='45' height='80' rx='1' fill='%23282220' opacity='0.14'/%3E%3C!-- Door frame --%3E%3Crect x='168' y='198' width='49' height='84' fill='none' stroke='%23333330' stroke-width='2' opacity='0.1'/%3E%3C!-- Door panels --%3E%3Crect x='175' y='210' width='15' height='25' rx='1' fill='none' stroke='%23222218' stroke-width='1' opacity='0.1'/%3E%3Crect x='195' y='210' width='15' height='25' rx='1' fill='none' stroke='%23222218' stroke-width='1' opacity='0.1'/%3E%3Crect x='175' y='245' width='15' height='25' rx='1' fill='none' stroke='%23222218' stroke-width='1' opacity='0.1'/%3E%3Crect x='195' y='245' width='15' height='25' rx='1' fill='none' stroke='%23222218' stroke-width='1' opacity='0.1'/%3E%3C!-- Door gap with red light spill --%3E%3Crect x='213' y='202' width='6' height='76' fill='%23ff2020' opacity='0.12'/%3E%3Crect x='215' y='204' width='3' height='72' fill='%23ff4040' opacity='0.15'/%3E%3C!-- Red light spill on floor --%3E%3Cellipse cx='220' cy='295' rx='35' ry='12' fill='url(%23m6-door-light)' opacity='0.6'/%3E%3C!-- Door handle --%3E%3Ccircle cx='205' cy='245' r='3' fill='%23887755' opacity='0.12'/%3E%3C!-- Room number plate --%3E%3Crect x='182' y='205' width='18' height='12' rx='1' fill='%23aa8844' opacity='0.1'/%3E%3Ctext x='191' y='214' font-size='8' fill='%23332200' opacity='0.12' font-family='serif' text-anchor='middle' font-weight='bold'%3E6%3C/text%3E%3C!-- CCTV Camera --%3E%3Crect x='320' y='170' width='25' height='15' rx='2' fill='%23222230' opacity='0.12'/%3E%3Crect x='315' y='175' width='8' height='8' rx='1' fill='%23333340' opacity='0.1'/%3E%3Ccircle cx='338' cy='177' r='5' fill='%23111118' opacity='0.14'/%3E%3Ccircle cx='338' cy='177' r='2' fill='%230a0a10' opacity='0.12'/%3E%3C!-- Camera recording light --%3E%3Ccircle cx='342' cy='172' r='2' fill='%23ff2020' opacity='0.2'/%3E%3Ccircle cx='342' cy='172' r='3.5' fill='%23ff0000' opacity='0.08'/%3E%3C!-- Camera mount --%3E%3Crect x='330' y='162' width='4' height='10' fill='%23333340' opacity='0.1'/%3E%3C!-- Reception desk silhouette --%3E%3Crect x='248' y='240' width='65' height='45' fill='%23181820' opacity='0.1'/%3E%3C!-- Reception bell --%3E%3Cellipse cx='275' cy='238' rx='8' ry='3' fill='%23997744' opacity='0.12'/%3E%3Cpath d='M269 238 Q269 228 275 225 Q281 228 281 238' fill='%23aa8855' opacity='0.1'/%3E%3Ccircle cx='275' cy='226' r='2' fill='%23ccaa66' opacity='0.1'/%3E%3C!-- Vintage room key --%3E%3Cellipse cx='130' cy='260' rx='12' ry='8' fill='%23665533' opacity='0.1' transform='rotate(-25 130 260)'/%3E%3Crect x='118' y='255' width='30' height='6' rx='3' fill='%23887755' opacity='0.12' transform='rotate(-25 130 260)'/%3E%3C!-- Key teeth --%3E%3Cpath d='M108 268 L105 270 L108 272 L105 274 L108 276' stroke='%23776644' stroke-width='1.5' fill='none' opacity='0.1' transform='rotate(-25 108 272)'/%3E%3C!-- Key ring --%3E%3Ccircle cx='148' cy='248' r='8' fill='none' stroke='%23887755' stroke-width='2' opacity='0.1'/%3E%3C!-- Key tag --%3E%3Crect x='155' y='235' width='20' height='28' rx='2' fill='%23cc4444' opacity='0.1'/%3E%3Ctext x='165' y='254' font-size='12' fill='%23ffffff' opacity='0.12' font-family='Arial' text-anchor='middle' font-weight='bold'%3E6%3C/text%3E%3C!-- Tag string --%3E%3Cpath d='M148 248 Q152 242 158 245' stroke='%23554433' stroke-width='1' fill='none' opacity='0.1'/%3E%3C!-- Wet asphalt ground --%3E%3Crect x='130' y='295' width='220' height='25' fill='%23181820' opacity='0.08'/%3E%3C!-- Puddles with neon reflections --%3E%3Cellipse cx='200' cy='310' rx='50' ry='8' fill='url(%23m6-puddle)'/%3E%3Cellipse cx='300' cy='315' rx='35' ry='6' fill='url(%23m6-puddle)'/%3E%3C!-- Neon reflection in puddles --%3E%3Cellipse cx='320' cy='312' rx='15' ry='4' fill='%23ff2020' opacity='0.06'/%3E%3Cellipse cx='195' cy='308' rx='12' ry='3' fill='%23ff3030' opacity='0.05'/%3E%3C!-- Fog wisps --%3E%3Cellipse cx='280' cy='350' rx='100' ry='25' fill='%23334455' opacity='0.04'/%3E%3Cellipse cx='180' cy='340' rx='70' ry='18' fill='%23334455' opacity='0.035'/%3E%3Cellipse cx='350' cy='360' rx='50' ry='15' fill='%23334455' opacity='0.03'/%3E%3C!-- Additional atmospheric rain --%3E%3Cline x1='190' y1='130' x2='188' y2='165' stroke='%236688aa' stroke-width='0.7' opacity='0.09'/%3E%3Cline x1='260' y1='120' x2='258' y2='150' stroke='%236688aa' stroke-width='0.6' opacity='0.08'/%3E%3Cline x1='300' y1='140' x2='298' y2='175' stroke='%236688aa' stroke-width='0.7' opacity='0.1'/%3E%3Cline x1='215' y1='150' x2='213' y2='180' stroke='%236688aa' stroke-width='0.5' opacity='0.07'/%3E%3C!-- Window reflection highlights --%3E%3Cline x1='255' y1='185' x2='265' y2='190' stroke='%23ffffff' stroke-width='0.8' opacity='0.04'/%3E%3Cline x1='290' y1='188' x2='302' y2='193' stroke='%23ffffff' stroke-width='0.6' opacity='0.03'/%3E%3C!-- Worn porch overhang --%3E%3Crect x='160' y='192' width='90' height='5' fill='%23333338' opacity='0.1'/%3E%3C!-- Overhang shadow --%3E%3Crect x='162' y='197' width='86' height='3' fill='%23101015' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Motel 6 ambient glow - dark crimson, warm amber, deep emerald, midnight blue accents */
+.game-page__about[data-decoration="motel-6"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 55% 40%, rgba(180, 30, 30, 0.065) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 65% 55%, rgba(220, 130, 50, 0.045) 0%, transparent 45%),
+    radial-gradient(ellipse 45% 40% at 40% 50%, rgba(0, 120, 90, 0.035) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 50% 60%, rgba(40, 60, 100, 0.03) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6319,6 +6353,21 @@ h3 {
     height: 340px;
   }
 
+  /* Motel 6 tablet */
+  .game-page__about[data-decoration="motel-6"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="motel-6"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7798,6 +7847,21 @@ h3 {
     height: 260px;
   }
 
+  /* Motel 6 mobile */
+  .game-page__about[data-decoration="motel-6"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="motel-6"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9130,6 +9194,21 @@ h3 {
     height: 210px;
   }
 
+  /* Motel 6 small mobile */
+  .game-page__about[data-decoration="motel-6"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="motel-6"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9381,6 +9460,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="whispering-woods"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Motel 6 extra small */
+  .game-page__about[data-decoration="motel-6"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="motel-6"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
