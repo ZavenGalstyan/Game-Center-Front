@@ -4759,6 +4759,41 @@ h3 {
   z-index: -1;
 }
 
+/* The Cursed House: Escape — first-person horror escape in a haunted Victorian house.
+   Mysterious old mansion with crooked roofs, partially opened wooden door glowing with
+   eerie red light, large antique skeleton key, shadowy elderly woman behind doorway,
+   vintage lantern with warm amber glow, cobwebs, cracked frames, floating dust,
+   twisted tree branches, and ghostly shadows.
+   Deep emerald, charcoal, dark crimson, muted brown, and warm amber accents */
+.game-page__about[data-decoration="cursed-house"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3CradialGradient id='ch-door-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff3020' stop-opacity='0.85'/%3E%3Cstop offset='35%25' stop-color='%23cc2010' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23660808' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='ch-lantern-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffaa44' stop-opacity='0.75'/%3E%3Cstop offset='40%25' stop-color='%23dd7722' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23884400' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ch-wood' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233d2a1a' stop-opacity='0.18'/%3E%3Cstop offset='50%25' stop-color='%232a1a0f' stop-opacity='0.15'/%3E%3Cstop offset='100%25' stop-color='%231a0f08' stop-opacity='0.12'/%3E%3C/linearGradient%3E%3ClinearGradient id='ch-key-metal' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23aa8855' stop-opacity='0.25'/%3E%3Cstop offset='50%25' stop-color='%238b6914' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23665522' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3ClinearGradient id='ch-roof' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a1a22' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%230f0f14' stop-opacity='0.15'/%3E%3C/linearGradient%3E%3Cfilter id='ch-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='4' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='ch-dust' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.08' numOctaves='4' result='noise'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.6 0 0 0 0 0.5 0 0 0 0 0.4 0 0 0 0.04 0'/%3E%3C/filter%3E%3C/defs%3E%3C!-- Atmospheric fog background --%3E%3Crect x='100' y='40' width='300' height='360' fill='%23112218' opacity='0.05'/%3E%3Crect x='120' y='60' width='280' height='340' filter='url(%23ch-dust)'/%3E%3C!-- Twisted tree branches left side --%3E%3Cpath d='M80 60 Q95 100 85 140 Q75 180 90 220' stroke='%231a1510' stroke-width='4' fill='none' opacity='0.12'/%3E%3Cpath d='M85 80 Q100 70 115 85' stroke='%231a1510' stroke-width='2.5' fill='none' opacity='0.1'/%3E%3Cpath d='M88 120 Q105 110 118 125' stroke='%231a1510' stroke-width='2' fill='none' opacity='0.09'/%3E%3Cpath d='M82 160 Q95 155 105 170' stroke='%231a1510' stroke-width='2' fill='none' opacity='0.08'/%3E%3C!-- Twisted tree branches right side --%3E%3Cpath d='M340 50 Q325 90 335 130 Q345 170 330 210' stroke='%231a1510' stroke-width='3.5' fill='none' opacity='0.11'/%3E%3Cpath d='M335 70 Q320 65 305 80' stroke='%231a1510' stroke-width='2' fill='none' opacity='0.09'/%3E%3Cpath d='M338 110 Q322 105 308 118' stroke='%231a1510' stroke-width='1.8' fill='none' opacity='0.08'/%3E%3C!-- Haunted mansion - main structure --%3E%3Crect x='150' y='140' width='120' height='180' fill='url(%23ch-wood)' stroke='%23002211' stroke-width='2' opacity='0.9'/%3E%3C!-- Mansion facade details --%3E%3Crect x='155' y='145' width='110' height='170' fill='%23221a14' stroke='%23331a11' stroke-width='1' opacity='0.08'/%3E%3C!-- Crooked roof main --%3E%3Cpath d='M140 140 L210 70 L280 140 Z' fill='url(%23ch-roof)' stroke='%23222830' stroke-width='2' opacity='0.9'/%3E%3C!-- Roof shingles detail --%3E%3Cpath d='M155 125 L210 85 L265 125' stroke='%23333840' stroke-width='1' fill='none' opacity='0.1'/%3E%3Cpath d='M165 115 L210 80 L255 115' stroke='%23333840' stroke-width='0.8' fill='none' opacity='0.08'/%3E%3C!-- Second crooked roof tower --%3E%3Crect x='245' y='110' width='50' height='100' fill='url(%23ch-wood)' stroke='%23002211' stroke-width='1.5' opacity='0.85'/%3E%3Cpath d='M240 110 L270 65 L300 110 Z' fill='url(%23ch-roof)' stroke='%23222830' stroke-width='1.5' opacity='0.85'/%3E%3C!-- Tower window --%3E%3Crect x='258' y='125' width='24' height='30' rx='12' fill='%230a0808' stroke='%23332820' stroke-width='1.5' opacity='0.15'/%3E%3Cpath d='M270 125 L270 155' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3Cpath d='M258 140 L282 140' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3C!-- Dark windows with eerie reflections --%3E%3Crect x='165' y='155' width='30' height='35' rx='2' fill='%230a0808' stroke='%23332820' stroke-width='1.5' opacity='0.15'/%3E%3Cpath d='M180 155 L180 190' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3Cpath d='M165 172 L195 172' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3Ccircle cx='175' cy='165' r='3' fill='%23ff3020' opacity='0.06'/%3E%3Crect x='225' y='155' width='30' height='35' rx='2' fill='%230a0808' stroke='%23332820' stroke-width='1.5' opacity='0.15'/%3E%3Cpath d='M240 155 L240 190' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3Cpath d='M225 172 L255 172' stroke='%23332820' stroke-width='1' opacity='0.12'/%3E%3Ccircle cx='235' cy='165' r='3' fill='%23ff3020' opacity='0.05'/%3E%3C!-- Main door frame --%3E%3Crect x='188' y='235' width='44' height='80' rx='2' fill='url(%23ch-wood)' stroke='%23442a18' stroke-width='2' opacity='0.9'/%3E%3C!-- Door panels --%3E%3Crect x='192' y='242' width='36' height='28' rx='1' fill='%23221510' stroke='%23332010' stroke-width='1' opacity='0.12'/%3E%3Crect x='192' y='278' width='36' height='32' rx='1' fill='%23221510' stroke='%23332010' stroke-width='1' opacity='0.12'/%3E%3C!-- Door opening crack with red glow --%3E%3Cpath d='M228 238 L232 238 L234 312 L230 312 Z' fill='url(%23ch-door-glow)' filter='url(%23ch-glow)' opacity='0.9'/%3E%3C!-- Light spilling from door crack --%3E%3Cpath d='M232 250 L260 290 L270 340 L234 310 Z' fill='%23ff2010' opacity='0.035'/%3E%3Cpath d='M232 260 L250 295 L255 330 L234 305 Z' fill='%23ff3020' opacity='0.025'/%3E%3C!-- Door handle --%3E%3Ccircle cx='222' cy='280' r='4' fill='%23aa8844' opacity='0.18'/%3E%3Ccircle cx='222' cy='280' r='2' fill='%23ddaa55' opacity='0.12'/%3E%3C!-- Shadowy elderly woman silhouette behind door --%3E%3Cpath d='M235 255 Q240 245 245 240 Q252 235 258 245 Q262 255 260 270 Q258 290 255 320 Q250 350 245 370 Q240 350 235 320 Q232 290 235 270 Q233 260 235 255 Z' fill='%23050505' opacity='0.22'/%3E%3C!-- Woman head shape --%3E%3Cellipse cx='248' cy='242' rx='12' ry='14' fill='%23080808' opacity='0.25'/%3E%3C!-- Woman hair/shawl --%3E%3Cpath d='M236 248 Q248 228 260 248' stroke='%23060606' stroke-width='3' fill='none' opacity='0.2'/%3E%3C!-- Hunched shoulders --%3E%3Cpath d='M232 265 Q248 255 264 265' stroke='%23050505' stroke-width='4' fill='none' opacity='0.18'/%3E%3C!-- Large antique skeleton key --%3E%3Cellipse cx='130' cy='280' rx='22' ry='24' fill='none' stroke='url(%23ch-key-metal)' stroke-width='5' opacity='0.9'/%3E%3Cellipse cx='130' cy='280' rx='14' ry='15' fill='%230a0806' opacity='0.1'/%3E%3C!-- Key ornate bow details --%3E%3Ccircle cx='130' cy='268' r='4' fill='%23aa8844' opacity='0.12'/%3E%3Ccircle cx='120' cy='280' r='3' fill='%23aa8844' opacity='0.1'/%3E%3Ccircle cx='140' cy='280' r='3' fill='%23aa8844' opacity='0.1'/%3E%3Ccircle cx='130' cy='292' r='4' fill='%23aa8844' opacity='0.12'/%3E%3C!-- Key shaft --%3E%3Crect x='126' y='302' width='8' height='70' rx='2' fill='url(%23ch-key-metal)' opacity='0.9'/%3E%3C!-- Key bit (teeth) --%3E%3Cpath d='M126 365 L126 372 L118 372 L118 368 L122 368 L122 365 Z' fill='%23aa8844' opacity='0.2'/%3E%3Cpath d='M134 365 L134 375 L142 375 L142 370 L138 370 L138 365 Z' fill='%23aa8844' opacity='0.2'/%3E%3Cpath d='M126 355 L120 355 L120 360 L126 360 Z' fill='%23aa8844' opacity='0.15'/%3E%3C!-- Key shaft details --%3E%3Cline x1='128' y1='310' x2='132' y2='310' stroke='%23ddaa55' stroke-width='1' opacity='0.12'/%3E%3Cline x1='128' y1='330' x2='132' y2='330' stroke='%23ddaa55' stroke-width='1' opacity='0.1'/%3E%3Cline x1='128' y1='350' x2='132' y2='350' stroke='%23ddaa55' stroke-width='1' opacity='0.1'/%3E%3C!-- Vintage lantern --%3E%3Crect x='305' y='250' width='30' height='45' rx='3' fill='%23332a20' stroke='%23443828' stroke-width='2' opacity='0.18'/%3E%3C!-- Lantern glass panels --%3E%3Crect x='309' y='256' width='22' height='35' rx='2' fill='%23ffaa44' opacity='0.08'/%3E%3C!-- Lantern top --%3E%3Cpath d='M308 250 L320 238 L332 250 Z' fill='%23443828' opacity='0.15'/%3E%3Crect x='316' y='232' width='8' height='8' rx='2' fill='%23332a20' opacity='0.12'/%3E%3C!-- Lantern handle --%3E%3Cpath d='M312 232 Q320 222 328 232' stroke='%23554433' stroke-width='2.5' fill='none' opacity='0.15'/%3E%3C!-- Lantern glow --%3E%3Ccircle cx='320' cy='272' r='35' fill='url(%23ch-lantern-glow)' filter='url(%23ch-glow)' opacity='0.8'/%3E%3C!-- Lantern flame --%3E%3Cellipse cx='320' cy='268' rx='6' ry='10' fill='%23ffcc66' opacity='0.15'/%3E%3Cellipse cx='320' cy='270' rx='3' ry='6' fill='%23ffaa44' opacity='0.2'/%3E%3C!-- Lantern base --%3E%3Crect x='307' y='295' width='26' height='6' rx='2' fill='%23443828' opacity='0.15'/%3E%3C!-- Cobwebs upper left --%3E%3Cpath d='M140 140 Q155 145 150 160' stroke='%23888888' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M140 140 Q148 150 142 165' stroke='%23888888' stroke-width='0.5' fill='none' opacity='0.07'/%3E%3Cpath d='M140 140 Q160 148 165 140' stroke='%23888888' stroke-width='0.5' fill='none' opacity='0.06'/%3E%3Cpath d='M150 145 Q145 155 155 160' stroke='%23888888' stroke-width='0.4' fill='none' opacity='0.05'/%3E%3C!-- Cobwebs upper right --%3E%3Cpath d='M280 140 Q265 148 270 165' stroke='%23888888' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M280 140 Q272 152 278 168' stroke='%23888888' stroke-width='0.5' fill='none' opacity='0.07'/%3E%3Cpath d='M275 148 Q282 158 272 165' stroke='%23888888' stroke-width='0.4' fill='none' opacity='0.05'/%3E%3C!-- Cobwebs on door frame --%3E%3Cpath d='M188 235 Q195 238 192 248' stroke='%23888888' stroke-width='0.5' fill='none' opacity='0.07'/%3E%3Cpath d='M232 235 Q225 240 228 250' stroke='%23888888' stroke-width='0.5' fill='none' opacity='0.06'/%3E%3C!-- Cracked wooden frame details --%3E%3Cpath d='M155 200 L158 210 L154 222' stroke='%23221510' stroke-width='0.8' fill='none' opacity='0.1'/%3E%3Cpath d='M262 185 L265 198 L260 208' stroke='%23221510' stroke-width='0.7' fill='none' opacity='0.09'/%3E%3Cpath d='M175 310 L178 318 L174 325' stroke='%23221510' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3C!-- Floating dust particles --%3E%3Ccircle cx='180' cy='180' r='1.5' fill='%23aa9977' opacity='0.08'/%3E%3Ccircle cx='240' cy='200' r='1' fill='%23aa9977' opacity='0.06'/%3E%3Ccircle cx='200' cy='250' r='1.2' fill='%23aa9977' opacity='0.07'/%3E%3Ccircle cx='160' cy='280' r='0.8' fill='%23aa9977' opacity='0.05'/%3E%3Ccircle cx='290' cy='220' r='1.3' fill='%23aa9977' opacity='0.06'/%3E%3Ccircle cx='175' cy='350' r='1' fill='%23aa9977' opacity='0.05'/%3E%3Ccircle cx='260' cy='300' r='1.1' fill='%23aa9977' opacity='0.06'/%3E%3Ccircle cx='310' cy='180' r='0.9' fill='%23aa9977' opacity='0.05'/%3E%3C!-- Ghostly shadow on ground --%3E%3Cellipse cx='210' cy='340' rx='55' ry='18' fill='%23000000' opacity='0.08'/%3E%3Cellipse cx='210' cy='345' rx='70' ry='14' fill='%23000000' opacity='0.05'/%3E%3C!-- Additional ghostly wisps --%3E%3Cpath d='M280 320 Q290 310 285 295' stroke='%23aaaaaa' stroke-width='2' fill='none' opacity='0.03'/%3E%3Cpath d='M285 330 Q298 318 292 300' stroke='%23aaaaaa' stroke-width='1.5' fill='none' opacity='0.025'/%3E%3C!-- Fog at bottom --%3E%3Cellipse cx='200' cy='380' rx='100' ry='22' fill='%23445544' opacity='0.045'/%3E%3Cellipse cx='170' cy='375' rx='70' ry='16' fill='%23334433' opacity='0.035'/%3E%3Cellipse cx='250' cy='385' rx='80' ry='14' fill='%23445544' opacity='0.03'/%3E%3C!-- Ground detail --%3E%3Cpath d='M140 320 L280 320' stroke='%23223322' stroke-width='2' opacity='0.08'/%3E%3Cpath d='M150 325 L270 325' stroke='%23112211' stroke-width='1' opacity='0.05'/%3E%3C!-- Porch steps hint --%3E%3Crect x='178' y='315' width='64' height='8' fill='%23221a14' stroke='%23331a11' stroke-width='1' opacity='0.1'/%3E%3Crect x='172' y='323' width='76' height='6' fill='%23221a14' stroke='%23331a11' stroke-width='0.8' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* The Cursed House ambient glow - dark crimson, warm amber, deep emerald, and charcoal accents */
+.game-page__about[data-decoration="cursed-house"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 45%, rgba(180, 40, 30, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 70% 60%, rgba(220, 150, 60, 0.05) 0%, transparent 45%),
+    radial-gradient(ellipse 45% 40% at 35% 50%, rgba(0, 140, 90, 0.035) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 55% 40%, rgba(100, 60, 40, 0.04) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6221,6 +6256,21 @@ h3 {
     height: 340px;
   }
 
+  /* The Cursed House tablet */
+  .game-page__about[data-decoration="cursed-house"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="cursed-house"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -7670,6 +7720,21 @@ h3 {
     height: 260px;
   }
 
+  /* The Cursed House mobile */
+  .game-page__about[data-decoration="cursed-house"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="cursed-house"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -8972,6 +9037,21 @@ h3 {
     height: 210px;
   }
 
+  /* The Cursed House small mobile */
+  .game-page__about[data-decoration="cursed-house"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="cursed-house"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9199,6 +9279,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="corridor-9"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* The Cursed House extra small */
+  .game-page__about[data-decoration="cursed-house"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="cursed-house"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

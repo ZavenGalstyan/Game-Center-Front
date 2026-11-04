@@ -274,6 +274,9 @@ const GAME_DECORATIONS = {
   "Midnight Shift": "midnight-shift",
   "Corridor 9: Endless Passage": "corridor-9",
   "Corridor 9": "corridor-9",
+  "The Cursed House: Escape": "cursed-house",
+  "The Cursed House": "cursed-house",
+  "Cursed House": "cursed-house",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

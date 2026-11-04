@@ -100,6 +100,7 @@ import neonMercenaryBg from "../images/NeonMercenary.png";
 import lastShelterBg from "../images/60seconds.png";
 import midnightShiftBg from "../images/MidnightShift.png";
 import corridor9Bg from "../images/Corridor9.png";
+import cursedHouseBg from "../images/TheCursedHouse.png";
 
 /**
  * Category to icon mapping.
@@ -1556,6 +1557,40 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(6, 14, 10, 0.5) 42%,
       rgba(6, 14, 10, 0.76) 54%,
       rgba(6, 14, 10, 0.88) 100%)`,
+  },
+  // The Cursed House: Escape — first-person horror escape in a haunted house.
+  // Eerie red glow, old lantern, antique key, and shadowy widow figure. 40%
+  // keeps the title and key elements visible while trimming the right edge on
+  // narrow cards. Dark crimson-charcoal fade matches the haunted house mood.
+  "the cursed house: escape": {
+    image: cursedHouseBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 6, 8, 0) 0%,
+      rgba(10, 6, 8, 0) 28%,
+      rgba(10, 6, 8, 0.5) 42%,
+      rgba(10, 6, 8, 0.76) 54%,
+      rgba(10, 6, 8, 0.88) 100%)`,
+  },
+  "the cursed house": {
+    image: cursedHouseBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 6, 8, 0) 0%,
+      rgba(10, 6, 8, 0) 28%,
+      rgba(10, 6, 8, 0.5) 42%,
+      rgba(10, 6, 8, 0.76) 54%,
+      rgba(10, 6, 8, 0.88) 100%)`,
+  },
+  "cursed house": {
+    image: cursedHouseBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 6, 8, 0) 0%,
+      rgba(10, 6, 8, 0) 28%,
+      rgba(10, 6, 8, 0.5) 42%,
+      rgba(10, 6, 8, 0.76) 54%,
+      rgba(10, 6, 8, 0.88) 100%)`,
   },
 };
 
