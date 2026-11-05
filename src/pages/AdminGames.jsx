@@ -25,6 +25,23 @@ import {
 
 const PAGE_SIZE = 20;
 
+// Page numbers to show: first, last, current ±1, with "..." for gaps.
+function getPageItems(page, totalPages) {
+  if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1);
+  const pages = new Set([1, totalPages, page - 1, page, page + 1]);
+  if (page <= 3) [2, 3, 4].forEach((p) => pages.add(p));
+  if (page >= totalPages - 2) [totalPages - 3, totalPages - 2, totalPages - 1].forEach((p) => pages.add(p));
+  const sorted = [...pages].filter((p) => p >= 1 && p <= totalPages).sort((a, b) => a - b);
+  const items = [];
+  sorted.forEach((p, i) => {
+    const prev = sorted[i - 1];
+    if (i > 0 && p - prev === 2) items.push(prev + 1);
+    else if (i > 0 && p - prev > 2) items.push("...");
+    items.push(p);
+  });
+  return items;
+}
+
 /**
  * Server errors for list items come back as `secondaryCategories[2]`; show
  * them on the field itself.
@@ -402,9 +419,26 @@ export default function AdminGames() {
               >
                 Prev
               </Button>
-              <span className="admin-games__page-info">
-                Page {page} of {totalPages}
-              </span>
+              <div className="admin-games__pages">
+                {getPageItems(page, totalPages).map((item, i) =>
+                  item === "..." ? (
+                    <span key={`gap-${i}`} className="admin-games__page-gap">
+                      …
+                    </span>
+                  ) : (
+                    <Button
+                      key={item}
+                      variant={item === page ? "primary" : "secondary"}
+                      size="sm"
+                      className="admin-games__page-btn"
+                      aria-current={item === page ? "page" : undefined}
+                      onClick={() => item !== page && setOffset((item - 1) * PAGE_SIZE)}
+                    >
+                      {item}
+                    </Button>
+                  )
+                )}
+              </div>
               <Button
                 variant="secondary"
                 size="sm"
