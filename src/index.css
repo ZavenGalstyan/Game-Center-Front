@@ -1511,34 +1511,41 @@ h3 {
   overflow: hidden;
 }
 
-/* Table */
+/* Table — fits the card width, no horizontal scroll */
 .admin-games__table-wrap {
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .admin-games__table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
   table-layout: fixed;
 }
 
-/* Column widths: NAME 35%, TYPE 22%, CREATED 23%, ACTIONS 20% */
+/* Column widths: NAME, CATEGORIES, RATING, CREATED, ACTIONS (fixed) */
 .admin-games__table th:nth-child(1),
 .admin-games__table td:nth-child(1) {
-  width: 35%;
+  width: 30%;
 }
 .admin-games__table th:nth-child(2),
 .admin-games__table td:nth-child(2) {
-  width: 22%;
+  width: 32%;
 }
 .admin-games__table th:nth-child(3),
 .admin-games__table td:nth-child(3) {
-  width: 23%;
+  width: 14%;
 }
 .admin-games__table th:nth-child(4),
 .admin-games__table td:nth-child(4) {
-  width: 20%;
+  width: 14%;
+}
+.admin-games__table th:nth-child(5),
+.admin-games__table td:nth-child(5) {
+  width: 130px;
+}
+
+.admin-games__table td {
+  overflow-wrap: anywhere;
 }
 
 .admin-games__table th {
@@ -1752,20 +1759,34 @@ h3 {
     gap: var(--space-3);
   }
 
-  .admin-games__table {
-    min-width: 520px;
-    table-layout: auto;
+  .admin-games__table th:nth-child(1),
+  .admin-games__table td:nth-child(1) {
+    width: 32%;
+  }
+  .admin-games__table th:nth-child(2),
+  .admin-games__table td:nth-child(2) {
+    width: 34%;
+  }
+  .admin-games__table th:nth-child(3),
+  .admin-games__table td:nth-child(3) {
+    width: 18%;
+  }
+  .admin-games__table th:nth-child(5),
+  .admin-games__table td:nth-child(5) {
+    width: 64px;
   }
 
-  .admin-games__table th:nth-child(1),
-  .admin-games__table td:nth-child(1),
-  .admin-games__table th:nth-child(2),
-  .admin-games__table td:nth-child(2),
-  .admin-games__table th:nth-child(3),
-  .admin-games__table td:nth-child(3),
+  /* Hide CREATED on small screens to keep everything visible */
   .admin-games__table th:nth-child(4),
   .admin-games__table td:nth-child(4) {
-    width: auto;
+    display: none;
+  }
+
+  /* Stack Edit / Delete vertically */
+  .admin-games__table .ui-table-actions {
+    flex-direction: column;
+    gap: var(--space-1);
+    align-items: flex-start;
   }
 
   .admin-games__table th,
