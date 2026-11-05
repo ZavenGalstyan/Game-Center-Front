@@ -1641,6 +1641,30 @@ h3 {
   color: var(--text-secondary);
 }
 
+.admin-games__pages {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.admin-games__page-btn {
+  min-width: 36px;
+}
+
+.admin-games__page-gap {
+  color: var(--text-muted);
+  padding: 0 var(--space-1);
+}
+
+@media (max-width: 600px) {
+  .admin-games__footer {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+}
+
 /* Game Form Modal */
 .admin-games-modal.ui-modal {
   max-width: 460px;
