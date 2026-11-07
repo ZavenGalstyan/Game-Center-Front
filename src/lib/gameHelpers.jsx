@@ -107,6 +107,8 @@ import ironFistBg from "../images/IronFist.png";
 import karateLegendsBg from "../images/KarateLegends.png";
 import wobblyWarriorsBg from "../images/WobblyWarriors.png";
 import shadowArenaBg from "../images/ShadowArena.png";
+import ultimateMMABg from "../images/UltimateMMA.png";
+import lastHopeBg from "../images/LastHope.png";
 
 /**
  * Category to icon mapping.
@@ -1736,6 +1738,41 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(10, 8, 12, 0.5) 40%,
       rgba(10, 8, 12, 0.76) 52%,
       rgba(10, 8, 12, 0.88) 100%)`,
+  },
+  // Two MMA fighters facing off inside the octagon; 50% keeps both centered,
+  // top anchor preserves the cage outline and title text on the cover.
+  "ultimate mma championship 3d": {
+    image: ultimateMMABg,
+    position: "50% top",
+    shade: `linear-gradient(90deg,
+      rgba(8, 10, 14, 0) 0%,
+      rgba(8, 10, 14, 0) 30%,
+      rgba(8, 10, 14, 0.5) 42%,
+      rgba(8, 10, 14, 0.76) 54%,
+      rgba(8, 10, 14, 0.88) 100%)`,
+  },
+  // Last Hope: Zombie Survival - survivor, zombies, and ruined city skyline.
+  // Center positioning keeps the survivor and game title visible; dark olive
+  // shade blends the post-apocalyptic atmosphere into the card text area.
+  "last hope: zombie survival": {
+    image: lastHopeBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 12, 8, 0) 0%,
+      rgba(6, 12, 8, 0) 28%,
+      rgba(6, 12, 8, 0.45) 40%,
+      rgba(6, 12, 8, 0.72) 52%,
+      rgba(6, 12, 8, 0.85) 100%)`,
+  },
+  "last hope": {
+    image: lastHopeBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 12, 8, 0) 0%,
+      rgba(6, 12, 8, 0) 28%,
+      rgba(6, 12, 8, 0.45) 40%,
+      rgba(6, 12, 8, 0.72) 52%,
+      rgba(6, 12, 8, 0.85) 100%)`,
   },
 };
 

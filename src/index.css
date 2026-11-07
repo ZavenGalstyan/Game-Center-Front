@@ -5042,6 +5042,75 @@ h3 {
   z-index: -1;
 }
 
+/* Ultimate MMA Championship 3D — Premium championship octagon composition.
+   Three-dimensional octagon cage with perspective, championship belt as focal
+   point with ornate gold center plate, pair of MMA gloves (red and blue),
+   arena spotlights, cage shadows, and metallic reflections. Dark green,
+   charcoal, muted gold, red, and blue accents. No human figures. */
+.game-page__about[data-decoration="ultimate-mma"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3C!-- Arena spotlight from above --%3E%3CradialGradient id='oc-spot' cx='50%25' cy='25%25' r='65%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.12'/%3E%3Cstop offset='35%25' stop-color='%23eeffff' stop-opacity='0.06'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Octagon floor with 3D depth --%3E%3CradialGradient id='oc-floor' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23283028' stop-opacity='0.5'/%3E%3Cstop offset='60%25' stop-color='%231a221a' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23101410' stop-opacity='0.15'/%3E%3C/radialGradient%3E%3C!-- Championship belt main gold --%3E%3ClinearGradient id='oc-gold-main' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffeaa0' stop-opacity='0.85'/%3E%3Cstop offset='25%25' stop-color='%23ffd700' stop-opacity='0.8'/%3E%3Cstop offset='50%25' stop-color='%23ccaa00' stop-opacity='0.75'/%3E%3Cstop offset='75%25' stop-color='%23aa8800' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%23886600' stop-opacity='0.65'/%3E%3C/linearGradient%3E%3C!-- Belt center plate shine --%3E%3CradialGradient id='oc-gold-shine' cx='35%25' cy='30%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%23ffffdd' stop-opacity='0.6'/%3E%3Cstop offset='40%25' stop-color='%23ffd700' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23aa7700' stop-opacity='0.2'/%3E%3C/radialGradient%3E%3C!-- Belt leather strap --%3E%3ClinearGradient id='oc-leather' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232a1a10' stop-opacity='0.7'/%3E%3Cstop offset='50%25' stop-color='%231a1008' stop-opacity='0.65'/%3E%3Cstop offset='100%25' stop-color='%23100804' stop-opacity='0.6'/%3E%3C/linearGradient%3E%3C!-- Red glove gradient --%3E%3ClinearGradient id='oc-red' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23dd3030' stop-opacity='0.75'/%3E%3Cstop offset='35%25' stop-color='%23cc2020' stop-opacity='0.7'/%3E%3Cstop offset='70%25' stop-color='%23aa1818' stop-opacity='0.65'/%3E%3Cstop offset='100%25' stop-color='%23881010' stop-opacity='0.6'/%3E%3C/linearGradient%3E%3C!-- Red glove highlight --%3E%3ClinearGradient id='oc-red-hi' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6060' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23cc2020' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3C!-- Blue glove gradient --%3E%3ClinearGradient id='oc-blue' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233070dd' stop-opacity='0.75'/%3E%3Cstop offset='35%25' stop-color='%232060cc' stop-opacity='0.7'/%3E%3Cstop offset='70%25' stop-color='%231850aa' stop-opacity='0.65'/%3E%3Cstop offset='100%25' stop-color='%23104088' stop-opacity='0.6'/%3E%3C/linearGradient%3E%3C!-- Blue glove highlight --%3E%3ClinearGradient id='oc-blue-hi' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236090ff' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%232060cc' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3C!-- Cage metal gradient --%3E%3ClinearGradient id='oc-cage' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23aaaaaa' stop-opacity='0.35'/%3E%3Cstop offset='50%25' stop-color='%23888888' stop-opacity='0.28'/%3E%3Cstop offset='100%25' stop-color='%23555555' stop-opacity='0.2'/%3E%3C/linearGradient%3E%3C!-- Cage post metallic --%3E%3ClinearGradient id='oc-post' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23666666' stop-opacity='0.4'/%3E%3Cstop offset='30%25' stop-color='%23999999' stop-opacity='0.5'/%3E%3Cstop offset='50%25' stop-color='%23bbbbbb' stop-opacity='0.55'/%3E%3Cstop offset='70%25' stop-color='%23999999' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23555555' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3C!-- Soft glow filter --%3E%3Cfilter id='oc-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C!-- Metallic shine filter --%3E%3Cfilter id='oc-shine' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='1.5' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C!-- Gold spark --%3E%3CradialGradient id='oc-spark' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.9'/%3E%3Cstop offset='30%25' stop-color='%23ffd700' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23aa7700' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Arena spotlight background --%3E%3Crect x='0' y='0' width='400' height='400' fill='url(%23oc-spot)'/%3E%3C!-- 3D OCTAGON CAGE with perspective --%3E%3C!-- Cage floor (ellipse for 3D perspective) --%3E%3Cellipse cx='200' cy='310' rx='155' ry='55' fill='url(%23oc-floor)'/%3E%3Cellipse cx='200' cy='310' rx='145' ry='50' fill='none' stroke='%23444444' stroke-width='2' opacity='0.25'/%3E%3C!-- Floor octagon markings --%3E%3Cpolygon points='200,260 260,272 295,298 295,322 260,348 200,360 140,348 105,322 105,298 140,272' fill='none' stroke='%23666666' stroke-width='1.5' opacity='0.18'/%3E%3C!-- Inner floor circle --%3E%3Cellipse cx='200' cy='310' rx='55' ry='20' fill='none' stroke='%23555555' stroke-width='1' opacity='0.15'/%3E%3C!-- Rear cage posts (back of octagon) --%3E%3Crect x='118' y='120' width='8' height='155' rx='2' fill='url(%23oc-post)'/%3E%3Crect x='274' y='120' width='8' height='155' rx='2' fill='url(%23oc-post)'/%3E%3C!-- Rear cage top bar --%3E%3Cpath d='M122 120 Q200 95 278 120' stroke='url(%23oc-cage)' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C!-- Rear cage mesh (fence pattern) --%3E%3Cpath d='M126 130 L126 265 M145 120 L145 272 M165 112 L165 278 M185 108 L185 282 M200 106 L200 284 M215 108 L215 282 M235 112 L235 278 M255 120 L255 272 M274 130 L274 265' stroke='%23777777' stroke-width='0.7' opacity='0.15'/%3E%3Cpath d='M126 140 L274 140 M126 165 L274 165 M126 190 L274 190 M126 215 L274 215 M126 240 L274 240' stroke='%23777777' stroke-width='0.7' opacity='0.12'/%3E%3C!-- Side cage posts (left and right) --%3E%3Crect x='68' y='175' width='9' height='130' rx='2' fill='url(%23oc-post)'/%3E%3Crect x='323' y='175' width='9' height='130' rx='2' fill='url(%23oc-post)'/%3E%3C!-- Side horizontal bars --%3E%3Cpath d='M77 175 L122 125' stroke='url(%23oc-cage)' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M323 175 L278 125' stroke='url(%23oc-cage)' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C!-- Front corner posts (closer, larger for perspective) --%3E%3Crect x='88' y='260' width='10' height='70' rx='2' fill='url(%23oc-post)'/%3E%3Crect x='302' y='260' width='10' height='70' rx='2' fill='url(%23oc-post)'/%3E%3C!-- Side mesh panels --%3E%3Cpath d='M73 185 L73 295 M73 200 Q95 235 93 290' stroke='%23777777' stroke-width='0.6' opacity='0.12'/%3E%3Cpath d='M327 185 L327 295 M327 200 Q305 235 307 290' stroke='%23777777' stroke-width='0.6' opacity='0.12'/%3E%3C!-- Corner connectors --%3E%3Cpath d='M77 305 L93 330' stroke='url(%23oc-cage)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M323 305 L307 330' stroke='url(%23oc-cage)' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C!-- CHAMPIONSHIP BELT (main focal point) --%3E%3C!-- Belt strap shadow --%3E%3Cellipse cx='200' cy='218' rx='82' ry='12' fill='%23000000' opacity='0.15'/%3E%3C!-- Left strap --%3E%3Cpath d='M120 195 Q140 210 165 212 L165 225 Q140 223 120 208 Z' fill='url(%23oc-leather)'/%3E%3Cpath d='M122 198 Q140 211 163 213' stroke='%23443322' stroke-width='0.8' fill='none' opacity='0.3'/%3E%3C!-- Right strap --%3E%3Cpath d='M280 195 Q260 210 235 212 L235 225 Q260 223 280 208 Z' fill='url(%23oc-leather)'/%3E%3Cpath d='M278 198 Q260 211 237 213' stroke='%23443322' stroke-width='0.8' fill='none' opacity='0.3'/%3E%3C!-- Strap buckle holes --%3E%3Ccircle cx='135' cy='205' r='2.5' fill='%23222222' opacity='0.4'/%3E%3Ccircle cx='145' cy='210' r='2.5' fill='%23222222' opacity='0.4'/%3E%3Ccircle cx='265' cy='205' r='2.5' fill='%23222222' opacity='0.4'/%3E%3Ccircle cx='255' cy='210' r='2.5' fill='%23222222' opacity='0.4'/%3E%3C!-- Center plate base --%3E%3Cellipse cx='200' cy='200' rx='50' ry='35' fill='url(%23oc-gold-main)' filter='url(%23oc-shine)'/%3E%3C!-- Center plate border --%3E%3Cellipse cx='200' cy='200' rx='50' ry='35' fill='none' stroke='%23aa8800' stroke-width='2' opacity='0.6'/%3E%3Cellipse cx='200' cy='200' rx='46' ry='31' fill='none' stroke='%23ddbb44' stroke-width='1' opacity='0.4'/%3E%3C!-- Center plate shine overlay --%3E%3Cellipse cx='190' cy='188' rx='30' ry='18' fill='url(%23oc-gold-shine)'/%3E%3C!-- Center plate inner design --%3E%3Cellipse cx='200' cy='200' rx='32' ry='22' fill='none' stroke='%23ddaa00' stroke-width='1.5' opacity='0.5'/%3E%3C!-- Decorative octagon in center --%3E%3Cpolygon points='200,180 215,184 222,196 218,210 204,218 189,214 182,202 186,188' fill='none' stroke='%23ffdd66' stroke-width='1.2' opacity='0.45'/%3E%3C!-- Center gem/star --%3E%3Ccircle cx='200' cy='198' r='8' fill='%23ffd700' opacity='0.6'/%3E%3Ccircle cx='200' cy='198' r='5' fill='%23ffee88' opacity='0.5'/%3E%3Cpath d='M200 191 L202 196 L207 196 L203 200 L205 205 L200 202 L195 205 L197 200 L193 196 L198 196 Z' fill='%23ffffff' opacity='0.5'/%3E%3C!-- Side plates --%3E%3Crect x='152' y='192' width='22' height='18' rx='3' fill='url(%23oc-gold-main)' opacity='0.85'/%3E%3Crect x='154' y='194' width='18' height='14' rx='2' fill='none' stroke='%23ddbb44' stroke-width='0.8' opacity='0.4'/%3E%3Crect x='226' y='192' width='22' height='18' rx='3' fill='url(%23oc-gold-main)' opacity='0.85'/%3E%3Crect x='228' y='194' width='18' height='14' rx='2' fill='none' stroke='%23ddbb44' stroke-width='0.8' opacity='0.4'/%3E%3C!-- Small decorative rivets --%3E%3Ccircle cx='163' cy='201' r='2.5' fill='%23ffdd66' opacity='0.5'/%3E%3Ccircle cx='237' cy='201' r='2.5' fill='%23ffdd66' opacity='0.5'/%3E%3C!-- RED MMA GLOVE (left side) --%3E%3C!-- Glove body --%3E%3Cellipse cx='95' cy='148' rx='32' ry='26' fill='url(%23oc-red)' transform='rotate(-15 95 148)'/%3E%3C!-- Glove padding sections --%3E%3Cpath d='M72 138 Q80 125 98 122 Q108 124 115 135' stroke='%23aa1818' stroke-width='1.5' fill='none' opacity='0.5'/%3E%3Cpath d='M75 155 Q90 160 110 152' stroke='%23881010' stroke-width='1' fill='none' opacity='0.4'/%3E%3C!-- Glove highlight --%3E%3Cellipse cx='85' cy='138' rx='15' ry='10' fill='url(%23oc-red-hi)' transform='rotate(-15 85 138)'/%3E%3C!-- Finger openings --%3E%3Cpath d='M68 148 Q65 155 68 162' stroke='%23661010' stroke-width='2' fill='none' opacity='0.4' stroke-linecap='round'/%3E%3Cpath d='M75 152 Q73 160 76 167' stroke='%23661010' stroke-width='1.8' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3C!-- Wrist strap --%3E%3Cpath d='M105 165 Q120 172 125 168 Q130 164 128 155' stroke='%23222222' stroke-width='5' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3Cpath d='M108 163 Q118 168 122 165' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.2'/%3E%3C!-- Velcro detail --%3E%3Crect x='115' y='158' width='12' height='6' rx='1' fill='%23111111' opacity='0.3'/%3E%3C!-- BLUE MMA GLOVE (right side) --%3E%3C!-- Glove body --%3E%3Cellipse cx='305' cy='148' rx='32' ry='26' fill='url(%23oc-blue)' transform='rotate(15 305 148)'/%3E%3C!-- Glove padding sections --%3E%3Cpath d='M328 138 Q320 125 302 122 Q292 124 285 135' stroke='%231850aa' stroke-width='1.5' fill='none' opacity='0.5'/%3E%3Cpath d='M325 155 Q310 160 290 152' stroke='%23104088' stroke-width='1' fill='none' opacity='0.4'/%3E%3C!-- Glove highlight --%3E%3Cellipse cx='315' cy='138' rx='15' ry='10' fill='url(%23oc-blue-hi)' transform='rotate(15 315 138)'/%3E%3C!-- Finger openings --%3E%3Cpath d='M332 148 Q335 155 332 162' stroke='%23103060' stroke-width='2' fill='none' opacity='0.4' stroke-linecap='round'/%3E%3Cpath d='M325 152 Q327 160 324 167' stroke='%23103060' stroke-width='1.8' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3C!-- Wrist strap --%3E%3Cpath d='M295 165 Q280 172 275 168 Q270 164 272 155' stroke='%23222222' stroke-width='5' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3Cpath d='M292 163 Q282 168 278 165' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.2'/%3E%3C!-- Velcro detail --%3E%3Crect x='273' y='158' width='12' height='6' rx='1' fill='%23111111' opacity='0.3'/%3E%3C!-- ARENA LIGHTING EFFECTS --%3E%3C!-- Top spotlight beam --%3E%3Cpath d='M200 0 L160 100 L240 100 Z' fill='%23ffffff' opacity='0.025'/%3E%3C!-- Left spotlight --%3E%3Cpath d='M30 30 L80 150 L120 120 Z' fill='%23ffffff' opacity='0.018'/%3E%3C!-- Right spotlight --%3E%3Cpath d='M370 30 L320 150 L280 120 Z' fill='%23ffffff' opacity='0.018'/%3E%3C!-- Belt golden glow --%3E%3Cellipse cx='200' cy='200' rx='65' ry='45' fill='%23ffd700' opacity='0.06' filter='url(%23oc-glow)'/%3E%3C!-- Golden sparkles around belt --%3E%3Ccircle cx='145' cy='185' r='2' fill='url(%23oc-spark)' filter='url(%23oc-glow)'/%3E%3Ccircle cx='255' cy='185' r='2' fill='url(%23oc-spark)' filter='url(%23oc-glow)'/%3E%3Ccircle cx='200' cy='165' r='2.5' fill='url(%23oc-spark)' filter='url(%23oc-glow)'/%3E%3Ccircle cx='175' cy='220' r='1.5' fill='url(%23oc-spark)' filter='url(%23oc-glow)'/%3E%3Ccircle cx='225' cy='220' r='1.5' fill='url(%23oc-spark)' filter='url(%23oc-glow)'/%3E%3C!-- Red corner indicator --%3E%3Ccircle cx='75' cy='120' r='6' fill='%23cc2020' opacity='0.25'/%3E%3Ccircle cx='75' cy='120' r='3' fill='%23ff4040' opacity='0.35'/%3E%3C!-- Blue corner indicator --%3E%3Ccircle cx='325' cy='120' r='6' fill='%232060cc' opacity='0.25'/%3E%3Ccircle cx='325' cy='120' r='3' fill='%234080ff' opacity='0.35'/%3E%3C!-- Ambient dust particles --%3E%3Ccircle cx='130' cy='90' r='1.2' fill='%23ffffff' opacity='0.15'/%3E%3Ccircle cx='270' cy='85' r='1' fill='%23ffffff' opacity='0.12'/%3E%3Ccircle cx='180' cy='75' r='0.8' fill='%23ffd700' opacity='0.18'/%3E%3Ccircle cx='220' cy='80' r='0.8' fill='%23ffd700' opacity='0.15'/%3E%3Ccircle cx='310' cy='200' r='1' fill='%232060cc' opacity='0.12'/%3E%3Ccircle cx='90' cy='200' r='1' fill='%23cc2020' opacity='0.12'/%3E%3Ccircle cx='155' cy='280' r='0.8' fill='%23ffffff' opacity='0.1'/%3E%3Ccircle cx='245' cy='275' r='0.8' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Ultimate MMA ambient glow - championship gold with red/blue corner accents */
+.game-page__about[data-decoration="ultimate-mma"]::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 45%, rgba(255, 215, 0, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 30% 40%, rgba(204, 32, 32, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 70% 40%, rgba(32, 96, 204, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 50% 65%, rgba(40, 50, 40, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Last Hope: Zombie Survival — Premium survival-horror illustration.
+   Cinematic composition featuring survivor silhouette with backpack and flashlight,
+   threatening zombie silhouettes emerging from fog, ruined city skyline with
+   damaged buildings, broken fencing, scattered debris, and overgrown vegetation.
+   Atmospheric fog, orange-red glow, and focused flashlight beam.
+   Dark palette: charcoal, muted olive, dark green, rusty orange, restrained red. */
+.game-page__about[data-decoration="last-hope"]::before {
+  content: "";
+  width: 400px;
+  height: 400px;
+  right: -25px;
+  bottom: -45px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3C!-- Apocalyptic sky gradient --%3E%3ClinearGradient id='lh-sky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a1412' stop-opacity='0.6'/%3E%3Cstop offset='35%25' stop-color='%232a1810' stop-opacity='0.5'/%3E%3Cstop offset='65%25' stop-color='%23301a0c' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%231a1a14' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3C!-- Distant fire glow --%3E%3CradialGradient id='lh-fireglow' cx='25%25' cy='45%25' r='40%25'%3E%3Cstop offset='0%25' stop-color='%23cc4400' stop-opacity='0.2'/%3E%3Cstop offset='50%25' stop-color='%23882200' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='0'/%3E%3C/radialGradient%3E%3C!-- Flashlight beam --%3E%3ClinearGradient id='lh-beam' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffcc' stop-opacity='0.35'/%3E%3Cstop offset='40%25' stop-color='%23ffeeaa' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23ffdd88' stop-opacity='0.05'/%3E%3C/linearGradient%3E%3C!-- Ground fog --%3E%3ClinearGradient id='lh-fog' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23303830' stop-opacity='0'/%3E%3Cstop offset='60%25' stop-color='%23283028' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%23202820' stop-opacity='0.45'/%3E%3C/linearGradient%3E%3C!-- Building silhouette dark --%3E%3ClinearGradient id='lh-building' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23181818' stop-opacity='0.75'/%3E%3Cstop offset='100%25' stop-color='%23101010' stop-opacity='0.6'/%3E%3C/linearGradient%3E%3C!-- Survivor silhouette --%3E%3ClinearGradient id='lh-survivor' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23202420' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%23101210' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3C!-- Zombie silhouette --%3E%3ClinearGradient id='lh-zombie' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a1a18' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%230a0a08' stop-opacity='0.6'/%3E%3C/linearGradient%3E%3C!-- Backpack detail --%3E%3ClinearGradient id='lh-pack' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23363830' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%23282a24' stop-opacity='0.75'/%3E%3C/linearGradient%3E%3C!-- Vegetation --%3E%3ClinearGradient id='lh-veg' x1='0%25' y1='100%25' x2='0%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%232a3020' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%231a2010' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3C!-- Rust/debris --%3E%3ClinearGradient id='lh-rust' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23604020' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23402810' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3C!-- Glow filter --%3E%3Cfilter id='lh-glow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='4' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C!-- Soft blur --%3E%3Cfilter id='lh-soft' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='2'/%3E%3C/filter%3E%3C/defs%3E%3C!-- Apocalyptic sky background --%3E%3Crect x='0' y='0' width='400' height='400' fill='url(%23lh-sky)'/%3E%3C!-- Distant fire glow on horizon --%3E%3Crect x='0' y='0' width='400' height='400' fill='url(%23lh-fireglow)'/%3E%3C!-- RUINED CITY SKYLINE --%3E%3C!-- Far background buildings (damaged) --%3E%3Cpath d='M0 180 L0 145 L15 145 L15 130 L25 130 L25 140 L40 140 L40 120 L55 120 L55 135 L50 135 L50 180' fill='url(%23lh-building)' opacity='0.5'/%3E%3C!-- Building with collapsed section --%3E%3Cpath d='M52 180 L52 100 L58 100 L58 95 L72 95 L72 85 L80 90 L85 90 L85 100 L95 100 L95 110 L100 115 L100 180' fill='url(%23lh-building)' opacity='0.55'/%3E%3C!-- Broken windows --%3E%3Crect x='60' y='105' width='6' height='8' fill='%23cc4400' opacity='0.2'/%3E%3Crect x='75' y='100' width='5' height='6' fill='%23aa3300' opacity='0.15'/%3E%3C!-- Tall damaged tower --%3E%3Cpath d='M95 180 L95 70 L100 65 L105 65 L110 60 L115 65 L120 65 L125 70 L125 85 L130 85 L130 180' fill='url(%23lh-building)' opacity='0.6'/%3E%3C!-- Antenna/broken spire --%3E%3Cpath d='M110 60 L110 45 L112 40 L114 45 L114 60' fill='%23202020' opacity='0.5'/%3E%3C!-- Fire in building --%3E%3Cellipse cx='108' cy='95' rx='5' ry='4' fill='%23ff4400' opacity='0.2' filter='url(%23lh-glow)'/%3E%3C!-- Middle building cluster --%3E%3Cpath d='M128 180 L128 110 L140 110 L140 95 L150 95 L150 105 L160 105 L165 100 L165 180' fill='url(%23lh-building)' opacity='0.55'/%3E%3C!-- Far right buildings --%3E%3Cpath d='M350 180 L350 130 L365 130 L365 120 L375 115 L385 120 L385 135 L400 135 L400 180' fill='url(%23lh-building)' opacity='0.45'/%3E%3C!-- BROKEN FENCING --%3E%3C!-- Chain-link fence posts --%3E%3Crect x='20' y='220' width='4' height='55' fill='%23444440' opacity='0.5'/%3E%3Crect x='55' y='225' width='4' height='50' fill='%23444440' opacity='0.45' transform='rotate(8 57 250)'/%3E%3Crect x='90' y='230' width='4' height='45' fill='%23444440' opacity='0.4'/%3E%3C!-- Broken fence wire --%3E%3Cpath d='M22 230 Q40 228 57 235 Q75 230 92 238' stroke='%23555550' stroke-width='1' fill='none' opacity='0.4'/%3E%3Cpath d='M22 245 Q38 250 55 245' stroke='%23555550' stroke-width='1' fill='none' opacity='0.35'/%3E%3Cpath d='M60 250 Q75 255 92 252' stroke='%23555550' stroke-width='0.8' fill='none' opacity='0.3'/%3E%3C!-- Fallen fence section --%3E%3Crect x='100' y='275' width='35' height='3' fill='%23444440' opacity='0.35' transform='rotate(-12 117 276)'/%3E%3C!-- SCATTERED DEBRIS --%3E%3C!-- Concrete chunks --%3E%3Cpath d='M140 340 L150 338 L155 345 L148 350 L138 347 Z' fill='url(%23lh-rust)' opacity='0.5'/%3E%3Cpath d='M175 355 L185 352 L188 360 L180 365 L172 360 Z' fill='%23383430' opacity='0.45'/%3E%3C!-- Rusted barrel --%3E%3Cellipse cx='320' cy='335' rx='12' ry='8' fill='url(%23lh-rust)' opacity='0.5'/%3E%3Cellipse cx='320' cy='330' rx='10' ry='6' fill='%23503820' opacity='0.4'/%3E%3C!-- Broken crate --%3E%3Cpath d='M280 350 L295 348 L298 365 L282 368 Z' fill='%233a3428' opacity='0.45'/%3E%3Cpath d='M282 350 L288 342 L303 340 L298 348' fill='%232a2820' opacity='0.4'/%3E%3C!-- Scattered small debris --%3E%3Crect x='220' y='360' width='8' height='5' fill='%23404038' opacity='0.35' transform='rotate(25 224 362)'/%3E%3Crect x='250' y='355' width='6' height='4' fill='%23383430' opacity='0.3' transform='rotate(-15 253 357)'/%3E%3Crect x='350' y='345' width='10' height='6' fill='%233a3830' opacity='0.35' transform='rotate(10 355 348)'/%3E%3C!-- OVERGROWN VEGETATION --%3E%3C!-- Tall grass/weeds clusters --%3E%3Cpath d='M30 380 Q32 355 28 340 M35 380 Q38 360 33 345 M40 380 Q44 358 38 338' stroke='url(%23lh-veg)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M160 380 Q165 360 158 348 M168 380 Q172 355 165 340 M175 380 Q178 362 172 350' stroke='url(%23lh-veg)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M340 380 Q345 358 338 345 M350 380 Q355 355 348 338 M358 380 Q362 360 355 348' stroke='url(%23lh-veg)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C!-- Vine on fence --%3E%3Cpath d='M22 240 Q30 235 35 245 Q42 238 50 248' stroke='%232a3520' stroke-width='1.5' fill='none' opacity='0.4'/%3E%3C!-- ATMOSPHERIC FOG --%3E%3Crect x='0' y='200' width='400' height='200' fill='url(%23lh-fog)'/%3E%3C!-- Fog wisps --%3E%3Cellipse cx='80' cy='300' rx='60' ry='20' fill='%23303830' opacity='0.2' filter='url(%23lh-soft)'/%3E%3Cellipse cx='250' cy='320' rx='80' ry='25' fill='%23283028' opacity='0.18' filter='url(%23lh-soft)'/%3E%3Cellipse cx='350' cy='290' rx='50' ry='18' fill='%23303830' opacity='0.15' filter='url(%23lh-soft)'/%3E%3C!-- ZOMBIE SILHOUETTES --%3E%3C!-- Far zombie (lurching, arms raised) --%3E%3Cpath d='M55 285 Q52 275 55 268 Q58 260 55 255 L53 250 Q55 245 58 242 Q62 238 60 232 Q58 225 62 218 Q68 210 72 218 Q76 228 74 235 Q72 242 75 248 L78 255 Q82 260 80 268 Q78 278 82 288 Q85 295 82 310 L80 330 L72 330 L74 310 Q72 298 68 290 L65 330 L58 330 L60 295 Q58 290 55 285' fill='url(%23lh-zombie)' opacity='0.6'/%3E%3C!-- Zombie raised arm --%3E%3Cpath d='M75 248 Q85 240 92 235 Q98 230 102 235 L100 240 Q95 238 90 245 Q82 252 78 255' fill='url(%23lh-zombie)' opacity='0.55'/%3E%3C!-- Mid zombie (closer, more detailed) --%3E%3Cpath d='M130 300 Q125 285 128 275 Q130 265 126 258 Q122 250 128 240 Q135 228 145 235 Q152 242 150 255 Q148 265 152 275 Q155 288 152 305 Q150 320 155 345 L145 348 L148 320 Q145 310 140 305 L138 348 L128 345 L132 310 Q128 305 130 300' fill='url(%23lh-zombie)' opacity='0.7'/%3E%3C!-- Zombie head tilt and jaw --%3E%3Cpath d='M135 240 Q130 235 132 228 Q138 220 148 225 Q155 232 150 240 Q145 248 138 245' fill='url(%23lh-zombie)' opacity='0.65'/%3E%3C!-- Zombie reaching arm --%3E%3Cpath d='M150 255 Q165 248 175 255 Q185 260 188 268 L185 272 Q180 265 172 262 Q160 258 152 265' fill='url(%23lh-zombie)' opacity='0.6'/%3E%3C!-- Close zombie (emerging from right fog) --%3E%3Cpath d='M355 320 Q350 305 355 290 Q358 278 352 268 Q348 258 355 248 Q365 235 378 245 Q388 258 382 275 Q378 290 385 310 L390 350 L378 355 L380 315 Q375 305 370 300 L365 355 L352 350 L358 315 Q355 310 355 320' fill='url(%23lh-zombie)' opacity='0.55'/%3E%3C!-- SURVIVOR SILHOUETTE (main focal point) --%3E%3C!-- Body --%3E%3Cpath d='M215 360 L218 310 Q220 295 218 280 Q215 265 220 250 L222 235 Q225 225 232 218 Q242 208 250 215 Q260 225 255 240 Q252 252 255 265 Q258 280 255 300 Q252 320 258 345 L268 380 L255 385 L252 350 Q248 330 245 320 L242 380 L228 385 L232 340 Q228 325 225 315 L220 365 Z' fill='url(%23lh-survivor)'/%3E%3C!-- Head with cap/hood --%3E%3Cpath d='M230 218 Q225 210 228 198 Q235 185 248 190 Q262 195 260 210 Q258 222 250 228 Q240 235 232 225' fill='url(%23lh-survivor)'/%3E%3C!-- Cap brim --%3E%3Cpath d='M228 198 Q222 195 218 200 Q215 205 220 208 Q228 205 235 202' fill='%23181a18' opacity='0.85'/%3E%3C!-- BACKPACK (detailed) --%3E%3Cpath d='M255 240 Q275 245 280 270 Q282 295 278 320 L275 325 Q265 328 258 320 Q255 305 258 280 Q260 255 255 240' fill='url(%23lh-pack)'/%3E%3C!-- Backpack straps --%3E%3Cpath d='M255 245 Q250 250 248 265 Q245 280 248 295' stroke='%23303428' stroke-width='3' fill='none' opacity='0.75'/%3E%3C!-- Backpack pocket --%3E%3Crect x='262' y='275' width='12' height='15' rx='2' fill='%232a2c26' opacity='0.6'/%3E%3C!-- Sleeping roll on top --%3E%3Cellipse cx='268' cy='245' rx='8' ry='5' fill='%23363830' opacity='0.65' transform='rotate(-10 268 245)'/%3E%3C!-- Straps detail --%3E%3Cpath d='M260 250 L262 248 M263 260 L265 258 M265 275 L267 273' stroke='%23444840' stroke-width='1' opacity='0.5'/%3E%3C!-- FLASHLIGHT AND BEAM --%3E%3C!-- Flashlight in hand --%3E%3Crect x='195' y='265' width='18' height='8' rx='2' fill='%23282828' opacity='0.8' transform='rotate(-25 204 269)'/%3E%3C!-- Flashlight lens --%3E%3Cellipse cx='193' cy='262' rx='4' ry='5' fill='%23ffeeaa' opacity='0.6' transform='rotate(-25 193 262)'/%3E%3C!-- Extended arm holding flashlight --%3E%3Cpath d='M220 255 Q210 258 200 265 Q195 270 190 275' stroke='url(%23lh-survivor)' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3C!-- FLASHLIGHT BEAM --%3E%3Cpath d='M190 260 L80 200 L60 280 L175 275 Z' fill='url(%23lh-beam)' opacity='0.4'/%3E%3C!-- Beam core (brighter) --%3E%3Cpath d='M188 262 L100 215 L85 260 L178 268 Z' fill='%23ffffcc' opacity='0.08'/%3E%3C!-- Light hitting zombie --%3E%3Cellipse cx='140' cy='260' rx='25' ry='35' fill='%23ffeeaa' opacity='0.06' filter='url(%23lh-glow)'/%3E%3C!-- GROUND --%3E%3Cpath d='M0 365 Q100 360 200 368 Q300 362 400 370 L400 400 L0 400 Z' fill='%231a1a18' opacity='0.5'/%3E%3C!-- Ground texture/cracks --%3E%3Cpath d='M50 375 L80 372 L95 378' stroke='%23252520' stroke-width='1' fill='none' opacity='0.4'/%3E%3Cpath d='M200 370 L230 375 L260 372' stroke='%23252520' stroke-width='1' fill='none' opacity='0.35'/%3E%3C!-- ATMOSPHERIC PARTICLES --%3E%3Ccircle cx='120' cy='200' r='1.5' fill='%23aa5500' opacity='0.25'/%3E%3Ccircle cx='280' cy='180' r='1' fill='%23cc6600' opacity='0.2'/%3E%3Ccircle cx='180' cy='220' r='1.2' fill='%23ffaa00' opacity='0.15'/%3E%3Ccircle cx='320' cy='240' r='0.8' fill='%23ff6600' opacity='0.18'/%3E%3Ccircle cx='60' cy='250' r='1' fill='%23ddddcc' opacity='0.12'/%3E%3Ccircle cx='300' cy='200' r='1.3' fill='%23aa4400' opacity='0.2'/%3E%3C!-- Embers floating --%3E%3Ccircle cx='95' cy='130' r='1' fill='%23ff6600' opacity='0.3' filter='url(%23lh-glow)'/%3E%3Ccircle cx='115' cy='115' r='0.8' fill='%23ff4400' opacity='0.25' filter='url(%23lh-glow)'/%3E%3Ccircle cx='75' cy='145' r='0.6' fill='%23ffaa00' opacity='0.2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Last Hope ambient glow - apocalyptic orange and survival green accents */
+.game-page__about[data-decoration="last-hope"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -60px;
+  width: 440px;
+  height: 440px;
+  background:
+    radial-gradient(ellipse 45% 35% at 40% 40%, rgba(204, 68, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 55% 55%, rgba(255, 238, 170, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse 50% 40% at 50% 70%, rgba(40, 50, 35, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 30% 60%, rgba(100, 60, 30, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6609,6 +6678,36 @@ h3 {
     height: 340px;
   }
 
+  /* Ultimate MMA tablet */
+  .game-page__about[data-decoration="ultimate-mma"]::before {
+    right: -15px;
+    bottom: -30px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="ultimate-mma"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Last Hope tablet */
+  .game-page__about[data-decoration="last-hope"]::before {
+    right: -18px;
+    bottom: -32px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .game-page__about[data-decoration="last-hope"]::after {
+    right: -30px;
+    bottom: -45px;
+    width: 360px;
+    height: 360px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -8163,6 +8262,36 @@ h3 {
     height: 260px;
   }
 
+  /* Ultimate MMA mobile */
+  .game-page__about[data-decoration="ultimate-mma"]::before {
+    right: -12px;
+    bottom: -24px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="ultimate-mma"]::after {
+    right: -22px;
+    bottom: -36px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Last Hope mobile */
+  .game-page__about[data-decoration="last-hope"]::before {
+    right: -14px;
+    bottom: -26px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .game-page__about[data-decoration="last-hope"]::after {
+    right: -24px;
+    bottom: -38px;
+    width: 270px;
+    height: 270px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9570,6 +9699,36 @@ h3 {
     height: 210px;
   }
 
+  /* Ultimate MMA small mobile */
+  .game-page__about[data-decoration="ultimate-mma"]::before {
+    right: -8px;
+    bottom: -16px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="ultimate-mma"]::after {
+    right: -16px;
+    bottom: -26px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Last Hope small mobile */
+  .game-page__about[data-decoration="last-hope"]::before {
+    right: -10px;
+    bottom: -18px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .game-page__about[data-decoration="last-hope"]::after {
+    right: -18px;
+    bottom: -28px;
+    width: 220px;
+    height: 220px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9881,6 +10040,30 @@ h3 {
   }
 
   .game-page__about[data-decoration="shadow-arena"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Ultimate MMA extra small */
+  .game-page__about[data-decoration="ultimate-mma"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="ultimate-mma"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Last Hope extra small */
+  .game-page__about[data-decoration="last-hope"]::before {
+    right: -6px;
+    bottom: -12px;
+    width: 145px;
+    height: 145px;
+  }
+
+  .game-page__about[data-decoration="last-hope"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

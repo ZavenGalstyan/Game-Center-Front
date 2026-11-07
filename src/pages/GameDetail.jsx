@@ -84,7 +84,7 @@ const GAME_TAGLINES = {
   "Space Station Escape": "REPAIR • UNLOCK • SURVIVE",
   "Outpost 47: Frozen Secrets": "EXPLORE • SURVIVE • UNCOVER",
   "Motel 6: Last Guest": "Work the night shift at a mysterious motel where every guest hides a secret.",
-  "Ultimate MMA Championship 3D": "FIGHT • DOMINATE • BECOME CHAMPION",
+  "Ultimate MMA Championship 3D": "Step into the octagon, master your fighting skills, and become the ultimate MMA champion.",
   "Air Hockey": "Challenge a smart AI opponent, defend your goal, and score seven goals to win an exciting neon air hockey match.",
   "Swimming Champions": "Dive into thrilling races, challenge skilled AI swimmers, and swim your way to victory across multiple championship distances.",
   "Ping Pong Clash": "Challenge a skilled AI opponent, master powerful spins and precise shots, and dominate every fast-paced table tennis match.",
@@ -293,6 +293,9 @@ const GAME_DECORATIONS = {
   "Wobbly Warriors": "wobbly-warriors",
   "Shadow Arena: Ultimate Fighters": "shadow-arena",
   "Shadow Arena": "shadow-arena",
+  "Ultimate MMA Championship 3D": "ultimate-mma",
+  "Last Hope: Zombie Survival": "last-hope",
+  "Last Hope": "last-hope",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
