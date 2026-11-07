@@ -5179,6 +5179,36 @@ h3 {
   z-index: -1;
 }
 
+/* Wild Kingdom 3D — Wilderness scene with wolf, lion silhouette, mountains, and forest.
+   Features detailed wolf head, layered trees, mountain peaks, and moonlit atmosphere. */
+.game-page__about[data-decoration="wild-kingdom"]::before {
+  content: "";
+  width: 360px;
+  height: 360px;
+  right: -25px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='skyGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23162029'/%3E%3Cstop offset='60%25' stop-color='%231a2d24'/%3E%3Cstop offset='100%25' stop-color='%230d1a12'/%3E%3C/linearGradient%3E%3ClinearGradient id='moonGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8ecd0' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%23c4c9a0' stop-opacity='0.6'/%3E%3C/linearGradient%3E%3CradialGradient id='moonHalo' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='40%25' stop-color='%23d4d9b8' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%23d4d9b8' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='mtFar' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232a3d35'/%3E%3Cstop offset='100%25' stop-color='%231e2d25'/%3E%3C/linearGradient%3E%3ClinearGradient id='mtMid' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23243530'/%3E%3Cstop offset='100%25' stop-color='%231a2820'/%3E%3C/linearGradient%3E%3ClinearGradient id='forestFar' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231e3528'/%3E%3Cstop offset='100%25' stop-color='%23152218'/%3E%3C/linearGradient%3E%3ClinearGradient id='forestMid' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23183020'/%3E%3Cstop offset='100%25' stop-color='%230f1c12'/%3E%3C/linearGradient%3E%3ClinearGradient id='forestNear' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23122518'/%3E%3Cstop offset='100%25' stop-color='%230a140c'/%3E%3C/linearGradient%3E%3ClinearGradient id='lionFur' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23504030' stop-opacity='0.35'/%3E%3Cstop offset='100%25' stop-color='%23302515' stop-opacity='0.25'/%3E%3C/linearGradient%3E%3ClinearGradient id='wolfFur' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23556065'/%3E%3Cstop offset='50%25' stop-color='%23404850'/%3E%3Cstop offset='100%25' stop-color='%232a3035'/%3E%3C/linearGradient%3E%3ClinearGradient id='wolfHighlight' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23707880' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23505860' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23skyGrad)' width='400' height='400'/%3E%3Ccircle cx='320' cy='60' r='35' fill='url(%23moonHalo)'/%3E%3Ccircle cx='320' cy='60' r='18' fill='url(%23moonGlow)'/%3E%3Ccircle cx='312' cy='55' r='4' fill='%23d8dcc0' opacity='0.3'/%3E%3Ccircle cx='325' cy='65' r='2.5' fill='%23ccd0b5' opacity='0.25'/%3E%3Ccircle cx='280' cy='45' r='1' fill='%23e0e4c8' opacity='0.5'/%3E%3Ccircle cx='350' cy='80' r='0.8' fill='%23d8dcc0' opacity='0.4'/%3E%3Ccircle cx='260' cy='70' r='0.6' fill='%23e0e4c8' opacity='0.35'/%3E%3Ccircle cx='370' cy='50' r='0.7' fill='%23d8dcc0' opacity='0.4'/%3E%3Ccircle cx='300' cy='95' r='0.5' fill='%23e0e4c8' opacity='0.3'/%3E%3Cpath d='M0 200 L80 120 L140 170 L200 100 L280 160 L340 110 L400 150 L400 250 L0 250 Z' fill='url(%23mtFar)'/%3E%3Cpath d='M0 220 L60 160 L120 200 L180 140 L260 190 L320 150 L380 180 L400 170 L400 280 L0 280 Z' fill='url(%23mtMid)'/%3E%3Cpath d='M0 265 L20 250 L35 258 L50 245 L60 255 L80 240 L95 252 L110 238 L125 250 L145 235 L160 248 L180 232 L200 245 L220 230 L240 242 L260 228 L275 238 L295 225 L315 240 L335 222 L355 238 L375 225 L390 235 L400 228 L400 300 L0 300 Z' fill='url(%23forestFar)'/%3E%3Cpath d='M0 290 L15 275 L25 282 L40 268 L55 278 L70 262 L90 275 L110 258 L130 272 L150 255 L175 270 L195 252 L220 268 L245 250 L270 265 L290 248 L315 262 L340 245 L365 260 L385 248 L400 258 L400 320 L0 320 Z' fill='url(%23forestMid)'/%3E%3Cg opacity='0.3' transform='translate(60, 130)'%3E%3Cpath d='M0 70 C5 65 15 60 25 58 C30 50 38 42 50 38 C58 30 70 25 85 28 C95 20 108 18 120 22 C128 18 138 20 145 28 C158 25 172 32 178 42 C190 48 198 58 195 70 C200 78 198 90 188 98 L180 100 C175 108 165 118 150 125 C140 135 125 140 108 138 C95 145 78 145 65 138 C50 142 35 138 25 128 C12 125 2 115 0 102 C-8 92 -8 80 0 70 Z' fill='url(%23lionFur)'/%3E%3Cpath d='M70 75 C72 70 80 68 88 72 C90 68 95 66 100 70' stroke='%23403525' stroke-width='1.5' fill='none' opacity='0.4'/%3E%3Ccircle cx='75' cy='78' r='3' fill='%23252015' opacity='0.5'/%3E%3Ccircle cx='95' cy='78' r='3' fill='%23252015' opacity='0.5'/%3E%3Cpath d='M82 88 L85 92 L88 88' stroke='%23352a1a' stroke-width='2' fill='none' opacity='0.4'/%3E%3C/g%3E%3Cpath d='M0 315 L10 300 L22 308 L38 292 L55 305 L75 285 L95 298 L120 278 L145 295 L170 272 L200 290 L225 268 L255 288 L280 265 L310 285 L340 262 L370 282 L400 260 L400 400 L0 400 Z' fill='url(%23forestNear)'/%3E%3Cg transform='translate(200, 175)'%3E%3Cpath d='M30 180 C25 175 18 165 15 150 C10 140 8 125 12 110 C8 100 10 85 18 75 C15 62 20 48 32 40 C35 28 48 18 65 15 C78 8 95 8 110 15 C125 12 142 18 155 30 C170 35 182 50 185 68 C195 78 200 95 195 112 C202 128 198 148 185 162 C188 178 180 195 165 205 L155 208 C145 218 128 225 108 222 C92 230 72 228 58 218 C42 222 28 215 20 202 C8 195 2 182 5 168 L30 180 Z' fill='url(%23wolfFur)'/%3E%3Cpath d='M35 175 C30 165 25 150 28 135 C25 120 30 102 42 90 C40 75 50 58 68 50 C78 40 95 35 115 40 C132 35 152 42 165 58 C180 68 190 85 188 105 C198 120 195 142 180 158 C182 175 172 192 155 202 L35 175 Z' fill='url(%23wolfHighlight)'/%3E%3Cpath d='M45 82 C48 65 60 52 75 55' stroke='%23808890' stroke-width='1' fill='none' opacity='0.5'/%3E%3Cpath d='M140 58 C155 55 168 65 172 82' stroke='%23808890' stroke-width='1' fill='none' opacity='0.5'/%3E%3Cpath d='M62 130 C70 125 82 125 92 130 C88 140 78 148 68 148 C58 148 55 140 62 130 Z' fill='%23252a30'/%3E%3Cpath d='M108 130 C118 125 130 125 138 130 C142 140 138 148 128 148 C118 148 105 140 108 130 Z' fill='%23252a30'/%3E%3Ccircle cx='75' cy='135' r='6' fill='%2320262c'/%3E%3Ccircle cx='125' cy='135' r='6' fill='%2320262c'/%3E%3Ccircle cx='73' cy='133' r='2.5' fill='%23c8d0b8' opacity='0.7'/%3E%3Ccircle cx='123' cy='133' r='2.5' fill='%23c8d0b8' opacity='0.7'/%3E%3Ccircle cx='74' cy='134' r='1' fill='%23e8f0d8' opacity='0.9'/%3E%3Ccircle cx='124' cy='134' r='1' fill='%23e8f0d8' opacity='0.9'/%3E%3Cpath d='M95 158 C100 155 105 158 108 162 C105 168 100 172 95 172 C90 172 85 168 82 162 C85 158 90 155 95 158 Z' fill='%231a1e22'/%3E%3Cpath d='M88 162 L95 175 L102 162' stroke='%230f1215' stroke-width='1.5' fill='none'/%3E%3Cpath d='M82 175 C88 180 95 182 100 182 C105 182 112 180 118 175' stroke='%232a3035' stroke-width='2' fill='none'/%3E%3Cpath d='M78 185 C70 182 62 185 58 192' stroke='%23404850' stroke-width='1.5' fill='none' opacity='0.6'/%3E%3Cpath d='M122 185 C130 182 138 185 142 192' stroke='%23404850' stroke-width='1.5' fill='none' opacity='0.6'/%3E%3Cpath d='M55 100 C52 85 45 70 35 60 C38 55 45 52 52 55 C55 50 62 48 68 52 L62 90 L55 100 Z' fill='%23485058'/%3E%3Cpath d='M145 100 C148 85 155 70 165 60 C162 55 155 52 148 55 C145 50 138 48 132 52 L138 90 L145 100 Z' fill='%23485058'/%3E%3Cpath d='M40 58 L52 70 L58 62' stroke='%23606870' stroke-width='1' fill='none' opacity='0.5'/%3E%3Cpath d='M160 58 L148 70 L142 62' stroke='%23606870' stroke-width='1' fill='none' opacity='0.5'/%3E%3C/g%3E%3Ccircle cx='50' cy='320' r='1.5' fill='%23a0c080' opacity='0.15'/%3E%3Ccircle cx='150' cy='340' r='1' fill='%2390b070' opacity='0.12'/%3E%3Ccircle cx='250' cy='335' r='1.2' fill='%23a0c080' opacity='0.15'/%3E%3Ccircle cx='350' cy='350' r='0.8' fill='%2390b070' opacity='0.1'/%3E%3Ccircle cx='100' cy='360' r='1' fill='%23a0c080' opacity='0.12'/%3E%3Ccircle cx='300' cy='370' r='0.8' fill='%2390b070' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Wild Kingdom ambient glow - forest green and moonlit silver atmosphere */
+.game-page__about[data-decoration="wild-kingdom"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 55% 50% at 52% 48%, rgba(60, 100, 70, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 58% 42%, rgba(180, 200, 160, 0.045) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 55% 55%, rgba(80, 120, 80, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6806,6 +6836,21 @@ h3 {
     height: 300px;
   }
 
+  /* Wild Kingdom 3D tablet */
+  .game-page__about[data-decoration="wild-kingdom"]::before {
+    right: -20px;
+    bottom: -32px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .game-page__about[data-decoration="wild-kingdom"]::after {
+    right: -35px;
+    bottom: -48px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -8421,6 +8466,21 @@ h3 {
     height: 220px;
   }
 
+  /* Wild Kingdom 3D mobile */
+  .game-page__about[data-decoration="wild-kingdom"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__about[data-decoration="wild-kingdom"]::after {
+    right: -28px;
+    bottom: -40px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9889,6 +9949,21 @@ h3 {
     height: 170px;
   }
 
+  /* Wild Kingdom 3D small mobile */
+  .game-page__about[data-decoration="wild-kingdom"]::before {
+    right: -10px;
+    bottom: -18px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="wild-kingdom"]::after {
+    right: -18px;
+    bottom: -28px;
+    width: 200px;
+    height: 200px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -10249,6 +10324,19 @@ h3 {
   }
 
   .game-page__about[data-decoration="dinosaur-island"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Wild Kingdom 3D extra small */
+  .game-page__about[data-decoration="wild-kingdom"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 120px;
+    height: 120px;
+    opacity: 0.4;
+  }
+
+  .game-page__about[data-decoration="wild-kingdom"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

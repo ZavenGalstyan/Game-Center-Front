@@ -162,6 +162,7 @@ const GAME_TAGLINES = {
   "Corridor 9": "Notice Everything. Trust Nothing. Find Exit 9.",
   "Midnight Shift: Haunted Factory": "Watch the Cameras. Save Your Power. Survive the Night.",
   "Midnight Shift": "Watch the Cameras. Save Your Power. Survive the Night.",
+  "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -299,6 +300,7 @@ const GAME_DECORATIONS = {
   "Oceanbound: Survival Journey": "oceanbound",
   "Oceanbound": "oceanbound",
   "Dinosaur Island 3D": "dinosaur-island",
+  "Wild Kingdom 3D": "wild-kingdom",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

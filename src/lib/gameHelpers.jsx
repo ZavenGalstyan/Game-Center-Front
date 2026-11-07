@@ -111,6 +111,7 @@ import ultimateMMABg from "../images/UltimateMMA.png";
 import lastHopeBg from "../images/LastHope.png";
 import oceanboundBg from "../images/Oceanbound.png";
 import dinosaurIslandBg from "../images/DinosaurIsland.png";
+import wildKingdomBg from "../images/WildKingdom.png";
 
 /**
  * Category to icon mapping.
@@ -1811,6 +1812,18 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(8, 24, 12, 0.48) 44%,
       rgba(8, 24, 12, 0.74) 56%,
       rgba(8, 24, 12, 0.88) 100%)`,
+  },
+  // Wild Kingdom 3D: wilderness survival with various animals (wolf, lion, etc).
+  // Position keeps the title and main animals visible; forest-green fade.
+  "wild kingdom 3d": {
+    image: wildKingdomBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(6, 20, 12, 0) 0%,
+      rgba(6, 20, 12, 0) 30%,
+      rgba(6, 20, 12, 0.45) 42%,
+      rgba(6, 20, 12, 0.72) 54%,
+      rgba(6, 20, 12, 0.88) 100%)`,
   },
 };
 
