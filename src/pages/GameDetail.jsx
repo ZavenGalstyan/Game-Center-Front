@@ -296,12 +296,18 @@ const GAME_DECORATIONS = {
   "Ultimate MMA Championship 3D": "ultimate-mma",
   "Last Hope: Zombie Survival": "last-hope",
   "Last Hope": "last-hope",
+  "Oceanbound: Survival Journey": "oceanbound",
+  "Oceanbound": "oceanbound",
+  "Dinosaur Island 3D": "dinosaur-island",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
 const GAME_SHORT_DESCRIPTIONS = {
   "Crazy Cards": "Match cards by color or rank, play powerful eights, and outsmart your opponents in fast-paced card battles.",
   "Sky Combat 3D": "Pilot powerful fighter jets, engage in thrilling dogfights, and dominate the skies across challenging 3D battlefields.",
+  "Oceanbound: Survival Journey": "Explore the open ocean, build your raft, and survive against the odds.",
+  "Oceanbound": "Explore the open ocean, build your raft, and survive against the odds.",
+  "Dinosaur Island 3D": "Explore a prehistoric island, survive deadly dinosaurs, and find your way home.",
 };
 
 // Fallback: generate a short tagline from description if not predefined

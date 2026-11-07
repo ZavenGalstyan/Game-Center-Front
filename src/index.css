@@ -5111,6 +5111,74 @@ h3 {
   z-index: -1;
 }
 
+/* Oceanbound: Survival Journey — Ocean survival illustration.
+   A small wooden survival raft floating on stylized ocean waves,
+   a miniature survivor with fishing spear, shark fin in the water,
+   tropical island silhouette with palm trees, floating barrels,
+   ropes, water splashes, and sunlight reflections.
+   Ocean blue, turquoise, warm sand, subtle sunset-gold accents. */
+.game-page__about[data-decoration="oceanbound"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -30px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- Circular ocean composition --%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='rgba(0,180,220,0.025)' stroke-width='0.8'/%3E%3C!-- Background island silhouette with palm trees --%3E%3Cpath d='M75 38 Q78 35 82 38 Q86 41 88 38 L88 48 Q85 46 80 46 Q75 46 72 48 Z' fill='rgba(194,154,108,0.04)'/%3E%3C!-- Palm tree trunk --%3E%3Cpath d='M80 32 L80 38' stroke='rgba(139,90,43,0.05)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Palm fronds --%3E%3Cpath d='M80 32 Q76 28 72 30' fill='none' stroke='rgba(0,180,100,0.045)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M80 32 Q84 27 88 29' fill='none' stroke='rgba(0,180,100,0.045)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M80 32 Q78 26 76 24' fill='none' stroke='rgba(0,180,100,0.04)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M80 32 Q82 26 85 24' fill='none' stroke='rgba(0,180,100,0.04)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Second palm --%3E%3Cpath d='M85 35 L85 38' stroke='rgba(139,90,43,0.04)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M85 35 Q82 32 79 33' fill='none' stroke='rgba(0,180,100,0.035)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M85 35 Q88 31 91 32' fill='none' stroke='rgba(0,180,100,0.035)' stroke-width='0.8' stroke-linecap='round'/%3E%3C!-- Sun reflection --%3E%3Ccircle cx='85' cy='18' r='6' fill='rgba(255,200,100,0.035)'/%3E%3Ccircle cx='85' cy='18' r='4' fill='rgba(255,220,150,0.04)'/%3E%3C!-- Sun rays --%3E%3Cpath d='M85 10 L85 8' stroke='rgba(255,200,100,0.03)' stroke-width='0.6' stroke-linecap='round'/%3E%3Cpath d='M79 14 L77 12' stroke='rgba(255,200,100,0.025)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M91 14 L93 12' stroke='rgba(255,200,100,0.025)' stroke-width='0.5' stroke-linecap='round'/%3E%3C!-- Ocean waves --%3E%3Cpath d='M15 55 Q25 52 35 55 Q45 58 55 55 Q65 52 75 55 Q85 58 95 55' fill='none' stroke='rgba(0,180,220,0.04)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M10 62 Q22 58 34 62 Q46 66 58 62 Q70 58 82 62 Q94 66 100 62' fill='none' stroke='rgba(0,180,220,0.035)' stroke-width='0.9' stroke-linecap='round'/%3E%3Cpath d='M5 70 Q18 66 32 70 Q46 74 60 70 Q74 66 88 70' fill='none' stroke='rgba(0,180,220,0.03)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cpath d='M12 78 Q26 74 40 78 Q54 82 68 78 Q82 74 95 78' fill='none' stroke='rgba(0,180,220,0.025)' stroke-width='0.7' stroke-linecap='round'/%3E%3C!-- Wooden survival raft --%3E%3Crect x='30' y='52' width='28' height='8' rx='1.5' fill='rgba(139,90,43,0.06)' stroke='rgba(139,90,43,0.07)' stroke-width='0.8'/%3E%3C!-- Raft planks --%3E%3Cline x1='34' y1='52' x2='34' y2='60' stroke='rgba(100,60,30,0.04)' stroke-width='0.4'/%3E%3Cline x1='40' y1='52' x2='40' y2='60' stroke='rgba(100,60,30,0.04)' stroke-width='0.4'/%3E%3Cline x1='46' y1='52' x2='46' y2='60' stroke='rgba(100,60,30,0.04)' stroke-width='0.4'/%3E%3Cline x1='52' y1='52' x2='52' y2='60' stroke='rgba(100,60,30,0.04)' stroke-width='0.4'/%3E%3C!-- Raft ropes/bindings --%3E%3Cpath d='M30 54 L58 54' stroke='rgba(194,154,108,0.045)' stroke-width='0.5' stroke-dasharray='1.5 1'/%3E%3Cpath d='M30 58 L58 58' stroke='rgba(194,154,108,0.045)' stroke-width='0.5' stroke-dasharray='1.5 1'/%3E%3C!-- Survivor standing on raft --%3E%3C!-- Body --%3E%3Cellipse cx='44' cy='47' rx='3' ry='4' fill='rgba(0,180,220,0.05)'/%3E%3C!-- Head --%3E%3Ccircle cx='44' cy='41' r='2.5' fill='rgba(194,154,108,0.055)'/%3E%3C!-- Legs --%3E%3Cpath d='M42 51 L41 52' stroke='rgba(0,150,180,0.05)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M46 51 L47 52' stroke='rgba(0,150,180,0.05)' stroke-width='1.2' stroke-linecap='round'/%3E%3C!-- Fishing spear --%3E%3Cpath d='M48 42 L62 32' stroke='rgba(139,90,43,0.055)' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M62 32 L64 30 L62 34 L60 32 Z' fill='rgba(180,180,180,0.05)'/%3E%3C!-- Shark fin --%3E%3Cpath d='M22 64 L20 70 L26 70 Z' fill='rgba(80,90,100,0.06)' stroke='rgba(60,70,80,0.05)' stroke-width='0.5'/%3E%3C!-- Shark body hint underwater --%3E%3Cellipse cx='23' cy='72' rx='6' ry='2' fill='rgba(80,90,100,0.03)'/%3E%3C!-- Floating barrel --%3E%3Cellipse cx='65' cy='66' rx='4' ry='3' fill='rgba(139,90,43,0.045)' stroke='rgba(100,60,30,0.04)' stroke-width='0.6'/%3E%3Cpath d='M61 66 L69 66' stroke='rgba(80,80,80,0.035)' stroke-width='0.5'/%3E%3C!-- Second floating barrel --%3E%3Cellipse cx='18' cy='74' rx='3' ry='2.2' fill='rgba(139,90,43,0.035)' stroke='rgba(100,60,30,0.03)' stroke-width='0.5'/%3E%3C!-- Floating debris/rope --%3E%3Cpath d='M70 72 Q74 70 78 73 Q82 76 85 74' fill='none' stroke='rgba(194,154,108,0.03)' stroke-width='0.6' stroke-linecap='round'/%3E%3C!-- Water splashes near raft --%3E%3Ccircle cx='28' cy='58' r='1.5' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='0.4'/%3E%3Ccircle cx='60' cy='56' r='1.2' fill='none' stroke='rgba(255,255,255,0.025)' stroke-width='0.3'/%3E%3C!-- Sunlight reflections on water --%3E%3Cellipse cx='50' cy='68' rx='3' ry='1' fill='rgba(255,220,150,0.025)'/%3E%3Cellipse cx='38' cy='76' rx='2' ry='0.7' fill='rgba(255,220,150,0.02)'/%3E%3Cellipse cx='72' cy='62' rx='2.5' ry='0.8' fill='rgba(255,220,150,0.02)'/%3E%3C!-- Ripple circles around raft --%3E%3Ccircle cx='44' cy='60' r='16' fill='none' stroke='rgba(0,180,220,0.02)' stroke-width='0.5'/%3E%3Ccircle cx='44' cy='60' r='22' fill='none' stroke='rgba(0,180,220,0.015)' stroke-width='0.4'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Oceanbound ambient glow - ocean blue and turquoise with sunset gold accents */
+.game-page__about[data-decoration="oceanbound"]::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  bottom: -65px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(0, 180, 220, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 65% 35%, rgba(255, 200, 100, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 40% 65%, rgba(0, 150, 180, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 55% 75%, rgba(0, 232, 143, 0.03) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Dinosaur Island 3D — Premium T-Rex illustration using Dinosaur.png asset.
+   Positioned on right side with gradient mask for natural card integration. */
+.game-page__about[data-decoration="dinosaur-island"]::before {
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: -20px;
+  bottom: -30px;
+  font-size: unset;
+  background-image: url("./images/Dinosaur.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.55;
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 60% 55%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 70%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 85% at 60% 55%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 70%, transparent 100%);
+}
+
+/* Dinosaur Island ambient glow - warm jungle atmosphere */
+.game-page__about[data-decoration="dinosaur-island"]::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -40px;
+  width: 380px;
+  height: 380px;
+  background:
+    radial-gradient(ellipse 60% 50% at 55% 50%, rgba(120, 160, 80, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 45% at 60% 40%, rgba(200, 170, 80, 0.06) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6708,6 +6776,36 @@ h3 {
     height: 360px;
   }
 
+  /* Oceanbound tablet */
+  .game-page__about[data-decoration="oceanbound"]::before {
+    right: -22px;
+    bottom: -38px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .game-page__about[data-decoration="oceanbound"]::after {
+    right: -35px;
+    bottom: -52px;
+    width: 320px;
+    height: 320px;
+  }
+
+  /* Dinosaur Island 3D tablet */
+  .game-page__about[data-decoration="dinosaur-island"]::before {
+    right: -15px;
+    bottom: -25px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .game-page__about[data-decoration="dinosaur-island"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 300px;
+    height: 300px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -8292,6 +8390,37 @@ h3 {
     height: 270px;
   }
 
+  /* Oceanbound mobile */
+  .game-page__about[data-decoration="oceanbound"]::before {
+    right: -18px;
+    bottom: -30px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__about[data-decoration="oceanbound"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 250px;
+    height: 250px;
+  }
+
+  /* Dinosaur Island 3D mobile */
+  .game-page__about[data-decoration="dinosaur-island"]::before {
+    right: -12px;
+    bottom: -20px;
+    width: 180px;
+    height: 180px;
+    opacity: 0.45;
+  }
+
+  .game-page__about[data-decoration="dinosaur-island"]::after {
+    right: -20px;
+    bottom: -30px;
+    width: 220px;
+    height: 220px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9729,6 +9858,37 @@ h3 {
     height: 220px;
   }
 
+  /* Oceanbound small mobile */
+  .game-page__about[data-decoration="oceanbound"]::before {
+    right: -12px;
+    bottom: -22px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="oceanbound"]::after {
+    right: -20px;
+    bottom: -32px;
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Dinosaur Island 3D small mobile */
+  .game-page__about[data-decoration="dinosaur-island"]::before {
+    right: -8px;
+    bottom: -15px;
+    width: 140px;
+    height: 140px;
+    opacity: 0.4;
+  }
+
+  .game-page__about[data-decoration="dinosaur-island"]::after {
+    right: -15px;
+    bottom: -22px;
+    width: 170px;
+    height: 170px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -10064,6 +10224,31 @@ h3 {
   }
 
   .game-page__about[data-decoration="last-hope"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Oceanbound extra small */
+  .game-page__about[data-decoration="oceanbound"]::before {
+    right: -8px;
+    bottom: -14px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .game-page__about[data-decoration="oceanbound"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Dinosaur Island 3D extra small */
+  .game-page__about[data-decoration="dinosaur-island"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 110px;
+    height: 110px;
+    opacity: 0.35;
+  }
+
+  .game-page__about[data-decoration="dinosaur-island"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

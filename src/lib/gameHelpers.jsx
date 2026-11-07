@@ -109,6 +109,8 @@ import wobblyWarriorsBg from "../images/WobblyWarriors.png";
 import shadowArenaBg from "../images/ShadowArena.png";
 import ultimateMMABg from "../images/UltimateMMA.png";
 import lastHopeBg from "../images/LastHope.png";
+import oceanboundBg from "../images/Oceanbound.png";
+import dinosaurIslandBg from "../images/DinosaurIsland.png";
 
 /**
  * Category to icon mapping.
@@ -1773,6 +1775,42 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(6, 12, 8, 0.45) 40%,
       rgba(6, 12, 8, 0.72) 52%,
       rgba(6, 12, 8, 0.85) 100%)`,
+  },
+  // Oceanbound: ocean survival raft on the right (~40-75%), sun/sky on the left,
+  // so a deep ocean-teal fade that starts past the raft silhouette. The survivor
+  // and raft stay clear on wide cards; 65% keeps them on narrow (1366/1440px) cards.
+  "oceanbound: survival journey": {
+    image: oceanboundBg,
+    position: "65% center",
+    shade: `linear-gradient(90deg,
+      rgba(2, 18, 28, 0) 0%,
+      rgba(2, 18, 28, 0) 30%,
+      rgba(2, 18, 28, 0.45) 42%,
+      rgba(2, 18, 28, 0.72) 54%,
+      rgba(2, 18, 28, 0.85) 100%)`,
+  },
+  "oceanbound": {
+    image: oceanboundBg,
+    position: "65% center",
+    shade: `linear-gradient(90deg,
+      rgba(2, 18, 28, 0) 0%,
+      rgba(2, 18, 28, 0) 30%,
+      rgba(2, 18, 28, 0.45) 42%,
+      rgba(2, 18, 28, 0.72) 54%,
+      rgba(2, 18, 28, 0.85) 100%)`,
+  },
+  // Dinosaur Island 3D: prehistoric jungle scene with T-Rex, survivor, and
+  // "DINOSAUR ISLAND 3D" title visible. Position keeps title and main elements
+  // centered; warm jungle-green fade for text readability.
+  "dinosaur island 3d": {
+    image: dinosaurIslandBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 24, 12, 0) 0%,
+      rgba(8, 24, 12, 0) 32%,
+      rgba(8, 24, 12, 0.48) 44%,
+      rgba(8, 24, 12, 0.74) 56%,
+      rgba(8, 24, 12, 0.88) 100%)`,
   },
 };
 
