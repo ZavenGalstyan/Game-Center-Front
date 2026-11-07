@@ -163,6 +163,7 @@ const GAME_TAGLINES = {
   "Midnight Shift: Haunted Factory": "Watch the Cameras. Save Your Power. Survive the Night.",
   "Midnight Shift": "Watch the Cameras. Save Your Power. Survive the Night.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
+  "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -301,6 +302,7 @@ const GAME_DECORATIONS = {
   "Oceanbound": "oceanbound",
   "Dinosaur Island 3D": "dinosaur-island",
   "Wild Kingdom 3D": "wild-kingdom",
+  "Iron Arena: Tank Battles": "iron-arena",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

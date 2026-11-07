@@ -112,6 +112,7 @@ import lastHopeBg from "../images/LastHope.png";
 import oceanboundBg from "../images/Oceanbound.png";
 import dinosaurIslandBg from "../images/DinosaurIsland.png";
 import wildKingdomBg from "../images/WildKingdom.png";
+import ironArenaBg from "../images/IronArena.png";
 
 /**
  * Category to icon mapping.
@@ -1824,6 +1825,18 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(6, 20, 12, 0.45) 42%,
       rgba(6, 20, 12, 0.72) 54%,
       rgba(6, 20, 12, 0.88) 100%)`,
+  },
+  // Iron Arena: Tank Battles - military tank battle scene with "IRON ARENA" title.
+  // Position keeps the title and main tank visible; dark military-green fade.
+  "iron arena: tank battles": {
+    image: ironArenaBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 20, 16, 0) 0%,
+      rgba(12, 20, 16, 0) 30%,
+      rgba(12, 20, 16, 0.48) 42%,
+      rgba(12, 20, 16, 0.74) 54%,
+      rgba(12, 20, 16, 0.88) 100%)`,
   },
 };
 

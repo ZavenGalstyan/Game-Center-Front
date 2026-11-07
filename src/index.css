@@ -5209,6 +5209,36 @@ h3 {
   z-index: -1;
 }
 
+/* Iron Arena: Tank Battles — Aggressive armored battle tank in dynamic three-quarter perspective.
+   Features detailed turret, main cannon, reactive armor, tracks, and orange combat highlights. */
+.game-page__about[data-decoration="iron-arena"]::before {
+  content: "";
+  width: 340px;
+  height: 340px;
+  right: -15px;
+  bottom: -25px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='ia-armor-main' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300c896' stop-opacity='0.45'/%3E%3Cstop offset='50%25' stop-color='%23007755' stop-opacity='0.38'/%3E%3Cstop offset='100%25' stop-color='%23005540' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='ia-armor-dark' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23004433' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%2300886a' stop-opacity='0.32'/%3E%3C/linearGradient%3E%3ClinearGradient id='ia-olive' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23556b2f' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%233d4f1f' stop-opacity='0.32'/%3E%3C/linearGradient%3E%3ClinearGradient id='ia-orange' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff8c42' stop-opacity='0.7'/%3E%3Cstop offset='50%25' stop-color='%23e07030' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23c05020' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3ClinearGradient id='ia-orange-glow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffa060' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%23ff7030' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3ClinearGradient id='ia-barrel' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2300a878' stop-opacity='0.42'/%3E%3Cstop offset='100%25' stop-color='%23006650' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3CradialGradient id='ia-muzzle-flash' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffcc66' stop-opacity='0.6'/%3E%3Cstop offset='40%25' stop-color='%23ff8833' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23ff5500' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- BATTLEFIELD DUST AND DEBRIS --%3E%3Cg opacity='0.5'%3E%3Cellipse cx='75' cy='82' rx='18' ry='4' fill='rgba(120,100,70,0.12)'/%3E%3Cellipse cx='30' cy='88' rx='12' ry='3' fill='rgba(100,85,60,0.1)'/%3E%3Cpath d='M85 78 Q88 75 92 77 Q95 80 92 83' fill='rgba(140,120,80,0.08)'/%3E%3C/g%3E%3C!-- SHELL CASINGS --%3E%3Cg opacity='0.7'%3E%3Cellipse cx='78' cy='75' rx='1.5' ry='4' transform='rotate(-25 78 75)' fill='url(%23ia-orange)' stroke='rgba(200,140,60,0.3)' stroke-width='0.3'/%3E%3Cellipse cx='82' cy='78' rx='1.2' ry='3.5' transform='rotate(-40 82 78)' fill='url(%23ia-orange-glow)' stroke='rgba(200,140,60,0.25)' stroke-width='0.25'/%3E%3Cellipse cx='74' cy='80' rx='1' ry='3' transform='rotate(-15 74 80)' fill='rgba(200,150,80,0.4)'/%3E%3C/g%3E%3C!-- TARGETING ELEMENTS --%3E%3Cg transform='translate(50, 32)' opacity='0.6'%3E%3Ccircle cx='0' cy='0' r='22' fill='none' stroke='rgba(255,140,66,0.2)' stroke-width='0.8'/%3E%3Ccircle cx='0' cy='0' r='15' fill='none' stroke='rgba(255,140,66,0.15)' stroke-width='0.6' stroke-dasharray='3 2'/%3E%3Cpath d='M0 -25 L0 -20 M0 20 L0 25 M-25 0 L-20 0 M20 0 L25 0' stroke='rgba(255,140,66,0.25)' stroke-width='0.7'/%3E%3Cpath d='M0 -8 L0 -4 M0 4 L0 8 M-8 0 L-4 0 M4 0 L8 0' stroke='rgba(255,160,80,0.35)' stroke-width='0.5'/%3E%3C/g%3E%3C!-- MAIN BATTLE TANK - Three-quarter dynamic perspective --%3E%3Cg transform='translate(48, 55) rotate(-8)'%3E%3C!-- TRACKS - left visible side with perspective --%3E%3Cpath d='M-42 14 L-42 22 Q-42 26 -37 26 L32 24 Q37 23 37 19 L37 12 Q37 8 32 8 L-37 10 Q-42 10 -42 14 Z' fill='url(%23ia-armor-dark)' stroke='rgba(0,180,130,0.35)' stroke-width='0.9'/%3E%3C!-- Track link details --%3E%3Cpath d='M-36 10 L-36 25 M-28 10 L-28 25 M-20 9 L-20 25 M-12 9 L-12 24 M-4 9 L-4 24 M4 8 L4 24 M12 8 L12 24 M20 8 L20 23 M28 8 L28 23' stroke='rgba(0,160,115,0.22)' stroke-width='0.5'/%3E%3C!-- Drive sprocket --%3E%3Ccircle cx='-36' cy='17' r='6' fill='rgba(0,175,128,0.3)' stroke='rgba(0,200,150,0.28)' stroke-width='0.6'/%3E%3Ccircle cx='-36' cy='17' r='3' fill='rgba(0,155,112,0.25)'/%3E%3Cpath d='M-36 12 L-36 14 M-36 20 L-36 22 M-41 17 L-39 17 M-33 17 L-31 17' stroke='rgba(0,180,130,0.3)' stroke-width='0.5'/%3E%3C!-- Idler wheel --%3E%3Ccircle cx='32' cy='16' r='5.5' fill='rgba(0,175,128,0.28)' stroke='rgba(0,195,145,0.25)' stroke-width='0.5'/%3E%3Ccircle cx='32' cy='16' r='2.8' fill='rgba(0,150,110,0.22)'/%3E%3C!-- Road wheels --%3E%3Ccircle cx='-22' cy='18' r='4.5' fill='rgba(0,168,122,0.26)' stroke='rgba(0,190,140,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='-8' cy='17' r='4.5' fill='rgba(0,168,122,0.26)' stroke='rgba(0,190,140,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='6' cy='17' r='4.5' fill='rgba(0,168,122,0.26)' stroke='rgba(0,190,140,0.2)' stroke-width='0.4'/%3E%3Ccircle cx='20' cy='16' r='4.5' fill='rgba(0,168,122,0.26)' stroke='rgba(0,190,140,0.2)' stroke-width='0.4'/%3E%3C!-- HULL - aggressive angular design --%3E%3Cpath d='M-40 8 L-32 -4 L34 -6 L40 6 L40 12 L-40 14 Z' fill='url(%23ia-armor-main)' stroke='rgba(0,210,155,0.4)' stroke-width='0.9'/%3E%3C!-- Hull armor panel lines --%3E%3Cpath d='M-30 -3 L-30 10 M-18 -4 L-18 10 M-6 -5 L-6 10 M6 -5 L6 9 M18 -6 L18 9 M30 -6 L30 8' stroke='rgba(0,175,128,0.2)' stroke-width='0.4'/%3E%3C!-- Side skirt armor --%3E%3Cpath d='M-38 8 L38 6 L38 10 L-38 12 Z' fill='url(%23ia-olive)' stroke='rgba(107,142,35,0.3)' stroke-width='0.5'/%3E%3C!-- Front glacis - heavily sloped --%3E%3Cpath d='M-32 -4 L-24 -12 L28 -14 L34 -6 Z' fill='url(%23ia-armor-main)' stroke='rgba(0,200,148,0.38)' stroke-width='0.7'/%3E%3C!-- Driver's viewport with orange accent --%3E%3Crect x='-22' y='-10' width='10' height='6' rx='1.5' fill='rgba(0,180,132,0.32)' stroke='rgba(0,210,155,0.28)' stroke-width='0.5'/%3E%3Crect x='-20' y='-8' width='6' height='2' rx='0.8' fill='url(%23ia-orange-glow)'/%3E%3C!-- TURRET - large and aggressive with angled armor --%3E%3Cpath d='M-26 -14 Q-28 -20 -20 -24 L22 -26 Q30 -24 28 -16 L26 -8 L-24 -6 Q-28 -8 -26 -14 Z' fill='url(%23ia-armor-main)' stroke='rgba(0,215,158,0.42)' stroke-width='0.9'/%3E%3C!-- Turret top detail --%3E%3Cpath d='M-18 -22 Q0 -28 20 -24' fill='none' stroke='rgba(0,185,135,0.22)' stroke-width='0.5'/%3E%3Cpath d='M-16 -18 Q2 -22 18 -20' fill='none' stroke='rgba(0,180,130,0.18)' stroke-width='0.4'/%3E%3C!-- Commander's cupola with orange searchlight --%3E%3Ccircle cx='12' cy='-20' r='6' fill='url(%23ia-armor-dark)' stroke='rgba(0,200,148,0.35)' stroke-width='0.6'/%3E%3Ccircle cx='12' cy='-20' r='3.5' fill='rgba(0,188,140,0.28)'/%3E%3Cellipse cx='12' cy='-20' rx='2.5' ry='1.8' fill='rgba(0,205,152,0.32)'/%3E%3C!-- Commander's orange light --%3E%3Ccircle cx='16' cy='-22' r='2' fill='url(%23ia-orange)' stroke='rgba(255,140,66,0.4)' stroke-width='0.4'/%3E%3Ccircle cx='16' cy='-22' r='1' fill='rgba(255,200,120,0.6)'/%3E%3C!-- Loader's hatch --%3E%3Cellipse cx='-8' cy='-18' rx='5' ry='3.5' fill='url(%23ia-armor-dark)' stroke='rgba(0,195,145,0.28)' stroke-width='0.5'/%3E%3C!-- ERA blocks (explosive reactive armor) with orange tips --%3E%3Crect x='-24' y='-14' width='4' height='5' rx='0.6' fill='rgba(85,107,47,0.38)' stroke='rgba(107,142,35,0.28)' stroke-width='0.3'/%3E%3Crect x='-24' y='-14' width='4' height='1' rx='0.3' fill='url(%23ia-orange-glow)'/%3E%3Crect x='-19' y='-16' width='4' height='5' rx='0.6' fill='rgba(85,107,47,0.35)' stroke='rgba(107,142,35,0.25)' stroke-width='0.3'/%3E%3Crect x='-19' y='-16' width='4' height='1' rx='0.3' fill='url(%23ia-orange-glow)'/%3E%3Crect x='20' y='-16' width='4' height='5' rx='0.6' fill='rgba(85,107,47,0.35)' stroke='rgba(107,142,35,0.25)' stroke-width='0.3'/%3E%3Crect x='20' y='-16' width='4' height='1' rx='0.3' fill='url(%23ia-orange-glow)'/%3E%3Crect x='25' y='-14' width='4' height='5' rx='0.6' fill='rgba(85,107,47,0.38)' stroke='rgba(107,142,35,0.28)' stroke-width='0.3'/%3E%3Crect x='25' y='-14' width='4' height='1' rx='0.3' fill='url(%23ia-orange-glow)'/%3E%3C!-- MAIN GUN ASSEMBLY --%3E%3C!-- Gun mantlet --%3E%3Cellipse cx='-28' cy='-15' rx='7' ry='6' fill='url(%23ia-armor-dark)' stroke='rgba(0,205,152,0.38)' stroke-width='0.7'/%3E%3C!-- Main barrel --%3E%3Crect x='-58' y='-17' width='32' height='5' rx='1.2' fill='url(%23ia-barrel)' stroke='rgba(0,210,155,0.38)' stroke-width='0.7'/%3E%3C!-- Barrel thermal sleeve segments --%3E%3Crect x='-54' y='-17.5' width='2.5' height='6' rx='0.6' fill='rgba(0,195,145,0.32)'/%3E%3Crect x='-46' y='-17.5' width='2.5' height='6' rx='0.6' fill='rgba(0,195,145,0.3)'/%3E%3Crect x='-38' y='-17.5' width='2.5' height='6' rx='0.6' fill='rgba(0,195,145,0.28)'/%3E%3C!-- Muzzle brake with orange heat glow --%3E%3Crect x='-64' y='-18.5' width='7' height='8' rx='1.5' fill='url(%23ia-armor-dark)' stroke='rgba(0,200,148,0.32)' stroke-width='0.6'/%3E%3Crect x='-63' y='-16' width='1.5' height='3' fill='rgba(255,140,66,0.25)'/%3E%3Crect x='-60' y='-16' width='1.5' height='3' fill='rgba(255,140,66,0.25)'/%3E%3C!-- Muzzle flash hint --%3E%3Cellipse cx='-66' cy='-14.5' rx='4' ry='5' fill='url(%23ia-muzzle-flash)' opacity='0.5'/%3E%3C!-- Bore evacuator --%3E%3Cellipse cx='-42' cy='-14.5' rx='3' ry='4' fill='rgba(0,190,140,0.35)' stroke='rgba(0,205,152,0.28)' stroke-width='0.5'/%3E%3C!-- Coaxial machine gun --%3E%3Crect x='-32' y='-11' width='10' height='2' rx='0.6' fill='rgba(0,182,134,0.32)'/%3E%3C!-- EXTERNAL EQUIPMENT --%3E%3C!-- Smoke grenade launchers with orange caps --%3E%3Crect x='26' y='-10' width='4' height='8' rx='1' fill='url(%23ia-olive)' stroke='rgba(107,142,35,0.3)' stroke-width='0.4'/%3E%3Ccircle cx='28' cy='-8' r='1.2' fill='url(%23ia-orange)'/%3E%3Ccircle cx='28' cy='-5' r='1.2' fill='url(%23ia-orange)'/%3E%3Ccircle cx='28' cy='-2' r='1.2' fill='url(%23ia-orange)'/%3E%3C!-- Antenna with orange tip --%3E%3Cpath d='M18 -24 L18 -38' stroke='rgba(0,205,152,0.4)' stroke-width='0.7'/%3E%3Ccircle cx='18' cy='-38' r='1.2' fill='url(%23ia-orange)'/%3E%3C!-- Auxiliary equipment boxes --%3E%3Crect x='32' y='0' width='8' height='5' rx='1' fill='url(%23ia-olive)' stroke='rgba(107,142,35,0.25)' stroke-width='0.4'/%3E%3Crect x='-42' y='2' width='6' height='4' rx='0.8' fill='url(%23ia-olive)' stroke='rgba(107,142,35,0.22)' stroke-width='0.3'/%3E%3C!-- Tow cables --%3E%3Cpath d='M36 4 Q42 2 42 8 Q42 14 36 12' fill='none' stroke='rgba(0,185,135,0.35)' stroke-width='1.2'/%3E%3C!-- Track guards --%3E%3Crect x='-40' y='6' width='8' height='2.5' fill='rgba(0,178,130,0.25)'/%3E%3Crect x='34' y='4' width='7' height='2.5' fill='rgba(0,178,130,0.25)'/%3E%3C/g%3E%3C!-- HUD TACTICAL OVERLAY --%3E%3Cg opacity='0.7'%3E%3C!-- Corner brackets --%3E%3Cpath d='M6 8 L6 4 L10 4' fill='none' stroke='rgba(255,140,66,0.25)' stroke-width='0.8'/%3E%3Cpath d='M94 92 L94 96 L90 96' fill='none' stroke='rgba(255,140,66,0.25)' stroke-width='0.8'/%3E%3C!-- Battle status bar --%3E%3Crect x='6' y='90' width='20' height='2.5' rx='0.6' fill='rgba(0,200,150,0.15)'/%3E%3Crect x='6' y='90' width='14' height='2.5' rx='0.6' fill='rgba(255,140,66,0.35)'/%3E%3Ctext x='6' y='88' font-size='2.8' fill='rgba(255,140,66,0.3)' font-family='monospace'%3EARMOR%3C/text%3E%3C!-- Kill count --%3E%3Ctext x='6' y='96' font-size='2.5' fill='rgba(255,160,80,0.25)' font-family='monospace'%3EX12%3C/text%3E%3C!-- Minimap indicator --%3E%3Crect x='82' y='6' width='12' height='12' rx='1' fill='none' stroke='rgba(255,140,66,0.18)' stroke-width='0.6'/%3E%3Ccircle cx='88' cy='12' r='1.5' fill='rgba(255,140,66,0.35)'/%3E%3Ccircle cx='85' cy='10' r='0.8' fill='rgba(0,200,150,0.25)'/%3E%3Ccircle cx='91' cy='14' r='0.8' fill='rgba(0,200,150,0.25)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Iron Arena ambient glow - military green with orange combat highlights */
+.game-page__about[data-decoration="iron-arena"]::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -40px;
+  width: 400px;
+  height: 400px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 48%, rgba(0, 180, 130, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 58% 42%, rgba(255, 140, 66, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 45% 55%, rgba(85, 107, 47, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6851,6 +6881,21 @@ h3 {
     height: 340px;
   }
 
+  /* Iron Arena tablet */
+  .game-page__about[data-decoration="iron-arena"]::before {
+    right: -12px;
+    bottom: -20px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .game-page__about[data-decoration="iron-arena"]::after {
+    right: -25px;
+    bottom: -35px;
+    width: 320px;
+    height: 320px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -8481,6 +8526,21 @@ h3 {
     height: 260px;
   }
 
+  /* Iron Arena mobile */
+  .game-page__about[data-decoration="iron-arena"]::before {
+    right: -10px;
+    bottom: -18px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .game-page__about[data-decoration="iron-arena"]::after {
+    right: -22px;
+    bottom: -32px;
+    width: 250px;
+    height: 250px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -9964,6 +10024,21 @@ h3 {
     height: 200px;
   }
 
+  /* Iron Arena small mobile */
+  .game-page__about[data-decoration="iron-arena"]::before {
+    right: -8px;
+    bottom: -14px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-page__about[data-decoration="iron-arena"]::after {
+    right: -15px;
+    bottom: -22px;
+    width: 200px;
+    height: 200px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -10337,6 +10412,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="wild-kingdom"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Iron Arena extra small */
+  .game-page__about[data-decoration="iron-arena"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 125px;
+    height: 125px;
+  }
+
+  .game-page__about[data-decoration="iron-arena"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
