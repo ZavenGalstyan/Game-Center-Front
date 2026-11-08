@@ -1,4 +1,5 @@
 import Button from "./Button.jsx";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * EmptyState component for displaying empty data states.
@@ -17,6 +18,7 @@ export default function EmptyState({
   action,
   className = "",
 }) {
+  const { tn } = useTranslation();
   const classNames = ["ui-empty-state", className].filter(Boolean).join(" ");
 
   return (
@@ -26,11 +28,11 @@ export default function EmptyState({
           {icon}
         </div>
       )}
-      <p className="ui-empty-state__title">{title}</p>
-      {message && <p className="ui-empty-state__message">{message}</p>}
+      <p className="ui-empty-state__title">{tn(title)}</p>
+      {message && <p className="ui-empty-state__message">{tn(message)}</p>}
       {action && (
         <Button variant="primary" onClick={action.onClick}>
-          {action.label}
+          {tn(action.label)}
         </Button>
       )}
     </div>

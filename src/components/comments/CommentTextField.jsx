@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { Textarea } from "../ui";
 import { COMMENT_MAX_LENGTH } from "./commentUtils.js";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * Multiline comment input with a live character counter.
@@ -13,6 +14,7 @@ const CommentTextField = forwardRef(function CommentTextField(
   { id, value, onChange, onSubmit, onEscape, disabled, error, placeholder, rows = 3, describedBy, label },
   ref,
 ) {
+  const { t } = useTranslation();
   const length = value.length;
   const over = length > COMMENT_MAX_LENGTH;
   const near = !over && length >= COMMENT_MAX_LENGTH * 0.9;
@@ -53,7 +55,7 @@ const CommentTextField = forwardRef(function CommentTextField(
         aria-live={near || over ? "polite" : "off"}
       >
         {length.toLocaleString()}/{COMMENT_MAX_LENGTH.toLocaleString()}
-        <span className="comments-sr-only"> characters</span>
+        <span className="comments-sr-only">{" "}{t("characters")}</span>
       </span>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * TableActions component for row action buttons.
  *
@@ -17,6 +18,7 @@ export default function TableActions({
   disabled = false,
   className = "",
 }) {
+  const { tn } = useTranslation();
   const classNames = ["ui-table-actions", className].filter(Boolean).join(" ");
 
   return (
@@ -28,7 +30,7 @@ export default function TableActions({
           onClick={onEdit}
           disabled={disabled}
         >
-          {editLabel}
+          {tn(editLabel)}
         </button>
       )}
       {onDelete && (
@@ -38,7 +40,7 @@ export default function TableActions({
           onClick={onDelete}
           disabled={disabled}
         >
-          {deleteLabel}
+          {tn(deleteLabel)}
         </button>
       )}
     </div>

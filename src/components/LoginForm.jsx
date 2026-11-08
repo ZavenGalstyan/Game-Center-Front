@@ -3,10 +3,12 @@ import { useAuth } from "../auth/AuthContext.jsx";
 import { useToast } from "./Toast.jsx";
 import { mapServerErrors, validateEmail } from "../lib/validation.js";
 import { Alert, Button, FormField, Input } from "./ui";
+import { useTranslation } from "../i18n/useTranslation.js";
 
 export default function LoginForm({ onSuccess, onSwitchToRegister }) {
   const { login } = useAuth();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const [values, setValues] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
@@ -40,7 +42,7 @@ export default function LoginForm({ onSuccess, onSwitchToRegister }) {
         email: values.email.trim(),
         password: values.password,
       });
-      toast.show(`Welcome back, ${user.username}!`, { type: "success" });
+      toast.show(t("Welcome back, {name}!", { name: user.username }), { type: "success" });
       onSuccess?.(user);
     } catch (err) {
       if (err.status === 400 && err.errors) {
@@ -57,7 +59,7 @@ export default function LoginForm({ onSuccess, onSwitchToRegister }) {
     <form className="auth-form" onSubmit={onSubmit} noValidate>
       {formError && <Alert variant="error">{formError}</Alert>}
 
-      <FormField label="Email" error={errors.email} htmlFor="login-email" required>
+      <FormField label={t("Email")} error={errors.email} htmlFor="login-email" required>
         <Input
           id="login-email"
           type="email"
@@ -70,7 +72,7 @@ export default function LoginForm({ onSuccess, onSwitchToRegister }) {
         />
       </FormField>
 
-      <FormField label="Password" error={errors.password} htmlFor="login-password" required>
+      <FormField label={t("Password")} error={errors.password} htmlFor="login-password" required>
         <Input
           id="login-password"
           type="password"
@@ -84,13 +86,13 @@ export default function LoginForm({ onSuccess, onSwitchToRegister }) {
       </FormField>
 
       <Button variant="primary" fullWidth type="submit" loading={submitting}>
-        {submitting ? "Logging in..." : "Log in"}
+        {submitting ? t("Logging in...") : t("Log in")}
       </Button>
 
       <p className="auth-form__switch">
-        Don&apos;t have an account?{" "}
+        {t("Don't have an account?")}{" "}
         <Button variant="link" onClick={onSwitchToRegister}>
-          Register
+          {t("Register")}
         </Button>
       </p>
     </form>

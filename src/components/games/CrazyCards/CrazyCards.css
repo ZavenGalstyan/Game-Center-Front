@@ -851,3 +851,5 @@
 @media (prefers-reduced-motion: reduce) {
   .kc *, .kc *::before, .kc *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+
+:lang(ru) .kc-slot.is-drawn::after { content: "НОВАЯ"; }

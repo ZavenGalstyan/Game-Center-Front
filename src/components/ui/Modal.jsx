@@ -1,4 +1,5 @@
 import { useEffect, useCallback, useRef } from "react";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * Modal component with enhanced accessibility and customization.
@@ -30,6 +31,7 @@ export default function Modal({
   className = "",
   children,
 }) {
+  const { tn } = useTranslation();
   const modalRef = useRef(null);
   const previousActiveElement = useRef(null);
 
@@ -111,14 +113,14 @@ export default function Modal({
       >
         <div className="ui-modal__head">
           <h2 id="modal-title" className="ui-modal__title">
-            {title}
+            {tn(title)}
           </h2>
           {showCloseButton && (
             <button
               type="button"
               className="ui-modal__close"
               onClick={onClose}
-              aria-label="Close"
+              aria-label={tn("Close")}
             >
               <svg
                 width="20"

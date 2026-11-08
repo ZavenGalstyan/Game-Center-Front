@@ -2,6 +2,8 @@
  * Shared helpers for the game comments section.
  */
 
+import { getLocaleTag, t } from "../../i18n/i18n.js";
+
 export const COMMENT_MAX_LENGTH = 1000;
 export const COMMENT_PAGE_SIZE = 10;
 
@@ -14,7 +16,7 @@ export const COMMENT_PAGE_SIZE = 10;
 export function validateCommentContent(content) {
   if (!content.trim()) return "Write something before posting.";
   if (content.length > COMMENT_MAX_LENGTH) {
-    return `Comments can be at most ${COMMENT_MAX_LENGTH} characters.`;
+    return t("Comments can be at most {count} characters.", { count: COMMENT_MAX_LENGTH });
   }
   return null;
 }
@@ -67,15 +69,17 @@ const RELATIVE_UNITS = [
   ["minute", 60],
 ];
 
-let relativeFormatter = null;
-let absoluteFormatter = null;
+// Cached per UI language, so dates follow the language switcher.
+const relativeFormatters = {};
+const absoluteFormatters = {};
 
 export function formatRelativeTime(iso, now = Date.now()) {
   const time = new Date(iso).getTime();
   if (!Number.isFinite(time)) return "";
   const seconds = Math.round((time - now) / 1000);
-  if (Math.abs(seconds) < 45) return "just now";
-  relativeFormatter ??= new Intl.RelativeTimeFormat(undefined, { numeric: "auto" });
+  if (Math.abs(seconds) < 45) return t("just now");
+  const locale = getLocaleTag();
+  const relativeFormatter = (relativeFormatters[locale] ??= new Intl.RelativeTimeFormat(locale, { numeric: "auto" }));
   for (const [unit, size] of RELATIVE_UNITS) {
     if (Math.abs(seconds) >= size) {
       return relativeFormatter.format(Math.round(seconds / size), unit);
@@ -87,11 +91,12 @@ export function formatRelativeTime(iso, now = Date.now()) {
 export function formatAbsoluteTime(iso) {
   const date = new Date(iso);
   if (!Number.isFinite(date.getTime())) return "";
-  absoluteFormatter ??= new Intl.DateTimeFormat(undefined, {
+  const locale = getLocaleTag();
+  absoluteFormatters[locale] ??= new Intl.DateTimeFormat(locale, {
     dateStyle: "medium",
     timeStyle: "short",
   });
-  return absoluteFormatter.format(date);
+  return absoluteFormatters[locale].format(date);
 }
 
 /* --------------------------------- Errors --------------------------------- */

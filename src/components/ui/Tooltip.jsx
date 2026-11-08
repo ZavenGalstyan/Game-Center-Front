@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * Tooltip component for displaying contextual information.
@@ -17,6 +18,7 @@ export default function Tooltip({
   className = "",
   children,
 }) {
+  const { tn } = useTranslation();
   const [visible, setVisible] = useState(false);
   const timeoutRef = useRef(null);
 
@@ -63,7 +65,7 @@ export default function Tooltip({
     >
       {children}
       <span className={tooltipClassNames} role="tooltip" aria-hidden={!visible}>
-        {content}
+        {tn(content)}
       </span>
     </span>
   );

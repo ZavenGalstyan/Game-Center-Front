@@ -254,6 +254,7 @@
 .ag-foe:not(:disabled):hover { transform: translateY(-2px); border-color: var(--ag-bronze); }
 .ag-foe:disabled { opacity: 0.4; }
 .ag-foe.next { border-color: var(--ag-red-2); box-shadow: 0 0 0 1px rgba(224, 69, 47, 0.5), 0 0 24px rgba(224, 69, 47, 0.25); }
+:lang(ru) .ag-foe.champ::after { content: "ЧЕМПИОН"; }
 .ag-foe.champ::after { content: "CHAMPION"; position: absolute; top: 0.8cqh; right: -2.2cqw; transform: rotate(35deg); padding: 0.2em 2.6cqw; background: var(--ag-bronze); color: #1a120a; font: 800 clamp(7px, 0.7cqw, 9px) / 1.4 inherit; letter-spacing: 0.1em; }
 .ag-foe__num { position: absolute; top: 0.6cqh; left: 0.6cqw; font: 700 clamp(10px, 1.2cqw, 15px) / 1 var(--ag-display); color: var(--ag-dim); }
 .ag-foe__bust {

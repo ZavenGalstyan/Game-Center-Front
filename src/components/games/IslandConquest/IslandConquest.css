@@ -1378,3 +1378,5 @@
     font-size: 18px;
   }
 }
+
+:lang(ru) .ic-lbl.is-cap .ic-lbl__n::after { content: " МАКС"; }

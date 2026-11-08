@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * Alert component for displaying feedback messages.
  *
@@ -13,19 +14,20 @@ export default function Alert({
   onDismiss,
   className = "",
 }) {
+  const { tn } = useTranslation();
   const classNames = ["ui-alert", `ui-alert--${variant}`, className]
     .filter(Boolean)
     .join(" ");
 
   return (
     <div className={classNames} role="alert">
-      <div className="ui-alert__content">{children}</div>
+      <div className="ui-alert__content">{tn(children)}</div>
       {onDismiss && (
         <button
           type="button"
           className="ui-alert__dismiss"
           onClick={onDismiss}
-          aria-label="Dismiss"
+          aria-label={tn("Dismiss")}
         >
           <svg
             width="16"

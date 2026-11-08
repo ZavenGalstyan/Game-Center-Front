@@ -2,12 +2,13 @@
  * Dialogue, death, ending and loading screens.
  */
 import { useEffect, useState } from "react";
+import { translateGameText } from "../../../../i18n/activeGameText.js";
 import { LOCATIONS } from "../data/worldmap.js";
 import { HEROES } from "../data/heroes.js";
 import { Icon } from "./icons.jsx";
 
 export function Dialogue({ d, onNext, onChoose, touch }) {
-  const text = d.lines[d.line] || "";
+  const text = translateGameText(d.lines[d.line] || "");
   const [shown, setShown] = useState(0);
   const key = `${d.nodeId}:${d.line}`;
   useEffect(() => {

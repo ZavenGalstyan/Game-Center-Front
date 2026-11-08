@@ -797,3 +797,5 @@
 @media (prefers-reduced-motion: reduce) {
   .tm *, .tm *::before, .tm *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
+
+:lang(ru) .tm-wind::before { content: "ВЕТЕР"; }

@@ -10,6 +10,8 @@ import {
 import GameCard from "../components/GameCard.jsx";
 import CustomGameHero from "../components/custom-game/CustomGameHero.jsx";
 import { Button, LoadingState, EmptyState, CategoryEmptyState, Alert, Section } from "../components/ui";
+import { useTranslation } from "../i18n/useTranslation.js";
+import { gameDescription, gameTitle } from "../i18n/gameInfo.js";
 
 const PAGE_SIZE = 100; // Load all games for better section organization
 
@@ -20,6 +22,7 @@ export default function GamesPage() {
   const activeType = typeId ? byId[typeId] : null;
   const context = useOutletContext();
   const searchQuery = context?.searchQuery || "";
+  const { t } = useTranslation();
 
   const [games, setGames] = useState([]);
   const [pagination, setPagination] = useState(null);
@@ -92,10 +95,10 @@ export default function GamesPage() {
 
     const query = searchQuery.toLowerCase().trim();
     return games.filter((game) => {
-      const name = (game.name || "").toLowerCase();
-      const description = (game.description || "").toLowerCase();
+      const name = `${game.name || ""} ${gameTitle(game)}`.toLowerCase();
+      const description = `${game.description || ""} ${gameDescription(game)}`.toLowerCase();
       const categories = [getMainCategory(game), ...getSecondaryCategories(game)].map((c) =>
-        (c?.name || "").toLowerCase()
+        `${c?.name || ""} ${t(c?.name || "")}`.toLowerCase()
       );
 
       return (
@@ -104,7 +107,7 @@ export default function GamesPage() {
         categories.some((c) => c.includes(query))
       );
     });
-  }, [games, searchQuery]);
+  }, [games, searchQuery, t]);
 
   // Organize games into sections (when showing all games)
   const sections = useMemo(() => {
@@ -117,10 +120,10 @@ export default function GamesPage() {
 
   // Page heading
   const heading = activeType
-    ? activeType.name
+    ? t(activeType.name)
     : searchQuery.trim()
-    ? `Search: "${searchQuery}"`
-    : "All Games";
+    ? t('Search: "{query}"', { query: searchQuery })
+    : t("All Games");
 
   // Show hero only on main games page (no category filter, no search)
   const showHero = !typeId && !searchQuery.trim();
@@ -137,17 +140,15 @@ export default function GamesPage() {
           <h1 className="page-title">{heading}</h1>
           {pagination && (
             <span className="muted">
-              {filteredGames.length}
               {(searchQuery.trim() || typeId) && filteredGames.length !== pagination.total
-                ? ` of ${pagination.total}`
-                : ""}{" "}
-              game{filteredGames.length === 1 ? "" : "s"}
+                ? t("{count} of {total} games", { count: filteredGames.length, total: pagination.total })
+                : t("{count} games", { count: filteredGames.length })}
             </span>
           )}
         </div>
 
-        {loading && <LoadingState message="Loading games..." />}
-        {error && !loading && <Alert variant="error">{error}</Alert>}
+        {loading && <LoadingState message={t("Loading games...")} />}
+        {error && !loading && <Alert variant="error">{t(error)}</Alert>}
 
         {!loading && !error && filteredGames.length === 0 && (
           typeId && !searchQuery.trim() ? (
@@ -156,13 +157,13 @@ export default function GamesPage() {
             <EmptyState
               title={
                 searchQuery.trim()
-                  ? "No games found"
-                  : "No games yet"
+                  ? t("No games found")
+                  : t("No games yet")
               }
               message={
                 searchQuery.trim()
-                  ? `No games match "${searchQuery}". Try a different search.`
-                  : "Check back soon."
+                  ? t('No games match "{query}". Try a different search.', { query: searchQuery })
+                  : t("Check back soon.")
               }
             />
           )
@@ -174,7 +175,7 @@ export default function GamesPage() {
             {sections.map((section, index) => (
               <Section
                 key={section.category || index}
-                title={section.title}
+                title={section.category ? t("{category} Games", { category: t(section.category) }) : t("Other Games")}
                 spacing={index === sections.length - 1 ? "none" : "lg"}
               >
                 <div className="game-grid">
@@ -185,7 +186,7 @@ export default function GamesPage() {
                 {section.games.length > 6 && (
                   <div className="games-page__section-more">
                     <span className="muted">
-                      +{section.games.length - 6} more {section.category || ""} games
+                      {t("+{count} more games", { count: section.games.length - 6 })}
                     </span>
                   </div>
                 )}
@@ -211,8 +212,8 @@ export default function GamesPage() {
                   loading={loadingMore}
                 >
                   {loadingMore
-                    ? "Loading..."
-                    : `Load more (${pagination.total - games.length} left)`}
+                    ? t("Loading...")
+                    : t("Load more ({count} left)", { count: pagination.total - games.length })}
                 </Button>
               </div>
             )}

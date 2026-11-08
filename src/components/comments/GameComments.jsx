@@ -12,6 +12,8 @@ import {
   fieldError,
   retryAfterSeconds,
 } from "./commentUtils.js";
+import { useTranslation } from "../../i18n/useTranslation.js";
+import { t as tr } from "../../i18n/i18n.js";
 import "./comments.css";
 
 /**
@@ -56,6 +58,7 @@ function withLiveAvatar(comment, user) {
 }
 
 export default function GameComments({ gameId, onRequestAuth }) {
+  const { t } = useTranslation();
   const { status, user, isAuthenticated, handleAuthExpired } = useAuth();
   const toast = useToast();
 
@@ -276,7 +279,7 @@ export default function GameComments({ gameId, onRequestAuth }) {
       } else if (err?.code === "RATE_LIMITED" || err?.status === 429) {
         const seconds = retryAfterSeconds(err);
         setRateLimitedUntil(Date.now() + seconds * 1000);
-        setComposeError(`You're posting comments too quickly. Your draft is saved, try again in ${seconds} seconds.`);
+        setComposeError(tr("You're posting comments too quickly. Your draft is saved, try again in {count} seconds.", { count: seconds }));
       } else if (err?.status === 404) {
         setComposeError("This game no longer exists, so it can't receive comments.");
       } else if (err?.status === 400) {
@@ -329,7 +332,7 @@ export default function GameComments({ gameId, onRequestAuth }) {
           return null;
         }
         if (err?.code === "RATE_LIMITED" || err?.status === 429) {
-          return `You're changing comments too quickly. Try again in ${retryAfterSeconds(err)} seconds.`;
+          return tr("You're changing comments too quickly. Try again in {count} seconds.", { count: retryAfterSeconds(err) });
         }
         return commentErrorMessage(err);
       }
@@ -376,7 +379,7 @@ export default function GameComments({ gameId, onRequestAuth }) {
         close = false;
         setDeleteError(
           err?.code === "RATE_LIMITED" || err?.status === 429
-            ? `You're changing comments too quickly. Try again in ${retryAfterSeconds(err)} seconds.`
+            ? tr("You're changing comments too quickly. Try again in {count} seconds.", { count: retryAfterSeconds(err) })
             : commentErrorMessage(err),
         );
       }
@@ -423,17 +426,17 @@ export default function GameComments({ gameId, onRequestAuth }) {
           </svg>
         </span>
         <div className="comments__guest-copy">
-          <p className="comments__guest-title">Join the conversation</p>
+          <p className="comments__guest-title">{t("Join the conversation")}</p>
           <p className="comments__guest-text">
-            {sessionNotice || "Log in or create a free account to share your thoughts about this game."}
+            {sessionNotice || t("Log in or create a free account to share your thoughts about this game.")}
           </p>
         </div>
         <div className="comments__guest-actions">
           <Button variant="primary" size="sm" onClick={() => onRequestAuth?.("login")}>
-            Log in
+            {t("Log in")}
           </Button>
           <Button variant="secondary" size="sm" onClick={() => onRequestAuth?.("register")}>
-            Register
+            {t("Register")}
           </Button>
         </div>
       </div>
@@ -459,9 +462,9 @@ export default function GameComments({ gameId, onRequestAuth }) {
   } else if (listState === "error" && !comments.length) {
     listBody = (
       <div className="comments__alert" role="alert">
-        <span>{listError}</span>
+        <span>{t(listError)}</span>
         <Button variant="secondary" size="sm" onClick={refetchFirstPage}>
-          Retry
+          {t("Retry")}
         </Button>
       </div>
     );
@@ -473,8 +476,8 @@ export default function GameComments({ gameId, onRequestAuth }) {
             <path d="M4 5h16v11H9l-5 4V5Z" />
           </svg>
         </span>
-        <p className="comments__empty-title">No comments yet</p>
-        <p className="comments__empty-text">Be the first to share your thoughts about this game.</p>
+        <p className="comments__empty-title">{t("No comments yet")}</p>
+        <p className="comments__empty-text">{t("Be the first to share your thoughts about this game.")}</p>
       </div>
     );
   } else {
@@ -482,9 +485,9 @@ export default function GameComments({ gameId, onRequestAuth }) {
       <>
         {listState === "error" && (
           <div className="comments__alert" role="alert">
-            <span>{listError}</span>
+            <span>{t(listError)}</span>
             <Button variant="secondary" size="sm" onClick={refetchFirstPage}>
-              Retry
+              {t("Retry")}
             </Button>
           </div>
         )}
@@ -506,19 +509,19 @@ export default function GameComments({ gameId, onRequestAuth }) {
         </ul>
         {loadMoreError && (
           <div className="comments__alert" role="alert">
-            <span>{loadMoreError}</span>
+            <span>{t(loadMoreError)}</span>
             <Button variant="secondary" size="sm" onClick={loadMore}>
-              Retry
+              {t("Retry")}
             </Button>
           </div>
         )}
         {pagination.hasMore && !loadMoreError && (
           <div className="comments__more">
             <Button variant="secondary" size="sm" onClick={loadMore} loading={loadingMore}>
-              Load more comments
+              {t("Load more comments")}
             </Button>
             <span className="comments__more-count">
-              Showing {comments.length.toLocaleString()} of {total.toLocaleString()}
+              {t("Showing {count} of {total}", { count: comments.length.toLocaleString(), total: total.toLocaleString() })}
             </span>
           </div>
         )}
@@ -529,10 +532,10 @@ export default function GameComments({ gameId, onRequestAuth }) {
   return (
     <section className="comments" id="comments" aria-labelledby={headingId}>
       <div className="comments__head">
-        <p className="comments__eyebrow">Community</p>
+        <p className="comments__eyebrow">{t("Community")}</p>
         <h2 className="comments__title" id={headingId}>
-          Comments
-          <span className="comments__count" aria-label={`${total} comments`}>
+          {t("Comments")}
+          <span className="comments__count" aria-label={t("{count} comments", { count: total })}>
             {loaded ? total.toLocaleString() : "–"}
           </span>
         </h2>

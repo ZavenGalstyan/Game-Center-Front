@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { Badge } from "./ui";
 import { getGameArtwork } from "../lib/gameHelpers.jsx";
 import RatingBadge from "./rating/RatingBadge.jsx";
+import { useTranslation } from "../i18n/useTranslation.js";
+import { gameDescription, gameTitle } from "../i18n/gameInfo.js";
 
 /**
  * Card for one liked game in the Account "Liked Games" section.
@@ -42,6 +44,7 @@ function IconGamepad() {
 }
 
 export default function LikedGameCard({ game, onUnlike, removing = false }) {
+  const { t, lang } = useTranslation();
   const navigate = useNavigate();
   const id = game.id || game._id;
   const type = game.mainCategory || game.type || game.category;
@@ -64,7 +67,7 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
       className="liked-game-card"
       role="link"
       tabIndex={0}
-      aria-label={`Open ${game.name}`}
+      aria-label={t("Open {name}", { name: gameTitle(game, lang) })}
       onClick={go}
       onKeyDown={onKeyDown}
     >
@@ -82,12 +85,12 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
       {/* Content */}
       <div className="liked-game-card__body">
         <div className="liked-game-card__header">
-          <h3 className="liked-game-card__title">{game.name}</h3>
+          <h3 className="liked-game-card__title">{gameTitle(game, lang)}</h3>
           <button
             type="button"
             className="liked-game-card__heart"
-            aria-label={`Unlike ${game.name}`}
-            title="Unlike game"
+            aria-label={t("Unlike {name}", { name: gameTitle(game, lang) })}
+            title={t("Unlike game")}
             disabled={removing}
             onClick={(e) => {
               e.stopPropagation();
@@ -98,16 +101,16 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
           </button>
         </div>
 
-        {type?.name && <Badge variant="success" size="sm">{type.name}</Badge>}
+        {type?.name && <Badge variant="success" size="sm">{t(type.name)}</Badge>}
 
         {game.description && (
-          <p className="liked-game-card__desc">{game.description}</p>
+          <p className="liked-game-card__desc">{gameDescription(game, lang)}</p>
         )}
 
         <RatingBadge game={game} className="liked-game-card__rating" />
 
         <span className="liked-game-card__status">
-          <IconHeart /> Liked
+          <IconHeart />{" "}{t("Liked")}
         </span>
       </div>
     </div>

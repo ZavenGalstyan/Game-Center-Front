@@ -8,6 +8,7 @@ import { Icon, Avatar, DollBadge } from "./icons.jsx";
 import { DOLL_TYPES, DAMAGE, HAIR_COLORS, FABRIC_COLORS, HAIR_STYLES, OUTFITS, ACCESSORIES, SHOES } from "../data/dolls.js";
 import { TOOLS, TOOL_ORDER, SUPPLIES, SUPPLY_ORDER, PARTS, UPGRADES, UPGRADE_ORDER, MAX_LEVEL, xpToNext, LEVEL_TITLES } from "../data/items.js";
 import { orderBoard, toolsNeeded, nextUpgrade, tier, qty, capOf, CHALLENGES, ensureChallenges, DEPOSIT } from "../engine/progress.js";
+import { translateGameText } from "../../../../i18n/activeGameText.js";
 
 export const money = (n) => `$${Math.round(n).toLocaleString("en-US")}`;
 const reqText = (r) => {
@@ -178,7 +179,7 @@ export function OrderBoard({ save, onPick, onBack, onShop }) {
 /* ------------------------------------------------------------- customer */
 export function CustomerDialog({ order, phase, onAccept, onDecline, reaction }) {
   const [shown, setShown] = useState(0);
-  const text = reaction ? reaction.text : order.story;
+  const text = translateGameText(reaction ? reaction.text : order.story);
   useEffect(() => {
     setShown(0);
     const id = setInterval(() => setShown((n) => (n >= text.length ? (clearInterval(id), n) : n + 2)), 18);

@@ -1,4 +1,5 @@
 import Button from "./Button.jsx";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * Pagination component for navigating paged data.
@@ -21,27 +22,28 @@ export default function Pagination({
   showInfo = true,
   className = "",
 }) {
+  const { tn } = useTranslation();
   const classNames = ["ui-pagination", className].filter(Boolean).join(" ");
 
   const hasPrev = page > 1;
   const hasNext = page < totalPages;
 
   return (
-    <nav className={classNames} aria-label="Pagination">
+    <nav className={classNames} aria-label={tn("Pagination")}>
       <Button
         variant="ghost"
         size="sm"
         disabled={disabled || !hasPrev}
         onClick={() => onPageChange(page - 1)}
-        aria-label="Go to previous page"
+        aria-label={tn("Go to previous page")}
       >
-        Previous
+        {tn("Previous")}
       </Button>
 
       {showInfo && (
         <span className="ui-pagination__info" aria-live="polite">
-          Page {page} of {totalPages}
-          {typeof total === "number" && ` \u00B7 ${total} total`}
+          {tn("Page {page} of {totalPages}", { page, totalPages })}
+          {typeof total === "number" && ` \u00B7 ${tn("{count} total", { count: total })}`}
         </span>
       )}
 
@@ -50,9 +52,9 @@ export default function Pagination({
         size="sm"
         disabled={disabled || !hasNext}
         onClick={() => onPageChange(page + 1)}
-        aria-label="Go to next page"
+        aria-label={tn("Go to next page")}
       >
-        Next
+        {tn("Next")}
       </Button>
     </nav>
   );

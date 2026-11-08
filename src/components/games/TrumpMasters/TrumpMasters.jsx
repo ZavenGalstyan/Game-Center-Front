@@ -401,7 +401,7 @@ export default function TrumpMasters({ restartSignal = 0, muted = false }) {
 
             <div className={`tm-table${g.phase === "end" ? ` is-${g.end}` : ""}`} style={g.phase === "end" && g.end === "take" ? fromStyle(g.defender) : undefined}>
               {g.table.length === 0 && g.phase === "play" && (
-                <p className="tm-table__hint">{who === 0 ? "Lead a card to attack" : `${name(g.attacker)} ${verb(g.attacker, "is", "are")} attacking ${g.defender === 0 ? "you" : name(g.defender)}`}</p>
+                <p className="tm-table__hint">{who === 0 ? "Lead a card to attack" : `${name(g.attacker)} ${g.attacker === 0 ? "are" : "is"} attacking ${g.defender === 0 ? "you" : name(g.defender)}`}</p>
               )}
               {g.table.map((p, i) => (
                 <div key={p.a.id} className={`tm-pair${targets.has(i) ? " is-target" : ""}`} onClick={() => tapSlot(i)}>

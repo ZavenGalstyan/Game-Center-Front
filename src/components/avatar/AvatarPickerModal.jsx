@@ -6,6 +6,8 @@ import { useToast } from "../Toast.jsx";
 import { Alert, Button, Modal } from "../ui";
 import Avatar from "./Avatar.jsx";
 import { useAvatarCatalog } from "./useAvatarCatalog.js";
+import { useTranslation } from "../../i18n/useTranslation.js";
+import { t as tr } from "../../i18n/i18n.js";
 
 function retryAfterSeconds(err) {
   if (err?.retryAfter > 0) return err.retryAfter;
@@ -19,7 +21,7 @@ function saveErrorMessage(err) {
   if (err?.status === 400) return "That avatar is not available. Please choose another one.";
   if (err?.status === 429) {
     const s = retryAfterSeconds(err);
-    return `You're changing your avatar too often. Try again in ${s} second${s === 1 ? "" : "s"}.`;
+    return tr("You're changing your avatar too often. Try again in {count} seconds.", { count: s });
   }
   return err?.message || "Couldn't save your avatar. Please try again.";
 }
@@ -39,6 +41,7 @@ function CheckIcon() {
  * screen (Header, Profile, own comments) at once.
  */
 export default function AvatarPickerModal({ onClose }) {
+  const { t } = useTranslation();
   const { user, updateUser, handleAuthExpired } = useAuth();
   const toast = useToast();
   const catalog = useAvatarCatalog();
@@ -138,7 +141,7 @@ export default function AvatarPickerModal({ onClose }) {
   };
 
   return (
-    <Modal title="Choose Your Avatar" onClose={requestClose} size="lg" className="avatar-picker">
+    <Modal title={t("Choose Your Avatar")} onClose={requestClose} size="lg" className="avatar-picker">
       <div className="avatar-picker__layout">
         <aside className="avatar-picker__preview" aria-live="polite">
           <div className="avatar-picker__preview-art">
@@ -148,13 +151,13 @@ export default function AvatarPickerModal({ onClose }) {
             <p className="avatar-picker__preview-name">{selected?.name || getAvatarName(selectedId)}</p>
             <p className="avatar-picker__preview-cat">{categoryName[selected?.category] || ""}</p>
             <span className={"avatar-picker__state" + (dirty ? " is-new" : "")}>
-              {dirty ? "New selection" : "Current avatar"}
+              {dirty ? t("New selection") : t("Current avatar")}
             </span>
           </div>
         </aside>
 
         <div className="avatar-picker__main">
-          <div className="avatar-picker__chips" role="group" aria-label="Filter avatars by category">
+          <div className="avatar-picker__chips" role="group" aria-label={t("Filter avatars by category")}>
             {[{ id: "all", name: "All" }, ...catalog.categories].map((c) => (
               <button
                 key={c.id}
@@ -173,7 +176,7 @@ export default function AvatarPickerModal({ onClose }) {
               ref={gridRef}
               className="avatar-picker__grid"
               role="radiogroup"
-              aria-label="Avatars"
+              aria-label={t("Avatars")}
               onKeyDown={onGridKeyDown}
             >
               {visible.map((a, i) => {
@@ -217,15 +220,15 @@ export default function AvatarPickerModal({ onClose }) {
       <div className="avatar-picker__footer">
         {error && (
           <Alert variant="error" className="avatar-picker__error">
-            {error}
+            {t(error)}
           </Alert>
         )}
         <div className="avatar-picker__actions">
           <Button variant="ghost" onClick={requestClose} disabled={saving}>
-            Cancel
+            {t("Cancel")}
           </Button>
           <Button variant="primary" onClick={save} disabled={!dirty} loading={saving}>
-            {saving ? "Saving..." : "Save avatar"}
+            {saving ? t("Saving...") : t("Save avatar")}
           </Button>
         </div>
       </div>

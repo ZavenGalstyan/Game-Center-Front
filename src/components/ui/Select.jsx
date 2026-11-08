@@ -1,4 +1,5 @@
 import { forwardRef, useState, useRef, useEffect, useCallback } from "react";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * Custom Select component with styled dropdown.
@@ -29,6 +30,7 @@ const Select = forwardRef(function Select(
   },
   ref
 ) {
+  const { tn } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const [openDirection, setOpenDirection] = useState("down");
@@ -38,7 +40,7 @@ const Select = forwardRef(function Select(
 
   // Find the selected option
   const selectedOption = options.find((opt) => opt.value === value);
-  const displayValue = selectedOption?.label || placeholder || "";
+  const displayValue = tn(selectedOption?.label || placeholder || "");
 
   // Combine refs
   const setRefs = useCallback(
@@ -256,12 +258,12 @@ const Select = forwardRef(function Select(
       >
         {placeholder && (
           <option value="" disabled>
-            {placeholder}
+            {tn(placeholder)}
           </option>
         )}
         {options.map((opt) => (
           <option key={opt.value} value={opt.value}>
-            {opt.label}
+            {tn(opt.label)}
           </option>
         ))}
       </select>
@@ -328,7 +330,7 @@ const Select = forwardRef(function Select(
                 onClick={() => selectOption(opt.value)}
                 onMouseEnter={() => setFocusedIndex(idx)}
               >
-                <span className="ui-select__option-label">{opt.label}</span>
+                <span className="ui-select__option-label">{tn(opt.label)}</span>
                 {isSelected && (
                   <svg
                     className="ui-select__check"

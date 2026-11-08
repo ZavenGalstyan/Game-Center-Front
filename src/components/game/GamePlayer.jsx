@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import GameControls from "./GameControls.jsx";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * Reusable game player shell for the Game Center.
@@ -33,6 +34,7 @@ export default function GamePlayer({
   likeButton = null,
 }) {
   const containerRef = useRef(null);
+  const { t } = useTranslation();
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Trust the browser, not the button — covers ESC and the browser's own UI.
@@ -88,11 +90,11 @@ export default function GamePlayer({
       <div
         className="game-player__stage"
         role="group"
-        aria-label={`${title} player`}
+        aria-label={t("{title} player", { title })}
       >
         {children ?? (
           <div className="game-player__placeholder">
-            <p className="game-player__placeholder-text">Game will load here</p>
+            <p className="game-player__placeholder-text">{t("Game will load here")}</p>
           </div>
         )}
       </div>

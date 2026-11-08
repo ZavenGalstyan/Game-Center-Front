@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * Section component for grouping related content.
  *
@@ -17,6 +18,7 @@ export default function Section({
   className = "",
   children,
 }) {
+  const { tn } = useTranslation();
   const classNames = [
     "ui-section",
     spacing !== "none" && `ui-section--spacing-${spacing}`,
@@ -32,8 +34,8 @@ export default function Section({
       {hasHeader && (
         <div className="ui-section__header">
           <div className="ui-section__text">
-            {title && <h2 className="ui-section__title">{title}</h2>}
-            {subtitle && <p className="ui-section__subtitle">{subtitle}</p>}
+            {title && <h2 className="ui-section__title">{tn(title)}</h2>}
+            {subtitle && <p className="ui-section__subtitle">{tn(subtitle)}</p>}
           </div>
           {actions && <div className="ui-section__actions">{actions}</div>}
         </div>

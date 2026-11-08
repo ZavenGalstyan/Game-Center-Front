@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * Tabs component for tabbed navigation.
  *
@@ -15,6 +16,7 @@ export default function Tabs({
   variant = "default",
   className = "",
 }) {
+  const { tn } = useTranslation();
   const classNames = ["ui-tabs", `ui-tabs--${variant}`, className]
     .filter(Boolean)
     .join(" ");
@@ -33,7 +35,7 @@ export default function Tabs({
           className={`ui-tabs__tab ${activeTab === tab.id ? "ui-tabs__tab--active" : ""}`}
           onClick={() => onChange(tab.id)}
         >
-          {tab.label}
+          {tn(tab.label)}
         </button>
       ))}
     </div>

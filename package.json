@@ -18,6 +18,8 @@
     "three": "^0.169.0"
   },
   "devDependencies": {
+    "@babel/parser": "^7.29.13",
+    "@babel/traverse": "^7.29.13",
     "@vitejs/plugin-react": "^4.3.1",
     "vite": "^5.4.8"
   }

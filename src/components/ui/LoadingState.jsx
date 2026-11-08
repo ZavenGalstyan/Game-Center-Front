@@ -1,4 +1,5 @@
 import Spinner from "./Spinner.jsx";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * LoadingState component for displaying loading indicators.
@@ -13,12 +14,13 @@ export default function LoadingState({
   size = "md",
   className = "",
 }) {
+  const { tn } = useTranslation();
   const classNames = ["ui-loading-state", className].filter(Boolean).join(" ");
 
   return (
     <div className={classNames}>
       <Spinner size={size} />
-      {message && <p className="ui-loading-state__message">{message}</p>}
+      {message && <p className="ui-loading-state__message">{tn(message)}</p>}
     </div>
   );
 }

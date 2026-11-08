@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Badge } from "./ui";
 import { getGameDisplayTags, getGameArtwork } from "../lib/gameHelpers.jsx";
 import RatingBadge from "./rating/RatingBadge.jsx";
+import { useTranslation } from "../i18n/useTranslation.js";
+import { gameDescription, gameTitle } from "../i18n/gameInfo.js";
 
 /**
  * GameCard - Compact horizontal gaming card matching Stumble Guys reference.
@@ -21,6 +23,7 @@ import RatingBadge from "./rating/RatingBadge.jsx";
  */
 export default function GameCard({ game }) {
   const tags = getGameDisplayTags(game);
+  const { t, lang } = useTranslation();
   const artwork = getGameArtwork(game);
   const background = artwork?.cardBackground;
 
@@ -52,7 +55,7 @@ export default function GameCard({ game }) {
           style={artwork?.gradient ? { background: artwork.gradient } : undefined}
         >
           <span className="game-card__artwork-initial" aria-hidden="true">
-            {game.name?.charAt(0)?.toUpperCase() || "G"}
+            {gameTitle(game, lang).charAt(0).toUpperCase() || "G"}
           </span>
           {/* Diagonal green accent strip */}
           <div className="game-card__diagonal-accent" aria-hidden="true" />
@@ -61,19 +64,19 @@ export default function GameCard({ game }) {
 
       {/* Content region */}
       <div className="game-card__content">
-        <h3 className="game-card__title">{game.name}</h3>
+        <h3 className="game-card__title">{gameTitle(game, lang)}</h3>
 
         {tags.length > 0 && (
           <div className="game-card__tags">
             {tags.map((tag, index) => (
               <Badge key={index} size="sm">
-                {tag}
+                {t(tag)}
               </Badge>
             ))}
           </div>
         )}
 
-        <p className="game-card__desc">{game.description}</p>
+        <p className="game-card__desc">{gameDescription(game, lang)}</p>
 
         <div className="game-card__rating">
           <RatingBadge game={game} />

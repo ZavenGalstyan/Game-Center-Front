@@ -8,6 +8,7 @@ import { getAvatarName, resolveAvatarId } from "../lib/avatars.js";
 import { mapServerErrors, validateNewPassword } from "../lib/validation.js";
 import { Alert, Button, FormField, Card, CardTitle, CardBody, Badge } from "../components/ui";
 import LikedGamesSection from "../components/LikedGamesSection.jsx";
+import { useTranslation } from "../i18n/useTranslation.js";
 
 function IconLock() {
   return (
@@ -71,6 +72,7 @@ function IconPencil() {
 
 function PasswordInput({ id, value, onChange, disabled, error, autoComplete }) {
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div className="password-field">
@@ -91,7 +93,7 @@ function PasswordInput({ id, value, onChange, disabled, error, autoComplete }) {
         type="button"
         className="password-field__toggle"
         onClick={() => setVisible((v) => !v)}
-        aria-label={visible ? "Hide password" : "Show password"}
+        aria-label={visible ? t("Hide password") : t("Show password")}
         tabIndex={-1}
       >
         {visible ? <IconEyeOff /> : <IconEye />}
@@ -103,6 +105,7 @@ function PasswordInput({ id, value, onChange, disabled, error, autoComplete }) {
 export default function Account() {
   const { user, handleAuthExpired } = useAuth();
   const toast = useToast();
+  const { t, locale } = useTranslation();
 
   const [values, setValues] = useState({ currentPassword: "", newPassword: "", confirm: "" });
   const [errors, setErrors] = useState({});
@@ -167,7 +170,7 @@ export default function Account() {
       {/* Ambient background - subtle static lighting via CSS */}
       <div className="account-bg" aria-hidden="true" />
 
-      <h1 className="page-title">Account</h1>
+      <h1 className="page-title">{t("Account")}</h1>
 
       {/* Profile Overview - Full Width */}
       <section className="profile-overview">
@@ -178,7 +181,7 @@ export default function Account() {
               type="button"
               className="profile-avatar-btn"
               onClick={openPicker}
-              aria-label={`Change avatar (current: ${getAvatarName(resolveAvatarId(user?.avatarId))})`}
+              aria-label={t("Change avatar (current: {name})", { name: t(getAvatarName(resolveAvatarId(user?.avatarId))) })}
             >
               <Avatar avatarId={user?.avatarId} size="xl" alt="" loading="eager" className="profile-overview__avatar" />
               <span className="profile-avatar-btn__edit" aria-hidden="true">
@@ -188,9 +191,9 @@ export default function Account() {
             <div className="profile-overview__user">
               <h2 className="profile-overview__name">{user?.username}</h2>
               <p className="profile-overview__email">{user?.email}</p>
-              <Badge variant="primary" size="sm">{user?.role}</Badge>
+              <Badge variant="primary" size="sm">{t(user?.role)}</Badge>
               <Button variant="secondary" size="sm" className="profile-avatar-change" onClick={openPicker}>
-                Change avatar
+                {t("Change avatar")}
               </Button>
             </div>
           </div>
@@ -198,22 +201,22 @@ export default function Account() {
           {/* Right: Stats Grid */}
           <div className="profile-overview__stats">
             <div className="profile-stat">
-              <span className="profile-stat__label">Username</span>
+              <span className="profile-stat__label">{t("Username")}</span>
               <span className="profile-stat__value">{user?.username}</span>
             </div>
             <div className="profile-stat">
-              <span className="profile-stat__label">Email</span>
+              <span className="profile-stat__label">{t("Email")}</span>
               <span className="profile-stat__value">{user?.email}</span>
             </div>
             <div className="profile-stat">
-              <span className="profile-stat__label">Role</span>
-              <span className="profile-stat__value">{user?.role}</span>
+              <span className="profile-stat__label">{t("Role")}</span>
+              <span className="profile-stat__value">{t(user?.role)}</span>
             </div>
             <div className="profile-stat">
-              <span className="profile-stat__label">Member since</span>
+              <span className="profile-stat__label">{t("Member since")}</span>
               <span className="profile-stat__value">
                 {user?.createdAt
-                  ? new Date(user.createdAt).toLocaleDateString()
+                  ? new Date(user.createdAt).toLocaleDateString(locale)
                   : "—"}
               </span>
             </div>
@@ -234,13 +237,13 @@ export default function Account() {
         {/* Change Password - Secondary Section */}
         <section className="account-dashboard__security">
           <Card className="security-card">
-            <CardTitle>Change password</CardTitle>
+            <CardTitle>{t("Change password")}</CardTitle>
             <CardBody>
               <form className="security-form" onSubmit={onSubmit} noValidate>
                 {formError && <Alert variant="error">{formError}</Alert>}
 
                 <FormField
-                  label="Current password"
+                  label={t("Current password")}
                   error={errors.currentPassword}
                   htmlFor="cur-pw"
                   required
@@ -256,9 +259,9 @@ export default function Account() {
                 </FormField>
 
                 <FormField
-                  label="New password"
+                  label={t("New password")}
                   error={errors.newPassword}
-                  hint="8–128 characters, different from the current one"
+                  hint={t("8–128 characters, different from the current one")}
                   htmlFor="new-pw"
                   required
                 >
@@ -272,7 +275,7 @@ export default function Account() {
                   />
                 </FormField>
 
-                <FormField label="Confirm new password" error={errors.confirm} htmlFor="conf-pw" required>
+                <FormField label={t("Confirm new password")} error={errors.confirm} htmlFor="conf-pw" required>
                   <PasswordInput
                     id="conf-pw"
                     autoComplete="new-password"
@@ -284,7 +287,7 @@ export default function Account() {
                 </FormField>
 
                 <Button variant="primary" type="submit" loading={submitting} fullWidth>
-                  {submitting ? "Saving..." : "Change password"}
+                  {submitting ? t("Saving...") : t("Change password")}
                 </Button>
               </form>
             </CardBody>

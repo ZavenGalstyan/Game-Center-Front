@@ -14,6 +14,7 @@ import * as THREE from "three";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { mat, worldUV, KINDS, labelTexture } from "./materials.js";
+import { translateGameText } from "../../../../i18n/activeGameText.js";
 
 const TAU = Math.PI * 2;
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
@@ -1480,7 +1481,7 @@ function cerealLabel(label, color) {
     g.lineWidth = 6;
     g.font = "900 52px 'Arial Black', Arial, sans-serif";
     g.textAlign = "center";
-    const words = label.split(" ");
+    const words = translateGameText(label).split(" ");
     words.forEach((wd, i) => {
       g.strokeText(wd, w / 2, 80 + i * 56);
       g.fillText(wd, w / 2, 80 + i * 56);

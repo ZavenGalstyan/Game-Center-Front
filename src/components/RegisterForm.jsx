@@ -8,10 +8,12 @@ import {
   validateUsername,
 } from "../lib/validation.js";
 import { Alert, Button, FormField, Input } from "./ui";
+import { useTranslation } from "../i18n/useTranslation.js";
 
 export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
   const { registerAndLogin } = useAuth();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const [values, setValues] = useState({
     username: "",
@@ -56,7 +58,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
         email: values.email.trim(),
         password: values.password,
       });
-      toast.show(`Welcome, ${user.username}!`, { type: "success" });
+      toast.show(t("Welcome, {name}!", { name: user.username }), { type: "success" });
       onSuccess?.(user);
     } catch (err) {
       if (err.status === 400 && err.errors) {
@@ -78,9 +80,9 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
       {formError && <Alert variant="error">{formError}</Alert>}
 
       <FormField
-        label="Username"
+        label={t("Username")}
         error={errors.username}
-        hint="3–30 characters · letters, numbers, and _ . -"
+        hint={t("3–30 characters · letters, numbers, and _ . -")}
         htmlFor="reg-username"
         required
       >
@@ -96,7 +98,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
         />
       </FormField>
 
-      <FormField label="Email" error={errors.email} htmlFor="reg-email" required>
+      <FormField label={t("Email")} error={errors.email} htmlFor="reg-email" required>
         <Input
           id="reg-email"
           type="email"
@@ -110,9 +112,9 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
       </FormField>
 
       <FormField
-        label="Password"
+        label={t("Password")}
         error={errors.password}
-        hint="8–128 characters"
+        hint={t("8–128 characters")}
         htmlFor="reg-password"
         required
       >
@@ -129,7 +131,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
       </FormField>
 
       <FormField
-        label="Confirm password"
+        label={t("Confirm password")}
         error={errors.confirmPassword}
         htmlFor="reg-confirm"
         required
@@ -147,13 +149,13 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }) {
       </FormField>
 
       <Button variant="primary" fullWidth type="submit" loading={submitting}>
-        {submitting ? "Creating account..." : "Create account"}
+        {submitting ? t("Creating account...") : t("Create account")}
       </Button>
 
       <p className="auth-form__switch">
-        Already have an account?{" "}
+        {t("Already have an account?")}{" "}
         <Button variant="link" onClick={onSwitchToLogin}>
-          Log in
+          {t("Log in")}
         </Button>
       </p>
     </form>

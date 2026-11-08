@@ -3,6 +3,7 @@ import { Button } from "../ui";
 import CommentTextField from "./CommentTextField.jsx";
 import CommentAvatar from "./CommentAvatar.jsx";
 import { validateCommentContent } from "./commentUtils.js";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * New-comment form for logged-in players. The draft lives in the parent so it
@@ -26,6 +27,7 @@ export default function CommentComposer({
   error,
   rateLimitedUntil,
 }) {
+  const { t } = useTranslation();
   const [touched, setTouched] = useState(false);
   const waitSeconds = useCountdown(rateLimitedUntil);
 
@@ -54,8 +56,8 @@ export default function CommentComposer({
       >
         <CommentTextField
           id={`comment-compose-${gameId}`}
-          label="Write a comment"
-          placeholder={atLimit ? "You've used all your comments for this game." : "Share your thoughts about this game..."}
+          label={t("Write a comment")}
+          placeholder={atLimit ? t("You've used all your comments for this game.") : t("Share your thoughts about this game...")}
           value={draft}
           onChange={(v) => {
             onDraftChange(v);
@@ -70,7 +72,7 @@ export default function CommentComposer({
 
         {inlineError && (
           <p id={errorId} className="comment-inline-error" role="alert">
-            {inlineError}
+            {t(inlineError)}
           </p>
         )}
 
@@ -80,8 +82,7 @@ export default function CommentComposer({
               <rect x="5" y="11" width="14" height="10" rx="2" />
               <path d="M8 11V8a4 4 0 0 1 8 0v3" />
             </svg>
-            You&rsquo;ve reached the limit of 5 comments for this game. Delete one of your comments to write
-            another.
+            {t("You’ve reached the limit of 5 comments for this game. Delete one of your comments to write another.")}
           </p>
         )}
 
@@ -94,7 +95,7 @@ export default function CommentComposer({
             loading={submitting}
             disabled={blocked || Boolean(invalid)}
           >
-            {waitSeconds > 0 ? `Wait ${waitSeconds}s` : "Post comment"}
+            {waitSeconds > 0 ? t("Wait {count}s", { count: waitSeconds }) : t("Post comment")}
           </Button>
         </div>
       </form>
@@ -103,12 +104,13 @@ export default function CommentComposer({
 }
 
 function AllowanceMeter({ allowance }) {
+  const { t } = useTranslation();
   if (!allowance) {
     return <span className="comment-allowance comment-allowance--loading" aria-hidden="true" />;
   }
   const { count, limit } = allowance;
   return (
-    <span className="comment-allowance" aria-label={`${count} of ${limit} comments used for this game`}>
+    <span className="comment-allowance" aria-label={t("{count} of {limit} comments used for this game", { count, limit })}>
       <span className="comment-allowance__dots" aria-hidden="true">
         {Array.from({ length: limit }, (_, i) => (
           <span key={i} className={"comment-allowance__dot" + (i < count ? " is-used" : "")} />
@@ -118,7 +120,7 @@ function AllowanceMeter({ allowance }) {
         <strong>
           {count}/{limit}
         </strong>{" "}
-        comments used
+        {t("comments used")}
       </span>
     </span>
   );

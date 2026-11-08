@@ -3,10 +3,11 @@
  */
 import { useEffect, useState } from "react";
 import { HEROES } from "../data/heroes.js";
+import { translateGameText } from "../../../../i18n/activeGameText.js";
 
 export function Dialogue({ d, touch, onNext, onChoose }) {
   const [shown, setShown] = useState(0);
-  const text = d.text || "";
+  const text = translateGameText(d.text || "");
   useEffect(() => setShown(0), [text]);
   useEffect(() => {
     if (shown >= text.length) return;

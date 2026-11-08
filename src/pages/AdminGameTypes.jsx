@@ -14,8 +14,11 @@ import {
   FormField,
   Input,
 } from "../components/ui";
+import { useTranslation } from "../i18n/useTranslation.js";
+import { getLocaleTag } from "../i18n/i18n.js";
 
 function TypeFormModal({ initial, onClose, onSaved }) {
+  const { t } = useTranslation();
   const editing = Boolean(initial);
   const { handleAuthExpired } = useAuth();
   const [values, setValues] = useState({
@@ -63,13 +66,13 @@ function TypeFormModal({ initial, onClose, onSaved }) {
   };
 
   return (
-    <Modal title={editing ? `Edit ${initial.name}` : "Add game type"} onClose={onClose} className="admin-gametypes-modal">
+    <Modal title={editing ? t("Edit {name}", { name: initial.name }) : t("Add game type")} onClose={onClose} className="admin-gametypes-modal">
       <p className="admin-gametypes-modal__subtitle">
-        {editing ? "Update game type information" : "Create a new category for games"}
+        {editing ? t("Update game type information") : t("Create a new category for games")}
       </p>
       <form className="admin-gametypes-modal__form" onSubmit={onSubmit} noValidate>
         {formError && <Alert variant="error">{formError}</Alert>}
-        <FormField label="Name" error={errors.name} hint="2–60 characters" htmlFor="gt-name" required>
+        <FormField label={t("Name")} error={errors.name} hint={t("2–60 characters")} htmlFor="gt-name" required>
           <Input
             id="gt-name"
             value={values.name}
@@ -80,9 +83,9 @@ function TypeFormModal({ initial, onClose, onSaved }) {
           />
         </FormField>
         <FormField
-          label="Slug"
+          label={t("Slug")}
           error={errors.slug}
-          hint="lowercase · a–z 0–9 _"
+          hint={t("lowercase · a–z 0–9 _")}
           htmlFor="gt-slug"
           required
         >
@@ -98,10 +101,10 @@ function TypeFormModal({ initial, onClose, onSaved }) {
         </FormField>
         <div className="admin-gametypes-modal__footer">
           <Button variant="ghost" type="button" onClick={onClose} disabled={submitting}>
-            Cancel
+            {t("Cancel")}
           </Button>
           <Button variant="primary" type="submit" loading={submitting}>
-            {submitting ? "Saving..." : editing ? "Save changes" : "Create game type"}
+            {submitting ? t("Saving...") : editing ? t("Save changes") : t("Create game type")}
           </Button>
         </div>
       </form>
@@ -110,6 +113,7 @@ function TypeFormModal({ initial, onClose, onSaved }) {
 }
 
 export default function AdminGameTypes() {
+  const { t } = useTranslation();
   const { types, loading, error, reload } = useGameTypes();
   const { handleAuthExpired } = useAuth();
   const toast = useToast();
@@ -145,16 +149,16 @@ export default function AdminGameTypes() {
     <div className="admin-gametypes">
       <div className="admin-gametypes__header">
         <div className="admin-gametypes__header-text">
-          <h1 className="page-title">Game Types</h1>
-          <p className="admin-gametypes__subtitle">Manage categories for organizing games</p>
+          <h1 className="page-title">{t("Game Types")}</h1>
+          <p className="admin-gametypes__subtitle">{t("Manage categories for organizing games")}</p>
         </div>
         <Button variant="primary" onClick={() => setFormFor({})}>
-          Add game type
+          {t("Add game type")}
         </Button>
       </div>
 
       {error && <Alert variant="error">{error}</Alert>}
-      {loading && <LoadingState message="Loading game types..." />}
+      {loading && <LoadingState message={t("Loading game types...")} />}
 
       {!loading && !error && (
         <div className="admin-gametypes__card">
@@ -162,10 +166,10 @@ export default function AdminGameTypes() {
             <table className="admin-gametypes__table">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Slug</th>
-                  <th>Created</th>
-                  <th aria-label="Actions"></th>
+                  <th>{t("Name")}</th>
+                  <th>{t("Slug")}</th>
+                  <th>{t("Created")}</th>
+                  <th aria-label={t("Actions")}></th>
                 </tr>
               </thead>
               <tbody>
@@ -178,7 +182,7 @@ export default function AdminGameTypes() {
                       <code className="admin-gametypes__slug">{t.slug}</code>
                     </td>
                     <td className="admin-gametypes__date">
-                      {new Date(t.createdAt).toLocaleDateString(undefined, {
+                      {new Date(t.createdAt).toLocaleDateString(getLocaleTag(), {
                         year: "numeric",
                         month: "short",
                         day: "numeric",
@@ -198,7 +202,7 @@ export default function AdminGameTypes() {
                 {types.length === 0 && (
                   <tr>
                     <td colSpan={4} className="admin-gametypes__empty">
-                      No game types yet. Click "Add game type" to create one.
+                      {t("No game types yet. Click \"Add game type\" to create one.")}
                     </td>
                   </tr>
                 )}
@@ -218,9 +222,9 @@ export default function AdminGameTypes() {
 
       {deleting && (
         <ConfirmDialog
-          title={`Delete ${deleting.name}?`}
-          message="Games using this type must be reassigned or deleted first."
-          confirmLabel="Delete"
+          title={t("Delete {name}?", { name: deleting.name })}
+          message={t("Games using this type must be reassigned or deleted first.")}
+          confirmLabel={t("Delete")}
           busy={deleteBusy}
           error={deleteError}
           onConfirm={confirmDelete}

@@ -1,4 +1,5 @@
 import Button from "./Button.jsx";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * ErrorState component for displaying error messages with optional retry.
@@ -17,6 +18,7 @@ export default function ErrorState({
   retryLabel = "Try again",
   className = "",
 }) {
+  const { tn } = useTranslation();
   const classNames = ["ui-error-state", className].filter(Boolean).join(" ");
 
   return (
@@ -37,11 +39,11 @@ export default function ErrorState({
           <line x1="12" y1="16" x2="12.01" y2="16" />
         </svg>
       </div>
-      <h3 className="ui-error-state__title">{title}</h3>
-      <p className="ui-error-state__message">{message}</p>
+      <h3 className="ui-error-state__title">{tn(title)}</h3>
+      <p className="ui-error-state__message">{tn(message)}</p>
       {onRetry && (
         <Button variant="secondary" onClick={onRetry}>
-          {retryLabel}
+          {tn(retryLabel)}
         </Button>
       )}
     </div>

@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * Control toolbar for <GamePlayer>. Three buttons only: Restart, Mute/Unmute,
  * Fullscreen. Restart and Mute are disabled until a game wires up a handler.
@@ -65,6 +66,7 @@ export default function GameControls({
   onToggleMute,
   likeButton = null,
 }) {
+  const { t } = useTranslation();
   return (
     <div className="game-controls">
       {/* Like sits immediately before Restart; it manages its own state. */}
@@ -75,10 +77,10 @@ export default function GameControls({
         className="game-controls__btn"
         onClick={onRestart}
         disabled={!onRestart}
-        aria-label={onRestart ? "Restart game" : "Restart (available once game loads)"}
+        aria-label={onRestart ? t("Restart game") : t("Restart (available once game loads)")}
       >
         <IconRestart />
-        <span>Restart</span>
+        <span>{t("Restart")}</span>
       </button>
 
       <button
@@ -87,10 +89,10 @@ export default function GameControls({
         onClick={onToggleMute}
         disabled={!onToggleMute}
         aria-pressed={muted}
-        aria-label={muted ? "Unmute" : "Mute"}
+        aria-label={muted ? t("Unmute") : t("Mute")}
       >
         {muted ? <IconMuted /> : <IconSound />}
-        <span>{muted ? "Unmute" : "Mute"}</span>
+        <span>{muted ? t("Unmute") : t("Mute")}</span>
       </button>
 
       <button
@@ -100,7 +102,7 @@ export default function GameControls({
         aria-pressed={isFullscreen}
       >
         {isFullscreen ? <IconExitFullscreen /> : <IconFullscreen />}
-        <span>{isFullscreen ? "Exit fullscreen" : "Fullscreen"}</span>
+        <span>{isFullscreen ? t("Exit fullscreen") : t("Fullscreen")}</span>
       </button>
     </div>
   );

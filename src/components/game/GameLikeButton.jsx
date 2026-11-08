@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "../../auth/AuthContext.jsx";
 import { useToast } from "../Toast.jsx";
 import { api } from "../../lib/api.js";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * Heart / favourite button for the <GamePlayer> control toolbar.
@@ -34,6 +35,7 @@ function IconHeart({ filled }) {
 export default function GameLikeButton({ gameId }) {
   const { status, isAuthenticated, handleAuthExpired } = useAuth();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const [liked, setLiked] = useState(false);
   const [statusLoading, setStatusLoading] = useState(false);
@@ -125,7 +127,7 @@ export default function GameLikeButton({ gameId }) {
     }
   }, [actionLoading, isAuthenticated, liked, gameId, toast, handleAuthExpired]);
 
-  const label = liked ? "Unlike game" : "Like game";
+  const label = liked ? t("Unlike game") : t("Like game");
 
   return (
     <button
@@ -142,7 +144,7 @@ export default function GameLikeButton({ gameId }) {
       style={statusLoading ? { opacity: 0.55 } : undefined}
     >
       <IconHeart filled={liked} />
-      <span>{liked ? "Liked" : "Like"}</span>
+      <span>{liked ? t("Liked") : t("Like")}</span>
     </button>
   );
 }

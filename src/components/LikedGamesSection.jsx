@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../lib/api.js";
 import { useToast } from "./Toast.jsx";
 import LikedGameCard from "./LikedGameCard.jsx";
+import { useTranslation } from "../i18n/useTranslation.js";
 import {
   LoadingState,
   EmptyState,
@@ -33,6 +34,7 @@ function normalize(res) {
 export default function LikedGamesSection() {
   const toast = useToast();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
@@ -128,9 +130,9 @@ export default function LikedGamesSection() {
   return (
     <div className="liked-games-section">
       <div className="liked-games-section__header">
-        <h3 className="liked-games-section__title">Liked Games</h3>
+        <h3 className="liked-games-section__title">{t("Liked Games")}</h3>
         {total > 0 && (
-          <div className="liked-games-count" aria-label={`${total} games`}>
+          <div className="liked-games-count" aria-label={t("{count} games", { count: total })}>
             <span className="liked-games-count__value">{total}</span>
             <div className="liked-games-count__cube" aria-hidden="true">
               <span className="liked-games-count__cube-top" />
@@ -142,14 +144,14 @@ export default function LikedGamesSection() {
       </div>
 
       <div className="liked-games-section__content">
-        {loading && <LoadingState message="Loading liked games..." />}
+        {loading && <LoadingState message={t("Loading liked games...")} />}
 
         {error && !loading && <Alert variant="error">{error}</Alert>}
 
         {!loading && !error && items.length === 0 && (
           <EmptyState
-            title="No liked games yet"
-            message="Like games to save them here."
+            title={t("No liked games yet")}
+            message={t("Like games to save them here.")}
             action={{ label: "Browse games", onClick: () => navigate("/") }}
           />
         )}
@@ -174,7 +176,7 @@ export default function LikedGamesSection() {
                   onClick={loadMore}
                   loading={loadingMore}
                 >
-                  {loadingMore ? "Loading..." : "Load more"}
+                  {loadingMore ? t("Loading...") : t("Load more")}
                 </Button>
               </div>
             )}

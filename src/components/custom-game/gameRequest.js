@@ -3,6 +3,7 @@
 
 import { api } from "../../lib/api.js";
 import { mapServerErrors, validateEmail } from "../../lib/validation.js";
+import { t } from "../../i18n/i18n.js";
 
 export const NAME_MIN = 2;
 export const NAME_MAX = 100;
@@ -25,9 +26,9 @@ const FIELDS = Object.keys(EMPTY_REQUEST);
 
 function validateName(value, label) {
   const v = (value || "").trim();
-  if (!v) return `${label} is required`;
-  if (v.length < NAME_MIN) return `${label} must be at least ${NAME_MIN} characters`;
-  if (v.length > NAME_MAX) return `${label} must be ${NAME_MAX} characters or fewer`;
+  if (!v) return t("{label} is required", { label: t(label) });
+  if (v.length < NAME_MIN) return t("{label} must be at least {count} characters", { label: t(label), count: NAME_MIN });
+  if (v.length > NAME_MAX) return t("{label} must be {count} characters or fewer", { label: t(label), count: NAME_MAX });
   return null;
 }
 
@@ -35,7 +36,7 @@ function validateRequestEmail(value) {
   const base = validateEmail(value);
   if (base) return base;
   if ((value || "").trim().length > EMAIL_MAX)
-    return `Email must be ${EMAIL_MAX} characters or fewer`;
+    return t("Email must be {count} characters or fewer", { count: EMAIL_MAX });
   return null;
 }
 
@@ -44,10 +45,10 @@ function validateDescription(value) {
   if (!v) return "Please describe your game idea";
   if (v.length < DESCRIPTION_MIN) {
     const missing = DESCRIPTION_MIN - v.length;
-    return `Add a little more detail — ${missing} more character${missing === 1 ? "" : "s"} needed`;
+    return t("Add a little more detail — {count} more characters needed", { count: missing });
   }
   if (v.length > DESCRIPTION_MAX)
-    return `Description must be ${DESCRIPTION_MAX} characters or fewer`;
+    return t("Description must be {count} characters or fewer", { count: DESCRIPTION_MAX });
   return null;
 }
 
@@ -102,9 +103,9 @@ export function submitGameRequest(payload) {
 
 function waitText(seconds) {
   if (!seconds || seconds <= 0) return null;
-  if (seconds < 60) return `${seconds} second${seconds === 1 ? "" : "s"}`;
+  if (seconds < 60) return t("{count} seconds", { count: seconds });
   const minutes = Math.ceil(seconds / 60);
-  return `${minutes} minute${minutes === 1 ? "" : "s"}`;
+  return t("{count} minutes", { count: minutes });
 }
 
 /**
@@ -133,8 +134,9 @@ export function describeSubmitError(err) {
     return {
       fieldErrors: {},
       message:
-        `You've reached the limit of ${RATE_LIMIT_MAX} requests per ${RATE_LIMIT_WINDOW_MIN} minutes. ` +
-        (wait ? `Please try again in ${wait}.` : "Please try again a little later."),
+        t("You've reached the limit of {max} requests per {minutes} minutes.", { max: RATE_LIMIT_MAX, minutes: RATE_LIMIT_WINDOW_MIN }) +
+        " " +
+        (wait ? t("Please try again in {wait}.", { wait }) : t("Please try again a little later.")),
     };
   }
   if (status === 0) {
