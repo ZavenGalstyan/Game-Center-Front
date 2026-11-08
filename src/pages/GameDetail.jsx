@@ -84,7 +84,7 @@ const GAME_TAGLINES = {
   "Space Station Escape": "REPAIR • UNLOCK • SURVIVE",
   "Outpost 47: Frozen Secrets": "EXPLORE • SURVIVE • UNCOVER",
   "Motel 6: Last Guest": "Work the night shift at a mysterious motel where every guest hides a secret.",
-  "Ultimate MMA Championship 3D": "FIGHT • DOMINATE • BECOME CHAMPION",
+  "Ultimate MMA Championship 3D": "Step into the octagon, master your fighting skills, and become the ultimate MMA champion.",
   "Air Hockey": "Challenge a smart AI opponent, defend your goal, and score seven goals to win an exciting neon air hockey match.",
   "Swimming Champions": "Dive into thrilling races, challenge skilled AI swimmers, and swim your way to victory across multiple championship distances.",
   "Ping Pong Clash": "Challenge a skilled AI opponent, master powerful spins and precise shots, and dominate every fast-paced table tennis match.",
@@ -162,6 +162,8 @@ const GAME_TAGLINES = {
   "Corridor 9": "Notice Everything. Trust Nothing. Find Exit 9.",
   "Midnight Shift: Haunted Factory": "Watch the Cameras. Save Your Power. Survive the Night.",
   "Midnight Shift": "Watch the Cameras. Save Your Power. Survive the Night.",
+  "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
+  "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -293,12 +295,23 @@ const GAME_DECORATIONS = {
   "Wobbly Warriors": "wobbly-warriors",
   "Shadow Arena: Ultimate Fighters": "shadow-arena",
   "Shadow Arena": "shadow-arena",
+  "Ultimate MMA Championship 3D": "ultimate-mma",
+  "Last Hope: Zombie Survival": "last-hope",
+  "Last Hope": "last-hope",
+  "Oceanbound: Survival Journey": "oceanbound",
+  "Oceanbound": "oceanbound",
+  "Dinosaur Island 3D": "dinosaur-island",
+  "Wild Kingdom 3D": "wild-kingdom",
+  "Iron Arena: Tank Battles": "iron-arena",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
 const GAME_SHORT_DESCRIPTIONS = {
   "Crazy Cards": "Match cards by color or rank, play powerful eights, and outsmart your opponents in fast-paced card battles.",
   "Sky Combat 3D": "Pilot powerful fighter jets, engage in thrilling dogfights, and dominate the skies across challenging 3D battlefields.",
+  "Oceanbound: Survival Journey": "Explore the open ocean, build your raft, and survive against the odds.",
+  "Oceanbound": "Explore the open ocean, build your raft, and survive against the odds.",
+  "Dinosaur Island 3D": "Explore a prehistoric island, survive deadly dinosaurs, and find your way home.",
 };
 
 // Fallback: generate a short tagline from description if not predefined
