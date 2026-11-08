@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { useTranslation } from "../i18n/useTranslation.js";
 
 const ToastContext = createContext(null);
 
@@ -6,6 +7,7 @@ let nextId = 1;
 
 export function ToastProvider({ children }) {
   const [toasts, setToasts] = useState([]);
+  const { t: tr } = useTranslation();
 
   const dismiss = useCallback((id) => {
     setToasts((list) => list.filter((t) => t.id !== id));
@@ -33,9 +35,9 @@ export function ToastProvider({ children }) {
             type="button"
             className={`toast toast--${t.type}`}
             onClick={() => dismiss(t.id)}
-            aria-label={`${t.message}. Click to dismiss.`}
+            aria-label={tr("{message}. Click to dismiss.", { message: tr(t.message) })}
           >
-            {t.message}
+            {tr(t.message)}
           </button>
         ))}
       </div>

@@ -9,6 +9,7 @@ import { STACKS } from "../data/items.js";
 import { ENDINGS } from "../data/story.js";
 import { allowed } from "../engine/hack.js";
 import { DISTRICTS } from "../data/districts/index.js";
+import { translateGameText } from "../../../../i18n/activeGameText.js";
 
 const SPEAKER_COLORS = { juno: "#a64dff", kenji: "#ffb02e", rhee: "#19f0ff", marta: "#ff8a1f", nan: "#ff2bd6", pip: "#19c8ff", ozzy: "#ffb02e", lena: "#7b8cff", kade: "#4dff9a", razor: "#ff3b5c", ironjaw: "#ff8a1f", specter: "#9fe7ff", vex: "#ff2bd6" };
 export function speakerName(who, P) {
@@ -22,7 +23,7 @@ export function Dialogue({ d, P, onNext, onSkip }) {
   const [line, setLine] = useState(0);
   const [shown, setShown] = useState(0);
   const cur = d.lines[d.i];
-  const text = cur?.[1] || "";
+  const text = translateGameText(cur?.[1] || "");
   useEffect(() => {
     setShown(0);
     setLine(d.i);

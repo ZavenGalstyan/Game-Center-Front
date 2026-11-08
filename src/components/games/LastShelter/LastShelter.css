@@ -3,7 +3,7 @@
 /* On phones the shared 16:9 stage is too short for a management game; give
    this game (only) a taller stage. */
 @media (max-width: 767px) {
-  .game-player__stage:has(> .lsh-root) {
+  .game-player__stage:has(> .game-player__i18n-root > .lsh-root) {
     aspect-ratio: 3 / 4;
     max-height: 82vh;
   }

@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * Card component for contained content sections.
  *
@@ -42,8 +43,9 @@ export function CardHeader({ children, className = "" }) {
  * CardTitle component for card heading text.
  */
 export function CardTitle({ children, className = "", as: Tag = "h3" }) {
+  const { tn } = useTranslation();
   const classNames = ["ui-card__title", className].filter(Boolean).join(" ");
-  return <Tag className={classNames}>{children}</Tag>;
+  return <Tag className={classNames}>{tn(children)}</Tag>;
 }
 
 /**

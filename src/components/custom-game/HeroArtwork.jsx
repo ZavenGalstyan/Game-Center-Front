@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { GAMEPAD_PATH } from "./Emblems.jsx";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /*
  * Original key art for the custom game hero: a floating island whose left
@@ -69,6 +70,7 @@ function WireCube({ x, y, w, h, H, className = "" }) {
 }
 
 function HeroArtwork() {
+  const { t } = useTranslation();
   return (
     <svg
       className="cg-art"
@@ -174,14 +176,14 @@ function HeroArtwork() {
             <circle cx="20" cy="66" r="3.2" fill="#020D0D" stroke="#20F0A0" strokeWidth="1.6" />
             <circle cx="84" cy="30" r="3" fill="#5BE7FF" />
             <path d="M104 30l4 6 4-6-4-6z" fill="#FFD27A" />
-            <text x="12" y="-6" className="cg-art__label">LEVEL 01 · BLUEPRINT</text>
+            <text x="12" y="-6" className="cg-art__label">{t("LEVEL 01 · BLUEPRINT")}</text>
           </g>
         </g>
         <g className="cg-art__bob cg-art__bob--late">
           {/* build HUD */}
           <g transform="translate(440 54) skewY(6)">
             <rect width="128" height="52" rx="10" fill="url(#cgh-holo)" stroke="#20F0A0" strokeOpacity="0.45" />
-            <text x="14" y="21" className="cg-art__label cg-art__label--strong">BUILDING WORLD</text>
+            <text x="14" y="21" className="cg-art__label cg-art__label--strong">{t("BUILDING WORLD")}</text>
             <rect x="14" y="31" width="100" height="6" rx="3" fill="#00E88F" fillOpacity="0.14" />
             <rect className="cg-art__progress" x="14" y="31" width="100" height="6" rx="3" fill="url(#cgh-bar)" />
           </g>

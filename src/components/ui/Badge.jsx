@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * Badge component for labels and status indicators.
  *
@@ -13,6 +14,7 @@ export default function Badge({
   className = "",
   children,
 }) {
+  const { tn } = useTranslation();
   const classNames = [
     "ui-badge",
     `ui-badge--${variant}`,
@@ -22,5 +24,5 @@ export default function Badge({
     .filter(Boolean)
     .join(" ");
 
-  return <span className={classNames}>{children}</span>;
+  return <span className={classNames}>{tn(children)}</span>;
 }

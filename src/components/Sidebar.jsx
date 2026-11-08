@@ -1,9 +1,11 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { useGameTypes } from "../data/gameTypes.jsx";
 import { getCategoryIcon } from "../lib/gameHelpers.jsx";
+import { useTranslation } from "../i18n/useTranslation.js";
 
 export default function Sidebar({ open, onNavigate }) {
   const { types, loading, error } = useGameTypes();
+  const { t: tr } = useTranslation();
   const [params] = useSearchParams();
   const activeTypeId = params.get("typeId");
 
@@ -18,7 +20,7 @@ export default function Sidebar({ open, onNavigate }) {
 
   // Navigation items
   const mainNav = [
-    { to: "/", label: "All Games", icon: "home", isActive: !activeTypeId },
+    { to: "/", label: tr("All Games"), icon: "home", isActive: !activeTypeId },
   ];
 
   return (
@@ -30,7 +32,7 @@ export default function Sidebar({ open, onNavigate }) {
       />
       <aside id="sidebar-nav" className={`sidebar${open ? " is-open" : ""}`}>
         {/* Main Navigation */}
-        <nav className="sidebar__nav sidebar__nav--main" aria-label="Main navigation">
+        <nav className="sidebar__nav sidebar__nav--main" aria-label={tr("Main navigation")}>
           {mainNav.map((item) => (
             <Link key={item.to} to={item.to} {...linkProps(item.isActive)}>
               <span className="sidebar__icon" aria-hidden="true">
@@ -45,17 +47,17 @@ export default function Sidebar({ open, onNavigate }) {
         <div className="sidebar__divider" />
 
         {/* Categories */}
-        <h2 className="sidebar__title">Categories</h2>
-        <nav className="sidebar__nav sidebar__nav--categories" aria-label="Game categories">
-          {loading && <span className="sidebar__meta">Loading...</span>}
-          {error && <span className="sidebar__meta">Couldn&rsquo;t load categories</span>}
+        <h2 className="sidebar__title">{tr("Categories")}</h2>
+        <nav className="sidebar__nav sidebar__nav--categories" aria-label={tr("Game categories")}>
+          {loading && <span className="sidebar__meta">{tr("Loading...")}</span>}
+          {error && <span className="sidebar__meta">{tr("Couldn’t load categories")}</span>}
 
           {types.map((t) => (
             <Link key={t.id} to={`/?typeId=${t.id}`} {...linkProps(activeTypeId === t.id)}>
               <span className="sidebar__icon" aria-hidden="true">
                 {getCategoryIcon(t.name)}
               </span>
-              <span className="sidebar__label">{t.name}</span>
+              <span className="sidebar__label">{tr(t.name)}</span>
             </Link>
           ))}
         </nav>

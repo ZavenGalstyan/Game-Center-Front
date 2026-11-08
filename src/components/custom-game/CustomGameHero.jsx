@@ -6,6 +6,7 @@ import AuthGateView from "./AuthGateView.jsx";
 import GameRequestForm from "./GameRequestForm.jsx";
 import RequestSuccessView from "./RequestSuccessView.jsx";
 import useGameRequestFlow from "./useGameRequestFlow.js";
+import { useTranslation } from "../../i18n/useTranslation.js";
 import "./customGame.css";
 
 /**
@@ -59,6 +60,7 @@ function useHeroAmbience(ref) {
 }
 
 export default function CustomGameHero() {
+  const { t } = useTranslation();
   const { openAuth } = useOutletContext() ?? {};
   const flow = useGameRequestFlow(openAuth);
   const heroRef = useRef(null);
@@ -80,16 +82,14 @@ export default function CustomGameHero() {
         <div className="cg-hero__content">
           <p className="cg-hero__eyebrow">
             <span className="cg-hero__eyebrow-mark" aria-hidden="true" />
-            Custom Game Development
+            {t("Custom Game Development")}
           </p>
           <h1 id="cg-hero-title" className="cg-hero__title">
-            <span className="cg-hero__title-line">Your Imagination.</span>
-            <span className="cg-hero__title-line cg-hero__title-accent">Our Creation.</span>
+            <span className="cg-hero__title-line">{t("Your Imagination.")}</span>
+            <span className="cg-hero__title-line cg-hero__title-accent">{t("Our Creation.")}</span>
           </h1>
           <p className="cg-hero__lead">
-            Dreaming of your own game? Share your idea with us, and we&apos;ll turn your vision
-            into an unforgettable gaming experience. Tell us what you have in mind, and we&apos;ll
-            contact you to discuss the details and pricing.
+            {t("Dreaming of your own game? Share your idea with us, and we'll turn your vision into an unforgettable gaming experience. Tell us what you have in mind, and we'll contact you to discuss the details and pricing.")}
           </p>
           <div className="cg-hero__actions">
             <button
@@ -107,7 +107,7 @@ export default function CustomGameHero() {
                   <path d="M19 14c.3 2 1 2.7 3 3-2 .3-2.7 1-3 3-.3-2-1-2.7-3-3 2-.3 2.7-1 3-3Z" opacity="0.7" />
                 </svg>
               )}
-              <span>Bring My Game to Life</span>
+              <span>{t("Bring My Game to Life")}</span>
               <svg className="cg-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
@@ -117,7 +117,7 @@ export default function CustomGameHero() {
                 <path d="M9 18h6M10 21h4" />
                 <path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2.2h5c.1-1 .5-1.7 1.1-2.2A6 6 0 0 0 12 3Z" />
               </svg>
-              Every great game starts with an idea.
+              {t("Every great game starts with an idea.")}
             </p>
           </div>
         </div>

@@ -1,0 +1,421 @@
+{
+ "AlpineRush": [
+  "RUSH"
+ ],
+ "ArcheryMaster3D": [
+  "Calm"
+ ],
+ "ArmenianBlot": [
+  "{0} of Clubs",
+  "{0} of Diamonds",
+  "{0} of Hearts",
+  "{0} of Spades"
+ ],
+ "BallAdventure3D": [
+  "BALL ADVENTURE {0}D"
+ ],
+ "BladeRush": [
+  "RUSH"
+ ],
+ "BoxingClub": [
+  "Eli Marsh",
+  "Milo Reyes",
+  "Nia Okafor",
+  "RECOVERY",
+  "Rudy Kowal",
+  "Sam Cruz",
+  "VS"
+ ],
+ "CakeDesigner": [
+  "Ava",
+  "{0} layer",
+  "{0} eyes"
+ ],
+ "CastleRush": [
+  "RUSH",
+  "Deploy {0}, {1} gold"
+ ],
+ "ClassicChess": [
+  "vs"
+ ],
+ "ColorClash": [
+  "Normal"
+ ],
+ "ColorSwitch": [
+  "Color Switch"
+ ],
+ "Corridor9": [
+  "LIVE"
+ ],
+ "CozyCleanup": [
+  "Cozy Cleanup"
+ ],
+ "CrazyCards": [
+  "CRAZY",
+  "Normal",
+  "{0} of Clubs",
+  "{0} of Diamonds",
+  "{0} of Hearts",
+  "{0} of Spades"
+ ],
+ "CrowdRush": [
+  "RUSH"
+ ],
+ "CrownOfAshes": [
+  "Mana-hungry"
+ ],
+ "CursedHouse": [
+  "Escape"
+ ],
+ "DentistStudio": [
+  "Ava",
+  "Hana",
+  "Jonah",
+  "Leo",
+  "Mateo",
+  "Noah",
+  "Omar",
+  "Priya"
+ ],
+ "DollRepairWorkshop": [
+  "Ava Brooks",
+  "Daniel Okafor",
+  "Eleanor Wright",
+  "Jonas",
+  "Lily Parker",
+  "Lucia",
+  "Margaret Hale",
+  "Maya Chen",
+  "Priya Shah",
+  "Sophie Laurent",
+  "Victor Hale",
+  "Zoe Rivera",
+  "{0} eyes"
+ ],
+ "DotConnect": [
+  "Dot Connect"
+ ],
+ "DownhillRiders": [
+  "DOWNHILL",
+  "RIDERS"
+ ],
+ "ElementMerge": [
+  "Element Merge"
+ ],
+ "Escape100": [
+  "Escape {0}",
+  "teeth."
+ ],
+ "EscapeQuest": [
+  "Escape Quest"
+ ],
+ "FarmLife": [
+  "Farm Life"
+ ],
+ "FishingJourney": [
+  "Fishing Journey"
+ ],
+ "FlappyWings": [
+  "Flappy Wings"
+ ],
+ "HauntedMansionEscape": [
+  "Escape",
+  "stopped…"
+ ],
+ "HelixDrop": [
+  "HELIX"
+ ],
+ "HighwayRacer": [
+  "RACER",
+  "Street One"
+ ],
+ "HulkOpenWorld3D": [
+  "HULK"
+ ],
+ "IronArena": [
+  "Blazer",
+  "Super-heavy"
+ ],
+ "IronFist": [
+  "IRON FIST",
+  "Kira",
+  "Ryuzen",
+  "VS",
+  "K O",
+  "Double K O",
+  "Final round",
+  "Round {0}",
+  "{0} versus {1}"
+ ],
+ "JumpBall": [
+  "ORBIT"
+ ],
+ "KarateLegends": [
+  "Karate Legends",
+  "Milo"
+ ],
+ "KartLegends": [
+  "LEGENDS"
+ ],
+ "KungFuPanda": [
+  "KUNG FU PANDA"
+ ],
+ "LastHope": [
+  "HOPE"
+ ],
+ "LiquidSort": [
+  "LIQUID",
+  "SORT"
+ ],
+ "LumberjackLife": [
+  "LIFE",
+  "LUMBERJACK"
+ ],
+ "MahjongClassic": [
+  "{0} matches available"
+ ],
+ "MazeMuncher": [
+  "Vex",
+  "patrols",
+  "wanders"
+ ],
+ "MetroRush": [
+  "METRO",
+  "RUSH"
+ ],
+ "MidnightShift": [
+  "BRIGHTGEAR",
+  "BRIGHTGEAR SEC-NET v{0}"
+ ],
+ "MiniGolfJourney": [
+  "Mini Golf"
+ ],
+ "Motel6LastGuest": [
+  "Check-In",
+  "knocking"
+ ],
+ "MountainJourney": [
+  "trails",
+  "viewpoints"
+ ],
+ "MyLittleBuddy": [
+  "daily"
+ ],
+ "NumberFusion": [
+  "Number Fusion"
+ ],
+ "Oceanbound": [
+  "OCEANBOUND"
+ ],
+ "Outpost47": [
+  "HALVORSEN POLAR DYNAMICS"
+ ],
+ "PenaltyKick": [
+  "Brookfield Badgers",
+  "Hillcrest Harriers",
+  "Maple Street Rovers",
+  "Old Mill Athletic",
+  "Parkside United",
+  "Riverside Juniors",
+  "Royal Crest",
+  "Volt"
+ ],
+ "PingPongClash": [
+  "serving"
+ ],
+ "RooftopSniper": [
+  "ROOFTOP SNIPER"
+ ],
+ "SchoolLife3D": [
+  "</> CODE",
+  "Colour {0}",
+  "MATH"
+ ],
+ "ShadowWarriors": [
+  "Aldo",
+  "Ayame",
+  "Bao",
+  "Daisuke",
+  "Fenn",
+  "Gant",
+  "Goro",
+  "Hana",
+  "Hayato",
+  "Idris",
+  "Ilsa",
+  "Isao",
+  "Jin",
+  "Kasha",
+  "Kenji",
+  "Kwan",
+  "Layla",
+  "Lisel",
+  "Mai",
+  "Malik",
+  "Mei",
+  "Nadia",
+  "Omar",
+  "Oren",
+  "Rashid",
+  "Ren",
+  "Rui",
+  "Samira",
+  "Suri",
+  "Tarik",
+  "Tetsu",
+  "Toru",
+  "VS",
+  "Yuki",
+  "Zahra"
+ ],
+ "SkyCombat3D": [
+  "Falcon F{0}"
+ ],
+ "SpaceStationEscape": [
+  "Escape",
+  "ORBIT"
+ ],
+ "SpiderRoyale": [
+  "face-down card",
+  "{0} of Clubs",
+  "{0} of Diamonds",
+  "{0} of Hearts",
+  "{0} of Spades"
+ ],
+ "Stonewild": [
+  "STONEWILD"
+ ],
+ "StrikeForce": [
+  "BAYSIDE FREIGHT",
+  "NORTHWIND CARGO",
+  "Normal",
+  "PORTLINE LOGISTICS",
+  "P{0} Ranger",
+  "STRIKE FORCE",
+  "TIDEWATER SUPPLY",
+  "VX-{0} Valkyrie"
+ ],
+ "StuntRacer3D": [
+  "RACER"
+ ],
+ "SwimmingChampions": [
+  "{0} lengths"
+ ],
+ "TankWarfare3D": [
+  "Iron Fox",
+  "Mini-map"
+ ],
+ "TeddyQuest": [
+  "Teddy Quest"
+ ],
+ "TexasHoldemPoker": [
+  "Buy-in",
+  "Normal",
+  "{0} of Clubs",
+  "{0} of Diamonds",
+  "{0} of Hearts",
+  "{0} of Spades"
+ ],
+ "ThrowMasters": [
+  "Axel",
+  "Bruno",
+  "Kira",
+  "Lava",
+  "MASTERS",
+  "Robin",
+  "Viking Rex"
+ ],
+ "TrainCommander": [
+  "Meadowford",
+  "Train Commander"
+ ],
+ "TrumpMasters": [
+  "Boris",
+  "Lena",
+  "Masters",
+  "Viktor",
+  "{0} cards",
+  "{0} of Clubs",
+  "{0} of Diamonds",
+  "{0} of Hearts",
+  "{0} of Spades"
+ ],
+ "UltimateMMA3D": [
+  "APEX FUEL",
+  "Aleksandre Beridze",
+  "Andrés Castillo",
+  "Aranha",
+  "Ararat",
+  "Arman Petrosyan",
+  "Beridze",
+  "Brooks",
+  "Castillo",
+  "Cross-Hook-Cross · One-Two-Uppercut · One-Two",
+  "Dmitri Volkov",
+  "Halvorsen",
+  "IRONCLAD",
+  "Jonas Halvorsen",
+  "Kaewsai",
+  "Mensah",
+  "Moraes",
+  "NOVA SPORTS",
+  "O'Rourke",
+  "One-Two · Cross-Hook-Cross",
+  "One-Two · One-Two-Uppercut",
+  "Petrosyan",
+  "REDLINE",
+  "Raijin",
+  "Somchai Kaewsai",
+  "Strength",
+  "Takeda",
+  "Tyrone Brooks",
+  "ULTIMATE",
+  "Vale",
+  "Viking",
+  "Volkov",
+  "One-Two-Hook"
+ ],
+ "UrbanSkateRush": [
+  "Urban Skate Rush",
+  "rings"
+ ],
+ "ViceStreets3D": [
+  "BODEGA LUZ",
+  "CORAL PALMS",
+  "CUSTOMS",
+  "Casino · Resort · Club",
+  "HARBOR FREIGHT",
+  "MANGO BAKERY",
+  "MARINA GRILL",
+  "METRO CAB",
+  "PIER {0}",
+  "ST. MARISOL",
+  "SUNBURST COLA",
+  "SUNRISE MOTORS",
+  "TIDE & THREAD",
+  "Taste the coast",
+  "VENTO GT",
+  "VICE STREETS",
+  "VICE {0} FM",
+  "Born on the boulevard",
+  "Neon nights, all night"
+ ],
+ "WaterTanks": [
+  "Normal"
+ ],
+ "WebHero": [
+  "WEB HERO"
+ ],
+ "WhisperingWoods": [
+  "Whispering Woods"
+ ],
+ "WobblyWarriors": [
+  "Bonko",
+  "Pudge",
+  "Wobbly Warriors"
+ ],
+ "ZooSimulator3D": [
+  "{0} today",
+  "○ Sweep {0} droppings  {1}/{2}"
+ ]
+}

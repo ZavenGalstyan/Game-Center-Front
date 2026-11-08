@@ -1,6 +1,7 @@
 import Modal from "./Modal.jsx";
 import Button from "./Button.jsx";
 import Alert from "./Alert.jsx";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * ConfirmDialog component for confirmation prompts.
@@ -31,19 +32,20 @@ export default function ConfirmDialog({
   onConfirm,
   onCancel,
 }) {
+  const { tn } = useTranslation();
   const confirmVariant = variant === "danger" ? "danger" : "primary";
 
   return (
-    <Modal title={title} onClose={onCancel} size={size} closeOnOverlayClick={!busy} className={className}>
+    <Modal title={tn(title)} onClose={onCancel} size={size} closeOnOverlayClick={!busy} className={className}>
       <div className="ui-confirm">
-        {message && <p className="ui-confirm__message">{message}</p>}
-        {error && <Alert variant="error">{error}</Alert>}
+        {message && <p className="ui-confirm__message">{tn(message)}</p>}
+        {error && <Alert variant="error">{tn(error)}</Alert>}
         <div className="ui-confirm__actions">
           <Button variant="ghost" onClick={onCancel} disabled={busy}>
-            {cancelLabel}
+            {tn(cancelLabel)}
           </Button>
           <Button variant={confirmVariant} onClick={onConfirm} loading={busy}>
-            {confirmLabel}
+            {tn(confirmLabel)}
           </Button>
         </div>
       </div>

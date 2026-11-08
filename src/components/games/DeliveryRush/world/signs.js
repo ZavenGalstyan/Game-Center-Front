@@ -12,6 +12,7 @@
 
 import * as THREE from "three";
 import { MeshAcc } from "./geom.js";
+import { translateGameText } from "../../../../i18n/activeGameText.js";
 
 export const BUSINESSES = [
   { name: "CITY CAFE", kind: "cafe", bg: "#2f5d4a", fg: "#ffe9c2" },
@@ -62,8 +63,9 @@ export function signAtlas() {
     ctx.lineWidth = 6;
     ctx.strokeRect(9, 9, cw - 18, ch - 18);
 
-    const words = b.name.split(" ");
-    const lines = words.length > 2 ? [words.slice(0, -1).join(" "), words[words.length - 1]] : [b.name];
+    const name = translateGameText(b.name);
+    const words = name.split(" ");
+    const lines = words.length > 2 ? [words.slice(0, -1).join(" "), words[words.length - 1]] : [name];
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = b.fg;

@@ -3,9 +3,12 @@ import { Link, useNavigate, useSearchParams, useLocation } from "react-router-do
 import { useAuth } from "../auth/AuthContext.jsx";
 import Avatar from "./avatar/Avatar.jsx";
 import { isGameRequestsAdmin } from "../auth/gameRequestsAdmin.js";
+import { useTranslation } from "../i18n/useTranslation.js";
+import LanguageSwitcher from "../i18n/LanguageSwitcher.jsx";
 
 export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSearch }) {
   const { status, user, isAdmin, logout } = useAuth();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -64,7 +67,7 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
         <button
           className="header__hamburger"
           onClick={onToggleSidebar}
-          aria-label="Open navigation menu"
+          aria-label={t("Open navigation menu")}
           aria-expanded={sidebarOpen}
           aria-controls="sidebar-nav"
         >
@@ -86,7 +89,7 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
         </button>
         <Link to="/" className="header__brand">
           <span className="header__logo" aria-hidden="true">◆</span>
-          Game Center
+          {t("Game Center")}
         </Link>
       </div>
 
@@ -112,17 +115,17 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
             ref={searchInputRef}
             type="search"
             className="header__search-input"
-            placeholder="Search games and categories..."
+            placeholder={t("Search games and categories...")}
             value={searchValue}
             onChange={handleSearchChange}
-            aria-label="Search games"
+            aria-label={t("Search games")}
           />
           {searchValue && (
             <button
               type="button"
               className="header__search-clear"
               onClick={handleClearSearch}
-              aria-label="Clear search"
+              aria-label={t("Clear search")}
             >
               <svg
                 width="16"
@@ -144,15 +147,16 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
       </form>
 
       <div className="header__right">
+        <LanguageSwitcher />
         {status === "loading" && <span className="header__muted">...</span>}
 
         {status === "guest" && (
           <>
             <button className="btn btn--ghost" onClick={() => onOpenAuth("login")}>
-              Log in
+              {t("Log in")}
             </button>
             <button className="btn btn--primary" onClick={() => onOpenAuth("register")}>
-              Register
+              {t("Register")}
             </button>
           </>
         )}
@@ -167,7 +171,7 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
               aria-controls="usermenu-panel"
             >
               <Avatar avatarId={user.avatarId} size={32} alt="" loading="eager" className="usermenu__avatar" />
-              <span className="usermenu__name">Hi, {user.username}</span>
+              <span className="usermenu__name">{t("Hi, {name}", { name: user.username })}</span>
               <svg
                 width="16"
                 height="16"
@@ -201,7 +205,7 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
                       navigate("/account");
                     }}
                   >
-                    Account &amp; password
+                    {t("Account & password")}
                   </button>
                 )}
                 {isAdmin && pathname !== "/admin/users" && (
@@ -213,7 +217,7 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
                       navigate("/admin/users");
                     }}
                   >
-                    Admin · Users
+                    {t("Admin · Users")}
                   </button>
                 )}
                 {isAdmin && pathname !== "/admin/game-types" && (
@@ -225,7 +229,7 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
                       navigate("/admin/game-types");
                     }}
                   >
-                    Admin · Game types
+                    {t("Admin · Game types")}
                   </button>
                 )}
                 {isAdmin && pathname !== "/admin/games" && (
@@ -237,7 +241,7 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
                       navigate("/admin/games");
                     }}
                   >
-                    Admin · Games
+                    {t("Admin · Games")}
                   </button>
                 )}
                 {isGameRequestsAdmin(user) && pathname !== "/admin/game-requests" && (
@@ -249,7 +253,7 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
                       navigate("/admin/game-requests");
                     }}
                   >
-                    Admin · Game requests
+                    {t("Admin · Game requests")}
                   </button>
                 )}
                 <button
@@ -260,7 +264,7 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
                     logout();
                   }}
                 >
-                  Log out
+                  {t("Log out")}
                 </button>
               </div>
             )}

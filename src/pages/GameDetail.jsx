@@ -9,6 +9,8 @@ import GameRenderer from "../components/games/GameRenderer.jsx";
 import GameComments from "../components/comments/GameComments.jsx";
 import { getGameComponent, gameSupportsMute } from "../components/games/registry.js";
 import { getMainCategory, getSecondaryCategories } from "../lib/gameHelpers.jsx";
+import { useTranslation } from "../i18n/useTranslation.js";
+import { gameDescription, gameTitle } from "../i18n/gameInfo.js";
 
 /**
  * Single Game Page Shell
@@ -308,7 +310,7 @@ function getTagline(game) {
   if (GAME_SHORT_DESCRIPTIONS[game.name]) return null;
   // For other games, use first sentence or short excerpt
   if (!game.description) return null;
-  const firstSentence = game.description.split(/[.!?]/)[0];
+  const firstSentence = gameDescription(game).split(/[.!?]/)[0];
   if (firstSentence && firstSentence.length <= 80) return firstSentence + ".";
   return null;
 }
@@ -320,6 +322,7 @@ export default function GameDetail() {
   const [restartNonce, setRestartNonce] = useState(0);
   const [muted, setMuted] = useState(false);
   const openAuth = useOutletContext()?.openAuth;
+  const { t, lang } = useTranslation();
 
   // Latest backend rating stats reported by the ratings panel, kept apart from
   // `game` so a new rating never hands GameRenderer a new game object.
@@ -348,15 +351,15 @@ export default function GameDetail() {
     };
   }, [id]);
 
-  if (state === "loading") return <p className="muted">Loading…</p>;
+  if (state === "loading") return <p className="muted">{t("Loading…")}</p>;
 
   if (state === "notfound") {
     return (
       <div className="empty-state">
-        <p className="empty-state__big">Game not found</p>
+        <p className="empty-state__big">{t("Game not found")}</p>
         <p className="empty-state__sub">
           <Link to="/" className="linkbtn">
-            Back to all games
+            {t("Back to all games")}
           </Link>
         </p>
       </div>
@@ -364,7 +367,7 @@ export default function GameDetail() {
   }
 
   if (state === "error") {
-    return <div className="form-alert">Couldn&rsquo;t load this game. Try again.</div>;
+    return <div className="form-alert">{t("Couldn’t load this game. Try again.")}</div>;
   }
 
   const PlayableGame = getGameComponent(game);
@@ -383,36 +386,36 @@ export default function GameDetail() {
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
         </span>
-        Back
+        {t("Back")}
       </Link>
 
       {/* Game Page Header */}
       <header className="game-page__header">
         <div className="game-page__title-row">
-          <h1 className="game-page__title">{game.name}</h1>
+          <h1 className="game-page__title">{gameTitle(game, lang)}</h1>
           {mainCategory && (
             <Link
               to={`/?typeId=${mainCategory.id}`}
               className="game-page__category"
             >
-              {mainCategory.name}
+              {t(mainCategory.name)}
             </Link>
           )}
-          <a href="#ratings" className="game-page__rating-link" aria-label="Jump to player ratings">
+          <a href="#ratings" className="game-page__rating-link" aria-label={t("Jump to player ratings")}>
             <RatingBadge game={ratingStats || game} />
           </a>
         </div>
         {getTagline(game) && (
-          <p className="game-page__tagline">{getTagline(game)}</p>
+          <p className="game-page__tagline">{t(getTagline(game))}</p>
         )}
         {GAME_SHORT_DESCRIPTIONS[game.name] && (
-          <p className="game-page__short-desc">{GAME_SHORT_DESCRIPTIONS[game.name]}</p>
+          <p className="game-page__short-desc">{t(GAME_SHORT_DESCRIPTIONS[game.name])}</p>
         )}
       </header>
 
       {/* Game Stage with Toolbar */}
       <GamePlayer
-        title={game.name}
+        title={gameTitle(game, lang)}
         likeButton={<GameLikeButton gameId={game.id || game._id} />}
         onRestart={
           PlayableGame ? () => setRestartNonce((n) => n + 1) : undefined
@@ -427,9 +430,9 @@ export default function GameDetail() {
 
       {/* About Section - Premium Editorial Panel */}
       <section className="game-page__about" data-decoration={GAME_DECORATIONS[game.name] || "diamond"}>
-        <p className="game-page__about-eyebrow">About the Game</p>
+        <p className="game-page__about-eyebrow">{t("About the Game")}</p>
         <div className="game-page__about-header">
-          <h2 className="game-page__about-title">{game.name}</h2>
+          <h2 className="game-page__about-title">{gameTitle(game, lang)}</h2>
           {mainCategory && (
             <div className="game-page__about-tags">
               {[mainCategory, ...secondaryCategories].map((c) => (
@@ -438,13 +441,13 @@ export default function GameDetail() {
                   to={`/?typeId=${c.id}`}
                   className="game-page__tag"
                 >
-                  {c.name}
+                  {t(c.name)}
                 </Link>
               ))}
             </div>
           )}
         </div>
-        <p className="game-page__about-text">{game.description}</p>
+        <p className="game-page__about-text">{gameDescription(game, lang)}</p>
       </section>
 
       <GameRatingPanel

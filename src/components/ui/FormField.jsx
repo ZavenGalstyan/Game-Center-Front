@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * FormField component - wrapper for form inputs with label, error, and hint support.
  * Enhanced version of the existing Field component.
@@ -26,6 +27,7 @@ export default function FormField({
   className = "",
   children,
 }) {
+  const { tn } = useTranslation();
   const classNames = [
     "ui-field",
     error && "ui-field--error",
@@ -41,16 +43,16 @@ export default function FormField({
   return (
     <div className={classNames}>
       <label className="ui-field__label" htmlFor={htmlFor}>
-        {label}
+        {tn(label)}
         {required && <span className="ui-field__required" aria-hidden="true"> *</span>}
       </label>
       {children}
       {error ? (
         <p id={errorId} className="ui-field__msg ui-field__msg--error" role="alert">
-          {error}
+          {tn(error)}
         </p>
       ) : hint ? (
-        <p id={hintId} className="ui-field__msg">{hint}</p>
+        <p id={hintId} className="ui-field__msg">{tn(hint)}</p>
       ) : null}
     </div>
   );

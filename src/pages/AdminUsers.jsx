@@ -8,6 +8,8 @@ import {
   Button,
 } from "../components/ui";
 import Avatar from "../components/avatar/Avatar.jsx";
+import { useTranslation } from "../i18n/useTranslation.js";
+import { getLocaleTag } from "../i18n/i18n.js";
 
 const ROLES = [
   { value: "", label: "All" },
@@ -96,6 +98,7 @@ function RoleBadge({ role }) {
 }
 
 export default function AdminUsers() {
+  const { t } = useTranslation();
   const { handleAuthExpired } = useAuth();
   const [page, setPage] = useState(1);
   const [role, setRole] = useState("");
@@ -131,9 +134,9 @@ export default function AdminUsers() {
     <div className="admin-users">
       {/* Page Header */}
       <div className="admin-users__header">
-        <h1 className="page-title">Users</h1>
+        <h1 className="page-title">{t("Users")}</h1>
         <p className="admin-users__subtitle">
-          Manage registered users and review their roles and account information.
+          {t("Manage registered users and review their roles and account information.")}
         </p>
       </div>
 
@@ -145,7 +148,7 @@ export default function AdminUsers() {
         <div className="admin-users__toolbar">
           <div className="admin-users__filter">
             <label className="admin-users__filter-label" id="role-filter-label">
-              Role
+              {t("Role")}
             </label>
             <RoleDropdown
               value={role}
@@ -157,14 +160,14 @@ export default function AdminUsers() {
             />
           </div>
           <div className="admin-users__count">
-            {loading ? "Loading..." : `${totalUsers} user${totalUsers !== 1 ? "s" : ""}`}
+            {loading ? t("Loading...") : t("{count} users", { count: totalUsers })}
           </div>
         </div>
 
         {/* Table */}
         {loading && (
           <div className="admin-users__loading">
-            <LoadingState message="Loading users..." />
+            <LoadingState message={t("Loading users...")} />
           </div>
         )}
 
@@ -174,10 +177,10 @@ export default function AdminUsers() {
               <table className="admin-users__table">
                 <thead>
                   <tr>
-                    <th>User</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Created</th>
+                    <th>{t("User")}</th>
+                    <th>{t("Email")}</th>
+                    <th>{t("Role")}</th>
+                    <th>{t("Created")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -194,7 +197,7 @@ export default function AdminUsers() {
                         <RoleBadge role={u.role} />
                       </td>
                       <td>
-                        {new Date(u.createdAt).toLocaleDateString(undefined, {
+                        {new Date(u.createdAt).toLocaleDateString(getLocaleTag(), {
                           year: "numeric",
                           month: "short",
                           day: "numeric",
@@ -205,7 +208,7 @@ export default function AdminUsers() {
                   {data.users.length === 0 && (
                     <tr>
                       <td colSpan={4} className="admin-users__empty">
-                        No users match this filter.
+                        {t("No users match this filter.")}
                       </td>
                     </tr>
                   )}
@@ -222,10 +225,10 @@ export default function AdminUsers() {
                   disabled={page <= 1}
                   onClick={() => setPage(page - 1)}
                 >
-                  Prev
+                  {t("Prev")}
                 </Button>
                 <span className="admin-users__page-info">
-                  Page {pagination.page} of {pagination.totalPages}
+                  {t("Page {page} of {totalPages}", { page: pagination.page, totalPages: pagination.totalPages })}
                 </span>
                 <Button
                   variant="secondary"
@@ -233,7 +236,7 @@ export default function AdminUsers() {
                   disabled={page >= pagination.totalPages}
                   onClick={() => setPage(page + 1)}
                 >
-                  Next
+                  {t("Next")}
                 </Button>
               </div>
             )}

@@ -10,6 +10,7 @@ import * as THREE from "three";
 import { boxMinMax, boxFaceUV, extrude, paint, place, projectUV } from "./geo.js";
 import { canvasTexture } from "./textures.js";
 import { hash2 } from "../engine/maps/build.js";
+import { translateGameText } from "../../../../i18n/activeGameText.js";
 
 export function install(ctx) {
   const { add, B, lib, M, KIND, PROP, glowSprites, lightSpots, theme, quality, group, animated } = ctx;
@@ -339,9 +340,10 @@ export function install(ctx) {
         g.fillStyle = "#ffffff";
         g.shadowColor = p.color;
         g.shadowBlur = 30;
-        g.fillText(p.text.split(" ")[0], 40, 130);
+        const [line1, line2 = ""] = translateGameText(p.text).split(" ");
+        g.fillText(line1, 40, 130);
         g.fillStyle = p.color;
-        g.fillText(p.text.split(" ")[1] || "", 40, 235);
+        g.fillText(line2, 40, 235);
         g.shadowBlur = 0;
         g.beginPath();
         g.fillStyle = p.color;

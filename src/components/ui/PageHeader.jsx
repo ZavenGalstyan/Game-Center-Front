@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * PageHeader component for page-level headers with optional actions.
  *
@@ -13,13 +14,14 @@ export default function PageHeader({
   actions,
   className = "",
 }) {
+  const { tn } = useTranslation();
   const classNames = ["ui-page-header", className].filter(Boolean).join(" ");
 
   return (
     <div className={classNames}>
       <div className="ui-page-header__text">
-        <h1 className="ui-page-header__title">{title}</h1>
-        {subtitle && <p className="ui-page-header__subtitle">{subtitle}</p>}
+        <h1 className="ui-page-header__title">{tn(title)}</h1>
+        {subtitle && <p className="ui-page-header__subtitle">{tn(subtitle)}</p>}
       </div>
       {actions && <div className="ui-page-header__actions">{actions}</div>}
     </div>

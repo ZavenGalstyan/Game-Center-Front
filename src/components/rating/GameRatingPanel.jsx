@@ -4,6 +4,7 @@ import { api } from "../../lib/api.js";
 import { Button } from "../ui";
 import Avatar from "../avatar/Avatar.jsx";
 import RatingStars, { StarIcon, formatAverage } from "./RatingStars.jsx";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * Ratings panel for the single game page.
@@ -37,6 +38,7 @@ function errorMessage(err) {
 }
 
 export default function GameRatingPanel({ gameId, initialStats, onStatsChange, onRequestLogin }) {
+  const { t } = useTranslation();
   const { status, user, isAuthenticated, handleAuthExpired } = useAuth();
 
   // Seed from the game payload so the numbers show instantly; the summary
@@ -162,10 +164,10 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
   } else if (!isAuthenticated) {
     yourRating = (
       <div className="game-rating__guest">
-        <p className="game-rating__guest-title">Played this game?</p>
-        <p className="game-rating__guest-text">Log in to leave your rating. Each player can rate a game once.</p>
+        <p className="game-rating__guest-title">{t("Played this game?")}</p>
+        <p className="game-rating__guest-text">{t("Log in to leave your rating. Each player can rate a game once.")}</p>
         <Button variant="primary" size="sm" onClick={onRequestLogin}>
-          Log in to rate
+          {t("Log in to rate")}
         </Button>
       </div>
     );
@@ -174,19 +176,19 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
       <div className={`game-rating__mine${justRated ? " is-new" : ""}`} role="status">
         <p className="game-rating__mine-label">
           <Avatar avatarId={user?.avatarId} size="sm" alt="" />
-          {justRated ? "Thanks for rating!" : "You rated this game"}
+          {justRated ? t("Thanks for rating!") : t("You rated this game")}
         </p>
         <div className="game-rating__mine-row">
           <RatingStars value={myRating} size="lg" />
           <span className="game-rating__mine-value">
-            Your rating: <strong>{myRating}/5</strong>
+            {t("Your rating:")}{" "}<strong>{myRating}/5</strong>
           </span>
         </div>
         <p className="game-rating__final-note">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M20 6 9 17l-5-5" />
           </svg>
-          Ratings are final and count toward the average.
+          {t("Ratings are final and count toward the average.")}
         </p>
       </div>
     );
@@ -194,7 +196,7 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
     yourRating = (
       <div className="game-rating__form">
         <p className="game-rating__form-title" id={`rate-label-${gameId}`}>
-          Rate this game
+          {t("Rate this game")}
         </p>
         <fieldset
           className="game-rating__picker"
@@ -221,7 +223,7 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
               />
               <StarIcon />
               <span className="rating-sr-only">
-                {n} star{n === 1 ? "" : "s"}, {LABELS[n]}
+                {t("{count} stars", { count: n })}, {t(LABELS[n])}
               </span>
             </label>
           ))}
@@ -229,10 +231,10 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
         <p className="game-rating__hint" aria-live="polite">
           {preview ? (
             <>
-              <strong>{preview}/5</strong> · {LABELS[preview]}
+              <strong>{preview}/5</strong> · {t(LABELS[preview])}
             </>
           ) : (
-            "Choose 1 to 5 stars"
+            t("Choose 1 to 5 stars")
           )}
         </p>
         <Button
@@ -242,10 +244,10 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
           disabled={!selected}
           loading={submitting}
         >
-          {submitting ? "Submitting…" : "Submit rating"}
+          {submitting ? t("Submitting…") : t("Submit rating")}
         </Button>
         <p className="game-rating__final-note game-rating__final-note--muted">
-          You can rate each game once. Ratings can't be changed later.
+          {t("You can rate each game once. Ratings can't be changed later.")}
         </p>
       </div>
     );
@@ -254,9 +256,9 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
   return (
     <section className="game-rating" id="ratings" aria-labelledby={`ratings-title-${gameId}`}>
       <div className="game-rating__head">
-        <p className="game-rating__eyebrow">Player Ratings</p>
+        <p className="game-rating__eyebrow">{t("Player Ratings")}</p>
         <h2 className="game-rating__title" id={`ratings-title-${gameId}`}>
-          How players rate it
+          {t("How players rate it")}
         </h2>
       </div>
 
@@ -271,22 +273,22 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
               <RatingStars
                 value={averageRating}
                 size="lg"
-                label={`Average rating ${formatAverage(averageRating)} out of 5`}
+                label={t("Average rating {value} out of 5", { value: formatAverage(averageRating) })}
               />
               <p className="game-rating__count">
-                Based on {ratingsCount.toLocaleString()} rating{ratingsCount === 1 ? "" : "s"}
+                {t("Based on {count} ratings", { count: ratingsCount })}
               </p>
             </>
           ) : (
             <div className="game-rating__empty">
               <RatingStars value={0} size="lg" />
-              <p className="game-rating__empty-title">Not rated yet</p>
-              <p className="game-rating__empty-text">Be the first player to rate this game.</p>
+              <p className="game-rating__empty-title">{t("Not rated yet")}</p>
+              <p className="game-rating__empty-text">{t("Be the first player to rate this game.")}</p>
             </div>
           )}
         </div>
 
-        <ul className="game-rating__bars" aria-label="Rating distribution">
+        <ul className="game-rating__bars" aria-label={t("Rating distribution")}>
           {[5, 4, 3, 2, 1].map((star) => {
             const count = distribution[star] || 0;
             const pct = rated ? (count / ratingsCount) * 100 : 0;
@@ -301,7 +303,7 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
                 </span>
                 <span className="game-rating__bar-count">
                   {summary.ratingDistribution ? count.toLocaleString() : "–"}
-                  <span className="rating-sr-only"> {star}-star ratings</span>
+                  <span className="rating-sr-only"> {t("{count}-star ratings", { count: star })}</span>
                 </span>
               </li>
             );
@@ -313,15 +315,15 @@ export default function GameRatingPanel({ gameId, initialStats, onStatsChange, o
 
       {summaryError && (
         <p className="game-rating__alert" role="alert">
-          {summaryError}{" "}
+          {t(summaryError)}{" "}
           <button type="button" className="game-rating__retry" onClick={() => setReloadKey((k) => k + 1)}>
-            Retry
+            {t("Retry")}
           </button>
         </p>
       )}
       {submitError && (
         <p className="game-rating__alert" role="alert">
-          {submitError}
+          {t(submitError)}
         </p>
       )}
     </section>

@@ -2,6 +2,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "../auth/AuthContext.jsx";
 import { api } from "../lib/api.js";
 import { Alert, Button, EmptyState, ErrorState, LoadingState, Modal, Select } from "../components/ui";
+import { useTranslation } from "../i18n/useTranslation.js";
+import { getLocaleTag, t as tr } from "../i18n/i18n.js";
 import "./adminGameRequests.css";
 
 const PAGE_SIZE = 10;
@@ -23,13 +25,13 @@ const FILTER_OPTIONS = [
   ...REQUEST_STATUSES.map((s) => ({ value: s, label: STATUS_LABELS[s] })),
 ];
 
-const statusLabel = (s) => STATUS_LABELS[s] || s || "Unknown";
+const statusLabel = (s) => tr(STATUS_LABELS[s] || s || "Unknown");
 
 function formatDate(value, withTime = false) {
   if (!value) return "—";
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return "—";
-  return d.toLocaleString(undefined, {
+  return d.toLocaleString(getLocaleTag(), {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -37,7 +39,7 @@ function formatDate(value, withTime = false) {
   });
 }
 
-const fullName = (r) => [r.firstName, r.lastName].filter(Boolean).join(" ") || "Unnamed";
+const fullName = (r) => [r.firstName, r.lastName].filter(Boolean).join(" ") || tr("Unnamed");
 
 /** Copy for a failed load (request() error shape). 401 is handled before this. */
 function describeLoadError(err) {
@@ -116,6 +118,7 @@ function InboxIcon() {
 }
 
 function RequestDetails({ request, onClose, onSaved, onGone, onAuthExpired }) {
+  const { t } = useTranslation();
   const [status, setStatus] = useState(request.status);
   const [saving, setSaving] = useState(false);
   const [feedback, setFeedback] = useState(null); // { type, message }
@@ -138,7 +141,7 @@ function RequestDetails({ request, onClose, onSaved, onGone, onAuthExpired }) {
           : { ...request, status };
       onSaved(next);
       setStatus(next.status);
-      setFeedback({ type: "success", message: `Status updated to ${statusLabel(next.status)}.` });
+      setFeedback({ type: "success", message: tr("Status updated to {status}.", { status: statusLabel(next.status) }) });
     } catch (err) {
       if (err?.status === 401) {
         onAuthExpired();
@@ -169,32 +172,32 @@ function RequestDetails({ request, onClose, onSaved, onGone, onAuthExpired }) {
 
         <dl className="agr-detail__meta">
           <div>
-            <dt>Submitted</dt>
+            <dt>{t("Submitted")}</dt>
             <dd>{formatDate(request.createdAt, true)}</dd>
           </div>
           <div>
-            <dt>Last updated</dt>
+            <dt>{t("Last updated")}</dt>
             <dd>{formatDate(request.updatedAt, true)}</dd>
           </div>
           <div className="agr-detail__meta-wide">
-            <dt>User ID</dt>
+            <dt>{t("User ID")}</dt>
             <dd className="agr-mono">{request.userId || "—"}</dd>
           </div>
         </dl>
 
         <section className="agr-detail__section" aria-labelledby="agr-desc-heading">
-          <h3 id="agr-desc-heading" className="agr-detail__label">Game description</h3>
+          <h3 id="agr-desc-heading" className="agr-detail__label">{t("Game description")}</h3>
           <p className="agr-detail__description">{request.description}</p>
         </section>
 
         <section className="agr-detail__section agr-detail__status" aria-labelledby="agr-status-heading">
-          <h3 id="agr-status-heading" className="agr-detail__label">Update status</h3>
+          <h3 id="agr-status-heading" className="agr-detail__label">{t("Update status")}</h3>
           {feedback && (
             <Alert variant={feedback.type === "success" ? "success" : "error"}>{feedback.message}</Alert>
           )}
           <div className="agr-detail__status-row">
             <label className="agr-sr-only" htmlFor="agr-status-select">
-              Request status
+              {t("Request status")}
             </label>
             <div className="agr-native-select">
               <select
@@ -208,7 +211,7 @@ function RequestDetails({ request, onClose, onSaved, onGone, onAuthExpired }) {
               >
                 {REQUEST_STATUSES.map((s) => (
                   <option key={s} value={s}>
-                    {STATUS_LABELS[s]}
+                    {t(STATUS_LABELS[s])}
                   </option>
                 ))}
               </select>
@@ -217,7 +220,7 @@ function RequestDetails({ request, onClose, onSaved, onGone, onAuthExpired }) {
               </svg>
             </div>
             <Button variant="primary" onClick={save} loading={saving} disabled={!dirty}>
-              Save Status
+              {t("Save Status")}
             </Button>
           </div>
         </section>
@@ -227,6 +230,7 @@ function RequestDetails({ request, onClose, onSaved, onGone, onAuthExpired }) {
 }
 
 export default function AdminGameRequests() {
+  const { t } = useTranslation();
   const { handleAuthExpired } = useAuth();
   const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
@@ -313,14 +317,14 @@ export default function AdminGameRequests() {
     <div className="agr">
       <header className="agr__header">
         <div className="agr__heading">
-          <p className="agr__eyebrow">Admin</p>
-          <h1 className="page-title">Game requests</h1>
-          <p className="agr__subtitle">Custom game ideas submitted by players.</p>
+          <p className="agr__eyebrow">{t("Admin")}</p>
+          <h1 className="page-title">{t("Game requests")}</h1>
+          <p className="agr__subtitle">{t("Custom game ideas submitted by players.")}</p>
         </div>
         <div className="agr__total" aria-live="polite">
           <span className="agr__total-value">{total === null ? "—" : total}</span>
           <span className="agr__total-label">
-            {filtered ? "matching" : "total"} request{total === 1 ? "" : "s"}
+            {filtered ? t("matching requests", { count: total ?? 0 }) : t("total requests", { count: total ?? 0 })}
           </span>
         </div>
       </header>
@@ -330,13 +334,13 @@ export default function AdminGameRequests() {
           <div className="agr__search">
             <SearchIcon />
             <label className="agr-sr-only" htmlFor="agr-search">
-              Search requests
+              {t("Search requests")}
             </label>
             <input
               id="agr-search"
               type="search"
               className="agr__search-input"
-              placeholder="Search name, email or description…"
+              placeholder={t("Search name, email or description…")}
               value={searchInput}
               maxLength={SEARCH_MAX}
               onChange={(e) => setSearchInput(e.target.value)}
@@ -345,7 +349,7 @@ export default function AdminGameRequests() {
           </div>
           <div className="agr__filter">
             <span className="agr__filter-label" id="agr-status-filter-label">
-              Status
+              {t("Status")}
             </span>
             <Select
               id="agr-status-filter"
@@ -362,7 +366,7 @@ export default function AdminGameRequests() {
 
         {loading && !data && !error && (
           <div className="agr__state">
-            <LoadingState message="Loading game requests…" />
+            <LoadingState message={t("Loading game requests…")} />
           </div>
         )}
 
@@ -377,15 +381,15 @@ export default function AdminGameRequests() {
             {filtered ? (
               <EmptyState
                 icon={<SearchIcon />}
-                title="No matching requests"
-                message="Try a different search term or status."
+                title={t("No matching requests")}
+                message={t("Try a different search term or status.")}
                 action={{ label: "Clear filters", onClick: clearFilters }}
               />
             ) : (
               <EmptyState
                 icon={<InboxIcon />}
-                title="No game requests yet"
-                message="When players submit custom game ideas, they'll appear here."
+                title={t("No game requests yet")}
+                message={t("When players submit custom game ideas, they'll appear here.")}
               />
             )}
           </div>
@@ -396,12 +400,12 @@ export default function AdminGameRequests() {
             <table className="agr__table">
               <thead>
                 <tr>
-                  <th scope="col">Customer</th>
-                  <th scope="col">Game idea</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Submitted</th>
+                  <th scope="col">{t("Customer")}</th>
+                  <th scope="col">{t("Game idea")}</th>
+                  <th scope="col">{t("Status")}</th>
+                  <th scope="col">{t("Submitted")}</th>
                   <th scope="col">
-                    <span className="agr-sr-only">Actions</span>
+                    <span className="agr-sr-only">{t("Actions")}</span>
                   </th>
                 </tr>
               </thead>
@@ -434,9 +438,9 @@ export default function AdminGameRequests() {
                           e.stopPropagation();
                           setSelected(r);
                         }}
-                        aria-label={`View request from ${fullName(r)}`}
+                        aria-label={t("View request from {name}", { name: fullName(r) })}
                       >
-                        View
+                        {t("View")}
                       </button>
                     </td>
                   </tr>
@@ -451,7 +455,7 @@ export default function AdminGameRequests() {
                     type="button"
                     className="agr__mcard"
                     onClick={() => setSelected(r)}
-                    aria-label={`View request from ${fullName(r)}`}
+                    aria-label={t("View request from {name}", { name: fullName(r) })}
                   >
                     <span className="agr__mcard-top">
                       <span className="agr__customer-text">
@@ -464,7 +468,7 @@ export default function AdminGameRequests() {
                     <span className="agr__mcard-foot">
                       <span className="agr__date">{formatDate(r.createdAt)}</span>
                       <span className="agr__mcard-view" aria-hidden="true">
-                        View
+                        {t("View")}
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M5 12h14M13 6l6 6-6 6" />
                         </svg>
@@ -478,18 +482,18 @@ export default function AdminGameRequests() {
         )}
 
         {!error && pagination && pagination.totalPages > 0 && (
-          <nav className="agr__footer" aria-label="Pagination">
+          <nav className="agr__footer" aria-label={t("Pagination")}>
             <Button
               variant="secondary"
               size="sm"
               disabled={loading || !(pagination.hasPrevPage ?? page > 1)}
               onClick={() => setPage((p) => Math.max(1, p - 1))}
             >
-              Previous
+              {t("Previous")}
             </Button>
             <span className="agr__page-info">
-              Page {pagination.page} of {pagination.totalPages}
-              <span className="agr__page-total"> · {pagination.total} total</span>
+              {t("Page {page} of {totalPages}", { page: pagination.page, totalPages: pagination.totalPages })}
+              <span className="agr__page-total"> · {t("{count} total", { count: pagination.total })}</span>
             </span>
             <Button
               variant="secondary"
@@ -497,7 +501,7 @@ export default function AdminGameRequests() {
               disabled={loading || !(pagination.hasNextPage ?? page < pagination.totalPages)}
               onClick={() => setPage((p) => p + 1)}
             >
-              Next
+              {t("Next")}
             </Button>
           </nav>
         )}

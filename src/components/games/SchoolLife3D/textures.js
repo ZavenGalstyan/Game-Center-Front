@@ -4,6 +4,7 @@
  * (signs, posters, boards). No image files are shipped.
  */
 import * as THREE from "three";
+import { translateGameText } from "../../../i18n/activeGameText.js";
 
 const mk = (w, h) => {
   const c = document.createElement("canvas");
@@ -626,7 +627,7 @@ export function drawBubble(canvas, text, kind = "npc") {
   const fs = 30;
   g.font = `600 ${fs}px Inter, system-ui, sans-serif`;
   // wrap into ≤ 2 lines
-  const words = String(text).split(" ");
+  const words = translateGameText(String(text)).split(" ");
   const lines = [];
   let cur = "";
   for (const w of words) {

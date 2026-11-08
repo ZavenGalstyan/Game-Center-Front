@@ -2477,3 +2477,5 @@
     text-transform: uppercase;
   }
 }
+
+:lang(ru) .sf-tbtn--pick::after { content: "Подобрать"; }

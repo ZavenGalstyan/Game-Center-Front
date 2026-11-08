@@ -1,6 +1,8 @@
 import { useEffect, useCallback, useRef } from "react";
+import { useTranslation } from "../i18n/useTranslation.js";
 
 export default function Modal({ title, onClose, children }) {
+  const { tn } = useTranslation();
   const modalRef = useRef(null);
   const previousActiveElement = useRef(null);
 
@@ -64,8 +66,8 @@ export default function Modal({ title, onClose, children }) {
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="modal__head">
-          <h2 id="modal-title" className="modal__title">{title}</h2>
-          <button className="modal__close" onClick={onClose} aria-label="Close">
+          <h2 id="modal-title" className="modal__title">{tn(title)}</h2>
+          <button className="modal__close" onClick={onClose} aria-label={tn("Close")}>
             <svg
               width="20"
               height="20"

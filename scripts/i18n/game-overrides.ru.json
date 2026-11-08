@@ -1,0 +1,96 @@
+{
+  "Escape100": {
+    "ORBIT": "ORBIT",
+    "DOOR": "DOOR",
+    "SAFE": "SAFE",
+    "VEGA": "VEGA",
+    "VOID": "VOID"
+  },
+  "EscapeQuest": {
+    "CLOCK": "CLOCK",
+    "GLOW": "GLOW",
+    "IRIS": "IRIS",
+    "LUNA": "LUNA",
+    "MAGIC": "MAGIC",
+    "MAX": "MAX",
+    "MOON": "MOON",
+    "STAR": "STAR",
+    "HELLO": "HELLO"
+  },
+  "AlpineRush": {
+    "ALPINE": "АЛЬПИЙСКИЙ",
+    "RUSH": "РЫВОК"
+  },
+  "BladeRush": {
+    "BLADE": "РЫВОК",
+    "RUSH": "КЛИНКОВ"
+  },
+  "CastleRush": {
+    "CASTLE": "ШТУРМ",
+    "RUSH": "ЗАМКА"
+  },
+  "CrowdRush": {
+    "CROWD": "РЫВОК",
+    "RUSH": "ТОЛПЫ"
+  },
+  "MetroRush": {
+    "METRO": "МЕТРО",
+    "RUSH": "РЫВОК"
+  },
+  "DownhillRiders": {
+    "DOWNHILL": "ПОКОРИТЕЛИ",
+    "RIDERS": "СПУСКА"
+  },
+  "HelixDrop": {
+    "HELIX": "СПИРАЛЬНЫЙ",
+    "DROP": "СПУСК"
+  },
+  "HighwayRacer": {
+    "HIGHWAY": "ГОНЩИК",
+    "RACER": "НА ШОССЕ"
+  },
+  "StuntRacer3D": {
+    "STUNT": "ТРЮКОВЫЕ",
+    "RACER": "ГОНКИ"
+  },
+  "KartLegends": {
+    "KART": "ЛЕГЕНДЫ",
+    "LEGENDS": "КАРТИНГА"
+  },
+  "LaserMaze": {
+    "LASER": "ЛАЗЕРНЫЙ",
+    "MAZE": "ЛАБИРИНТ"
+  },
+  "LiquidSort": {
+    "LIQUID": "СОРТИРОВКА",
+    "SORT": "ЖИДКОСТЕЙ"
+  },
+  "LumberjackLife": {
+    "LUMBERJACK": "ЖИЗНЬ",
+    "LIFE": "ЛЕСОРУБА"
+  },
+  "ThrowMasters": {
+    "THROW": "МАСТЕРА",
+    "MASTERS": "БРОСКА"
+  },
+  "TrumpMasters": {
+    "Trump": "Мастера",
+    "Masters": "козырей",
+    "TRUMP": "МАСТЕРА",
+    "MASTERS": "КОЗЫРЕЙ"
+  },
+  "CrazyCards": {
+    "CRAZY": "БЕЗУМНЫЕ",
+    "CARDS": "КАРТЫ"
+  },
+  "LastHope": {
+    "LAST": "ПОСЛЕДНЯЯ",
+    "HOPE": "НАДЕЖДА"
+  },
+  "Corridor9": {
+    "PLEASE KEEP": "ДЕРЖИТЕСЬ",
+    "TO THE LEFT": "ЛЕВОЙ СТОРОНЫ",
+    "DO NOT": "НЕ ХОДИТЕ",
+    "TURN AROUND": "НАЗАД"
+  }
+}

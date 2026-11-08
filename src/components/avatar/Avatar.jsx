@@ -1,5 +1,6 @@
 import { memo, useState } from "react";
 import { FALLBACK_AVATAR_SRC, getAvatarName, getAvatarSrc, resolveAvatarId } from "../../lib/avatars.js";
+import { useTranslation } from "../../i18n/useTranslation.js";
 import "./avatar.css";
 
 export const AVATAR_SIZES = { xs: 20, sm: 28, md: 40, lg: 64, xl: 112 };
@@ -23,11 +24,12 @@ export const AVATAR_SIZES = { xs: 20, sm: 28, md: 40, lg: 64, xl: 112 };
  */
 function Avatar({ avatarId, size = "md", shape = "circle", alt, isDeleted = false, loading = "lazy", className = "" }) {
   const named = typeof size === "string" && AVATAR_SIZES[size];
+  const { t } = useTranslation();
   const px = named || (Number.isFinite(size) ? size : AVATAR_SIZES.md);
   const src = isDeleted ? FALLBACK_AVATAR_SRC : getAvatarSrc(avatarId);
   const [failedSrc, setFailedSrc] = useState(null);
   const shown = failedSrc === src ? FALLBACK_AVATAR_SRC : src;
-  const label = alt ?? (isDeleted ? "Deleted user" : getAvatarName(resolveAvatarId(avatarId)));
+  const label = alt ?? (isDeleted ? t("Deleted user") : t(getAvatarName(resolveAvatarId(avatarId))));
 
   const classes = [
     "gc-avatar",

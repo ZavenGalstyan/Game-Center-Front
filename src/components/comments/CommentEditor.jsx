@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui";
 import CommentTextField from "./CommentTextField.jsx";
 import { validateCommentContent } from "./commentUtils.js";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * Inline editor for the owner's own comment. The parent owns the request;
  * `onSave(content)` resolves to an error message (kept inline) or null.
  */
 export default function CommentEditor({ comment, onSave, onCancel }) {
+  const { t } = useTranslation();
   const [value, setValue] = useState(comment.content);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
@@ -53,7 +55,7 @@ export default function CommentEditor({ comment, onSave, onCancel }) {
       <CommentTextField
         ref={inputRef}
         id={`comment-edit-${comment.id}`}
-        label="Edit your comment"
+        label={t("Edit your comment")}
         value={value}
         onChange={(v) => {
           setValue(v);
@@ -68,16 +70,16 @@ export default function CommentEditor({ comment, onSave, onCancel }) {
       />
       {error && (
         <p id={errorId} className="comment-inline-error" role="alert">
-          {error}
+          {t(error)}
         </p>
       )}
       <div className="comment-editor__actions">
-        <span className="comment-editor__hint">Esc to cancel</span>
+        <span className="comment-editor__hint">{t("Esc to cancel")}</span>
         <Button variant="ghost" size="sm" onClick={onCancel} disabled={saving}>
-          Cancel
+          {t("Cancel")}
         </Button>
         <Button type="submit" variant="primary" size="sm" loading={saving} disabled={Boolean(invalid)}>
-          Save
+          {t("Save")}
         </Button>
       </div>
     </form>

@@ -1,0 +1,18 @@
+{
+  "{count} games": { "one": "{count} game", "other": "{count} games" },
+  "{count} of {total} games": { "one": "{count} of {total} games", "other": "{count} of {total} games" },
+  "+{count} more games": { "one": "+{count} more game", "other": "+{count} more games" },
+  "{count} stars": { "one": "{count} star", "other": "{count} stars" },
+  "{count} comments": { "one": "{count} comment", "other": "{count} comments" },
+  "{count} users": { "one": "{count} user", "other": "{count} users" },
+  "{count} seconds": { "one": "{count} second", "other": "{count} seconds" },
+  "{count} minutes": { "one": "{count} minute", "other": "{count} minutes" },
+  "Based on {count} ratings": { "one": "Based on {count} rating", "other": "Based on {count} ratings" },
+  "Rated {value} out of 5 from {count} ratings": { "one": "Rated {value} out of 5 from {count} rating", "other": "Rated {value} out of 5 from {count} ratings" },
+  "matching requests": { "one": "matching request", "other": "matching requests" },
+  "total requests": { "one": "total request", "other": "total requests" },
+  "Add a little more detail — {count} more characters needed": { "one": "Add a little more detail — {count} more character needed", "other": "Add a little more detail — {count} more characters needed" },
+  "You're changing your avatar too often. Try again in {count} seconds.": { "one": "You're changing your avatar too often. Try again in {count} second.", "other": "You're changing your avatar too often. Try again in {count} seconds." },
+  "You're changing comments too quickly. Try again in {count} seconds.": { "one": "You're changing comments too quickly. Try again in {count} second.", "other": "You're changing comments too quickly. Try again in {count} seconds." },
+  "You're posting comments too quickly. Your draft is saved, try again in {count} seconds.": { "one": "You're posting comments too quickly. Your draft is saved, try again in {count} second.", "other": "You're posting comments too quickly. Your draft is saved, try again in {count} seconds." }
+}

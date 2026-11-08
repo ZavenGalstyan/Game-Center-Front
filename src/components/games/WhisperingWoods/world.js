@@ -6,6 +6,7 @@
 import * as THREE from "three";
 import { LAYOUT, trailDist } from "./sim.js";
 import { HALF, GATE, groundY, START } from "./data.js";
+import { translateGameText } from "../../../i18n/activeGameText.js";
 
 const FOG = 0x06090e;
 
@@ -34,7 +35,7 @@ function noteTexture(text, idx) {
   // hand-written text
   x.fillStyle = "#1b1410";
   x.font = "italic bold 25px Georgia, 'Times New Roman', serif";
-  const words = text.toUpperCase().split(" ");
+  const words = translateGameText(text).toUpperCase().split(" ");
   let line = "", y = 62;
   const lines = [];
   for (const w of words) {

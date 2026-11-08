@@ -2295,11 +2295,16 @@ h3 {
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card), var(--glow-sm);
 }
-/* the game content (or placeholder) fills the stage */
-.game-player__stage > * {
+/* the game content (or placeholder) fills the stage; the i18n root is a
+   transparent flex pass-through, so the game inside it fills the stage too */
+.game-player__stage > *,
+.game-player__i18n-root > * {
   flex: 1;
   min-width: 0;
   min-height: 0;
+}
+.game-player__i18n-root {
+  display: flex;
 }
 .game-player__placeholder {
   display: grid;
@@ -10712,6 +10717,21 @@ h3 {
   padding-right: 52px;
 }
 
+/* Russian titles run longer: give them a second line, taken from the description */
+:lang(ru) .game-card__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: normal;
+  padding-right: 6px;
+}
+
+:lang(ru) .game-card__desc {
+  -webkit-line-clamp: 1;
+}
+
 /* Play button - white icon on dark green with green ring */
 .game-card__play {
   position: absolute;
@@ -11005,5 +11025,62 @@ h3 {
 
   .game-card:hover .game-card__play {
     transform: none;
+  }
+}
+
+/* ---------- language switcher (header, top right) ---------- */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.lang-switch__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  min-width: 36px;
+  min-height: 32px;
+  background: none;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.lang-switch__btn:hover {
+  opacity: 0.9;
+}
+.lang-switch__btn.is-active {
+  opacity: 1;
+  border-color: var(--primary);
+  background: var(--bg-elev);
+}
+.lang-switch__btn:focus-visible {
+  outline: var(--border-width-focus) solid var(--state-focus-outline);
+  outline-offset: 2px;
+}
+.lang-switch__flag {
+  display: block;
+  width: 26px;
+  height: 18px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+.lang-switch__flag svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 480px) {
+  .lang-switch__btn {
+    min-width: 30px;
+    padding: 3px;
+  }
+  .lang-switch__flag {
+    width: 22px;
+    height: 15px;
   }
 }

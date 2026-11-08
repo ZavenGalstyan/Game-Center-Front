@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * Spinner component for loading indicators.
  *
@@ -6,12 +7,13 @@
  * @param {string} [props.className]
  */
 export default function Spinner({ size = "md", className = "" }) {
+  const { t } = useTranslation();
   const classNames = ["ui-spinner", `ui-spinner--${size}`, className]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <span className={classNames} role="status" aria-label="Loading">
+    <span className={classNames} role="status" aria-label={t("Loading")}>
       <svg
         className="ui-spinner__svg"
         viewBox="0 0 24 24"

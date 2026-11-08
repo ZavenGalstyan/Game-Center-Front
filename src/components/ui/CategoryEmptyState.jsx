@@ -1,3 +1,4 @@
+import { useTranslation } from "../../i18n/useTranslation.js";
 /**
  * CategoryEmptyState - Polished empty state for empty game categories.
  *
@@ -8,6 +9,7 @@
  * - Optional "coming soon" pill
  */
 export default function CategoryEmptyState() {
+  const { tn } = useTranslation();
   return (
     <div className="category-empty-state">
       {/* Game controller illustration with floating elements */}
@@ -84,11 +86,11 @@ export default function CategoryEmptyState() {
       </div>
 
       {/* Title */}
-      <h3 className="category-empty-state__title">No games here yet</h3>
+      <h3 className="category-empty-state__title">{tn("No games here yet")}</h3>
 
       {/* Message */}
       <p className="category-empty-state__message">
-        We're getting this category ready. New games will appear here soon.
+        {tn("We're getting this category ready. New games will appear here soon.")}
       </p>
 
       {/* Coming soon pill */}
@@ -97,7 +99,7 @@ export default function CategoryEmptyState() {
           <path d="M8 1 L9.2 5.8 L14 7 L9.2 8.2 L8 13 L6.8 8.2 L2 7 L6.8 5.8 Z"
                 fill="currentColor" />
         </svg>
-        <span>More games coming soon</span>
+        <span>{tn("More games coming soon")}</span>
       </div>
     </div>
   );

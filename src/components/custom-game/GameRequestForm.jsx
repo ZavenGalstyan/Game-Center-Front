@@ -11,6 +11,7 @@ import {
   requestValidators,
   validateGameRequest,
 } from "./gameRequest.js";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 const FIELD_ORDER = ["firstName", "lastName", "email", "description"];
 
@@ -30,6 +31,7 @@ const ICONS = {
 };
 
 export default function GameRequestForm({ user, initialValues, onDraftChange, onSubmit, onCancel }) {
+  const { t } = useTranslation();
   const initial = useRef(initialValues || initialRequestValues(user)).current;
   const { values, errors, formError, setField, setErrors, setFieldError, setFormError } =
     useForm(initial);
@@ -123,15 +125,14 @@ export default function GameRequestForm({ user, initialValues, onDraftChange, on
           <div className="cg-form__title-row">
             <CommissionBadge />
             <div>
-              <p className="cg-eyebrow">Custom Game Request</p>
+              <p className="cg-eyebrow">{t("Custom Game Request")}</p>
               <h2 id="cg-dialog-title" className="cg-dialog__title">
-                Let&apos;s Build Your Game
+                {t("Let's Build Your Game")}
               </h2>
             </div>
           </div>
           <p id="cg-dialog-desc" className="cg-dialog__lead">
-            Tell us about your dream game. We&apos;ll review your idea and contact you by email
-            to discuss the details and pricing.
+            {t("Tell us about your dream game. We'll review your idea and contact you by email to discuss the details and pricing.")}
           </p>
         </header>
 
@@ -143,7 +144,7 @@ export default function GameRequestForm({ user, initialValues, onDraftChange, on
             {nameField("lastName", "Last Name", "family-name")}
           </div>
 
-          <FormField label="Email Address" htmlFor="cgr-email" error={errors.email} required>
+          <FormField label={t("Email Address")} htmlFor="cgr-email" error={errors.email} required>
             <div className="cg-control">
               <span className="cg-control__icon">{ICONS.mail}</span>
               <Input
@@ -169,7 +170,7 @@ export default function GameRequestForm({ user, initialValues, onDraftChange, on
           </FormField>
 
           <FormField
-            label="Describe Your Game"
+            label={t("Describe Your Game")}
             htmlFor="cgr-description"
             error={errors.description}
             required
@@ -184,7 +185,7 @@ export default function GameRequestForm({ user, initialValues, onDraftChange, on
               onChange={setField("description")}
               onBlur={onBlur("description")}
               maxLength={DESCRIPTION_MAX}
-              placeholder="Imagine your perfect game. What's the story, genre, gameplay, characters, visual style, or special feature you'd love to see?"
+              placeholder={t("Imagine your perfect game. What's the story, genre, gameplay, characters, visual style, or special feature you'd love to see?")}
               error={Boolean(errors.description)}
               aria-describedby={describe("description", "cgr-description-meta")}
               aria-required="true"
@@ -198,7 +199,7 @@ export default function GameRequestForm({ user, initialValues, onDraftChange, on
                 <span className="cg-story__meter" aria-hidden="true">
                   <span style={{ transform: `scaleX(${progress})` }} />
                 </span>
-                {ready ? "Great — that's enough to get started" : `Minimum ${DESCRIPTION_MIN} characters`}
+                {ready ? t("Great — that's enough to get started") : t("Minimum {count} characters", { count: DESCRIPTION_MIN })}
               </span>
               <span
                 className={`cg-story__count${values.description.length >= DESCRIPTION_MAX ? " is-max" : ""}`}
@@ -207,7 +208,7 @@ export default function GameRequestForm({ user, initialValues, onDraftChange, on
                   {values.description.length} / {DESCRIPTION_MAX}
                 </span>
                 <span className="cg-sr-only">
-                  {values.description.length} of {DESCRIPTION_MAX} characters used
+                  {t("{count} of {max} characters used", { count: values.description.length, max: DESCRIPTION_MAX })}
                 </span>
               </span>
             </div>
@@ -217,7 +218,7 @@ export default function GameRequestForm({ user, initialValues, onDraftChange, on
 
       <footer className="cg-form__foot">
         <button type="button" className="cg-btn cg-btn--ghost" onClick={onCancel} disabled={submitting}>
-          <span>Cancel</span>
+          <span>{t("Cancel")}</span>
         </button>
         <button type="submit" className="cg-btn cg-btn--primary" disabled={submitting} aria-busy={submitting}>
           {submitting ? (
@@ -228,7 +229,7 @@ export default function GameRequestForm({ user, initialValues, onDraftChange, on
               <path d="M22 2 15 22l-4-9-9-4 20-7Z" />
             </svg>
           )}
-          <span>{submitting ? "Sending…" : "Send Game Request"}</span>
+          <span>{submitting ? t("Sending…") : t("Send Game Request")}</span>
         </button>
       </footer>
     </form>

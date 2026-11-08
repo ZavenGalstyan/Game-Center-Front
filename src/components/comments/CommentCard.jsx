@@ -3,6 +3,7 @@ import { Tooltip } from "../ui";
 import CommentAvatar from "./CommentAvatar.jsx";
 import CommentEditor from "./CommentEditor.jsx";
 import { formatAbsoluteTime, formatRelativeTime } from "./commentUtils.js";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * One comment. Content is rendered strictly as text (React escapes it);
@@ -12,9 +13,10 @@ import { formatAbsoluteTime, formatRelativeTime } from "./commentUtils.js";
  * rejects any change to someone else's comment.
  */
 function CommentCard({ comment, canManage, isEditing, isNew, now, onEdit, onCancelEdit, onSave, onDelete }) {
+  const { t } = useTranslation();
   const { author } = comment;
   const deleted = Boolean(author?.isDeleted);
-  const username = deleted ? "Deleted user" : author?.username || "Player";
+  const username = deleted ? t("Deleted user") : author?.username || t("Player");
 
   // Hand focus back to the Edit button when the inline editor closes.
   const editButtonRef = useRef(null);
@@ -30,7 +32,7 @@ function CommentCard({ comment, canManage, isEditing, isNew, now, onEdit, onCanc
       <div className="comment-card__main">
         <div className="comment-card__meta">
           <span className={"comment-card__author" + (deleted ? " is-deleted" : "")}>{username}</span>
-          {comment.isOwner && canManage && <span className="comment-card__you">You</span>}
+          {comment.isOwner && canManage && <span className="comment-card__you">{t("You")}</span>}
           <span className="comment-card__dot" aria-hidden="true">
             ·
           </span>
@@ -42,11 +44,11 @@ function CommentCard({ comment, canManage, isEditing, isNew, now, onEdit, onCanc
           </Tooltip>
           {comment.isEdited && (
             <Tooltip
-              content={comment.editedAt ? `Edited ${formatAbsoluteTime(comment.editedAt)}` : "Edited"}
+              content={comment.editedAt ? t("Edited {time}", { time: formatAbsoluteTime(comment.editedAt) }) : t("Edited")}
               position="top"
             >
               <span className="comment-card__edited" tabIndex={0}>
-                Edited
+                {t("Edited")}
               </span>
             </Tooltip>
           )}
@@ -58,26 +60,26 @@ function CommentCard({ comment, canManage, isEditing, isNew, now, onEdit, onCanc
                 type="button"
                 className="comment-card__action"
                 onClick={() => onEdit(comment.id)}
-                aria-label="Edit comment"
+                aria-label={t("Edit comment")}
               >
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M4 20h4L19 9l-4-4L4 16v4Z" />
                   <path d="m13.5 6.5 4 4" />
                 </svg>
-                <span>Edit</span>
+                <span>{t("Edit")}</span>
               </button>
               <button
                 type="button"
                 className="comment-card__action comment-card__action--danger"
                 onClick={() => onDelete(comment)}
-                aria-label="Delete comment"
+                aria-label={t("Delete comment")}
               >
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M4 7h16" />
                   <path d="M9 7V4h6v3" />
                   <path d="M6 7l1 13h10l1-13" />
                 </svg>
-                <span>Delete</span>
+                <span>{t("Delete")}</span>
               </button>
             </div>
           )}

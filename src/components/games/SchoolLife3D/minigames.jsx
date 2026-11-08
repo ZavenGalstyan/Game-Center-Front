@@ -126,7 +126,7 @@ export function QuizRunner({ questions, timePer = 15, onDone, hints = [], title 
       <div className="sl-quiz__timer">
         <i style={{ transform: `scaleX(${pct})`, background: pct < 0.3 ? "#ef4c4c" : pct < 0.6 ? "#f2b20f" : "#2fbf71" }} />
       </div>
-      <pre className={`sl-quiz__q${q.q.includes("\n") ? " sl-quiz__q--code" : ""}`}>{q.q}</pre>
+      <pre className={`sl-quiz__q${q.q.includes("\n") ? " sl-quiz__q--code" : ""}`} data-no-i18n={q.q.includes("\n") ? "" : undefined}>{q.q}</pre>
       {q.type === "mc" && (
         <div className="sl-quiz__opts">
           {q.options.map((o, k) => (

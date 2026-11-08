@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 /**
  * Button component with variant, size, and state support.
@@ -28,6 +29,7 @@ const Button = forwardRef(function Button(
   },
   ref
 ) {
+  const { tn } = useTranslation();
   const classNames = [
     "ui-btn",
     `ui-btn--${variant}`,
@@ -49,7 +51,7 @@ const Button = forwardRef(function Button(
       {...rest}
     >
       {loading && <span className="ui-btn__spinner" aria-hidden="true" />}
-      <span className={loading ? "ui-btn__content--hidden" : ""}>{children}</span>
+      <span className={loading ? "ui-btn__content--hidden" : ""}>{tn(children)}</span>
     </button>
   );
 });

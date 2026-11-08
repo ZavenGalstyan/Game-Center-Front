@@ -22,6 +22,8 @@ import {
   Textarea,
   Select,
 } from "../components/ui";
+import { useTranslation } from "../i18n/useTranslation.js";
+import { getLocaleTag } from "../i18n/i18n.js";
 
 const PAGE_SIZE = 20;
 
@@ -56,6 +58,7 @@ function mapGameServerErrors(errors) {
 }
 
 function GameFormModal({ initial, types, onClose, onSaved }) {
+  const { t } = useTranslation();
   const editing = Boolean(initial);
   const { handleAuthExpired } = useAuth();
   const initialMain = initial?.mainCategory?.id || initial?.type?.id || "";
@@ -147,13 +150,13 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
     .filter(Boolean);
 
   return (
-    <Modal title={editing ? `Edit ${initial.name}` : "Add game"} onClose={onClose} className="admin-games-modal">
+    <Modal title={editing ? t("Edit {name}", { name: initial.name }) : t("Add game")} onClose={onClose} className="admin-games-modal">
       <p className="admin-games-modal__subtitle">
-        {editing ? "Update game information and category" : "Add a new game to Game Center"}
+        {editing ? t("Update game information and category") : t("Add a new game to Game Center")}
       </p>
       <form className="admin-games-modal__form" onSubmit={onSubmit} noValidate>
         {formError && <Alert variant="error">{formError}</Alert>}
-        <FormField label="Name" error={errors.name} hint="2–120 characters" htmlFor="g-name" required>
+        <FormField label={t("Name")} error={errors.name} hint={t("2–120 characters")} htmlFor="g-name" required>
           <Input
             id="g-name"
             value={values.name}
@@ -164,9 +167,9 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
           />
         </FormField>
         <FormField
-          label="Description"
+          label={t("Description")}
           error={errors.description}
-          hint="2–2000 characters"
+          hint={t("2–2000 characters")}
           htmlFor="g-desc"
           required
         >
@@ -180,7 +183,7 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
             required
           />
         </FormField>
-        <FormField label="Main category" error={errors.mainCategory} htmlFor="g-type" required>
+        <FormField label={t("Main category")} error={errors.mainCategory} htmlFor="g-type" required>
           <Select
             id="g-type"
             value={values.mainCategory}
@@ -188,17 +191,17 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
             disabled={submitting}
             error={Boolean(errors.mainCategory)}
             options={typeOptions}
-            placeholder="Select a main category..."
+            placeholder={t("Select a main category...")}
             required
           />
         </FormField>
         <FormField
-          label="Secondary categories"
+          label={t("Secondary categories")}
           error={errors.secondaryCategories}
           hint={
             selectedSecondaryNames.length > 0
-              ? `Selected (${selectedSecondaryNames.length}): ${selectedSecondaryNames.join(", ")}`
-              : "Optional - the game also appears on these category pages"
+              ? t("Selected ({count}): {names}", { count: selectedSecondaryNames.length, names: selectedSecondaryNames.map((n) => t(n)).join(", ") })
+              : t("Optional - the game also appears on these category pages")
           }
           htmlFor="g-secondary"
         >
@@ -206,7 +209,7 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
             id="g-secondary"
             className="admin-games-modal__chips"
             role="group"
-            aria-label="Secondary categories"
+            aria-label={t("Secondary categories")}
           >
             {secondaryOptions.map((t) => {
               const selected = values.secondaryCategories.includes(t.id);
@@ -246,10 +249,10 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
         </FormField>
         <div className="admin-games-modal__footer">
           <Button variant="ghost" type="button" onClick={onClose} disabled={submitting}>
-            Cancel
+            {t("Cancel")}
           </Button>
           <Button variant="primary" type="submit" loading={submitting}>
-            {submitting ? "Saving..." : editing ? "Save changes" : "Create game"}
+            {submitting ? t("Saving...") : editing ? t("Save changes") : t("Create game")}
           </Button>
         </div>
       </form>
@@ -258,6 +261,7 @@ function GameFormModal({ initial, types, onClose, onSaved }) {
 }
 
 export default function AdminGames() {
+  const { t } = useTranslation();
   const { types } = useGameTypes();
   const { handleAuthExpired } = useAuth();
   const toast = useToast();
@@ -322,21 +326,21 @@ export default function AdminGames() {
     <div className="admin-games">
       <div className="admin-games__header">
         <div className="admin-games__header-text">
-          <h1 className="page-title">Games</h1>
-          <p className="admin-games__subtitle">Manage and organize games available in Game Center</p>
+          <h1 className="page-title">{t("Games")}</h1>
+          <p className="admin-games__subtitle">{t("Manage and organize games available in Game Center")}</p>
         </div>
         <Button
           variant="primary"
           onClick={() => setFormFor({})}
           disabled={types.length === 0}
-          title={types.length === 0 ? "Create a game type first" : undefined}
+          title={types.length === 0 ? t("Create a game type first") : undefined}
         >
-          Add game
+          {t("Add game")}
         </Button>
       </div>
 
       {error && <Alert variant="error">{error}</Alert>}
-      {loading && <LoadingState message="Loading games..." />}
+      {loading && <LoadingState message={t("Loading games...")} />}
 
       {!loading && !error && (
         <div className="admin-games__card">
@@ -344,11 +348,11 @@ export default function AdminGames() {
             <table className="admin-games__table">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Categories</th>
-                  <th>Rating</th>
-                  <th>Created</th>
-                  <th aria-label="Actions"></th>
+                  <th>{t("Name")}</th>
+                  <th>{t("Categories")}</th>
+                  <th>{t("Rating")}</th>
+                  <th>{t("Created")}</th>
+                  <th aria-label={t("Actions")}></th>
                 </tr>
               </thead>
               <tbody>
@@ -360,14 +364,14 @@ export default function AdminGames() {
                     <td>
                       {getMainCategory(g)?.name ? (
                         <div className="admin-games__categories">
-                          <span className="admin-games__type-badge" title="Main category">
+                          <span className="admin-games__type-badge" title={t("Main category")}>
                             {getMainCategory(g).name}
                           </span>
                           {getSecondaryCategories(g).map((c) => (
                             <span
                               key={c.id}
                               className="admin-games__type-badge admin-games__type-badge--secondary"
-                              title="Secondary category"
+                              title={t("Secondary category")}
                             >
                               {c.name}
                             </span>
@@ -381,7 +385,7 @@ export default function AdminGames() {
                       <RatingBadge game={g} />
                     </td>
                     <td className="admin-games__date">
-                      {new Date(g.createdAt).toLocaleDateString(undefined, {
+                      {new Date(g.createdAt).toLocaleDateString(getLocaleTag(), {
                         year: "numeric",
                         month: "short",
                         day: "numeric",
@@ -401,7 +405,7 @@ export default function AdminGames() {
                 {games.length === 0 && (
                   <tr>
                     <td colSpan={5} className="admin-games__empty">
-                      No games yet. Click "Add game" to create one.
+                      {t("No games yet. Click \"Add game\" to create one.")}
                     </td>
                   </tr>
                 )}
@@ -417,7 +421,7 @@ export default function AdminGames() {
                 disabled={page <= 1}
                 onClick={() => setOffset((page - 2) * PAGE_SIZE)}
               >
-                Prev
+                {t("Prev")}
               </Button>
               <div className="admin-games__pages">
                 {getPageItems(page, totalPages).map((item, i) =>
@@ -445,7 +449,7 @@ export default function AdminGames() {
                 disabled={page >= totalPages}
                 onClick={() => setOffset(page * PAGE_SIZE)}
               >
-                Next
+                {t("Next")}
               </Button>
             </div>
           )}
@@ -463,9 +467,9 @@ export default function AdminGames() {
 
       {deleting && (
         <ConfirmDialog
-          title={`Delete "${deleting.name}"?`}
-          message="This action cannot be undone. The game will be permanently removed."
-          confirmLabel="Delete game"
+          title={t('Delete "{name}"?', { name: deleting.name })}
+          message={t("This action cannot be undone. The game will be permanently removed.")}
+          confirmLabel={t("Delete game")}
           busy={deleteBusy}
           error={deleteError}
           onConfirm={confirmDelete}

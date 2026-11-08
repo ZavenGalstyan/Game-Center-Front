@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import { useTranslation } from "../../i18n/useTranslation.js";
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -25,6 +26,7 @@ export default function RequestDialog({
   onClose,
   children,
 }) {
+  const { t } = useTranslation();
   const dialogRef = useRef(null);
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
@@ -103,7 +105,7 @@ export default function RequestDialog({
           type="button"
           className="cg-dialog__close"
           onClick={() => onClose()}
-          aria-label="Close"
+          aria-label={t("Close")}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
             <path d="M18 6 6 18M6 6l12 12" />

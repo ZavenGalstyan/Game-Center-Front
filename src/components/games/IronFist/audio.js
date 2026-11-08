@@ -8,6 +8,7 @@
  * Nothing plays until `unlock()` is called from a user gesture (autoplay
  * policy). `setMuted()` mirrors the Game Center mute button.
  */
+import { translateGameText } from "../../../i18n/activeGameText.js";
 let ctx = null;
 let master = null;
 let crowdGain = null;
@@ -239,11 +240,16 @@ export const audio = {
       try {
         const s = window.speechSynthesis;
         s.cancel();
-        const u = new SpeechSynthesisUtterance(text);
+        const line = translateGameText(text);
+        const ru = /[А-Яа-яЁё]/.test(line);
+        const u = new SpeechSynthesisUtterance(line);
+        u.lang = ru ? "ru-RU" : "en-US";
         u.rate = rate;
         u.pitch = pitch;
         u.volume = 1;
-        const v = s.getVoices().find((x) => /en[-_](US|GB)/i.test(x.lang) && /male|david|daniel|george|guy|fred/i.test(x.name)) || s.getVoices().find((x) => /^en/i.test(x.lang));
+        const v = ru
+          ? s.getVoices().find((x) => /^ru/i.test(x.lang))
+          : s.getVoices().find((x) => /en[-_](US|GB)/i.test(x.lang) && /male|david|daniel|george|guy|fred/i.test(x.name)) || s.getVoices().find((x) => /^en/i.test(x.lang));
         if (v) u.voice = v;
         s.speak(u);
         return;
