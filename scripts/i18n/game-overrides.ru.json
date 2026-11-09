@@ -133,5 +133,16 @@
     "Rotate": "Повернуть",
     "Pull": "Потянуть",
     "Open": "Открыть"
+  },
+  "PerspectiveRooms": {
+    "Room Complete": "Комната пройдена",
+    "Pick up": "Взять",
+    "Grab": "Взять",
+    "New": "Новая",
+    "Locked": "Закрыта",
+    "Look around": "Обзор",
+    "High": "Высокая",
+    "Fast": "Быстрая",
+    "Distance": "Расстояние"
   }
 }

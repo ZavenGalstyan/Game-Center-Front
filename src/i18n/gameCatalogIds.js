@@ -107,6 +107,8 @@ export const GAME_CATALOG_IDS = {
   "parking jam": "ParkingJam",
   "parking master": "ParkingMaster",
   "penalty kick": "PenaltyKick",
+  "perspective": "PerspectiveRooms",
+  "perspective: impossible rooms": "PerspectiveRooms",
   "pharaoh's secret": "PharaohsSecret",
   "pharaoh's secret: lost temple": "PharaohsSecret",
   "ping pong clash": "PingPongClash",
