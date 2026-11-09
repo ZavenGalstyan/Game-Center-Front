@@ -170,6 +170,8 @@ const GAME_TAGLINES = {
   "Pharaoh's Secret": "Unlock the Past. Escape the Curse.",
   "Perspective: Impossible Rooms": "Change Your View. Change Reality.",
   "Perspective": "Change Your View. Change Reality.",
+  "Biohazard Escape: Project X": "Survive the Infection. Uncover the Truth. Escape Alive.",
+  "Biohazard Escape": "Survive the Infection. Uncover the Truth. Escape Alive.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
   "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
 };

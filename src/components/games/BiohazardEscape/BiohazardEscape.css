@@ -1,0 +1,429 @@
+/* ==========================================================================
+   Biohazard Escape: Project X — scoped under .bhz. Sci-fi laboratory look:
+   dark teal-steel panels, toxic green accent, hazard stripes and a per-sector
+   accent (--acc). The root is a size container so the HUD and menus scale
+   with the GamePlayer stage and fullscreen. No backdrop-filter (it stalls
+   compositing over the WebGL canvas).
+   ========================================================================== */
+.bhz {
+  --ink: #e6f2ee;
+  --dim: #8fa8a2;
+  --tox: #7dff3a;
+  --tox2: #c8ff8a;
+  --good: #7dff9a;
+  --bad: #ff6a5a;
+  --warn: #ffc23a;
+  --panel: rgba(8, 16, 18, 0.95);
+  --line: rgba(125, 255, 180, 0.22);
+  --acc: #43e0c8;
+  --u: clamp(9px, 1.55cqh, 17px);
+  container: bhz / size;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  overscroll-behavior: contain;
+  touch-action: none;
+  color: var(--ink);
+  background: #040708;
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--u);
+  line-height: 1.4;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.bhz--play:not(.has-overlay) { cursor: none; }
+.bhz-stage, .bhz-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.bhz-vignette {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 52%, rgba(0,6,4,0.7) 100%);
+}
+.bhz-lowhp {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background: radial-gradient(ellipse at center, rgba(120,0,0,0) 45%, rgba(150,0,0,0.5) 100%);
+  animation: bhz-heart 1s ease-in-out infinite;
+}
+@keyframes bhz-heart { 50% { opacity: 0.45; } }
+.bhz-ico { width: 1.05em; height: 1.05em; vertical-align: -0.16em; }
+.bhz kbd {
+  display: inline-block; min-width: 1.6em; padding: 0.05em 0.45em; margin: 0 0.1em;
+  border: 1px solid rgba(200,255,220,0.45); border-bottom-width: 2px; border-radius: 0.3em;
+  background: rgba(200,255,220,0.08); font: inherit; font-size: 0.82em; font-weight: 700; text-align: center; color: var(--tox2);
+}
+
+/* flashes --------------------------------------------------------------------- */
+.bhz-flash { position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0; }
+.bhz-flash.is-death { background: radial-gradient(ellipse at center, rgba(120,0,0,0.3), rgba(30,0,0,0.95)); animation: bhz-fadehold 1.6s ease-out forwards; }
+.bhz-flash.is-restart { background: #020404; animation: bhz-fade 0.9s ease-out forwards; }
+.bhz-flash.is-hurt { background: radial-gradient(ellipse at center, rgba(200,0,0,0) 40%, rgba(200,10,0,0.55)); animation: bhz-flashout 0.45s ease-out forwards; }
+.bhz-flash.is-acid { background: radial-gradient(ellipse at center, rgba(80,200,0,0) 40%, rgba(90,220,20,0.45)); animation: bhz-flashout 0.45s ease-out forwards; }
+.bhz-flash.is-shock { background: radial-gradient(ellipse at center, rgba(140,200,255,0.25), rgba(90,150,255,0.5)); animation: bhz-flashout 0.5s ease-out forwards; }
+.bhz-flash.is-complete { background: radial-gradient(ellipse at center, rgba(200,255,220,0.8), rgba(90,255,150,0.4)); animation: bhz-flashout 1.2s ease-out forwards; }
+.bhz-flash.is-alarm { background: radial-gradient(ellipse at center, rgba(255,40,20,0.15), rgba(180,10,0,0.6)); animation: bhz-flashout 1.4s ease-out forwards; }
+@keyframes bhz-flashout { 0% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes bhz-fade { 0% { opacity: 0; } 20% { opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes bhz-fadehold { 0% { opacity: 0; } 30% { opacity: 1; } 100% { opacity: 1; } }
+
+/* buttons ------------------------------------------------------------------------ */
+.bhz-btn {
+  appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.6em;
+  min-height: 2.6em; padding: 0.5em 1.4em; border-radius: 0.3em;
+  border: 1px solid var(--line); background: rgba(160,255,200,0.05); color: var(--ink);
+  font: inherit; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; text-align: center;
+  transition: background 0.15s, border-color 0.15s, transform 0.08s, box-shadow 0.15s;
+  clip-path: polygon(0.6em 0, 100% 0, 100% calc(100% - 0.6em), calc(100% - 0.6em) 100%, 0 100%, 0 0.6em);
+}
+.bhz-btn:hover:not(:disabled) { background: rgba(160,255,200,0.13); border-color: rgba(160,255,200,0.6); }
+.bhz-btn:active:not(:disabled) { transform: translateY(1px); }
+.bhz-btn:focus-visible { outline: 2px solid var(--tox2); outline-offset: 2px; }
+.bhz-btn:disabled { opacity: 0.4; cursor: default; }
+.bhz-btn--primary {
+  color: #062008; border-color: #c8ff8a;
+  background: linear-gradient(180deg, #c8ff8a, #7dff3a 55%, #3fb81a);
+  box-shadow: 0 0 1.3em rgba(125,255,58,0.3);
+}
+.bhz-btn--primary:hover:not(:disabled) { background: linear-gradient(180deg, #e0ffb0, #95ff5a 55%, #50d02a); box-shadow: 0 0 2em rgba(125,255,58,0.5); }
+.bhz-btn--danger { border-color: rgba(255,106,90,0.55); color: #ffd0c8; background: rgba(255,106,90,0.12); }
+.bhz-btn--danger:hover:not(:disabled) { background: rgba(255,106,90,0.25); }
+.bhz-btn--ghost { background: transparent; }
+.bhz-btn--big { min-height: 3em; font-size: 1.1em; }
+.bhz-btn__sub { font-size: 0.75em; font-weight: 500; opacity: 0.75; }
+.bhz-badge-dot { display: inline-grid; place-items: center; min-width: 1.5em; height: 1.5em; padding: 0 0.35em; border-radius: 1em; background: var(--warn); color: #201400; font-size: 0.8em; font-weight: 800; }
+.bhz-row { display: flex; gap: 0.7em; flex-wrap: wrap; justify-content: center; }
+.bhz-row > .bhz-btn { flex: 1 1 0; }
+.bhz-dim { color: var(--dim); }
+.bhz-small { font-size: 0.85em; }
+.bhz-warn { color: #ffb37a; }
+
+/* screens / panels --------------------------------------------------------------- */
+.bhz-screen {
+  position: absolute; inset: 0; z-index: 10; display: grid; place-items: center;
+  grid-template-rows: minmax(0, 1fr); padding: calc(var(--u) * 1.2);
+  animation: bhz-in 0.25s ease-out;
+}
+.bhz-screen--dim { background: rgba(2, 6, 6, 0.72); }
+.bhz-screen--dead { background: radial-gradient(ellipse at center, rgba(60,0,0,0.6), rgba(10,0,0,0.92)); }
+@keyframes bhz-in { from { opacity: 0; } to { opacity: 1; } }
+.bhz-panel {
+  position: relative; width: min(100%, 44em); max-height: 100%; overflow: auto;
+  display: flex; flex-direction: column; gap: 0.75em;
+  padding: calc(var(--u) * 1.6) calc(var(--u) * 1.8);
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, rgba(30, 70, 60, 0.45), rgba(0,0,0,0) 35%),
+    var(--panel);
+  border: 1px solid var(--line); border-radius: 0.3em;
+  box-shadow: 0 1.5em 4em rgba(0,0,0,0.65), inset 0 0 0 1px rgba(0,0,0,0.5), inset 0 0 2.5em rgba(60,255,160,0.05);
+  scrollbar-width: thin; scrollbar-color: rgba(125,255,180,0.35) transparent;
+}
+.bhz-panel::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; pointer-events: none;
+  background: repeating-linear-gradient(135deg, var(--warn) 0 10px, #111 10px 20px);
+  opacity: 0.85;
+}
+.bhz-panel h2 { margin: 0.2em 0 0; font-size: 1.7em; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tox2); font-weight: 800; text-shadow: 0 0 0.6em rgba(125,255,58,0.3); }
+.bhz-panel h3 { margin: 0.6em 0 0.2em; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.16em; color: var(--acc); }
+.bhz-panel p { margin: 0; }
+.bhz-panel ul { margin: 0; padding-left: 1.2em; display: grid; gap: 0.3em; }
+.bhz-pause, .bhz-hint, .bhz-confirm, .bhz-done, .bhz-death { width: min(100%, 28em); text-align: center; }
+.bhz-pause .bhz-btn, .bhz-done .bhz-btn, .bhz-death .bhz-btn { width: 100%; }
+.bhz-eyebrow { font-size: 0.78em; letter-spacing: 0.18em; text-transform: uppercase; color: var(--acc); margin-top: 0.4em; }
+.bhz-hint__more { padding-top: 0.6em; border-top: 1px solid var(--line); }
+.bhz-death h2 { color: #ff6a5a; font-size: 2.4em; text-shadow: 0 0 1em rgba(255,40,20,0.5); }
+.bhz-death { border-color: rgba(255,106,90,0.5); }
+
+/* main menu ------------------------------------------------------------------------ */
+.bhz-menu {
+  place-items: center start; padding-left: clamp(16px, 7cqw, 120px);
+  background: linear-gradient(90deg, rgba(2,8,6,0.92) 0%, rgba(2,8,6,0.62) 45%, rgba(2,8,6,0) 80%);
+  grid-template-rows: auto auto auto auto; align-content: center; gap: calc(var(--u) * 1.1);
+}
+.bhz-menu > * { grid-column: 1; }
+.bhz-menu__brand { display: flex; align-items: center; gap: 1em; }
+.bhz-logo { width: 5.4em; height: 5.4em; filter: drop-shadow(0 0 1.3em rgba(125,255,58,0.55)); flex: none; animation: bhz-spin 30s linear infinite; }
+@keyframes bhz-spin { to { transform: rotate(360deg); } }
+.bhz-menu__eyebrow { font-size: 0.8em; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dim); }
+.bhz-menu__title {
+  margin: 0.05em 0 0; font-size: 3.6em; line-height: 0.95; font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase;
+  background: linear-gradient(180deg, #f0ffe0 10%, #9aff5a 55%, #2f8a10); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 3px 0 rgba(0,0,0,0.7)) drop-shadow(0 0 0.5em rgba(125,255,58,0.25));
+}
+.bhz-menu__sub {
+  display: inline-block; margin-top: 0.4em; padding: 0.15em 0.7em; font-size: 1.15em; font-weight: 800; letter-spacing: 0.5em; text-transform: uppercase;
+  color: #ff5a4a; border: 1px solid rgba(255,90,74,0.6); background: rgba(255,60,40,0.1);
+}
+.bhz-menu__tag { margin: 0; font-size: 1.08em; color: #cfe8df; max-width: 28em; letter-spacing: 0.02em; }
+.bhz-menu__actions { display: grid; gap: 0.55em; width: min(21em, 80cqw); }
+.bhz-menu__actions .bhz-btn { justify-content: space-between; }
+.bhz-menu__foot { display: flex; flex-direction: column; gap: 0.3em; font-size: 0.85em; color: var(--dim); }
+
+/* how to / settings ------------------------------------------------------------------ */
+.bhz-howto { width: min(100%, 64em); }
+.bhz-howto__cols { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 1.4em; }
+.bhz-keys { display: grid; grid-template-columns: auto 1fr; gap: 0.3em 0.8em; margin: 0.4em 0 0.6em; align-items: center; }
+.bhz-keys dt { font-weight: 700; color: var(--tox2); padding: 0.12em 0.5em; border: 1px solid rgba(200,255,220,0.3); border-radius: 0.3em; background: rgba(200,255,220,0.06); font-size: 0.82em; text-align: center; white-space: nowrap; }
+.bhz-keys dd { margin: 0; color: #d4e6e0; font-size: 0.92em; }
+.bhz-settings { width: min(100%, 32em); }
+.bhz-field { display: grid; grid-template-columns: 1fr 1.2fr auto; align-items: center; gap: 0.8em; padding: 0.45em 0; border-bottom: 1px solid rgba(200,255,220,0.07); }
+.bhz-field > span { color: #d8ece6; }
+.bhz-field output { min-width: 3.2em; text-align: right; color: var(--dim); font-variant-numeric: tabular-nums; }
+.bhz-field input[type="range"] { width: 100%; accent-color: var(--tox); }
+.bhz-toggle, .bhz-seg button {
+  font: inherit; color: var(--ink); background: rgba(200,255,220,0.05); border: 1px solid var(--line);
+  border-radius: 0.3em; padding: 0.35em 0.9em; cursor: pointer;
+}
+.bhz-toggle { grid-column: 2 / span 2; justify-self: start; min-width: 5em; }
+.bhz-toggle.is-on, .bhz-seg button.is-on { background: rgba(125,255,58,0.22); border-color: rgba(200,255,140,0.7); }
+.bhz-seg { grid-column: 2 / span 2; display: flex; gap: 0.4em; flex-wrap: wrap; }
+.bhz-settings__foot { display: flex; gap: 0.7em; justify-content: space-between; flex-wrap: wrap; margin-top: 0.4em; }
+
+/* XP + upgrades --------------------------------------------------------------------- */
+.bhz-xp { display: grid; gap: 0.25em; min-width: 12em; }
+.bhz-xp__top { display: flex; justify-content: space-between; gap: 1em; font-size: 0.85em; }
+.bhz-xp__rank { font-weight: 800; color: var(--warn); letter-spacing: 0.08em; text-transform: uppercase; }
+.bhz-xp__num { color: var(--dim); font-variant-numeric: tabular-nums; }
+.bhz-xp__bar { height: 0.45em; background: rgba(255,255,255,0.08); border-radius: 1em; overflow: hidden; }
+.bhz-xp__bar i { display: block; height: 100%; background: linear-gradient(90deg, #ffb83a, #ffe08a); box-shadow: 0 0 0.6em rgba(255,200,60,0.6); transition: width 0.35s; }
+.bhz-xp__pts { font-size: 0.8em; color: var(--warn); font-weight: 700; }
+.bhz-xp.is-compact { min-width: 11em; padding: 0.5em 0.7em; border-radius: 0.3em; background: rgba(4, 12, 10, 0.7); border: 1px solid rgba(200,255,220,0.12); }
+.bhz-upgrades { width: min(100%, 56em); }
+.bhz-upgrades__head { display: flex; align-items: center; justify-content: space-between; gap: 1.2em; flex-wrap: wrap; }
+.bhz-upgrades__head .bhz-xp { width: min(20em, 100%); }
+.bhz-upgrades__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.8em; }
+.bhz-up {
+  display: flex; flex-direction: column; gap: 0.45em; padding: 0.9em; border-radius: 0.3em; text-align: center;
+  background: linear-gradient(170deg, rgba(160,255,200,0.08), rgba(0,0,0,0.1)); border: 1px solid rgba(200,255,220,0.14);
+}
+.bhz-up__name { font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tox2); }
+.bhz-up__desc { font-size: 0.82em; color: var(--dim); min-height: 2.6em; }
+.bhz-up__pips { display: flex; gap: 0.3em; justify-content: center; }
+.bhz-up__pips i { width: 1.1em; height: 0.5em; border-radius: 0.2em; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); }
+.bhz-up__pips i.is-on { background: var(--warn); box-shadow: 0 0 0.5em rgba(255,194,58,0.6); }
+.bhz-up__val { font-weight: 700; color: #e8fff0; font-variant-numeric: tabular-nums; }
+.bhz-up .bhz-btn { margin-top: auto; }
+
+/* level select ---------------------------------------------------------------------- */
+.bhz-levels { width: min(100%, 60em); height: 100%; }
+.bhz-levels__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1em; flex-wrap: wrap; }
+.bhz-levels__scroll { flex: 1 1 auto; min-height: 0; overflow: auto; display: grid; gap: 0.6em; padding-right: 0.3em; scrollbar-width: thin; scrollbar-color: rgba(125,255,180,0.35) transparent; }
+.bhz-zone h3 { color: var(--acc); margin: 0.2em 0 0.45em; }
+.bhz-levels__grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.5em; }
+.bhz-lvl {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 0.15em; min-width: 0;
+  padding: 0.55em 0.7em; border-radius: 0.25em; text-align: left; cursor: pointer; font: inherit; color: var(--ink);
+  background: linear-gradient(160deg, rgba(160,255,200,0.08), rgba(160,255,200,0.02));
+  border: 1px solid rgba(200,255,220,0.12); border-left: 3px solid var(--acc);
+  transition: transform 0.1s, background 0.15s, box-shadow 0.15s;
+}
+.bhz-lvl:hover:not(:disabled) { background: linear-gradient(160deg, rgba(160,255,200,0.16), rgba(160,255,200,0.04)); box-shadow: 0 0 1.2em color-mix(in srgb, var(--acc) 35%, transparent); transform: translateY(-1px); }
+.bhz-lvl:focus-visible { outline: 2px solid var(--tox2); outline-offset: 2px; }
+.bhz-lvl.is-locked { opacity: 0.42; cursor: default; border-left-color: rgba(255,255,255,0.2); }
+.bhz-lvl.is-done .bhz-lvl__meta { color: var(--good); }
+.bhz-lvl.is-boss:not(.is-locked) { border-left-color: #ff5a4a; }
+.bhz-lvl.is-boss:not(.is-done):not(.is-locked) .bhz-lvl__meta { color: #ff8a7a; font-weight: 700; }
+.bhz-lvl__no { font-size: 1.3em; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--tox2); }
+.bhz-lvl__name { font-size: 0.82em; color: #d4e6e0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+.bhz-lvl__meta { font-size: 0.74em; color: var(--dim); display: flex; align-items: center; gap: 0.3em; font-variant-numeric: tabular-nums; }
+
+/* loading ---------------------------------------------------------------------------- */
+.bhz-loading { background: #030605; align-content: center; justify-items: center; gap: 0.9em; grid-template-rows: auto auto auto; }
+.bhz-loading__text { font-size: 1.1em; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tox2); }
+
+/* clue / keypad / inventory ----------------------------------------------------------- */
+.bhz-clue { width: min(100%, 36em); text-align: center; }
+.bhz-clue__text { font-size: 1.05em; line-height: 1.55; color: #e2f2ec; font-family: "Consolas", "Courier New", monospace; text-align: left; padding: 0.8em 1em; background: rgba(0,0,0,0.35); border-left: 3px solid var(--acc); }
+.bhz-clue__row { display: flex; justify-content: center; gap: 1.1em; flex-wrap: wrap; margin: 0.3em 0; }
+.bhz-clue__row figure { margin: 0; display: grid; justify-items: center; gap: 0.3em; }
+.bhz-clue__row figcaption { font-size: 0.8em; color: var(--dim); letter-spacing: 0.06em; }
+.bhz-swatch { width: 3.4em; height: 3.4em; border-radius: 0.3em; border: 2px solid rgba(255,255,255,0.4); box-shadow: 0 0 1em rgba(255,255,255,0.15); }
+.bhz-sym { width: 3.6em; height: 3.6em; color: #e8fff0; filter: drop-shadow(0 0 0.5em rgba(125,255,58,0.4)); }
+.bhz-breaker__slot { position: relative; display: block; width: 2em; height: 3.4em; border-radius: 0.3em; background: #111; border: 2px solid #ffc23a; }
+.bhz-breaker__slot i { position: absolute; left: 0.25em; right: 0.25em; height: 1.4em; bottom: 0.25em; background: #ff5a4a; border-radius: 0.2em; }
+.bhz-breaker.is-up .bhz-breaker__slot i { bottom: auto; top: 0.25em; background: #7dff3a; }
+.bhz-clue .bhz-btn--primary { align-self: center; }
+.bhz-keypad { width: min(100%, 20em); text-align: center; }
+.bhz-keypad__screen { display: grid; gap: 0.2em; padding: 0.7em; border-radius: 0.3em; background: #031008; border: 1px solid rgba(125,255,58,0.4); font-family: "Consolas", "Courier New", monospace; }
+.bhz-keypad__digits { font-size: 2.1em; letter-spacing: 0.25em; color: var(--tox); text-shadow: 0 0 0.5em rgba(125,255,58,0.6); }
+.bhz-keypad__status { font-size: 0.8em; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
+.bhz-keypad.is-bad .bhz-keypad__screen { border-color: rgba(255,90,74,0.8); animation: bhz-shake 0.35s; }
+.bhz-keypad.is-bad .bhz-keypad__status { color: var(--bad); }
+.bhz-keypad.is-ok .bhz-keypad__status { color: var(--good); }
+@keyframes bhz-shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+.bhz-keypad__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45em; }
+.bhz-key {
+  font: inherit; font-size: 1.3em; font-weight: 800; min-height: 2.3em; cursor: pointer; color: var(--ink);
+  background: linear-gradient(180deg, #2a3438, #161c1e); border: 1px solid rgba(200,255,220,0.2); border-radius: 0.3em;
+}
+.bhz-key:hover { border-color: rgba(200,255,220,0.6); }
+.bhz-key:active { transform: translateY(1px); }
+.bhz-key--fn { color: #ffb0a0; }
+.bhz-key--ok { color: #062008; background: linear-gradient(180deg, #c8ff8a, #4fc020); }
+.bhz-inv { width: min(100%, 52em); }
+.bhz-inv__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; }
+.bhz-inv__list { list-style: none; padding: 0 !important; display: grid; gap: 0.45em; }
+.bhz-inv__list li { display: grid; grid-template-columns: auto 1fr auto; gap: 0.8em; align-items: center; padding: 0.5em 0.7em; border-radius: 0.3em; background: rgba(200,255,220,0.05); border: 1px solid rgba(200,255,220,0.1); }
+.bhz-inv__list li.is-missing { opacity: 0.45; }
+.bhz-inv__name { font-weight: 700; color: var(--tox2); }
+.bhz-inv__slot { display: grid; place-items: center; width: 1.9em; height: 1.9em; border-radius: 0.3em; border: 1px solid rgba(200,255,220,0.35); font-weight: 800; }
+.bhz-inv__stats { display: flex; flex-wrap: wrap; gap: 0.3em 0.9em; font-size: 0.78em; color: #b8d8cf; margin-top: 0.2em; font-variant-numeric: tabular-nums; }
+.bhz-icon { width: 2.2em; height: 2.2em; display: block; filter: drop-shadow(0 0 0.35em rgba(160,255,200,0.3)); }
+
+/* HUD ------------------------------------------------------------------------------------- */
+.bhz-hud { position: absolute; inset: 0; z-index: 6; pointer-events: none; transition: opacity 0.2s; }
+.bhz-hud.is-dim { opacity: 0.25; }
+.bhz-hud__level {
+  position: absolute; left: calc(var(--u) * 1.2); top: calc(var(--u) * 1.1); max-width: min(28em, 42cqw);
+  display: grid; gap: 0.35em; padding: 0.65em 0.9em; border-radius: 0.3em;
+  background: rgba(4, 12, 10, 0.7); border: 1px solid rgba(200,255,220,0.12); border-left: 3px solid var(--acc);
+}
+.bhz-hud__title { display: flex; align-items: baseline; gap: 0.6em; }
+.bhz-hud__no { font-size: 1.45em; font-weight: 800; color: var(--acc); font-variant-numeric: tabular-nums; line-height: 1; }
+.bhz-hud__name { font-weight: 800; letter-spacing: 0.04em; color: var(--tox2); text-transform: uppercase; font-size: 0.95em; }
+.bhz-hud__obj { display: grid; gap: 0.1em; font-size: 0.84em; color: #d4e6e0; }
+.bhz-hud__label { font-size: 0.68em; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
+.bhz-hud__xp { position: absolute; right: calc(var(--u) * 1.2); top: calc(var(--u) * 1.1); }
+.bhz-hud__bag { position: absolute; right: calc(var(--u) * 1.2); top: calc(var(--u) * 5.4); display: flex; gap: 0.35em; flex-wrap: wrap; justify-content: flex-end; max-width: 30cqw; }
+.bhz-hud__item { display: grid; place-items: center; width: 2.6em; height: 2.6em; border-radius: 0.3em; background: rgba(4,12,10,0.7); border: 1px solid rgba(200,255,220,0.22); }
+.bhz-hud__item .bhz-icon { width: 1.8em; height: 1.8em; }
+.bhz-boss {
+  position: absolute; top: calc(var(--u) * 1.1); left: 50%; transform: translateX(-50%); width: min(30em, 44cqw);
+  display: grid; gap: 0.3em; text-align: center;
+}
+.bhz-boss__name { display: flex; justify-content: center; gap: 0.8em; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #ffb0a0; text-shadow: 0 2px 8px #000; }
+.bhz-boss__shield { color: #8ad8ff; font-size: 0.85em; animation: bhz-heart 0.8s ease-in-out infinite; }
+.bhz-boss__bar { height: 0.7em; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,120,100,0.5); border-radius: 0.2em; overflow: hidden; }
+.bhz-boss__bar i { display: block; height: 100%; background: linear-gradient(90deg, #8a0a0a, #ff3a2a); transition: width 0.2s; }
+.bhz-boss.is-shielded .bhz-boss__bar { border-color: rgba(120,200,255,0.8); box-shadow: 0 0 1em rgba(100,200,255,0.5); }
+.bhz-boss.is-shielded .bhz-boss__bar i { background: linear-gradient(90deg, #1a4a8a, #6ac8ff); }
+.bhz-escape {
+  position: absolute; top: calc(var(--u) * 4.4); left: 50%; transform: translateX(-50%);
+  display: grid; justify-items: center; padding: 0.4em 1.3em; border-radius: 0.3em;
+  background: rgba(40, 4, 2, 0.82); border: 1px solid rgba(255,80,60,0.7); box-shadow: 0 0 1.6em rgba(255,40,20,0.35);
+}
+.bhz-escape__time { font-size: 2em; font-weight: 800; color: #ffb07a; font-variant-numeric: tabular-nums; line-height: 1.05; font-family: "Consolas", "Courier New", monospace; }
+.bhz-escape.is-urgent .bhz-escape__time { color: #ff4a2a; animation: bhz-beat 0.5s ease-in-out infinite alternate; }
+@keyframes bhz-beat { to { transform: scale(1.12); } }
+.bhz-vitals { position: absolute; left: calc(var(--u) * 1.2); bottom: calc(var(--u) * 2.8); display: grid; gap: 0.4em; width: min(18em, 34cqw); }
+.bhz-vital { display: grid; grid-template-columns: 1.4em 1fr 2.6em; align-items: center; gap: 0.5em; padding: 0.3em 0.6em; background: rgba(4,12,10,0.72); border: 1px solid rgba(200,255,220,0.12); border-radius: 0.25em; }
+.bhz-vital__ico { font-weight: 900; text-align: center; }
+.bhz-vital__bar { height: 0.65em; background: rgba(255,255,255,0.08); border-radius: 0.15em; overflow: hidden; }
+.bhz-vital__bar i { display: block; height: 100%; transition: width 0.2s; }
+.bhz-vital--hp .bhz-vital__ico { color: #ff6a5a; }
+.bhz-vital--hp .bhz-vital__bar i { background: linear-gradient(90deg, #d42a1a, #ff7a5a); }
+.bhz-vital--ar .bhz-vital__ico { color: #6ab0ff; }
+.bhz-vital--ar .bhz-vital__bar i { background: linear-gradient(90deg, #2a5ad4, #7ac0ff); }
+.bhz-vital__num { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+.bhz-med { display: flex; align-items: center; gap: 0.4em; font-weight: 700; font-size: 0.9em; }
+.bhz-med .bhz-icon { width: 1.6em; height: 1.6em; }
+.bhz-weapon {
+  position: absolute; right: calc(var(--u) * 1.2); bottom: calc(var(--u) * 2.8); display: grid; justify-items: end; gap: 0.15em;
+  padding: 0.5em 0.9em; background: rgba(4,12,10,0.72); border: 1px solid rgba(200,255,220,0.12); border-right: 3px solid var(--tox); border-radius: 0.25em;
+}
+.bhz-weapon__name { font-size: 0.8em; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+.bhz-weapon__ammo { display: flex; align-items: baseline; gap: 0.35em; font-variant-numeric: tabular-nums; font-family: "Consolas", "Courier New", monospace; }
+.bhz-weapon__mag { font-size: 2.3em; font-weight: 800; line-height: 1; color: #f0fff6; }
+.bhz-weapon__res { font-size: 1.1em; color: var(--dim); }
+.bhz-weapon__ammo.is-empty .bhz-weapon__mag { color: var(--bad); }
+.bhz-weapon__state { font-size: 0.78em; color: var(--warn); letter-spacing: 0.08em; }
+.bhz-weapon__state.is-bad { color: var(--bad); animation: bhz-heart 0.8s infinite; }
+.bhz-slots { display: flex; gap: 0.25em; margin-top: 0.2em; }
+.bhz-slot { width: 1.5em; height: 1.5em; display: grid; place-items: center; font-size: 0.75em; font-weight: 800; border-radius: 0.2em; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.25); }
+.bhz-slot.is-owned { color: #d8ece6; border-color: rgba(200,255,220,0.4); }
+.bhz-slot.is-cur { background: var(--tox); color: #062008; border-color: var(--tox); }
+.bhz-hud__keys { position: absolute; left: calc(var(--u) * 1.2); bottom: calc(var(--u) * 0.9); display: flex; gap: 1.1em; flex-wrap: wrap; font-size: 0.76em; color: rgba(230,242,238,0.65); }
+.bhz-cross { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transition: transform 0.12s; }
+.bhz-cross i { position: absolute; background: rgba(230,255,240,0.92); box-shadow: 0 0 0 1px rgba(0,0,0,0.5); }
+.bhz-cross i:nth-child(1) { width: 2px; height: 8px; left: -1px; top: -16px; }
+.bhz-cross i:nth-child(2) { width: 2px; height: 8px; left: -1px; top: 8px; }
+.bhz-cross i:nth-child(3) { width: 8px; height: 2px; left: -16px; top: -1px; }
+.bhz-cross i:nth-child(4) { width: 8px; height: 2px; left: 8px; top: -1px; }
+.bhz.is-aiming .bhz-cross { transform: scale(0.55); }
+.bhz-hitmark { position: absolute; left: 50%; top: 50%; width: 22px; height: 22px; margin: -11px; opacity: 0; transform: rotate(45deg);
+  background:
+    linear-gradient(#fff, #fff) 0 50% / 7px 2px no-repeat,
+    linear-gradient(#fff, #fff) 100% 50% / 7px 2px no-repeat,
+    linear-gradient(#fff, #fff) 50% 0 / 2px 7px no-repeat,
+    linear-gradient(#fff, #fff) 50% 100% / 2px 7px no-repeat;
+}
+.bhz-hitmark.is-hit { animation: bhz-hm 0.18s ease-out; }
+.bhz-hitmark.is-crit { animation: bhz-hm 0.25s ease-out; filter: drop-shadow(0 0 3px #ffd23a) sepia(1) saturate(5) hue-rotate(5deg); }
+.bhz-hitmark.is-kill { animation: bhz-hm 0.35s ease-out; filter: sepia(1) saturate(8) hue-rotate(-40deg); }
+@keyframes bhz-hm { 0% { opacity: 1; scale: 1.3; } 100% { opacity: 0; scale: 1; } }
+.bhz-dmg { position: absolute; left: 50%; top: 50%; width: 30cqmin; height: 30cqmin; margin: -15cqmin; opacity: 0; transform: rotate(var(--a, 0rad));
+  background: radial-gradient(ellipse 30% 12% at 50% 0%, rgba(255,40,20,0.85), rgba(255,40,20,0) 100%); }
+.bhz-dmg.is-on { animation: bhz-flashout 0.8s ease-out; }
+.bhz-prompt {
+  position: absolute; left: 50%; top: calc(50% + 3em); transform: translateX(-50%); white-space: nowrap;
+  display: flex; align-items: center; gap: 0.5em;
+  padding: 0.35em 1em; border-radius: 0.25em; background: rgba(4, 12, 10, 0.82); border: 1px solid rgba(200,255,220,0.3);
+  font-size: 0.95em; animation: bhz-in 0.15s ease-out;
+}
+.bhz-prompt__name { font-weight: 800; color: var(--tox2); }
+.bhz-prompt.is-locked { border-color: rgba(255,106,90,0.55); }
+.bhz-prompt.is-locked .bhz-prompt__verb { color: #ffb4a4; }
+.bhz-toasts { position: absolute; left: 50%; bottom: 23%; transform: translateX(-50%); align-content: end; display: grid; gap: 0.4em; justify-items: center; width: min(36em, 90cqw); }
+.bhz-toast { padding: 0.45em 1em; border-radius: 0.25em; text-align: center; background: rgba(4, 12, 10, 0.86); border: 1px solid rgba(200,255,220,0.16); animation: bhz-toast 0.25s ease-out; font-size: 0.92em; }
+.bhz-toast.is-good { border-color: rgba(125,255,58,0.6); color: #eaffe0; }
+.bhz-toast.is-bad { border-color: rgba(255,106,90,0.65); color: #ffd6cc; }
+.bhz-toast.is-long { border-color: color-mix(in srgb, var(--acc) 65%, transparent); }
+.bhz-toast.is-level { border-color: var(--warn); color: #fff2c8; font-weight: 700; box-shadow: 0 0 1.4em rgba(255,194,58,0.35); }
+@keyframes bhz-toast { from { opacity: 0; translate: 0 -0.5em; } to { opacity: 1; translate: 0 0; } }
+.bhz-intro {
+  position: absolute; left: 50%; top: 27%; translate: -50% 0; text-align: center; width: min(40em, 90cqw);
+  display: grid; gap: 0.3em; animation: bhz-intro 4.6s ease forwards; text-shadow: 0 2px 14px rgba(0,0,0,0.95);
+}
+.bhz-intro__zone { font-size: 0.85em; letter-spacing: 0.34em; text-transform: uppercase; color: var(--acc); }
+.bhz-intro__no { font-size: 1em; letter-spacing: 0.24em; text-transform: uppercase; color: #cfe8df; }
+.bhz-intro__name { font-size: 2.5em; font-weight: 900; line-height: 1.05; color: var(--tox2); text-transform: uppercase; letter-spacing: 0.04em; }
+.bhz-intro__obj { color: #e0f0ea; }
+@keyframes bhz-intro { 0% { opacity: 0; translate: -50% 0.6em; } 10% { opacity: 1; translate: -50% 0; } 78% { opacity: 1; } 100% { opacity: 0; } }
+.bhz-clickhint {
+  position: absolute; left: 50%; bottom: 20%; translate: -50% 0; padding: 0.6em 1.3em; border-radius: 0.3em;
+  background: rgba(4, 12, 10, 0.86); border: 1px solid rgba(125,255,58,0.55); animation: bhz-pulse 1.6s ease-in-out infinite;
+}
+@keyframes bhz-pulse { 50% { box-shadow: 0 0 1.4em rgba(125,255,58,0.45); } }
+
+/* results ---------------------------------------------------------------------------------- */
+.bhz-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(6em, 1fr)); gap: 0.5em; margin: 0.3em 0; }
+.bhz-stats > div { display: grid; gap: 0.1em; padding: 0.55em; border-radius: 0.25em; background: rgba(200,255,220,0.05); border: 1px solid rgba(200,255,220,0.1); }
+.bhz-stats__label { font-size: 0.7em; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+.bhz-stats__val { font-size: 1.4em; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--tox2); }
+.bhz-badge { align-self: center; padding: 0.25em 0.9em; border-radius: 2em; background: rgba(125,255,58,0.16); border: 1px solid rgba(125,255,58,0.6); color: #eaffe0; font-weight: 700; }
+.bhz-final { background: linear-gradient(180deg, rgba(255,170,90,0.35), rgba(30,20,40,0.6) 40%, rgba(2,6,6,0.94) 80%); }
+.bhz-final__sky { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255,230,160,0.55), transparent 70%); animation: bhz-dawn 6s ease-out forwards; }
+@keyframes bhz-dawn { from { opacity: 0; } to { opacity: 1; } }
+.bhz-done--final { width: min(100%, 34em); }
+.bhz-done--final .bhz-logo { align-self: center; width: 5em; height: 5em; }
+.bhz-done--final h2 { font-size: 2.3em; }
+
+/* small stages ------------------------------------------------------------------------------- */
+@container bhz (max-width: 860px) {
+  .bhz-howto__cols { grid-template-columns: 1fr 1fr; }
+  .bhz-upgrades__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bhz-levels__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@container bhz (max-width: 640px) {
+  .bhz { --u: clamp(9px, 2.1cqw, 15px); }
+  .bhz-howto__cols, .bhz-inv__cols { grid-template-columns: 1fr; }
+  .bhz-levels__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bhz-menu { padding-left: clamp(12px, 5cqw, 40px); background: rgba(2,8,6,0.78); }
+  .bhz-menu__title { font-size: 2.6em; }
+  .bhz-hud__level { max-width: 56cqw; }
+  .bhz-hud__keys { display: none; }
+}
+@container bhz (max-height: 430px) {
+  .bhz-menu__tag, .bhz-menu__eyebrow, .bhz-menu__foot { display: none; }
+  .bhz-menu { align-content: start; overflow-y: auto; gap: 0.6em; padding-top: 0.8em; padding-bottom: 0.8em; scrollbar-width: thin; }
+  .bhz-menu__actions { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(30em, 92cqw); gap: 0.4em; }
+  .bhz-menu__actions .bhz-btn { min-height: 2.3em; padding: 0.3em 0.8em; }
+  .bhz-menu__actions .bhz-btn--big { font-size: 1em; }
+  .bhz-logo { width: 3em; height: 3em; }
+  .bhz-menu__title { font-size: 2em; }
+  .bhz-menu__sub { font-size: 0.85em; margin-top: 0.2em; }
+  .bhz-intro__name { font-size: 1.7em; }
+  .bhz-vitals { width: min(14em, 40cqw); bottom: calc(var(--u) * 0.8); }
+  .bhz-weapon { bottom: calc(var(--u) * 0.8); }
+  .bhz-hud__keys { display: none; }
+}

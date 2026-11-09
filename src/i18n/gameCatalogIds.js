@@ -10,6 +10,8 @@ export const GAME_CATALOG_IDS = {
   "armenian blot heritage": "ArmenianBlot",
   "backgammon classic": "BackgammonClassic",
   "ball adventure 3d": "BallAdventure3D",
+  "biohazard escape": "BiohazardEscape",
+  "biohazard escape: project x": "BiohazardEscape",
   "blade rush": "BladeRush",
   "block escape": "BlockEscape",
   "bomb squad": "BombSquad",

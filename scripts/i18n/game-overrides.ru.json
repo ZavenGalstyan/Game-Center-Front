@@ -144,5 +144,23 @@
     "High": "Высокая",
     "Fast": "Быстрая",
     "Distance": "Расстояние"
+  },
+  "BiohazardEscape": {
+    "Mount": "Установить",
+    "Breaker": "Рубильник",
+    "Start": "Запустить",
+    "Repair": "Починить",
+    "Drop": "Капля",
+    "Look around": "Обзор",
+    "Escape Room · RPG · Shooter": "Квест-комната · RPG · Шутер",
+    "Access": "Доступ",
+    "High": "Высокая",
+    "Fast": "Быстрая",
+    "New": "Новый",
+    "Locked": "Заперто",
+    "Pick up": "Подобрать",
+    "Read": "Читать",
+    "Empty": "Пусто",
+    "Enter": "Ввод"
   }
 }

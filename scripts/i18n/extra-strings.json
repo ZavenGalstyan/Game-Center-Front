@@ -17,6 +17,14 @@
  "BladeRush": [
   "RUSH"
  ],
+ "BiohazardEscape": [
+  "{0} collected.",
+  "{0} ammo collected.",
+  "{0} added to your inventory.",
+  "{0} health",
+  "{0} armor",
+  "+{0}% damage"
+ ],
  "BoxingClub": [
   "Eli Marsh",
   "Milo Reyes",
