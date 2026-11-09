@@ -110,6 +110,8 @@ export const GAME_CATALOG_IDS = {
   "ping pong clash": "PingPongClash",
   "pirate cove": "PirateCove",
   "police escape 3d": "PoliceEscape3D",
+  "portal shift": "PortalShift",
+  "portal shift: dimension escape": "PortalShift",
   "prison escape 3d": "PrisonEscape3D",
   "rooftop dash": "RooftopDash",
   "rooftop sniper": "RooftopSniper",

@@ -92,5 +92,20 @@
     "TO THE LEFT": "ЛЕВОЙ СТОРОНЫ",
     "DO NOT": "НЕ ХОДИТЕ",
     "TURN AROUND": "НАЗАД"
+  },
+  "PortalShift": {
+    "Portal": "Портальный",
+    "Shift": "сдвиг",
+    "Look around": "Обзор",
+    "Left click": "Левая кнопка мыши",
+    "Right click": "Правая кнопка мыши",
+    "New": "Новая",
+    "Fast": "Быстрый",
+    "Locked": "Закрыта",
+    "Double Duty": "Двойная задача",
+    "Restart": "Перезапуск",
+    "Move": "Ходьба",
+    "Jump": "Прыжок",
+    "Best": "Лучшее"
   }
 }
