@@ -166,6 +166,8 @@ const GAME_TAGLINES = {
   "Midnight Shift": "Watch the Cameras. Save Your Power. Survive the Night.",
   "Portal Shift: Dimension Escape": "Two Portals. Endless Possibilities. One Way Out.",
   "Portal Shift": "Two Portals. Endless Possibilities. One Way Out.",
+  "Pharaoh's Secret: Lost Temple": "Unlock the Past. Escape the Curse.",
+  "Pharaoh's Secret": "Unlock the Past. Escape the Curse.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
   "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
 };

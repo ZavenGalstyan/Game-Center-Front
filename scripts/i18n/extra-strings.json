@@ -220,6 +220,10 @@
   "Royal Crest",
   "Volt"
  ],
+ "PharaohsSecret": [
+  "{0} added to your bag.",
+  "{0} placed."
+ ],
  "PingPongClash": [
   "serving"
  ],
