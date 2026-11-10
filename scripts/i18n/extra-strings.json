@@ -429,5 +429,18 @@
  "ZooSimulator3D": [
   "{0} today",
   "○ Sweep {0} droppings  {1}/{2}"
+ ],
+ "TombRaiders": [
+  "{0} collected.",
+  "{0} added to your inventory.",
+  "{0} awakens!",
+  "{0} health",
+  "{0} armor",
+  "+{0}% damage",
+  "{0} s",
+  "North-east",
+  "North-west",
+  "South-east",
+  "South-west"
  ]
 }

@@ -172,6 +172,9 @@ const GAME_TAGLINES = {
   "Perspective": "Change Your View. Change Reality.",
   "Biohazard Escape: Project X": "Survive the Infection. Uncover the Truth. Escape Alive.",
   "Biohazard Escape": "Survive the Infection. Uncover the Truth. Escape Alive.",
+  "Tomb Raiders: Pharaoh's Revenge": "Break the Curse. Fight the Guardians. Escape the Tomb.",
+  "Tomb Raiders: Pharaoh’s Revenge": "Break the Curse. Fight the Guardians. Escape the Tomb.",
+  "Tomb Raiders": "Break the Curse. Fight the Guardians. Escape the Tomb.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
   "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
 };
