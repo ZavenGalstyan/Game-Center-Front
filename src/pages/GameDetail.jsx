@@ -177,6 +177,8 @@ const GAME_TAGLINES = {
   "Tomb Raiders": "Break the Curse. Fight the Guardians. Escape the Tomb.",
   "Deep Sea Escape: Abyss Facility": "Beneath the Surface. Beyond Survival.",
   "Deep Sea Escape": "Beneath the Surface. Beyond Survival.",
+  "Outlaw Legends: Wild Frontier": "Draw Fast. Fight Hard. Become a Legend.",
+  "Outlaw Legends": "Draw Fast. Fight Hard. Become a Legend.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
   "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
 };

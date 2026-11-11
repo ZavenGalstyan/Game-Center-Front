@@ -107,6 +107,8 @@ export const GAME_CATALOG_IDS = {
   "number fusion": "NumberFusion",
   "oceanbound": "Oceanbound",
   "oceanbound: survival journey": "Oceanbound",
+  "outlaw legends": "OutlawLegends",
+  "outlaw legends: wild frontier": "OutlawLegends",
   "outpost 47: frozen secrets": "Outpost47",
   "parking jam": "ParkingJam",
   "parking master": "ParkingMaster",
