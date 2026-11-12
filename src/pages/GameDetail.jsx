@@ -330,6 +330,10 @@ const GAME_DECORATIONS = {
   "Perspective": "perspective",
   "Pharaoh's Secret: Lost Temple": "pharaohs-secret",
   "Pharaoh's Secret": "pharaohs-secret",
+  "Portal Shift: Dimension Escape": "portal-shift",
+  "Portal Shift": "portal-shift",
+  "Outlaw Legends: Wild Frontier": "outlaw-legends",
+  "Outlaw Legends": "outlaw-legends",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

@@ -118,6 +118,8 @@ import tombRaidersBg from "../images/TombRaiders.png";
 import biohazardEscapeBg from "../images/BiohazardEscape.png";
 import perspectiveBg from "../images/Perspective.png";
 import pharaohsSecretBg from "../images/PharaohsSecret.png";
+import portalShiftBg from "../images/PortalShift.png";
+import outlawLegendsBg from "../images/OutlawLegends.png";
 
 /**
  * Category to icon mapping.
@@ -1959,6 +1961,51 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(18, 14, 8, 0.48) 42%,
       rgba(18, 14, 8, 0.74) 55%,
       rgba(18, 14, 8, 0.88) 100%)`,
+  },
+  // Portal Shift: Character with dual blue/orange portals, logo on left side.
+  // 55% keeps the logo, portals, and main character left of the text on narrow
+  // cards; a dark sci-fi navy fade supports the portal lighting.
+  "portal shift: dimension escape": {
+    image: portalShiftBg,
+    position: "55% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 14, 22, 0) 0%,
+      rgba(8, 14, 22, 0) 32%,
+      rgba(8, 14, 22, 0.5) 44%,
+      rgba(8, 14, 22, 0.76) 56%,
+      rgba(8, 14, 22, 0.86) 100%)`,
+  },
+  "portal shift": {
+    image: portalShiftBg,
+    position: "55% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 14, 22, 0) 0%,
+      rgba(8, 14, 22, 0) 32%,
+      rgba(8, 14, 22, 0.5) 44%,
+      rgba(8, 14, 22, 0.76) 56%,
+      rgba(8, 14, 22, 0.86) 100%)`,
+  },
+  // Outlaw Legends: Cowboy with game title on left. 50% keeps the cowboy
+  // and title visible; warm sepia-brown fade for the Wild West atmosphere.
+  "outlaw legends: wild frontier": {
+    image: outlawLegendsBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 12, 8, 0) 0%,
+      rgba(18, 12, 8, 0) 30%,
+      rgba(18, 12, 8, 0.5) 42%,
+      rgba(18, 12, 8, 0.76) 54%,
+      rgba(18, 12, 8, 0.88) 100%)`,
+  },
+  "outlaw legends": {
+    image: outlawLegendsBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 12, 8, 0) 0%,
+      rgba(18, 12, 8, 0) 30%,
+      rgba(18, 12, 8, 0.5) 42%,
+      rgba(18, 12, 8, 0.76) 54%,
+      rgba(18, 12, 8, 0.88) 100%)`,
   },
 };
 
