@@ -181,6 +181,8 @@ const GAME_TAGLINES = {
   "Outlaw Legends": "Draw Fast. Fight Hard. Become a Legend.",
   "Prison of Fear: Final Lockdown": "No Guards. No Mercy. No Escape.",
   "Prison of Fear": "No Guards. No Mercy. No Escape.",
+  "Carnival of Fear: Clown Hunt": "The Show Is Over. The Nightmare Begins.",
+  "Carnival of Fear": "The Show Is Over. The Nightmare Begins.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
   "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
 };

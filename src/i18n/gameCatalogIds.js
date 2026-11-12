@@ -20,6 +20,8 @@ export const GAME_CATALOG_IDS = {
   "boxing club": "BoxingClub",
   "cake designer": "CakeDesigner",
   "car wash studio": "CarWashStudio",
+  "carnival of fear": "CarnivalOfFear",
+  "carnival of fear: clown hunt": "CarnivalOfFear",
   "castle rush": "CastleRush",
   "checkers classic": "CheckersClassic",
   "classic chess": "ClassicChess",
