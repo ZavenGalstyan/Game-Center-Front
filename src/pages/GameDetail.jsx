@@ -175,8 +175,8 @@ const GAME_TAGLINES = {
   "Tomb Raiders: Pharaoh's Revenge": "Break the Curse. Fight the Guardians. Escape the Tomb.",
   "Tomb Raiders: Pharaoh’s Revenge": "Break the Curse. Fight the Guardians. Escape the Tomb.",
   "Tomb Raiders": "Break the Curse. Fight the Guardians. Escape the Tomb.",
-  "Deep Sea Escape: Abyss Facility": "Beneath the Surface. Beyond Survival.",
-  "Deep Sea Escape": "Beneath the Surface. Beyond Survival.",
+  "Deep Sea Escape: Abyss Facility": "Escape a mysterious underwater facility and survive the dangers of the deep.",
+  "Deep Sea Escape": "Escape a mysterious underwater facility and survive the dangers of the deep.",
   "Outlaw Legends: Wild Frontier": "Draw Fast. Fight Hard. Become a Legend.",
   "Outlaw Legends": "Draw Fast. Fight Hard. Become a Legend.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
@@ -320,6 +320,8 @@ const GAME_DECORATIONS = {
   "Dinosaur Island 3D": "dinosaur-island",
   "Wild Kingdom 3D": "wild-kingdom",
   "Iron Arena: Tank Battles": "iron-arena",
+  "Deep Sea Escape: Abyss Facility": "deep-sea-escape",
+  "Deep Sea Escape": "deep-sea-escape",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

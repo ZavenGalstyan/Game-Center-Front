@@ -113,6 +113,7 @@ import oceanboundBg from "../images/Oceanbound.png";
 import dinosaurIslandBg from "../images/DinosaurIsland.png";
 import wildKingdomBg from "../images/WildKingdom.png";
 import ironArenaBg from "../images/IronArena.png";
+import deepSeaEscapeBg from "../images/DeepSeaEscape.png";
 
 /**
  * Category to icon mapping.
@@ -1837,6 +1838,30 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(12, 20, 16, 0.48) 42%,
       rgba(12, 20, 16, 0.74) 54%,
       rgba(12, 20, 16, 0.88) 100%)`,
+  },
+  // Deep Sea Escape: Abyss Facility — underwater research facility with diver on
+  // the left (~15-45%), title "DEEP SEA ESCAPE" in center (~30-60%), and sea
+  // creature on the right. Cyan/teal color palette with orange accent lights.
+  // 45% keeps the diver and title visible; deep ocean-teal fade for text.
+  "deep sea escape: abyss facility": {
+    image: deepSeaEscapeBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(2, 18, 26, 0) 0%,
+      rgba(2, 18, 26, 0) 32%,
+      rgba(2, 18, 26, 0.48) 44%,
+      rgba(2, 18, 26, 0.74) 56%,
+      rgba(2, 18, 26, 0.88) 100%)`,
+  },
+  "deep sea escape": {
+    image: deepSeaEscapeBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(2, 18, 26, 0) 0%,
+      rgba(2, 18, 26, 0) 32%,
+      rgba(2, 18, 26, 0.48) 44%,
+      rgba(2, 18, 26, 0.74) 56%,
+      rgba(2, 18, 26, 0.88) 100%)`,
   },
 };
 
