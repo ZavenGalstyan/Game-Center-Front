@@ -99,7 +99,7 @@ const GAME_TAGLINES = {
   "Hill Rider": "DRIVE • CLIMB • CONQUER",
   "Color Clash": "MATCH • PLAY • WIN",
   "Spider Royale": "STACK • STRATEGIZE • SOLVE",
-  "Trump Masters": "ATTACK • DEFEND • OUTSMART",
+  "Trump Masters": "Attack. Defend. Outsmart.",
   "Block Escape": "Slide colorful blocks, clear a path to the exit, and challenge your logic across 100 increasingly difficult puzzles.",
   "Neon Circuit": "Light up the board, discover the right sequence, and solve glowing neon puzzles across 100 challenging levels.",
   "Gravity Sketch": "Draw shapes, use gravity, and solve creative physics puzzles across increasingly challenging levels.",
@@ -181,6 +181,7 @@ const GAME_TAGLINES = {
   "Outlaw Legends": "Draw Fast. Fight Hard. Become a Legend.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
   "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
+  "Throw Masters": "Aim. Throw. Become a Champion.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -320,6 +321,8 @@ const GAME_DECORATIONS = {
   "Dinosaur Island 3D": "dinosaur-island",
   "Wild Kingdom 3D": "wild-kingdom",
   "Iron Arena: Tank Battles": "iron-arena",
+  "Throw Masters": "throw-masters",
+  "Trump Masters": "trump-masters",
   "Deep Sea Escape: Abyss Facility": "deep-sea-escape",
   "Deep Sea Escape": "deep-sea-escape",
   "Tomb Raiders: Pharaoh's Revenge": "tomb-raiders",

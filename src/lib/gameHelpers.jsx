@@ -120,6 +120,8 @@ import perspectiveBg from "../images/Perspective.png";
 import pharaohsSecretBg from "../images/PharaohsSecret.png";
 import portalShiftBg from "../images/PortalShift.png";
 import outlawLegendsBg from "../images/OutlawLegends.png";
+import throwMastersBg from "../images/ThrowMasters.png";
+import trumpMastersBg from "../images/TrumpMasters.png";
 
 /**
  * Category to icon mapping.
@@ -2006,6 +2008,30 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(18, 12, 8, 0.5) 42%,
       rgba(18, 12, 8, 0.76) 54%,
       rgba(18, 12, 8, 0.88) 100%)`,
+  },
+  // Throw Masters - Viking axe throwing game with warrior, axe, and target.
+  // Position keeps the warrior, logo, and target visible; icy blue-purple fade.
+  "throw masters": {
+    image: throwMastersBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 18, 28, 0) 0%,
+      rgba(12, 18, 28, 0) 32%,
+      rgba(12, 18, 28, 0.5) 44%,
+      rgba(12, 18, 28, 0.76) 56%,
+      rgba(12, 18, 28, 0.88) 100%)`,
+  },
+  // Trump Masters - Card game with trump suit (Durak). Premium card table look.
+  // Position keeps the title, crown, and cards visible; dark emerald-green fade.
+  "trump masters": {
+    image: trumpMastersBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 18, 12, 0) 0%,
+      rgba(4, 18, 12, 0) 30%,
+      rgba(4, 18, 12, 0.5) 42%,
+      rgba(4, 18, 12, 0.76) 54%,
+      rgba(4, 18, 12, 0.88) 100%)`,
   },
 };
 
