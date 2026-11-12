@@ -179,6 +179,8 @@ const GAME_TAGLINES = {
   "Deep Sea Escape": "Beneath the Surface. Beyond Survival.",
   "Outlaw Legends: Wild Frontier": "Draw Fast. Fight Hard. Become a Legend.",
   "Outlaw Legends": "Draw Fast. Fight Hard. Become a Legend.",
+  "Prison of Fear: Final Lockdown": "No Guards. No Mercy. No Escape.",
+  "Prison of Fear": "No Guards. No Mercy. No Escape.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
   "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
 };

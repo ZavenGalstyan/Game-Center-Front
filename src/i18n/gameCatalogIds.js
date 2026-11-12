@@ -123,6 +123,8 @@ export const GAME_CATALOG_IDS = {
   "portal shift": "PortalShift",
   "portal shift: dimension escape": "PortalShift",
   "prison escape 3d": "PrisonEscape3D",
+  "prison of fear": "PrisonOfFear",
+  "prison of fear: final lockdown": "PrisonOfFear",
   "rooftop dash": "RooftopDash",
   "rooftop sniper": "RooftopSniper",
   "school life simulator 3d": "SchoolLife3D",
