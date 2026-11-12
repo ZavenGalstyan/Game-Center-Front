@@ -322,6 +322,8 @@ const GAME_DECORATIONS = {
   "Iron Arena: Tank Battles": "iron-arena",
   "Deep Sea Escape: Abyss Facility": "deep-sea-escape",
   "Deep Sea Escape": "deep-sea-escape",
+  "Tomb Raiders: Pharaoh's Revenge": "tomb-raiders",
+  "Tomb Raiders": "tomb-raiders",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

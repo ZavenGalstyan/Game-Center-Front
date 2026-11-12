@@ -114,6 +114,7 @@ import dinosaurIslandBg from "../images/DinosaurIsland.png";
 import wildKingdomBg from "../images/WildKingdom.png";
 import ironArenaBg from "../images/IronArena.png";
 import deepSeaEscapeBg from "../images/DeepSeaEscape.png";
+import tombRaidersBg from "../images/TombRaiders.png";
 
 /**
  * Category to icon mapping.
@@ -1862,6 +1863,30 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(2, 18, 26, 0.48) 44%,
       rgba(2, 18, 26, 0.74) 56%,
       rgba(2, 18, 26, 0.88) 100%)`,
+  },
+  // Tomb Raiders: Pharaoh's Revenge — female explorer on the left (~10-35%),
+  // golden pharaoh and TOMB RAIDERS title in center-right. Egyptian gold,
+  // amber, and deep tomb colors. 35% keeps explorer and title visible;
+  // warm tomb-shadow fade for text readability.
+  "tomb raiders: pharaoh's revenge": {
+    image: tombRaidersBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(20, 12, 6, 0) 0%,
+      rgba(20, 12, 6, 0) 28%,
+      rgba(20, 12, 6, 0.45) 42%,
+      rgba(20, 12, 6, 0.72) 55%,
+      rgba(20, 12, 6, 0.88) 100%)`,
+  },
+  "tomb raiders": {
+    image: tombRaidersBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(20, 12, 6, 0) 0%,
+      rgba(20, 12, 6, 0) 28%,
+      rgba(20, 12, 6, 0.45) 42%,
+      rgba(20, 12, 6, 0.72) 55%,
+      rgba(20, 12, 6, 0.88) 100%)`,
   },
 };
 

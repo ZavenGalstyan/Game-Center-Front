@@ -5277,6 +5277,38 @@ h3 {
   z-index: -1;
 }
 
+/* Tomb Raiders: Pharaoh's Revenge — Golden pharaoh mask with blue-gold striped
+   royal headdress, glowing amber eyes, Eye of Horus motifs, hieroglyphics,
+   and golden particle effects. Rich gold, bronze, amber, and deep-blue palette. */
+.game-page__about[data-decoration="tomb-raiders"]::before {
+  content: "";
+  width: 360px;
+  height: 360px;
+  right: -25px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='tr-gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f4d03f'/%3E%3Cstop offset='25%25' stop-color='%23daa520'/%3E%3Cstop offset='50%25' stop-color='%23b8860b'/%3E%3Cstop offset='75%25' stop-color='%23cd853f'/%3E%3Cstop offset='100%25' stop-color='%23d4a574'/%3E%3C/linearGradient%3E%3ClinearGradient id='tr-gold-dark' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23b8860b'/%3E%3Cstop offset='50%25' stop-color='%238b6914'/%3E%3Cstop offset='100%25' stop-color='%23614a0c'/%3E%3C/linearGradient%3E%3ClinearGradient id='tr-stripe-blue' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%231a3a5c'/%3E%3Cstop offset='50%25' stop-color='%232a5a8c'/%3E%3Cstop offset='100%25' stop-color='%231a3a5c'/%3E%3C/linearGradient%3E%3ClinearGradient id='tr-stripe-gold' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23b8860b'/%3E%3Cstop offset='50%25' stop-color='%23daa520'/%3E%3Cstop offset='100%25' stop-color='%23b8860b'/%3E%3C/linearGradient%3E%3CradialGradient id='tr-eye-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='1'/%3E%3Cstop offset='40%25' stop-color='%23ff8c00' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%23ff4500' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='tr-face' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23daa520'/%3E%3Cstop offset='40%25' stop-color='%23cd9b1d'/%3E%3Cstop offset='100%25' stop-color='%23a67c00'/%3E%3C/linearGradient%3E%3ClinearGradient id='tr-shadow' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='100%25' stop-color='%23000' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Headdress outer shape --%3E%3Cpath d='M200 50 C260 50 320 90 340 150 L350 280 C350 310 340 340 300 360 L100 360 C60 340 50 310 50 280 L60 150 C80 90 140 50 200 50Z' fill='url(%23tr-gold)' stroke='%23614a0c' stroke-width='2'/%3E%3C!-- Headdress blue-gold stripes --%3E%3Crect x='65' y='80' width='270' height='12' fill='url(%23tr-stripe-blue)' rx='2'/%3E%3Crect x='60' y='95' width='280' height='10' fill='url(%23tr-stripe-gold)' rx='2'/%3E%3Crect x='55' y='108' width='290' height='12' fill='url(%23tr-stripe-blue)' rx='2'/%3E%3Crect x='52' y='123' width='296' height='10' fill='url(%23tr-stripe-gold)' rx='2'/%3E%3Crect x='50' y='136' width='300' height='12' fill='url(%23tr-stripe-blue)' rx='2'/%3E%3Crect x='52' y='151' width='296' height='10' fill='url(%23tr-stripe-gold)' rx='2'/%3E%3Crect x='55' y='164' width='290' height='12' fill='url(%23tr-stripe-blue)' rx='2'/%3E%3C!-- Side panels hanging down --%3E%3Cpath d='M55 176 L50 320 C50 340 70 355 95 360 L95 176Z' fill='url(%23tr-gold)' stroke='%23614a0c' stroke-width='1'/%3E%3Cpath d='M345 176 L350 320 C350 340 330 355 305 360 L305 176Z' fill='url(%23tr-gold)' stroke='%23614a0c' stroke-width='1'/%3E%3C!-- Side panel stripes --%3E%3Crect x='55' y='185' width='40' height='8' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='52' y='198' width='43' height='7' fill='url(%23tr-stripe-gold)'/%3E%3Crect x='50' y='210' width='45' height='8' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='52' y='223' width='43' height='7' fill='url(%23tr-stripe-gold)'/%3E%3Crect x='55' y='235' width='40' height='8' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='305' y='185' width='40' height='8' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='305' y='198' width='43' height='7' fill='url(%23tr-stripe-gold)'/%3E%3Crect x='305' y='210' width='45' height='8' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='305' y='223' width='43' height='7' fill='url(%23tr-stripe-gold)'/%3E%3Crect x='305' y='235' width='40' height='8' fill='url(%23tr-stripe-blue)'/%3E%3C!-- Face mask --%3E%3Cellipse cx='200' cy='220' rx='90' ry='110' fill='url(%23tr-face)'/%3E%3Cellipse cx='200' cy='215' rx='85' ry='105' fill='url(%23tr-gold)' stroke='%23a67c00' stroke-width='1'/%3E%3C!-- Forehead cobra (Uraeus) --%3E%3Cpath d='M200 75 C200 65 210 55 215 55 C220 55 225 60 225 70 C225 85 215 95 200 100 C185 95 175 85 175 70 C175 60 180 55 185 55 C190 55 200 65 200 75Z' fill='url(%23tr-gold-dark)' stroke='%23daa520' stroke-width='1'/%3E%3Ccircle cx='200' cy='68' r='4' fill='%231a3a5c'/%3E%3C!-- Eyes - almond shaped with amber glow --%3E%3Cellipse cx='160' cy='195' rx='22' ry='12' fill='%231a1008'/%3E%3Cellipse cx='240' cy='195' rx='22' ry='12' fill='%231a1008'/%3E%3Cellipse cx='160' cy='195' rx='18' ry='9' fill='url(%23tr-eye-glow)'/%3E%3Cellipse cx='240' cy='195' rx='18' ry='9' fill='url(%23tr-eye-glow)'/%3E%3Ccircle cx='160' cy='195' r='5' fill='%23ffd700'/%3E%3Ccircle cx='240' cy='195' r='5' fill='%23ffd700'/%3E%3Ccircle cx='160' cy='195' r='2' fill='%23fff8dc'/%3E%3Ccircle cx='240' cy='195' r='2' fill='%23fff8dc'/%3E%3C!-- Eye of Horus markings --%3E%3Cpath d='M140 200 Q130 210 125 225 Q130 220 140 212' fill='none' stroke='%23614a0c' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M260 200 Q270 210 275 225 Q270 220 260 212' fill='none' stroke='%23614a0c' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Eyebrows --%3E%3Cpath d='M138 178 Q160 168 182 178' fill='none' stroke='%23614a0c' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M218 178 Q240 168 262 178' fill='none' stroke='%23614a0c' stroke-width='3' stroke-linecap='round'/%3E%3C!-- Nose --%3E%3Cpath d='M200 200 L200 235 Q195 245 190 248 M200 235 Q205 245 210 248' fill='none' stroke='%238b6914' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Mouth --%3E%3Cpath d='M175 270 Q200 280 225 270' fill='none' stroke='%238b6914' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M180 275 Q200 282 220 275' fill='none' stroke='%23a67c00' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Chin beard (false beard) --%3E%3Cpath d='M185 290 L185 340 Q200 355 215 340 L215 290 Q200 300 185 290Z' fill='url(%23tr-gold-dark)' stroke='%23614a0c' stroke-width='1'/%3E%3Crect x='188' y='295' width='24' height='4' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='188' y='305' width='24' height='4' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='188' y='315' width='24' height='4' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='188' y='325' width='24' height='4' fill='url(%23tr-stripe-blue)'/%3E%3C!-- Collar necklace --%3E%3Cpath d='M120 300 Q200 330 280 300 Q200 355 120 300Z' fill='url(%23tr-gold)' stroke='%23b8860b' stroke-width='1'/%3E%3Cpath d='M130 305 Q200 330 270 305' fill='none' stroke='%231a3a5c' stroke-width='3'/%3E%3Cpath d='M140 312 Q200 335 260 312' fill='none' stroke='%23daa520' stroke-width='2'/%3E%3Cpath d='M150 318 Q200 338 250 318' fill='none' stroke='%231a3a5c' stroke-width='2'/%3E%3C!-- Hieroglyphics on sides --%3E%3Ctext x='35' y='270' font-size='12' fill='%23b8860b' opacity='0.6'%3E%F0%93%80%80%3C/text%3E%3Ctext x='35' y='290' font-size='12' fill='%23b8860b' opacity='0.5'%3E%F0%93%80%81%3C/text%3E%3Ctext x='35' y='310' font-size='12' fill='%23b8860b' opacity='0.4'%3E%F0%93%80%82%3C/text%3E%3Ctext x='360' y='270' font-size='12' fill='%23b8860b' opacity='0.6'%3E%F0%93%80%83%3C/text%3E%3Ctext x='360' y='290' font-size='12' fill='%23b8860b' opacity='0.5'%3E%F0%93%80%84%3C/text%3E%3Ctext x='360' y='310' font-size='12' fill='%23b8860b' opacity='0.4'%3E%F0%93%80%85%3C/text%3E%3C!-- Eye of Horus symbol (top left corner) --%3E%3Cpath d='M30 60 Q40 50 55 55 L70 55 Q75 58 72 65 L65 72 Q55 80 40 85 L30 82 Q25 75 28 68Z' fill='none' stroke='%23daa520' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M45 72 Q38 85 35 100' fill='none' stroke='%23daa520' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='55' cy='62' r='4' fill='%23daa520' opacity='0.4'/%3E%3C!-- Eye of Horus symbol (top right corner) --%3E%3Cpath d='M370 60 Q360 50 345 55 L330 55 Q325 58 328 65 L335 72 Q345 80 360 85 L370 82 Q375 75 372 68Z' fill='none' stroke='%23daa520' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M355 72 Q362 85 365 100' fill='none' stroke='%23daa520' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='345' cy='62' r='4' fill='%23daa520' opacity='0.4'/%3E%3C!-- Golden particles --%3E%3Ccircle cx='30' cy='120' r='2' fill='%23ffd700' opacity='0.7'/%3E%3Ccircle cx='45' cy='145' r='1.5' fill='%23daa520' opacity='0.6'/%3E%3Ccircle cx='25' cy='180' r='1' fill='%23ffd700' opacity='0.5'/%3E%3Ccircle cx='370' cy='130' r='2' fill='%23ffd700' opacity='0.7'/%3E%3Ccircle cx='360' cy='160' r='1.5' fill='%23daa520' opacity='0.6'/%3E%3Ccircle cx='375' cy='200' r='1' fill='%23ffd700' opacity='0.5'/%3E%3Ccircle cx='80' cy='375' r='1.5' fill='%23ffd700' opacity='0.6'/%3E%3Ccircle cx='320' cy='370' r='2' fill='%23daa520' opacity='0.5'/%3E%3Ccircle cx='150' cy='385' r='1' fill='%23ffd700' opacity='0.4'/%3E%3Ccircle cx='250' cy='380' r='1.5' fill='%23daa520' opacity='0.5'/%3E%3C!-- Subtle light rays from eyes --%3E%3Cpath d='M160 195 L120 185' stroke='%23ffd700' stroke-width='0.5' opacity='0.3'/%3E%3Cpath d='M160 195 L125 200' stroke='%23ffd700' stroke-width='0.5' opacity='0.25'/%3E%3Cpath d='M240 195 L280 185' stroke='%23ffd700' stroke-width='0.5' opacity='0.3'/%3E%3Cpath d='M240 195 L275 200' stroke='%23ffd700' stroke-width='0.5' opacity='0.25'/%3E%3C!-- Face shadow overlay --%3E%3Cellipse cx='200' cy='260' rx='75' ry='60' fill='url(%23tr-shadow)' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Tomb Raiders ambient glow - warm gold, amber, and bronze Egyptian atmosphere */
+.game-page__about[data-decoration="tomb-raiders"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgba(218, 165, 32, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 55% 40%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 60% 60%, rgba(184, 134, 11, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse 50% 45% at 45% 55%, rgba(205, 133, 63, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6949,6 +6981,21 @@ h3 {
     height: 340px;
   }
 
+  /* Tomb Raiders tablet */
+  .game-page__about[data-decoration="tomb-raiders"]::before {
+    right: -18px;
+    bottom: -32px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .game-page__about[data-decoration="tomb-raiders"]::after {
+    right: -30px;
+    bottom: -45px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -8609,6 +8656,21 @@ h3 {
     height: 260px;
   }
 
+  /* Tomb Raiders mobile */
+  .game-page__about[data-decoration="tomb-raiders"]::before {
+    right: -15px;
+    bottom: -28px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="tomb-raiders"]::after {
+    right: -25px;
+    bottom: -40px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -10122,6 +10184,21 @@ h3 {
     height: 210px;
   }
 
+  /* Tomb Raiders small mobile */
+  .game-page__about[data-decoration="tomb-raiders"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="tomb-raiders"]::after {
+    right: -18px;
+    bottom: -30px;
+    width: 210px;
+    height: 210px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -10519,6 +10596,18 @@ h3 {
   }
 
   .game-page__about[data-decoration="deep-sea-escape"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Tomb Raiders extra small */
+  .game-page__about[data-decoration="tomb-raiders"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .game-page__about[data-decoration="tomb-raiders"]::after {
     display: none; /* Hide glow on very small screens */
   }
 
