@@ -446,5 +446,6 @@
   "DeepSeaEscape": ["{0} collected.", "{0} added to your inventory.", "{0} awakens!", "{0} is destroyed!", "{0} health", "{0} armor", "+{0}% damage", "+{0}% speed", "{0} s", "{0}. {1}", "North-east", "North-west", "South-east", "South-west"],
   "OutlawLegends": ["{0} m"],
   "PrisonOfFear": ["{0} m"],
-  "CarnivalOfFear": ["{0} m"]
+  "CarnivalOfFear": ["{0} m"],
+  "DeepMine": ["{0} m"]
 }

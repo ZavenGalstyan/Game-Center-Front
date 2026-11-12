@@ -187,5 +187,6 @@
   "DeepSeaEscape": {"Mount": "Установить", "Locked": "Заперто", "Repair": "Починить", "Valve": "Вентиль", "Escape Room · RPG · Shooter": "Квест-комната · RPG · Шутер", "Look around": "Обзор", "Ready": "Готово", "High": "Высокая", "Fast": "Быстрая", "New": "Новый", "Move": "Ходьба", "Cargo Crate": "Грузовой контейнер", "Reload": "Перезарядить", "Aim": "Прицелиться"},
   "OutlawLegends": {"Takedowns": "Добивания", "Capacity": "Ёмкость", "Range": "Дальность", "Legend": "Легенда", "Drifter": "Бродяга", "Gunslinger": "Стрелок"},
   "PrisonOfFear": {"Look around": "Обзор", "Ready": "Доступен", "Activate switch": "Включить рубильник", "Aim": "Прицеливание", "Punch": "Удар кулаком", "Shoot": "Стрельба", "Interact": "Действие"},
-  "CarnivalOfFear": {"Look around": "Обзор", "Ready": "Доступен", "Aim": "Прицеливание", "Shoot": "Стрельба", "Interact": "Действие", "Move": "Ходьба", "Locked": "Закрыт"}
+  "CarnivalOfFear": {"Look around": "Обзор", "Ready": "Доступен", "Aim": "Прицеливание", "Shoot": "Стрельба", "Interact": "Действие", "Move": "Ходьба", "Locked": "Закрыт"},
+  "DeepMine": {"Look around": "Обзор", "Ready": "Доступен", "Aim": "Прицеливание", "Shoot": "Стрельба", "Interact": "Действие", "Move": "Ходьба", "Locked": "Закрыт", "Flashlight": "Фонарь", "Flashlight off": "Фонарь выключен", "Flashlight on / off": "Фонарь вкл. / выкл.", "Battery": "Батарейка", "Crystal Caverns": "Кристаллические пещеры"}
 }
