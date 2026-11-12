@@ -115,6 +115,9 @@ import wildKingdomBg from "../images/WildKingdom.png";
 import ironArenaBg from "../images/IronArena.png";
 import deepSeaEscapeBg from "../images/DeepSeaEscape.png";
 import tombRaidersBg from "../images/TombRaiders.png";
+import biohazardEscapeBg from "../images/BiohazardEscape.png";
+import perspectiveBg from "../images/Perspective.png";
+import pharaohsSecretBg from "../images/PharaohsSecret.png";
 
 /**
  * Category to icon mapping.
@@ -1887,6 +1890,75 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(20, 12, 6, 0.45) 42%,
       rgba(20, 12, 6, 0.72) 55%,
       rgba(20, 12, 6, 0.88) 100%)`,
+  },
+  // Biohazard Escape: Project X — hazmat soldier and mutant creature in a
+  // contaminated facility. Toxic green, dark military green, and biohazard
+  // accents. Position keeps the soldier and title visible; dark toxic fade.
+  "biohazard escape: project x": {
+    image: biohazardEscapeBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 16, 8, 0) 0%,
+      rgba(8, 16, 8, 0) 30%,
+      rgba(8, 16, 8, 0.48) 42%,
+      rgba(8, 16, 8, 0.74) 55%,
+      rgba(8, 16, 8, 0.88) 100%)`,
+  },
+  "biohazard escape": {
+    image: biohazardEscapeBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 16, 8, 0) 0%,
+      rgba(8, 16, 8, 0) 30%,
+      rgba(8, 16, 8, 0.48) 42%,
+      rgba(8, 16, 8, 0.74) 55%,
+      rgba(8, 16, 8, 0.88) 100%)`,
+  },
+  // Perspective: Impossible Rooms — surreal architectural puzzle with pastel
+  // colors, impossible geometry, floating staircases, and Penrose triangles.
+  // Lavender, violet, pink, soft blue palette. Position keeps title visible.
+  "perspective: impossible rooms": {
+    image: perspectiveBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(20, 16, 28, 0) 0%,
+      rgba(20, 16, 28, 0) 30%,
+      rgba(20, 16, 28, 0.45) 42%,
+      rgba(20, 16, 28, 0.72) 55%,
+      rgba(20, 16, 28, 0.88) 100%)`,
+  },
+  "perspective": {
+    image: perspectiveBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(20, 16, 28, 0) 0%,
+      rgba(20, 16, 28, 0) 30%,
+      rgba(20, 16, 28, 0.45) 42%,
+      rgba(20, 16, 28, 0.72) 55%,
+      rgba(20, 16, 28, 0.88) 100%)`,
+  },
+  // Pharaoh's Secret: Lost Temple — Egyptian temple puzzle escape with golden
+  // pharaoh imagery, ancient hieroglyphics, and mystical atmosphere. Gold,
+  // bronze, sandstone, and dark emerald palette. Position for title visibility.
+  "pharaoh's secret: lost temple": {
+    image: pharaohsSecretBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 14, 8, 0) 0%,
+      rgba(18, 14, 8, 0) 30%,
+      rgba(18, 14, 8, 0.48) 42%,
+      rgba(18, 14, 8, 0.74) 55%,
+      rgba(18, 14, 8, 0.88) 100%)`,
+  },
+  "pharaoh's secret": {
+    image: pharaohsSecretBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 14, 8, 0) 0%,
+      rgba(18, 14, 8, 0) 30%,
+      rgba(18, 14, 8, 0.48) 42%,
+      rgba(18, 14, 8, 0.74) 55%,
+      rgba(18, 14, 8, 0.88) 100%)`,
   },
 };
 

@@ -166,8 +166,8 @@ const GAME_TAGLINES = {
   "Midnight Shift": "Watch the Cameras. Save Your Power. Survive the Night.",
   "Portal Shift: Dimension Escape": "Two Portals. Endless Possibilities. One Way Out.",
   "Portal Shift": "Two Portals. Endless Possibilities. One Way Out.",
-  "Pharaoh's Secret: Lost Temple": "Unlock the Past. Escape the Curse.",
-  "Pharaoh's Secret": "Unlock the Past. Escape the Curse.",
+  "Pharaoh's Secret: Lost Temple": "Unlock the past. Escape the curse.",
+  "Pharaoh's Secret": "Unlock the past. Escape the curse.",
   "Perspective: Impossible Rooms": "Change Your View. Change Reality.",
   "Perspective": "Change Your View. Change Reality.",
   "Biohazard Escape: Project X": "Survive the Infection. Uncover the Truth. Escape Alive.",
@@ -324,6 +324,12 @@ const GAME_DECORATIONS = {
   "Deep Sea Escape": "deep-sea-escape",
   "Tomb Raiders: Pharaoh's Revenge": "tomb-raiders",
   "Tomb Raiders": "tomb-raiders",
+  "Biohazard Escape: Project X": "biohazard-escape",
+  "Biohazard Escape": "biohazard-escape",
+  "Perspective: Impossible Rooms": "perspective",
+  "Perspective": "perspective",
+  "Pharaoh's Secret: Lost Temple": "pharaohs-secret",
+  "Pharaoh's Secret": "pharaohs-secret",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
