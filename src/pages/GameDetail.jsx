@@ -185,6 +185,8 @@ const GAME_TAGLINES = {
   "Carnival of Fear": "The Show Is Over. The Nightmare Begins.",
   "Deep Mine: The Forgotten Ones": "The Deeper You Go, the Darker It Gets.",
   "Deep Mine": "The Deeper You Go, the Darker It Gets.",
+  "Deck of Shadows: Monster Hunt": "Draw Your Cards. Face the Darkness.",
+  "Deck of Shadows": "Draw Your Cards. Face the Darkness.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
   "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
   "Throw Masters": "Aim. Throw. Become a Champion.",
