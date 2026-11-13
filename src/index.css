@@ -5244,6 +5244,301 @@ h3 {
   z-index: -1;
 }
 
+/* Deep Sea Escape: Abyss Facility — Underwater research facility with observation
+   window showing mysterious sea creature silhouette. Metallic structural details,
+   glowing cyan lights, bubbles, sonar rings, and orange emergency lights.
+   Deep cyan, teal, navy blue palette with orange accents. */
+.game-page__about[data-decoration="deep-sea-escape"]::before {
+  content: "";
+  width: 360px;
+  height: 360px;
+  right: -25px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='dse-facility' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23142838'/%3E%3Cstop offset='50%25' stop-color='%231c3848'/%3E%3Cstop offset='100%25' stop-color='%23243848'/%3E%3C/linearGradient%3E%3ClinearGradient id='dse-window' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230a2535'/%3E%3Cstop offset='40%25' stop-color='%230d3045'/%3E%3Cstop offset='100%25' stop-color='%23082028'/%3E%3C/linearGradient%3E%3CradialGradient id='dse-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2300e8c8' stop-opacity='0.6'/%3E%3Cstop offset='60%25' stop-color='%2300b4a0' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23008080' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='dse-orange' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff6a28' stop-opacity='0.8'/%3E%3Cstop offset='70%25' stop-color='%23ff4500' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23ff2200' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='dse-metal' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234a5a68'/%3E%3Cstop offset='50%25' stop-color='%233a4a58'/%3E%3Cstop offset='100%25' stop-color='%232a3a48'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Facility main structure --%3E%3Crect x='80' y='120' width='240' height='200' rx='12' fill='url(%23dse-facility)' stroke='%234a6878' stroke-width='3'/%3E%3Crect x='90' y='130' width='220' height='180' rx='8' fill='url(%23dse-facility)' stroke='%233a5868' stroke-width='1.5'/%3E%3C!-- Large observation window --%3E%3Cellipse cx='200' cy='210' rx='85' ry='65' fill='url(%23dse-window)' stroke='%2300c8b8' stroke-width='2.5'/%3E%3Cellipse cx='200' cy='210' rx='78' ry='58' fill='none' stroke='%23006868' stroke-width='1' stroke-dasharray='4 6'/%3E%3C!-- Window frame bolts --%3E%3Ccircle cx='120' cy='165' r='5' fill='%234a5a68' stroke='%235a6a78' stroke-width='1'/%3E%3Ccircle cx='280' cy='165' r='5' fill='%234a5a68' stroke='%235a6a78' stroke-width='1'/%3E%3Ccircle cx='120' cy='255' r='5' fill='%234a5a68' stroke='%235a6a78' stroke-width='1'/%3E%3Ccircle cx='280' cy='255' r='5' fill='%234a5a68' stroke='%235a6a78' stroke-width='1'/%3E%3C!-- Sea creature silhouette behind glass --%3E%3Cpath d='M150 200 Q160 185 180 190 Q195 175 215 185 Q240 170 260 195 Q275 185 280 200 Q290 210 275 225 Q280 240 265 245 Q250 260 230 250 Q215 265 195 255 Q175 265 160 250 Q140 255 135 235 Q125 220 140 210 Q135 195 150 200Z' fill='%23051520' opacity='0.7'/%3E%3Ccircle cx='245' cy='195' r='6' fill='%2300e8c8' opacity='0.4'/%3E%3Ccircle cx='160' cy='210' r='4' fill='%2300e8c8' opacity='0.3'/%3E%3C!-- Window reflections --%3E%3Cpath d='M145 180 Q170 165 200 175' stroke='%2380d8e8' stroke-width='1.5' stroke-linecap='round' opacity='0.3' fill='none'/%3E%3Cpath d='M235 175 Q250 180 260 195' stroke='%2380d8e8' stroke-width='1' stroke-linecap='round' opacity='0.2' fill='none'/%3E%3C!-- Metallic structural beams --%3E%3Crect x='75' y='115' width='250' height='8' rx='2' fill='url(%23dse-metal)' stroke='%235a6a78' stroke-width='0.5'/%3E%3Crect x='75' y='315' width='250' height='8' rx='2' fill='url(%23dse-metal)' stroke='%235a6a78' stroke-width='0.5'/%3E%3Crect x='75' y='115' width='8' height='208' rx='2' fill='url(%23dse-metal)' stroke='%235a6a78' stroke-width='0.5'/%3E%3Crect x='317' y='115' width='8' height='208' rx='2' fill='url(%23dse-metal)' stroke='%235a6a78' stroke-width='0.5'/%3E%3C!-- Cyan lights --%3E%3Ccircle cx='100' cy='140' r='6' fill='url(%23dse-glow)'/%3E%3Ccircle cx='100' cy='140' r='3' fill='%2300ffea'/%3E%3Ccircle cx='300' cy='140' r='6' fill='url(%23dse-glow)'/%3E%3Ccircle cx='300' cy='140' r='3' fill='%2300ffea'/%3E%3Ccircle cx='100' cy='300' r='6' fill='url(%23dse-glow)'/%3E%3Ccircle cx='100' cy='300' r='3' fill='%2300ffea'/%3E%3Ccircle cx='300' cy='300' r='6' fill='url(%23dse-glow)'/%3E%3Ccircle cx='300' cy='300' r='3' fill='%2300ffea'/%3E%3C!-- Orange emergency lights --%3E%3Ccircle cx='200' cy='105' r='8' fill='url(%23dse-orange)'/%3E%3Ccircle cx='200' cy='105' r='4' fill='%23ff8040'/%3E%3Ccircle cx='160' cy='330' r='5' fill='url(%23dse-orange)'/%3E%3Ccircle cx='160' cy='330' r='2.5' fill='%23ff8040'/%3E%3Ccircle cx='240' cy='330' r='5' fill='url(%23dse-orange)'/%3E%3Ccircle cx='240' cy='330' r='2.5' fill='%23ff8040'/%3E%3C!-- Sonar rings --%3E%3Ccircle cx='200' cy='210' r='95' fill='none' stroke='%2300c8c8' stroke-width='0.8' opacity='0.15'/%3E%3Ccircle cx='200' cy='210' r='110' fill='none' stroke='%2300c8c8' stroke-width='0.5' opacity='0.1'/%3E%3Ccircle cx='200' cy='210' r='125' fill='none' stroke='%2300c8c8' stroke-width='0.3' opacity='0.05'/%3E%3C!-- Bubbles --%3E%3Ccircle cx='95' cy='175' r='3' fill='%2380e8f8' opacity='0.5'/%3E%3Ccircle cx='90' cy='195' r='2' fill='%2380e8f8' opacity='0.4'/%3E%3Ccircle cx='98' cy='220' r='2.5' fill='%2380e8f8' opacity='0.45'/%3E%3Ccircle cx='305' cy='185' r='2.5' fill='%2380e8f8' opacity='0.45'/%3E%3Ccircle cx='310' cy='210' r='3' fill='%2380e8f8' opacity='0.5'/%3E%3Ccircle cx='302' cy='240' r='2' fill='%2380e8f8' opacity='0.4'/%3E%3Ccircle cx='130' cy='290' r='2' fill='%2380e8f8' opacity='0.35'/%3E%3Ccircle cx='270' cy='285' r='2.5' fill='%2380e8f8' opacity='0.4'/%3E%3C!-- Underwater particles --%3E%3Ccircle cx='140' cy='145' r='1' fill='%2380d8e8' opacity='0.5'/%3E%3Ccircle cx='260' cy='155' r='1.2' fill='%2380d8e8' opacity='0.4'/%3E%3Ccircle cx='175' cy='285' r='1' fill='%2380d8e8' opacity='0.5'/%3E%3Ccircle cx='225' cy='280' r='1.2' fill='%2380d8e8' opacity='0.45'/%3E%3Ccircle cx='330' cy='180' r='1' fill='%2380d8e8' opacity='0.3'/%3E%3Ccircle cx='70' cy='250' r='1' fill='%2380d8e8' opacity='0.3'/%3E%3C!-- Control panel details --%3E%3Crect x='340' y='180' width='35' height='80' rx='4' fill='%23243040' stroke='%233a4a58' stroke-width='1'/%3E%3Crect x='348' y='190' width='6' height='6' rx='1' fill='%2300e8c8'/%3E%3Crect x='358' y='190' width='6' height='6' rx='1' fill='%2300c898'/%3E%3Crect x='348' y='205' width='18' height='3' fill='%23006868'/%3E%3Crect x='348' y='215' width='12' height='3' fill='%23006868'/%3E%3Crect x='348' y='225' width='15' height='3' fill='%23006868'/%3E%3Ccircle cx='357' cy='245' r='5' fill='%23203040' stroke='%23ff6a28' stroke-width='1.5'/%3E%3C!-- Depth gauge --%3E%3Crect x='25' y='160' width='30' height='120' rx='4' fill='%23243040' stroke='%233a4a58' stroke-width='1'/%3E%3Crect x='35' y='175' width='10' height='90' rx='2' fill='%23102028'/%3E%3Crect x='37' y='220' width='6' height='45' fill='%2300c8c8' opacity='0.8'/%3E%3Ctext x='40' y='172' font-size='6' fill='%2380a0a8' text-anchor='middle'%3E3860m%3C/text%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Deep Sea Escape ambient glow - cyan, teal, and orange underwater atmosphere */
+.game-page__about[data-decoration="deep-sea-escape"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgba(0, 200, 180, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 55% 40%, rgba(0, 232, 200, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 60% 60%, rgba(255, 106, 40, 0.04) 0%, transparent 45%),
+    radial-gradient(ellipse 50% 45% at 45% 55%, rgba(0, 180, 160, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Tomb Raiders: Pharaoh's Revenge — Golden pharaoh mask with blue-gold striped
+   royal headdress, glowing amber eyes, Eye of Horus motifs, hieroglyphics,
+   and golden particle effects. Rich gold, bronze, amber, and deep-blue palette. */
+.game-page__about[data-decoration="tomb-raiders"]::before {
+  content: "";
+  width: 360px;
+  height: 360px;
+  right: -25px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='tr-gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f4d03f'/%3E%3Cstop offset='25%25' stop-color='%23daa520'/%3E%3Cstop offset='50%25' stop-color='%23b8860b'/%3E%3Cstop offset='75%25' stop-color='%23cd853f'/%3E%3Cstop offset='100%25' stop-color='%23d4a574'/%3E%3C/linearGradient%3E%3ClinearGradient id='tr-gold-dark' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23b8860b'/%3E%3Cstop offset='50%25' stop-color='%238b6914'/%3E%3Cstop offset='100%25' stop-color='%23614a0c'/%3E%3C/linearGradient%3E%3ClinearGradient id='tr-stripe-blue' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%231a3a5c'/%3E%3Cstop offset='50%25' stop-color='%232a5a8c'/%3E%3Cstop offset='100%25' stop-color='%231a3a5c'/%3E%3C/linearGradient%3E%3ClinearGradient id='tr-stripe-gold' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23b8860b'/%3E%3Cstop offset='50%25' stop-color='%23daa520'/%3E%3Cstop offset='100%25' stop-color='%23b8860b'/%3E%3C/linearGradient%3E%3CradialGradient id='tr-eye-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='1'/%3E%3Cstop offset='40%25' stop-color='%23ff8c00' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%23ff4500' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='tr-face' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23daa520'/%3E%3Cstop offset='40%25' stop-color='%23cd9b1d'/%3E%3Cstop offset='100%25' stop-color='%23a67c00'/%3E%3C/linearGradient%3E%3ClinearGradient id='tr-shadow' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='100%25' stop-color='%23000' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Headdress outer shape --%3E%3Cpath d='M200 50 C260 50 320 90 340 150 L350 280 C350 310 340 340 300 360 L100 360 C60 340 50 310 50 280 L60 150 C80 90 140 50 200 50Z' fill='url(%23tr-gold)' stroke='%23614a0c' stroke-width='2'/%3E%3C!-- Headdress blue-gold stripes --%3E%3Crect x='65' y='80' width='270' height='12' fill='url(%23tr-stripe-blue)' rx='2'/%3E%3Crect x='60' y='95' width='280' height='10' fill='url(%23tr-stripe-gold)' rx='2'/%3E%3Crect x='55' y='108' width='290' height='12' fill='url(%23tr-stripe-blue)' rx='2'/%3E%3Crect x='52' y='123' width='296' height='10' fill='url(%23tr-stripe-gold)' rx='2'/%3E%3Crect x='50' y='136' width='300' height='12' fill='url(%23tr-stripe-blue)' rx='2'/%3E%3Crect x='52' y='151' width='296' height='10' fill='url(%23tr-stripe-gold)' rx='2'/%3E%3Crect x='55' y='164' width='290' height='12' fill='url(%23tr-stripe-blue)' rx='2'/%3E%3C!-- Side panels hanging down --%3E%3Cpath d='M55 176 L50 320 C50 340 70 355 95 360 L95 176Z' fill='url(%23tr-gold)' stroke='%23614a0c' stroke-width='1'/%3E%3Cpath d='M345 176 L350 320 C350 340 330 355 305 360 L305 176Z' fill='url(%23tr-gold)' stroke='%23614a0c' stroke-width='1'/%3E%3C!-- Side panel stripes --%3E%3Crect x='55' y='185' width='40' height='8' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='52' y='198' width='43' height='7' fill='url(%23tr-stripe-gold)'/%3E%3Crect x='50' y='210' width='45' height='8' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='52' y='223' width='43' height='7' fill='url(%23tr-stripe-gold)'/%3E%3Crect x='55' y='235' width='40' height='8' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='305' y='185' width='40' height='8' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='305' y='198' width='43' height='7' fill='url(%23tr-stripe-gold)'/%3E%3Crect x='305' y='210' width='45' height='8' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='305' y='223' width='43' height='7' fill='url(%23tr-stripe-gold)'/%3E%3Crect x='305' y='235' width='40' height='8' fill='url(%23tr-stripe-blue)'/%3E%3C!-- Face mask --%3E%3Cellipse cx='200' cy='220' rx='90' ry='110' fill='url(%23tr-face)'/%3E%3Cellipse cx='200' cy='215' rx='85' ry='105' fill='url(%23tr-gold)' stroke='%23a67c00' stroke-width='1'/%3E%3C!-- Forehead cobra (Uraeus) --%3E%3Cpath d='M200 75 C200 65 210 55 215 55 C220 55 225 60 225 70 C225 85 215 95 200 100 C185 95 175 85 175 70 C175 60 180 55 185 55 C190 55 200 65 200 75Z' fill='url(%23tr-gold-dark)' stroke='%23daa520' stroke-width='1'/%3E%3Ccircle cx='200' cy='68' r='4' fill='%231a3a5c'/%3E%3C!-- Eyes - almond shaped with amber glow --%3E%3Cellipse cx='160' cy='195' rx='22' ry='12' fill='%231a1008'/%3E%3Cellipse cx='240' cy='195' rx='22' ry='12' fill='%231a1008'/%3E%3Cellipse cx='160' cy='195' rx='18' ry='9' fill='url(%23tr-eye-glow)'/%3E%3Cellipse cx='240' cy='195' rx='18' ry='9' fill='url(%23tr-eye-glow)'/%3E%3Ccircle cx='160' cy='195' r='5' fill='%23ffd700'/%3E%3Ccircle cx='240' cy='195' r='5' fill='%23ffd700'/%3E%3Ccircle cx='160' cy='195' r='2' fill='%23fff8dc'/%3E%3Ccircle cx='240' cy='195' r='2' fill='%23fff8dc'/%3E%3C!-- Eye of Horus markings --%3E%3Cpath d='M140 200 Q130 210 125 225 Q130 220 140 212' fill='none' stroke='%23614a0c' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M260 200 Q270 210 275 225 Q270 220 260 212' fill='none' stroke='%23614a0c' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Eyebrows --%3E%3Cpath d='M138 178 Q160 168 182 178' fill='none' stroke='%23614a0c' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M218 178 Q240 168 262 178' fill='none' stroke='%23614a0c' stroke-width='3' stroke-linecap='round'/%3E%3C!-- Nose --%3E%3Cpath d='M200 200 L200 235 Q195 245 190 248 M200 235 Q205 245 210 248' fill='none' stroke='%238b6914' stroke-width='2' stroke-linecap='round'/%3E%3C!-- Mouth --%3E%3Cpath d='M175 270 Q200 280 225 270' fill='none' stroke='%238b6914' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M180 275 Q200 282 220 275' fill='none' stroke='%23a67c00' stroke-width='1.5' stroke-linecap='round'/%3E%3C!-- Chin beard (false beard) --%3E%3Cpath d='M185 290 L185 340 Q200 355 215 340 L215 290 Q200 300 185 290Z' fill='url(%23tr-gold-dark)' stroke='%23614a0c' stroke-width='1'/%3E%3Crect x='188' y='295' width='24' height='4' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='188' y='305' width='24' height='4' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='188' y='315' width='24' height='4' fill='url(%23tr-stripe-blue)'/%3E%3Crect x='188' y='325' width='24' height='4' fill='url(%23tr-stripe-blue)'/%3E%3C!-- Collar necklace --%3E%3Cpath d='M120 300 Q200 330 280 300 Q200 355 120 300Z' fill='url(%23tr-gold)' stroke='%23b8860b' stroke-width='1'/%3E%3Cpath d='M130 305 Q200 330 270 305' fill='none' stroke='%231a3a5c' stroke-width='3'/%3E%3Cpath d='M140 312 Q200 335 260 312' fill='none' stroke='%23daa520' stroke-width='2'/%3E%3Cpath d='M150 318 Q200 338 250 318' fill='none' stroke='%231a3a5c' stroke-width='2'/%3E%3C!-- Hieroglyphics on sides --%3E%3Ctext x='35' y='270' font-size='12' fill='%23b8860b' opacity='0.6'%3E%F0%93%80%80%3C/text%3E%3Ctext x='35' y='290' font-size='12' fill='%23b8860b' opacity='0.5'%3E%F0%93%80%81%3C/text%3E%3Ctext x='35' y='310' font-size='12' fill='%23b8860b' opacity='0.4'%3E%F0%93%80%82%3C/text%3E%3Ctext x='360' y='270' font-size='12' fill='%23b8860b' opacity='0.6'%3E%F0%93%80%83%3C/text%3E%3Ctext x='360' y='290' font-size='12' fill='%23b8860b' opacity='0.5'%3E%F0%93%80%84%3C/text%3E%3Ctext x='360' y='310' font-size='12' fill='%23b8860b' opacity='0.4'%3E%F0%93%80%85%3C/text%3E%3C!-- Eye of Horus symbol (top left corner) --%3E%3Cpath d='M30 60 Q40 50 55 55 L70 55 Q75 58 72 65 L65 72 Q55 80 40 85 L30 82 Q25 75 28 68Z' fill='none' stroke='%23daa520' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M45 72 Q38 85 35 100' fill='none' stroke='%23daa520' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='55' cy='62' r='4' fill='%23daa520' opacity='0.4'/%3E%3C!-- Eye of Horus symbol (top right corner) --%3E%3Cpath d='M370 60 Q360 50 345 55 L330 55 Q325 58 328 65 L335 72 Q345 80 360 85 L370 82 Q375 75 372 68Z' fill='none' stroke='%23daa520' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M355 72 Q362 85 365 100' fill='none' stroke='%23daa520' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='345' cy='62' r='4' fill='%23daa520' opacity='0.4'/%3E%3C!-- Golden particles --%3E%3Ccircle cx='30' cy='120' r='2' fill='%23ffd700' opacity='0.7'/%3E%3Ccircle cx='45' cy='145' r='1.5' fill='%23daa520' opacity='0.6'/%3E%3Ccircle cx='25' cy='180' r='1' fill='%23ffd700' opacity='0.5'/%3E%3Ccircle cx='370' cy='130' r='2' fill='%23ffd700' opacity='0.7'/%3E%3Ccircle cx='360' cy='160' r='1.5' fill='%23daa520' opacity='0.6'/%3E%3Ccircle cx='375' cy='200' r='1' fill='%23ffd700' opacity='0.5'/%3E%3Ccircle cx='80' cy='375' r='1.5' fill='%23ffd700' opacity='0.6'/%3E%3Ccircle cx='320' cy='370' r='2' fill='%23daa520' opacity='0.5'/%3E%3Ccircle cx='150' cy='385' r='1' fill='%23ffd700' opacity='0.4'/%3E%3Ccircle cx='250' cy='380' r='1.5' fill='%23daa520' opacity='0.5'/%3E%3C!-- Subtle light rays from eyes --%3E%3Cpath d='M160 195 L120 185' stroke='%23ffd700' stroke-width='0.5' opacity='0.3'/%3E%3Cpath d='M160 195 L125 200' stroke='%23ffd700' stroke-width='0.5' opacity='0.25'/%3E%3Cpath d='M240 195 L280 185' stroke='%23ffd700' stroke-width='0.5' opacity='0.3'/%3E%3Cpath d='M240 195 L275 200' stroke='%23ffd700' stroke-width='0.5' opacity='0.25'/%3E%3C!-- Face shadow overlay --%3E%3Cellipse cx='200' cy='260' rx='75' ry='60' fill='url(%23tr-shadow)' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Tomb Raiders ambient glow - warm gold, amber, and bronze Egyptian atmosphere */
+.game-page__about[data-decoration="tomb-raiders"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgba(218, 165, 32, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 55% 40%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 60% 60%, rgba(184, 134, 11, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse 50% 45% at 45% 55%, rgba(205, 133, 63, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Biohazard Escape: Project X — Threatening infected mutant emerging from darkness
+   with glowing toxic-green eyes, sharp teeth, mutated claws, biohazard symbol,
+   broken laboratory glass, and toxic atmospheric effects. Dark military-green,
+   black, acid-green, and restrained red warning accents. */
+.game-page__about[data-decoration="biohazard-escape"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -30px;
+  bottom: -50px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='bh-dark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230a1408'/%3E%3Cstop offset='50%25' stop-color='%23101c0e'/%3E%3Cstop offset='100%25' stop-color='%23081208'/%3E%3C/linearGradient%3E%3ClinearGradient id='bh-skin' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233a4a38'/%3E%3Cstop offset='30%25' stop-color='%232a3828'/%3E%3Cstop offset='70%25' stop-color='%231e2a1c'/%3E%3Cstop offset='100%25' stop-color='%23141e12'/%3E%3C/linearGradient%3E%3ClinearGradient id='bh-skin-light' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234a5a46'/%3E%3Cstop offset='50%25' stop-color='%233a4836'/%3E%3Cstop offset='100%25' stop-color='%232a3828'/%3E%3C/linearGradient%3E%3CradialGradient id='bh-eye-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2300ff66' stop-opacity='1'/%3E%3Cstop offset='30%25' stop-color='%2300cc44' stop-opacity='0.9'/%3E%3Cstop offset='60%25' stop-color='%2300aa33' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23008822' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='bh-toxic-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2366ff66' stop-opacity='0.4'/%3E%3Cstop offset='50%25' stop-color='%2333cc33' stop-opacity='0.15'/%3E%3Cstop offset='100%25' stop-color='%23009900' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='bh-claw' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232a3228'/%3E%3Cstop offset='50%25' stop-color='%231a221a'/%3E%3Cstop offset='100%25' stop-color='%23101410'/%3E%3C/linearGradient%3E%3ClinearGradient id='bh-teeth' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d8d8c8'/%3E%3Cstop offset='50%25' stop-color='%23b8b8a8'/%3E%3Cstop offset='100%25' stop-color='%238a8a78'/%3E%3C/linearGradient%3E%3ClinearGradient id='bh-vein' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%234a1818'/%3E%3Cstop offset='50%25' stop-color='%23602020'/%3E%3Cstop offset='100%25' stop-color='%234a1818'/%3E%3C/linearGradient%3E%3ClinearGradient id='bh-glass' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2388aa88' stop-opacity='0.5'/%3E%3Cstop offset='50%25' stop-color='%2366886a' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%23446644' stop-opacity='0.2'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Dark atmospheric background --%3E%3Crect x='50' y='30' width='320' height='350' rx='8' fill='url(%23bh-dark)' opacity='0.5'/%3E%3C!-- Toxic fog/mist at bottom --%3E%3Cellipse cx='200' cy='380' rx='180' ry='50' fill='url(%23bh-toxic-glow)'/%3E%3Cellipse cx='160' cy='370' rx='120' ry='35' fill='url(%23bh-toxic-glow)' opacity='0.7'/%3E%3Cellipse cx='250' cy='365' rx='100' ry='30' fill='url(%23bh-toxic-glow)' opacity='0.5'/%3E%3C!-- Mutant body/torso emerging from darkness --%3E%3Cpath d='M140 380 Q130 340 135 300 Q140 260 160 230 Q175 205 200 195 Q225 205 240 230 Q260 260 265 300 Q270 340 260 380Z' fill='url(%23bh-skin)' stroke='%231a241a' stroke-width='1.5'/%3E%3C!-- Shoulder muscles --%3E%3Cpath d='M135 300 Q110 290 90 305 Q75 320 80 350 Q85 365 100 375' fill='url(%23bh-skin)' stroke='%231a241a' stroke-width='1'/%3E%3Cpath d='M265 300 Q290 290 310 305 Q325 320 320 350 Q315 365 300 375' fill='url(%23bh-skin)' stroke='%231a241a' stroke-width='1'/%3E%3C!-- Exposed veins on shoulders --%3E%3Cpath d='M115 310 Q105 330 100 355' stroke='url(%23bh-vein)' stroke-width='2' fill='none' opacity='0.7'/%3E%3Cpath d='M125 315 Q118 335 115 360' stroke='url(%23bh-vein)' stroke-width='1.5' fill='none' opacity='0.6'/%3E%3Cpath d='M285 310 Q295 330 300 355' stroke='url(%23bh-vein)' stroke-width='2' fill='none' opacity='0.7'/%3E%3Cpath d='M275 315 Q282 335 285 360' stroke='url(%23bh-vein)' stroke-width='1.5' fill='none' opacity='0.6'/%3E%3C!-- Mutant head shape --%3E%3Cellipse cx='200' cy='145' rx='65' ry='75' fill='url(%23bh-skin)'/%3E%3Cellipse cx='200' cy='140' rx='60' ry='70' fill='url(%23bh-skin-light)'/%3E%3C!-- Brow ridge --%3E%3Cpath d='M145 120 Q170 105 200 108 Q230 105 255 120' fill='url(%23bh-skin)' stroke='%231a241a' stroke-width='1'/%3E%3C!-- Eye sockets - deep and hollow --%3E%3Cellipse cx='170' cy='135' rx='22' ry='18' fill='%230a100a'/%3E%3Cellipse cx='230' cy='135' rx='22' ry='18' fill='%230a100a'/%3E%3C!-- Glowing toxic-green eyes --%3E%3Ccircle cx='170' cy='135' r='14' fill='url(%23bh-eye-glow)'/%3E%3Ccircle cx='230' cy='135' r='14' fill='url(%23bh-eye-glow)'/%3E%3Ccircle cx='170' cy='135' r='8' fill='%2300ff44'/%3E%3Ccircle cx='230' cy='135' r='8' fill='%2300ff44'/%3E%3Ccircle cx='170' cy='135' r='4' fill='%23000800'/%3E%3Ccircle cx='230' cy='135' r='4' fill='%23000800'/%3E%3Ccircle cx='168' cy='132' r='2' fill='%23aaffaa' opacity='0.8'/%3E%3Ccircle cx='228' cy='132' r='2' fill='%23aaffaa' opacity='0.8'/%3E%3C!-- Eye glow rays --%3E%3Cpath d='M170 135 L140 125' stroke='%2300ff44' stroke-width='0.8' opacity='0.4'/%3E%3Cpath d='M170 135 L145 140' stroke='%2300ff44' stroke-width='0.6' opacity='0.3'/%3E%3Cpath d='M230 135 L260 125' stroke='%2300ff44' stroke-width='0.8' opacity='0.4'/%3E%3Cpath d='M230 135 L255 140' stroke='%2300ff44' stroke-width='0.6' opacity='0.3'/%3E%3C!-- Deformed nose --%3E%3Cpath d='M200 125 L200 160 Q195 168 190 170 M200 160 Q205 168 210 170' fill='none' stroke='%231a241a' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='193' cy='168' r='4' fill='%230a100a'/%3E%3Ccircle cx='207' cy='168' r='4' fill='%230a100a'/%3E%3C!-- Open mouth with sharp teeth --%3E%3Cpath d='M165 185 Q200 210 235 185 Q230 215 200 220 Q170 215 165 185Z' fill='%230a0808'/%3E%3C!-- Upper teeth --%3E%3Cpath d='M172 188 L175 202' stroke='url(%23bh-teeth)' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M182 191 L184 208' stroke='url(%23bh-teeth)' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M193 193 L195 212' stroke='url(%23bh-teeth)' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M205 193 L207 212' stroke='url(%23bh-teeth)' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M216 191 L218 208' stroke='url(%23bh-teeth)' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M226 188 L228 202' stroke='url(%23bh-teeth)' stroke-width='4' stroke-linecap='round'/%3E%3C!-- Fangs --%3E%3Cpath d='M168 186 L165 205' stroke='url(%23bh-teeth)' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M232 186 L235 205' stroke='url(%23bh-teeth)' stroke-width='4' stroke-linecap='round'/%3E%3C!-- Lower teeth --%3E%3Cpath d='M178 218 L180 207' stroke='url(%23bh-teeth)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M190 220 L191 209' stroke='url(%23bh-teeth)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M200 220 L200 210' stroke='url(%23bh-teeth)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M210 220 L209 209' stroke='url(%23bh-teeth)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M222 218 L220 207' stroke='url(%23bh-teeth)' stroke-width='3' stroke-linecap='round'/%3E%3C!-- Drool/saliva --%3E%3Cpath d='M180 212 Q178 225 182 240' stroke='%2366aa66' stroke-width='1.5' fill='none' opacity='0.5'/%3E%3Cpath d='M220 212 Q222 228 218 245' stroke='%2366aa66' stroke-width='1.5' fill='none' opacity='0.5'/%3E%3C!-- Mutated texture/bumps on face --%3E%3Ccircle cx='145' cy='150' r='5' fill='%232a3828' stroke='%231a241a' stroke-width='0.5'/%3E%3Ccircle cx='255' cy='150' r='5' fill='%232a3828' stroke='%231a241a' stroke-width='0.5'/%3E%3Ccircle cx='150' cy='175' r='4' fill='%232a3828' stroke='%231a241a' stroke-width='0.5'/%3E%3Ccircle cx='250' cy='175' r='4' fill='%232a3828' stroke='%231a241a' stroke-width='0.5'/%3E%3Ccircle cx='142' cy='165' r='3' fill='%232a3828' stroke='%231a241a' stroke-width='0.5'/%3E%3Ccircle cx='258' cy='165' r='3' fill='%232a3828' stroke='%231a241a' stroke-width='0.5'/%3E%3C!-- Left claw/hand reaching forward --%3E%3Cpath d='M75 360 Q65 340 60 310 Q58 290 65 275 Q75 265 90 270' fill='url(%23bh-skin)' stroke='%231a241a' stroke-width='1'/%3E%3C!-- Left claw fingers --%3E%3Cpath d='M65 275 Q55 260 45 240 Q42 230 48 225' fill='none' stroke='url(%23bh-claw)' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M48 225 L42 210' stroke='%231a1a1a' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M72 270 Q65 250 58 235 Q55 225 60 220' fill='none' stroke='url(%23bh-claw)' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M60 220 L55 205' stroke='%231a1a1a' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M82 268 Q78 250 74 235 Q72 228 76 223' fill='none' stroke='url(%23bh-claw)' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M76 223 L73 210' stroke='%231a1a1a' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M92 270 Q92 255 90 245 Q88 238 93 235' fill='none' stroke='url(%23bh-claw)' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M93 235 L92 225' stroke='%231a1a1a' stroke-width='2.5' stroke-linecap='round'/%3E%3C!-- Right claw/hand --%3E%3Cpath d='M325 360 Q335 340 340 310 Q342 290 335 275 Q325 265 310 270' fill='url(%23bh-skin)' stroke='%231a241a' stroke-width='1'/%3E%3C!-- Right claw fingers --%3E%3Cpath d='M335 275 Q345 260 355 240 Q358 230 352 225' fill='none' stroke='url(%23bh-claw)' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M352 225 L358 210' stroke='%231a1a1a' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M328 270 Q335 250 342 235 Q345 225 340 220' fill='none' stroke='url(%23bh-claw)' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M340 220 L345 205' stroke='%231a1a1a' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M318 268 Q322 250 326 235 Q328 228 324 223' fill='none' stroke='url(%23bh-claw)' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M324 223 L327 210' stroke='%231a1a1a' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M308 270 Q308 255 310 245 Q312 238 307 235' fill='none' stroke='url(%23bh-claw)' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M307 235 L308 225' stroke='%231a1a1a' stroke-width='2.5' stroke-linecap='round'/%3E%3C!-- Biohazard symbol (top right) --%3E%3Ccircle cx='330' cy='70' r='35' fill='none' stroke='%23ffcc00' stroke-width='2' opacity='0.4'/%3E%3Ccircle cx='330' cy='70' r='12' fill='none' stroke='%23ffcc00' stroke-width='2' opacity='0.5'/%3E%3Cpath d='M330 35 Q345 52 330 58 Q315 52 330 35' fill='%23ffcc00' opacity='0.4'/%3E%3Cpath d='M300 85 Q310 67 325 75 Q315 88 300 85' fill='%23ffcc00' opacity='0.4'/%3E%3Cpath d='M360 85 Q350 67 335 75 Q345 88 360 85' fill='%23ffcc00' opacity='0.4'/%3E%3Ccircle cx='330' cy='48' r='6' fill='%23ffcc00' opacity='0.35'/%3E%3Ccircle cx='308' cy='82' r='6' fill='%23ffcc00' opacity='0.35'/%3E%3Ccircle cx='352' cy='82' r='6' fill='%23ffcc00' opacity='0.35'/%3E%3C!-- Broken glass shards --%3E%3Cpath d='M55 90 L70 85 L65 105 L50 100Z' fill='url(%23bh-glass)' stroke='%2388aa88' stroke-width='0.5'/%3E%3Cpath d='M45 120 L60 112 L58 135 L42 128Z' fill='url(%23bh-glass)' stroke='%2388aa88' stroke-width='0.5'/%3E%3Cpath d='M345 120 L360 115 L358 140 L342 132Z' fill='url(%23bh-glass)' stroke='%2388aa88' stroke-width='0.5'/%3E%3Cpath d='M355 150 L368 148 L370 170 L352 165Z' fill='url(%23bh-glass)' stroke='%2388aa88' stroke-width='0.5'/%3E%3C!-- Small glass shards --%3E%3Cpath d='M72 75 L78 72 L80 82 L70 80Z' fill='url(%23bh-glass)' opacity='0.6'/%3E%3Cpath d='M48 145 L55 142 L54 155 L46 150Z' fill='url(%23bh-glass)' opacity='0.5'/%3E%3Cpath d='M362 135 L370 133 L368 145 L360 142Z' fill='url(%23bh-glass)' opacity='0.6'/%3E%3C!-- Chemical particles floating --%3E%3Ccircle cx='85' cy='60' r='3' fill='%2366ff66' opacity='0.4'/%3E%3Ccircle cx='95' cy='80' r='2' fill='%2366ff66' opacity='0.3'/%3E%3Ccircle cx='75' cy='100' r='2.5' fill='%2366ff66' opacity='0.35'/%3E%3Ccircle cx='340' cy='95' r='2.5' fill='%2366ff66' opacity='0.4'/%3E%3Ccircle cx='355' cy='108' r='2' fill='%2366ff66' opacity='0.3'/%3E%3Ccircle cx='365' cy='175' r='3' fill='%2366ff66' opacity='0.35'/%3E%3Ccircle cx='50' cy='200' r='2' fill='%2366ff66' opacity='0.3'/%3E%3Ccircle cx='370' cy='250' r='2.5' fill='%2366ff66' opacity='0.3'/%3E%3Ccircle cx='60' cy='250' r='2' fill='%2366ff66' opacity='0.25'/%3E%3C!-- Warning light (red) --%3E%3Ccircle cx='60' cy='55' r='8' fill='%23ff2200' opacity='0.15'/%3E%3Ccircle cx='60' cy='55' r='4' fill='%23ff4422' opacity='0.4'/%3E%3Ccircle cx='370' cy='200' r='8' fill='%23ff2200' opacity='0.15'/%3E%3Ccircle cx='370' cy='200' r='4' fill='%23ff4422' opacity='0.4'/%3E%3C!-- Toxic drips --%3E%3Cpath d='M380 300 Q382 320 378 340' stroke='%2366ff66' stroke-width='2' fill='none' opacity='0.3'/%3E%3Ccircle cx='378' cy='345' r='3' fill='%2366ff66' opacity='0.4'/%3E%3Cpath d='M30 280 Q28 300 32 320' stroke='%2366ff66' stroke-width='2' fill='none' opacity='0.3'/%3E%3Ccircle cx='32' cy='325' r='3' fill='%2366ff66' opacity='0.4'/%3E%3C!-- Atmospheric toxic haze lines --%3E%3Cpath d='M20 350 Q60 345 100 355 Q140 360 180 350' stroke='%2366aa66' stroke-width='1' fill='none' opacity='0.2'/%3E%3Cpath d='M220 345 Q260 355 300 350 Q340 345 380 355' stroke='%2366aa66' stroke-width='1' fill='none' opacity='0.2'/%3E%3Cpath d='M40 365 Q80 360 120 370 Q160 375 200 365' stroke='%2366aa66' stroke-width='0.8' fill='none' opacity='0.15'/%3E%3Cpath d='M200 362 Q240 368 280 360 Q320 355 360 365' stroke='%2366aa66' stroke-width='0.8' fill='none' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Biohazard Escape ambient glow - toxic green and dark military atmosphere */
+.game-page__about[data-decoration="biohazard-escape"]::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  bottom: -60px;
+  width: 440px;
+  height: 440px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgba(0, 180, 60, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 55% 40%, rgba(102, 255, 102, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 60% 60%, rgba(0, 140, 40, 0.05) 0%, transparent 45%),
+    radial-gradient(ellipse 50% 45% at 45% 55%, rgba(50, 100, 50, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Perspective: Impossible Rooms — Surreal impossible architecture with Penrose
+   triangle, floating staircases, levitating cubes, glowing portal, golden sphere
+   with purple ring, and atmospheric particles. Pastel lavender, violet, pink,
+   soft blue, and warm peach palette. */
+.game-page__about[data-decoration="perspective"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -30px;
+  bottom: -45px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='psp-sky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8d8f0'/%3E%3Cstop offset='50%25' stop-color='%23d8c8e8'/%3E%3Cstop offset='100%25' stop-color='%23c8b8d8'/%3E%3C/linearGradient%3E%3ClinearGradient id='psp-penrose1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23b8a0d8'/%3E%3Cstop offset='50%25' stop-color='%239880c0'/%3E%3Cstop offset='100%25' stop-color='%237860a8'/%3E%3C/linearGradient%3E%3ClinearGradient id='psp-penrose2' x1='100%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d0b8e8'/%3E%3Cstop offset='50%25' stop-color='%23c0a8d8'/%3E%3Cstop offset='100%25' stop-color='%23a890c8'/%3E%3C/linearGradient%3E%3ClinearGradient id='psp-penrose3' x1='50%25' y1='100%25' x2='50%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%238870b0'/%3E%3Cstop offset='50%25' stop-color='%236850a0'/%3E%3Cstop offset='100%25' stop-color='%23584890'/%3E%3C/linearGradient%3E%3ClinearGradient id='psp-stair1' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23f0d8e8'/%3E%3Cstop offset='50%25' stop-color='%23e8c8e0'/%3E%3Cstop offset='100%25' stop-color='%23d8b8d0'/%3E%3C/linearGradient%3E%3ClinearGradient id='psp-stair2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d8c0d8'/%3E%3Cstop offset='100%25' stop-color='%23c0a8c0'/%3E%3C/linearGradient%3E%3ClinearGradient id='psp-cube1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a8d0f0'/%3E%3Cstop offset='50%25' stop-color='%2390c0e8'/%3E%3Cstop offset='100%25' stop-color='%2378a8d0'/%3E%3C/linearGradient%3E%3ClinearGradient id='psp-cube2' x1='100%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23c0e0ff'/%3E%3Cstop offset='100%25' stop-color='%23a0c8e8'/%3E%3C/linearGradient%3E%3ClinearGradient id='psp-cube3' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2388b0d8'/%3E%3Cstop offset='100%25' stop-color='%236890b8'/%3E%3C/linearGradient%3E%3CradialGradient id='psp-portal' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23fff8e0' stop-opacity='1'/%3E%3Cstop offset='30%25' stop-color='%23ffd090' stop-opacity='0.9'/%3E%3Cstop offset='60%25' stop-color='%23ffb060' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%23ff9040' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='psp-sphere' cx='35%25' cy='35%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%23fff8d0'/%3E%3Cstop offset='30%25' stop-color='%23ffd860'/%3E%3Cstop offset='70%25' stop-color='%23d4a020'/%3E%3Cstop offset='100%25' stop-color='%23a87818'/%3E%3C/radialGradient%3E%3ClinearGradient id='psp-ring' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d0a0e8'/%3E%3Cstop offset='50%25' stop-color='%23a070c8'/%3E%3Cstop offset='100%25' stop-color='%238050b0'/%3E%3C/linearGradient%3E%3ClinearGradient id='psp-peach' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffd8c0'/%3E%3Cstop offset='50%25' stop-color='%23f0c0a8'/%3E%3Cstop offset='100%25' stop-color='%23e0a890'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Soft background atmosphere --%3E%3Crect x='40' y='30' width='340' height='360' rx='12' fill='url(%23psp-sky)' opacity='0.15'/%3E%3C!-- Perspective grid lines --%3E%3Cpath d='M200 50 L50 380' stroke='%23b8a0d0' stroke-width='0.5' opacity='0.2'/%3E%3Cpath d='M200 50 L350 380' stroke='%23b8a0d0' stroke-width='0.5' opacity='0.2'/%3E%3Cpath d='M200 50 L150 380' stroke='%23b8a0d0' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M200 50 L250 380' stroke='%23b8a0d0' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M60 150 L340 150' stroke='%23b8a0d0' stroke-width='0.4' opacity='0.15'/%3E%3Cpath d='M70 220 L330 220' stroke='%23b8a0d0' stroke-width='0.4' opacity='0.12'/%3E%3Cpath d='M80 290 L320 290' stroke='%23b8a0d0' stroke-width='0.4' opacity='0.1'/%3E%3C!-- Large Penrose Triangle (impossible triangle) --%3E%3Cpath d='M200 60 L280 180 L260 180 L200 90 L140 180 L120 180 Z' fill='url(%23psp-penrose1)'/%3E%3Cpath d='M120 180 L140 180 L140 280 L200 370 L180 370 L100 250 Z' fill='url(%23psp-penrose3)'/%3E%3Cpath d='M280 180 L300 250 L220 370 L200 370 L260 280 L260 180 Z' fill='url(%23psp-penrose2)'/%3E%3C!-- Penrose overlap illusion pieces --%3E%3Cpath d='M140 250 L160 250 L160 280 L200 340 L180 340 L140 280 Z' fill='url(%23psp-penrose1)'/%3E%3Cpath d='M240 250 L260 250 L260 280 L220 340 L200 340 L240 280 Z' fill='url(%23psp-penrose2)'/%3E%3Cpath d='M175 100 L200 60 L225 100 L210 100 L200 82 L190 100 Z' fill='url(%23psp-penrose2)'/%3E%3C!-- Penrose inner edges --%3E%3Cpath d='M200 90 L200 120' stroke='%237860a8' stroke-width='1' opacity='0.6'/%3E%3Cpath d='M155 175 L145 190' stroke='%237860a8' stroke-width='1' opacity='0.5'/%3E%3Cpath d='M245 175 L255 190' stroke='%237860a8' stroke-width='1' opacity='0.5'/%3E%3C!-- Floating staircase 1 (upper left) --%3E%3Cpath d='M55 120 L55 135 L70 135 L70 120 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3Cpath d='M70 110 L70 125 L85 125 L85 110 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3Cpath d='M85 100 L85 115 L100 115 L100 100 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3Cpath d='M100 90 L100 105 L115 105 L115 90 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3C!-- Staircase 1 sides --%3E%3Cpath d='M55 135 L50 140 L50 125 L55 120 Z' fill='url(%23psp-stair2)'/%3E%3Cpath d='M70 125 L65 130 L65 115 L70 110 Z' fill='url(%23psp-stair2)'/%3E%3Cpath d='M85 115 L80 120 L80 105 L85 100 Z' fill='url(%23psp-stair2)'/%3E%3Cpath d='M100 105 L95 110 L95 95 L100 90 Z' fill='url(%23psp-stair2)'/%3E%3C!-- Floating staircase 2 (lower right) --%3E%3Cpath d='M300 280 L300 295 L315 295 L315 280 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3Cpath d='M315 270 L315 285 L330 285 L330 270 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3Cpath d='M330 260 L330 275 L345 275 L345 260 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3Cpath d='M345 250 L345 265 L360 265 L360 250 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3C!-- Staircase 2 sides --%3E%3Cpath d='M300 295 L295 300 L295 285 L300 280 Z' fill='url(%23psp-stair2)'/%3E%3Cpath d='M315 285 L310 290 L310 275 L315 270 Z' fill='url(%23psp-stair2)'/%3E%3Cpath d='M330 275 L325 280 L325 265 L330 260 Z' fill='url(%23psp-stair2)'/%3E%3Cpath d='M345 265 L340 270 L340 255 L345 250 Z' fill='url(%23psp-stair2)'/%3E%3C!-- Floating staircase 3 (upper right, going down) --%3E%3Cpath d='M320 90 L320 105 L335 105 L335 90 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3Cpath d='M335 100 L335 115 L350 115 L350 100 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3Cpath d='M350 110 L350 125 L365 125 L365 110 Z' fill='url(%23psp-stair1)' stroke='%23c8a8c8' stroke-width='0.5'/%3E%3C!-- Levitating cube 1 (large, left side) --%3E%3Cpath d='M50 200 L75 185 L100 200 L75 215 Z' fill='url(%23psp-cube2)'/%3E%3Cpath d='M50 200 L50 230 L75 245 L75 215 Z' fill='url(%23psp-cube3)'/%3E%3Cpath d='M75 215 L75 245 L100 230 L100 200 Z' fill='url(%23psp-cube1)'/%3E%3Cpath d='M50 200 L75 185 L100 200' stroke='%23a8c8e0' stroke-width='1' fill='none'/%3E%3C!-- Levitating cube 2 (medium, upper center-right) --%3E%3Cpath d='M290 95 L308 83 L326 95 L308 107 Z' fill='url(%23psp-cube2)'/%3E%3Cpath d='M290 95 L290 118 L308 130 L308 107 Z' fill='url(%23psp-cube3)'/%3E%3Cpath d='M308 107 L308 130 L326 118 L326 95 Z' fill='url(%23psp-cube1)'/%3E%3C!-- Levitating cube 3 (small, bottom left) --%3E%3Cpath d='M80 320 L92 312 L104 320 L92 328 Z' fill='url(%23psp-cube2)'/%3E%3Cpath d='M80 320 L80 336 L92 344 L92 328 Z' fill='url(%23psp-cube3)'/%3E%3Cpath d='M92 328 L92 344 L104 336 L104 320 Z' fill='url(%23psp-cube1)'/%3E%3C!-- Levitating cube 4 (tiny, floating) --%3E%3Cpath d='M340 175 L350 168 L360 175 L350 182 Z' fill='url(%23psp-cube2)'/%3E%3Cpath d='M340 175 L340 188 L350 195 L350 182 Z' fill='url(%23psp-cube3)'/%3E%3Cpath d='M350 182 L350 195 L360 188 L360 175 Z' fill='url(%23psp-cube1)'/%3E%3C!-- Glowing doorway/portal (center-left) --%3E%3Crect x='48' y='255' width='22' height='35' rx='2' fill='%23584078' stroke='%23a080c0' stroke-width='1'/%3E%3Crect x='52' y='260' width='14' height='25' rx='1' fill='url(%23psp-portal)'/%3E%3Ccircle cx='59' cy='272' r='18' fill='url(%23psp-portal)' opacity='0.3'/%3E%3Ccircle cx='59' cy='272' r='12' fill='url(%23psp-portal)' opacity='0.2'/%3E%3C!-- Portal light rays --%3E%3Cpath d='M59 260 L55 245' stroke='%23ffd080' stroke-width='0.8' opacity='0.4'/%3E%3Cpath d='M59 260 L63 245' stroke='%23ffd080' stroke-width='0.6' opacity='0.3'/%3E%3Cpath d='M59 260 L48 250' stroke='%23ffd080' stroke-width='0.5' opacity='0.25'/%3E%3Cpath d='M59 260 L70 250' stroke='%23ffd080' stroke-width='0.5' opacity='0.25'/%3E%3C!-- Golden sphere with purple ring --%3E%3Ccircle cx='340' cy='320' r='22' fill='url(%23psp-sphere)'/%3E%3Ccircle cx='334' cy='312' r='4' fill='%23fff8e0' opacity='0.8'/%3E%3Ccircle cx='330' cy='316' r='2' fill='%23fff8e0' opacity='0.5'/%3E%3C!-- Purple ring around sphere (tilted ellipse) --%3E%3Cellipse cx='340' cy='320' rx='35' ry='10' fill='none' stroke='url(%23psp-ring)' stroke-width='4' transform='rotate(-25 340 320)'/%3E%3Cellipse cx='340' cy='320' rx='35' ry='10' fill='none' stroke='%23e0c0f0' stroke-width='1' transform='rotate(-25 340 320)' opacity='0.5'/%3E%3C!-- Ring shadow on sphere --%3E%3Cpath d='M325 330 Q340 338 355 330' stroke='%23906090' stroke-width='1.5' fill='none' opacity='0.3'/%3E%3C!-- Floating peach-colored platform --%3E%3Cpath d='M130 330 L160 315 L190 330 L160 345 Z' fill='url(%23psp-peach)' stroke='%23d0a080' stroke-width='0.5'/%3E%3Cpath d='M130 330 L130 340 L160 355 L160 345 Z' fill='%23d8b098' stroke='%23c89878' stroke-width='0.5'/%3E%3Cpath d='M160 345 L160 355 L190 340 L190 330 Z' fill='%23e8c0a8' stroke='%23d0a080' stroke-width='0.5'/%3E%3C!-- Small floating elements and particles --%3E%3Ccircle cx='45' cy='80' r='4' fill='%23d0b8e8' opacity='0.6'/%3E%3Ccircle cx='370' cy='130' r='3' fill='%23c0a8d8' opacity='0.5'/%3E%3Ccircle cx='35' cy='170' r='2.5' fill='%23b8a0d0' opacity='0.5'/%3E%3Ccircle cx='380' cy='220' r='3.5' fill='%23d8c0e8' opacity='0.5'/%3E%3Ccircle cx='30' cy='300' r='2' fill='%23c8b0d8' opacity='0.4'/%3E%3Ccircle cx='375' cy='85' r='2' fill='%23e0d0f0' opacity='0.5'/%3E%3C!-- Atmospheric particles --%3E%3Ccircle cx='120' cy='55' r='1.5' fill='%23d0c0e0' opacity='0.5'/%3E%3Ccircle cx='280' cy='45' r='1.2' fill='%23e0d0f0' opacity='0.4'/%3E%3Ccircle cx='60' cy='360' r='1.5' fill='%23c8b8d8' opacity='0.4'/%3E%3Ccircle cx='250' cy='385' r='1.8' fill='%23d8c8e8' opacity='0.35'/%3E%3Ccircle cx='320' cy='375' r='1.2' fill='%23c0b0d0' opacity='0.4'/%3E%3Ccircle cx='180' cy='40' r='1' fill='%23e8d8f0' opacity='0.5'/%3E%3Ccircle cx='350' cy='55' r='1.5' fill='%23d0c0e0' opacity='0.45'/%3E%3Ccircle cx='40' cy='240' r='1.2' fill='%23c8b0d8' opacity='0.4'/%3E%3Ccircle cx='385' cy='280' r='1' fill='%23d0b8e0' opacity='0.35'/%3E%3C!-- Small decorative triangles --%3E%3Cpath d='M370 150 L378 165 L362 165 Z' fill='%23c8a8e0' opacity='0.4'/%3E%3Cpath d='M40 145 L48 158 L32 158 Z' fill='%23d0b0e8' opacity='0.35'/%3E%3C!-- Subtle sparkles --%3E%3Cpath d='M90 75 L92 80 L90 85 L88 80 Z' fill='%23e8d8f0' opacity='0.6'/%3E%3Cpath d='M365 200 L367 205 L365 210 L363 205 Z' fill='%23e0d0e8' opacity='0.5'/%3E%3Cpath d='M55 340 L57 344 L55 348 L53 344 Z' fill='%23d8c8e0' opacity='0.5'/%3E%3C!-- Additional impossible geometry hint --%3E%3Cpath d='M160 175 L180 165 L200 175 L180 185 Z' fill='%23a890c8' opacity='0.25' stroke='%238870b0' stroke-width='0.5'/%3E%3Cpath d='M200 175 L220 165 L240 175 L220 185 Z' fill='%23b8a0d8' opacity='0.25' stroke='%239880c0' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Perspective ambient glow - soft lavender, violet, and pastel atmosphere */
+.game-page__about[data-decoration="perspective"]::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  bottom: -55px;
+  width: 440px;
+  height: 440px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgba(180, 140, 220, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 55% 40%, rgba(200, 160, 240, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 60% 60%, rgba(160, 120, 200, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse 50% 45% at 45% 55%, rgba(220, 180, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Pharaoh's Secret: Lost Temple — Golden Anubis guardian with Eye of Horus,
+   ancient temple columns, hieroglyphics, scarab beetles, and mystical amber
+   atmosphere. Gold, bronze, sandstone, and dark emerald palette with glowing
+   amber accents. */
+.game-page__about[data-decoration="pharaohs-secret"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -30px;
+  bottom: -45px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='ps-gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f4d03f'/%3E%3Cstop offset='25%25' stop-color='%23daa520'/%3E%3Cstop offset='50%25' stop-color='%23b8860b'/%3E%3Cstop offset='75%25' stop-color='%23cd853f'/%3E%3Cstop offset='100%25' stop-color='%23d4a574'/%3E%3C/linearGradient%3E%3ClinearGradient id='ps-gold-dark' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23b8860b'/%3E%3Cstop offset='50%25' stop-color='%238b6914'/%3E%3Cstop offset='100%25' stop-color='%23614a0c'/%3E%3C/linearGradient%3E%3ClinearGradient id='ps-anubis' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232a2a28'/%3E%3Cstop offset='30%25' stop-color='%231a1a18'/%3E%3Cstop offset='70%25' stop-color='%23101010'/%3E%3Cstop offset='100%25' stop-color='%23080808'/%3E%3C/linearGradient%3E%3ClinearGradient id='ps-anubis-highlight' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233a3a36'/%3E%3Cstop offset='50%25' stop-color='%232a2a28'/%3E%3Cstop offset='100%25' stop-color='%231a1a18'/%3E%3C/linearGradient%3E%3CradialGradient id='ps-eye-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='1'/%3E%3Cstop offset='30%25' stop-color='%23ffaa00' stop-opacity='0.9'/%3E%3Cstop offset='60%25' stop-color='%23ff8c00' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23ff6600' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ps-sandstone' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d4a574'/%3E%3Cstop offset='50%25' stop-color='%23c4956a'/%3E%3Cstop offset='100%25' stop-color='%23a67c52'/%3E%3C/linearGradient%3E%3ClinearGradient id='ps-emerald' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23065535'/%3E%3Cstop offset='50%25' stop-color='%23044530'/%3E%3Cstop offset='100%25' stop-color='%23033525'/%3E%3C/linearGradient%3E%3ClinearGradient id='ps-collar' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23065535'/%3E%3Cstop offset='25%25' stop-color='%23daa520'/%3E%3Cstop offset='50%25' stop-color='%23065535'/%3E%3Cstop offset='75%25' stop-color='%23daa520'/%3E%3Cstop offset='100%25' stop-color='%23065535'/%3E%3C/linearGradient%3E%3CradialGradient id='ps-amber-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffcc66' stop-opacity='0.3'/%3E%3Cstop offset='50%25' stop-color='%23ff9900' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23cc6600' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Temple columns left --%3E%3Crect x='30' y='180' width='25' height='200' fill='url(%23ps-sandstone)' stroke='%23a67c52' stroke-width='1'/%3E%3Crect x='30' y='170' width='25' height='15' fill='url(%23ps-gold-dark)' stroke='%23614a0c' stroke-width='0.5'/%3E%3Crect x='28' y='165' width='29' height='8' fill='url(%23ps-gold)' stroke='%23b8860b' stroke-width='0.5'/%3E%3C!-- Column hieroglyphics left --%3E%3Ccircle cx='42' cy='200' r='6' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.5'/%3E%3Cpath d='M42 210 L42 230' stroke='%23b8860b' stroke-width='1' opacity='0.4'/%3E%3Crect x='37' y='240' width='10' height='15' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.4'/%3E%3Cpath d='M35 270 L49 270 L42 285 Z' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='42' cy='300' r='5' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.3'/%3E%3C!-- Temple columns right --%3E%3Crect x='345' y='200' width='22' height='180' fill='url(%23ps-sandstone)' stroke='%23a67c52' stroke-width='1'/%3E%3Crect x='345' y='190' width='22' height='14' fill='url(%23ps-gold-dark)' stroke='%23614a0c' stroke-width='0.5'/%3E%3Crect x='343' y='185' width='26' height='7' fill='url(%23ps-gold)' stroke='%23b8860b' stroke-width='0.5'/%3E%3C!-- Column hieroglyphics right --%3E%3Crect x='350' y='215' width='12' height='8' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.4'/%3E%3Cpath d='M351 235 L361 235 L356 248 Z' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='356' cy='265' r='5' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.3'/%3E%3Cpath d='M356 280 L356 300' stroke='%23b8860b' stroke-width='1' opacity='0.35'/%3E%3C!-- Anubis head shape --%3E%3Cpath d='M200 60 C180 60 165 75 160 95 L155 120 C150 140 155 155 165 170 L175 185 C180 195 190 210 200 215 C210 210 220 195 225 185 L235 170 C245 155 250 140 245 120 L240 95 C235 75 220 60 200 60Z' fill='url(%23ps-anubis)' stroke='%231a1a18' stroke-width='1.5'/%3E%3C!-- Anubis ears --%3E%3Cpath d='M160 95 L145 50 C143 42 150 38 155 42 L172 70 Q168 80 160 95Z' fill='url(%23ps-anubis)' stroke='%231a1a18' stroke-width='1'/%3E%3Cpath d='M240 95 L255 50 C257 42 250 38 245 42 L228 70 Q232 80 240 95Z' fill='url(%23ps-anubis)' stroke='%231a1a18' stroke-width='1'/%3E%3C!-- Ear inner gold trim --%3E%3Cpath d='M157 88 L148 55 C150 52 154 55 158 65 L165 82Z' fill='url(%23ps-gold-dark)' opacity='0.6'/%3E%3Cpath d='M243 88 L252 55 C250 52 246 55 242 65 L235 82Z' fill='url(%23ps-gold-dark)' opacity='0.6'/%3E%3C!-- Anubis snout --%3E%3Cpath d='M180 145 L175 170 Q185 185 200 190 Q215 185 225 170 L220 145 Q210 140 200 140 Q190 140 180 145Z' fill='url(%23ps-anubis-highlight)' stroke='%231a1a18' stroke-width='1'/%3E%3Cpath d='M185 155 L195 175 L200 178 L205 175 L215 155' fill='none' stroke='%23101010' stroke-width='1.5'/%3E%3C!-- Anubis nose --%3E%3Cellipse cx='200' cy='172' rx='8' ry='6' fill='%230a0a0a' stroke='%23151515' stroke-width='0.5'/%3E%3Ccircle cx='198' cy='170' r='2' fill='%23252525' opacity='0.5'/%3E%3C!-- Anubis eyes with amber glow --%3E%3Cellipse cx='175' cy='115' rx='12' ry='10' fill='%230a0a08'/%3E%3Cellipse cx='225' cy='115' rx='12' ry='10' fill='%230a0a08'/%3E%3Ccircle cx='175' cy='115' r='10' fill='url(%23ps-eye-glow)'/%3E%3Ccircle cx='225' cy='115' r='10' fill='url(%23ps-eye-glow)'/%3E%3Ccircle cx='175' cy='115' r='5' fill='%23ffd700'/%3E%3Ccircle cx='225' cy='115' r='5' fill='%23ffd700'/%3E%3Ccircle cx='175' cy='115' r='2' fill='%23fff8dc'/%3E%3Ccircle cx='225' cy='115' r='2' fill='%23fff8dc'/%3E%3C!-- Eye glow rays --%3E%3Cpath d='M175 115 L155 108' stroke='%23ffd700' stroke-width='0.6' opacity='0.35'/%3E%3Cpath d='M175 115 L158 120' stroke='%23ffd700' stroke-width='0.5' opacity='0.25'/%3E%3Cpath d='M225 115 L245 108' stroke='%23ffd700' stroke-width='0.6' opacity='0.35'/%3E%3Cpath d='M225 115 L242 120' stroke='%23ffd700' stroke-width='0.5' opacity='0.25'/%3E%3C!-- Gold headband/crown --%3E%3Cpath d='M155 98 Q180 90 200 88 Q220 90 245 98 L248 105 Q220 95 200 93 Q180 95 152 105 Z' fill='url(%23ps-gold)' stroke='%23b8860b' stroke-width='1'/%3E%3C!-- Uraeus (cobra) on crown --%3E%3Cpath d='M200 70 C200 62 206 55 210 55 C214 55 218 58 218 65 C218 75 210 82 200 85 C190 82 182 75 182 65 C182 58 186 55 190 55 C194 55 200 62 200 70Z' fill='url(%23ps-gold)' stroke='%23b8860b' stroke-width='1'/%3E%3Ccircle cx='200' cy='62' r='3' fill='%23065535' stroke='%23044530' stroke-width='0.5'/%3E%3C!-- Wide ceremonial collar/necklace --%3E%3Cpath d='M140 220 Q200 255 260 220 Q260 245 200 280 Q140 245 140 220Z' fill='url(%23ps-collar)' stroke='%23b8860b' stroke-width='1.5'/%3E%3Cpath d='M145 228 Q200 258 255 228' fill='none' stroke='%23daa520' stroke-width='2'/%3E%3Cpath d='M150 238 Q200 263 250 238' fill='none' stroke='%23065535' stroke-width='3'/%3E%3Cpath d='M155 250 Q200 272 245 250' fill='none' stroke='%23daa520' stroke-width='2'/%3E%3Cpath d='M160 260 Q200 278 240 260' fill='none' stroke='%23065535' stroke-width='2'/%3E%3C!-- Eye of Horus (large, upper left) --%3E%3Cg transform='translate(60, 60) scale(0.9)'%3E%3Cpath d='M30 25 Q45 15 65 20 L85 22 Q92 26 88 35 L78 45 Q65 55 45 62 L32 58 Q24 50 27 40Z' fill='none' stroke='url(%23ps-gold)' stroke-width='2.5' opacity='0.7'/%3E%3Cpath d='M50 48 Q40 65 35 85' fill='none' stroke='url(%23ps-gold)' stroke-width='2' opacity='0.5'/%3E%3Cpath d='M58 52 Q62 65 72 70' fill='none' stroke='url(%23ps-gold)' stroke-width='1.5' opacity='0.45'/%3E%3Ccircle cx='55' cy='32' r='10' fill='url(%23ps-gold)' opacity='0.5'/%3E%3Ccircle cx='55' cy='32' r='5' fill='%23065535' opacity='0.7'/%3E%3C/g%3E%3C!-- Eye of Horus (smaller, upper right) --%3E%3Cg transform='translate(290, 70) scale(0.65)'%3E%3Cpath d='M70 25 Q55 15 35 20 L15 22 Q8 26 12 35 L22 45 Q35 55 55 62 L68 58 Q76 50 73 40Z' fill='none' stroke='url(%23ps-gold)' stroke-width='2' opacity='0.55'/%3E%3Cpath d='M50 48 Q60 65 65 85' fill='none' stroke='url(%23ps-gold)' stroke-width='1.5' opacity='0.4'/%3E%3Ccircle cx='45' cy='32' r='8' fill='url(%23ps-gold)' opacity='0.4'/%3E%3Ccircle cx='45' cy='32' r='4' fill='%23065535' opacity='0.6'/%3E%3C/g%3E%3C!-- Scarab beetle (bottom center) --%3E%3Cg transform='translate(175, 310)'%3E%3Cellipse cx='25' cy='25' rx='22' ry='18' fill='url(%23ps-emerald)' stroke='%23daa520' stroke-width='1.5'/%3E%3Cellipse cx='25' cy='25' rx='15' ry='12' fill='url(%23ps-gold-dark)' opacity='0.4'/%3E%3Cpath d='M25 10 L25 5 M20 8 L18 3 M30 8 L32 3' stroke='%23daa520' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M8 20 Q3 25 8 32' stroke='%23daa520' stroke-width='1.5' fill='none'/%3E%3Cpath d='M42 20 Q47 25 42 32' stroke='%23daa520' stroke-width='1.5' fill='none'/%3E%3Cpath d='M5 28 L0 35 M45 28 L50 35' stroke='%23daa520' stroke-width='1'/%3E%3Ccircle cx='25' cy='22' r='4' fill='%23daa520' opacity='0.6'/%3E%3C/g%3E%3C!-- Hieroglyphic band at bottom --%3E%3Crect x='80' y='365' width='240' height='25' fill='url(%23ps-sandstone)' opacity='0.4' rx='2'/%3E%3Ccircle cx='100' cy='377' r='6' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.5'/%3E%3Crect x='120' y='370' width='12' height='14' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.45'/%3E%3Cpath d='M150 385 L160 370 L170 385' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='190' cy='377' r='5' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.4'/%3E%3Cpath d='M210 372 L210 382 M205 377 L215 377' stroke='%23b8860b' stroke-width='1' opacity='0.45'/%3E%3Cpath d='M235 370 L235 385 Q240 385 245 377 Q240 370 235 370' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.4'/%3E%3Crect x='260' y='371' width='10' height='12' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.4'/%3E%3Cpath d='M285 385 L295 370 L305 385 Z' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.45'/%3E%3C!-- Floating hieroglyphic symbols --%3E%3Ctext x='75' y='140' font-size='14' fill='%23b8860b' opacity='0.35'%3E%F0%93%80%80%3C/text%3E%3Ctext x='80' y='165' font-size='12' fill='%23b8860b' opacity='0.3'%3E%F0%93%80%81%3C/text%3E%3Ctext x='320' y='145' font-size='13' fill='%23b8860b' opacity='0.35'%3E%F0%93%80%82%3C/text%3E%3Ctext x='325' y='170' font-size='11' fill='%23b8860b' opacity='0.3'%3E%F0%93%80%83%3C/text%3E%3C!-- Golden particles --%3E%3Ccircle cx='70' cy='250' r='2' fill='%23ffd700' opacity='0.6'/%3E%3Ccircle cx='85' cy='280' r='1.5' fill='%23daa520' opacity='0.5'/%3E%3Ccircle cx='60' cy='320' r='1.2' fill='%23ffd700' opacity='0.4'/%3E%3Ccircle cx='330' cy='260' r='2' fill='%23ffd700' opacity='0.55'/%3E%3Ccircle cx='340' cy='295' r='1.5' fill='%23daa520' opacity='0.45'/%3E%3Ccircle cx='320' cy='340' r='1.8' fill='%23ffd700' opacity='0.4'/%3E%3Ccircle cx='100' cy='55' r='1.5' fill='%23ffd700' opacity='0.5'/%3E%3Ccircle cx='300' cy='50' r='1.2' fill='%23daa520' opacity='0.45'/%3E%3Ccircle cx='130' cy='295' r='1' fill='%23ffd700' opacity='0.4'/%3E%3Ccircle cx='270' cy='300' r='1.3' fill='%23daa520' opacity='0.4'/%3E%3Ccircle cx='110' cy='350' r='1.5' fill='%23ffd700' opacity='0.35'/%3E%3Ccircle cx='290' cy='355' r='1.2' fill='%23daa520' opacity='0.35'/%3E%3C!-- Ambient glow behind Anubis --%3E%3Ccircle cx='200' cy='150' r='80' fill='url(%23ps-amber-glow)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Pharaoh's Secret ambient glow - warm gold, amber, and bronze Egyptian atmosphere */
+.game-page__about[data-decoration="pharaohs-secret"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 430px;
+  height: 430px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgba(218, 165, 32, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 55% 40%, rgba(255, 200, 80, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 60% 60%, rgba(184, 134, 11, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse 50% 45% at 45% 55%, rgba(212, 165, 116, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Portal Shift: Dimension Escape — Two large interconnected glowing portals
+   (electric blue and fiery orange) in dynamic 3D perspective with luminous
+   energy rings, electrical arcs, dimensional distortion, light trails,
+   floating puzzle cubes, and fragmented geometric platforms. Dark metallic
+   tones with vibrant blue/orange portal lighting. */
+.game-page__about[data-decoration="portal-shift"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -30px;
+  bottom: -45px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='psh-blue-ring' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300d4ff'/%3E%3Cstop offset='30%25' stop-color='%230099cc'/%3E%3Cstop offset='70%25' stop-color='%230066aa'/%3E%3Cstop offset='100%25' stop-color='%23004488'/%3E%3C/linearGradient%3E%3ClinearGradient id='psh-orange-ring' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff8800'/%3E%3Cstop offset='30%25' stop-color='%23ff6600'/%3E%3Cstop offset='70%25' stop-color='%23ee4400'/%3E%3Cstop offset='100%25' stop-color='%23cc2200'/%3E%3C/linearGradient%3E%3CradialGradient id='psh-blue-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2366eeff' stop-opacity='0.9'/%3E%3Cstop offset='25%25' stop-color='%2300ccff' stop-opacity='0.6'/%3E%3Cstop offset='50%25' stop-color='%230088cc' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%23004466' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='psh-orange-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffcc66' stop-opacity='0.9'/%3E%3Cstop offset='25%25' stop-color='%23ff8833' stop-opacity='0.6'/%3E%3Cstop offset='50%25' stop-color='%23cc4400' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%23662200' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='psh-blue-core' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.8'/%3E%3Cstop offset='20%25' stop-color='%2388eeff' stop-opacity='0.6'/%3E%3Cstop offset='50%25' stop-color='%230099dd' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23003355' stop-opacity='0.1'/%3E%3C/radialGradient%3E%3CradialGradient id='psh-orange-core' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.8'/%3E%3Cstop offset='20%25' stop-color='%23ffcc88' stop-opacity='0.6'/%3E%3Cstop offset='50%25' stop-color='%23dd6600' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23552200' stop-opacity='0.1'/%3E%3C/radialGradient%3E%3ClinearGradient id='psh-metal' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233a4550'/%3E%3Cstop offset='50%25' stop-color='%232a3540'/%3E%3Cstop offset='100%25' stop-color='%231a2530'/%3E%3C/linearGradient%3E%3ClinearGradient id='psh-cube' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234a5a68'/%3E%3Cstop offset='50%25' stop-color='%233a4a58'/%3E%3Cstop offset='100%25' stop-color='%232a3a48'/%3E%3C/linearGradient%3E%3ClinearGradient id='psh-platform' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232a3238'/%3E%3Cstop offset='50%25' stop-color='%231e262c'/%3E%3Cstop offset='100%25' stop-color='%23141a20'/%3E%3C/linearGradient%3E%3Cfilter id='psh-blur' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='3'/%3E%3C/filter%3E%3Cfilter id='psh-blur-sm' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='1.5'/%3E%3C/filter%3E%3C/defs%3E%3C!-- Background ambient glow --%3E%3Cellipse cx='130' cy='160' rx='100' ry='85' fill='url(%23psh-blue-glow)' opacity='0.4'/%3E%3Cellipse cx='270' cy='240' rx='95' ry='80' fill='url(%23psh-orange-glow)' opacity='0.4'/%3E%3C!-- Energy connection trail between portals --%3E%3Cpath d='M175 160 Q220 180 240 200 Q260 220 265 245' stroke='url(%23psh-blue-ring)' stroke-width='3' fill='none' opacity='0.5' filter='url(%23psh-blur)'/%3E%3Cpath d='M180 165 Q215 185 235 205 Q255 225 260 250' stroke='url(%23psh-orange-ring)' stroke-width='2' fill='none' opacity='0.4' filter='url(%23psh-blur)'/%3E%3Cpath d='M170 155 Q200 170 225 195 Q250 220 270 235' stroke='%2366ddff' stroke-width='1' fill='none' opacity='0.6'/%3E%3Cpath d='M173 158 Q203 175 228 198 Q253 222 268 240' stroke='%23ffaa44' stroke-width='1' fill='none' opacity='0.5'/%3E%3C!-- Dimensional distortion rings --%3E%3Cellipse cx='200' cy='200' rx='150' ry='100' fill='none' stroke='%2333aacc' stroke-width='0.5' opacity='0.15' stroke-dasharray='8 12'/%3E%3Cellipse cx='200' cy='200' rx='170' ry='115' fill='none' stroke='%23cc8833' stroke-width='0.5' opacity='0.12' stroke-dasharray='10 15'/%3E%3C!-- Blue Portal (upper left, tilted perspective) --%3E%3Cg transform='translate(130, 160)'%3E%3C!-- Outer glow --%3E%3Cellipse cx='0' cy='0' rx='75' ry='60' fill='url(%23psh-blue-glow)' opacity='0.5'/%3E%3C!-- Portal ring outer --%3E%3Cellipse cx='0' cy='0' rx='58' ry='46' fill='none' stroke='url(%23psh-blue-ring)' stroke-width='8' opacity='0.9'/%3E%3Cellipse cx='0' cy='0' rx='58' ry='46' fill='none' stroke='%2366eeff' stroke-width='2' opacity='0.7' filter='url(%23psh-blur-sm)'/%3E%3C!-- Portal ring inner --%3E%3Cellipse cx='0' cy='0' rx='50' ry='40' fill='none' stroke='%2300bbee' stroke-width='3' opacity='0.8'/%3E%3Cellipse cx='0' cy='0' rx='45' ry='36' fill='none' stroke='%2300ddff' stroke-width='1.5' opacity='0.6'/%3E%3C!-- Portal core vortex --%3E%3Cellipse cx='0' cy='0' rx='40' ry='32' fill='url(%23psh-blue-core)'/%3E%3Cellipse cx='-8' cy='-5' rx='20' ry='16' fill='%23ffffff' opacity='0.3'/%3E%3C!-- Energy rings spiraling inward --%3E%3Cellipse cx='0' cy='0' rx='35' ry='28' fill='none' stroke='%2366eeff' stroke-width='1' opacity='0.5' stroke-dasharray='6 4'/%3E%3Cellipse cx='0' cy='0' rx='28' ry='22' fill='none' stroke='%2388ffff' stroke-width='0.8' opacity='0.4' stroke-dasharray='4 6'/%3E%3Cellipse cx='0' cy='0' rx='20' ry='16' fill='none' stroke='%23aaffff' stroke-width='0.5' opacity='0.3' stroke-dasharray='3 5'/%3E%3C!-- Electrical arcs on blue portal --%3E%3Cpath d='M-50 -20 Q-45 -25 -40 -18 Q-35 -22 -30 -15' stroke='%2388eeff' stroke-width='1.5' fill='none' opacity='0.7'/%3E%3Cpath d='M40 25 Q48 22 52 30 Q56 25 60 32' stroke='%2366ddff' stroke-width='1.2' fill='none' opacity='0.6'/%3E%3Cpath d='M-55 15 Q-50 10 -45 18' stroke='%2300ccff' stroke-width='1' fill='none' opacity='0.5'/%3E%3Cpath d='M45 -30 Q50 -35 55 -28' stroke='%2300ddff' stroke-width='1' fill='none' opacity='0.5'/%3E%3C/g%3E%3C!-- Orange Portal (lower right, tilted perspective) --%3E%3Cg transform='translate(270, 240)'%3E%3C!-- Outer glow --%3E%3Cellipse cx='0' cy='0' rx='70' ry='55' fill='url(%23psh-orange-glow)' opacity='0.5'/%3E%3C!-- Portal ring outer --%3E%3Cellipse cx='0' cy='0' rx='55' ry='44' fill='none' stroke='url(%23psh-orange-ring)' stroke-width='8' opacity='0.9'/%3E%3Cellipse cx='0' cy='0' rx='55' ry='44' fill='none' stroke='%23ffcc66' stroke-width='2' opacity='0.7' filter='url(%23psh-blur-sm)'/%3E%3C!-- Portal ring inner --%3E%3Cellipse cx='0' cy='0' rx='47' ry='38' fill='none' stroke='%23ee6600' stroke-width='3' opacity='0.8'/%3E%3Cellipse cx='0' cy='0' rx='42' ry='34' fill='none' stroke='%23ff8800' stroke-width='1.5' opacity='0.6'/%3E%3C!-- Portal core vortex --%3E%3Cellipse cx='0' cy='0' rx='38' ry='30' fill='url(%23psh-orange-core)'/%3E%3Cellipse cx='6' cy='-4' rx='18' ry='14' fill='%23ffffff' opacity='0.25'/%3E%3C!-- Energy rings spiraling inward --%3E%3Cellipse cx='0' cy='0' rx='32' ry='26' fill='none' stroke='%23ffaa44' stroke-width='1' opacity='0.5' stroke-dasharray='6 4'/%3E%3Cellipse cx='0' cy='0' rx='25' ry='20' fill='none' stroke='%23ffcc66' stroke-width='0.8' opacity='0.4' stroke-dasharray='4 6'/%3E%3Cellipse cx='0' cy='0' rx='18' ry='14' fill='none' stroke='%23ffdd88' stroke-width='0.5' opacity='0.3' stroke-dasharray='3 5'/%3E%3C!-- Electrical arcs on orange portal --%3E%3Cpath d='M-45 -18 Q-40 -24 -35 -16 Q-30 -20 -25 -12' stroke='%23ffcc66' stroke-width='1.5' fill='none' opacity='0.7'/%3E%3Cpath d='M38 22 Q45 18 50 26 Q54 20 58 28' stroke='%23ffaa44' stroke-width='1.2' fill='none' opacity='0.6'/%3E%3Cpath d='M-50 12 Q-44 8 -40 15' stroke='%23ff8844' stroke-width='1' fill='none' opacity='0.5'/%3E%3Cpath d='M42 -25 Q48 -30 52 -22' stroke='%23ff9955' stroke-width='1' fill='none' opacity='0.5'/%3E%3C/g%3E%3C!-- Floating puzzle cube 1 (near blue portal) --%3E%3Cg transform='translate(65, 100)'%3E%3Cpath d='M0 10 L15 0 L30 10 L15 20 Z' fill='url(%23psh-cube)' stroke='%235a6a78' stroke-width='1'/%3E%3Cpath d='M0 10 L0 25 L15 35 L15 20 Z' fill='%232a3a48' stroke='%234a5a68' stroke-width='0.5'/%3E%3Cpath d='M30 10 L30 25 L15 35 L15 20 Z' fill='%233a4a58' stroke='%234a5a68' stroke-width='0.5'/%3E%3Cpath d='M6 12 L15 7 L24 12 L15 17 Z' fill='%2300aadd' opacity='0.6'/%3E%3Ccircle cx='15' cy='12' r='2' fill='%2366eeff' opacity='0.8'/%3E%3C/g%3E%3C!-- Floating puzzle cube 2 (near orange portal) --%3E%3Cg transform='translate(330, 300)'%3E%3Cpath d='M0 8 L12 0 L24 8 L12 16 Z' fill='url(%23psh-cube)' stroke='%235a6a78' stroke-width='1'/%3E%3Cpath d='M0 8 L0 20 L12 28 L12 16 Z' fill='%232a3a48' stroke='%234a5a68' stroke-width='0.5'/%3E%3Cpath d='M24 8 L24 20 L12 28 L12 16 Z' fill='%233a4a58' stroke='%234a5a68' stroke-width='0.5'/%3E%3Cpath d='M5 9 L12 5 L19 9 L12 13 Z' fill='%23dd6600' opacity='0.6'/%3E%3Ccircle cx='12' cy='9' r='1.5' fill='%23ffaa44' opacity='0.8'/%3E%3C/g%3E%3C!-- Floating puzzle cube 3 (small, between portals) --%3E%3Cg transform='translate(200, 200)'%3E%3Cpath d='M0 6 L9 0 L18 6 L9 12 Z' fill='url(%23psh-cube)' stroke='%235a6a78' stroke-width='0.8'/%3E%3Cpath d='M0 6 L0 15 L9 21 L9 12 Z' fill='%232a3a48' stroke='%234a5a68' stroke-width='0.5'/%3E%3Cpath d='M18 6 L18 15 L9 21 L9 12 Z' fill='%233a4a58' stroke='%234a5a68' stroke-width='0.5'/%3E%3Ccircle cx='9' cy='6' r='1.2' fill='%2388ddff' opacity='0.7'/%3E%3C/g%3E%3C!-- Fragmented platform 1 (bottom left) --%3E%3Cg transform='translate(40, 320)'%3E%3Cpath d='M0 15 L40 0 L80 15 L75 25 L5 25 Z' fill='url(%23psh-platform)' stroke='%233a4550' stroke-width='1'/%3E%3Cpath d='M5 25 L0 15 L0 35 L5 40 Z' fill='%231a2228' stroke='%232a3238' stroke-width='0.5'/%3E%3Cpath d='M75 25 L80 15 L80 35 L75 40 Z' fill='%23222a30' stroke='%232a3238' stroke-width='0.5'/%3E%3Cpath d='M20 10 L35 5 L50 10' stroke='%2300bbdd' stroke-width='1' opacity='0.3' fill='none'/%3E%3Ccircle cx='60' cy='12' r='2' fill='%2300ccee' opacity='0.4'/%3E%3C/g%3E%3C!-- Fragmented platform 2 (top right) --%3E%3Cg transform='translate(300, 80)'%3E%3Cpath d='M0 12 L30 0 L60 12 L55 20 L5 20 Z' fill='url(%23psh-platform)' stroke='%233a4550' stroke-width='1'/%3E%3Cpath d='M5 20 L0 12 L0 28 L5 32 Z' fill='%231a2228' stroke='%232a3238' stroke-width='0.5'/%3E%3Cpath d='M55 20 L60 12 L60 28 L55 32 Z' fill='%23222a30' stroke='%232a3238' stroke-width='0.5'/%3E%3Cpath d='M15 8 L28 4 L42 8' stroke='%23ee6600' stroke-width='1' opacity='0.3' fill='none'/%3E%3Ccircle cx='48' cy='10' r='1.5' fill='%23ff8844' opacity='0.4'/%3E%3C/g%3E%3C!-- Fragmented platform 3 (floating fragment) --%3E%3Cg transform='translate(160, 280)'%3E%3Cpath d='M0 8 L20 0 L40 8 L35 14 L5 14 Z' fill='url(%23psh-platform)' stroke='%233a4550' stroke-width='0.8'/%3E%3Cpath d='M10 4 L18 2 L26 4' stroke='%2366ddff' stroke-width='0.8' opacity='0.35' fill='none'/%3E%3C/g%3E%3C!-- Energy particles (blue) --%3E%3Ccircle cx='85' cy='130' r='2.5' fill='%2366eeff' opacity='0.7'/%3E%3Ccircle cx='95' cy='190' r='2' fill='%2300ccff' opacity='0.6'/%3E%3Ccircle cx='60' cy='175' r='1.5' fill='%2388ffff' opacity='0.5'/%3E%3Ccircle cx='170' cy='120' r='2' fill='%2366ddff' opacity='0.6'/%3E%3Ccircle cx='155' cy='200' r='1.8' fill='%2300bbee' opacity='0.55'/%3E%3Ccircle cx='110' cy='145' r='1.5' fill='%2344ccff' opacity='0.5'/%3E%3Ccircle cx='180' cy='95' r='1.2' fill='%2366eeff' opacity='0.45'/%3E%3C!-- Energy particles (orange) --%3E%3Ccircle cx='315' cy='215' r='2.5' fill='%23ffaa44' opacity='0.7'/%3E%3Ccircle cx='305' cy='285' r='2' fill='%23ff8833' opacity='0.6'/%3E%3Ccircle cx='340' cy='260' r='1.5' fill='%23ffcc66' opacity='0.5'/%3E%3Ccircle cx='230' cy='270' r='2' fill='%23ffaa55' opacity='0.6'/%3E%3Ccircle cx='250' cy='200' r='1.8' fill='%23ee6633' opacity='0.55'/%3E%3Ccircle cx='290' cy='310' r='1.5' fill='%23ff9944' opacity='0.5'/%3E%3Ccircle cx='355' cy='225' r='1.2' fill='%23ffbb55' opacity='0.45'/%3E%3C!-- Mixed energy particles (transition zone) --%3E%3Ccircle cx='200' cy='175' r='1.5' fill='%2366ddff' opacity='0.5'/%3E%3Ccircle cx='220' cy='220' r='1.8' fill='%23ffaa66' opacity='0.5'/%3E%3Ccircle cx='195' cy='230' r='1.3' fill='%2388eeff' opacity='0.4'/%3E%3Ccircle cx='235' cy='195' r='1.4' fill='%23ff9955' opacity='0.45'/%3E%3C!-- Electrical arc connecting portals --%3E%3Cpath d='M175 155 Q185 145 195 155 Q205 165 215 155 Q225 168 235 162 Q245 175 255 170 Q263 185 268 192' stroke='%2366ddff' stroke-width='1' fill='none' opacity='0.5'/%3E%3Cpath d='M178 162 Q188 172 198 165 Q208 178 218 172 Q228 185 238 180 Q248 195 258 188 Q265 202 270 215' stroke='%23ffaa66' stroke-width='0.8' fill='none' opacity='0.4'/%3E%3C!-- Portal highlight flares --%3E%3Cellipse cx='95' cy='135' rx='8' ry='4' fill='%2366eeff' opacity='0.4' transform='rotate(-25 95 135)'/%3E%3Cellipse cx='165' cy='180' rx='6' ry='3' fill='%2300ccff' opacity='0.3' transform='rotate(15 165 180)'/%3E%3Cellipse cx='305' cy='220' rx='7' ry='3.5' fill='%23ffaa44' opacity='0.4' transform='rotate(-20 305 220)'/%3E%3Cellipse cx='235' cy='265' rx='5' ry='2.5' fill='%23ff8833' opacity='0.3' transform='rotate(25 235 265)'/%3E%3C!-- Subtle grid lines (test chamber feel) --%3E%3Cpath d='M30 380 L30 350' stroke='%233a4550' stroke-width='0.5' opacity='0.2'/%3E%3Cpath d='M50 380 L50 340' stroke='%233a4550' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M350 380 L350 350' stroke='%233a4550' stroke-width='0.5' opacity='0.2'/%3E%3Cpath d='M370 380 L370 340' stroke='%233a4550' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M20 370 L100 370' stroke='%233a4550' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M300 370 L380 370' stroke='%233a4550' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Portal Shift ambient glow - electric blue and fiery orange portal atmosphere */
+.game-page__about[data-decoration="portal-shift"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 430px;
+  height: 430px;
+  background:
+    radial-gradient(ellipse 50% 45% at 35% 40%, rgba(0, 180, 255, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 65% 60%, rgba(255, 120, 0, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 50%, rgba(100, 200, 255, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse 35% 30% at 55% 55%, rgba(255, 160, 60, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Outlaw Legends: Wild Frontier — Cinematic Wild West composition featuring
+   a cowboy silhouette with wide-brim hat and revolver, sheriff's star, desert
+   mountains, cacti, sunset glow, dust particles, and warm frontier atmosphere.
+   Warm amber, bronze, gold, dark brown with subtle emerald accents. */
+.game-page__about[data-decoration="outlaw-legends"]::before {
+  content: "";
+  width: 380px;
+  height: 380px;
+  right: -30px;
+  bottom: -45px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='ol-sunset' x1='0%25' y1='100%25' x2='0%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23462008'/%3E%3Cstop offset='30%25' stop-color='%23804020'/%3E%3Cstop offset='60%25' stop-color='%23cc6622'/%3E%3Cstop offset='85%25' stop-color='%23ff9944'/%3E%3Cstop offset='100%25' stop-color='%23ffcc77'/%3E%3C/linearGradient%3E%3ClinearGradient id='ol-mountain' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234a3020'/%3E%3Cstop offset='50%25' stop-color='%233a2518'/%3E%3Cstop offset='100%25' stop-color='%232a1a10'/%3E%3C/linearGradient%3E%3ClinearGradient id='ol-mesa' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23603818'/%3E%3Cstop offset='50%25' stop-color='%234a2a12'/%3E%3Cstop offset='100%25' stop-color='%23351c0c'/%3E%3C/linearGradient%3E%3ClinearGradient id='ol-gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f4d03f'/%3E%3Cstop offset='30%25' stop-color='%23daa520'/%3E%3Cstop offset='60%25' stop-color='%23b8860b'/%3E%3Cstop offset='100%25' stop-color='%23996515'/%3E%3C/linearGradient%3E%3ClinearGradient id='ol-bronze' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23cd7f32'/%3E%3Cstop offset='50%25' stop-color='%23a66020'/%3E%3Cstop offset='100%25' stop-color='%23804015'/%3E%3C/linearGradient%3E%3ClinearGradient id='ol-steel' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236a6a70'/%3E%3Cstop offset='50%25' stop-color='%234a4a50'/%3E%3Cstop offset='100%25' stop-color='%232a2a30'/%3E%3C/linearGradient%3E%3ClinearGradient id='ol-wood' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%235a3820'/%3E%3Cstop offset='50%25' stop-color='%23452a18'/%3E%3Cstop offset='100%25' stop-color='%23301c10'/%3E%3C/linearGradient%3E%3ClinearGradient id='ol-leather' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234a3020'/%3E%3Cstop offset='50%25' stop-color='%233a2418'/%3E%3Cstop offset='100%25' stop-color='%232a1810'/%3E%3C/linearGradient%3E%3CradialGradient id='ol-sun-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffdd88' stop-opacity='0.9'/%3E%3Cstop offset='40%25' stop-color='%23ffaa44' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23ff6600' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='ol-amber-glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffcc66' stop-opacity='0.4'/%3E%3Cstop offset='50%25' stop-color='%23dd8833' stop-opacity='0.15'/%3E%3Cstop offset='100%25' stop-color='%23aa5500' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- Sunset sky background --%3E%3Crect x='50' y='40' width='320' height='200' fill='url(%23ol-sunset)' opacity='0.4'/%3E%3C!-- Sun with glow --%3E%3Ccircle cx='200' cy='95' r='45' fill='url(%23ol-sun-glow)'/%3E%3Ccircle cx='200' cy='95' r='28' fill='%23ffdd99' opacity='0.7'/%3E%3Ccircle cx='200' cy='95' r='18' fill='%23ffeecc' opacity='0.5'/%3E%3C!-- Distant mountains --%3E%3Cpath d='M30 180 L80 120 L130 160 L170 100 L220 150 L260 90 L310 140 L350 110 L390 170 L390 220 L30 220 Z' fill='url(%23ol-mountain)' opacity='0.7'/%3E%3Cpath d='M50 200 L100 150 L150 180 L200 130 L250 170 L300 120 L350 160 L380 140 L380 220 L50 220 Z' fill='url(%23ol-mesa)' opacity='0.8'/%3E%3C!-- Ground/desert floor --%3E%3Crect x='30' y='220' width='360' height='160' fill='%232a1a0c' opacity='0.5'/%3E%3C!-- Cactus left --%3E%3Cg transform='translate(60, 210)'%3E%3Crect x='8' y='0' width='8' height='50' rx='3' fill='%23065535' stroke='%23044525' stroke-width='1'/%3E%3Cpath d='M4 15 Q0 15 0 20 L0 30 Q0 35 4 35 L8 35 L8 15 Z' fill='%23065535' stroke='%23044525' stroke-width='0.5'/%3E%3Cpath d='M20 20 Q24 20 24 25 L24 38 Q24 42 20 42 L16 42 L16 20 Z' fill='%23065535' stroke='%23044525' stroke-width='0.5'/%3E%3Ccircle cx='12' cy='2' r='3' fill='%23087045' opacity='0.6'/%3E%3C/g%3E%3C!-- Cactus right --%3E%3Cg transform='translate(340, 230)'%3E%3Crect x='6' y='0' width='6' height='35' rx='2' fill='%23065535' stroke='%23044525' stroke-width='0.8'/%3E%3Cpath d='M3 12 Q0 12 0 16 L0 24 Q0 28 3 28 L6 28 L6 12 Z' fill='%23065535' stroke='%23044525' stroke-width='0.5'/%3E%3Cpath d='M15 15 Q18 15 18 19 L18 28 Q18 32 15 32 L12 32 L12 15 Z' fill='%23065535' stroke='%23044525' stroke-width='0.5'/%3E%3C/g%3E%3C!-- Sheriff's star (large, upper right) --%3E%3Cg transform='translate(290, 55)'%3E%3Cpath d='M40 0 L45 28 L70 35 L50 50 L55 78 L40 60 L25 78 L30 50 L10 35 L35 28 Z' fill='url(%23ol-gold)' stroke='%23996515' stroke-width='1.5'/%3E%3Ccircle cx='40' cy='40' r='12' fill='url(%23ol-bronze)' stroke='%23804015' stroke-width='1'/%3E%3Ctext x='40' y='44' font-size='8' fill='%23ffeecc' text-anchor='middle' font-weight='bold'%3E★%3C/text%3E%3C!-- Star shine --%3E%3Cpath d='M40 5 L42 15 M55 15 L48 22 M65 40 L55 38' stroke='%23ffeecc' stroke-width='0.8' opacity='0.5'/%3E%3C/g%3E%3C!-- Cowboy silhouette --%3E%3Cg transform='translate(120, 140)'%3E%3C!-- Hat brim --%3E%3Cellipse cx='55' cy='30' rx='50' ry='12' fill='%231a1008' stroke='%23251510' stroke-width='1'/%3E%3C!-- Hat crown --%3E%3Cpath d='M30 30 Q30 10 55 5 Q80 10 80 30 Z' fill='%231a1008' stroke='%23251510' stroke-width='1'/%3E%3Cpath d='M35 28 Q35 14 55 10 Q75 14 75 28' fill='none' stroke='%23352518' stroke-width='1'/%3E%3C!-- Hat band --%3E%3Crect x='32' y='25' width='46' height='5' fill='url(%23ol-bronze)' opacity='0.8'/%3E%3C!-- Head --%3E%3Cellipse cx='55' cy='55' rx='18' ry='22' fill='%231a1008'/%3E%3C!-- Neck/bandana --%3E%3Cpath d='M42 72 L55 85 L68 72 L65 80 L55 95 L45 80 Z' fill='%23802010' opacity='0.8'/%3E%3C!-- Shoulders/torso --%3E%3Cpath d='M25 90 Q35 85 55 82 Q75 85 85 90 L90 140 L80 145 L55 140 L30 145 L20 140 Z' fill='url(%23ol-leather)'/%3E%3C!-- Vest --%3E%3Cpath d='M38 95 L55 90 L72 95 L70 135 L55 130 L40 135 Z' fill='%23452a15' stroke='%23352015' stroke-width='0.5'/%3E%3C!-- Vest buttons --%3E%3Ccircle cx='55' cy='105' r='2' fill='url(%23ol-bronze)' opacity='0.7'/%3E%3Ccircle cx='55' cy='118' r='2' fill='url(%23ol-bronze)' opacity='0.7'/%3E%3C!-- Right arm holding revolver --%3E%3Cpath d='M85 95 Q95 100 100 115 Q105 130 100 145 L95 145 Q92 130 90 120 L85 110 Z' fill='url(%23ol-leather)'/%3E%3C!-- Revolver --%3E%3Cg transform='translate(95, 130)'%3E%3C!-- Barrel --%3E%3Crect x='15' y='2' width='35' height='6' rx='1' fill='url(%23ol-steel)'/%3E%3Ccircle cx='50' cy='5' r='3' fill='%232a2a30'/%3E%3C!-- Cylinder --%3E%3Crect x='8' y='0' width='10' height='10' rx='2' fill='url(%23ol-steel)'/%3E%3Ccircle cx='13' cy='5' r='4' fill='%233a3a40' stroke='%234a4a50' stroke-width='0.5'/%3E%3C!-- Frame --%3E%3Cpath d='M5 0 L8 0 L8 10 L5 10 L2 8 L2 2 Z' fill='url(%23ol-steel)'/%3E%3C!-- Grip --%3E%3Cpath d='M0 8 L5 8 L8 28 L3 30 L-2 25 Z' fill='url(%23ol-wood)'/%3E%3Crect x='1' y='12' width='5' height='12' rx='1' fill='%23402815' opacity='0.7'/%3E%3C!-- Trigger guard --%3E%3Cpath d='M5 10 Q10 15 10 20 Q8 22 5 20' fill='none' stroke='url(%23ol-steel)' stroke-width='1.5'/%3E%3C/g%3E%3C!-- Left arm --%3E%3Cpath d='M25 95 Q15 100 12 115 Q10 130 15 145 L20 145 Q22 130 25 120 L28 110 Z' fill='url(%23ol-leather)'/%3E%3C/g%3E%3C!-- Wooden saloon post left --%3E%3Cg transform='translate(35, 270)'%3E%3Crect x='0' y='0' width='15' height='100' fill='url(%23ol-wood)' stroke='%23251510' stroke-width='0.5'/%3E%3Crect x='2' y='5' width='11' height='3' fill='%23553820' opacity='0.5'/%3E%3Crect x='2' y='15' width='11' height='3' fill='%23553820' opacity='0.4'/%3E%3Crect x='2' y='25' width='11' height='3' fill='%23553820' opacity='0.3'/%3E%3C/g%3E%3C!-- Wooden saloon post right --%3E%3Cg transform='translate(350, 285)'%3E%3Crect x='0' y='0' width='12' height='85' fill='url(%23ol-wood)' stroke='%23251510' stroke-width='0.5'/%3E%3Crect x='2' y='5' width='8' height='2' fill='%23553820' opacity='0.5'/%3E%3Crect x='2' y='12' width='8' height='2' fill='%23553820' opacity='0.4'/%3E%3C/g%3E%3C!-- Ammunition belt detail --%3E%3Cg transform='translate(80, 330)'%3E%3Crect x='0' y='0' width='60' height='8' rx='2' fill='url(%23ol-leather)' stroke='%23251510' stroke-width='0.5'/%3E%3Ccircle cx='8' cy='4' r='2.5' fill='url(%23ol-bronze)'/%3E%3Ccircle cx='18' cy='4' r='2.5' fill='url(%23ol-bronze)'/%3E%3Ccircle cx='28' cy='4' r='2.5' fill='url(%23ol-bronze)'/%3E%3Ccircle cx='38' cy='4' r='2.5' fill='url(%23ol-bronze)'/%3E%3Ccircle cx='48' cy='4' r='2.5' fill='url(%23ol-bronze)'/%3E%3C/g%3E%3C!-- Small sheriff star (lower left) --%3E%3Cg transform='translate(55, 310) scale(0.5)'%3E%3Cpath d='M20 0 L23 14 L35 17 L25 25 L28 39 L20 30 L12 39 L15 25 L5 17 L17 14 Z' fill='url(%23ol-gold)' stroke='%23996515' stroke-width='1' opacity='0.6'/%3E%3C/g%3E%3C!-- Dust particles --%3E%3Ccircle cx='90' cy='350' r='2' fill='%23c4956a' opacity='0.5'/%3E%3Ccircle cx='120' cy='360' r='1.5' fill='%23d4a574' opacity='0.4'/%3E%3Ccircle cx='150' cy='345' r='2' fill='%23c4956a' opacity='0.45'/%3E%3Ccircle cx='180' cy='365' r='1.8' fill='%23b8956a' opacity='0.4'/%3E%3Ccircle cx='220' cy='355' r='1.5' fill='%23c4a574' opacity='0.5'/%3E%3Ccircle cx='260' cy='348' r='2' fill='%23d4a574' opacity='0.45'/%3E%3Ccircle cx='290' cy='362' r='1.8' fill='%23c4956a' opacity='0.4'/%3E%3Ccircle cx='320' cy='352' r='1.5' fill='%23b8956a' opacity='0.5'/%3E%3C!-- Warm sparks/embers --%3E%3Ccircle cx='160' cy='180' r='1.5' fill='%23ffaa44' opacity='0.6'/%3E%3Ccircle cx='250' cy='190' r='1.2' fill='%23ff8833' opacity='0.5'/%3E%3Ccircle cx='300' cy='175' r='1' fill='%23ffcc66' opacity='0.55'/%3E%3Ccircle cx='110' cy='195' r='1.3' fill='%23ff9944' opacity='0.5'/%3E%3Ccircle cx='330' cy='200' r='1' fill='%23ffaa55' opacity='0.45'/%3E%3C!-- Ambient light particles --%3E%3Ccircle cx='75' cy='120' r='1.5' fill='%23ffcc88' opacity='0.4'/%3E%3Ccircle cx='320' cy='130' r='1.8' fill='%23ffdd99' opacity='0.35'/%3E%3Ccircle cx='200' cy='60' r='2' fill='%23ffeeaa' opacity='0.5'/%3E%3Ccircle cx='140' cy='85' r='1.2' fill='%23ffcc77' opacity='0.4'/%3E%3Ccircle cx='265' cy='75' r='1.5' fill='%23ffdd88' opacity='0.45'/%3E%3C!-- Tumbleweed hint --%3E%3Ccircle cx='310' cy='340' r='12' fill='none' stroke='%23705030' stroke-width='1' opacity='0.3'/%3E%3Ccircle cx='310' cy='340' r='8' fill='none' stroke='%23604020' stroke-width='0.8' opacity='0.25'/%3E%3Cpath d='M302 335 Q310 340 318 335 M305 342 Q310 338 315 342' stroke='%23705030' stroke-width='0.5' opacity='0.3' fill='none'/%3E%3C!-- Horizon line emphasis --%3E%3Cpath d='M30 220 L390 220' stroke='%23553018' stroke-width='1' opacity='0.4'/%3E%3C!-- Subtle rope detail --%3E%3Cpath d='M270 320 Q290 315 310 325 Q330 335 350 320' stroke='%23705030' stroke-width='2' fill='none' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Outlaw Legends ambient glow - warm amber, bronze, and sunset atmosphere */
+.game-page__about[data-decoration="outlaw-legends"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 430px;
+  height: 430px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 35%, rgba(255, 170, 60, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 55% 45%, rgba(220, 140, 40, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 60% 55%, rgba(180, 100, 30, 0.08) 0%, transparent 45%),
+    radial-gradient(ellipse 50% 45% at 45% 50%, rgba(200, 120, 50, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Throw Masters — Viking warrior with throwing axe, wooden target, snow-capped mountains,
+   pine trees, flying axes with motion trails, and atmospheric snowflakes.
+   Icy blue, silver, purple, warm gold, and orange accents. */
+.game-page__about[data-decoration="throw-masters"]::before {
+  content: "";
+  width: 360px;
+  height: 360px;
+  right: -25px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='tmSky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a1a3a' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%232a2a5a' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmMountain1' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.9'/%3E%3Cstop offset='25%25' stop-color='%23e8f0ff' stop-opacity='0.8'/%3E%3Cstop offset='60%25' stop-color='%234a5a7a' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%232a3a5a' stop-opacity='0.6'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmMountain2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e0e8f0' stop-opacity='0.7'/%3E%3Cstop offset='40%25' stop-color='%235a6a8a' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%233a4a6a' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmPine' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231a3a2a' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%230a2a1a' stop-opacity='0.9'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmTarget' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b6914' stop-opacity='0.95'/%3E%3Cstop offset='50%25' stop-color='%236b4a0a' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%234a3008' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmTargetRing' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23cc3030'/%3E%3Cstop offset='100%25' stop-color='%23aa2020'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmAxeBlade' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8e8f0' stop-opacity='1'/%3E%3Cstop offset='30%25' stop-color='%23c0c8d8' stop-opacity='0.95'/%3E%3Cstop offset='70%25' stop-color='%238090a8' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%23506080' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmAxeHandle' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b6914'/%3E%3Cstop offset='50%25' stop-color='%236b4a0a'/%3E%3Cstop offset='100%25' stop-color='%234a3008'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmHelmet' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23b8a878' stop-opacity='0.95'/%3E%3Cstop offset='40%25' stop-color='%238a7a58' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%235a5040' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmFur' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a08060' stop-opacity='0.9'/%3E%3Cstop offset='50%25' stop-color='%23705838' stop-opacity='0.85'/%3E%3Cstop offset='100%25' stop-color='%23504028' stop-opacity='0.8'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmHorn' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23f0e8d8' stop-opacity='0.95'/%3E%3Cstop offset='50%25' stop-color='%23c8b898' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%23a08868' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmGold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='0.9'/%3E%3Cstop offset='50%25' stop-color='%23daa520' stop-opacity='0.85'/%3E%3Cstop offset='100%25' stop-color='%23b8860b' stop-opacity='0.8'/%3E%3C/linearGradient%3E%3Cfilter id='tmGlow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='tmSoftGlow' x='-30%25' y='-30%25' width='160%25' height='160%25'%3E%3CfeGaussianBlur stdDeviation='2' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect x='0' y='0' width='400' height='400' fill='url(%23tmSky)' opacity='0.3'/%3E%3Cpath d='M50 280 L120 180 L150 210 L200 140 L250 200 L280 170 L350 260 L350 320 L50 320 Z' fill='url(%23tmMountain2)' opacity='0.5'/%3E%3Cpath d='M80 300 L140 200 L180 240 L230 160 L280 220 L320 190 L380 280 L380 340 L80 340 Z' fill='url(%23tmMountain1)' opacity='0.6'/%3E%3Cpath d='M60 320 L75 270 L65 275 L80 230 L68 235 L85 190 L102 235 L90 230 L105 275 L95 270 L110 320 Z' fill='url(%23tmPine)' opacity='0.7'/%3E%3Cpath d='M340 340 L358 285 L346 290 L365 240 L352 248 L372 195 L392 248 L378 240 L398 290 L385 285 L405 340 Z' fill='url(%23tmPine)' opacity='0.6'/%3E%3Cpath d='M30 340 L42 305 L35 308 L48 270 L40 275 L55 235 L70 275 L62 270 L75 308 L68 305 L80 340 Z' fill='url(%23tmPine)' opacity='0.5'/%3E%3Cellipse cx='290' cy='240' rx='70' ry='70' fill='url(%23tmTarget)' stroke='%234a3008' stroke-width='3'/%3E%3Ccircle cx='290' cy='240' r='55' fill='none' stroke='url(%23tmTargetRing)' stroke-width='10' opacity='0.9'/%3E%3Ccircle cx='290' cy='240' r='35' fill='none' stroke='%23f0f0f0' stroke-width='8' opacity='0.85'/%3E%3Ccircle cx='290' cy='240' r='18' fill='url(%23tmTargetRing)' opacity='0.95'/%3E%3Ccircle cx='290' cy='240' r='6' fill='%23ffd700' opacity='0.9'/%3E%3Cpath d='M225 220 Q260 215 290 220 Q320 225 355 218' stroke='%233a2008' stroke-width='1' fill='none' opacity='0.4'/%3E%3Cpath d='M228 250 Q260 255 290 248 Q320 242 352 252' stroke='%233a2008' stroke-width='1' fill='none' opacity='0.4'/%3E%3Cpath d='M235 280 Q260 285 290 278 Q315 272 345 282' stroke='%233a2008' stroke-width='1' fill='none' opacity='0.3'/%3E%3Crect x='286' y='200' width='8' height='55' fill='url(%23tmAxeHandle)' rx='2'/%3E%3Cpath d='M270 200 Q275 180 290 175 Q305 180 310 200 L310 210 Q290 205 270 210 Z' fill='url(%23tmAxeBlade)' filter='url(%23tmSoftGlow)'/%3E%3Cpath d='M278 195 Q285 185 290 183 Q295 185 302 195' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.6'/%3E%3Cellipse cx='130' cy='290' rx='35' ry='45' fill='url(%23tmFur)'/%3E%3Crect x='105' y='280' width='50' height='60' fill='url(%23tmFur)' rx='8'/%3E%3Cpath d='M110 285 L115 310' stroke='%23504028' stroke-width='1' opacity='0.5'/%3E%3Cpath d='M120 282 L125 315' stroke='%23504028' stroke-width='1' opacity='0.5'/%3E%3Cpath d='M135 283 L138 312' stroke='%23504028' stroke-width='1' opacity='0.5'/%3E%3Cpath d='M145 286 L148 308' stroke='%23504028' stroke-width='1' opacity='0.5'/%3E%3Crect x='105' y='305' width='50' height='8' fill='%233a2a18'/%3E%3Crect x='125' y='303' width='12' height='12' fill='url(%23tmGold)' rx='2'/%3E%3Cellipse cx='90' cy='280' rx='12' ry='25' fill='url(%23tmFur)' transform='rotate(-20, 90, 280)'/%3E%3Cellipse cx='170' cy='275' rx='12' ry='28' fill='url(%23tmFur)' transform='rotate(25, 170, 275)'/%3E%3Ccircle cx='185' cy='250' r='10' fill='%23d4a574' opacity='0.9'/%3E%3Crect x='182' y='215' width='6' height='45' fill='url(%23tmAxeHandle)' rx='2' transform='rotate(15, 185, 237)'/%3E%3Cpath d='M168 215 Q173 195 185 190 Q197 195 202 215 L202 225 Q185 220 168 225 Z' fill='url(%23tmAxeBlade)' filter='url(%23tmGlow)' transform='rotate(15, 185, 207)'/%3E%3Cpath d='M175 210 Q180 200 185 198' stroke='%23ffffff' stroke-width='1.5' fill='none' opacity='0.7' transform='rotate(15, 180, 204)'/%3E%3Cellipse cx='130' cy='235' rx='28' ry='22' fill='url(%23tmHelmet)'/%3E%3Cpath d='M105 240 Q130 260 155 240' fill='url(%23tmHelmet)'/%3E%3Cpath d='M105 235 Q130 230 155 235' stroke='%23ffd700' stroke-width='3' fill='none' opacity='0.8'/%3E%3Crect x='126' y='218' width='8' height='20' fill='url(%23tmGold)' rx='1'/%3E%3Cpath d='M100 230 Q85 210 75 185 Q73 175 78 170' stroke='url(%23tmHorn)' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3Cpath d='M160 230 Q175 210 185 185 Q187 175 182 170' stroke='url(%23tmHorn)' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='78' cy='170' r='4' fill='%23f0e8d8' opacity='0.9'/%3E%3Ccircle cx='182' cy='170' r='4' fill='%23f0e8d8' opacity='0.9'/%3E%3Cellipse cx='130' cy='248' rx='18' ry='12' fill='%23c4956a' opacity='0.7'/%3E%3Cpath d='M115 255 Q130 280 145 255' fill='%23785028' opacity='0.8'/%3E%3Cpath d='M120 258 Q130 275 140 258' fill='%23684820' opacity='0.7'/%3E%3Cellipse cx='122' cy='244' rx='4' ry='3' fill='%2340556a' opacity='0.9'/%3E%3Cellipse cx='138' cy='244' rx='4' ry='3' fill='%2340556a' opacity='0.9'/%3E%3Cg transform='rotate(-30, 220, 130)'%3E%3Crect x='217' y='110' width='5' height='35' fill='url(%23tmAxeHandle)' rx='1'/%3E%3Cpath d='M205 110 Q210 95 220 92 Q230 95 235 110 L235 118 Q220 114 205 118 Z' fill='url(%23tmAxeBlade)' opacity='0.85'/%3E%3C/g%3E%3Cpath d='M245 115 Q265 100 285 95' stroke='%2380c0e0' stroke-width='2' fill='none' opacity='0.4' stroke-linecap='round'/%3E%3Cpath d='M250 125 Q275 108 300 100' stroke='%2360a0c0' stroke-width='1.5' fill='none' opacity='0.3' stroke-linecap='round'/%3E%3Cg transform='rotate(-45, 180, 90)'%3E%3Crect x='177' y='72' width='4' height='28' fill='url(%23tmAxeHandle)' rx='1'/%3E%3Cpath d='M167 72 Q172 60 179 58 Q186 60 191 72 L191 78 Q179 75 167 78 Z' fill='url(%23tmAxeBlade)' opacity='0.7'/%3E%3C/g%3E%3Cpath d='M200 75 Q230 55 260 50' stroke='%2380c0e0' stroke-width='1.5' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='80' r='2' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='320' cy='60' r='2.5' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='180' cy='50' r='1.5' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='380' cy='120' r='2' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='100' cy='130' r='1.8' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='250' cy='380' r='2' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='40' cy='200' r='1.5' fill='%23ffffff' opacity='0.45'/%3E%3Ccircle cx='370' cy='180' r='2.2' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='150' cy='380' r='1.8' fill='%23ffffff' opacity='0.35'/%3E%3Ccircle cx='300' cy='320' r='1.5' fill='%23ffffff' opacity='0.4'/%3E%3Crect x='335' y='210' width='6' height='3' fill='%238b6914' opacity='0.6' transform='rotate(25, 338, 211)'/%3E%3Crect x='340' y='255' width='5' height='2' fill='%236b4a0a' opacity='0.5' transform='rotate(-15, 342, 256)'/%3E%3Crect x='350' y='230' width='4' height='2' fill='%238b6914' opacity='0.45' transform='rotate(40, 352, 231)'/%3E%3Ccircle cx='275' cy='195' r='2' fill='%23ffd700' opacity='0.6' filter='url(%23tmGlow)'/%3E%3Ccircle cx='305' cy='190' r='1.5' fill='%23ffaa00' opacity='0.5' filter='url(%23tmGlow)'/%3E%3Ccircle cx='280' cy='185' r='1' fill='%23ffffff' opacity='0.7'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Throw Masters ambient glow - icy blue, silver, and purple atmospheric lighting */
+.game-page__about[data-decoration="throw-masters"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, rgba(100, 160, 220, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 55% 40%, rgba(140, 120, 200, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 60% 60%, rgba(255, 180, 80, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse 50% 45% at 45% 55%, rgba(180, 200, 240, 0.07) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Trump Masters — Premium card-game themed decoration with overlapping playing cards,
+   golden crown, card suits, trophy, laurel branches, and felt-table atmosphere.
+   Emerald green, deep forest green, gold, ivory, and subtle red accents. */
+.game-page__about[data-decoration="trump-masters"]::before {
+  content: "";
+  width: 360px;
+  height: 360px;
+  right: -25px;
+  bottom: -40px;
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='tmsFelt' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23143828' stop-opacity='0.4'/%3E%3Cstop offset='50%25' stop-color='%230f2e20' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%230a2418' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmsCard' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fffff8' stop-opacity='0.95'/%3E%3Cstop offset='50%25' stop-color='%23f8f4e8' stop-opacity='0.92'/%3E%3Cstop offset='100%25' stop-color='%23f0e8d8' stop-opacity='0.88'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmsCardShadow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d8d0c0' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%23c8c0b0' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmsGold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700' stop-opacity='0.95'/%3E%3Cstop offset='30%25' stop-color='%23f4c430' stop-opacity='0.92'/%3E%3Cstop offset='70%25' stop-color='%23daa520' stop-opacity='0.88'/%3E%3Cstop offset='100%25' stop-color='%23b8860b' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmsGoldDark' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23c9a227' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%238b6914' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmsCrown' x1='0%25' y1='100%25' x2='0%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23b8860b' stop-opacity='0.92'/%3E%3Cstop offset='40%25' stop-color='%23daa520' stop-opacity='0.95'/%3E%3Cstop offset='70%25' stop-color='%23ffd700' stop-opacity='0.98'/%3E%3Cstop offset='100%25' stop-color='%23ffe55c' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmsTrophy' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffe066' stop-opacity='0.9'/%3E%3Cstop offset='50%25' stop-color='%23d4a84b' stop-opacity='0.88'/%3E%3Cstop offset='100%25' stop-color='%23a67c30' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3ClinearGradient id='tmsLaurel' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23c9a227' stop-opacity='0.85'/%3E%3Cstop offset='100%25' stop-color='%238b7a14' stop-opacity='0.75'/%3E%3C/linearGradient%3E%3Cfilter id='tmsGlow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='2' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='tmsSoftGlow' x='-30%25' y='-30%25' width='160%25' height='160%25'%3E%3CfeGaussianBlur stdDeviation='1.5' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='tmsCardShadowFilter' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeDropShadow dx='2' dy='3' stdDeviation='3' flood-color='%23000000' flood-opacity='0.25'/%3E%3C/filter%3E%3C/defs%3E%3Crect x='0' y='0' width='400' height='400' fill='url(%23tmsFelt)' opacity='0.5'/%3E%3Cellipse cx='220' cy='220' rx='140' ry='120' fill='%23102818' opacity='0.3'/%3E%3Cg transform='translate(80, 170) rotate(-25)'%3E%3Crect x='0' y='0' width='75' height='105' rx='6' fill='url(%23tmsCard)' filter='url(%23tmsCardShadowFilter)'/%3E%3Crect x='2' y='2' width='71' height='101' rx='5' fill='none' stroke='%23dcd0c0' stroke-width='1' opacity='0.6'/%3E%3Ctext x='8' y='22' font-family='Georgia, serif' font-size='16' font-weight='bold' fill='%23cc2020' opacity='0.9'%3EQ%3C/text%3E%3Cpath d='M12 30 L20 30 L16 38 Z M16 26 C18 26 20 28 20 30 C20 32 18 34 16 34 C14 34 12 32 12 30 C12 28 14 26 16 26' fill='%23cc2020' opacity='0.85'/%3E%3C/g%3E%3Cg transform='translate(130, 140) rotate(-10)'%3E%3Crect x='0' y='0' width='75' height='105' rx='6' fill='url(%23tmsCard)' filter='url(%23tmsCardShadowFilter)'/%3E%3Crect x='2' y='2' width='71' height='101' rx='5' fill='none' stroke='%23dcd0c0' stroke-width='1' opacity='0.6'/%3E%3Ctext x='8' y='22' font-family='Georgia, serif' font-size='16' font-weight='bold' fill='%231a1a1a' opacity='0.9'%3EK%3C/text%3E%3Cpath d='M16 26 C12 26 10 30 10 33 C10 38 16 42 16 42 C16 42 22 38 22 33 C22 30 20 26 16 26' fill='%231a1a1a' opacity='0.85'/%3E%3C/g%3E%3Cg transform='translate(190, 125) rotate(8)'%3E%3Crect x='0' y='0' width='75' height='105' rx='6' fill='url(%23tmsCard)' filter='url(%23tmsCardShadowFilter)'/%3E%3Crect x='2' y='2' width='71' height='101' rx='5' fill='none' stroke='%23dcd0c0' stroke-width='1' opacity='0.6'/%3E%3Ctext x='8' y='22' font-family='Georgia, serif' font-size='16' font-weight='bold' fill='%23cc2020' opacity='0.9'%3EA%3C/text%3E%3Cpath d='M16 26 L12 38 L15 38 L16 35 L17 38 L20 38 L16 26 M14.5 33 L16 28 L17.5 33 Z' fill='%23cc2020' opacity='0.85'/%3E%3C/g%3E%3Cg transform='translate(250, 155) rotate(22)'%3E%3Crect x='0' y='0' width='75' height='105' rx='6' fill='url(%23tmsCard)' filter='url(%23tmsCardShadowFilter)'/%3E%3Crect x='2' y='2' width='71' height='101' rx='5' fill='none' stroke='%23dcd0c0' stroke-width='1' opacity='0.6'/%3E%3Ctext x='8' y='22' font-family='Georgia, serif' font-size='16' font-weight='bold' fill='%231a1a1a' opacity='0.9'%3EJ%3C/text%3E%3Cpath d='M12 26 L12 30 L10 30 L16 38 L22 30 L20 30 L20 26 Z' fill='%231a1a1a' opacity='0.85'/%3E%3C/g%3E%3Cg transform='translate(160, 60)' filter='url(%23tmsGlow)'%3E%3Cpath d='M40 45 L30 25 L35 25 L25 5 L40 20 L35 20 L50 0 L45 20 L50 20 L40 45' fill='url(%23tmsCrown)' stroke='%23a67c00' stroke-width='0.5'/%3E%3Cpath d='M20 45 L25 25 L20 5' fill='none' stroke='url(%23tmsCrown)' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M60 45 L55 25 L60 5' fill='none' stroke='url(%23tmsCrown)' stroke-width='3' stroke-linecap='round'/%3E%3Crect x='15' y='42' width='50' height='10' rx='2' fill='url(%23tmsGold)'/%3E%3Crect x='18' y='44' width='44' height='6' rx='1' fill='url(%23tmsGoldDark)' opacity='0.4'/%3E%3Ccircle cx='25' cy='8' r='4' fill='%23e83030' opacity='0.9'/%3E%3Ccircle cx='50' cy='0' r='4' fill='%2330a8e8' opacity='0.9'/%3E%3Ccircle cx='55' cy='8' r='4' fill='%2330e850' opacity='0.9'/%3E%3Ccircle cx='40' cy='47' r='3' fill='%23ffe066' opacity='0.8'/%3E%3C/g%3E%3Cg transform='translate(55, 280)'%3E%3Cpath d='M30 30 C15 25 5 15 8 5 C12 -2 25 0 30 10 C32 5 38 3 42 8 C48 15 42 28 30 30' fill='url(%23tmsLaurel)' opacity='0.7'/%3E%3Cpath d='M25 35 C12 32 3 22 5 12 C8 4 18 5 25 14' fill='none' stroke='url(%23tmsLaurel)' stroke-width='2' opacity='0.6'/%3E%3Cpath d='M20 40 C8 38 0 28 2 18 C4 10 12 10 20 18' fill='none' stroke='url(%23tmsLaurel)' stroke-width='1.5' opacity='0.5'/%3E%3C/g%3E%3Cg transform='translate(285, 280) scale(-1, 1)'%3E%3Cpath d='M30 30 C15 25 5 15 8 5 C12 -2 25 0 30 10 C32 5 38 3 42 8 C48 15 42 28 30 30' fill='url(%23tmsLaurel)' opacity='0.7'/%3E%3Cpath d='M25 35 C12 32 3 22 5 12 C8 4 18 5 25 14' fill='none' stroke='url(%23tmsLaurel)' stroke-width='2' opacity='0.6'/%3E%3Cpath d='M20 40 C8 38 0 28 2 18 C4 10 12 10 20 18' fill='none' stroke='url(%23tmsLaurel)' stroke-width='1.5' opacity='0.5'/%3E%3C/g%3E%3Cg transform='translate(280, 290)' filter='url(%23tmsSoftGlow)'%3E%3Cpath d='M25 5 L30 0 L35 5 L35 15 C35 18 32 22 30 24 L30 30 L25 30 L25 30 L20 30 L20 24 C18 22 15 18 15 15 L15 5 L20 0 L25 5' fill='url(%23tmsTrophy)'/%3E%3Crect x='17' y='30' width='16' height='4' fill='url(%23tmsGoldDark)'/%3E%3Crect x='15' y='34' width='20' height='5' rx='1' fill='url(%23tmsGold)'/%3E%3Cellipse cx='25' cy='12' rx='6' ry='5' fill='%23ffe066' opacity='0.3'/%3E%3C/g%3E%3Cpath d='M145 315 C148 318 152 320 160 318 C168 316 172 310 175 305' fill='none' stroke='url(%23tmsGold)' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M255 315 C252 318 248 320 240 318 C232 316 228 310 225 305' fill='none' stroke='url(%23tmsGold)' stroke-width='1.5' opacity='0.5'/%3E%3Ccircle cx='80' cy='100' r='2' fill='%23ffd700' opacity='0.5' filter='url(%23tmsGlow)'/%3E%3Ccircle cx='320' cy='90' r='2.5' fill='%23ffd700' opacity='0.45' filter='url(%23tmsGlow)'/%3E%3Ccircle cx='180' cy='350' r='2' fill='%23ffd700' opacity='0.4' filter='url(%23tmsGlow)'/%3E%3Ccircle cx='350' cy='200' r='1.8' fill='%23ffd700' opacity='0.5' filter='url(%23tmsGlow)'/%3E%3Ccircle cx='60' cy='250' r='1.5' fill='%23ffd700' opacity='0.45' filter='url(%23tmsGlow)'/%3E%3Ccircle cx='300' cy='350' r='2.2' fill='%23ffd700' opacity='0.35' filter='url(%23tmsGlow)'/%3E%3Ccircle cx='100' cy='320' r='1.8' fill='%23ffd700' opacity='0.4' filter='url(%23tmsGlow)'/%3E%3Ccircle cx='340' cy='280' r='2' fill='%23ffd700' opacity='0.42' filter='url(%23tmsGlow)'/%3E%3Cg opacity='0.6'%3E%3Cpath d='M55 140 C52 140 50 143 50 146 C50 150 55 154 55 154 C55 154 60 150 60 146 C60 143 58 140 55 140' fill='%23cc2020'/%3E%3Cpath d='M350 130 L345 142 L350 140 L355 142 Z' fill='%231a1a1a'/%3E%3Cpath d='M70 340 L65 347 L70 345 L75 347 Z M70 350 L65 355 L70 360 L75 355 Z' fill='%23cc2020'/%3E%3Cpath d='M335 340 C332 340 330 343 330 346 C330 350 335 354 335 354 C335 354 340 350 340 346 C340 343 338 340 335 340' fill='%231a1a1a'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Trump Masters ambient glow - emerald green and gold atmospheric lighting */
+.game-page__about[data-decoration="trump-masters"]::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -55px;
+  width: 420px;
+  height: 420px;
+  background:
+    radial-gradient(ellipse 55% 50% at 52% 48%, rgba(30, 120, 70, 0.09) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 58% 42%, rgba(255, 215, 0, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 55% 55%, rgba(40, 100, 60, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse 40% 35% at 48% 52%, rgba(218, 165, 32, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -6901,6 +7196,126 @@ h3 {
     height: 320px;
   }
 
+  /* Deep Sea Escape tablet */
+  .game-page__about[data-decoration="deep-sea-escape"]::before {
+    right: -18px;
+    bottom: -32px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .game-page__about[data-decoration="deep-sea-escape"]::after {
+    right: -30px;
+    bottom: -45px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Tomb Raiders tablet */
+  .game-page__about[data-decoration="tomb-raiders"]::before {
+    right: -18px;
+    bottom: -32px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .game-page__about[data-decoration="tomb-raiders"]::after {
+    right: -30px;
+    bottom: -45px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Biohazard Escape tablet */
+  .game-page__about[data-decoration="biohazard-escape"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="biohazard-escape"]::after {
+    right: -32px;
+    bottom: -48px;
+    width: 350px;
+    height: 350px;
+  }
+
+  /* Perspective tablet */
+  .game-page__about[data-decoration="perspective"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="perspective"]::after {
+    right: -35px;
+    bottom: -48px;
+    width: 350px;
+    height: 350px;
+  }
+
+  /* Portal Shift tablet */
+  .game-page__about[data-decoration="portal-shift"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="portal-shift"]::after {
+    right: -32px;
+    bottom: -48px;
+    width: 350px;
+    height: 350px;
+  }
+
+  /* Outlaw Legends tablet */
+  .game-page__about[data-decoration="outlaw-legends"]::before {
+    right: -20px;
+    bottom: -35px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .game-page__about[data-decoration="outlaw-legends"]::after {
+    right: -32px;
+    bottom: -48px;
+    width: 350px;
+    height: 350px;
+  }
+
+  /* Throw Masters tablet */
+  .game-page__about[data-decoration="throw-masters"]::before {
+    right: -18px;
+    bottom: -32px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .game-page__about[data-decoration="throw-masters"]::after {
+    right: -30px;
+    bottom: -45px;
+    width: 340px;
+    height: 340px;
+  }
+
+  /* Trump Masters tablet */
+  .game-page__about[data-decoration="trump-masters"]::before {
+    right: -18px;
+    bottom: -32px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .game-page__about[data-decoration="trump-masters"]::after {
+    right: -30px;
+    bottom: -45px;
+    width: 340px;
+    height: 340px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -8546,6 +8961,126 @@ h3 {
     height: 250px;
   }
 
+  /* Deep Sea Escape mobile */
+  .game-page__about[data-decoration="deep-sea-escape"]::before {
+    right: -15px;
+    bottom: -28px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="deep-sea-escape"]::after {
+    right: -25px;
+    bottom: -40px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Tomb Raiders mobile */
+  .game-page__about[data-decoration="tomb-raiders"]::before {
+    right: -15px;
+    bottom: -28px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="tomb-raiders"]::after {
+    right: -25px;
+    bottom: -40px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Biohazard Escape mobile */
+  .game-page__about[data-decoration="biohazard-escape"]::before {
+    right: -18px;
+    bottom: -30px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .game-page__about[data-decoration="biohazard-escape"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 270px;
+    height: 270px;
+  }
+
+  /* Perspective mobile */
+  .game-page__about[data-decoration="perspective"]::before {
+    right: -18px;
+    bottom: -30px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .game-page__about[data-decoration="perspective"]::after {
+    right: -30px;
+    bottom: -42px;
+    width: 270px;
+    height: 270px;
+  }
+
+  /* Portal Shift small mobile */
+  .game-page__about[data-decoration="portal-shift"]::before {
+    right: -18px;
+    bottom: -30px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .game-page__about[data-decoration="portal-shift"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 270px;
+    height: 270px;
+  }
+
+  /* Outlaw Legends small mobile */
+  .game-page__about[data-decoration="outlaw-legends"]::before {
+    right: -18px;
+    bottom: -30px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .game-page__about[data-decoration="outlaw-legends"]::after {
+    right: -28px;
+    bottom: -42px;
+    width: 270px;
+    height: 270px;
+  }
+
+  /* Throw Masters mobile */
+  .game-page__about[data-decoration="throw-masters"]::before {
+    right: -15px;
+    bottom: -28px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="throw-masters"]::after {
+    right: -25px;
+    bottom: -40px;
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Trump Masters mobile */
+  .game-page__about[data-decoration="trump-masters"]::before {
+    right: -15px;
+    bottom: -28px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .game-page__about[data-decoration="trump-masters"]::after {
+    right: -25px;
+    bottom: -40px;
+    width: 260px;
+    height: 260px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -10044,6 +10579,66 @@ h3 {
     height: 200px;
   }
 
+  /* Deep Sea Escape small mobile */
+  .game-page__about[data-decoration="deep-sea-escape"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="deep-sea-escape"]::after {
+    right: -18px;
+    bottom: -30px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Tomb Raiders small mobile */
+  .game-page__about[data-decoration="tomb-raiders"]::before {
+    right: -10px;
+    bottom: -20px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .game-page__about[data-decoration="tomb-raiders"]::after {
+    right: -18px;
+    bottom: -30px;
+    width: 210px;
+    height: 210px;
+  }
+
+  /* Biohazard Escape small mobile */
+  .game-page__about[data-decoration="biohazard-escape"]::before {
+    right: -12px;
+    bottom: -22px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .game-page__about[data-decoration="biohazard-escape"]::after {
+    right: -20px;
+    bottom: -32px;
+    width: 220px;
+    height: 220px;
+  }
+
+  /* Perspective small mobile */
+  .game-page__about[data-decoration="perspective"]::before {
+    right: -12px;
+    bottom: -22px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .game-page__about[data-decoration="perspective"]::after {
+    right: -22px;
+    bottom: -34px;
+    width: 220px;
+    height: 220px;
+  }
+
   .game-page__short-desc {
     font-size: var(--font-md);
   }
@@ -10429,6 +11024,102 @@ h3 {
   }
 
   .game-page__about[data-decoration="iron-arena"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Deep Sea Escape extra small */
+  .game-page__about[data-decoration="deep-sea-escape"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .game-page__about[data-decoration="deep-sea-escape"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Tomb Raiders extra small */
+  .game-page__about[data-decoration="tomb-raiders"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .game-page__about[data-decoration="tomb-raiders"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Biohazard Escape extra small */
+  .game-page__about[data-decoration="biohazard-escape"]::before {
+    right: -6px;
+    bottom: -12px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="biohazard-escape"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Perspective extra small */
+  .game-page__about[data-decoration="perspective"]::before {
+    right: -6px;
+    bottom: -12px;
+    width: 135px;
+    height: 135px;
+  }
+
+  .game-page__about[data-decoration="perspective"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Portal Shift extra small */
+  .game-page__about[data-decoration="portal-shift"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .game-page__about[data-decoration="portal-shift"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Outlaw Legends extra small */
+  .game-page__about[data-decoration="outlaw-legends"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .game-page__about[data-decoration="outlaw-legends"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Throw Masters extra small */
+  .game-page__about[data-decoration="throw-masters"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .game-page__about[data-decoration="throw-masters"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Trump Masters extra small */
+  .game-page__about[data-decoration="trump-masters"]::before {
+    right: -5px;
+    bottom: -10px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .game-page__about[data-decoration="trump-masters"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

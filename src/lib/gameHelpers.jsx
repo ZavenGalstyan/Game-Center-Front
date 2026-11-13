@@ -113,6 +113,15 @@ import oceanboundBg from "../images/Oceanbound.png";
 import dinosaurIslandBg from "../images/DinosaurIsland.png";
 import wildKingdomBg from "../images/WildKingdom.png";
 import ironArenaBg from "../images/IronArena.png";
+import deepSeaEscapeBg from "../images/DeepSeaEscape.png";
+import tombRaidersBg from "../images/TombRaiders.png";
+import biohazardEscapeBg from "../images/BiohazardEscape.png";
+import perspectiveBg from "../images/Perspective.png";
+import pharaohsSecretBg from "../images/PharaohsSecret.png";
+import portalShiftBg from "../images/PortalShift.png";
+import outlawLegendsBg from "../images/OutlawLegends.png";
+import throwMastersBg from "../images/ThrowMasters.png";
+import trumpMastersBg from "../images/TrumpMasters.png";
 
 /**
  * Category to icon mapping.
@@ -1837,6 +1846,192 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(12, 20, 16, 0.48) 42%,
       rgba(12, 20, 16, 0.74) 54%,
       rgba(12, 20, 16, 0.88) 100%)`,
+  },
+  // Deep Sea Escape: Abyss Facility — underwater research facility with diver on
+  // the left (~15-45%), title "DEEP SEA ESCAPE" in center (~30-60%), and sea
+  // creature on the right. Cyan/teal color palette with orange accent lights.
+  // 45% keeps the diver and title visible; deep ocean-teal fade for text.
+  "deep sea escape: abyss facility": {
+    image: deepSeaEscapeBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(2, 18, 26, 0) 0%,
+      rgba(2, 18, 26, 0) 32%,
+      rgba(2, 18, 26, 0.48) 44%,
+      rgba(2, 18, 26, 0.74) 56%,
+      rgba(2, 18, 26, 0.88) 100%)`,
+  },
+  "deep sea escape": {
+    image: deepSeaEscapeBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(2, 18, 26, 0) 0%,
+      rgba(2, 18, 26, 0) 32%,
+      rgba(2, 18, 26, 0.48) 44%,
+      rgba(2, 18, 26, 0.74) 56%,
+      rgba(2, 18, 26, 0.88) 100%)`,
+  },
+  // Tomb Raiders: Pharaoh's Revenge — female explorer on the left (~10-35%),
+  // golden pharaoh and TOMB RAIDERS title in center-right. Egyptian gold,
+  // amber, and deep tomb colors. 35% keeps explorer and title visible;
+  // warm tomb-shadow fade for text readability.
+  "tomb raiders: pharaoh's revenge": {
+    image: tombRaidersBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(20, 12, 6, 0) 0%,
+      rgba(20, 12, 6, 0) 28%,
+      rgba(20, 12, 6, 0.45) 42%,
+      rgba(20, 12, 6, 0.72) 55%,
+      rgba(20, 12, 6, 0.88) 100%)`,
+  },
+  "tomb raiders": {
+    image: tombRaidersBg,
+    position: "35% center",
+    shade: `linear-gradient(90deg,
+      rgba(20, 12, 6, 0) 0%,
+      rgba(20, 12, 6, 0) 28%,
+      rgba(20, 12, 6, 0.45) 42%,
+      rgba(20, 12, 6, 0.72) 55%,
+      rgba(20, 12, 6, 0.88) 100%)`,
+  },
+  // Biohazard Escape: Project X — hazmat soldier and mutant creature in a
+  // contaminated facility. Toxic green, dark military green, and biohazard
+  // accents. Position keeps the soldier and title visible; dark toxic fade.
+  "biohazard escape: project x": {
+    image: biohazardEscapeBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 16, 8, 0) 0%,
+      rgba(8, 16, 8, 0) 30%,
+      rgba(8, 16, 8, 0.48) 42%,
+      rgba(8, 16, 8, 0.74) 55%,
+      rgba(8, 16, 8, 0.88) 100%)`,
+  },
+  "biohazard escape": {
+    image: biohazardEscapeBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 16, 8, 0) 0%,
+      rgba(8, 16, 8, 0) 30%,
+      rgba(8, 16, 8, 0.48) 42%,
+      rgba(8, 16, 8, 0.74) 55%,
+      rgba(8, 16, 8, 0.88) 100%)`,
+  },
+  // Perspective: Impossible Rooms — surreal architectural puzzle with pastel
+  // colors, impossible geometry, floating staircases, and Penrose triangles.
+  // Lavender, violet, pink, soft blue palette. Position keeps title visible.
+  "perspective: impossible rooms": {
+    image: perspectiveBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(20, 16, 28, 0) 0%,
+      rgba(20, 16, 28, 0) 30%,
+      rgba(20, 16, 28, 0.45) 42%,
+      rgba(20, 16, 28, 0.72) 55%,
+      rgba(20, 16, 28, 0.88) 100%)`,
+  },
+  "perspective": {
+    image: perspectiveBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(20, 16, 28, 0) 0%,
+      rgba(20, 16, 28, 0) 30%,
+      rgba(20, 16, 28, 0.45) 42%,
+      rgba(20, 16, 28, 0.72) 55%,
+      rgba(20, 16, 28, 0.88) 100%)`,
+  },
+  // Pharaoh's Secret: Lost Temple — Egyptian temple puzzle escape with golden
+  // pharaoh imagery, ancient hieroglyphics, and mystical atmosphere. Gold,
+  // bronze, sandstone, and dark emerald palette. Position for title visibility.
+  "pharaoh's secret: lost temple": {
+    image: pharaohsSecretBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 14, 8, 0) 0%,
+      rgba(18, 14, 8, 0) 30%,
+      rgba(18, 14, 8, 0.48) 42%,
+      rgba(18, 14, 8, 0.74) 55%,
+      rgba(18, 14, 8, 0.88) 100%)`,
+  },
+  "pharaoh's secret": {
+    image: pharaohsSecretBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 14, 8, 0) 0%,
+      rgba(18, 14, 8, 0) 30%,
+      rgba(18, 14, 8, 0.48) 42%,
+      rgba(18, 14, 8, 0.74) 55%,
+      rgba(18, 14, 8, 0.88) 100%)`,
+  },
+  // Portal Shift: Character with dual blue/orange portals, logo on left side.
+  // 55% keeps the logo, portals, and main character left of the text on narrow
+  // cards; a dark sci-fi navy fade supports the portal lighting.
+  "portal shift: dimension escape": {
+    image: portalShiftBg,
+    position: "55% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 14, 22, 0) 0%,
+      rgba(8, 14, 22, 0) 32%,
+      rgba(8, 14, 22, 0.5) 44%,
+      rgba(8, 14, 22, 0.76) 56%,
+      rgba(8, 14, 22, 0.86) 100%)`,
+  },
+  "portal shift": {
+    image: portalShiftBg,
+    position: "55% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 14, 22, 0) 0%,
+      rgba(8, 14, 22, 0) 32%,
+      rgba(8, 14, 22, 0.5) 44%,
+      rgba(8, 14, 22, 0.76) 56%,
+      rgba(8, 14, 22, 0.86) 100%)`,
+  },
+  // Outlaw Legends: Cowboy with game title on left. 50% keeps the cowboy
+  // and title visible; warm sepia-brown fade for the Wild West atmosphere.
+  "outlaw legends: wild frontier": {
+    image: outlawLegendsBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 12, 8, 0) 0%,
+      rgba(18, 12, 8, 0) 30%,
+      rgba(18, 12, 8, 0.5) 42%,
+      rgba(18, 12, 8, 0.76) 54%,
+      rgba(18, 12, 8, 0.88) 100%)`,
+  },
+  "outlaw legends": {
+    image: outlawLegendsBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 12, 8, 0) 0%,
+      rgba(18, 12, 8, 0) 30%,
+      rgba(18, 12, 8, 0.5) 42%,
+      rgba(18, 12, 8, 0.76) 54%,
+      rgba(18, 12, 8, 0.88) 100%)`,
+  },
+  // Throw Masters - Viking axe throwing game with warrior, axe, and target.
+  // Position keeps the warrior, logo, and target visible; icy blue-purple fade.
+  "throw masters": {
+    image: throwMastersBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 18, 28, 0) 0%,
+      rgba(12, 18, 28, 0) 32%,
+      rgba(12, 18, 28, 0.5) 44%,
+      rgba(12, 18, 28, 0.76) 56%,
+      rgba(12, 18, 28, 0.88) 100%)`,
+  },
+  // Trump Masters - Card game with trump suit (Durak). Premium card table look.
+  // Position keeps the title, crown, and cards visible; dark emerald-green fade.
+  "trump masters": {
+    image: trumpMastersBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(4, 18, 12, 0) 0%,
+      rgba(4, 18, 12, 0) 30%,
+      rgba(4, 18, 12, 0.5) 42%,
+      rgba(4, 18, 12, 0.76) 54%,
+      rgba(4, 18, 12, 0.88) 100%)`,
   },
 };
 
