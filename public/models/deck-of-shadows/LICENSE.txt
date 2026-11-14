@@ -1,0 +1,48 @@
+Deck of Shadows: Monster Hunt — 3D assets
+
+All files in this folder are CC0 1.0 Universal (public domain dedication).
+https://creativecommons.org/publicdomain/zero/1.0/
+They were re-packed for the web (glTF-Transform: meshopt geometry, WebP
+textures, reduced resolution); the content is otherwise unchanged.
+
+props/*.glb — Poly Haven (https://polyhaven.com/models), CC0
+  armchair.glb      Armchair_01
+  barrels.glb       wooden_barrels_01
+  candlestick.glb   wooden_candlestick
+  castle_door.glb   large_castle_door
+  chandelier.glb    Chandelier_01
+  chest.glb         treasure_chest
+  dead_tree.glb     dead_tree_trunk
+  estoc.glb         antique_estoc
+  fire_pit.glb      stone_fire_pit
+  fort.glb          modular_fort_01
+  gothic_statue.glb gothic_statue
+  iron_gate.glb     large_iron_gate
+  kite_shield.glb   kite_shield
+  lantern.glb       Lantern_01
+  mace.glb          ornate_medieval_mace
+  marble_bust.glb   marble_bust_01
+  quiver_trunk.glb  dead_quiver_trunk
+  rocks.glb         rock_moss_set_01
+  roots.glb         root_cluster_02
+  stump.glb         tree_stump_01
+
+props/skull.glb — Khronos glTF-Sample-Assets "ScatteringSkull"
+  "2025 (c) Adobe Inc., model by Vladimir Petkovic, CC0 1.0 Universal"
+  (notice embedded in the file's asset.copyright field)
+
+tex/*_d|_n|_arm.webp — Poly Haven textures (https://polyhaven.com/textures), CC0
+  bark_brown_02, brown_mud_leaves_01, castle_brick_07, church_bricks_03,
+  dark_rock, dark_wooden_planks, fabric_leather_02, forest_leaves_02,
+  marble_01, medieval_blocks_02, monastery_stone_floor, mossy_cobblestone,
+  mossy_rock, rock_wall_10, rusty_metal_02, velour_velvet
+  (_d = diffuse, _n = OpenGL normal, _arm = AO/roughness/metalness)
+
+env.hdr — Poly Haven HDRI (https://polyhaven.com/hdris), CC0, used only for
+  image-based lighting/reflections (the specific HDRI name was not recorded).
+
+Shared with other games (not in this folder):
+  ../neon-mercenary/male.glb, female.glb, anims.glb and ../mma/anims.glb —
+  Quaternius "Universal Base Characters" + "Universal Animation Library",
+  CC0 (see the LICENSE-Quaternius-CC0.txt files next to them). Deck of
+  Shadows re-sculpts and re-materials these rigs into its monsters at runtime.

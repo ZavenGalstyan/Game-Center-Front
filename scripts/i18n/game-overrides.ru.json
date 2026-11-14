@@ -188,5 +188,6 @@
   "OutlawLegends": {"Takedowns": "Добивания", "Capacity": "Ёмкость", "Range": "Дальность", "Legend": "Легенда", "Drifter": "Бродяга", "Gunslinger": "Стрелок"},
   "PrisonOfFear": {"Look around": "Обзор", "Ready": "Доступен", "Activate switch": "Включить рубильник", "Aim": "Прицеливание", "Punch": "Удар кулаком", "Shoot": "Стрельба", "Interact": "Действие"},
   "CarnivalOfFear": {"Look around": "Обзор", "Ready": "Доступен", "Aim": "Прицеливание", "Shoot": "Стрельба", "Interact": "Действие", "Move": "Ходьба", "Locked": "Закрыт"},
-  "DeepMine": {"Look around": "Обзор", "Ready": "Доступен", "Aim": "Прицеливание", "Shoot": "Стрельба", "Interact": "Действие", "Move": "Ходьба", "Locked": "Закрыт", "Flashlight": "Фонарь", "Flashlight off": "Фонарь выключен", "Flashlight on / off": "Фонарь вкл. / выкл.", "Battery": "Батарейка", "Crystal Caverns": "Кристаллические пещеры"}
+  "DeepMine": {"Look around": "Обзор", "Ready": "Доступен", "Aim": "Прицеливание", "Shoot": "Стрельба", "Interact": "Действие", "Move": "Ходьба", "Locked": "Закрыт", "Flashlight": "Фонарь", "Flashlight off": "Фонарь выключен", "Flashlight on / off": "Фонарь вкл. / выкл.", "Battery": "Батарейка", "Crystal Caverns": "Кристаллические пещеры"},
+  "DeckOfShadows": {"Block": "Блок", "Power": "Способность", "Common": "Обычная", "Rare": "Редкая", "Epic": "Эпическая", "Legendary": "Легендарная", "Discard pile": "Сброс", "Exhausted": "Сожжено", "Hand {0}": "Рука {0}", "Fight": "В бой", "Retry Battle": "Повторить битву", "Restart Battle": "Начать битву заново", "Locked": "Закрыта"}
 }

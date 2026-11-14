@@ -1,0 +1,1923 @@
+/* ==========================================================================
+   Deck of Shadows: Monster Hunt — scoped under `.dos` (prefix dos-).
+   Sizes follow the stage (container-type: size) so the HUD, cards and menus
+   fit any GamePlayer size and fullscreen without page scrolling.
+   ========================================================================== */
+.dos {
+  --bone: #eadfc8;
+  --dim: #b3a58e;
+  --gold: #d2a95a;
+  --gold2: #f3d68e;
+  --blood: #b3121e;
+  --blood2: #ff3b3b;
+  --violet: #9a5cff;
+  --ice: #8fd0ff;
+  --ink: #07060a;
+  --panel: rgba(12, 9, 10, 0.86);
+  --line: rgba(210, 169, 90, 0.28);
+  --serif: "Cinzel", "Trajan Pro", "Cormorant Garamond", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --text: "Cormorant Garamond", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --sans: "Segoe UI", "Trebuchet MS", system-ui, sans-serif;
+  --cw: min(12.5cqw, 30cqh * 0.714);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: #020203;
+  color: var(--bone);
+  font-family: var(--text);
+  container-type: size;
+  container-name: dos;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  overscroll-behavior: contain;
+}
+.dos > * {
+  --u: clamp(9px, 2.05cqh, 18px);
+  font-size: var(--u);
+}
+.dos *,
+.dos *::before,
+.dos *::after {
+  box-sizing: border-box;
+}
+.dos :where(button) {
+  font: inherit;
+  color: inherit;
+}
+.dos-stage {
+  position: absolute;
+  inset: 0;
+}
+.dos-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.dos-grade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 120%, rgba(0, 0, 0, 0.55), transparent 55%);
+}
+.dos-ic {
+  display: inline-block;
+  vertical-align: -0.14em;
+  flex: none;
+}
+
+/* ------------------------------------------------------------------ buttons + panels */
+.dos-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  min-height: 2.6em;
+  padding: 0.55em 1.4em;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: linear-gradient(180deg, rgba(48, 38, 30, 0.92), rgba(20, 15, 13, 0.95));
+  box-shadow: inset 0 1px 0 rgba(255, 230, 180, 0.08), 0 4px 14px rgba(0, 0, 0, 0.5);
+  font-family: var(--serif);
+  font-size: 1em;
+  letter-spacing: 0.06em;
+  color: var(--bone);
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+.dos-btn:hover:not(:disabled) {
+  border-color: var(--gold);
+  box-shadow: inset 0 1px 0 rgba(255, 230, 180, 0.12), 0 0 18px rgba(210, 169, 90, 0.25);
+  transform: translateY(-1px);
+}
+.dos-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.dos-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.dos-btn.primary {
+  background: linear-gradient(180deg, #7a1a18, #3a0a0c);
+  border-color: rgba(255, 120, 90, 0.45);
+  color: #fff3e0;
+}
+.dos-btn.primary:hover:not(:disabled) {
+  box-shadow: 0 0 22px rgba(255, 60, 40, 0.4);
+  border-color: #ff8a6a;
+}
+.dos-btn.small {
+  min-height: 2.1em;
+  padding: 0.35em 0.9em;
+  font-size: 0.85em;
+}
+.dos-btn.danger {
+  border-color: rgba(255, 80, 80, 0.4);
+  color: #ffb0a8;
+}
+.dos-iconbtn {
+  width: 2.6em;
+  height: 2.6em;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(10, 8, 9, 0.75);
+  color: var(--bone);
+  cursor: pointer;
+}
+.dos-iconbtn:hover {
+  border-color: var(--gold);
+}
+
+.dos-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5cqh 2.5cqw;
+}
+.dos-dim {
+  background: radial-gradient(ellipse at center, rgba(5, 3, 4, 0.55), rgba(0, 0, 0, 0.82));
+}
+.dos-dim.red {
+  background: radial-gradient(ellipse at center, rgba(60, 0, 0, 0.45), rgba(0, 0, 0, 0.88));
+}
+.dos-dim.top {
+  z-index: 60;
+}
+.dos-panel {
+  position: relative;
+  width: min(92cqw, 62em);
+  max-height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 1.6em 2em;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 235, 200, 0.04), transparent 30%),
+    var(--panel);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(0, 0, 0, 0.6), inset 0 0 40px rgba(0, 0, 0, 0.6);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(210, 169, 90, 0.4) transparent;
+}
+.dos-panel::before,
+.dos-panel::after {
+  content: "";
+  position: absolute;
+  width: 1.6em;
+  height: 1.6em;
+  border: 2px solid var(--gold);
+  opacity: 0.6;
+  pointer-events: none;
+}
+.dos-panel::before {
+  top: 0.4em;
+  left: 0.4em;
+  border-right: 0;
+  border-bottom: 0;
+}
+.dos-panel::after {
+  right: 0.4em;
+  bottom: 0.4em;
+  border-left: 0;
+  border-top: 0;
+}
+.dos-panel.narrow {
+  width: min(92cqw, 34em);
+}
+.dos-panel.wide {
+  width: min(96cqw, 78em);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.dos-panel.center {
+  text-align: center;
+}
+.dos-panel h2 {
+  margin: 0.1em 0 0.4em;
+  font-family: var(--serif);
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--gold2);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+}
+.dos-panel h3 {
+  margin: 0.2em 0;
+  font-family: var(--serif);
+  font-size: 1.3em;
+  letter-spacing: 0.05em;
+}
+.dos-panel h4 {
+  margin: 0.8em 0 0.4em;
+  font-family: var(--serif);
+  font-size: 1em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.dos-kicker {
+  display: block;
+  font-family: var(--serif);
+  font-size: 0.82em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.dos-lore {
+  font-style: italic;
+  font-size: 1.1em;
+  line-height: 1.4;
+  color: #d9ccb4;
+}
+.dos-note {
+  font-size: 0.95em;
+  color: var(--dim);
+  margin: 0.5em 0;
+}
+.dos-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.1em;
+}
+.dos-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  margin: 1em auto 0;
+  max-width: 18em;
+}
+.dos-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+.dos-head h2 {
+  margin: 0;
+}
+.dos-bar {
+  position: relative;
+  height: 0.55em;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+.dos-bar i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, #6a1010, #e0462a);
+  transition: width 0.5s;
+}
+.dos-bar.xp i {
+  background: linear-gradient(90deg, #6a4a10, #f0c860);
+}
+.dos-stars {
+  display: inline-flex;
+  gap: 0.15em;
+  color: rgba(255, 255, 255, 0.18);
+}
+.dos-stars .on {
+  color: var(--gold2);
+  filter: drop-shadow(0 0 4px rgba(255, 200, 90, 0.6));
+}
+
+/* ------------------------------------------------------------------ loading + menu */
+.dos-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  background: radial-gradient(ellipse at center, rgba(20, 8, 8, 0.6), #020203 75%);
+  font-family: var(--serif);
+  letter-spacing: 0.12em;
+  color: var(--dim);
+}
+.dos-loading .dos-bar {
+  width: min(60cqw, 22em);
+}
+.dos-loading__sigil {
+  width: 4.5em;
+  height: 4.5em;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  position: relative;
+  animation: dos-spin 6s linear infinite;
+  box-shadow: 0 0 30px rgba(210, 169, 90, 0.25);
+}
+.dos-loading__sigil::before,
+.dos-loading__sigil::after {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border: 1px solid var(--gold);
+  transform: rotate(45deg);
+}
+.dos-loading__sigil::after {
+  inset: 30%;
+  border-radius: 50%;
+  border-color: var(--blood2);
+}
+@keyframes dos-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dos-menu {
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
+  padding: 7cqh 6cqw;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.35) 45%, transparent 70%);
+}
+.dos-title h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(26px, 7.4cqh, 76px);
+  line-height: 0.95;
+  letter-spacing: 0.05em;
+  color: #f1e3c6;
+  text-shadow: 0 0 30px rgba(180, 20, 20, 0.45), 0 4px 0 #000;
+}
+.dos-title h2 {
+  margin: 0.25em 0 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(14px, 3.4cqh, 34px);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--blood2);
+  text-shadow: 0 0 14px rgba(255, 30, 30, 0.5);
+}
+.dos-tag {
+  margin: 1em 0 0;
+  max-width: 28em;
+  font-style: italic;
+  font-size: 1.15em;
+  color: var(--dim);
+}
+.dos-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  margin-top: 5cqh;
+  width: min(80cqw, 19em);
+}
+.dos-menu__nav .dos-btn {
+  justify-content: flex-start;
+  font-size: 1.12em;
+}
+.dos-menu__stats {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em 1.6em;
+  font-family: var(--serif);
+  letter-spacing: 0.08em;
+  color: var(--dim);
+}
+.dos-menu__stats .sh {
+  color: #c8a8ff;
+}
+
+/* ------------------------------------------------------------------ campaign map */
+.dos-map {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 1.2cqh;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.6));
+}
+.dos-map__acts {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  gap: 1.2cqh;
+  scrollbar-width: thin;
+}
+.dos-act h3 {
+  margin: 0 0 0.4em;
+  font-family: var(--serif);
+  font-size: 1em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.dos-act__row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.7em;
+}
+.dos-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15em;
+  min-height: 6.2em;
+  padding: 0.6em 0.8em 0.7em;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, rgba(40, 30, 26, 0.9), rgba(10, 8, 9, 0.92));
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+.dos-node::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background: var(--envbg, none);
+  pointer-events: none;
+}
+.dos-node.env-graveyard {
+  --envbg: radial-gradient(circle at 80% 0%, rgba(100, 130, 200, 0.5), transparent 60%);
+}
+.dos-node.env-forest {
+  --envbg: radial-gradient(circle at 80% 0%, rgba(60, 140, 100, 0.5), transparent 60%);
+}
+.dos-node.env-crypt {
+  --envbg: radial-gradient(circle at 80% 0%, rgba(200, 130, 60, 0.5), transparent 60%);
+}
+.dos-node.env-castle {
+  --envbg: radial-gradient(circle at 80% 0%, rgba(220, 110, 50, 0.45), transparent 60%);
+}
+.dos-node.env-dungeon {
+  --envbg: radial-gradient(circle at 80% 0%, rgba(170, 80, 40, 0.45), transparent 60%);
+}
+.dos-node.env-cathedral {
+  --envbg: radial-gradient(circle at 80% 0%, rgba(140, 100, 230, 0.5), transparent 60%);
+}
+.dos-node.env-arena {
+  --envbg: radial-gradient(circle at 80% 0%, rgba(230, 40, 30, 0.6), transparent 60%);
+}
+.dos-node.env-throne {
+  --envbg: radial-gradient(circle at 80% 0%, rgba(140, 70, 255, 0.6), transparent 60%);
+}
+.dos-node:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(210, 169, 90, 0.25);
+}
+.dos-node.boss {
+  border-color: rgba(255, 70, 50, 0.55);
+}
+.dos-node.locked {
+  filter: grayscale(0.9) brightness(0.55);
+  cursor: default;
+}
+.dos-node .n {
+  font-family: var(--serif);
+  font-size: 1.5em;
+  line-height: 1;
+  color: var(--gold2);
+}
+.dos-node .en {
+  font-family: var(--serif);
+  font-size: 0.98em;
+  letter-spacing: 0.03em;
+}
+.dos-node .lo {
+  font-size: 0.82em;
+  color: var(--dim);
+}
+.dos-node .tag {
+  position: absolute;
+  top: 0.55em;
+  right: 0.6em;
+  padding: 0.05em 0.5em;
+  font-family: var(--serif);
+  font-size: 0.72em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  color: var(--gold);
+}
+.dos-node .tag.boss {
+  color: #ff8a70;
+  border-color: rgba(255, 90, 60, 0.6);
+}
+.dos-node .dos-stars {
+  margin-top: auto;
+}
+.dos-node .lk {
+  margin-top: auto;
+  font-size: 1.2em;
+  color: var(--dim);
+}
+
+/* ------------------------------------------------------------------ briefing / reward */
+.dos-brief__head h3 {
+  color: #ffb08a;
+}
+.dos-brief__head h3.boss {
+  color: #ff6a50;
+  text-shadow: 0 0 12px rgba(255, 60, 30, 0.5);
+}
+.dos-brief__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+}
+.dos-brief__card {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.6em;
+}
+.dos-facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35em;
+  font-size: 1.02em;
+}
+.dos-facts li {
+  padding-left: 1em;
+  position: relative;
+}
+.dos-facts li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.4em;
+  height: 0.4em;
+  transform: rotate(45deg);
+  background: var(--gold);
+}
+.dos-facts .mod {
+  display: flex;
+  flex-direction: column;
+}
+.dos-facts .mod b {
+  color: #ff9a7a;
+  font-family: var(--serif);
+  font-weight: 500;
+}
+.dos-facts .mod span {
+  color: var(--dim);
+  font-size: 0.92em;
+}
+.dos-facts .unlock {
+  color: #c8a8ff;
+}
+.dos-reward {
+  text-align: center;
+}
+.dos-win {
+  font-size: 2.6em !important;
+  color: var(--gold2) !important;
+  text-shadow: 0 0 24px rgba(255, 190, 80, 0.45) !important;
+}
+.dos-lose {
+  font-size: 2.4em !important;
+  color: #ff5a4a !important;
+  text-shadow: 0 0 24px rgba(255, 30, 20, 0.55) !important;
+}
+.dos-reward .dos-stars {
+  font-size: 2em;
+}
+.dos-reward__gains {
+  display: flex;
+  justify-content: center;
+  gap: 1.6em;
+  margin: 0.6em 0;
+  font-family: var(--serif);
+  font-size: 1.15em;
+}
+.dos-xp {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  max-width: 24em;
+  margin: 0 auto;
+  font-family: var(--serif);
+}
+.dos-xp .dos-bar {
+  flex: 1;
+}
+.dos-levelup {
+  color: var(--gold2);
+  font-family: var(--serif);
+  letter-spacing: 0.04em;
+}
+.dos-reward__unlock,
+.dos-reward__choices {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.dos-reward__unlock {
+  flex-direction: column;
+  align-items: center;
+}
+.dos-ending .big {
+  font-size: 3.5em;
+  color: var(--gold2);
+}
+
+/* ------------------------------------------------------------------ sanctum */
+.dos-wallet {
+  font-family: var(--serif);
+  color: #c8a8ff;
+}
+.dos-tabs {
+  display: flex;
+  gap: 0.4em;
+  margin: 0.8em 0;
+  border-bottom: 1px solid var(--line);
+}
+.dos-tabs button {
+  padding: 0.5em 1.2em;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  background: transparent;
+  font-family: var(--serif);
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  cursor: pointer;
+}
+.dos-tabs button.on {
+  color: var(--gold2);
+  border-color: var(--line);
+  background: rgba(255, 220, 160, 0.05);
+}
+.dos-talents,
+.dos-deckview {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.dos-hunter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em 1.6em;
+  font-family: var(--serif);
+  margin-bottom: 0.8em;
+}
+.dos-hunter .sp {
+  color: var(--gold2);
+}
+.dos-talents__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13em, 1fr));
+  gap: 0.8em;
+}
+.dos-talent {
+  padding: 0.8em 1em;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.025);
+}
+.dos-talent h4 {
+  margin: 0 0 0.3em;
+}
+.dos-talent p {
+  margin: 0 0 0.5em;
+  color: var(--dim);
+}
+.dos-talent .pips {
+  display: flex;
+  gap: 0.3em;
+  margin-bottom: 0.6em;
+}
+.dos-talent .pips i {
+  width: 0.7em;
+  height: 0.7em;
+  transform: rotate(45deg);
+  border: 1px solid var(--gold);
+}
+.dos-talent .pips i.on {
+  background: var(--gold2);
+  box-shadow: 0 0 6px rgba(255, 200, 90, 0.6);
+}
+.dos-talent.max {
+  border-color: rgba(243, 214, 142, 0.6);
+}
+.dos-cardgrid {
+  --cw: min(9.5em, 15cqw);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--cw), 1fr));
+  gap: 0.8em;
+  justify-items: center;
+  padding: 0.4em;
+}
+.dos-shopcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4em;
+}
+.dos-deckview__act {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+  padding: 0.7em;
+  background: rgba(10, 8, 9, 0.96);
+  border-top: 1px solid var(--line);
+  font-family: var(--serif);
+}
+
+/* ------------------------------------------------------------------ settings / help */
+.dos-field {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: center;
+  gap: 1em;
+  margin: 0.7em 0;
+  font-family: var(--serif);
+  letter-spacing: 0.03em;
+}
+.dos-field.check {
+  grid-template-columns: auto 1fr;
+}
+.dos-field input[type="range"] {
+  width: 100%;
+  accent-color: var(--gold);
+}
+.dos-field input[type="checkbox"] {
+  width: 1.2em;
+  height: 1.2em;
+  accent-color: var(--blood);
+}
+.dos-seg {
+  display: flex;
+  border: 1px solid var(--line);
+}
+.dos-seg button {
+  flex: 1;
+  padding: 0.45em 0.2em;
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 0.9em;
+}
+.dos-seg button:last-child {
+  border-right: 0;
+}
+.dos-seg button.on {
+  background: linear-gradient(180deg, #6a1616, #340a0a);
+  color: #fff3e0;
+}
+.dos-help ol {
+  display: grid;
+  gap: 0.5em;
+  padding-left: 1.4em;
+  line-height: 1.4;
+  font-size: 1.05em;
+}
+.dos-glossary {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45em;
+}
+.dos-glossary li {
+  display: grid;
+  grid-template-columns: 1.4em 9em 1fr;
+  gap: 0.6em;
+  align-items: start;
+}
+.dos-glossary b {
+  font-family: var(--serif);
+  font-weight: 500;
+  color: var(--gold2);
+}
+.dos-glossary span {
+  color: var(--dim);
+}
+
+/* ------------------------------------------------------------------ cards */
+.dos-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --gx: 50%;
+  --gy: 30%;
+  --frame1: #57534e;
+  --frame2: #2a2725;
+  --edge: #8a847a;
+  --glow: rgba(0, 0, 0, 0);
+  position: relative;
+  width: var(--cw);
+  aspect-ratio: 5 / 7;
+  font-size: calc(var(--cw) * 0.075);
+  perspective: 800px;
+  cursor: pointer;
+  outline: none;
+  flex: none;
+}
+.dos-card.sm {
+  --cw: min(13em, 18cqw, 30cqh * 0.714);
+}
+.dos-card.xs {
+  --cw: min(9.5em, 15cqw);
+}
+.dos-card__body {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease-out;
+  border-radius: 6%/4.3%;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 22%, transparent 70%, rgba(255, 255, 255, 0.08)),
+    repeating-linear-gradient(100deg, rgba(255, 255, 255, 0.025) 0 2px, rgba(0, 0, 0, 0.04) 2px 5px),
+    linear-gradient(160deg, var(--frame1), var(--frame2));
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.9),
+    inset 0 0 0 0.12em var(--edge),
+    inset 0 0 0 0.3em rgba(0, 0, 0, 0.55),
+    0 0.6em 1.4em rgba(0, 0, 0, 0.65),
+    0 0 1.2em var(--glow);
+}
+.dos-card__frame {
+  position: absolute;
+  inset: 4.6% 5.2%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4%/3%;
+  background: linear-gradient(180deg, #17130f, #0b0908 60%, #120e0b);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.9), inset 0 0 0 0.1em var(--edge), 0 0 0 0.08em rgba(255, 230, 190, 0.1);
+  overflow: hidden;
+}
+.dos-card__art {
+  position: relative;
+  flex: none;
+  margin: 4% 5% 0;
+  height: 47%;
+  border-radius: 2px;
+  background-size: cover;
+  background-position: center;
+  background-color: #0a0808;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.9), 0 0 0 0.08em var(--edge);
+  overflow: hidden;
+}
+.dos-card__artfallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 55%, var(--glow), transparent 60%),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05), transparent 50%),
+    linear-gradient(180deg, #1a1412, #050404);
+  animation: dos-artwait 1.8s ease-in-out infinite;
+}
+@keyframes dos-artwait {
+  50% {
+    filter: brightness(1.4);
+  }
+}
+.dos-card__artvig {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.55));
+}
+.dos-card__name {
+  position: relative;
+  flex: none;
+  margin: -0.55em -1% 0;
+  padding: 0.3em 0.5em;
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.05em;
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+  color: #f6e8c8;
+  text-shadow: 0 1px 0 #000, 0 0 6px rgba(0, 0, 0, 0.9);
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.88) 10%, rgba(0, 0, 0, 0.88) 90%, transparent);
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+  overflow-wrap: anywhere;
+}
+.dos-card__plus {
+  color: #8affb0;
+  margin-left: 0.15em;
+}
+.dos-card__type {
+  flex: none;
+  display: flex;
+  justify-content: center;
+  gap: 0.4em;
+  margin-top: 0.25em;
+  font-family: var(--serif);
+  font-size: 0.66em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--edge);
+}
+.dos-card__type i {
+  font-style: normal;
+  font-size: 0.7em;
+  opacity: 0.7;
+}
+.dos-card__text {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.12em;
+  padding: 0.15em 7% 0.6em;
+  text-align: center;
+  font-family: var(--text);
+  font-size: 0.98em;
+  line-height: 1.1;
+  color: #e9dcc2;
+  overflow: hidden;
+}
+.dos-card.fit-s .dos-card__text {
+  font-size: 0.86em;
+}
+.dos-card.fit-xs .dos-card__text {
+  font-size: 0.76em;
+  line-height: 1.05;
+}
+.dos-card__text p {
+  margin: 0;
+}
+.dos-card__cost {
+  position: absolute;
+  left: -4%;
+  top: -3%;
+  width: 22%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #a8c8ff, #3a5ab0 45%, #0c1430 80%);
+  box-shadow: 0 0 0 0.12em #0b0b10, 0 0 0 0.24em var(--edge), 0 0.25em 0.5em rgba(0, 0, 0, 0.7), 0 0 0.8em rgba(110, 160, 255, 0.45);
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.55em;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+  transform: translateZ(18px);
+}
+.dos-card__cost span {
+  font-size: 1em;
+}
+.dos-card.is-short .dos-card__cost {
+  background: radial-gradient(circle at 35% 30%, #ff9a8a, #a0201a 45%, #300606 80%);
+  box-shadow: 0 0 0 0.12em #0b0b10, 0 0 0 0.24em #803030, 0 0.25em 0.5em rgba(0, 0, 0, 0.7);
+}
+.dos-card__kind {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+  width: 13%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 0 0.08em var(--edge);
+  color: var(--edge);
+  font-size: 0.9em;
+  transform: translateZ(10px);
+}
+.dos-card__key {
+  position: absolute;
+  bottom: -0.2em;
+  right: 8%;
+  font-family: var(--sans);
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.35);
+}
+.dos-flourish {
+  position: absolute;
+  width: 14%;
+  color: var(--edge);
+  opacity: 0.75;
+  pointer-events: none;
+}
+.dos-flourish.tl {
+  left: 1%;
+  top: 56%;
+  display: none;
+}
+.dos-flourish.tr {
+  display: none;
+}
+.dos-flourish.bl {
+  left: 1.5%;
+  bottom: 1.5%;
+  transform: rotate(-90deg);
+}
+.dos-flourish.br {
+  right: 1.5%;
+  bottom: 1.5%;
+  transform: rotate(180deg);
+}
+.dos-card__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--gx) var(--gy), rgba(255, 255, 255, 0.16), transparent 45%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.dos-card:hover .dos-card__shine {
+  opacity: 1;
+}
+.dos-card.r-rare {
+  --frame1: #7a8494;
+  --frame2: #2c3442;
+  --edge: #b8c8dc;
+}
+.dos-card.r-epic {
+  --frame1: #5a3a7a;
+  --frame2: #1e0f2a;
+  --edge: #c9a0f0;
+  --glow: rgba(150, 80, 255, 0.22);
+}
+.dos-card.r-legendary {
+  --frame1: #9a7020;
+  --frame2: #3a2408;
+  --edge: #ffd88a;
+  --glow: rgba(255, 190, 70, 0.32);
+}
+.dos-card.r-legendary .dos-card__body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 240, 200, 0.35) 48%, transparent 60%);
+  background-size: 250% 100%;
+  animation: dos-sheen 3.2s ease-in-out infinite;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+@keyframes dos-sheen {
+  0% {
+    background-position: 130% 0;
+  }
+  60%,
+  100% {
+    background-position: -40% 0;
+  }
+}
+.dos-card.r-curse {
+  --frame1: #26302a;
+  --frame2: #050806;
+  --edge: #6a8a70;
+}
+.dos-card.k-attack .dos-card__kind {
+  color: #ff9a8a;
+}
+.dos-card.is-up .dos-card__name {
+  color: #d8ffd8;
+}
+.dos-card.is-dim {
+  filter: saturate(0.45) brightness(0.72);
+}
+.dos-card.is-sel .dos-card__body {
+  box-shadow: 0 0 0 2px var(--gold2), 0 0 1.4em rgba(255, 200, 90, 0.5);
+}
+.dos-card__back {
+  position: absolute;
+  inset: 0;
+  border-radius: 6%/4.3%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(160, 20, 20, 0.35), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(210, 169, 90, 0.08) 0 2px, transparent 2px 9px),
+    linear-gradient(160deg, #2a1414, #080404);
+  box-shadow: 0 0 0 1px #000, inset 0 0 0 0.2em #6a5030, inset 0 0 0 0.35em rgba(0, 0, 0, 0.7);
+  display: none;
+  place-items: center;
+}
+.dos-card.is-back .dos-card__body {
+  display: none;
+}
+.dos-card.is-back .dos-card__back {
+  display: grid;
+}
+.dos-card__backsigil {
+  width: 50%;
+  aspect-ratio: 1;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 1em rgba(210, 169, 90, 0.3), inset 0 0 0 0.6em rgba(0, 0, 0, 0.3);
+}
+.dos-card__back .lk {
+  position: absolute;
+  font-size: 2em;
+  color: var(--dim);
+}
+
+/* ------------------------------------------------------------------ battle HUD */
+.dos-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+.dos-hud > * {
+  pointer-events: auto;
+}
+.dos-top {
+  position: absolute;
+  top: 1.6cqh;
+  left: 1.6cqw;
+  right: 1.6cqw;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 34em) 1fr;
+  align-items: start;
+  gap: 1em;
+  pointer-events: none;
+}
+.dos-top > * {
+  pointer-events: auto;
+}
+.dos-top .dos-iconbtn {
+  justify-self: end;
+}
+.dos-top__title {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--serif);
+  text-shadow: 0 2px 8px #000;
+}
+.dos-top__title .t {
+  font-size: 1.05em;
+  letter-spacing: 0.04em;
+}
+.dos-plate {
+  padding: 0.45em 0.9em 0.55em;
+  background: linear-gradient(180deg, rgba(10, 6, 7, 0.82), rgba(10, 6, 7, 0.55));
+  border: 1px solid rgba(255, 90, 60, 0.25);
+  border-top: 2px solid rgba(255, 90, 60, 0.45);
+}
+.dos-plate__name {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.6em;
+  font-family: var(--serif);
+  font-size: 1.2em;
+  letter-spacing: 0.08em;
+  color: #ffd8c8;
+  text-shadow: 0 0 10px rgba(255, 50, 30, 0.45);
+}
+.dos-plate__name .ph {
+  font-size: 0.7em;
+  color: #ff7a5a;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.dos-hp {
+  position: relative;
+  height: 1.25em;
+  margin-top: 0.3em;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 6px #000;
+}
+.dos-hp .fill,
+.dos-hp .lag {
+  position: absolute;
+  inset: 0 auto 0 0;
+}
+.dos-hp .lag {
+  background: rgba(255, 230, 200, 0.55);
+  transition: width 0.9s 0.25s ease-out;
+  z-index: 0;
+}
+.dos-hp .fill {
+  z-index: 1;
+  transition: width 0.22s ease-out;
+  background: linear-gradient(180deg, #e2402c, #8a0e0e 60%, #5a0606);
+  box-shadow: inset 0 1px 0 rgba(255, 200, 180, 0.4);
+}
+.dos-hp.player .fill {
+  background: linear-gradient(180deg, #d83a3a, #7a1010 60%, #4a0606);
+}
+.dos-hp .txt {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  font-family: var(--sans);
+  font-size: 0.78em;
+  font-weight: 600;
+  text-shadow: 0 1px 2px #000;
+}
+.dos-hp .blk {
+  position: absolute;
+  z-index: 3;
+  left: -0.7em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2em;
+  height: 2em;
+  display: grid;
+  place-items: center;
+  color: #9ac8ff;
+  filter: drop-shadow(0 0 4px rgba(120, 180, 255, 0.6));
+}
+.dos-hp .blk .dos-ic {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.dos-hp .blk b {
+  position: relative;
+  font-family: var(--sans);
+  font-size: 0.78em;
+  color: #fff;
+  text-shadow: 0 1px 2px #000;
+}
+.dos-sts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
+  margin-top: 0.35em;
+  justify-content: center;
+}
+.dos-st {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  padding: 0.05em 0.4em;
+  border-radius: 1em;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: var(--sans);
+  font-size: 0.8em;
+}
+.dos-st.st-str {
+  color: #ff9a6a;
+}
+.dos-st.st-weak {
+  color: #b0a0ff;
+}
+.dos-st.st-vuln {
+  color: #ffd06a;
+}
+.dos-st.st-bleed {
+  color: #ff4a4a;
+}
+.dos-st.st-thorns {
+  color: #e8dcc0;
+}
+.dos-st.st-ritual {
+  color: #c87aff;
+}
+.dos-st.st-regen {
+  color: #7affa0;
+}
+
+.dos-intent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+  font-family: var(--serif);
+  filter: drop-shadow(0 2px 6px #000);
+  transition: opacity 0.3s;
+  will-change: transform;
+}
+.dos-intent.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.dos-intent__icons {
+  display: flex;
+  gap: 0.2em;
+  padding: 0.35em 0.55em;
+  border-radius: 2em;
+  background: radial-gradient(circle at 50% 30%, rgba(80, 20, 20, 0.95), rgba(10, 4, 4, 0.95));
+  border: 1px solid rgba(255, 120, 90, 0.5);
+  font-size: 1.5em;
+  color: #ffb0a0;
+  animation: dos-pulse 1.6s ease-in-out infinite;
+}
+.dos-intent.k-defend .dos-intent__icons {
+  color: #9ac8ff;
+  border-color: rgba(120, 180, 255, 0.5);
+  background: radial-gradient(circle at 50% 30%, rgba(20, 40, 80, 0.95), rgba(4, 6, 12, 0.95));
+}
+.dos-intent.k-buff .dos-intent__icons,
+.dos-intent.k-debuff .dos-intent__icons {
+  color: #d0a8ff;
+  border-color: rgba(180, 120, 255, 0.5);
+  background: radial-gradient(circle at 50% 30%, rgba(50, 20, 80, 0.95), rgba(8, 4, 12, 0.95));
+}
+.dos-intent.k-heal .dos-intent__icons {
+  color: #8affb0;
+  border-color: rgba(120, 255, 160, 0.4);
+}
+@keyframes dos-pulse {
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 14px rgba(255, 80, 50, 0.4);
+  }
+}
+.dos-intent__num {
+  margin-top: -0.35em;
+  font-family: var(--sans);
+  font-size: 1.5em;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 0 6px #000, 0 2px 0 #300;
+}
+.dos-intent__name {
+  font-size: 0.82em;
+  letter-spacing: 0.06em;
+  color: #e8d8c8;
+  white-space: nowrap;
+}
+
+.dos-player {
+  position: absolute;
+  left: 1.6cqw;
+  bottom: 2cqh;
+  width: min(24cqw, 17em);
+  display: flex;
+  gap: 0.6em;
+  align-items: center;
+  padding: 0.5em 0.7em;
+  background: linear-gradient(90deg, rgba(10, 6, 7, 0.9), rgba(10, 6, 7, 0.5));
+  border: 1px solid var(--line);
+}
+.dos-player__crest {
+  width: 2.6em;
+  height: 2.6em;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #4a3a2a, #120c08);
+  border: 1px solid var(--gold);
+  color: var(--gold2);
+  font-size: 1.1em;
+}
+.dos-player__info {
+  flex: 1;
+  min-width: 0;
+}
+.dos-player__info .nm {
+  font-family: var(--serif);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.82em;
+  color: var(--dim);
+}
+.dos-player .dos-sts {
+  justify-content: flex-start;
+}
+
+.dos-energy {
+  position: absolute;
+  left: 3cqw;
+  bottom: calc(2cqh + 6.6em);
+  width: 4.2em;
+  height: 4.2em;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  padding-top: 0.8em;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 30%, #c8e0ff, #3a6ad0 35%, #0a1840 72%, #050a18);
+  box-shadow: 0 0 0 2px #0a0a12, 0 0 0 4px var(--gold), 0 0 24px rgba(100, 160, 255, 0.55), inset 0 -8px 16px rgba(0, 0, 0, 0.5);
+  font-family: var(--serif);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0, 0, 40, 0.9);
+}
+.dos-energy .cur {
+  font-size: 1.9em;
+  line-height: 1;
+}
+.dos-energy .max {
+  font-size: 0.95em;
+  opacity: 0.8;
+}
+.dos-energy.flash {
+  animation: dos-eflash 0.6s;
+}
+.dos-energy.shake {
+  animation: dos-shake 0.4s;
+}
+@keyframes dos-eflash {
+  40% {
+    box-shadow: 0 0 0 2px #0a0a12, 0 0 0 4px #fff, 0 0 40px rgba(160, 200, 255, 1);
+    transform: scale(1.1);
+  }
+}
+@keyframes dos-shake {
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.dos-piles {
+  position: absolute;
+  right: 1.6cqw;
+  bottom: calc(2cqh + 4.2em);
+  display: flex;
+  gap: 0.5em;
+}
+.dos-pile {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.25em 0.6em;
+  border: 1px solid var(--line);
+  background: rgba(10, 8, 9, 0.8);
+  font-family: var(--sans);
+  font-size: 0.9em;
+  color: var(--dim);
+}
+.dos-pile b {
+  color: var(--bone);
+}
+.dos-end {
+  position: absolute;
+  right: 1.6cqw;
+  bottom: 2cqh;
+  min-width: 8.5em;
+  height: 3.2em;
+  padding: 0 1.2em;
+  border: 1px solid rgba(255, 140, 100, 0.55);
+  border-radius: 2em;
+  background: linear-gradient(180deg, #8a2218, #3a0a08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 200, 160, 0.3);
+  font-family: var(--serif);
+  font-size: 1.1em;
+  letter-spacing: 0.1em;
+  color: #fff0e0;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.15s;
+}
+.dos-end:hover:not(:disabled) {
+  filter: brightness(1.2);
+  transform: translateY(-1px);
+}
+.dos-end:disabled {
+  filter: grayscale(0.8) brightness(0.6);
+  cursor: default;
+}
+.dos-end.pulse {
+  animation: dos-endpulse 1.4s ease-in-out infinite;
+}
+@keyframes dos-endpulse {
+  50% {
+    box-shadow: 0 0 26px rgba(255, 90, 50, 0.75), inset 0 1px 0 rgba(255, 200, 160, 0.3);
+  }
+}
+
+/* hand */
+.dos-hand {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.5s;
+}
+/* boss introduction: lower the hand out of the shot so the title reads cleanly */
+.dos.intro-on .dos-hand {
+  transform: translateY(16em);
+  opacity: 0;
+}
+.dos.intro-on .dos-hand .dos-slot {
+  pointer-events: none;
+}
+.dos-slot {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  pointer-events: auto;
+  transform: translateX(calc(-50% + var(--off) * var(--cw) * 0.78)) translateY(calc(12% + var(--lift) * 1.1cqh)) rotate(var(--rot));
+  transform-origin: 50% 120%;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: dos-draw 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  animation-delay: calc(var(--i) * 70ms);
+}
+.dos-slot.hov {
+  transform: translateX(calc(-50% + var(--off) * var(--cw) * 0.78)) translateY(-16%) rotate(0deg) scale(1.42);
+  transition-duration: 0.18s;
+}
+.dos-slot__tap {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.35em);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 0.25em 0.7em;
+  border-radius: 1em;
+  background: rgba(12, 6, 6, 0.88);
+  border: 1px solid rgba(232, 196, 120, 0.45);
+  color: #f1dfb8;
+  font-family: var(--serif);
+  font-size: calc(var(--cw) * 0.08);
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  animation: dos-tap-in 0.2s ease-out;
+}
+@keyframes dos-tap-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 0.4em);
+  }
+}
+.dos-slot.fly {
+  pointer-events: none;
+  animation: dos-fly 0.55s cubic-bezier(0.5, 0, 0.6, 1) forwards;
+}
+@keyframes dos-draw {
+  from {
+    transform: translateX(-40cqw) translateY(40%) rotate(-30deg) scale(0.6);
+    opacity: 0;
+  }
+}
+@keyframes dos-fly {
+  0% {
+    transform: translateX(calc(-50% + var(--off) * var(--cw) * 0.78)) translateY(-10%) rotate(0deg) scale(1.15);
+    opacity: 1;
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: translateX(calc(-50% + var(--off) * var(--cw) * 0.78 + var(--tx, 0px))) translateY(calc(var(--ty, -40cqh))) rotate(8deg) scale(0.4);
+    opacity: 0;
+    filter: brightness(3) blur(2px);
+  }
+}
+.dos-hud.busy .dos-slot:not(.fly) {
+  filter: brightness(0.8);
+}
+
+/* banners, numbers, intro */
+.dos-banner {
+  position: absolute;
+  left: 50%;
+  top: 22cqh;
+  z-index: 20;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5em 3em;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.78) 20%, rgba(0, 0, 0, 0.78) 80%, transparent);
+  font-family: var(--serif);
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: dos-banner 0.4s ease-out;
+  text-shadow: 0 2px 8px #000;
+}
+.dos-banner small {
+  font-size: 0.55em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.dos-banner.title {
+  font-size: 2em;
+  color: var(--gold2);
+}
+.dos-banner.enemy {
+  color: #ffb4a0;
+}
+.dos-banner.boss {
+  color: #ff6a4a;
+  font-size: 1.6em;
+  white-space: normal;
+  text-align: center;
+  max-width: 90cqw;
+}
+.dos-banner.warn {
+  color: #ffcf8a;
+  font-size: 1.15em;
+}
+.dos-banner.turn {
+  color: var(--bone);
+  font-size: 1.2em;
+}
+.dos-banner.info {
+  font-size: 0.95em;
+  color: var(--dim);
+}
+.dos-banner.float {
+  z-index: 70;
+  top: auto;
+  bottom: 4cqh;
+}
+@keyframes dos-banner {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-0.4em) scaleX(0.9);
+  }
+}
+.dos-numbers {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  pointer-events: none;
+  overflow: hidden;
+}
+.dos-num {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: calc(var(--u, 16px) * 2.4);
+  color: #fff;
+  text-shadow: 0 0 8px #000, 0 3px 0 #300;
+  animation: dos-num 1.3s ease-out forwards;
+}
+.dos-num.dmg {
+  color: #fff4e8;
+}
+.dos-num.crit {
+  color: #ff4a3a;
+  font-size: calc(var(--u, 16px) * 3.4);
+}
+.dos-num.blocked,
+.dos-num.blockgain {
+  color: #9ac8ff;
+  font-size: calc(var(--u, 16px) * 1.6);
+}
+.dos-num.heal {
+  color: #8affb0;
+}
+.dos-num.bleed {
+  color: #ff3a3a;
+  font-size: calc(var(--u, 16px) * 1.8);
+}
+.dos-num.thorn,
+.dos-num.self {
+  color: #e8dcc0;
+  font-size: calc(var(--u, 16px) * 1.7);
+}
+.dos-num.hurt {
+  color: #ff5050;
+  font-size: calc(var(--u, 16px) * 2.6);
+}
+@keyframes dos-num {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20%) scale(0.6);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(-50%, -60%) scale(1.15);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -190%) scale(0.95);
+  }
+}
+.dos-intro {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18cqh;
+  z-index: 26;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  font-family: var(--serif);
+  text-shadow: 0 4px 16px #000;
+  animation: dos-intro 3.4s ease-out forwards;
+}
+.dos-intro .k {
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--dim);
+  font-size: 1.1em;
+}
+.dos-intro .n {
+  font-size: clamp(26px, 7cqh, 72px);
+  letter-spacing: 0.08em;
+  color: #ffd2b8;
+  text-shadow: 0 0 30px rgba(255, 40, 20, 0.6), 0 4px 0 #000;
+}
+@keyframes dos-intro {
+  0% {
+    opacity: 0;
+    letter-spacing: 0.3em;
+  }
+  20%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* hurt: red edge vignette + claw marks */
+.dos-hurtfx {
+  position: absolute;
+  inset: 0;
+  z-index: 24;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(160, 0, 0, 0.55) 100%);
+}
+.dos.hurt .dos-hurtfx {
+  animation: dos-hurt 0.7s ease-out;
+}
+@keyframes dos-hurt {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.dos-hurtfx i {
+  position: absolute;
+  top: 18%;
+  left: 38%;
+  width: 0.5cqw;
+  height: 42cqh;
+  border-radius: 50%;
+  background: linear-gradient(180deg, transparent, rgba(120, 0, 0, 0.85) 30%, rgba(60, 0, 0, 0.9) 70%, transparent);
+  transform: rotate(28deg);
+  opacity: 0;
+  filter: blur(0.5px);
+}
+.dos-hurtfx i:nth-child(2) {
+  left: 44%;
+  top: 15%;
+}
+.dos-hurtfx i:nth-child(3) {
+  left: 50%;
+  top: 19%;
+}
+.dos.hurt-claw .dos-hurtfx i {
+  opacity: 1;
+}
+
+/* tutorial */
+.dos-tut {
+  position: absolute;
+  z-index: 40;
+  width: min(80cqw, 22em);
+  padding: 0.9em 1.1em;
+  background: rgba(14, 10, 8, 0.96);
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 30px rgba(210, 169, 90, 0.3), 0 10px 30px rgba(0, 0, 0, 0.7);
+  font-size: 1.05em;
+  line-height: 1.35;
+}
+.dos-tut p {
+  margin: 0;
+}
+.dos-tut .dos-row {
+  justify-content: flex-end;
+  margin-top: 0.7em;
+}
+.dos-tut.at-hand {
+  left: 50%;
+  bottom: calc(var(--cw) * 1.25);
+  transform: translateX(-50%);
+}
+.dos-tut.at-energy {
+  left: calc(3cqw + 5em);
+  bottom: calc(2cqh + 6em);
+}
+.dos-tut.at-intent {
+  left: 50%;
+  top: 14cqh;
+  transform: translateX(-50%);
+}
+.dos-tut.at-player {
+  left: 1.6cqw;
+  bottom: calc(2cqh + 5em);
+}
+.dos-tut.at-end {
+  right: 1.6cqw;
+  bottom: calc(2cqh + 7.5em);
+}
+.dos-hud.tut .dos-hand,
+.dos-hud.tut .dos-end {
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ responsive */
+@container dos (max-aspect-ratio: 1/1) {
+  .dos-hud {
+    --cw: min(18.5cqw, 19cqh * 0.714);
+  }
+  .dos-top {
+    grid-template-columns: 1fr auto;
+  }
+  .dos-top__title {
+    display: none;
+  }
+  .dos-player {
+    width: min(46cqw, 16em);
+    bottom: calc(var(--cw) * 1.05 + 1cqh);
+  }
+  .dos-energy {
+    left: auto;
+    right: 3cqw;
+    bottom: calc(var(--cw) * 1.05 + 1cqh);
+  }
+  .dos-piles {
+    bottom: calc(var(--cw) * 1.05 + 5.4em);
+  }
+  .dos-end {
+    bottom: calc(var(--cw) * 1.05 + 1.6em);
+    right: calc(3cqw + 5em);
+    min-width: 6em;
+    height: 2.6em;
+  }
+  .dos-act__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .dos-brief__grid {
+    grid-template-columns: 1fr;
+  }
+  .dos-menu {
+    padding: 5cqh 6cqw;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.35) 60%, rgba(0, 0, 0, 0.75));
+  }
+  .dos-banner {
+    font-size: 1.1em;
+    padding: 0.4em 1.2em;
+  }
+  .dos-banner.title {
+    font-size: 1.4em;
+  }
+  .dos-glossary li {
+    grid-template-columns: 1.4em 1fr;
+  }
+  .dos-glossary li span {
+    grid-column: 2;
+  }
+}
+@container dos (max-height: 430px) {
+  .dos > * {
+    --u: clamp(8px, 2.4cqh, 13px);
+  }
+  .dos-act__row {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .dos-node {
+    min-height: 4.8em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dos-slot,
+  .dos-slot.hov {
+    transition: none;
+  }
+  .dos-intent__icons,
+  .dos-card.r-legendary .dos-card__body::after {
+    animation: none;
+  }
+}
+.dos.intro-on .dos-intent {
+  opacity: 0;
+}
