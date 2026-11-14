@@ -34,7 +34,7 @@ const NOSAVE = TEST && PARAMS.has("nosave");
 const SAVE_KEY = "dead-draw-save";
 const SETTINGS_KEY = "dead-draw-settings";
 const WINS_KEY = "dead-draw-wins";
-const DEFAULT_SETTINGS = { quality: "auto", volume: 0.8, brightness: 1, shake: true };
+const DEFAULT_SETTINGS = { quality: "low", volume: 0.8, brightness: 1, shake: true };
 
 const mem = new Map();
 const memStore = { getItem: (k) => (mem.has(k) ? mem.get(k) : null), setItem: (k, v) => mem.set(k, String(v)), removeItem: (k) => mem.delete(k) };

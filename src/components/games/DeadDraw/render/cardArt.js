@@ -23,7 +23,7 @@ const ART = {
   rations: { props: [["russian_food_cans_01", 0.5, [0, 0, 0], 0.3, "x"]], rim: 0xffa040 },
   salvage: { props: [["pipe_wrench", 0.42, [-0.08, 0, 0], 0, "y", [Math.PI / 2, 0, 0.6]], ["crowbar_01", 0.6, [0.08, 0.02, 0.05], 0, "y", [Math.PI / 2, 0, -0.5]]], rim: 0xff7a3a },
   battery: { props: [["pastic_torch_6v", 0.32, [0, 0, 0], 0.7]], rim: 0x9cff7a },
-  barricade: { props: [["cardboard_box_01", 0.34, [0, 0, 0], 0.4], ["crowbar_01", 0.55, [0.18, 0.02, 0.15], 0, "y", [Math.PI / 2, 0, 1.2]]], rim: 0x8fb3ff },
+  barricade: { props: [["cement_bag", 0.5, [0, 0, 0], 0.4, "x"], ["cement_bag", 0.5, [0.02, 0.17, 0.02], 0.2, "x"]], rim: 0x8fb3ff },
   security: { props: [["security_camera_01", 0.5, [0, 0.1, 0], -0.8, "z"]], rim: 0xff3030 },
   reinforce: { props: [["metal_toolbox", 0.45, [0, 0, 0], 0.6, "x"]], rim: 0x7fb0ff },
   lockdown: { props: [["security_light", 0.45, [0, 0, 0], 0.3]], rim: 0xff2010, glow: 0xff2a10 },
@@ -81,7 +81,7 @@ async function vignette(renderer, key) {
   keyL.position.set(c.x - 0.9, c.y + 1.1, c.z + 1.1);
   keyL.target.position.copy(c);
   keyL.castShadow = true;
-  keyL.shadow.mapSize.set(1024, 1024);
+  keyL.shadow.mapSize.set(512, 512);
   keyL.shadow.bias = -0.0005;
   const rim = new THREE.PointLight(A.rim, 6, 3, 2);
   rim.position.set(c.x + 0.6, c.y + 0.5, c.z - 0.5);

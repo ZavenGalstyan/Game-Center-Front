@@ -25,6 +25,12 @@ function loader() {
   return gltfLoader;
 }
 
+/** "props" (full scans) or "props-lite" (~22% triangles, 256 px textures, used on Low). */
+let propSet = "props";
+export function setPropSet(set) {
+  propSet = set === "props-lite" ? "props-lite" : "props";
+}
+
 export function setAnisotropy(n) {
   maxAniso = Math.max(1, n | 0);
 }
@@ -42,9 +48,10 @@ function once(key, make) {
 
 /** A prop: a fresh clone per call (geometry + materials shared). */
 export function loadProp(name) {
-  return once(`prop:${name}`, () =>
+  const set = propSet;
+  return once(`${set}:${name}`, () =>
     loader()
-      .loadAsync(`${DIR}props/${name}.glb`)
+      .loadAsync(`${DIR}${set}/${name}.glb`)
       .then((g) => {
         g.scene.traverse((o) => {
           if (!o.isMesh) return;

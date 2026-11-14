@@ -15,7 +15,7 @@ import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPa
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
 import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
 import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib.js";
-import { loadEnvironment, setAnisotropy, disposeAssets, preloadSets } from "./assets.js";
+import { loadEnvironment, setAnisotropy, disposeAssets, preloadSets, setPropSet } from "./assets.js";
 import { buildBunker, disposeBunker, TARGETS, ROOM, vaultY } from "./bunker.js";
 import { loadRigs, disposeAssets as disposeRigAssets } from "../../DeckOfShadows/render/assets.js";
 import { softSprite, disposeSharedTextures } from "../../DeckOfShadows/render/materials.js";
@@ -25,9 +25,11 @@ const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
 const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 export const QUALITY = {
-  high: { pr: 2, msaa: 4, shadows: true, shadowSize: 2048, casters: 2, area: true, bloom: true, dust: 1600, shafts: true, cctvEvery: 2, aniso: 8 },
-  medium: { pr: 1.25, msaa: 2, shadows: true, shadowSize: 1024, casters: 1, area: true, bloom: true, dust: 800, shafts: true, cctvEvery: 3, aniso: 4 },
-  low: { pr: 1, msaa: 0, shadows: false, shadowSize: 512, casters: 0, area: false, bloom: false, dust: 300, shafts: false, cctvEvery: 5, aniso: 2 },
+  high: { pr: 2, msaa: 4, shadows: true, shadowSize: 2048, casters: 2, area: true, bloom: true, dust: 1600, shafts: true, cctvEvery: 2, aniso: 8, post: true, lean: false, fps: 0 },
+  medium: { pr: 1, msaa: 0, shadows: true, shadowSize: 1024, casters: 1, area: false, bloom: true, dust: 500, shafts: true, cctvEvery: 4, aniso: 4, post: true, lean: false, fps: 0 },
+  // the lightest look: reduced resolution, no post-processing, no shadows, no
+  // live CCTV, no particles, only the essential lights, capped at 30 fps
+  low: { pr: 0.65, msaa: 0, shadows: false, shadowSize: 512, casters: 0, area: false, bloom: false, dust: 0, shafts: false, cctvEvery: 0, aniso: 1, post: false, lean: true, fps: 30 },
 };
 
 const GradeShader = {
@@ -117,7 +119,7 @@ function shaftMaterial(color) {
 let rectInit = false;
 
 export function createWorld(container, opts = {}) {
-  let qualityName = !opts.quality || opts.quality === "auto" ? "high" : opts.quality;
+  let qualityName = !opts.quality || opts.quality === "auto" ? "low" : opts.quality;
   let autoQuality = !opts.quality || opts.quality === "auto";
   let Q = QUALITY[qualityName];
   const canvas = document.createElement("canvas");
@@ -230,8 +232,10 @@ export function createWorld(container, opts = {}) {
     });
     for (const t of L.tubes) {
       t.area.visible = Q.area;
-      t.point.visible = !Q.area;
+      t.point.visible = !Q.area && !(Q.lean && t === L.tubes[2]);
     }
+    // fewer lights = much cheaper shaders on every surface
+    for (const l of [L.key, L.monitor, L.radio, L.sector, L.day, L.beacon, L.red[1]]) l.visible = !Q.lean;
     bloom.enabled = Q.bloom;
     scene.traverse((o) => {
       if (o.material) o.material.needsUpdate = true;
@@ -248,6 +252,10 @@ export function createWorld(container, opts = {}) {
       dust.removeFromParent();
     }
     const n = Q.dust;
+    if (!n) {
+      dust = null;
+      return;
+    }
     const g = new THREE.BufferGeometry();
     const p = new Float32Array(n * 3);
     const s = new Float32Array(n);
@@ -401,6 +409,8 @@ export function createWorld(container, opts = {}) {
     scene.environment = env;
     scene.environmentIntensity = 0.22;
     onProgress?.(0.35);
+    // Low loads the simplified prop set (applies from load; switching later keeps the loaded set)
+    setPropSet(qualityName === "low" ? "props-lite" : "props");
     B = await buildBunker({ quality: qualityName, onProgress });
     if (disposed) {
       disposeBunker(B);
@@ -787,8 +797,12 @@ export function createWorld(container, opts = {}) {
   const tmpL = V();
 
   let simT = 0;
+  let lastDraw = 0;
   function tick() {
     raf = requestAnimationFrame(tick);
+    const nowDraw = performance.now();
+    if (Q.fps && nowDraw - lastDraw < 1000 / Q.fps - 2) return;
+    lastDraw = nowDraw;
     const dt = Math.min(0.05, clock.getDelta());
     simT += dt;
     const t = simT;
@@ -800,7 +814,7 @@ export function createWorld(container, opts = {}) {
     if (autoQuality && loaded && document.visibilityState === "visible") {
       if (ft > 40) slow++;
       else slow = Math.max(0, slow - 0.5);
-      if (slow > 90 && qualityName !== "low") {
+      if (slow > 45 && qualityName !== "low") {
         slow = 0;
         setQualityInternal(qualityName === "high" ? "medium" : "low");
         listeners.quality(qualityName);
@@ -946,7 +960,7 @@ export function createWorld(container, opts = {}) {
   }
 
   function renderFrame(dt) {
-    if (loaded && frame % Q.cctvEvery === 0 && mood.power > 0.05) {
+    if (loaded && Q.cctvEvery && frame % Q.cctvEvery === 0 && mood.power > 0.05) {
       const c = cctv[(frame / Q.cctvEvery) % 2 | 0];
       const fog = scene.fog;
       scene.fog = null;
@@ -962,7 +976,8 @@ export function createWorld(container, opts = {}) {
       dust && (dust.visible = true);
       for (const s of B.screens) s.mesh.visible = true;
     }
-    composer.render(dt);
+    if (Q.post) composer.render(dt);
+    else renderer.render(scene, camera);
   }
   raf = requestAnimationFrame(tick);
 
@@ -994,7 +1009,7 @@ export function createWorld(container, opts = {}) {
   }
   function setQuality(q) {
     autoQuality = q === "auto";
-    const name = autoQuality ? (qualityName === "low" ? "medium" : qualityName) : q;
+    const name = autoQuality ? qualityName : q;
     if (QUALITY[name]) setQualityInternal(name);
   }
 
@@ -1034,7 +1049,7 @@ export function createWorld(container, opts = {}) {
         simT += dt;
         step(dt, simT);
       }
-      frame = Q.cctvEvery - 1;
+      frame = Math.max(0, Q.cctvEvery - 1);
       renderFrame(dt);
     },
     renderer,
