@@ -37,6 +37,8 @@ export const GAME_CATALOG_IDS = {
   "crown of ashes: kingdoms at war": "CrownOfAshes",
   "cursed house": "CursedHouse",
   "darts championship 3d": "DartsChampionship3D",
+  "dead draw": "DeadDraw",
+  "dead draw: survival bunker": "DeadDraw",
   "deck of shadows": "DeckOfShadows",
   "deck of shadows: monster hunt": "DeckOfShadows",
   "deep mine": "DeepMine",

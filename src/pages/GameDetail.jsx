@@ -187,6 +187,8 @@ const GAME_TAGLINES = {
   "Deep Mine": "The Deeper You Go, the Darker It Gets.",
   "Deck of Shadows: Monster Hunt": "Draw Your Cards. Face the Darkness.",
   "Deck of Shadows": "Draw Your Cards. Face the Darkness.",
+  "Dead Draw: Survival Bunker": "Every Card Is a Choice. Every Choice Could Be Your Last.",
+  "Dead Draw": "Every Card Is a Choice. Every Choice Could Be Your Last.",
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
   "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
   "Throw Masters": "Aim. Throw. Become a Champion.",
