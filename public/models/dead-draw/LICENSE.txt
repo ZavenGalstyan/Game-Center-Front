@@ -1,0 +1,35 @@
+Dead Draw: Survival Bunker — 3D assets
+
+All files in this folder are CC0 1.0 Universal (public domain dedication).
+https://creativecommons.org/publicdomain/zero/1.0/
+They were re-packed for the web (glTF-Transform: meshopt geometry, WebP
+textures, textures resized to 512/1024 px); the content is otherwise unchanged.
+
+props/*.glb — Poly Haven (https://polyhaven.com/models), CC0:
+  ammo_box, barrel_01, binder_notebook, caged_hanging_light, can_rusted,
+  cardboard_box_01, cement_bag, clipboard, crowbar_01, desk_lamp_arm_01,
+  fire_alarm, industrial_wall_lamp, korean_fire_extinguisher_01,
+  long_life_food, medical_box, metal_jerrycan, metal_office_desk,
+  metal_stool_01, metal_toolbox, modular_airduct_rectangular_01,
+  modular_industrial_pipes_01, mounted_fluorescent_lights, old_bed_frame,
+  old_gas_mask, old_military_compressor, old_military_crate, pastic_torch_6v,
+  pipe_wrench, plastic_bottle_gallon, plastic_crate_01, plastic_jerrycan,
+  portable_generator, power_box_01, propane_tank, russian_food_cans_01,
+  security_camera_01, security_light, steel_frame_shelves_02, street_rat,
+  television_02, vintage_flashlight, vintage_radio_transceiver,
+  worn_metal_rack
+
+tex/*_d|_n|_arm.webp — Poly Haven textures (https://polyhaven.com/textures), CC0:
+  concrete_floor_02, concrete_floor_worn_001, concrete_wall_008,
+  dirty_concrete, green_metal_rust, metal_plate, painted_concrete,
+  rust_coarse_01, rusty_metal_02, rusty_painted_metal
+  (_d = diffuse, _n = OpenGL normal, _arm = AO/roughness/metalness)
+
+env.hdr — Poly Haven HDRI "missile_launch_facility_01" (1k), CC0, used only
+  for image-based lighting/reflections.
+
+Shared with other games (not in this folder):
+  ../neon-mercenary/male.glb, female.glb, anims.glb and ../mma/anims.glb —
+  Quaternius "Universal Base Characters" + "Universal Animation Library",
+  CC0. Dead Draw re-sculpts these rigs into the Burrower creature and Mara
+  at runtime (via Deck of Shadows' rig system).

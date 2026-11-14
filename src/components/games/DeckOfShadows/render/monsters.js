@@ -579,6 +579,8 @@ const SPECS = {
   },
 };
 export { SPECS };
+// Rig, Animator and the dressing helpers are also used by Dead Draw's creatures.
+export { Rig, Animator, addEyes, bodyMat };
 
 /** Build a monster. ctx = { rigs, quality } */
 export async function buildMonster(key, ctx) {

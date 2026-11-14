@@ -1,0 +1,1338 @@
+/* ==========================================================================
+   Dead Draw: Survival Bunker — scoped under `.dds` (prefix dds-).
+   Sizes follow the stage (container-type: size) so the HUD, cards and panels
+   fit any GamePlayer size and fullscreen without page scrolling.
+   ========================================================================== */
+.dds {
+  --paper: #e8dcc2;
+  --paper2: #d6c6a4;
+  --ink: #1b1712;
+  --bone: #e9e1d0;
+  --dim: #a59c8b;
+  --amber: #e2a64a;
+  --amber2: #ffcf7a;
+  --blood: #b3221a;
+  --blood2: #ff4a3a;
+  --ok: #8fc27a;
+  --panel: rgba(10, 10, 9, 0.84);
+  --line: rgba(226, 166, 74, 0.26);
+  --stencil: "Bahnschrift", "DIN Condensed", "Arial Narrow", "Roboto Condensed", "Segoe UI", sans-serif;
+  --type: "Courier New", "Courier Prime", "Lucida Console", monospace;
+  --sans: "Segoe UI", "Trebuchet MS", system-ui, sans-serif;
+  --cw: min(14cqw, 25cqh);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: #020203;
+  color: var(--bone);
+  font-family: var(--sans);
+  container-type: size;
+  container-name: dds;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  overscroll-behavior: contain;
+}
+.dds > * {
+  --u: clamp(9px, 2cqh, 17px);
+  font-size: var(--u);
+}
+.dds *,
+.dds *::before,
+.dds *::after {
+  box-sizing: border-box;
+}
+.dds :where(button) {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.dds-stage {
+  position: absolute;
+  inset: 0;
+}
+.dds-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.dds-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.45) 100%);
+}
+.dds.is-dead .dds-grain {
+  background: radial-gradient(ellipse at center, rgba(60, 0, 0, 0.2) 30%, rgba(30, 0, 0, 0.75) 100%);
+  transition: background 1.2s;
+}
+.dds-ico {
+  width: 1.2em;
+  height: 1.2em;
+  flex: none;
+}
+
+/* ------------------------------------------------------------------ buttons */
+.dds-btn {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
+  min-width: 11em;
+  padding: 0.65em 1.4em;
+  border: 1px solid rgba(233, 225, 208, 0.22);
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(40, 38, 34, 0.9), rgba(18, 17, 15, 0.92));
+  color: var(--bone);
+  font-family: var(--stencil);
+  font-size: 1em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0.3em 1em rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s, border-color 0.15s, background 0.15s, color 0.15s;
+}
+.dds-btn:hover:not(:disabled) {
+  border-color: var(--amber);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.dds-btn:focus-visible {
+  outline: 2px solid var(--amber2);
+  outline-offset: 2px;
+}
+.dds-btn.primary {
+  border-color: rgba(226, 166, 74, 0.7);
+  background: linear-gradient(180deg, rgba(120, 72, 22, 0.92), rgba(62, 34, 10, 0.95));
+  color: #fff3dc;
+}
+.dds-btn.primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, rgba(150, 92, 30, 0.95), rgba(80, 44, 12, 0.96));
+}
+.dds-btn.big {
+  font-size: 1.15em;
+  padding: 0.8em 2em;
+}
+.dds-btn.small {
+  min-width: 0;
+  padding: 0.4em 0.9em;
+  font-size: 0.8em;
+}
+.dds-btn small {
+  font-size: 0.7em;
+  opacity: 0.75;
+  letter-spacing: 0.08em;
+}
+.dds-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.dds-iconbtn {
+  display: grid;
+  place-items: center;
+  width: 2.3em;
+  height: 2.3em;
+  border: 1px solid rgba(233, 225, 208, 0.2);
+  border-radius: 2px;
+  background: rgba(12, 12, 11, 0.7);
+}
+.dds-iconbtn:hover {
+  border-color: var(--amber);
+}
+.dds-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7em;
+  margin-top: 1em;
+}
+
+/* ------------------------------------------------------------------ logo / menu / loading */
+.dds-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.9;
+  text-shadow: 0 0 1.2em rgba(0, 0, 0, 0.9);
+}
+.dds-logo span {
+  font-family: var(--stencil);
+  font-weight: 700;
+  font-size: 5.4em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #efe6d2;
+  background: linear-gradient(180deg, #f3ead8 0%, #c9b897 60%, #8b7a5c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0.08em 0 rgba(0, 0, 0, 0.8));
+}
+.dds-logo i {
+  font-family: var(--stencil);
+  font-style: normal;
+  font-size: 1.5em;
+  letter-spacing: 0.55em;
+  margin-top: 0.4em;
+  padding-left: 0.55em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.dds-logo.small span {
+  font-size: 3.4em;
+}
+.dds-logo.small i {
+  font-size: 1em;
+}
+.dds-menu {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1em;
+  background: radial-gradient(ellipse at 50% 45%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.75) 80%);
+  animation: dds-fade 0.8s ease both;
+}
+.dds-tag {
+  margin: 0;
+  font-family: var(--type);
+  font-size: 1.05em;
+  color: var(--dim);
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 0 1em;
+}
+.dds-menu-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  margin-top: 0.8em;
+}
+.dds-best {
+  margin: 0;
+  font-family: var(--type);
+  font-size: 0.85em;
+  color: var(--ok);
+}
+.dds-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4em;
+  background: #050505;
+}
+.dds-loading p {
+  margin: 0;
+  font-family: var(--type);
+  color: var(--dim);
+}
+.dds-bar {
+  width: min(22em, 60cqw);
+  height: 0.3em;
+  background: rgba(255, 255, 255, 0.08);
+}
+.dds-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #8a5a1c, var(--amber2));
+  transition: width 0.3s;
+}
+
+/* ------------------------------------------------------------------ panels / modals */
+.dds-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 1em;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  animation: dds-fade 0.25s ease both;
+}
+.dds-panel {
+  position: relative;
+  width: min(34em, 92cqw);
+  max-height: 92cqh;
+  overflow: auto;
+  padding: 1.4em 1.6em;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 30%),
+    var(--panel);
+  box-shadow: 0 1.5em 4em rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  scrollbar-width: thin;
+}
+.dds-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0.35em;
+  border: 1px dashed rgba(226, 166, 74, 0.12);
+  pointer-events: none;
+}
+.dds-panel.narrow {
+  width: min(26em, 92cqw);
+}
+.dds-panel.wide {
+  width: min(52em, 94cqw);
+}
+.dds-panel h1,
+.dds-panel h2 {
+  margin: 0 0 0.5em;
+  font-family: var(--stencil);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f2e8d4;
+}
+.dds-panel h1 {
+  font-size: 2.2em;
+}
+.dds-panel h2 {
+  font-size: 1.5em;
+}
+.dds-panel p {
+  line-height: 1.45;
+}
+.dds-rules {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8em 1.3em;
+  text-align: left;
+}
+.dds-rule {
+  display: flex;
+  gap: 0.7em;
+}
+.dds-rule .dds-ico {
+  width: 1.7em;
+  height: 1.7em;
+  color: var(--amber);
+}
+.dds-rule b {
+  font-family: var(--stencil);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.95em;
+}
+.dds-rule p {
+  margin: 0.2em 0 0;
+  font-size: 0.88em;
+  color: #cfc6b4;
+}
+.dds-keys {
+  margin: 1.2em 0;
+  font-family: var(--type);
+  font-size: 0.8em;
+  color: var(--dim);
+}
+.dds-set {
+  display: grid;
+  gap: 0.4em;
+  margin: 0 0 1em;
+  text-align: left;
+}
+.dds-set label {
+  font-family: var(--stencil);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  color: var(--dim);
+}
+.dds-set input[type="range"] {
+  width: 100%;
+  accent-color: var(--amber);
+}
+.dds-seg {
+  display: flex;
+  border: 1px solid rgba(233, 225, 208, 0.18);
+}
+.dds-seg button {
+  flex: 1;
+  padding: 0.45em 0.3em;
+  border: 0;
+  background: transparent;
+  font-family: var(--stencil);
+  letter-spacing: 0.06em;
+  font-size: 0.85em;
+}
+.dds-seg button + button {
+  border-left: 1px solid rgba(233, 225, 208, 0.12);
+}
+.dds-seg button.on {
+  background: rgba(226, 166, 74, 0.25);
+  color: #fff;
+}
+.dds-note {
+  display: block;
+  margin-top: 0.6em;
+  font-size: 0.8em;
+  color: var(--dim);
+}
+
+/* ------------------------------------------------------------------ HUD */
+.dds-hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 0.4em 1em;
+  padding: 0.7em 0.9em 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.35) 70%, transparent);
+}
+.dds-hud > * {
+  pointer-events: auto;
+}
+.dds-hud-day {
+  display: flex;
+  gap: 0.7em;
+  align-items: center;
+  max-width: 34cqw;
+}
+.dds-hud-dayn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.25em 0.6em;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.5);
+  line-height: 1;
+  font-family: var(--stencil);
+}
+.dds-hud-dayn span {
+  font-size: 0.65em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.dds-hud-dayn b {
+  font-size: 1.9em;
+  color: var(--amber2);
+}
+.dds-hud-dayn i {
+  font-style: normal;
+  font-size: 0.65em;
+  color: var(--dim);
+}
+.dds-hud-dayt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  min-width: 0;
+}
+.dds-hud-dayt b {
+  font-family: var(--stencil);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.05em;
+}
+.dds-hud-obj {
+  font-family: var(--type);
+  font-size: 0.75em;
+  color: #cbbf9f;
+  line-height: 1.3;
+}
+.dds-hud-res {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35em;
+}
+.dds-hp,
+.dds-res {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.3em 0.55em;
+  border: 1px solid rgba(233, 225, 208, 0.14);
+  background: rgba(8, 8, 8, 0.66);
+  font-family: var(--stencil);
+}
+.dds-hp {
+  min-width: 11em;
+}
+.dds-hp .dds-ico {
+  color: #e05a4a;
+}
+.dds-hp-bar {
+  flex: 1;
+  height: 0.45em;
+  background: rgba(255, 255, 255, 0.08);
+}
+.dds-hp-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #7a1410, #e0483a);
+  transition: width 0.6s ease;
+}
+.dds-hp b,
+.dds-res b {
+  font-size: 1.1em;
+  min-width: 1.2em;
+  text-align: right;
+}
+.dds-res-cap {
+  font-style: normal;
+  font-size: 0.7em;
+  color: var(--dim);
+}
+.dds-res-name {
+  font-size: 0.62em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.r-food .dds-ico {
+  color: #d9a85a;
+}
+.r-water .dds-ico {
+  color: #6fb4e6;
+}
+.r-power .dds-ico {
+  color: #f0d050;
+}
+.r-scrap .dds-ico {
+  color: #b9b2a5;
+}
+.r-threat .dds-ico {
+  color: #c06adf;
+}
+.r-defense .dds-ico {
+  color: #8fb0c9;
+}
+.dds-res.low,
+.dds-hp.low {
+  border-color: rgba(255, 74, 58, 0.6);
+  animation: dds-warn 1.2s ease-in-out infinite;
+}
+.dds-hp em,
+.dds-res em {
+  position: absolute;
+  right: 0.2em;
+  top: 100%;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1em;
+  pointer-events: none;
+  animation: dds-pop 1.6s ease-out both;
+}
+.dds-hp em.up,
+.dds-res em.up {
+  color: var(--ok);
+}
+.dds-hp em.down,
+.dds-res em.down {
+  color: var(--blood2);
+}
+.dds-hud-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.dds-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--stencil);
+  font-size: 0.75em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.dds-actions i {
+  width: 0.9em;
+  height: 0.9em;
+  border: 1px solid var(--amber);
+  transform: rotate(45deg);
+}
+.dds-actions i.on {
+  background: var(--amber);
+  box-shadow: 0 0 0.6em rgba(226, 166, 74, 0.7);
+}
+.dds-status {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
+  justify-content: center;
+}
+.dds-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.15em 0.55em;
+  border: 1px solid rgba(233, 225, 208, 0.16);
+  background: rgba(8, 8, 8, 0.6);
+  font-size: 0.72em;
+  letter-spacing: 0.04em;
+}
+.dds-chip.bad {
+  border-color: rgba(255, 74, 58, 0.45);
+  color: #ffb3a8;
+}
+.dds-chip.good {
+  border-color: rgba(143, 194, 122, 0.45);
+  color: #cfe8c2;
+}
+
+/* ------------------------------------------------------------------ fx chips */
+.dds-fx {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35em;
+  margin: 0.4em 0;
+}
+.dds-fxc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  padding: 0.15em 0.5em;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.4);
+  font-family: var(--stencil);
+  font-size: 0.85em;
+}
+.dds-fxc span {
+  font-size: 0.75em;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.dds-fxc.good b {
+  color: var(--ok);
+}
+.dds-fxc.bad b {
+  color: var(--blood2);
+}
+.dds-fx.big .dds-fxc {
+  font-size: 1em;
+}
+
+/* ------------------------------------------------------------------ cards */
+.dds-hand {
+  position: absolute;
+  left: 50%;
+  bottom: 1.2cqh;
+  z-index: 12;
+  display: flex;
+  gap: 1.4cqw;
+  transform: translateX(-50%);
+  perspective: 900px;
+}
+.dds-slot {
+  position: relative;
+  width: var(--cw);
+  aspect-ratio: 0.7;
+  opacity: 0;
+  transform: translate(26cqw, 30cqh) rotate(24deg) rotateY(180deg);
+  transform-style: preserve-3d;
+}
+.dds-slot.shown {
+  opacity: 1;
+  transform: rotate(calc((var(--i) - (var(--n) - 1) / 2) * 3deg)) translateY(calc(var(--o) * 0.8cqh));
+  transition: transform 0.55s cubic-bezier(0.2, 0.9, 0.25, 1.1), opacity 0.2s;
+}
+.dds-slot.playing {
+  z-index: 3;
+  transform: translate(calc((1 - var(--i)) * (var(--cw) + 1.4cqw)), -38cqh) scale(1.15) rotateX(8deg) !important;
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.3, 0.7, 0.3, 1), opacity 0.25s 0.32s;
+}
+.dds-slot-act {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6.5cqh);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  animation: dds-fade 0.2s both;
+}
+.dds-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  transition: transform 0.18s ease, filter 0.2s;
+  filter: drop-shadow(0 0.5em 0.6em rgba(0, 0, 0, 0.75));
+}
+.dds-card:hover {
+  transform: translateY(-3.5cqh) scale(1.04);
+  z-index: 2;
+}
+.dds-card.sel {
+  transform: translateY(-5cqh) scale(1.08);
+}
+.dds-card.off .dds-card-face {
+  filter: grayscale(0.7) brightness(0.62);
+}
+.dds-card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em 0.5em 0.4em;
+  border-radius: 0.35em;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: calc(var(--cw) * 0.068);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.35), transparent 40%),
+    radial-gradient(ellipse at 80% 90%, rgba(120, 82, 40, 0.28), transparent 55%),
+    radial-gradient(circle at 70% 25%, rgba(110, 80, 40, 0.14) 0 3%, transparent 4%),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.018) 0 1px, transparent 1px 3px),
+    linear-gradient(160deg, var(--paper), var(--paper2));
+  box-shadow:
+    inset 0 0 0 0.12em rgba(60, 44, 24, 0.55),
+    inset 0 0 1.4em rgba(90, 60, 25, 0.45),
+    inset 0 0 0.25em rgba(40, 25, 10, 0.6);
+}
+/* scuffed corners */
+.dds-card-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 0 0, rgba(60, 40, 20, 0.45), transparent 8%),
+    radial-gradient(circle at 100% 0, rgba(60, 40, 20, 0.35), transparent 7%),
+    radial-gradient(circle at 100% 100%, rgba(60, 40, 20, 0.45), transparent 9%),
+    radial-gradient(circle at 0 100%, rgba(60, 40, 20, 0.3), transparent 6%);
+  mix-blend-mode: multiply;
+}
+.dds-card.sel .dds-card-face {
+  box-shadow:
+    inset 0 0 0 0.12em rgba(60, 44, 24, 0.55),
+    inset 0 0 1.4em rgba(90, 60, 25, 0.45),
+    0 0 0 0.18em var(--amber2),
+    0 0 1.4em rgba(255, 190, 90, 0.55);
+}
+.dds-card-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3em;
+  padding: 0.18em 0.35em;
+  background: color-mix(in srgb, var(--cat) 82%, #000);
+  color: #fff8ea;
+  font-family: var(--stencil);
+  font-size: 0.82em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: inset 0 -0.1em 0 rgba(0, 0, 0, 0.35);
+}
+.dds-card-cat {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.dds-card-costs {
+  display: flex;
+  gap: 0.2em;
+}
+.dds-cost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1em;
+  padding: 0 0.3em;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 0.2em;
+  font-size: 1em;
+  color: #fff;
+  white-space: nowrap;
+}
+.dds-cost.free {
+  font-size: 0.85em;
+  letter-spacing: 0.06em;
+}
+.dds-cost.short {
+  background: rgba(170, 20, 10, 0.85);
+}
+.dds-card-art {
+  position: relative;
+  margin: 0.35em 0 0.3em;
+  aspect-ratio: 4 / 3;
+  background: #1a1714;
+  box-shadow: inset 0 0 0 0.1em rgba(30, 20, 10, 0.75);
+  overflow: hidden;
+}
+.dds-card-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.25) contrast(1.08) saturate(0.85);
+}
+.dds-card-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(30, 18, 6, 0.55));
+}
+.dds-card-art-ph {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 60%, #3a3226, #121010);
+}
+.dds-card-name {
+  font-family: var(--stencil);
+  font-weight: 700;
+  font-size: 1.25em;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.dds-card-desc {
+  flex: 1;
+  margin-top: 0.25em;
+  font-family: var(--type);
+  font-size: 0.92em;
+  line-height: 1.22;
+  color: #2c251c;
+  overflow: hidden;
+}
+.dds-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.3em;
+  font-size: 0.75em;
+  font-family: var(--stencil);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.dds-risk {
+  display: flex;
+  align-items: center;
+  gap: 0.15em;
+  color: #4a3a2a;
+}
+.dds-risk i {
+  width: 0.55em;
+  height: 0.55em;
+  border: 1px solid #5a4632;
+}
+.dds-risk.r1 i.on {
+  background: #8a7a3a;
+}
+.dds-risk.r2 i.on {
+  background: #c08a2a;
+}
+.dds-risk.r3 i.on {
+  background: #c04a22;
+}
+.dds-risk.r4 i.on {
+  background: #a01010;
+}
+.dds-risk span {
+  margin-left: 0.2em;
+}
+.dds-once {
+  padding: 0 0.3em;
+  border: 1px solid #6a4a2a;
+  color: #6a2a10;
+}
+
+/* ------------------------------------------------------------------ side panel / toast */
+.dds-side {
+  position: absolute;
+  right: 1.4cqw;
+  bottom: 3cqh;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6em;
+  max-width: 22cqw;
+}
+.dds-hint {
+  margin: 0;
+  padding: 0.6em 0.8em;
+  border-left: 2px solid var(--amber);
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 0.78em;
+  line-height: 1.4;
+  color: #ded3bd;
+}
+.dds-forecast {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  padding: 0.5em 0.7em;
+  border: 1px solid rgba(233, 225, 208, 0.16);
+  background: rgba(0, 0, 0, 0.62);
+  font-family: var(--stencil);
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+}
+.dds-forecast span {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.dds-forecast b {
+  margin-left: auto;
+  padding-left: 0.6em;
+  font-size: 1.2em;
+}
+.dds-forecast.bad {
+  border-color: rgba(255, 74, 58, 0.5);
+}
+.dds-forecast.bad span:first-child b {
+  color: var(--blood2);
+}
+.dds-forecast.ok span:last-child b {
+  color: var(--ok);
+}
+.dds-forecast.inline {
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.4em;
+  margin: 0.6em auto;
+  width: fit-content;
+}
+.dds-toast {
+  position: absolute;
+  left: 50%;
+  top: 22cqh;
+  z-index: 14;
+  width: min(28em, 70cqw);
+  padding: 0.8em 1.1em;
+  transform: translateX(-50%);
+  border-left: 3px solid var(--amber);
+  background: rgba(8, 8, 7, 0.88);
+  text-align: center;
+  animation: dds-toast 5.5s ease both;
+  pointer-events: none;
+}
+.dds-toast b {
+  font-family: var(--stencil);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber2);
+}
+.dds-toast p {
+  margin: 0.3em 0 0.1em;
+  font-family: var(--type);
+  font-size: 0.92em;
+  line-height: 1.4;
+}
+.dds-toast.tone-bad {
+  border-color: var(--blood2);
+}
+.dds-toast.tone-bad b {
+  color: #ff8a7a;
+}
+.dds-toast.tone-mixed {
+  border-color: #d0a040;
+}
+
+/* ------------------------------------------------------------------ dawn */
+.dds-dawn {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: grid;
+  place-items: center;
+  padding: 13cqh 1em 2em;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.78));
+  animation: dds-fade 0.9s ease both;
+}
+.dds-daycard {
+  width: min(32em, 90cqw);
+  max-height: 84cqh;
+  overflow: auto;
+  text-align: center;
+  scrollbar-width: thin;
+}
+.dds-daycard-n {
+  font-family: var(--stencil);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-size: 1em;
+}
+.dds-daycard h1 {
+  margin: 0.15em 0 0.3em;
+  font-family: var(--stencil);
+  font-size: 3em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f2e8d4;
+  text-shadow: 0 0.1em 1em rgba(0, 0, 0, 0.9);
+  animation: dds-flick 2.4s ease both;
+}
+.dds-daycard-obj {
+  margin: 0 0 1em;
+  font-family: var(--type);
+  color: #d8ccb0;
+}
+.dds-daycard-obj b {
+  display: block;
+  font-family: var(--stencil);
+  font-size: 0.75em;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.dds-report {
+  margin: 0 auto 1.2em;
+  padding: 0.7em 1em;
+  border: 1px solid rgba(233, 225, 208, 0.12);
+  background: rgba(0, 0, 0, 0.5);
+}
+.dds-report h3,
+.dds-decisions h3 {
+  margin: 0 0 0.3em;
+  font-family: var(--stencil);
+  font-size: 0.8em;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.dds-note-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  margin: 0.25em 0;
+  font-size: 0.88em;
+}
+.dds-note-line.bad {
+  color: #ffb0a4;
+}
+.dds-note-line.good {
+  color: #cde6bf;
+}
+.dds-unlock {
+  margin-top: 0.5em;
+  font-size: 0.85em;
+}
+.dds-unlock span {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35em;
+  margin-top: 0.3em;
+}
+.dds-unlock em {
+  font-style: normal;
+  padding: 0.1em 0.5em;
+  background: rgba(226, 166, 74, 0.18);
+  border: 1px solid rgba(226, 166, 74, 0.35);
+}
+.dds-tut {
+  margin: 0 auto 1.2em;
+  padding: 0.7em 1em;
+  border-left: 2px solid var(--amber);
+  background: rgba(0, 0, 0, 0.55);
+  text-align: left;
+  font-size: 0.9em;
+  line-height: 1.45;
+}
+.dds-tut p {
+  margin: 0.2em 0;
+}
+
+/* ------------------------------------------------------------------ events */
+.dds-event {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: grid;
+  place-items: end center;
+  padding: 12cqh 1em 3cqh;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.dds-event.in {
+  opacity: 1;
+  pointer-events: auto;
+}
+.dds-panel.event,
+.dds-panel.outcome {
+  width: min(44em, 94cqw);
+  max-height: 72cqh;
+  text-align: left;
+}
+.dds-panel.outcome {
+  width: min(32em, 92cqw);
+  text-align: center;
+}
+.dds-event-tag {
+  display: block;
+  margin-bottom: 0.3em;
+  font-family: var(--stencil);
+  font-size: 0.75em;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.dds-event-text {
+  margin: 0 0 0.7em;
+  font-family: var(--type);
+  font-size: 1em;
+  line-height: 1.5;
+  color: #e6dcc6;
+}
+.dds-choices {
+  display: grid;
+  gap: 0.45em;
+  margin-top: 0.5em;
+}
+.dds-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  padding: 0.55em 0.8em;
+  border: 1px solid rgba(233, 225, 208, 0.16);
+  background: rgba(25, 23, 20, 0.85);
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+}
+.dds-choice:hover:not(:disabled) {
+  border-color: var(--amber);
+  background: rgba(60, 40, 18, 0.85);
+  transform: translateX(0.2em);
+}
+.dds-choice.off {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.dds-choice-k {
+  display: grid;
+  place-items: center;
+  width: 1.7em;
+  height: 1.7em;
+  flex: none;
+  border: 1px solid var(--line);
+  font-family: var(--stencil);
+  color: var(--amber);
+}
+.dds-choice-b {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.15em;
+}
+.dds-choice-b b {
+  font-family: var(--stencil);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.dds-choice-b small {
+  font-size: 0.82em;
+  color: #c9bfa9;
+  line-height: 1.35;
+}
+.dds-choice-cost {
+  display: flex;
+  gap: 0.25em;
+  font-size: 0.85em;
+}
+.dds-req {
+  font-style: normal;
+  font-size: 0.78em;
+  color: #ff9a8a;
+}
+.dds-panel.tone-bad {
+  border-color: rgba(255, 74, 58, 0.45);
+}
+.dds-panel.tone-good {
+  border-color: rgba(143, 194, 122, 0.4);
+}
+
+/* ------------------------------------------------------------------ endings */
+.dds-end {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 1em;
+  animation: dds-fade 1.2s ease both;
+}
+.dds-end.dead {
+  background: rgba(20, 0, 0, 0.55);
+}
+.dds-end.won {
+  background: radial-gradient(ellipse at 50% 30%, rgba(220, 230, 255, 0.2), rgba(0, 0, 0, 0.75) 75%);
+}
+.dds-panel.end {
+  width: min(36em, 92cqw);
+}
+.dds-end.dead h1 {
+  color: #ff8a7a;
+}
+.dds-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em;
+  margin: 0.8em 0;
+}
+.dds-stats span {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4em;
+  border: 1px solid rgba(233, 225, 208, 0.12);
+  font-size: 0.75em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.dds-stats b {
+  font-family: var(--stencil);
+  font-size: 1.9em;
+  color: #f2e8d4;
+}
+.dds-decisions {
+  margin: 0.5em 0;
+}
+.dds-decisions p {
+  margin: 0.15em 0;
+  font-family: var(--type);
+  font-size: 0.88em;
+  color: #d9cfb8;
+}
+
+/* ------------------------------------------------------------------ animation */
+@keyframes dds-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes dds-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(0.4em);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0.9em);
+  }
+}
+@keyframes dds-warn {
+  50% {
+    box-shadow: 0 0 0.8em rgba(255, 74, 58, 0.45);
+  }
+}
+@keyframes dds-toast {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0.8em);
+  }
+  8% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes dds-flick {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  23% {
+    opacity: 0.4;
+  }
+  30%,
+  100% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dds *,
+  .dds *::before,
+  .dds *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------ small stages */
+@container dds (max-aspect-ratio: 5 / 4) {
+  .dds > * {
+    --cw: min(27cqw, 23cqh);
+  }
+  .dds-hud {
+    grid-template-columns: 1fr auto;
+  }
+  .dds-hud-res {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+  .dds-hud-day {
+    max-width: none;
+  }
+  .dds-side {
+    right: 50%;
+    bottom: calc(var(--cw) / 0.7 + 4cqh);
+    transform: translateX(50%);
+    flex-direction: row;
+    align-items: center;
+    max-width: 94cqw;
+  }
+  .dds-hint {
+    display: none;
+  }
+  .dds-rules {
+    grid-template-columns: 1fr;
+  }
+  .dds-logo span {
+    font-size: 3.6em;
+  }
+}
+@container dds (max-height: 420px) {
+  .dds-res-name,
+  .dds-res-cap {
+    display: none;
+  }
+  .dds-hud-obj {
+    display: none;
+  }
+}
