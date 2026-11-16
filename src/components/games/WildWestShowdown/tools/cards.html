@@ -1,0 +1,16 @@
+<!doctype html>
+<!-- DEV-only: every card face + the back. /src/components/games/WildWestShowdown/tools/cards.html -->
+<html><head><meta charset="utf-8"><title>Card sheet</title>
+<style>body{margin:0;background:#2a3a2e;display:flex;flex-wrap:wrap;gap:8px;padding:8px}canvas{border-radius:8px;box-shadow:0 2px 6px #0008}</style></head>
+<body><script type="module">
+import { drawCard, cardImage } from "../render/cardFaces.js";
+const W = +(new URLSearchParams(location.search).get("w") || 120), H = Math.round(W * 1.4);
+const order = [];
+for (const s of [3, 2, 0, 1]) for (let r = 14; r >= 2; r--) order.push(((r - 2) << 2) | s);
+for (const c of [...order, null]) {
+  if (c === null) { const i = new Image(); i.src = cardImage(null); i.style.width = W + "px"; i.style.borderRadius = "8px"; document.body.appendChild(i); continue; }
+  const cv = document.createElement("canvas"); cv.width = W * 2; cv.height = H * 2; cv.style.width = W + "px"; cv.style.height = H + "px";
+  drawCard(cv.getContext("2d"), W * 2, H * 2, c); document.body.appendChild(cv);
+}
+window.__done = true;
+</script></body></html>

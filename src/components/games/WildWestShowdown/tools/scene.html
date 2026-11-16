@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- DEV-only stage preview (not part of the game build).
+     /src/components/games/WildWestShowdown/tools/scene.html?stage=1&q=high&view=seat -->
+<html><head><meta charset="utf-8"><title>Wild West scene</title>
+<style>html,body{margin:0;background:#000;height:100%;overflow:hidden}#s{position:absolute;inset:0}canvas{display:block;width:100%;height:100%}</style></head>
+<body><div id="s"></div><script type="module">
+import { createWorld } from "../render/world.js";
+import { stageById } from "../engine/stages.js";
+import { createMatch, dealNext, act, step, aiMove, playOutHand } from "../engine/match.js";
+const P = new URLSearchParams(location.search);
+const el = document.getElementById("s");
+const world = createWorld(el, { quality: P.get("q") || "high", preserve: true, manual: true });
+world.resize(el.clientWidth, el.clientHeight);
+const st = stageById(+(P.get("stage") || 1));
+window.__s = { world, st };
+window.__s.ready = (async () => {
+  const ok = await world.loadStage(st, (p) => (window.__p = p));
+  let m = dealNext(createMatch(st.id)).match;
+  const street = P.get("street") || "flop";
+  const want = { pre: 0, flop: 3, turn: 4, river: 5 }[street] ?? 3;
+  let g = 0;
+  while (m.table.board.length < want && g++ < 60) {
+    if (m.table.phase === "betting") { const a = m.table.toAct === 0 ? { type: m.table.players[0].bet >= m.table.currentBet ? "check" : "call" } : { type: "call" }; const r = act(m, m.table.toAct, a); if (r.error) { const r2 = act(m, m.table.toAct, { type: "check" }); m = r2.match; } else m = r.match; }
+    else m = step(m).match;
+  }
+  window.__s.m = m;
+  world.syncTable(m.table, { hideOpp: P.get("show") !== "1" });
+  world.advance(1.0);
+  const view = P.get("view") || "seat";
+  if (view === "seat") world.setMode("seat", 0);
+  else if (view === "menu") world.menu();
+  else if (view === "orbit") world.victory();
+  else if (view.startsWith("face")) { world.debug.cam.mode = "cine"; world.faceShot(+view.slice(4) || 1, +(P.get("dist") || 1.0), 0); }
+  else if (view === "door") { const R = world.debug.S.room; world.debug.cam.mode = "cine"; }
+  world.advance(+(P.get("t") || 1.0));
+  return ok;
+})();
+</script></body></html>
