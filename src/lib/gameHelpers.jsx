@@ -124,6 +124,8 @@ import throwMastersBg from "../images/ThrowMasters.png";
 import trumpMastersBg from "../images/TrumpMasters.png";
 import deepMineBg from "../images/DeepMine.png";
 import carnivalOfFearBg from "../images/CarnivalofFear.png";
+import prisonOfFearBg from "../images/PrisonofFear.png";
+import deadDrawBg from "../images/DeadDraw.png";
 
 /**
  * Category to icon mapping.
@@ -2080,6 +2082,52 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(18, 8, 20, 0.5) 42%,
       rgba(18, 8, 20, 0.76) 54%,
       rgba(18, 8, 20, 0.88) 100%)`,
+  },
+  // Prison of Fear: Final Lockdown — survival horror in an abandoned prison
+  // with terrifying creatures. Dark charcoal, steel, crimson accents.
+  // Position keeps the protagonist and prison atmosphere visible.
+  "prison of fear: final lockdown": {
+    image: prisonOfFearBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 10, 12, 0) 0%,
+      rgba(15, 10, 12, 0) 28%,
+      rgba(15, 10, 12, 0.5) 40%,
+      rgba(15, 10, 12, 0.76) 52%,
+      rgba(15, 10, 12, 0.9) 100%)`,
+  },
+  "prison of fear": {
+    image: prisonOfFearBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 10, 12, 0) 0%,
+      rgba(15, 10, 12, 0) 28%,
+      rgba(15, 10, 12, 0.5) 40%,
+      rgba(15, 10, 12, 0.76) 52%,
+      rgba(15, 10, 12, 0.9) 100%)`,
+  },
+  // Dead Draw: Survival Bunker — post-apocalyptic survival card game in a bunker.
+  // Dark, gritty atmosphere with muted bronze, rusty orange, and amber accents.
+  // Position keeps the DEAD DRAW title, survival cards, and bunker entrance visible.
+  "dead draw: survival bunker": {
+    image: deadDrawBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 14, 10, 0) 0%,
+      rgba(18, 14, 10, 0) 26%,
+      rgba(18, 14, 10, 0.5) 38%,
+      rgba(18, 14, 10, 0.76) 50%,
+      rgba(18, 14, 10, 0.92) 100%)`,
+  },
+  "dead draw": {
+    image: deadDrawBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 14, 10, 0) 0%,
+      rgba(18, 14, 10, 0) 26%,
+      rgba(18, 14, 10, 0.5) 38%,
+      rgba(18, 14, 10, 0.76) 50%,
+      rgba(18, 14, 10, 0.92) 100%)`,
   },
 };
 

@@ -351,6 +351,10 @@ const GAME_DECORATIONS = {
   "Deep Mine": "deep-mine",
   "Carnival of Fear: Clown Hunt": "carnival-of-fear",
   "Carnival of Fear": "carnival-of-fear",
+  "Prison of Fear: Final Lockdown": "prison-of-fear",
+  "Prison of Fear": "prison-of-fear",
+  "Dead Draw: Survival Bunker": "dead-draw",
+  "Dead Draw": "dead-draw",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
