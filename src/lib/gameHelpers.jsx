@@ -126,6 +126,9 @@ import deepMineBg from "../images/DeepMine.png";
 import carnivalOfFearBg from "../images/CarnivalofFear.png";
 import prisonOfFearBg from "../images/PrisonofFear.png";
 import deadDrawBg from "../images/DeadDraw.png";
+import deckOfShadowsBg from "../images/DeckofShadows.png";
+import wildWestBg from "../images/WildWest.png";
+import spiderRoyaleBg from "../images/SpiderRoyale.png";
 
 /**
  * Category to icon mapping.
@@ -2128,6 +2131,63 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(18, 14, 10, 0.5) 38%,
       rgba(18, 14, 10, 0.76) 50%,
       rgba(18, 14, 10, 0.92) 100%)`,
+  },
+  // Dark fantasy card RPG with gothic atmosphere. Position keeps the DECK OF SHADOWS
+  // title, monster character, and magical cards visible on the cover.
+  "deck of shadows: monster hunt": {
+    image: deckOfShadowsBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 8, 12, 0) 0%,
+      rgba(15, 8, 12, 0) 28%,
+      rgba(15, 8, 12, 0.5) 40%,
+      rgba(15, 8, 12, 0.76) 52%,
+      rgba(15, 8, 12, 0.9) 100%)`,
+  },
+  "deck of shadows": {
+    image: deckOfShadowsBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 8, 12, 0) 0%,
+      rgba(15, 8, 12, 0) 28%,
+      rgba(15, 8, 12, 0.5) 40%,
+      rgba(15, 8, 12, 0.76) 52%,
+      rgba(15, 8, 12, 0.9) 100%)`,
+  },
+  // Wild West: Card Showdown — 3D western No-Limit Texas Hold'em poker adventure.
+  // Warm saloon atmosphere with golden lighting, cowboy player, and western aesthetic.
+  // Position keeps the WILD WEST CARD SHOWDOWN title and main cowboy visible.
+  "wild west: card showdown": {
+    image: wildWestBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(20, 12, 8, 0) 0%,
+      rgba(20, 12, 8, 0) 26%,
+      rgba(20, 12, 8, 0.5) 38%,
+      rgba(20, 12, 8, 0.76) 50%,
+      rgba(20, 12, 8, 0.92) 100%)`,
+  },
+  "wild west card showdown": {
+    image: wildWestBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(20, 12, 8, 0) 0%,
+      rgba(20, 12, 8, 0) 26%,
+      rgba(20, 12, 8, 0.5) 38%,
+      rgba(20, 12, 8, 0.76) 50%,
+      rgba(20, 12, 8, 0.92) 100%)`,
+  },
+  // Spider Royale — solitaire card game with emerald and gold aesthetic.
+  // The spider logo and playing cards on the left, dark gradient on right for text.
+  "spider royale": {
+    image: spiderRoyaleBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(5, 25, 18, 0) 0%,
+      rgba(5, 25, 18, 0) 28%,
+      rgba(5, 25, 18, 0.5) 40%,
+      rgba(5, 25, 18, 0.76) 52%,
+      rgba(5, 25, 18, 0.9) 100%)`,
   },
 };
 

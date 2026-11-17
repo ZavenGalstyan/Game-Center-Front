@@ -192,6 +192,8 @@ const GAME_TAGLINES = {
   "Wild Kingdom 3D": "Six species, one wilderness. Hunt, survive, raise a family, and rule your territory.",
   "Iron Arena: Tank Battles": "Command your tank, conquer the battlefield, and dominate in tactical armored warfare.",
   "Throw Masters": "Aim. Throw. Become a Champion.",
+  "Wild West: Card Showdown": "Play Your Hand. Rule the Wild West.",
+  "Wild West Card Showdown": "Play Your Hand. Rule the Wild West.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -355,6 +357,11 @@ const GAME_DECORATIONS = {
   "Prison of Fear": "prison-of-fear",
   "Dead Draw: Survival Bunker": "dead-draw",
   "Dead Draw": "dead-draw",
+  "Deck of Shadows: Monster Hunt": "deck-of-shadows",
+  "Deck of Shadows": "deck-of-shadows",
+  "Wild West: Card Showdown": "wild-west-showdown",
+  "Wild West Card Showdown": "wild-west-showdown",
+  "Spider Royale": "spider-royale",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
