@@ -176,6 +176,8 @@ export const GAME_CATALOG_IDS = {
   "whispering woods": "WhisperingWoods",
   "whispering woods: the eight notes": "WhisperingWoods",
   "wild kingdom 3d": "WildKingdom3D",
+  "wild west card showdown": "WildWestShowdown",
+  "wild west: card showdown": "WildWestShowdown",
   "wobbly warriors": "WobblyWarriors",
   "wobbly warriors: arena clash": "WobblyWarriors",
   "zombie outbreak": "ZombieOutbreak",
@@ -246,6 +248,7 @@ export const BAKED_TEXT_GAMES = [
   "WebHero",
   "WhisperingWoods",
   "WildKingdom3D",
+  "WildWestShowdown",
   "ZombieOutbreak",
   "ZooSimulator3D"
 ];

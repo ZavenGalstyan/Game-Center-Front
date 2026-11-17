@@ -447,5 +447,6 @@
   "OutlawLegends": ["{0} m"],
   "PrisonOfFear": ["{0} m"],
   "CarnivalOfFear": ["{0} m"],
-  "DeepMine": ["{0} m"]
+  "DeepMine": ["{0} m"],
+  "WildWestShowdown": ["{0} folds", "{0} checks", "{0} calls {1}", "{0} bets {1}", "{0} raises to {1}", "{0} goes all-in for {1}", "{0} takes {1}", "{0} split {1}", "{0}-{1} suited", "{0}-{1} offsuit", "{0}% to win", "Normal", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace", "Twos", "Threes", "Fours", "Fives", "Sixes", "Sevens", "Eights", "Nines", "Tens", "Jacks", "Queens", "Kings", "Aces", "easy", "medium", "hard"]
 }

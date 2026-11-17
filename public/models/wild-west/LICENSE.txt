@@ -1,0 +1,38 @@
+Wild West: Card Showdown — 3D assets
+
+All files in this folder are CC0 1.0 Universal (public domain dedication).
+https://creativecommons.org/publicdomain/zero/1.0/
+They were re-packed for the web (glTF-Transform: meshopt geometry, WebP
+textures resized to 1024 px; "props-lite" = ~25% triangles + 256 px textures
+for the Low preset); the content is otherwise unchanged.
+
+props/*.glb, props-lite/*.glb — Poly Haven (https://polyhaven.com/models), CC0:
+  painted_wooden_chair_02, wooden_stool_01, Lantern_01, lantern_chandelier_01,
+  Chandelier_01, wine_bottles_01, brass_goblets, mantel_clock_01,
+  vintage_grandfather_clock_01, wine_barrel_01, wooden_crate_02, bull_head,
+  fancy_picture_frame_01, ornate_mirror_01, round_wooden_table_01,
+  CashRegister_01, vintage_cabinet_01, vintage_pocket_watch, Rockingchair_01,
+  brass_candleholders, wooden_bucket_01, quiver_tree_01, namaqualand_boulder_02
+  (brass_candleholders, quiver_tree_01 and namaqualand_boulder_02 are
+  simplified to ~35% triangles in the full set too)
+
+tex/*_d|_n|_arm.webp — Poly Haven textures (https://polyhaven.com/textures), CC0:
+  old_wood_floor, wood_floor_worn, wood_plank_wall, raw_plank_wall,
+  wooden_panels, decrepit_wallpaper, clay_plaster, weathered_plank_siding,
+  dry_ground_01, wood_table_worn, lacquered_cherry_wood, brown_leather,
+  velour_velvet, wood_cabinet_worn_long
+  (_d = diffuse, _n = OpenGL normal, _arm = AO/roughness/metalness)
+
+sky/*.hdr — Poly Haven HDRIs (1k), CC0, used for image-based lighting:
+  goegap (day), kiara_8_sunset (sunset), dikhololo_night (night)
+sky/*.jpg — the same HDRIs' tonemapped panoramas from Poly Haven, resized to
+  4096×2048, seen through the saloon windows and doors.
+
+Shared with other games (not in this folder):
+  ../neon-mercenary/male.glb, female.glb, anims.glb, m_dark.jpg, f_dark.jpg and
+  ../mma/anims.glb — Quaternius "Universal Base Characters" + "Universal
+  Animation Library", CC0. The cowboys' clothing, hats, moustaches, belts,
+  badges and the poker table, cards, chips, walls, bar, windows, doors, piano
+  and street buildings are generated in code by the game — no other
+  third-party assets. Card faces, chip faces, signs and posters are drawn at
+  runtime on canvases (original artwork). All sound is synthesised at runtime.
