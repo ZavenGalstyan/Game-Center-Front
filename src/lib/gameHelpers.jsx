@@ -123,6 +123,7 @@ import outlawLegendsBg from "../images/OutlawLegends.png";
 import throwMastersBg from "../images/ThrowMasters.png";
 import trumpMastersBg from "../images/TrumpMasters.png";
 import deepMineBg from "../images/DeepMine.png";
+import carnivalOfFearBg from "../images/CarnivalofFear.png";
 
 /**
  * Category to icon mapping.
@@ -2056,6 +2057,29 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(12, 10, 8, 0.52) 40%,
       rgba(12, 10, 8, 0.78) 52%,
       rgba(12, 10, 8, 0.9) 100%)`,
+  },
+  // Carnival of Fear: Clown Hunt — horror carnival shooter with sinister clown
+  // and haunted carnival atmosphere. Deep purple, crimson red accents.
+  // Position keeps the clown and title visible across card sizes.
+  "carnival of fear: clown hunt": {
+    image: carnivalOfFearBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 8, 20, 0) 0%,
+      rgba(18, 8, 20, 0) 30%,
+      rgba(18, 8, 20, 0.5) 42%,
+      rgba(18, 8, 20, 0.76) 54%,
+      rgba(18, 8, 20, 0.88) 100%)`,
+  },
+  "carnival of fear": {
+    image: carnivalOfFearBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 8, 20, 0) 0%,
+      rgba(18, 8, 20, 0) 30%,
+      rgba(18, 8, 20, 0.5) 42%,
+      rgba(18, 8, 20, 0.76) 54%,
+      rgba(18, 8, 20, 0.88) 100%)`,
   },
 };
 

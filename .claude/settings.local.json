@@ -23,7 +23,8 @@
       "Bash(claude:*)",
       "Bash(env:*)",
       "Bash(where:*)",
-      "Bash(\"C:/Users/User/AppData/Roaming/npm/claude\" --version)"
+      "Bash(\"C:/Users/User/AppData/Roaming/npm/claude\" --version)",
+      "Bash(findstr:*)"
     ]
   }
 }

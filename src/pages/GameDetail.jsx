@@ -349,6 +349,8 @@ const GAME_DECORATIONS = {
   "Outlaw Legends": "outlaw-legends",
   "Deep Mine: The Forgotten Ones": "deep-mine",
   "Deep Mine": "deep-mine",
+  "Carnival of Fear: Clown Hunt": "carnival-of-fear",
+  "Carnival of Fear": "carnival-of-fear",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
