@@ -347,6 +347,8 @@ const GAME_DECORATIONS = {
   "Portal Shift": "portal-shift",
   "Outlaw Legends: Wild Frontier": "outlaw-legends",
   "Outlaw Legends": "outlaw-legends",
+  "Deep Mine: The Forgotten Ones": "deep-mine",
+  "Deep Mine": "deep-mine",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

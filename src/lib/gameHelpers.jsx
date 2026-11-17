@@ -122,6 +122,7 @@ import portalShiftBg from "../images/PortalShift.png";
 import outlawLegendsBg from "../images/OutlawLegends.png";
 import throwMastersBg from "../images/ThrowMasters.png";
 import trumpMastersBg from "../images/TrumpMasters.png";
+import deepMineBg from "../images/DeepMine.png";
 
 /**
  * Category to icon mapping.
@@ -2032,6 +2033,29 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(4, 18, 12, 0.5) 42%,
       rgba(4, 18, 12, 0.76) 54%,
       rgba(4, 18, 12, 0.88) 100%)`,
+  },
+  // Deep Mine: The Forgotten Ones — underground horror shooter with dark mine
+  // tunnels, mining equipment, and survival horror atmosphere. Dark charcoal,
+  // earthy brown, warm amber highlights. Position keeps title and mine visible.
+  "deep mine: the forgotten ones": {
+    image: deepMineBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 10, 8, 0) 0%,
+      rgba(12, 10, 8, 0) 28%,
+      rgba(12, 10, 8, 0.52) 40%,
+      rgba(12, 10, 8, 0.78) 52%,
+      rgba(12, 10, 8, 0.9) 100%)`,
+  },
+  "deep mine": {
+    image: deepMineBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 10, 8, 0) 0%,
+      rgba(12, 10, 8, 0) 28%,
+      rgba(12, 10, 8, 0.52) 40%,
+      rgba(12, 10, 8, 0.78) 52%,
+      rgba(12, 10, 8, 0.9) 100%)`,
   },
 };
 
