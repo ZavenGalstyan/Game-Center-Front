@@ -122,6 +122,13 @@ import portalShiftBg from "../images/PortalShift.png";
 import outlawLegendsBg from "../images/OutlawLegends.png";
 import throwMastersBg from "../images/ThrowMasters.png";
 import trumpMastersBg from "../images/TrumpMasters.png";
+import deepMineBg from "../images/DeepMine.png";
+import carnivalOfFearBg from "../images/CarnivalofFear.png";
+import prisonOfFearBg from "../images/PrisonofFear.png";
+import deadDrawBg from "../images/DeadDraw.png";
+import deckOfShadowsBg from "../images/DeckofShadows.png";
+import wildWestBg from "../images/WildWest.png";
+import spiderRoyaleBg from "../images/SpiderRoyale.png";
 
 /**
  * Category to icon mapping.
@@ -2032,6 +2039,155 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(4, 18, 12, 0.5) 42%,
       rgba(4, 18, 12, 0.76) 54%,
       rgba(4, 18, 12, 0.88) 100%)`,
+  },
+  // Deep Mine: The Forgotten Ones — underground horror shooter with dark mine
+  // tunnels, mining equipment, and survival horror atmosphere. Dark charcoal,
+  // earthy brown, warm amber highlights. Position keeps title and mine visible.
+  "deep mine: the forgotten ones": {
+    image: deepMineBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 10, 8, 0) 0%,
+      rgba(12, 10, 8, 0) 28%,
+      rgba(12, 10, 8, 0.52) 40%,
+      rgba(12, 10, 8, 0.78) 52%,
+      rgba(12, 10, 8, 0.9) 100%)`,
+  },
+  "deep mine": {
+    image: deepMineBg,
+    position: "45% center",
+    shade: `linear-gradient(90deg,
+      rgba(12, 10, 8, 0) 0%,
+      rgba(12, 10, 8, 0) 28%,
+      rgba(12, 10, 8, 0.52) 40%,
+      rgba(12, 10, 8, 0.78) 52%,
+      rgba(12, 10, 8, 0.9) 100%)`,
+  },
+  // Carnival of Fear: Clown Hunt — horror carnival shooter with sinister clown
+  // and haunted carnival atmosphere. Deep purple, crimson red accents.
+  // Position keeps the clown and title visible across card sizes.
+  "carnival of fear: clown hunt": {
+    image: carnivalOfFearBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 8, 20, 0) 0%,
+      rgba(18, 8, 20, 0) 30%,
+      rgba(18, 8, 20, 0.5) 42%,
+      rgba(18, 8, 20, 0.76) 54%,
+      rgba(18, 8, 20, 0.88) 100%)`,
+  },
+  "carnival of fear": {
+    image: carnivalOfFearBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 8, 20, 0) 0%,
+      rgba(18, 8, 20, 0) 30%,
+      rgba(18, 8, 20, 0.5) 42%,
+      rgba(18, 8, 20, 0.76) 54%,
+      rgba(18, 8, 20, 0.88) 100%)`,
+  },
+  // Prison of Fear: Final Lockdown — survival horror in an abandoned prison
+  // with terrifying creatures. Dark charcoal, steel, crimson accents.
+  // Position keeps the protagonist and prison atmosphere visible.
+  "prison of fear: final lockdown": {
+    image: prisonOfFearBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 10, 12, 0) 0%,
+      rgba(15, 10, 12, 0) 28%,
+      rgba(15, 10, 12, 0.5) 40%,
+      rgba(15, 10, 12, 0.76) 52%,
+      rgba(15, 10, 12, 0.9) 100%)`,
+  },
+  "prison of fear": {
+    image: prisonOfFearBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 10, 12, 0) 0%,
+      rgba(15, 10, 12, 0) 28%,
+      rgba(15, 10, 12, 0.5) 40%,
+      rgba(15, 10, 12, 0.76) 52%,
+      rgba(15, 10, 12, 0.9) 100%)`,
+  },
+  // Dead Draw: Survival Bunker — post-apocalyptic survival card game in a bunker.
+  // Dark, gritty atmosphere with muted bronze, rusty orange, and amber accents.
+  // Position keeps the DEAD DRAW title, survival cards, and bunker entrance visible.
+  "dead draw: survival bunker": {
+    image: deadDrawBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 14, 10, 0) 0%,
+      rgba(18, 14, 10, 0) 26%,
+      rgba(18, 14, 10, 0.5) 38%,
+      rgba(18, 14, 10, 0.76) 50%,
+      rgba(18, 14, 10, 0.92) 100%)`,
+  },
+  "dead draw": {
+    image: deadDrawBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 14, 10, 0) 0%,
+      rgba(18, 14, 10, 0) 26%,
+      rgba(18, 14, 10, 0.5) 38%,
+      rgba(18, 14, 10, 0.76) 50%,
+      rgba(18, 14, 10, 0.92) 100%)`,
+  },
+  // Dark fantasy card RPG with gothic atmosphere. Position keeps the DECK OF SHADOWS
+  // title, monster character, and magical cards visible on the cover.
+  "deck of shadows: monster hunt": {
+    image: deckOfShadowsBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 8, 12, 0) 0%,
+      rgba(15, 8, 12, 0) 28%,
+      rgba(15, 8, 12, 0.5) 40%,
+      rgba(15, 8, 12, 0.76) 52%,
+      rgba(15, 8, 12, 0.9) 100%)`,
+  },
+  "deck of shadows": {
+    image: deckOfShadowsBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 8, 12, 0) 0%,
+      rgba(15, 8, 12, 0) 28%,
+      rgba(15, 8, 12, 0.5) 40%,
+      rgba(15, 8, 12, 0.76) 52%,
+      rgba(15, 8, 12, 0.9) 100%)`,
+  },
+  // Wild West: Card Showdown — 3D western No-Limit Texas Hold'em poker adventure.
+  // Warm saloon atmosphere with golden lighting, cowboy player, and western aesthetic.
+  // Position keeps the WILD WEST CARD SHOWDOWN title and main cowboy visible.
+  "wild west: card showdown": {
+    image: wildWestBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(20, 12, 8, 0) 0%,
+      rgba(20, 12, 8, 0) 26%,
+      rgba(20, 12, 8, 0.5) 38%,
+      rgba(20, 12, 8, 0.76) 50%,
+      rgba(20, 12, 8, 0.92) 100%)`,
+  },
+  "wild west card showdown": {
+    image: wildWestBg,
+    position: "50% 30%",
+    shade: `linear-gradient(90deg,
+      rgba(20, 12, 8, 0) 0%,
+      rgba(20, 12, 8, 0) 26%,
+      rgba(20, 12, 8, 0.5) 38%,
+      rgba(20, 12, 8, 0.76) 50%,
+      rgba(20, 12, 8, 0.92) 100%)`,
+  },
+  // Spider Royale — solitaire card game with emerald and gold aesthetic.
+  // The spider logo and playing cards on the left, dark gradient on right for text.
+  "spider royale": {
+    image: spiderRoyaleBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(5, 25, 18, 0) 0%,
+      rgba(5, 25, 18, 0) 28%,
+      rgba(5, 25, 18, 0.5) 40%,
+      rgba(5, 25, 18, 0.76) 52%,
+      rgba(5, 25, 18, 0.9) 100%)`,
   },
 };
 

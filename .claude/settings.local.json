@@ -19,7 +19,13 @@
       "Bash(git push:*)",
       "Bash(timeout:*)",
       "Bash(git fsck:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(claude:*)",
+      "Bash(env:*)",
+      "Bash(where:*)",
+      "Bash(\"C:/Users/User/AppData/Roaming/npm/claude\" --version)",
+      "Bash(findstr:*)",
+      "Bash(find:*)"
     ]
   }
 }
