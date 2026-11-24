@@ -132,6 +132,7 @@ import spiderRoyaleBg from "../images/SpiderRoyale.png";
 import colorClashBg from "../images/ColorClash.png";
 import armenianBlotBg from "../images/ArmenianBlot.png";
 import hillRiderBg from "../images/HillRider.png";
+import schoolLife3dBg from "../images/SchoolLife.png";
 
 /**
  * Category to icon mapping.
@@ -2228,6 +2229,19 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(10, 35, 25, 0.5) 44%,
       rgba(10, 35, 25, 0.76) 56%,
       rgba(10, 35, 25, 0.9) 100%)`,
+  },
+  // School Life Simulator 3D — third-person school life simulation.
+  // School building, students, colorful cartoon aesthetic.
+  // Position keeps the school building and characters visible.
+  "school life simulator 3d": {
+    image: schoolLife3dBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(25, 45, 70, 0) 0%,
+      rgba(25, 45, 70, 0) 28%,
+      rgba(25, 45, 70, 0.5) 40%,
+      rgba(25, 45, 70, 0.76) 52%,
+      rgba(25, 45, 70, 0.9) 100%)`,
   },
 };
 

@@ -97,6 +97,7 @@ const GAME_TAGLINES = {
   "Mahjong Classic": "Match identical tiles, clear intricate layouts, and unwind with a timeless puzzle challenge.",
   "Maze Muncher": "CHOMP • DODGE • SURVIVE",
   "Hill Rider": "Drive across challenging hills, collect coins, and upgrade your vehicles.",
+  "School Life Simulator 3D": "Explore school life, attend classes, and make new friends.",
   "Color Clash": "Match colors and numbers, use action cards, and be the first to empty your hand.",
   "Spider Royale": "Stack cards, build sequences, and master the art of solitaire.",
   "Trump Masters": "Attack. Defend. Outsmart.",
@@ -365,6 +366,7 @@ const GAME_DECORATIONS = {
   "Color Clash": "color-clash",
   "Armenian Blot Heritage": "armenian-blot",
   "Hill Rider": "hill-rider",
+  "School Life Simulator 3D": "school-life-3d",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
