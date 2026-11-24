@@ -5851,6 +5851,41 @@ h3 {
   z-index: -1;
 }
 
+/* Hill Rider — Off-road hill climbing adventure with orange jeep.
+   Features: Detailed orange jeep with roll cage, driver with cap, large tires with suspension,
+   curved green hills with rocky terrain, golden coins, red fuel can, pine trees,
+   distant mountain silhouettes, dust trails and flying stones. */
+.game-page__about[data-decoration="hill-rider"]::before {
+  content: "";
+  width: 320px;
+  height: 145px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: unset;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 145'%3E%3Cdefs%3E%3ClinearGradient id='hrSky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2387ceeb' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%2398d4ee' stop-opacity='0.04'/%3E%3C/linearGradient%3E%3ClinearGradient id='hrHill1' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234a7c3f' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%233d6b35' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3ClinearGradient id='hrHill2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%235a8f4a' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%234a7c3f' stop-opacity='0.06'/%3E%3C/linearGradient%3E%3ClinearGradient id='hrMtn' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236b8e9f' stop-opacity='0.1'/%3E%3Cstop offset='60%25' stop-color='%235a7a8a' stop-opacity='0.06'/%3E%3Cstop offset='100%25' stop-color='%234a6a7a' stop-opacity='0.03'/%3E%3C/linearGradient%3E%3ClinearGradient id='hrSnow' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%23e8f0f5' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='hrJeep' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f5a623' stop-opacity='0.85'/%3E%3Cstop offset='50%25' stop-color='%23e8941f' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%23d4821a' stop-opacity='0.75'/%3E%3C/linearGradient%3E%3ClinearGradient id='hrTire' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234a4a4a' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%232d2d2d' stop-opacity='0.6'/%3E%3C/linearGradient%3E%3ClinearGradient id='hrCoin' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffd700'/%3E%3Cstop offset='50%25' stop-color='%23f5c400'/%3E%3Cstop offset='100%25' stop-color='%23daa520'/%3E%3C/linearGradient%3E%3ClinearGradient id='hrFuel' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23dc3545' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%23b02a37' stop-opacity='0.7'/%3E%3C/linearGradient%3E%3Cfilter id='hrShadow' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeDropShadow dx='1' dy='2' stdDeviation='2' flood-color='%23000' flood-opacity='0.2'/%3E%3C/filter%3E%3Cfilter id='hrGlow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='1'/%3E%3C/filter%3E%3C/defs%3E%3Crect x='0' y='0' width='320' height='145' fill='url(%23hrSky)'/%3E%3Cpath d='M250 50 L275 20 L300 45 L320 25 L320 70 L250 70 Z' fill='url(%23hrMtn)'/%3E%3Cpath d='M275 20 L282 12 L290 18 L300 45 L285 35 Z' fill='url(%23hrSnow)'/%3E%3Cpath d='M200 60 L225 35 L250 55 L250 70 L200 70 Z' fill='url(%23hrMtn)' opacity='0.7'/%3E%3Cpath d='M225 35 L230 28 L238 33 L250 55 L240 48 Z' fill='url(%23hrSnow)' opacity='0.8'/%3E%3Cpath d='M165 55 L175 48 L180 52 L180 70 L165 70 Z' fill='%235a7a8a' opacity='0.06'/%3E%3Cpath d='M5 95 L8 90 L10 93 L10 100 L5 100 Z' fill='%232d5a3d' opacity='0.15'/%3E%3Cpath d='M8 90 L8 100' stroke='%234a3728' stroke-width='1' opacity='0.1'/%3E%3Cpath d='M20 90 L25 80 L30 88 L30 100 L20 100 Z' fill='%232d5a3d' opacity='0.12'/%3E%3Cpath d='M25 80 L25 95' stroke='%234a3728' stroke-width='1.2' opacity='0.1'/%3E%3Cpath d='M280 85 L285 72 L290 82 L290 100 L280 100 Z' fill='%232d5a3d' opacity='0.1'/%3E%3Cpath d='M285 72 L285 92' stroke='%234a3728' stroke-width='1' opacity='0.08'/%3E%3Cpath d='M300 90 L303 83 L306 88 L306 100 L300 100 Z' fill='%232d5a3d' opacity='0.08'/%3E%3Cpath d='M0 145 Q40 100 80 115 Q120 130 160 105 Q200 80 240 95 Q280 110 320 90 L320 145 Z' fill='url(%23hrHill1)'/%3E%3Cpath d='M0 145 Q50 120 100 130 Q150 140 200 120 Q250 100 300 115 Q320 120 320 145 Z' fill='url(%23hrHill2)'/%3E%3Cpath d='M50 125 Q55 123 60 125' stroke='%236b4423' stroke-width='1.5' opacity='0.15' fill='none'/%3E%3Cpath d='M140 115 Q148 112 156 116' stroke='%236b4423' stroke-width='1.2' opacity='0.12' fill='none'/%3E%3Ccircle cx='70' cy='128' r='2.5' fill='%237a7a7a' opacity='0.15'/%3E%3Ccircle cx='130' cy='118' r='2' fill='%236a6a6a' opacity='0.12'/%3E%3Ccircle cx='180' cy='108' r='3' fill='%238a8a8a' opacity='0.1'/%3E%3Cellipse cx='65' cy='132' rx='4' ry='2' fill='%235a4a3a' opacity='0.08'/%3E%3Cellipse cx='145' cy='120' rx='3' ry='1.5' fill='%235a4a3a' opacity='0.06'/%3E%3Cg transform='translate(85, 58)'%3E%3Crect x='0' y='8' width='50' height='22' rx='3' fill='url(%23hrJeep)' filter='url(%23hrShadow)'/%3E%3Crect x='2' y='10' width='46' height='18' rx='2' fill='none' stroke='%23d4821a' stroke-width='0.8' opacity='0.6'/%3E%3Crect x='35' y='5' width='12' height='8' rx='1' fill='%23e8e8e8' opacity='0.3' stroke='%23d4821a' stroke-width='0.5'/%3E%3Ccircle cx='39' cy='9' r='2' fill='%23ffff99' opacity='0.4'/%3E%3Ccircle cx='45' cy='9' r='2' fill='%23ffff99' opacity='0.4'/%3E%3Crect x='5' y='2' width='25' height='14' rx='2' fill='none' stroke='%234a4a4a' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M5 2 L5 16 M30 2 L30 16' stroke='%234a4a4a' stroke-width='1.2' opacity='0.4'/%3E%3Cpath d='M5 2 L30 2' stroke='%234a4a4a' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M8 16 L8 8 L27 8 L27 16' stroke='%234a4a4a' stroke-width='1' opacity='0.3'/%3E%3Crect x='10' y='4' width='15' height='10' rx='1' fill='%2387ceeb' opacity='0.25'/%3E%3Ccircle cx='18' cy='8' r='4' fill='%23f5d5b8' opacity='0.6'/%3E%3Ccircle cx='17' cy='7' r='0.8' fill='%232d2d2d' opacity='0.5'/%3E%3Ccircle cx='19' cy='7' r='0.8' fill='%232d2d2d' opacity='0.5'/%3E%3Cellipse cx='18' cy='4' rx='4' ry='2' fill='%23c41e3a' opacity='0.5'/%3E%3Cpath d='M14 4 Q18 2 22 4' stroke='%23c41e3a' stroke-width='1' opacity='0.4' fill='none'/%3E%3Ccircle cx='10' cy='32' r='10' fill='url(%23hrTire)'/%3E%3Ccircle cx='10' cy='32' r='7' fill='%235a5a5a' opacity='0.5'/%3E%3Ccircle cx='10' cy='32' r='3' fill='%23808080' opacity='0.6'/%3E%3Cpath d='M10 22 L10 26 M10 38 L10 42 M0 32 L4 32 M16 32 L20 32 M3 25 L6 28 M14 36 L17 39 M17 25 L14 28 M6 36 L3 39' stroke='%236a6a6a' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='40' cy='32' r='10' fill='url(%23hrTire)'/%3E%3Ccircle cx='40' cy='32' r='7' fill='%235a5a5a' opacity='0.5'/%3E%3Ccircle cx='40' cy='32' r='3' fill='%23808080' opacity='0.6'/%3E%3Cpath d='M40 22 L40 26 M40 38 L40 42 M30 32 L34 32 M46 32 L50 32 M33 25 L36 28 M44 36 L47 39 M47 25 L44 28 M36 36 L33 39' stroke='%236a6a6a' stroke-width='1' opacity='0.4'/%3E%3Cpath d='M10 30 L10 18 M40 30 L40 20' stroke='%234a4a4a' stroke-width='2' opacity='0.3'/%3E%3Cpath d='M8 25 L12 20 M38 27 L42 22' stroke='%234a4a4a' stroke-width='1.5' opacity='0.25'/%3E%3C/g%3E%3Ccircle cx='55' cy='75' r='3' fill='%238a7a6a' opacity='0.2'/%3E%3Ccircle cx='62' cy='82' r='2' fill='%237a6a5a' opacity='0.15'/%3E%3Ccircle cx='48' cy='80' r='1.5' fill='%236a5a4a' opacity='0.12'/%3E%3Ccircle cx='70' cy='78' r='2.5' fill='%238a7a6a' opacity='0.1'/%3E%3Cpath d='M50 85 Q55 82 60 86' stroke='%238a7a6a' stroke-width='2' opacity='0.1' fill='none' stroke-linecap='round'/%3E%3Cg transform='translate(195, 55)'%3E%3Ccircle cx='0' cy='0' r='10' fill='url(%23hrCoin)' opacity='0.7' filter='url(%23hrGlow)'/%3E%3Ccircle cx='0' cy='0' r='7' fill='none' stroke='%23b8860b' stroke-width='1' opacity='0.5'/%3E%3Cpath d='M-2 -4 L0 -6 L2 -4 L2 2 L0 4 L-2 2 Z' fill='%23b8860b' opacity='0.4'/%3E%3C/g%3E%3Cg transform='translate(220, 75)'%3E%3Ccircle cx='0' cy='0' r='8' fill='url(%23hrCoin)' opacity='0.6' filter='url(%23hrGlow)'/%3E%3Ccircle cx='0' cy='0' r='5.5' fill='none' stroke='%23b8860b' stroke-width='0.8' opacity='0.4'/%3E%3Cpath d='M-1.5 -3 L0 -4.5 L1.5 -3 L1.5 1.5 L0 3 L-1.5 1.5 Z' fill='%23b8860b' opacity='0.35'/%3E%3C/g%3E%3Cg transform='translate(245, 60)'%3E%3Ccircle cx='0' cy='0' r='7' fill='url(%23hrCoin)' opacity='0.5' filter='url(%23hrGlow)'/%3E%3Ccircle cx='0' cy='0' r='4.5' fill='none' stroke='%23b8860b' stroke-width='0.7' opacity='0.35'/%3E%3Cpath d='M-1 -2.5 L0 -3.5 L1 -2.5 L1 1 L0 2 L-1 1 Z' fill='%23b8860b' opacity='0.3'/%3E%3C/g%3E%3Cg transform='translate(270, 85)'%3E%3Crect x='-8' y='-10' width='16' height='20' rx='2' fill='url(%23hrFuel)' filter='url(%23hrShadow)'/%3E%3Crect x='-6' y='-8' width='12' height='16' rx='1' fill='none' stroke='%23a02030' stroke-width='0.5' opacity='0.4'/%3E%3Crect x='-2' y='-14' width='4' height='5' rx='1' fill='%23a02030' opacity='0.6'/%3E%3Crect x='-4' y='-3' width='8' height='8' rx='1' fill='%23f8f8f8' opacity='0.6'/%3E%3Ccircle cx='0' cy='1' r='2.5' fill='none' stroke='%23333' stroke-width='1' opacity='0.5'/%3E%3Crect x='-0.5' y='-2' width='1' height='4' fill='%23333' opacity='0.5'/%3E%3Crect x='-2' y='0' width='4' height='1' fill='%23333' opacity='0.5'/%3E%3C/g%3E%3Cpath d='M295 125 L300 112 L305 122 L305 135 L295 135 Z' fill='%232d5a3d' opacity='0.08'/%3E%3Cpath d='M300 112 L300 130' stroke='%234a3728' stroke-width='1' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Hill Rider ambient glow - orange jeep and green hills atmospheric lighting */
+.game-page__about[data-decoration="hill-rider"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+  height: 145px;
+  background:
+    radial-gradient(ellipse 60% 80% at 40% 55%, rgba(245, 166, 35, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 90% at 70% 50%, rgba(74, 124, 63, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 85% 45%, rgba(255, 215, 0, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -7654,6 +7689,17 @@ h3 {
     height: 127px;
   }
 
+  /* Hill Rider tablet */
+  .game-page__about[data-decoration="hill-rider"]::before {
+    width: 280px;
+    height: 127px;
+  }
+
+  .game-page__about[data-decoration="hill-rider"]::after {
+    width: 280px;
+    height: 127px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -9441,6 +9487,17 @@ h3 {
   }
 
   .game-page__about[data-decoration="color-clash"]::after {
+    width: 200px;
+    height: 91px;
+  }
+
+  /* Hill Rider mobile */
+  .game-page__about[data-decoration="hill-rider"]::before {
+    width: 200px;
+    height: 91px;
+  }
+
+  .game-page__about[data-decoration="hill-rider"]::after {
     width: 200px;
     height: 91px;
   }
@@ -11506,6 +11563,16 @@ h3 {
   }
 
   .game-page__about[data-decoration="color-clash"]::after {
+    display: none; /* Hide glow on very small screens */
+  }
+
+  /* Hill Rider extra small */
+  .game-page__about[data-decoration="hill-rider"]::before {
+    width: 140px;
+    height: 64px;
+  }
+
+  .game-page__about[data-decoration="hill-rider"]::after {
     display: none; /* Hide glow on very small screens */
   }
 

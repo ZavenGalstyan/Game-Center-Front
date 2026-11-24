@@ -131,6 +131,7 @@ import wildWestBg from "../images/WildWest.png";
 import spiderRoyaleBg from "../images/SpiderRoyale.png";
 import colorClashBg from "../images/ColorClash.png";
 import armenianBlotBg from "../images/ArmenianBlot.png";
+import hillRiderBg from "../images/HillRider.png";
 
 /**
  * Category to icon mapping.
@@ -2214,6 +2215,19 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(15, 10, 12, 0.5) 40%,
       rgba(15, 10, 12, 0.76) 52%,
       rgba(15, 10, 12, 0.9) 100%)`,
+  },
+  // Hill Rider — 2D hill climbing with vehicles, coins, fuel cans.
+  // Orange jeep with driver on left; rolling green hills, pine trees, coins,
+  // and mountains in the background. Dark green fade preserves the jeep.
+  "hill rider": {
+    image: hillRiderBg,
+    position: "15% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 35, 25, 0) 0%,
+      rgba(10, 35, 25, 0) 32%,
+      rgba(10, 35, 25, 0.5) 44%,
+      rgba(10, 35, 25, 0.76) 56%,
+      rgba(10, 35, 25, 0.9) 100%)`,
   },
 };
 

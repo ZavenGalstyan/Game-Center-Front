@@ -96,7 +96,7 @@ const GAME_TAGLINES = {
   "Fruit Slice": "Slice flying fruit, unleash juicy combos, dodge dangerous bombs, and chase your highest score.",
   "Mahjong Classic": "Match identical tiles, clear intricate layouts, and unwind with a timeless puzzle challenge.",
   "Maze Muncher": "CHOMP • DODGE • SURVIVE",
-  "Hill Rider": "DRIVE • CLIMB • CONQUER",
+  "Hill Rider": "Drive across challenging hills, collect coins, and upgrade your vehicles.",
   "Color Clash": "Match colors and numbers, use action cards, and be the first to empty your hand.",
   "Spider Royale": "Stack cards, build sequences, and master the art of solitaire.",
   "Trump Masters": "Attack. Defend. Outsmart.",
@@ -364,6 +364,7 @@ const GAME_DECORATIONS = {
   "Spider Royale": "spider-royale",
   "Color Clash": "color-clash",
   "Armenian Blot Heritage": "armenian-blot",
+  "Hill Rider": "hill-rider",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
