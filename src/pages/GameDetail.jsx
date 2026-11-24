@@ -98,6 +98,7 @@ const GAME_TAGLINES = {
   "Maze Muncher": "CHOMP • DODGE • SURVIVE",
   "Hill Rider": "Drive across challenging hills, collect coins, and upgrade your vehicles.",
   "School Life Simulator 3D": "Explore school life, attend classes, and make new friends.",
+  "Zoo Simulator 3D": "Build your zoo, care for animals, and grow your wildlife park.",
   "Color Clash": "Match colors and numbers, use action cards, and be the first to empty your hand.",
   "Spider Royale": "Stack cards, build sequences, and master the art of solitaire.",
   "Trump Masters": "Attack. Defend. Outsmart.",
@@ -367,6 +368,7 @@ const GAME_DECORATIONS = {
   "Armenian Blot Heritage": "armenian-blot",
   "Hill Rider": "hill-rider",
   "School Life Simulator 3D": "school-life-3d",
+  "Zoo Simulator 3D": "zoo",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
