@@ -130,6 +130,7 @@ import deckOfShadowsBg from "../images/DeckofShadows.png";
 import wildWestBg from "../images/WildWest.png";
 import spiderRoyaleBg from "../images/SpiderRoyale.png";
 import colorClashBg from "../images/ColorClash.png";
+import armenianBlotBg from "../images/ArmenianBlot.png";
 
 /**
  * Category to icon mapping.
@@ -2201,6 +2202,18 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(10, 43, 44, 0.5) 40%,
       rgba(10, 43, 44, 0.76) 52%,
       rgba(10, 43, 44, 0.9) 100%)`,
+  },
+  // Armenian Blot Heritage — traditional Armenian card game with ornaments.
+  // Armenian ornaments on the left, playing cards featured; burgundy fade.
+  "armenian blot heritage": {
+    image: armenianBlotBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 10, 12, 0) 0%,
+      rgba(15, 10, 12, 0) 28%,
+      rgba(15, 10, 12, 0.5) 40%,
+      rgba(15, 10, 12, 0.76) 52%,
+      rgba(15, 10, 12, 0.9) 100%)`,
   },
 };
 

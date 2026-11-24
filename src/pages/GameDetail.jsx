@@ -363,6 +363,7 @@ const GAME_DECORATIONS = {
   "Wild West Card Showdown": "wild-west-showdown",
   "Spider Royale": "spider-royale",
   "Color Clash": "color-clash",
+  "Armenian Blot Heritage": "armenian-blot",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
@@ -372,6 +373,7 @@ const GAME_SHORT_DESCRIPTIONS = {
   "Oceanbound: Survival Journey": "Explore the open ocean, build your raft, and survive against the odds.",
   "Oceanbound": "Explore the open ocean, build your raft, and survive against the odds.",
   "Dinosaur Island 3D": "Explore a prehistoric island, survive deadly dinosaurs, and find your way home.",
+  "Armenian Blot Heritage": "Play traditional Armenian Blot in strategic team matches.",
 };
 
 // About section description overrides (replaces backend description for specific games)
