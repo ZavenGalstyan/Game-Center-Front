@@ -98,7 +98,7 @@ const GAME_TAGLINES = {
   "Maze Muncher": "CHOMP • DODGE • SURVIVE",
   "Hill Rider": "DRIVE • CLIMB • CONQUER",
   "Color Clash": "MATCH • PLAY • WIN",
-  "Spider Royale": "STACK • STRATEGIZE • SOLVE",
+  "Spider Royale": "Stack cards, build sequences, and master the art of solitaire.",
   "Trump Masters": "Attack. Defend. Outsmart.",
   "Block Escape": "Slide colorful blocks, clear a path to the exit, and challenge your logic across 100 increasingly difficult puzzles.",
   "Neon Circuit": "Light up the board, discover the right sequence, and solve glowing neon puzzles across 100 challenging levels.",
@@ -373,6 +373,11 @@ const GAME_SHORT_DESCRIPTIONS = {
   "Dinosaur Island 3D": "Explore a prehistoric island, survive deadly dinosaurs, and find your way home.",
 };
 
+// About section description overrides (replaces backend description for specific games)
+const GAME_ABOUT_OVERRIDES = {
+  "Spider Royale": "Master the art of solitaire in Spider Royale! Stack cards, build perfect sequences, and clear the board with smart moves and strategy.",
+};
+
 // Fallback: generate a short tagline from description if not predefined
 function getTagline(game) {
   if (GAME_TAGLINES[game.name]) return GAME_TAGLINES[game.name];
@@ -517,7 +522,7 @@ export default function GameDetail() {
             </div>
           )}
         </div>
-        <p className="game-page__about-text">{gameDescription(game, lang)}</p>
+        <p className="game-page__about-text">{GAME_ABOUT_OVERRIDES[game.name] || gameDescription(game, lang)}</p>
       </section>
 
       <GameRatingPanel
