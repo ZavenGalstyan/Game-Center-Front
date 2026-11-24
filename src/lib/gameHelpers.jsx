@@ -129,6 +129,7 @@ import deadDrawBg from "../images/DeadDraw.png";
 import deckOfShadowsBg from "../images/DeckofShadows.png";
 import wildWestBg from "../images/WildWest.png";
 import spiderRoyaleBg from "../images/SpiderRoyale.png";
+import colorClashBg from "../images/ColorClash.png";
 
 /**
  * Category to icon mapping.
@@ -2188,6 +2189,18 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(5, 25, 18, 0.5) 40%,
       rgba(5, 25, 18, 0.76) 52%,
       rgba(5, 25, 18, 0.9) 100%)`,
+  },
+  // Color Clash — UNO-style card game with colorful cards on dark teal table.
+  // Position keeps the colorful cards and title visible; dark teal fade.
+  "color clash": {
+    image: colorClashBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 43, 44, 0) 0%,
+      rgba(10, 43, 44, 0) 28%,
+      rgba(10, 43, 44, 0.5) 40%,
+      rgba(10, 43, 44, 0.76) 52%,
+      rgba(10, 43, 44, 0.9) 100%)`,
   },
 };
 

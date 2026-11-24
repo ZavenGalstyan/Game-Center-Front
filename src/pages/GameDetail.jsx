@@ -97,7 +97,7 @@ const GAME_TAGLINES = {
   "Mahjong Classic": "Match identical tiles, clear intricate layouts, and unwind with a timeless puzzle challenge.",
   "Maze Muncher": "CHOMP • DODGE • SURVIVE",
   "Hill Rider": "DRIVE • CLIMB • CONQUER",
-  "Color Clash": "MATCH • PLAY • WIN",
+  "Color Clash": "Match colors and numbers, use action cards, and be the first to empty your hand.",
   "Spider Royale": "Stack cards, build sequences, and master the art of solitaire.",
   "Trump Masters": "Attack. Defend. Outsmart.",
   "Block Escape": "Slide colorful blocks, clear a path to the exit, and challenge your logic across 100 increasingly difficult puzzles.",
@@ -362,6 +362,7 @@ const GAME_DECORATIONS = {
   "Wild West: Card Showdown": "wild-west-showdown",
   "Wild West Card Showdown": "wild-west-showdown",
   "Spider Royale": "spider-royale",
+  "Color Clash": "color-clash",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
