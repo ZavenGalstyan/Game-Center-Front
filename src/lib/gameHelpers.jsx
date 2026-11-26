@@ -129,6 +129,11 @@ import deadDrawBg from "../images/DeadDraw.png";
 import deckOfShadowsBg from "../images/DeckofShadows.png";
 import wildWestBg from "../images/WildWest.png";
 import spiderRoyaleBg from "../images/SpiderRoyale.png";
+import colorClashBg from "../images/ColorClash.png";
+import armenianBlotBg from "../images/ArmenianBlot.png";
+import hillRiderBg from "../images/HillRider.png";
+import schoolLife3dBg from "../images/SchoolLife.png";
+import zooSimulator3dBg from "../images/ZooSimulator.png";
 
 /**
  * Category to icon mapping.
@@ -2188,6 +2193,69 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(5, 25, 18, 0.5) 40%,
       rgba(5, 25, 18, 0.76) 52%,
       rgba(5, 25, 18, 0.9) 100%)`,
+  },
+  // Color Clash — UNO-style card game with colorful cards on dark teal table.
+  // Position keeps the colorful cards and title visible; dark teal fade.
+  "color clash": {
+    image: colorClashBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 43, 44, 0) 0%,
+      rgba(10, 43, 44, 0) 28%,
+      rgba(10, 43, 44, 0.5) 40%,
+      rgba(10, 43, 44, 0.76) 52%,
+      rgba(10, 43, 44, 0.9) 100%)`,
+  },
+  // Armenian Blot Heritage — traditional Armenian card game with ornaments.
+  // Armenian ornaments on the left, playing cards featured; burgundy fade.
+  "armenian blot heritage": {
+    image: armenianBlotBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 10, 12, 0) 0%,
+      rgba(15, 10, 12, 0) 28%,
+      rgba(15, 10, 12, 0.5) 40%,
+      rgba(15, 10, 12, 0.76) 52%,
+      rgba(15, 10, 12, 0.9) 100%)`,
+  },
+  // Hill Rider — 2D hill climbing with vehicles, coins, fuel cans.
+  // Orange jeep with driver on left; rolling green hills, pine trees, coins,
+  // and mountains in the background. Dark green fade preserves the jeep.
+  "hill rider": {
+    image: hillRiderBg,
+    position: "15% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 35, 25, 0) 0%,
+      rgba(10, 35, 25, 0) 32%,
+      rgba(10, 35, 25, 0.5) 44%,
+      rgba(10, 35, 25, 0.76) 56%,
+      rgba(10, 35, 25, 0.9) 100%)`,
+  },
+  // School Life Simulator 3D — third-person school life simulation.
+  // School building, students, colorful cartoon aesthetic.
+  // Position keeps the school building and characters visible.
+  "school life simulator 3d": {
+    image: schoolLife3dBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(25, 45, 70, 0) 0%,
+      rgba(25, 45, 70, 0) 28%,
+      rgba(25, 45, 70, 0.5) 40%,
+      rgba(25, 45, 70, 0.76) 52%,
+      rgba(25, 45, 70, 0.9) 100%)`,
+  },
+  // Zoo Simulator 3D — first-person zoo management simulation.
+  // Lion, giraffe, elephant, zebra, flamingos, wooden fences, visitors, pond.
+  // Position keeps animals and zoo entrance visible; green nature fade.
+  "zoo simulator 3d": {
+    image: zooSimulator3dBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 40, 25, 0) 0%,
+      rgba(15, 40, 25, 0) 28%,
+      rgba(15, 40, 25, 0.5) 40%,
+      rgba(15, 40, 25, 0.76) 52%,
+      rgba(15, 40, 25, 0.9) 100%)`,
   },
 };
 

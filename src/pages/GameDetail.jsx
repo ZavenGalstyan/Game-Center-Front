@@ -96,9 +96,11 @@ const GAME_TAGLINES = {
   "Fruit Slice": "Slice flying fruit, unleash juicy combos, dodge dangerous bombs, and chase your highest score.",
   "Mahjong Classic": "Match identical tiles, clear intricate layouts, and unwind with a timeless puzzle challenge.",
   "Maze Muncher": "CHOMP • DODGE • SURVIVE",
-  "Hill Rider": "DRIVE • CLIMB • CONQUER",
-  "Color Clash": "MATCH • PLAY • WIN",
-  "Spider Royale": "STACK • STRATEGIZE • SOLVE",
+  "Hill Rider": "Drive across challenging hills, collect coins, and upgrade your vehicles.",
+  "School Life Simulator 3D": "Explore school life, attend classes, and make new friends.",
+  "Zoo Simulator 3D": "Build your zoo, care for animals, and grow your wildlife park.",
+  "Color Clash": "Match colors and numbers, use action cards, and be the first to empty your hand.",
+  "Spider Royale": "Stack cards, build sequences, and master the art of solitaire.",
   "Trump Masters": "Attack. Defend. Outsmart.",
   "Block Escape": "Slide colorful blocks, clear a path to the exit, and challenge your logic across 100 increasingly difficult puzzles.",
   "Neon Circuit": "Light up the board, discover the right sequence, and solve glowing neon puzzles across 100 challenging levels.",
@@ -362,6 +364,11 @@ const GAME_DECORATIONS = {
   "Wild West: Card Showdown": "wild-west-showdown",
   "Wild West Card Showdown": "wild-west-showdown",
   "Spider Royale": "spider-royale",
+  "Color Clash": "color-clash",
+  "Armenian Blot Heritage": "armenian-blot",
+  "Hill Rider": "hill-rider",
+  "School Life Simulator 3D": "school-life-3d",
+  "Zoo Simulator 3D": "zoo",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
@@ -371,6 +378,12 @@ const GAME_SHORT_DESCRIPTIONS = {
   "Oceanbound: Survival Journey": "Explore the open ocean, build your raft, and survive against the odds.",
   "Oceanbound": "Explore the open ocean, build your raft, and survive against the odds.",
   "Dinosaur Island 3D": "Explore a prehistoric island, survive deadly dinosaurs, and find your way home.",
+  "Armenian Blot Heritage": "Play traditional Armenian Blot in strategic team matches.",
+};
+
+// About section description overrides (replaces backend description for specific games)
+const GAME_ABOUT_OVERRIDES = {
+  "Spider Royale": "Master the art of solitaire in Spider Royale! Stack cards, build perfect sequences, and clear the board with smart moves and strategy.",
 };
 
 // Fallback: generate a short tagline from description if not predefined
@@ -517,7 +530,7 @@ export default function GameDetail() {
             </div>
           )}
         </div>
-        <p className="game-page__about-text">{gameDescription(game, lang)}</p>
+        <p className="game-page__about-text">{GAME_ABOUT_OVERRIDES[game.name] || gameDescription(game, lang)}</p>
       </section>
 
       <GameRatingPanel
