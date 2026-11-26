@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useLayoutEffect, useReducer, useRef } from "react";
+import { Suspense, useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
 import { getGameComponent } from "./registry.js";
 import { useTranslation } from "../../i18n/useTranslation.js";
 import { BAKED_TEXT_GAMES, GAME_CATALOG_IDS } from "../../i18n/gameCatalogIds.js";
@@ -20,21 +20,51 @@ import { attachDomTranslator, peekGameTranslator, setCanvasTranslator } from "..
  * Rush ships its own WebGL renderer and is only fetched when someone opens it).
  * It also covers the game's Russian catalog, so a game opened in Russian never
  * flashes English first.
+ *
+ * The game mounts only after the page around it has painted once. Many games
+ * do a long synchronous setup on mount (WebGL scenes, level generation); this
+ * keeps the title, controls and "Loading game…" on screen during it instead
+ * of a blank route. It is state, not suspension, so the page's own commit is
+ * never held back by React's reveal throttling for nested Suspense.
  */
 export default function GameRenderer({ game, restartNonce = 0, muted = false }) {
   const { t, lang } = useTranslation();
+  const painted = useAfterFirstPaint();
   const Game = getGameComponent(game);
   if (!Game) return null;
   const catalogId = GAME_CATALOG_IDS[String(game.name ?? "").trim().replace(/\s+/g, " ").toLowerCase()];
-  return (
-    <Suspense fallback={<div className="game-player__placeholder">
+  const fallback = (
+    <div className="game-player__placeholder">
       <p className="game-player__placeholder-text">{t("Loading game…")}</p>
-    </div>}>
+    </div>
+  );
+  if (!painted) return fallback;
+  return (
+    <Suspense fallback={fallback}>
       <LocalizedGame catalogId={catalogId} lang={lang}>
         <Game game={game} restartSignal={restartNonce} muted={muted} />
       </LocalizedGame>
     </Suspense>
   );
+}
+
+/** True from the first frame after mount (100 ms at most, e.g. in a background tab). */
+function useAfterFirstPaint() {
+  const [painted, setPainted] = useState(false);
+  useEffect(() => {
+    const done = () => setPainted(true);
+    let timer;
+    const raf = requestAnimationFrame(() => {
+      timer = setTimeout(done, 0);
+    });
+    const cap = setTimeout(done, 100);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+      clearTimeout(cap);
+    };
+  }, []);
+  return painted;
 }
 
 /**

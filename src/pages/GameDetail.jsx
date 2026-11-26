@@ -9,6 +9,7 @@ import GameRenderer from "../components/games/GameRenderer.jsx";
 import GameComments from "../components/comments/GameComments.jsx";
 import { getGameComponent, gameSupportsMute } from "../components/games/registry.js";
 import { getMainCategory, getSecondaryCategories } from "../lib/gameHelpers.jsx";
+import { cacheEpoch, peekGame, rememberGame } from "../data/catalog.js";
 import { useTranslation } from "../i18n/useTranslation.js";
 import { gameDescription, gameTitle } from "../i18n/gameInfo.js";
 
@@ -398,10 +399,28 @@ function getTagline(game) {
   return null;
 }
 
+/**
+ * Same game apart from the live rating stats? (The ratings panel tracks those
+ * itself.) Then a refetch keeps the object already on screen, so the running
+ * game never receives a new `game` prop for nothing.
+ */
+const LIVE_FIELDS = new Set(["averageRating", "ratingsCount", "categoryMatch"]);
+function stableJson(value, skip) {
+  if (Array.isArray(value)) return `[${value.map((v) => stableJson(v)).join(",")}]`;
+  if (!value || typeof value !== "object") return JSON.stringify(value) ?? "null";
+  const keys = Object.keys(value).filter((k) => !skip?.has(k)).sort();
+  return `{${keys.map((k) => `${JSON.stringify(k)}:${stableJson(value[k])}`).join(",")}}`;
+}
+function sameGameContent(a, b) {
+  return Boolean(a && b) && stableJson(a, LIVE_FIELDS) === stableJson(b, LIVE_FIELDS);
+}
+
 export default function GameDetail() {
   const { id } = useParams();
-  const [game, setGame] = useState(null);
-  const [state, setState] = useState("loading"); // loading | ok | notfound | error
+  // A game known from the catalog renders at once (and its game chunk starts
+  // downloading immediately); the detail fetch then confirms it.
+  const [game, setGame] = useState(() => peekGame(id));
+  const [state, setState] = useState(() => (game ? "ok" : "loading")); // loading | ok | notfound | error
   const [restartNonce, setRestartNonce] = useState(0);
   const [muted, setMuted] = useState(false);
   const openAuth = useOutletContext()?.openAuth;
@@ -415,26 +434,41 @@ export default function GameDetail() {
 
   useEffect(() => {
     let cancelled = false;
-    setState("loading");
+    const known = peekGame(id);
+    setGame((prev) => (prev && (prev.id || prev._id) === id ? prev : known));
+    setState(known ? "ok" : "loading");
     setRestartNonce(0);
     setRatingStats(null);
+    const epoch = cacheEpoch();
     api
       .getGame(id)
       .then((data) => {
+        rememberGame(data, epoch);
         if (cancelled) return;
-        setGame(data);
+        setGame((prev) => (sameGameContent(prev, data) ? prev : data));
         setState("ok");
       })
       .catch((err) => {
         if (cancelled) return;
-        setState(err.status === 404 ? "notfound" : "error");
+        // A 404 always wins (the game is gone); any other failure keeps a
+        // game already shown from the catalog instead of replacing it.
+        if (err.status === 404) setState("notfound");
+        else if (!known) setState("error");
       });
     return () => {
       cancelled = true;
     };
   }, [id]);
 
-  if (state === "loading") return <p className="muted">{t("Loading…")}</p>;
+  if (state === "loading") {
+    return (
+      <div className="game-page game-page--loading" role="status" aria-busy="true">
+        <span className="gc-visually-hidden">{t("Loading…")}</span>
+        <span className="skeleton-line skeleton-line--heading" />
+        <div className="game-page__stage-skeleton" />
+      </div>
+    );
+  }
 
   if (state === "notfound") {
     return (

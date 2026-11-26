@@ -5,12 +5,14 @@ import App from "./App.jsx";
 import { AuthProvider } from "./auth/AuthContext.jsx";
 import { ToastProvider } from "./components/Toast.jsx";
 import { GameTypesProvider } from "./data/gameTypes.jsx";
+import { i18nReady } from "./i18n/i18n.js";
 // Global styles - tokens must be imported first
 import "./styles/tokens.css";
 import "./index.css";
 import "./components/ui/ui.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+// Waits only when the saved language is not English (its catalog chunk).
+i18nReady.then(() => ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <ToastProvider>
@@ -22,4 +24,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </ToastProvider>
     </BrowserRouter>
   </React.StrictMode>,
-);
+));

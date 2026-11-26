@@ -12870,3 +12870,111 @@ h3 {
     height: 15px;
   }
 }
+
+/* ---------- loading skeletons (catalog, sidebar, pages) ---------- */
+.gc-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.games-skeleton__section + .games-skeleton__section {
+  margin-top: var(--section-gap);
+}
+
+.games-skeleton__section > .skeleton-line--heading {
+  margin-bottom: var(--space-4);
+}
+
+.game-card-skeleton {
+  --_cut-size: 40px;
+  display: flex;
+  height: var(--game-card-height);
+  background: var(--card-gradient);
+  border-radius: var(--card-radius);
+  clip-path: polygon(0 0, calc(100% - var(--_cut-size)) 0, 100% var(--_cut-size), 100% 100%, 0 100%);
+  overflow: hidden;
+}
+
+.game-card-skeleton__art {
+  width: 40%;
+  flex: none;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.game-card-skeleton__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+
+.skeleton-line {
+  display: block;
+  height: 12px;
+  width: 85%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.11) 50%, rgba(255, 255, 255, 0.05) 100%);
+  background-size: 200% 100%;
+  animation: gc-skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton-line--title { height: 18px; width: 60%; }
+.skeleton-line--tag { width: 35%; }
+.skeleton-line--short { width: 50%; }
+.skeleton-line--heading { height: 22px; width: 220px; max-width: 60%; }
+.skeleton-line--nav { height: 14px; width: 70%; margin: 10px 12px; }
+
+@keyframes gc-skeleton-shimmer {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line { animation: none; }
+}
+
+.sidebar__skeleton {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-page--loading .skeleton-line--heading {
+  margin-bottom: var(--space-6, 24px);
+}
+
+.game-page__stage-skeleton {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 78vh;
+  background: var(--card-gradient);
+  border-radius: var(--radius-card);
+}
+
+.route-fallback {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 720px;
+}
+
+.header__auth-skeleton {
+  display: block;
+  width: 132px;
+  height: 44px;
+  border-radius: var(--radius-base);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.11) 50%, rgba(255, 255, 255, 0.05) 100%);
+  background-size: 200% 100%;
+  animation: gc-skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__auth-skeleton { animation: none; }
+}

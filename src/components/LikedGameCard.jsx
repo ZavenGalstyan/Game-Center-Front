@@ -74,7 +74,7 @@ export default function LikedGameCard({ game, onUnlike, removing = false }) {
       {/* Visual area - game image or placeholder icon */}
       <div className="liked-game-card__visual">
         {hasImage ? (
-          <img src={gameImage} alt="" loading="lazy" className="liked-game-card__image" />
+          <img loading="lazy" decoding="async" src={gameImage} alt="" className="liked-game-card__image" />
         ) : (
           <span className="liked-game-card__icon">
             <IconGamepad />

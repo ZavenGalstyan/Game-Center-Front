@@ -1,5 +1,4 @@
-import { getLanguage } from "./i18n.js";
-import ru from "./locales/gameInfo.ru.json";
+import { getLanguage, getRussianGameInfo } from "./i18n.js";
 
 /**
  * Display title and description of a backend game. Both are stored in English
@@ -8,7 +7,7 @@ import ru from "./locales/gameInfo.ru.json";
  * A game added on the backend without a translation shows its English text.
  */
 function russianInfo(game, lang) {
-  return lang === "ru" ? ru[game?.name] : undefined;
+  return lang === "ru" ? getRussianGameInfo()[game?.name] : undefined;
 }
 
 export function gameTitle(game, lang = getLanguage()) {
