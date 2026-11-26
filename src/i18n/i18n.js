@@ -1,4 +1,3 @@
-import ru from "./locales/ru.json";
 import en from "./locales/en.json";
 
 /**
@@ -16,6 +15,11 @@ import en from "./locales/en.json";
  *
  * Interpolation: "Hi, {name}" + { name: "Zav" }.
  * Plurals: a catalog value may be { one, few, many, other }; pass `count`.
+ *
+ * Only English ships in the main bundle. The Russian catalogs are one lazy
+ * chunk: `i18nReady` resolves once the saved language's catalog is in (main.jsx
+ * waits for it before the first render, so Russian never flashes English), and
+ * switching to Russian later applies once its chunk has arrived.
  */
 
 export const LANGUAGES = [
@@ -23,7 +27,23 @@ export const LANGUAGES = [
   { code: "ru", label: "Русский", short: "RU" },
 ];
 
-const CATALOGS = { en, ru };
+const CATALOGS = { en };
+let ruGameInfo = {};
+let ruLoading = null;
+
+function loadCatalog(lang) {
+  if (lang !== "ru" || CATALOGS.ru) return Promise.resolve();
+  ruLoading ||= import("./locales/ru.js").then((m) => {
+    CATALOGS.ru = m.ui;
+    ruGameInfo = m.gameInfo;
+  });
+  return ruLoading;
+}
+
+/** Russian name/description per English game name (empty until loaded). */
+export function getRussianGameInfo() {
+  return ruGameInfo;
+}
 const STORAGE_KEY = "gc-lang";
 const DEFAULT_LANG = "en";
 
@@ -40,20 +60,41 @@ function readInitialLang() {
   return nav.toLowerCase().startsWith("ru") ? "ru" : DEFAULT_LANG;
 }
 
-let currentLang = readInitialLang();
+const initialLang = readInitialLang();
+let currentLang = DEFAULT_LANG;
 const listeners = new Set();
 
 function applyDocumentLang(lang) {
   if (typeof document !== "undefined") document.documentElement.lang = lang;
 }
-applyDocumentLang(currentLang);
+applyDocumentLang(initialLang);
+
+/** Resolves when the saved language is ready to render (never rejects). */
+export const i18nReady = loadCatalog(initialLang).then(
+  () => {
+    currentLang = initialLang;
+  },
+  () => applyDocumentLang(currentLang), // chunk failed: stay in English
+);
 
 export function getLanguage() {
   return currentLang;
 }
 
+let requestedLang = null;
+
 export function setLanguage(lang) {
-  if (!isSupported(lang) || lang === currentLang) return;
+  if (!isSupported(lang)) return;
+  requestedLang = lang;
+  if (lang === currentLang) return;
+  if (!CATALOGS[lang]) {
+    // Apply once the catalog arrives, unless another language was picked meanwhile.
+    loadCatalog(lang).then(
+      () => requestedLang === lang && setLanguage(lang),
+      () => {},
+    );
+    return;
+  }
   currentLang = lang;
   try {
     localStorage.setItem(STORAGE_KEY, lang);

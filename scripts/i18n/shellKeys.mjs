@@ -57,7 +57,7 @@ for (const f of files) {
       if (par.isBinaryExpression() && /[=!]==?/.test(par.node.operator)) return;
       if (par.isMemberExpression()) return;
       if (par.isCallExpression() && par.node.callee.property && /^(warn|error|log|querySelector|querySelectorAll|matchMedia|test|getItem|setItem|removeItem|addEventListener|removeEventListener)$/.test(par.node.callee.property.name)) return;
-      if (par.isCallExpression() && /^(matchMedia)$/.test(par.node.callee.name || "")) return;
+      if (par.isCallExpression() && /^(matchMedia|cardImage)$/.test(par.node.callee.name || "")) return;
       if (isProse(v)) keys.add(v);
     },
   });

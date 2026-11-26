@@ -1,3 +1,5 @@
+import { invalidateCache } from "./queryCache.js";
+
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 const TOKEN_KEY = "gc_access_token";
 
@@ -34,9 +36,33 @@ export const tokenStore = {
  * Returns the `data` payload of the success envelope on success.
  * `expect` (optional) is the exact success status the caller requires; any
  * other 2xx is treated as a failure so the UI never confirms an unverified write.
+ * `cache` (optional) is passed to fetch as its cache mode (e.g. "reload").
+ *
+ * Content-Type is only sent with a JSON body: on a body-less cross-origin GET
+ * it would make the request "non-simple" and cost a CORS preflight each time.
+ *
+ * Identical GETs that are in flight at the same moment share one network
+ * request. The key includes the token actually sent, so two identities never
+ * share a response. Callers must treat returned objects as read-only.
  */
-async function request(path, { method = "GET", body, auth = false, raw = false, expect } = {}) {
-  const headers = { "Content-Type": "application/json" };
+const inflight = new Map();
+
+function request(path, options = {}) {
+  const { method = "GET", auth = false, cache, body, expect } = options;
+  if (method !== "GET" || body || expect) return send(path, options);
+  const token = auth ? tokenStore.get() : null;
+  const key = `${cache || ""} ${token || ""} ${path}`;
+  let pending = inflight.get(key);
+  if (!pending) {
+    pending = send(path, { ...options, raw: true }).finally(() => inflight.delete(key));
+    inflight.set(key, pending);
+  }
+  return options.raw ? pending : pending.then((json) => json.data);
+}
+
+async function send(path, { method = "GET", body, auth = false, raw = false, expect, cache } = {}) {
+  const headers = {};
+  if (body) headers["Content-Type"] = "application/json";
   if (auth) {
     const token = tokenStore.get();
     if (token) headers.Authorization = `Bearer ${token}`;
@@ -48,6 +74,7 @@ async function request(path, { method = "GET", body, auth = false, raw = false, 
       method,
       headers,
       body: body ? JSON.stringify(body) : undefined,
+      ...(cache ? { cache } : {}),
     });
   } catch {
     throw {
@@ -95,6 +122,28 @@ function readLiked(json) {
   return Boolean(json?.data?.liked ?? json?.liked);
 }
 
+/**
+ * Category endpoints are served with Cache-Control: public, max-age=60. After
+ * this browser changes a category, its HTTP cache could keep serving the old
+ * list for up to that long, so category reads bypass it (fetch cache "reload",
+ * which also refreshes the cached copy) for that window.
+ */
+const CATEGORY_HTTP_MAX_AGE = 60_000;
+let bypassCategoryCacheUntil = 0;
+const categoryCacheMode = () => (Date.now() < bypassCategoryCacheUntil ? "reload" : undefined);
+
+// Catalog data embeds category names, so a category change also drops games.
+function afterCategoryMutation(result) {
+  bypassCategoryCacheUntil = Date.now() + CATEGORY_HTTP_MAX_AGE;
+  invalidateCache("types", "games:", "game:");
+  return result;
+}
+
+function afterGameMutation(result) {
+  invalidateCache("games:", "game:");
+  return result;
+}
+
 export const api = {
   health: () => request("/api/health"),
 
@@ -136,18 +185,26 @@ export const api = {
 
   /* -------------------------------- Game types ------------------------------- */
 
-  listGameTypes: () => request("/api/game-types"),
+  // `fresh` skips the browser's HTTP cache (used right after a mutation).
+  listGameTypes: ({ fresh = false } = {}) =>
+    request("/api/game-types", { cache: fresh ? "reload" : categoryCacheMode() }),
 
-  getGameType: (id) => request(`/api/game-types/${id}`),
+  getGameType: (id) => request(`/api/game-types/${id}`, { cache: categoryCacheMode() }),
 
   createGameType: ({ name, slug }) =>
-    request("/api/game-types", { method: "POST", auth: true, body: { name, slug } }),
+    request("/api/game-types", { method: "POST", auth: true, body: { name, slug } }).then(
+      afterCategoryMutation,
+    ),
 
   updateGameType: (id, body) =>
-    request(`/api/game-types/${id}`, { method: "PATCH", auth: true, body }),
+    request(`/api/game-types/${id}`, { method: "PATCH", auth: true, body }).then(
+      afterCategoryMutation,
+    ),
 
   deleteGameType: (id) =>
-    request(`/api/game-types/${id}`, { method: "DELETE", auth: true }),
+    request(`/api/game-types/${id}`, { method: "DELETE", auth: true }).then(
+      afterCategoryMutation,
+    ),
 
   /* ---------------------------------- Games --------------------------------- */
 
@@ -172,12 +229,13 @@ export const api = {
       method: "POST",
       auth: true,
       body: { name, description, mainCategory, secondaryCategories },
-    }),
+    }).then(afterGameMutation),
 
   updateGame: (id, body) =>
-    request(`/api/games/${id}`, { method: "PATCH", auth: true, body }),
+    request(`/api/games/${id}`, { method: "PATCH", auth: true, body }).then(afterGameMutation),
 
-  deleteGame: (id) => request(`/api/games/${id}`, { method: "DELETE", auth: true }),
+  deleteGame: (id) =>
+    request(`/api/games/${id}`, { method: "DELETE", auth: true }).then(afterGameMutation),
 
   /* ------------------------------- Game likes ------------------------------ */
 
@@ -322,8 +380,11 @@ export async function bootstrapAuth() {
   try {
     const { user } = await api.me();
     return user;
-  } catch {
-    tokenStore.clear();
+  } catch (err) {
+    // Only a rejected token ends the session. A network failure or a server
+    // error (e.g. the backend still waking up) leaves the visitor a guest for
+    // this page load but keeps the token for the next one.
+    if (err?.status === 401 || err?.status === 403) tokenStore.clear();
     return null;
   }
 }

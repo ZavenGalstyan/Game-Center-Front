@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Badge } from "./ui";
 import { getGameDisplayTags, getGameArtwork } from "../lib/gameHelpers.jsx";
+import { CARD_IMAGE_SIZES } from "../lib/cardImages.js";
 import RatingBadge from "./rating/RatingBadge.jsx";
 import { useTranslation } from "../i18n/useTranslation.js";
 import { gameDescription, gameTitle } from "../i18n/gameInfo.js";
@@ -20,8 +21,12 @@ import { gameDescription, gameTitle } from "../i18n/gameInfo.js";
  * - Diagonal artwork/content transition with green accent
  * - Small top-right corner cut
  * - CSS-only border (no JS/SVG)
+ *
+ * The banner is responsive WebP (srcset). Cards have a fixed height and the
+ * image is absolutely positioned, so it can never shift the layout. Offscreen
+ * banners load lazily; `priority` marks the ones likely in the first view.
  */
-export default function GameCard({ game }) {
+export default function GameCard({ game, priority = false }) {
   const tags = getGameDisplayTags(game);
   const { t, lang } = useTranslation();
   const artwork = getGameArtwork(game);
@@ -36,7 +41,13 @@ export default function GameCard({ game }) {
         /* Full-card banner: one image behind everything, plus a readability shade */
         <>
           <img
+            // loading/decoding must precede src: React sets attributes in prop
+            // order, and Chrome decides lazy vs eager when src is assigned.
+            loading={priority ? "eager" : "lazy"}
+            decoding="async"
             className="game-card__bg"
+            sizes={artwork.cardBackgroundSrcSet ? CARD_IMAGE_SIZES : undefined}
+            srcSet={artwork.cardBackgroundSrcSet || undefined}
             src={background}
             style={artwork.cardBackgroundPosition ? { "--banner-position": artwork.cardBackgroundPosition } : undefined}
             alt=""

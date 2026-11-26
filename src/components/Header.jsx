@@ -148,7 +148,9 @@ export default function Header({ onOpenAuth, onToggleSidebar, sidebarOpen, onSea
 
       <div className="header__right">
         <LanguageSwitcher />
-        {status === "loading" && <span className="header__muted">...</span>}
+        {status === "loading" && (
+          <span className="header__auth-skeleton" role="status" aria-label={t("Loading…")} />
+        )}
 
         {status === "guest" && (
           <>

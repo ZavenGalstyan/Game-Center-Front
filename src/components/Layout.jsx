@@ -1,8 +1,21 @@
-import { useCallback, useRef, useState } from "react";
+import { Suspense, useCallback, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header.jsx";
 import Sidebar from "./Sidebar.jsx";
 import AuthModal from "./AuthModal.jsx";
+import { useTranslation } from "../i18n/useTranslation.js";
+
+function RouteFallback() {
+  const { t } = useTranslation();
+  return (
+    <div className="route-fallback" role="status" aria-busy="true">
+      <span className="gc-visually-hidden">{t("Loading…")}</span>
+      <span className="skeleton-line skeleton-line--heading" />
+      <span className="skeleton-line" />
+      <span className="skeleton-line skeleton-line--short" />
+    </div>
+  );
+}
 
 export default function Layout() {
   const [authMode, setAuthMode] = useState(null); // "login" | "register" | null
@@ -43,7 +56,9 @@ export default function Layout() {
       <div className="app-body">
         <Sidebar open={sidebarOpen} onNavigate={closeSidebar} />
         <main className="app-main">
-          <Outlet context={{ openAuth, searchQuery }} />
+          <Suspense fallback={<RouteFallback />}>
+            <Outlet context={{ openAuth, searchQuery }} />
+          </Suspense>
         </main>
       </div>
 

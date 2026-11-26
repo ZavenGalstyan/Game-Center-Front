@@ -43,12 +43,14 @@ function Avatar({ avatarId, size = "md", shape = "circle", alt, isDeleted = fals
 
   return (
     <img
+      // Before src: React sets attributes in prop order, and Chrome decides
+      // lazy vs eager when src is assigned.
+      loading={loading}
+      decoding="async"
       src={shown}
       width={px}
       height={px}
       alt={label}
-      loading={loading}
-      decoding="async"
       draggable={false}
       className={classes}
       style={named ? undefined : { width: px, height: px }}

@@ -125,7 +125,7 @@ export default function AdminGameTypes() {
 
   const onSaved = (msg) => {
     setFormFor(null);
-    reload();
+    reload({ fresh: true });
     toast.show(msg, { type: "success" });
   };
 
@@ -135,7 +135,7 @@ export default function AdminGameTypes() {
     try {
       await api.deleteGameType(deleting.id);
       setDeleting(null);
-      reload();
+      reload({ fresh: true });
       toast.show("Game type deleted", { type: "success" });
     } catch (err) {
       if (err.status === 401) handleAuthExpired();
