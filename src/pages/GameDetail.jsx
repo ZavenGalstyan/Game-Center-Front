@@ -107,8 +107,8 @@ const GAME_TAGLINES = {
   "Gravity Sketch": "Draw shapes, use gravity, and solve creative physics puzzles across increasingly challenging levels.",
   "Escape 100: Mystery Doors": "100 Doors. 100 Mysteries. One Way Out.",
   "Escape 100": "100 Doors. 100 Mysteries. One Way Out.",
-  "Escape Quest: Hidden Rooms": "Find Clues. Solve Puzzles. Escape!",
-  "Escape Quest": "Find Clues. Solve Puzzles. Escape!",
+  "Escape Quest: Hidden Rooms": "Discover hidden clues, solve clever puzzles, and escape mysterious rooms.",
+  "Escape Quest": "Discover hidden clues, solve clever puzzles, and escape mysterious rooms.",
   "60 Seconds: Last Shelter": "60 Seconds to Prepare. A Lifetime to Survive.",
   "Last Shelter": "60 Seconds to Prepare. A Lifetime to Survive.",
   "Shadow Runner: Urban Escape": "Leap across rooftops, dodge obstacles, and outrun relentless pursuers through 40 challenging parkour levels.",
@@ -369,6 +369,8 @@ const GAME_DECORATIONS = {
   "Hill Rider": "hill-rider",
   "School Life Simulator 3D": "school-life-3d",
   "Zoo Simulator 3D": "zoo",
+  "Escape Quest: Hidden Rooms": "escape-quest",
+  "Escape Quest": "escape-quest",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

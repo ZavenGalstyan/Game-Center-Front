@@ -134,6 +134,7 @@ import armenianBlotBg from "../images/ArmenianBlot.png";
 import hillRiderBg from "../images/HillRider.png";
 import schoolLife3dBg from "../images/SchoolLife.png";
 import zooSimulator3dBg from "../images/ZooSimulator.png";
+import escapeQuestBg from "../images/EscapeQuest.png";
 
 /**
  * Category to icon mapping.
@@ -2256,6 +2257,29 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(15, 40, 25, 0.5) 40%,
       rgba(15, 40, 25, 0.76) 52%,
       rgba(15, 40, 25, 0.9) 100%)`,
+  },
+  // Escape Quest: Hidden Rooms — escape room puzzle game with mysterious rooms,
+  // keys, locks, and clues. Warm gold, amber, brown tones on dark background.
+  // Position keeps main elements visible; warm amber-brown fade.
+  "escape quest: hidden rooms": {
+    image: escapeQuestBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 12, 8, 0) 0%,
+      rgba(18, 12, 8, 0) 28%,
+      rgba(18, 12, 8, 0.5) 40%,
+      rgba(18, 12, 8, 0.76) 52%,
+      rgba(18, 12, 8, 0.9) 100%)`,
+  },
+  "escape quest": {
+    image: escapeQuestBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(18, 12, 8, 0) 0%,
+      rgba(18, 12, 8, 0) 28%,
+      rgba(18, 12, 8, 0.5) 40%,
+      rgba(18, 12, 8, 0.76) 52%,
+      rgba(18, 12, 8, 0.9) 100%)`,
   },
 };
 
