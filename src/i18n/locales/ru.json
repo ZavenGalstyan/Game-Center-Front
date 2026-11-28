@@ -109,6 +109,7 @@
   "Could not delete game type": "Не удалось удалить тип игры",
   "Could not load game types": "Не удалось загрузить типы игр",
   "Could not load games": "Не удалось загрузить игры",
+  "Couldn’t refresh the games list. Showing saved results.": "Не удалось обновить список игр. Показаны сохранённые результаты.",
   "Could not load liked games": "Не удалось загрузить понравившиеся игры",
   "Could not load more games": "Не удалось загрузить больше игр",
   "Could not load users": "Не удалось загрузить пользователей",

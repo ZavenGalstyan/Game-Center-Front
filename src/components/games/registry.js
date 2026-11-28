@@ -1,9 +1,12 @@
 import { lazy } from "react";
-import ClassicChess from "./ClassicChess/ClassicChess.jsx";
-import FishingJourney from "./FishingJourney/FishingJourney.jsx";
-import MiniGolfJourney from "./MiniGolfJourney/MiniGolfJourney.jsx";
-import CakeDesigner from "./CakeDesigner/CakeDesigner.jsx";
-import LiquidSort from "./LiquidSort/LiquidSort.jsx";
+
+/** Every game is its own lazy chunk, fetched only when someone opens it.
+ *  <GameRenderer> supplies the Suspense boundary. */
+const ClassicChess = lazy(() => import("./ClassicChess/ClassicChess.jsx"));
+const FishingJourney = lazy(() => import("./FishingJourney/FishingJourney.jsx"));
+const MiniGolfJourney = lazy(() => import("./MiniGolfJourney/MiniGolfJourney.jsx"));
+const CakeDesigner = lazy(() => import("./CakeDesigner/CakeDesigner.jsx"));
+const LiquidSort = lazy(() => import("./LiquidSort/LiquidSort.jsx"));
 
 /** Blade Rush — a lightweight canvas game, but it ships 100 stages of data;
  *  lazy so the catalogue doesn't pull that in until someone opens it. */

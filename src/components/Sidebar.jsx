@@ -49,8 +49,14 @@ export default function Sidebar({ open, onNavigate }) {
         {/* Categories */}
         <h2 className="sidebar__title">{tr("Categories")}</h2>
         <nav className="sidebar__nav sidebar__nav--categories" aria-label={tr("Game categories")}>
-          {loading && <span className="sidebar__meta">{tr("Loading...")}</span>}
-          {error && <span className="sidebar__meta">{tr("Couldn’t load categories")}</span>}
+          {loading && types.length === 0 && (
+            <span className="sidebar__skeleton" role="status" aria-label={tr("Loading...")}>
+              {Array.from({ length: 6 }, (_, i) => (
+                <span key={i} className="skeleton-line skeleton-line--nav" />
+              ))}
+            </span>
+          )}
+          {error && types.length === 0 && <span className="sidebar__meta">{tr("Couldn’t load categories")}</span>}
 
           {types.map((t) => (
             <Link key={t.id} to={`/?typeId=${t.id}`} {...linkProps(activeTypeId === t.id)}>

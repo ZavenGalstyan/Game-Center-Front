@@ -135,6 +135,135 @@ import hillRiderBg from "../images/HillRider.png";
 import schoolLife3dBg from "../images/SchoolLife.png";
 import zooSimulator3dBg from "../images/ZooSimulator.png";
 import escapeQuestBg from "../images/EscapeQuest.png";
+import { cardImage } from "./cardImages.js";
+
+const classicChessBg = cardImage("ClassicChessbg");
+const stonewildBg = cardImage("Stonewildbg");
+const ballAdventure3dBg = cardImage("Balladventure3d");
+const rooftopSniperBg = cardImage("Rooftopsniperbg");
+const arenaGladiatorBg = cardImage("ArenaGladiatorbg");
+const liquidSortBg = cardImage("LiquidSortbg");
+const elementMergeBg = cardImage("ElementMergebg");
+const farmLifeBg = cardImage("FarmLifebg");
+const carWashBg = cardImage("CarWashbg");
+const parkingMasterBg = cardImage("ParkingMasterbg");
+const bombSquadBg = cardImage("BombSquadbg");
+const laserMazeBg = cardImage("LazerMazebg");
+const parkingJamBg = cardImage("ParkingJambg");
+const miniGolfBg = cardImage("MiniGolfbg");
+const boxingClubBg = cardImage("BoxingClubbg");
+const streetBasketballBg = cardImage("StreetBasketballbg");
+const penaltyKickBg = cardImage("PenaltyKickbg");
+const fishingJourneyBg = cardImage("FishingJourneybg");
+const cakeDesignerBg = cardImage("CakeDesignerbg");
+const cozyCleanupBg = cardImage("CozyCleanupbg");
+const supermarketRushBg = cardImage("SupermarketRushbg");
+const dentistStudioBg = cardImage("DentistStudiobg");
+const lumberjackLifeBg = cardImage("LumberjackLifebg");
+const deliveryRushBg = cardImage("DeliveryRushbg");
+const crowdRushBg = cardImage("CrowdRushbg");
+const bladeRushBg = cardImage("BladeRushbg");
+const bottleFlipBg = cardImage("BottleFlipbg");
+const stackTowerBg = cardImage("StackTowerbg");
+const jumpBallBg = cardImage("JumpBallbg");
+const helixDropBg = cardImage("HeloxDropbg");
+const towerDefenseMiniBg = cardImage("TowerDefenseMinibg");
+const castleRushBg = cardImage("CastleRushbg");
+const trainCommanderBg = cardImage("TrainCommanderbg");
+const lostToyBg = cardImage("LostToybg");
+const rooftopDashBg = cardImage("RooftopDashbg");
+const colorPlatformsBg = cardImage("ColorPlatformsbg");
+const islandConquestBg = cardImage("IslandConquestbg");
+const dungeonKnightBg = cardImage("DungeonKnightbg");
+const highwayRacerBg = cardImage("HighwayRacerbg");
+const waterTanksBg = cardImage("WaterTanksbg");
+const cityDefenderBg = cardImage("CityDefenderbg");
+const dimensionDashBg = cardImage("DimensionDashbg");
+const policeEscape3dBg = cardImage("PoliceEscape3dbg");
+const stuntRacer3dBg = cardImage("StuntRacer3dbg");
+const downhillRidersBg = cardImage("DownhillRidersbg");
+const kartLegendsBg = cardImage("KartLegendsbg");
+const zombieOutbreakBg = cardImage("ZombieOutbreakbg");
+const mountainJourneyBg = cardImage("MountainJourneybg");
+const pirateCoveBg = cardImage("PirateCovebg");
+const nightCorridorBg = cardImage("NightCorridorbg");
+const archeryMaster3dBg = cardImage("archery-master-3d");
+const dartsChampionship3dBg = cardImage("Dart3d");
+const bowlingMaster3dBg = cardImage("Bowling3d");
+const airHockeyBg = cardImage("AirHockey");
+const swimmingChampionsBg = cardImage("SwimmingChampions");
+const pingPongClashBg = cardImage("PingPong");
+const colorSwitchBg = cardImage("ColorSwitch");
+const snakeClassicBg = cardImage("SnakeClassic");
+const checkersClassicBg = cardImage("CheckersClassic");
+const backgammonClassicBg = cardImage("BackgammonClassic");
+const memoryCardsBg = cardImage("MemoryCards");
+const puzzle2048Bg = cardImage("2048");
+const dollRepairWorkshopBg = cardImage("DollRepairWorkshop");
+const mazeMuncherBg = cardImage("MazeMuncher");
+const fruitSliceBg = cardImage("FruitSlice");
+const flappyWingsBg = cardImage("FlappyWings");
+const mahjongClassicBg = cardImage("MahjongClassic");
+const dotConnectBg = cardImage("DotConnect");
+const gravitySketchBg = cardImage("GravitySketch");
+const neonCircuitBg = cardImage("NeonCircuit");
+const blockEscapeBg = cardImage("BlockEscape");
+const crazyCardsBg = cardImage("CrazyCards");
+const strikeForceBg = cardImage("StrikeForce");
+const tankWarfare3dBg = cardImage("TankWarfare");
+const skyCombat3dBg = cardImage("SkyCombat");
+const metroRushBg = cardImage("MetroRush");
+const shadowWarriorsBg = cardImage("ShadowWarriors");
+const shadowRunnerBg = cardImage("ShadowRunner");
+const viceStreetsBg = cardImage("ViceStreets");
+const hulkBg = cardImage("Hulk");
+const myLittleBuddyBg = cardImage("MyLittleBuddy");
+const teddyQuestBg = cardImage("TeddyQuest");
+const featherFuryBg = cardImage("FeatherFury");
+const flameAquaBg = cardImage("FlameAqua");
+const jungleDashBg = cardImage("JungleDash");
+const ninjaTurtlesBg = cardImage("NinjaTurtles");
+const kungFuPandaBg = cardImage("KungFuPanda");
+const harryPotterBg = cardImage("HarryPotter");
+const crownOfAshesBg = cardImage("CrownofAshes");
+const neonMercenaryBg = cardImage("NeonMercenary");
+const lastShelterBg = cardImage("60seconds");
+const midnightShiftBg = cardImage("MidnightShift");
+const corridor9Bg = cardImage("Corridor9");
+const cursedHouseBg = cardImage("TheCursedHouse");
+const whisperingWoodsBg = cardImage("WhisperingWoods");
+const motel6Bg = cardImage("Motel6");
+const ironFistBg = cardImage("IronFist");
+const karateLegendsBg = cardImage("KarateLegends");
+const wobblyWarriorsBg = cardImage("WobblyWarriors");
+const shadowArenaBg = cardImage("ShadowArena");
+const ultimateMMABg = cardImage("UltimateMMA");
+const lastHopeBg = cardImage("LastHope");
+const oceanboundBg = cardImage("Oceanbound");
+const dinosaurIslandBg = cardImage("DinosaurIsland");
+const wildKingdomBg = cardImage("WildKingdom");
+const ironArenaBg = cardImage("IronArena");
+const deepSeaEscapeBg = cardImage("DeepSeaEscape");
+const tombRaidersBg = cardImage("TombRaiders");
+const biohazardEscapeBg = cardImage("BiohazardEscape");
+const perspectiveBg = cardImage("Perspective");
+const pharaohsSecretBg = cardImage("PharaohsSecret");
+const portalShiftBg = cardImage("PortalShift");
+const outlawLegendsBg = cardImage("OutlawLegends");
+const throwMastersBg = cardImage("ThrowMasters");
+const trumpMastersBg = cardImage("TrumpMasters");
+const deepMineBg = cardImage("DeepMine");
+const carnivalOfFearBg = cardImage("CarnivalofFear");
+const prisonOfFearBg = cardImage("PrisonofFear");
+const deadDrawBg = cardImage("DeadDraw");
+const deckOfShadowsBg = cardImage("DeckofShadows");
+const wildWestBg = cardImage("WildWest");
+const spiderRoyaleBg = cardImage("SpiderRoyale");
+const colorClashBg = cardImage("ColorClash");
+const armenianBlotBg = cardImage("ArmenianBlot");
+const hillRiderBg = cardImage("HillRider");
+const schoolLife3dBg = cardImage("SchoolLife");
+const zooSimulator3dBg = cardImage("ZooSimulator");
 
 /**
  * Category to icon mapping.
@@ -2425,7 +2554,12 @@ export function getGameArtwork(game) {
   const name = game.name || "";
   const artwork = GAME_ARTWORK[name];
   const banner = GAME_CARD_BACKGROUNDS[normalizeGameName(name)] ?? null;
-  const cardBackground = banner?.image ?? banner;
+  // An entry is an image or { image, shade, position }; an image is a
+  // cardImage() result ({ src, srcSet }) or a plain imported URL string (a new
+  // banner whose WebP copies haven't been generated yet still shows).
+  const image = banner && typeof banner === "object" && "image" in banner ? banner.image : banner;
+  const cardBackground = typeof image === "string" ? image : image?.src ?? null;
+  const cardBackgroundSrcSet = typeof image === "string" ? null : image?.srcSet ?? null;
   const cardBackgroundShade = banner?.shade ?? null;
   const cardBackgroundPosition = banner?.position ?? null;
 
@@ -2434,6 +2568,7 @@ export function getGameArtwork(game) {
       hasImage: false, // Set to true when actual images are added
       imagePath: null,
       cardBackground,
+      cardBackgroundSrcSet,
       cardBackgroundShade,
       cardBackgroundPosition,
       gradient: artwork.gradient,
@@ -2447,6 +2582,7 @@ export function getGameArtwork(game) {
     hasImage: false,
     imagePath: null,
     cardBackground,
+    cardBackgroundSrcSet,
     cardBackgroundShade,
     cardBackgroundPosition,
     gradient: "linear-gradient(135deg, #0a1f1a 0%, #1a3d2a 50%, #0a2a1a 100%)",

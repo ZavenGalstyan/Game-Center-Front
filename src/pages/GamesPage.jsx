@@ -1,19 +1,25 @@
-import { useCallback, useEffect, useState, useMemo } from "react";
+import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 import { useSearchParams, useOutletContext } from "react-router-dom";
-import { api } from "../lib/api.js";
 import { useGameTypes } from "../data/gameTypes.jsx";
+import {
+  cacheEpoch,
+  fetchAllGames,
+  fetchCategoryGames,
+  fetchMoreCategoryGames,
+  readCatalog,
+  writeCatalog,
+} from "../data/catalog.js";
 import {
   organizeGamesByCategory,
   getMainCategory,
   getSecondaryCategories,
 } from "../lib/gameHelpers.jsx";
 import GameCard from "../components/GameCard.jsx";
+import GameGridSkeleton from "../components/GameGridSkeleton.jsx";
 import CustomGameHero from "../components/custom-game/CustomGameHero.jsx";
-import { Button, LoadingState, EmptyState, CategoryEmptyState, Alert, Section } from "../components/ui";
+import { Button, EmptyState, CategoryEmptyState, Alert, Section } from "../components/ui";
 import { useTranslation } from "../i18n/useTranslation.js";
 import { gameDescription, gameTitle } from "../i18n/gameInfo.js";
-
-const PAGE_SIZE = 100; // Load all games for better section organization
 
 export default function GamesPage() {
   const [params] = useSearchParams();
@@ -24,57 +30,76 @@ export default function GamesPage() {
   const searchQuery = context?.searchQuery || "";
   const { t } = useTranslation();
 
-  const [games, setGames] = useState([]);
-  const [pagination, setPagination] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // Cached listings paint immediately (no spinner on back-navigation or a
+  // repeat visit); stale ones are revalidated in the background.
+  const [initial] = useState(() => readCatalog(typeId));
+  const [games, setGames] = useState(() => initial?.data.data ?? []);
+  const [pagination, setPagination] = useState(() => initial?.data.pagination ?? null);
+  const [pageSize, setPageSize] = useState(() => initial?.data.pageSize ?? null);
+  const [loading, setLoading] = useState(() => !initial);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState(null);
+  // A failed background refresh: the (older) cached list stays on screen.
+  const [refreshError, setRefreshError] = useState(null);
+  // Bumped on every filter change so a slow "Load more" for the previous
+  // filter can't append to the new one.
+  const viewRef = useRef(0);
 
-  // Reset and load games whenever the filter changes.
+  // Load (or revalidate) the games whenever the filter changes.
   useEffect(() => {
-    let cancelled = false;
-    setLoading(true);
+    const view = ++viewRef.current;
+    const cancelled = () => viewRef.current !== view;
+    const cached = readCatalog(typeId);
     setError(null);
-    setGames([]);
-    setPagination(null);
+    setRefreshError(null);
+    setLoadingMore(false);
+    if (cached) {
+      setGames(cached.data.data);
+      setPagination(cached.data.pagination);
+      setPageSize(cached.data.pageSize ?? null);
+      setLoading(false);
+      if (cached.fresh) return undefined;
+    } else {
+      setLoading(true);
+      setGames([]);
+      setPagination(null);
+      setPageSize(null);
+    }
+
     // The unfiltered view groups games into category sections and has no
-    // "Load more" button, so it follows the pages until every game is loaded
-    // (the backend caps a page at PAGE_SIZE). Category views keep paging.
-    const loadAll = async () => {
-      let { data, pagination } = await api.listGames({ limit: PAGE_SIZE, offset: 0, categoryId: typeId });
-      const all = [...data];
-      const seen = new Set(all.map((g) => g.id));
-      for (let page = 0; !typeId && pagination?.hasMore && pagination.nextOffset != null && page < 50; page++) {
-        const next = await api.listGames({ limit: PAGE_SIZE, offset: pagination.nextOffset });
-        if (cancelled) return null;
-        for (const g of next.data) if (!seen.has(g.id)) (seen.add(g.id), all.push(g));
-        pagination = next.pagination;
-        if (!next.data.length) break;
-      }
-      return { data: all, pagination };
-    };
-    loadAll()
+    // "Load more" button, so it loads the whole catalog. Category views page.
+    const epoch = cacheEpoch();
+    const load = typeId ? fetchCategoryGames(typeId) : fetchAllGames({ isCancelled: cancelled });
+    load
       .then((res) => {
-        if (cancelled || !res) return;
+        if (!res) return;
+        writeCatalog(typeId, res, epoch);
+        if (cancelled()) return;
         setGames(res.data);
         setPagination(res.pagination);
+        setPageSize(res.pageSize ?? null);
       })
-      .catch((e) => !cancelled && setError(e.message || "Could not load games"))
-      .finally(() => !cancelled && setLoading(false));
+      .catch((e) => {
+        if (cancelled()) return;
+        if (cached) setRefreshError(e.message || "Could not load games");
+        else setError(e.message || "Could not load games");
+      })
+      .finally(() => !cancelled() && setLoading(false));
     return () => {
-      cancelled = true;
+      viewRef.current += 1;
     };
   }, [typeId]);
 
   const loadMore = useCallback(async () => {
-    if (!pagination || pagination.nextOffset === null) return;
+    if (!pagination || pagination.nextOffset == null) return;
+    const view = viewRef.current;
     setLoadingMore(true);
     try {
-      const { data, pagination: next } = await api.listGames({
-        limit: PAGE_SIZE,
+      const { data, pagination: next } = await fetchMoreCategoryGames(typeId, {
         offset: pagination.nextOffset,
-        categoryId: typeId,
+        pageSize: pageSize || pagination.limit,
       });
+      if (viewRef.current !== view) return;
       // The backend orders category pages main-first; guard against a game
       // shifting between pages (e.g. created meanwhile) showing up twice.
       setGames((prev) => {
@@ -83,11 +108,11 @@ export default function GamesPage() {
       });
       setPagination(next);
     } catch (e) {
-      setError(e.message || "Could not load more games");
+      if (viewRef.current === view) setError(e.message || "Could not load more games");
     } finally {
-      setLoadingMore(false);
+      if (viewRef.current === view) setLoadingMore(false);
     }
-  }, [pagination, typeId]);
+  }, [pagination, pageSize, typeId]);
 
   // Filter games by search query
   const filteredGames = useMemo(() => {
@@ -147,8 +172,11 @@ export default function GamesPage() {
           )}
         </div>
 
-        {loading && <LoadingState message={t("Loading games...")} />}
+        {loading && <GameGridSkeleton sectioned={!typeId && !searchQuery.trim()} label={t("Loading games...")} />}
         {error && !loading && <Alert variant="error">{t(error)}</Alert>}
+        {refreshError && !error && (
+          <Alert variant="warning">{t("Couldn’t refresh the games list. Showing saved results.")}</Alert>
+        )}
 
         {!loading && !error && filteredGames.length === 0 && (
           typeId && !searchQuery.trim() ? (
@@ -180,7 +208,7 @@ export default function GamesPage() {
               >
                 <div className="game-grid">
                   {section.games.slice(0, 6).map((game) => (
-                    <GameCard key={game.id} game={game} />
+                    <GameCard key={game.id} game={game} priority={index === 0} />
                   ))}
                 </div>
                 {section.games.length > 6 && (
@@ -199,8 +227,8 @@ export default function GamesPage() {
         {!sections && filteredGames.length > 0 && (
           <>
             <div className="game-grid">
-              {filteredGames.map((game) => (
-                <GameCard key={game.id} game={game} />
+              {filteredGames.map((game, i) => (
+                <GameCard key={game.id} game={game} priority={i < 6} />
               ))}
             </div>
 
