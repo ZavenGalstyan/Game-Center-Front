@@ -25,7 +25,10 @@
       "Bash(where:*)",
       "Bash(\"C:/Users/User/AppData/Roaming/npm/claude\" --version)",
       "Bash(findstr:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(npx eslint:*)",
+      "Bash(node --check:*)",
+      "Bash(node scripts/images/build-card-images.mjs:*)"
     ]
   }
 }
