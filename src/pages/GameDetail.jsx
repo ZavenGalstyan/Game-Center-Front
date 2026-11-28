@@ -85,7 +85,7 @@ const GAME_TAGLINES = {
   "Archery Master 3D": "Master your aim, hit challenging targets, and conquer 50 exciting archery levels across five unique worlds.",
   "Haunted Mansion Escape": "EXPLORE • SOLVE • ESCAPE",
   "Space Station Escape": "REPAIR • UNLOCK • SURVIVE",
-  "Outpost 47: Frozen Secrets": "EXPLORE • SURVIVE • UNCOVER",
+  "Outpost 47: Frozen Secrets": "Explore a frozen research station and uncover its darkest secrets.",
   "Motel 6: Last Guest": "Work the night shift at a mysterious motel where every guest hides a secret.",
   "Ultimate MMA Championship 3D": "Step into the octagon, master your fighting skills, and become the ultimate MMA champion.",
   "Air Hockey": "Challenge a smart AI opponent, defend your goal, and score seven goals to win an exciting neon air hockey match.",
@@ -106,8 +106,8 @@ const GAME_TAGLINES = {
   "Block Escape": "Slide colorful blocks, clear a path to the exit, and challenge your logic across 100 increasingly difficult puzzles.",
   "Neon Circuit": "Light up the board, discover the right sequence, and solve glowing neon puzzles across 100 challenging levels.",
   "Gravity Sketch": "Draw shapes, use gravity, and solve creative physics puzzles across increasingly challenging levels.",
-  "Escape 100: Mystery Doors": "100 Doors. 100 Mysteries. One Way Out.",
-  "Escape 100": "100 Doors. 100 Mysteries. One Way Out.",
+  "Escape 100: Mystery Doors": "Explore mysterious rooms, solve hidden puzzles, and unlock 100 doors.",
+  "Escape 100": "Explore mysterious rooms, solve hidden puzzles, and unlock 100 doors.",
   "Escape Quest: Hidden Rooms": "Discover hidden clues, solve clever puzzles, and escape mysterious rooms.",
   "Escape Quest": "Discover hidden clues, solve clever puzzles, and escape mysterious rooms.",
   "60 Seconds: Last Shelter": "60 Seconds to Prepare. A Lifetime to Survive.",
@@ -197,6 +197,8 @@ const GAME_TAGLINES = {
   "Throw Masters": "Aim. Throw. Become a Champion.",
   "Wild West: Card Showdown": "Play Your Hand. Rule the Wild West.",
   "Wild West Card Showdown": "Play Your Hand. Rule the Wild West.",
+  "Prison Escape 3D": "Plan your escape, solve puzzles, and sneak your way to freedom.",
+  "Prison Escape": "Plan your escape, solve puzzles, and sneak your way to freedom.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -372,6 +374,12 @@ const GAME_DECORATIONS = {
   "Zoo Simulator 3D": "zoo",
   "Escape Quest: Hidden Rooms": "escape-quest",
   "Escape Quest": "escape-quest",
+  "Escape 100: Mystery Doors": "escape-100-mystery",
+  "Escape 100": "escape-100-mystery",
+  "Outpost 47: Frozen Secrets": "outpost-47",
+  "Outpost 47": "outpost-47",
+  "Prison Escape 3D": "prison-escape",
+  "Prison Escape": "prison-escape",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)
@@ -387,6 +395,8 @@ const GAME_SHORT_DESCRIPTIONS = {
 // About section description overrides (replaces backend description for specific games)
 const GAME_ABOUT_OVERRIDES = {
   "Spider Royale": "Master the art of solitaire in Spider Royale! Stack cards, build perfect sequences, and clear the board with smart moves and strategy.",
+  "Escape 100: Mystery Doors": "Enter a mysterious building filled with 100 locked doors, each hiding a unique challenge. Search for clues, discover hidden objects, crack secret codes, and solve clever puzzles to unlock the next room. Every door brings a new mystery. Can you escape them all?",
+  "Escape 100": "Enter a mysterious building filled with 100 locked doors, each hiding a unique challenge. Search for clues, discover hidden objects, crack secret codes, and solve clever puzzles to unlock the next room. Every door brings a new mystery. Can you escape them all?",
 };
 
 // Fallback: generate a short tagline from description if not predefined

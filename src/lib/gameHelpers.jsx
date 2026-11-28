@@ -137,6 +137,10 @@ const hillRiderBg = cardImage("HillRider");
 const schoolLife3dBg = cardImage("SchoolLife");
 const zooSimulator3dBg = cardImage("ZooSimulator");
 const escapeQuestBg = cardImage("EscapeQuest");
+const mysteryDoorsBg = cardImage("MysteryDoors");
+const outpost47Bg = cardImage("Outpost47");
+const prisonEscapeBg = cardImage("PrisonEscape");
+const marioAdventureBg = cardImage("MarioAdventure");
 
 /**
  * Category to icon mapping.
@@ -2282,6 +2286,84 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(18, 12, 8, 0.5) 40%,
       rgba(18, 12, 8, 0.76) 52%,
       rgba(18, 12, 8, 0.9) 100%)`,
+  },
+  // Escape 100: Mystery Doors — 3D escape room puzzle with mysterious doors,
+  // ancient keys, and secret codes. Dark emerald and antique gold tones.
+  "escape 100: mystery doors": {
+    image: mysteryDoorsBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 25, 20, 0) 0%,
+      rgba(10, 25, 20, 0) 28%,
+      rgba(10, 25, 20, 0.5) 40%,
+      rgba(10, 25, 20, 0.76) 52%,
+      rgba(10, 25, 20, 0.9) 100%)`,
+  },
+  "escape 100": {
+    image: mysteryDoorsBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(10, 25, 20, 0) 0%,
+      rgba(10, 25, 20, 0) 28%,
+      rgba(10, 25, 20, 0.5) 40%,
+      rgba(10, 25, 20, 0.76) 52%,
+      rgba(10, 25, 20, 0.9) 100%)`,
+  },
+  // Outpost 47: Frozen Secrets — Arctic research station mystery.
+  // Icy blue, cold cyan, deep navy tones.
+  "outpost 47: frozen secrets": {
+    image: outpost47Bg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 18, 28, 0) 0%,
+      rgba(8, 18, 28, 0) 28%,
+      rgba(8, 18, 28, 0.5) 40%,
+      rgba(8, 18, 28, 0.76) 52%,
+      rgba(8, 18, 28, 0.9) 100%)`,
+  },
+  "outpost 47": {
+    image: outpost47Bg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(8, 18, 28, 0) 0%,
+      rgba(8, 18, 28, 0) 28%,
+      rgba(8, 18, 28, 0.5) 40%,
+      rgba(8, 18, 28, 0.76) 52%,
+      rgba(8, 18, 28, 0.9) 100%)`,
+  },
+  // Prison Escape 3D — prison break stealth game.
+  // Dark blue, metallic gray, and warm orange accents.
+  "prison escape 3d": {
+    image: prisonEscapeBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 20, 30, 0) 0%,
+      rgba(15, 20, 30, 0) 28%,
+      rgba(15, 20, 30, 0.5) 40%,
+      rgba(15, 20, 30, 0.76) 52%,
+      rgba(15, 20, 30, 0.9) 100%)`,
+  },
+  "prison escape": {
+    image: prisonEscapeBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(15, 20, 30, 0) 0%,
+      rgba(15, 20, 30, 0) 28%,
+      rgba(15, 20, 30, 0.5) 40%,
+      rgba(15, 20, 30, 0.76) 52%,
+      rgba(15, 20, 30, 0.9) 100%)`,
+  },
+  // Mario Adventure 3D — colorful 3D platformer with kingdoms, coins, and power-ups.
+  // Vibrant green, golden yellow, and red accents on dark background.
+  "mario adventure 3d": {
+    image: marioAdventureBg,
+    position: "40% center",
+    shade: `linear-gradient(90deg,
+      rgba(5, 20, 15, 0) 0%,
+      rgba(5, 20, 15, 0) 28%,
+      rgba(5, 20, 15, 0.5) 40%,
+      rgba(5, 20, 15, 0.76) 52%,
+      rgba(5, 20, 15, 0.9) 100%)`,
   },
 };
 
