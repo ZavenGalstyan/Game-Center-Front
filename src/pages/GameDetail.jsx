@@ -199,6 +199,7 @@ const GAME_TAGLINES = {
   "Wild West Card Showdown": "Play Your Hand. Rule the Wild West.",
   "Prison Escape 3D": "Plan your escape, solve puzzles, and sneak your way to freedom.",
   "Prison Escape": "Plan your escape, solve puzzles, and sneak your way to freedom.",
+  "Urban Skate Rush": "Master street tricks, explore urban skateparks, and build epic combos.",
 };
 
 // Game-specific About section decorations (maps to CSS data-decoration attribute)
@@ -380,6 +381,7 @@ const GAME_DECORATIONS = {
   "Outpost 47": "outpost-47",
   "Prison Escape 3D": "prison-escape",
   "Prison Escape": "prison-escape",
+  "Urban Skate Rush": "urban-skate-rush",
 };
 
 // Short descriptions displayed below the tagline (only for games that need it)

@@ -6125,6 +6125,45 @@ h3 {
   z-index: -1;
 }
 
+/* Urban Skate Rush — 3D urban skateboarding adventure with tricks and missions.
+   Features: Skateboarder performing aerial trick, detailed skateboard with street-art graphics,
+   skatepark ramps and grinding rails, graffiti-covered walls, urban buildings and city skyline,
+   dynamic motion trails and spray-paint effects.
+   Orange, golden yellow, lime green, and subtle red accents on dark emerald background. */
+.game-page__about[data-decoration="urban-skate-rush"]::before {
+  content: "";
+  width: 320px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  font-size: unset;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.7) 35%, black 50%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.7) 35%, black 50%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 145' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='usrSky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230a1812' stop-opacity='0.3'/%3E%3Cstop offset='50%25' stop-color='%23101a15' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%23152018' stop-opacity='0.2'/%3E%3C/linearGradient%3E%3ClinearGradient id='usrOrange' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff8c42' stop-opacity='0.95'/%3E%3Cstop offset='50%25' stop-color='%23ff6b2c' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%23e85a20' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3ClinearGradient id='usrGold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffc857' stop-opacity='0.95'/%3E%3Cstop offset='50%25' stop-color='%23f0b040' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%23d9a030' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3ClinearGradient id='usrLime' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2384d94f' stop-opacity='0.9'/%3E%3Cstop offset='50%25' stop-color='%2370c040' stop-opacity='0.85'/%3E%3Cstop offset='100%25' stop-color='%2360a838' stop-opacity='0.8'/%3E%3C/linearGradient%3E%3ClinearGradient id='usrRed' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e84545' stop-opacity='0.85'/%3E%3Cstop offset='100%25' stop-color='%23c03838' stop-opacity='0.75'/%3E%3C/linearGradient%3E%3ClinearGradient id='usrConcrete' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233a4540' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%232a3530' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3ClinearGradient id='usrRamp' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23455550' stop-opacity='0.7'/%3E%3Cstop offset='50%25' stop-color='%23384540' stop-opacity='0.65'/%3E%3Cstop offset='100%25' stop-color='%232d3a35' stop-opacity='0.6'/%3E%3C/linearGradient%3E%3ClinearGradient id='usrRail' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238090a0' stop-opacity='0.85'/%3E%3Cstop offset='50%25' stop-color='%23607080' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%23506070' stop-opacity='0.75'/%3E%3C/linearGradient%3E%3ClinearGradient id='usrSkin' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e8c4a0' stop-opacity='0.85'/%3E%3Cstop offset='100%25' stop-color='%23d4a080' stop-opacity='0.8'/%3E%3C/linearGradient%3E%3ClinearGradient id='usrBoard' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23704020' stop-opacity='0.9'/%3E%3Cstop offset='50%25' stop-color='%23603518' stop-opacity='0.85'/%3E%3Cstop offset='100%25' stop-color='%23502a12' stop-opacity='0.8'/%3E%3C/linearGradient%3E%3ClinearGradient id='usrBuilding' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232a3530' stop-opacity='0.65'/%3E%3Cstop offset='100%25' stop-color='%231a2520' stop-opacity='0.55'/%3E%3C/linearGradient%3E%3CradialGradient id='usrSpray1' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ff8c42' stop-opacity='0.4'/%3E%3Cstop offset='60%25' stop-color='%23ff6b2c' stop-opacity='0.15'/%3E%3Cstop offset='100%25' stop-color='%23e85a20' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='usrSpray2' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2384d94f' stop-opacity='0.35'/%3E%3Cstop offset='60%25' stop-color='%2370c040' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%2360a838' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='usrSpray3' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffc857' stop-opacity='0.35'/%3E%3Cstop offset='60%25' stop-color='%23f0b040' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23d9a030' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='usrShadow' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeDropShadow dx='1' dy='2' stdDeviation='2' flood-color='%23000' flood-opacity='0.35'/%3E%3C/filter%3E%3Cfilter id='usrGlow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeGaussianBlur stdDeviation='3'/%3E%3C/filter%3E%3Cfilter id='usrSoftGlow' x='-30%25' y='-30%25' width='160%25' height='160%25'%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3C/filter%3E%3C/defs%3E%3Crect x='0' y='0' width='320' height='145' fill='url(%23usrSky)'/%3E%3C!-- City skyline silhouettes --%3E%3Cg opacity='0.5'%3E%3Crect x='5' y='25' width='25' height='60' fill='url(%23usrBuilding)'/%3E%3Crect x='8' y='30' width='4' height='6' fill='%23ffc857' opacity='0.3'/%3E%3Crect x='15' y='35' width='4' height='5' fill='%23ffc857' opacity='0.25'/%3E%3Crect x='8' y='45' width='4' height='6' fill='%23ffc857' opacity='0.2'/%3E%3Crect x='35' y='15' width='30' height='70' fill='url(%23usrBuilding)'/%3E%3Crect x='40' y='20' width='5' height='7' fill='%23ffc857' opacity='0.3'/%3E%3Crect x='50' y='25' width='5' height='6' fill='%23ffc857' opacity='0.25'/%3E%3Crect x='40' y='35' width='5' height='7' fill='%23ffc857' opacity='0.2'/%3E%3Crect x='50' y='42' width='5' height='6' fill='%23ffc857' opacity='0.25'/%3E%3Crect x='40' y='55' width='5' height='7' fill='%23ffc857' opacity='0.2'/%3E%3Crect x='70' y='30' width='20' height='55' fill='url(%23usrBuilding)'/%3E%3Crect x='74' y='35' width='4' height='5' fill='%23ffc857' opacity='0.25'/%3E%3Crect x='82' y='40' width='4' height='5' fill='%23ffc857' opacity='0.2'/%3E%3Crect x='74' y='50' width='4' height='5' fill='%23ffc857' opacity='0.25'/%3E%3C/g%3E%3C!-- Graffiti wall --%3E%3Crect x='100' y='40' width='65' height='65' fill='url(%23usrConcrete)' filter='url(%23usrShadow)'/%3E%3Crect x='105' y='45' width='55' height='55' fill='%23283530' opacity='0.4'/%3E%3C!-- Graffiti art on wall --%3E%3Cellipse cx='132' cy='65' rx='18' ry='12' fill='url(%23usrSpray1)'/%3E%3Cellipse cx='125' cy='82' rx='15' ry='10' fill='url(%23usrSpray2)'/%3E%3Cellipse cx='145' cy='75' rx='12' ry='8' fill='url(%23usrSpray3)'/%3E%3Cpath d='M115 55 Q125 48 135 55 Q145 48 155 55' stroke='url(%23usrOrange)' stroke-width='2.5' fill='none' opacity='0.6' stroke-linecap='round'/%3E%3Cpath d='M118 65 L122 58 L126 68 L130 60 L134 70' stroke='url(%23usrLime)' stroke-width='2' fill='none' opacity='0.5' stroke-linecap='round'/%3E%3Ccircle cx='148' cy='58' r='5' fill='none' stroke='url(%23usrGold)' stroke-width='2' opacity='0.5'/%3E%3Cpath d='M108 88 L118 78 L128 90 L138 80 L148 92 L158 82' stroke='url(%23usrRed)' stroke-width='1.5' fill='none' opacity='0.4' stroke-linecap='round'/%3E%3C!-- Halfpipe ramp --%3E%3Cpath d='M170 105 Q200 60 230 105' fill='url(%23usrRamp)' filter='url(%23usrShadow)'/%3E%3Cpath d='M175 102 Q200 65 225 102' fill='%23384540' opacity='0.4'/%3E%3Crect x='168' y='102' width='65' height='8' fill='url(%23usrRamp)'/%3E%3Crect x='170' y='100' width='4' height='12' fill='url(%23usrRail)'/%3E%3Crect x='226' y='100' width='4' height='12' fill='url(%23usrRail)'/%3E%3C!-- Grinding rail --%3E%3Cg transform='translate(240, 85)'%3E%3Crect x='0' y='0' width='55' height='4' rx='2' fill='url(%23usrRail)' filter='url(%23usrShadow)'/%3E%3Crect x='0' y='4' width='5' height='20' fill='url(%23usrRail)'/%3E%3Crect x='50' y='4' width='5' height='20' fill='url(%23usrRail)'/%3E%3Crect x='25' y='4' width='5' height='15' fill='url(%23usrRail)'/%3E%3C/g%3E%3C!-- Small ramp --%3E%3Cpath d='M280 115 L310 115 L310 95 Q295 90 280 115' fill='url(%23usrRamp)' filter='url(%23usrShadow)'/%3E%3Cpath d='M283 112 L307 112 L307 98 Q295 94 283 112' fill='%23384540' opacity='0.3'/%3E%3C!-- Skateboarder performing aerial trick --%3E%3Cg transform='translate(185, 15)' filter='url(%23usrShadow)'%3E%3C!-- Motion trail --%3E%3Cpath d='M15 60 Q30 40 25 20 Q20 10 30 5' stroke='url(%23usrOrange)' stroke-width='2' fill='none' opacity='0.4' stroke-linecap='round' stroke-dasharray='4,3'/%3E%3Cpath d='M20 55 Q35 35 30 18' stroke='url(%23usrGold)' stroke-width='1.5' fill='none' opacity='0.3' stroke-linecap='round' stroke-dasharray='3,2'/%3E%3C!-- Skater body --%3E%3Ccircle cx='35' cy='12' r='8' fill='url(%23usrSkin)'/%3E%3Cellipse cx='35' cy='8' rx='6' ry='3' fill='%23403020' opacity='0.6'/%3E%3Ccircle cx='32' cy='11' r='1.2' fill='%23303030' opacity='0.5'/%3E%3Ccircle cx='38' cy='11' r='1.2' fill='%23303030' opacity='0.5'/%3E%3Crect x='28' y='18' width='14' height='22' rx='2' fill='url(%23usrOrange)'/%3E%3Crect x='30' y='20' width='10' height='18' rx='1' fill='%23e85a20' opacity='0.3'/%3E%3C!-- Arms --%3E%3Cpath d='M28 22 L18 15 L12 20' stroke='url(%23usrOrange)' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M42 22 L52 18 L58 25' stroke='url(%23usrOrange)' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='20' r='3' fill='url(%23usrSkin)'/%3E%3Ccircle cx='58' cy='25' r='3' fill='url(%23usrSkin)'/%3E%3C!-- Legs --%3E%3Cpath d='M30 38 L25 50 L20 55' stroke='%23354560' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M38 38 L42 48 L50 52' stroke='%23354560' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C!-- Shoes --%3E%3Crect x='15' y='52' width='10' height='6' rx='2' fill='url(%23usrLime)'/%3E%3Crect x='45' y='49' width='10' height='6' rx='2' fill='url(%23usrLime)'/%3E%3C!-- Skateboard --%3E%3Cg transform='translate(15, 55) rotate(-15)'%3E%3Crect x='0' y='0' width='45' height='8' rx='4' fill='url(%23usrBoard)'/%3E%3Crect x='5' y='2' width='35' height='4' rx='2' fill='%23ff6b2c' opacity='0.5'/%3E%3Cpath d='M8 3 L15 3 M18 5 L25 5 M28 3 L35 3' stroke='url(%23usrLime)' stroke-width='1' opacity='0.6'/%3E%3Ccircle cx='8' cy='10' r='4' fill='%23303030' opacity='0.8'/%3E%3Ccircle cx='37' cy='10' r='4' fill='%23303030' opacity='0.8'/%3E%3Ccircle cx='8' cy='10' r='2' fill='%23505050' opacity='0.6'/%3E%3Ccircle cx='37' cy='10' r='2' fill='%23505050' opacity='0.6'/%3E%3C/g%3E%3C!-- Helmet --%3E%3Cellipse cx='35' cy='6' rx='9' ry='6' fill='url(%23usrGold)'/%3E%3Cellipse cx='35' cy='5' rx='7' ry='4' fill='%23f0b040' opacity='0.3'/%3E%3C/g%3E%3C!-- Spray paint particles --%3E%3Ccircle cx='120' cy='55' r='2' fill='%23ff8c42' opacity='0.5' filter='url(%23usrSoftGlow)'/%3E%3Ccircle cx='150' cy='70' r='1.5' fill='%2384d94f' opacity='0.45' filter='url(%23usrSoftGlow)'/%3E%3Ccircle cx='140' cy='85' r='1.8' fill='%23ffc857' opacity='0.4' filter='url(%23usrSoftGlow)'/%3E%3Ccircle cx='200' cy='65' r='1.2' fill='%23ff8c42' opacity='0.5' filter='url(%23usrSoftGlow)'/%3E%3Ccircle cx='260' cy='80' r='1.5' fill='%2384d94f' opacity='0.4' filter='url(%23usrSoftGlow)'/%3E%3Ccircle cx='290' cy='90' r='1' fill='%23ffc857' opacity='0.45' filter='url(%23usrSoftGlow)'/%3E%3Ccircle cx='310' cy='75' r='1.3' fill='%23ff8c42' opacity='0.35' filter='url(%23usrSoftGlow)'/%3E%3Ccircle cx='175' cy='40' r='1.5' fill='%23ffc857' opacity='0.5' filter='url(%23usrSoftGlow)'/%3E%3Ccircle cx='250' cy='50' r='1.2' fill='%2384d94f' opacity='0.4' filter='url(%23usrSoftGlow)'/%3E%3C!-- Ground/concrete floor --%3E%3Crect x='0' y='105' width='320' height='40' fill='url(%23usrConcrete)'/%3E%3Crect x='0' y='105' width='320' height='3' fill='%23455550' opacity='0.4'/%3E%3C!-- Additional skatepark elements --%3E%3Crect x='5' y='108' width='40' height='5' rx='1' fill='url(%23usrRail)' opacity='0.6'/%3E%3Crect x='50' y='115' width='35' height='4' rx='1' fill='url(%23usrRail)' opacity='0.5'/%3E%3C!-- Spray paint drips on ground --%3E%3Cellipse cx='130' cy='118' rx='20' ry='6' fill='url(%23usrSpray1)' opacity='0.3'/%3E%3Cellipse cx='200' cy='122' rx='15' ry='5' fill='url(%23usrSpray2)' opacity='0.25'/%3E%3Cellipse cx='270' cy='120' rx='18' ry='5' fill='url(%23usrSpray3)' opacity='0.25'/%3E%3C/svg%3E");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Urban Skate Rush ambient glow - warm orange, lime, and gold skatepark atmosphere */
+.game-page__about[data-decoration="urban-skate-rush"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 320px;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 50% 50% at 55% 30%, rgba(255, 140, 66, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 60% at 70% 55%, rgba(132, 217, 79, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 45% at 80% 45%, rgba(255, 200, 87, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 50% at 50% 70%, rgba(255, 107, 44, 0.06) 0%, transparent 45%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.7) 35%, black 50%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.7) 35%, black 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .game-page__about-eyebrow {
   margin: 0 0 var(--space-2);
   font-family: var(--font-family);
@@ -7949,6 +7988,15 @@ h3 {
     width: 280px;
   }
 
+  /* Urban Skate Rush tablet */
+  .game-page__about[data-decoration="urban-skate-rush"]::before {
+    width: 280px;
+  }
+
+  .game-page__about[data-decoration="urban-skate-rush"]::after {
+    width: 280px;
+  }
+
   .game-page__about-title {
     font-size: 22px;
   }
@@ -9760,6 +9808,15 @@ h3 {
   }
 
   .game-page__about[data-decoration="escape-quest"]::after {
+    width: 200px;
+  }
+
+  /* Urban Skate Rush mobile */
+  .game-page__about[data-decoration="urban-skate-rush"]::before {
+    width: 200px;
+  }
+
+  .game-page__about[data-decoration="urban-skate-rush"]::after {
     width: 200px;
   }
 

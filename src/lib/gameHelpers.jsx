@@ -141,6 +141,7 @@ const mysteryDoorsBg = cardImage("MysteryDoors");
 const outpost47Bg = cardImage("Outpost47");
 const prisonEscapeBg = cardImage("PrisonEscape");
 const marioAdventureBg = cardImage("MarioAdventure");
+const urbanSkateBg = cardImage("UrbanSkate");
 
 /**
  * Category to icon mapping.
@@ -2364,6 +2365,18 @@ const GAME_CARD_BACKGROUNDS = {
       rgba(5, 20, 15, 0.5) 40%,
       rgba(5, 20, 15, 0.76) 52%,
       rgba(5, 20, 15, 0.9) 100%)`,
+  },
+  // Urban Skate Rush — 3D urban skateboarding adventure with tricks and missions.
+  // Orange, golden yellow, lime green, and red accents on dark background.
+  "urban skate rush": {
+    image: urbanSkateBg,
+    position: "50% center",
+    shade: `linear-gradient(90deg,
+      rgba(5, 15, 12, 0) 0%,
+      rgba(5, 15, 12, 0) 30%,
+      rgba(5, 15, 12, 0.45) 42%,
+      rgba(5, 15, 12, 0.72) 54%,
+      rgba(5, 15, 12, 0.88) 100%)`,
   },
 };
 

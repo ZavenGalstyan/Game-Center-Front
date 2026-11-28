@@ -28,7 +28,8 @@
       "Bash(find:*)",
       "Bash(npx eslint:*)",
       "Bash(node --check:*)",
-      "Bash(node scripts/images/build-card-images.mjs:*)"
+      "Bash(node scripts/images/build-card-images.mjs:*)",
+      "Bash(node:*)"
     ]
   }
 }
